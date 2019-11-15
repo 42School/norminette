@@ -1,16 +1,18 @@
+from token import Token
+from dictionary import keywords, operators
+
 class Lexer:
     def __init__(self, source_code):
         self.source_code = source_code
         self.len = length(source_code)
         self.__char = self.source_code[0]
         self.__pos = 0
+        self.__line_pos = 0
         self.__prev_token = None
         self.__token = None
 
-
     def peekChar(self):
         return self.__char
-
 
     def popChar(self):
         if self.__pos == self.len:
@@ -18,19 +20,18 @@ class Lexer:
         else:
             self.__pos += 1
             self.__char = self.source_code[self.__pos]
-            if self.__char == '\\' and self.source_code[self.__pos + 1] == '\\':
-                self.__pos += 1
-
+            #if self.__char == '\\' and self.source_code[self.__pos + 1] == '\\':
+                #self.__pos += 1
 
     def peekToken(self):
         return self.__token
 
-
     def popToken(self, token):
         self.__prev_token = self.__token
-        self.token = token
+        self.__token = token
 
-
+    def linePos(self):
+        return self.__pos - self.__line_pos
 
     def getNextToken(self):
         while True:
@@ -50,7 +51,6 @@ class Lexer:
                 #NUMERIC CONSTANT token
                 continue
 
-
             #elif self.peekChar() == IS A COMMENT
                 #continue
 
@@ -58,14 +58,16 @@ class Lexer:
                 #continue
 
             elif self.peekChar() == ' ':
-                #SPACE
-                continue
+                self.popToken(Token("SPACE", " ", self.linePos(), 1))
+                return self.peekToken()
 
             elif self.peekChar() == '\t':
-                #Tabs
-                continue
+                self.popToken(Token("TAB", "\t", self.linePos(), 1))
+                return self.peekToken()
 
             elif self.peekChar() == '\n':
-                #NEWLINES
-                continue
+                self.popToken(Token("NEWLINE", "", self.linePos(), 1))
+                self.__line_pos = self.__pos + 1
+                return self.peekToken()
 
+            self.popChar()

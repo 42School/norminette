@@ -37,7 +37,6 @@ keywords = {
     'main': "MAIN"
 }
 
-
 operators = {
     'assign' : {
         '>>=':  "RIGHT_ASSIGN",
@@ -91,3 +90,26 @@ operators = {
         '#':    "SHARP"
     }
 }
+
+white_spaces = {
+   ' ': "SPACE",
+    '\t': "TAB",
+    '\n': "NEWLINE"
+}
+
+"""
+COMMENT_MULTI -> /* blablabla  */
+COMMENT -> // blablabla
+IDENTIFIER -> starts with '_' or any letter, followed by N any letter/digit or '_'
+CONSTANT -> string -> starts and ends with UNESCAPED `"` containing any set of character
+                        can be preceded by a L
+            char -> starts and ends with UNESCAPED `'` containing one character or 
+                one character escaped by backslash
+                        can be preceded by a L
+            digit -> 
+                5.4
+                5.4E3
+
+
+"""
+
