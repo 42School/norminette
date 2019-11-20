@@ -1,6 +1,7 @@
 """ Dictionary that correlates lexeme with token """
 
 keywords = {
+## C reserved keywords ##
     'auto': "AUTO",
     'break': "BREAK",
     'case': "CASE",
@@ -33,10 +34,23 @@ keywords = {
     'void': "VOID",
     'volatile': "VOLATILE",
     'while': "WHILE",
+## Preprocessor directives ##
+    'define': "DEFINE",
+    'error': "ERROR",
+    'ifdef': "IFDEF",
+    'ifndef': "IFNDEF",
     'include': "INCLUDE",
-    'main': "MAIN"
+    'pragma': "PRAGMA",
+    'undef': "UNDEF"
 }
 
+"""
+__FILE__ ?add?
+__LINE__ ?add?
+__DATE__ ?add?
+__TIME__ ?add?
+__TIMESTAMP__ ?add?
+"""
 
 operators = {
     'assign' : {
@@ -81,13 +95,14 @@ operators = {
         '!=':   "NE_OP",
         '^':    "XOR",
         '|':    "OR",
-        '?':    "QUESTION_MARK",
-        '{':    "OPENING_BRACKET",
-        '}':    "CLOSING_BRACKET",
-        '(':    "OPENING_PARENTHESIS",
-        ')':    "CLOSING_PARENTHESIS",
-        '[':    "OPENING_SQUARE_BRACKET",
-        ']':    "CLOSING_SQUARE_BRACKET",
-        '#':    "SHARP"
+        '?':    "?"
     }
 }
+
+brackets = {
+    '{':    "OPENING_BRACKET",
+    '}':    "CLOSING_BRACKET",
+    '(':    "OPENING_PARENTHESIS",
+    ')':    "CLOSING_PARENTHESIS",
+    '[':    "OPENING_SQUARE_BRACKET",
+    ']':    "CLOSING_SQUARE_BRACKET" }
