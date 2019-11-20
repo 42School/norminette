@@ -54,7 +54,7 @@ operators = {
     },
     'regular' : {
         '...':  "ELLIPSIS",
-        ';':    "SEMI COLON",
+        ';':    "SEMI_COLON",
         ':':    "COLON",
         ',':    "COMMA",
         '.':    "DOT",
