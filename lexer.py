@@ -152,7 +152,7 @@ class Lexer:
     def operator(self):
         tkn_value = self.peekChar()
         if self.peekChar() in ["+", "-", "*", "/", "<", ">", "ˆ", "&", "|"]:
-            
+        	pass    
 
     def getNextToken(self):
         """
