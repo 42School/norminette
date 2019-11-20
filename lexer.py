@@ -1,4 +1,5 @@
 import re
+import string
 from token import Token
 from dictionary import keywords, operators, brackets
 
@@ -41,6 +42,17 @@ class Lexer:
     def linePos(self):
         return self.__pos - self.__line_pos
 
+    def isNumConstant(self):
+        if self.peekChar() in string.digits:
+                return True
+        elif self.peekChar() in ["+", "-", "."]:
+            if self.__prev_token.type.startswith("OP_"):
+                return True
+            else:
+                return False
+        else:
+            return False
+
     def isStringConstant(self):
         """
         String constants can start either with `"` (one double quote character)
@@ -75,6 +87,14 @@ class Lexer:
             self.popToken(Token("STRING_CONSTANT", self.linePos(), tkn_value))
         self.popChar()
         pass
+
+    def numConstant(self):
+        tkn_value = self.peekChar()
+        self.popChar()
+        while self.peekChar().isdigit():
+            tkn_value += self.peekChar()
+            self.popChar()
+        self.popToken(Token("NUM_CONSTANT", self.linePos(), tkn_value))
 
     def multComment(self):
         self.popChar(), self.popChar()
@@ -129,6 +149,10 @@ class Lexer:
                             self.linePos(),
                             tkn_value))
 
+    def operator(self):
+        tkn_value = self.peekChar()
+        if self.peekChar() in ["+", "-", "*", "/", "<", ">", "ˆ", "&", "|"]:
+            
 
     def getNextToken(self):
         """
@@ -146,6 +170,9 @@ class Lexer:
 
             elif self.peekChar().isalpha() or self.peekChar() == '_':
                 self.identifier()
+
+            elif self.isNumConstant():
+                self.numConstant()
 
 #            elif self.peekChar() == '\'':
 #                continue

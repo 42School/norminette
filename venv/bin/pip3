@@ -1,4 +1,4 @@
-#!/Users/drop/projects/bocal/norminette/venv/bin/python3.8
+#!/Users/user/Desktop/norminette/venv/bin/python3.8
 # -*- coding: utf-8 -*-
 import re
 import sys

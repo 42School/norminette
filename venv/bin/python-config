@@ -1,4 +1,4 @@
-#!/Users/drop/projects/bocal/norminette/venv/bin/python
+#!/Users/user/Desktop/norminette/venv/bin/python
 
 import sys
 import getopt
