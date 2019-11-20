@@ -1,5 +1,5 @@
 from lexer import Lexer
-import sys
+import sys, glob
 
 verbose = True
 
@@ -13,8 +13,14 @@ def main():
         verbose = True
         args.pop(args.index('-v'))
 
+    if args == []:
+        args = glob.glob("**/*.[ch]", recursive=True)
+
     for arg in args:
-        print(arg)
+        if arg[-2:] not in [".c", ".h"]:
+            print(f"{arg} is not valid C or C header file")
+        else:
+            print(f"\"{arg}\": OK!")
 
 
 

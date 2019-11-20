@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 static void	fst_skip(unsigned long *p, unsigned long cccc, unsigned long n)
 {
 	unsigned long	len;
