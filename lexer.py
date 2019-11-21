@@ -141,7 +141,7 @@ class Lexer:
         self.__pos += len(tkn_value)
         if tkn_value in keywords:
             self.popToken(Token(
-                            keywords[tkn_value],
+                            keywords[tkn_value],    
                             self.linePos()))
         else:
             self.popToken(Token(
@@ -150,9 +150,40 @@ class Lexer:
                             tkn_value))
 
     def operator(self):
-        tkn_value = self.peekChar()
-        if self.peekChar() in ["+", "-", "*", "/", "<", ">", "ˆ", "&", "|"]:
-        	pass    
+        if self.peekChar() in ["+", "-", "*", "/", "<", ">", "ˆ", "&", "|", "!", "="]:
+            if self.src[self.__pos].startswith(">>="):
+                self.popToken(Token(
+                            operators["assign"][">>="],
+                            self.linePos()))
+                self.__pos += 3
+            elif self.src[self.__pos].startswith("<<="):
+                self.popToken(Token(
+                            operators["assign"]["<<="],
+                            self.linePos()))
+                self.__pos += 3
+            elif self.src[self.__pos + 1] == "=":
+                self.popToken(Token(
+                            operators["assign"][self.src[self.__pos : self.__pos + 2]],
+                            self.linePos()))
+                self.popChar(), self.popChar()
+            elif self.src[self.__pos] == '=':
+                    self.popToken(Token(
+                        "OP_ASSIGN",
+                        self.linePos()
+                    ))
+                    self.popChar()
+            else:
+                self.popToken(Token(
+                        operators["regular"][self.src[self.__pos]],
+                        self.linePos()))
+                self.popChar()
+        else:
+            self.popToken(Token(
+                    operators["regular"][self.src[self.__pos]],
+                    self.linePos()))
+            self.popChar()
+                   
+            
 
     def getNextToken(self):
         """
@@ -174,6 +205,7 @@ class Lexer:
             elif self.isNumConstant():
                 self.numConstant()
 
+
 #            elif self.peekChar() == '\'':
 #                continue
 #               #CHARACTER_CONSTANT
@@ -188,6 +220,8 @@ class Lexer:
             elif self.src[self.__pos:].startswith("//"):
                 self.comment()
 
+            elif self.peekChar() in "+-*/,<>ˆ&|!=%;:.~?":
+                self.operator()
 #            #elif self.peekChar() == IS A SYMBOL
 #                #continue
 

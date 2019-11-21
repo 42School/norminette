@@ -64,6 +64,10 @@ operators = {
         '&=':   "OP_AND_ASSIGN",
         '^=':   "OP_XOR_ASSIGN",
         '|=':   "OP_OR_ASSIGN",
+        '<=':   "OP_LE",
+        '>=':   "OP_GE",
+        '==':   "OP_EQ",
+        '!=':   "OP_NE",
         '=':    "OP_ASSIGN"
     },
     'regular' : {
@@ -85,10 +89,6 @@ operators = {
         '->':   "OP_PTR",
         '&&':   "OP_AND",
         '||':   "OP_OR",
-        '<=':   "OP_LE",
-        '>=':   "OP_GE",
-        '==':   "OP_EQ",
-        '!=':   "OP_NE",
         '^':    "OP_BWISE_XOR",
         '|':    "OP_BWISE_OR",
         '~':    "OP_BWISE_NOT",
