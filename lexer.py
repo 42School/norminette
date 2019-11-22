@@ -36,18 +36,28 @@ class Lexer:
         return self.__token
 
     def popToken(self, token):
-        self.__prev_token = self.__token
+        if self.__token and self.__token.type not in ["SPACE",
+                                                    "NEWLINE",
+                                                    "TAB"]:
+            self.__prev_token = self.__token
         self.__token = token
 
     def linePos(self):
         return self.__pos - self.__line_pos
 
     def isNumConstant(self):
+        ##if self.__prev_token is not None:
+         ##   print("for " + self.peekChar() + " -> ", end="")
+           # print(self.__prev_token)
         if self.peekChar() in string.digits:
                 return True
         elif self.peekChar() in ["+", "-", "."]:
             if self.__prev_token.type.startswith("OP_"):
-                return True
+                if self.src[self.__pos + 2] in string.ascii_letters \
+                        or self.src[self.__pos + 2] == '_':
+                    return False
+                else :
+                    return True
             else:
                 return False
         else:
@@ -67,6 +77,12 @@ class Lexer:
             return False
 
     def stringConstant(self):
+        """
+        If the string has no closing quote character, it is not properly
+        formatted and we most likely won't be able to make sense of the file's
+        content from here on. We'll stop parsing from here and send back an
+        ERROR token
+        """
         tkn_value = ""
         if self.peekChar() == 'L':
             tkn_value += self.peekChar()
@@ -79,19 +95,28 @@ class Lexer:
         tkn_value += self.peekChar()
         if self.peekChar() in ["\n", None]:
             self.popToken(Token("ERROR", self.linePos()))
-            """
-            The string has no closing quote character, it is not properly
-            formatted, we'll stop parsing from here
-            """
         else:
             self.popToken(Token("STRING_CONSTANT", self.linePos(), tkn_value))
         self.popChar()
         pass
 
     def numConstant(self):
-        tkn_value = self.peekChar()
-        self.popChar()
-        while self.peekChar().isdigit():
+        sign = None
+        tkn_value = ""
+        while self.peekChar() in "+-.0123456789eE":
+            if self.peekChar() == '+' and sign in [None, '-']:
+                sign = '+'
+            elif self.peekChar() == '-' and sign in [None, '+']:
+                sign = '-'
+            elif self.peekChar() in ['+', '-']:
+                self.popToken(Token("ERROR", self.linePos()))
+                return
+            elif self.peekChar() in ['e', "E"]:
+                if "e" in tkn_value or "E" in tkn_value:
+                    self.popToken(Token("ERROR", self.linePos()))
+                    return
+            elif self.peekChar() not in "+-.0123456789eE":
+                break
             tkn_value += self.peekChar()
             self.popChar()
         self.popToken(Token("NUM_CONSTANT", self.linePos(), tkn_value))
@@ -141,7 +166,7 @@ class Lexer:
         self.__pos += len(tkn_value)
         if tkn_value in keywords:
             self.popToken(Token(
-                            keywords[tkn_value],    
+                            keywords[tkn_value],
                             self.linePos()))
         else:
             self.popToken(Token(
@@ -151,39 +176,48 @@ class Lexer:
 
     def operator(self):
         if self.peekChar() in ["+", "-", "*", "/", "<", ">", "ˆ", "&", "|", "!", "="]:
-            if self.src[self.__pos].startswith(">>="):
+            if self.peekChar().startswith(">>="):
                 self.popToken(Token(
-                            operators["assign"][">>="],
+                            operators[">>="],
                             self.linePos()))
                 self.__pos += 3
-            elif self.src[self.__pos].startswith("<<="):
+            elif self.peekChar().startswith("<<="):
                 self.popToken(Token(
-                            operators["assign"]["<<="],
+                            operators["<<="],
                             self.linePos()))
                 self.__pos += 3
             elif self.src[self.__pos + 1] == "=":
                 self.popToken(Token(
-                            operators["assign"][self.src[self.__pos : self.__pos + 2]],
+                            operators[self.src[self.__pos : self.__pos + 2]],
                             self.linePos()))
                 self.popChar(), self.popChar()
-            elif self.src[self.__pos] == '=':
+            elif self.peekChar() == '=':
                     self.popToken(Token(
                         "OP_ASSIGN",
                         self.linePos()
                     ))
                     self.popChar()
+            elif self.peekChar() in "+-":
+                if self.src[self.__pos + 1] == self.peekChar():
+                    self.popToken(Token(
+                                operators[self.src[self.__pos : self.__pos + 2]],
+                                self.linePos()))
+                    self.popChar()
+                    self.popChar()
+                else:
+                    self.popToken(Token(
+                                operators[self.peekChar()], self.linePos()))
+                    self.popChar()
             else:
                 self.popToken(Token(
-                        operators["regular"][self.src[self.__pos]],
+                        operators[self.src[self.__pos]],
                         self.linePos()))
                 self.popChar()
         else:
             self.popToken(Token(
-                    operators["regular"][self.src[self.__pos]],
+                    operators[self.src[self.__pos]],
                     self.linePos()))
             self.popChar()
-                   
-            
 
     def getNextToken(self):
         """
@@ -262,3 +296,4 @@ def tokenization_test(source):
                 print(source.peekToken())
             else:
                 print(source.peekToken(), end="")
+            continue
