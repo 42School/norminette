@@ -176,12 +176,12 @@ class Lexer:
 
     def operator(self):
         if self.peekChar() in ["+", "-", "*", "/", "<", ">", "ˆ", "&", "|", "!", "="]:
-            if self.peekChar().startswith(">>="):
+            if self.src[self.__pos].startswith(">>="):
                 self.popToken(Token(
                             operators[">>="],
                             self.linePos()))
                 self.__pos += 3
-            elif self.peekChar().startswith("<<="):
+            elif self.src[self.__pos].startswith("<<="):
                 self.popToken(Token(
                             operators["<<="],
                             self.linePos()))

@@ -19,6 +19,7 @@ void	dumb_function(void)
 {
 	int a;
 
+	a = 1 + +-1;
 	a = 4+ 2; // no space between identifier & operator
 	a = 4 +2; // no space between identifier & operator
 	a = 4   + 2; // too much spaces between identifier & operator
