@@ -36,7 +36,8 @@ class Lexer:
         return self.__token
 
     def popToken(self, token):
-        if self.__token and self.__token.type not in ["SPACE",
+        if self.__token and self.__token.type not in [
+                                                    "SPACE",
                                                     "NEWLINE",
                                                     "TAB"]:
             self.__prev_token = self.__token
@@ -46,16 +47,14 @@ class Lexer:
         return self.__pos - self.__line_pos
 
     def isNumConstant(self):
-        ##if self.__prev_token is not None:
-         ##   print("for " + self.peekChar() + " -> ", end="")
-           # print(self.__prev_token)
         if self.peekChar() in string.digits:
                 return True
         elif self.peekChar() in ["+", "-", "."]:
-            if self.__prev_token.type.startswith("OP_"):
-                if self.src[self.__pos + 2] in string.ascii_letters \
-                        or self.src[self.__pos + 2] == '_':
-                    return False
+            if self.__prev_token and self.__prev_token.type.startswith("OP_"):
+                if self.src[self.__pos] == self.src[self.__pos + 1]: 
+                        #if self.src[self.__pos + 2] in string.ascii_letters \
+#                                or self.src[self.__pos + 2] == '_':
+                        return False
                 else :
                     return True
             else:
@@ -103,7 +102,7 @@ class Lexer:
     def numConstant(self):
         sign = None
         tkn_value = ""
-        while self.peekChar() in "+-.0123456789eE":
+        while self.peekChar() in "+-":
             if self.peekChar() == '+' and sign in [None, '-']:
                 sign = '+'
             elif self.peekChar() == '-' and sign in [None, '+']:
@@ -111,12 +110,13 @@ class Lexer:
             elif self.peekChar() in ['+', '-']:
                 self.popToken(Token("ERROR", self.linePos()))
                 return
-            elif self.peekChar() in ['e', "E"]:
+            tkn_value += self.peekChar()
+            self.popChar()
+        while self.peekChar() in ".0123456789eE":
+            if self.peekChar() in ['e', "E"]:
                 if "e" in tkn_value or "E" in tkn_value:
                     self.popToken(Token("ERROR", self.linePos()))
                     return
-            elif self.peekChar() not in "+-.0123456789eE":
-                break
             tkn_value += self.peekChar()
             self.popChar()
         self.popToken(Token("NUM_CONSTANT", self.linePos(), tkn_value))
@@ -291,9 +291,11 @@ def tokenization_test(source):
         text = file.read()
         import lexer
         source = lexer.Lexer(text)
+        ret = ""
         while source.getNextToken().type != "EOF":
             if source.peekToken().type == "NEWLINE":
-                print(source.peekToken())
+               ret += str(source.peekToken()) + "\n"
             else:
-                print(source.peekToken(), end="")
-            continue
+                ret += str(source.peekToken())
+
+        print(ret, end="")
