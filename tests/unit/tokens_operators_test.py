@@ -3,7 +3,7 @@ import sys
 sys.path.append('../..')
 from lexer import Lexer
 
-class TokenOperatorsTest(unittest.TestCase):
+class TokensOperatorsTest(unittest.TestCase):
 
   def  test_op_right_assign(self):
     lex = Lexer(">>=")
