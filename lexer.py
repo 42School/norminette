@@ -1,6 +1,6 @@
 import re
 import string
-from token import Token
+from tokens import Token
 from dictionary import keywords, operators, brackets
 
 class Lexer:
@@ -13,6 +13,15 @@ class Lexer:
         self.__line = 0
         self.__prev_token = None
         self.__token = None
+
+
+    def peekSubString(self, n):
+        s = ""
+        i = 0
+        while self.__pos + i < self.len:
+            s += self.src[self.__pos + i]
+            i += 1
+        return s
 
     def peekChar(self):
         if self.__pos < self.len:
@@ -175,30 +184,24 @@ class Lexer:
                             tkn_value))
 
     def operator(self):
-        if self.peekChar() in ["+", "-", "*", "/", "<", ">", "ˆ", "&", "|", "!", "="]:
-            if self.src[self.__pos].startswith(">>="):
+        if self.peekChar() in ".+-*/%<>^&|!=":
+            if self.peekSubString(3) in [">>=", "<<=", "..."]:
                 self.popToken(Token(
-                            operators[">>="],
+                            operators[self.peekSubString(3)],
                             self.linePos()))
                 self.__pos += 3
-            elif self.src[self.__pos].startswith("<<="):
+            elif self.peekSubString(2) in [">>", "<<", "->"]:
                 self.popToken(Token(
-                            operators["<<="],
+                            operators[self.peekSubString(2)],
                             self.linePos()))
-                self.__pos += 3
-            elif self.src[self.__pos + 1] == "=":
+                self.__pos += 2
+            elif self.peekSubString(2) == self.peekChar() + "=":
                 self.popToken(Token(
-                            operators[self.src[self.__pos : self.__pos + 2]],
+                            operators[self.peekChar() + "="],
                             self.linePos()))
                 self.popChar(), self.popChar()
-            elif self.peekChar() == '=':
-                    self.popToken(Token(
-                        "OP_ASSIGN",
-                        self.linePos()
-                    ))
-                    self.popChar()
-            elif self.peekChar() in "+-":
-                if self.src[self.__pos + 1] == self.peekChar():
+            elif self.peekChar() in "+-<>=&|":
+                if self.peekSubString(2) == self.peekChar() + self.peekChar():
                     self.popToken(Token(
                                 operators[self.src[self.__pos : self.__pos + 2]],
                                 self.linePos()))
@@ -254,7 +257,7 @@ class Lexer:
             elif self.src[self.__pos:].startswith("//"):
                 self.comment()
 
-            elif self.peekChar() in "+-*/,<>ˆ&|!=%;:.~?":
+            elif self.peekChar() in "+-*/,<>^&|!=%;:.~?":
                 self.operator()
 #            #elif self.peekChar() == IS A SYMBOL
 #                #continue
