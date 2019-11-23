@@ -69,5 +69,5 @@ class VendorImporter:
             sys.meta_path.append(self)
 
 
-names = 'six', 'packaging', 'pyparsing', 'ordered_set',
+names = 'six', 'packaging', 'pyparsing',
 VendorImporter(__name__, names, 'setuptools._vendor').install()

@@ -1,9 +1,6 @@
-"""Python 2/3 compatibility"""
+"""Handle reading and writing JSON in UTF-8, on Python 3 and 2."""
 import json
 import sys
-
-
-# Handle reading and writing JSON in UTF-8, on Python 3 and 2.
 
 if sys.version_info[0] >= 3:
     # Python 3
@@ -24,11 +21,3 @@ else:
     def read_json(path):
         with open(path, 'rb') as f:
             return json.load(f)
-
-
-# FileNotFoundError
-
-try:
-    FileNotFoundError = FileNotFoundError
-except NameError:
-    FileNotFoundError = IOError

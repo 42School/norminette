@@ -59,13 +59,19 @@ class Lexer:
         if self.peekChar() in string.digits:
                 return True
         elif self.peekChar() in ["+", "-", "."]:
-            if self.__prev_token and self.__prev_token.type.startswith("OP_"):
-                if self.src[self.__pos] == self.src[self.__pos + 1]: 
-                        #if self.src[self.__pos + 2] in string.ascii_letters \
-#                                or self.src[self.__pos + 2] == '_':
+            if self.__token and self.__token.type.startswith("OP_"):
+                if self.src[self.__pos] == self.src[self.__pos + 1]:
                         return False
-                else :
-                    return True
+                #need a elif here to check if next chars in ".-+0123456789"
+                for i in range(0, self.len - self.__pos):
+                    if self.__pos + i == len:
+                        break
+                    elif self.src[self.__pos + i] in "+-":
+                        i += 1
+                    elif self.src[self.__pos + i] in ".0123456789":
+                        return True
+                    else:
+                        return False
             else:
                 return False
         else:
@@ -121,7 +127,7 @@ class Lexer:
                 return
             tkn_value += self.peekChar()
             self.popChar()
-        while self.peekChar() in ".0123456789eE":
+        while self.peekChar() and self.peekChar() in ".0123456789eE":
             if self.peekChar() in ['e', "E"]:
                 if "e" in tkn_value or "E" in tkn_value:
                     self.popToken(Token("ERROR", self.linePos()))
