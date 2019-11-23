@@ -1,7 +1,7 @@
 """ Dictionary that correlates lexeme with token """
 
 keywords = {
-## C reserved keywords ##
+    # C reserved keywords #
     'auto': "AUTO",
     'break': "BREAK",
     'case': "CASE",
@@ -34,7 +34,7 @@ keywords = {
     'void': "VOID",
     'volatile': "VOLATILE",
     'while': "WHILE",
-## Preprocessor directives ##
+    # Preprocessor directives ##
     'define': "DEFINE",
     'error': "ERROR",
     'ifdef': "IFDEF",
@@ -73,7 +73,7 @@ operators = {
     ',':    "OP_COMMA",
     '.':    "OP_DOT",
     '!':    "OP_NOT",
-    '-':    "OP_MINUS" ,
+    '-':    "OP_MINUS",
     '+':    "OP_PLUS",
     '*':    "OP_MULT",
     '/':    "OP_DIV",
@@ -101,4 +101,5 @@ brackets = {
     '(':    "OPENING_PARENTHESIS",
     ')':    "CLOSING_PARENTHESIS",
     '[':    "OPENING_SQUARE_BRACKET",
-    ']':    "CLOSING_SQUARE_BRACKET" }
+    ']':    "CLOSING_SQUARE_BRACKET"
+}

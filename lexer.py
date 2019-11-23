@@ -3,6 +3,7 @@ import string
 from tokens import Token
 from dictionary import keywords, operators, brackets
 
+
 class Lexer:
     def __init__(self, source_code):
         self.src = source_code
@@ -11,14 +12,13 @@ class Lexer:
         self.__pos = 0
         self.__line_pos = 0
         self.__line = 0
-        self.__prev_token = None
+        self.__last_seen_token = None
         self.__token = None
 
-
-    def peekSubString(self, n):
+    def peekSubString(self, size):
         s = ""
         i = 0
-        while self.__pos + i < self.len:
+        while i < size and self.__pos + i < self.len:
             s += self.src[self.__pos + i]
             i += 1
         return s
@@ -44,12 +44,12 @@ class Lexer:
     def peekToken(self):
         return self.__token
 
+    def peekLastSeenToken(self):
+        return self.__last_seen_token
+
     def popToken(self, token):
-        if self.__token and self.__token.type not in [
-                                                    "SPACE",
-                                                    "NEWLINE",
-                                                    "TAB"]:
-            self.__prev_token = self.__token
+        if token and token.type not in ["SPACE", "NEWLINE", "TAB"]:
+            self.__last_seen_token = token
         self.__token = token
 
     def linePos(self):
@@ -57,12 +57,12 @@ class Lexer:
 
     def isNumConstant(self):
         if self.peekChar() in string.digits:
-                return True
-        elif self.peekChar() in ["+", "-", "."]:
-            if self.__token and self.__token.type.startswith("OP_"):
+            return True
+        elif self.peekChar() in "+-.":
+            if self.peekLastSeenToken() \
+                    and self.peekLastSeenToken().type.startswith("OP_"):
                 if self.src[self.__pos] == self.src[self.__pos + 1]:
-                        return False
-                #need a elif here to check if next chars in ".-+0123456789"
+                    return False
                 for i in range(0, self.len - self.__pos):
                     if self.__pos + i == len:
                         break
@@ -94,7 +94,7 @@ class Lexer:
         """
         If the string has no closing quote character, it is not properly
         formatted and we most likely won't be able to make sense of the file's
-        content from here on. We'll stop parsing from here and send back an
+        content from here on. We'll stop parsing  here and send back an
         ERROR token
         """
         tkn_value = ""
@@ -122,13 +122,13 @@ class Lexer:
                 sign = '+'
             elif self.peekChar() == '-' and sign in [None, '+']:
                 sign = '-'
-            elif self.peekChar() in ['+', '-']:
+            elif self.peekChar() in "+-":
                 self.popToken(Token("ERROR", self.linePos()))
                 return
             tkn_value += self.peekChar()
             self.popChar()
         while self.peekChar() and self.peekChar() in ".0123456789eE":
-            if self.peekChar() in ['e', "E"]:
+            if self.peekChar() in "eE":
                 if "e" in tkn_value or "E" in tkn_value:
                     self.popToken(Token("ERROR", self.linePos()))
                     return
@@ -169,14 +169,14 @@ class Lexer:
         while self.peekChar():
             tkn_value += self.peekChar()
             self.popChar()
-            if self.peekChar() =='\'':
+            if self.peekChar() == '\'':
                 self.popChar()
                 tkn_value += '\''
                 break
 
     def identifier(self):
         tkn_value = re.findall(
-                            "^\w\w*",
+                            "^\\w\\w*",
                             self.src[self.__pos:])[0]
         self.__pos += len(tkn_value)
         if tkn_value in keywords:
@@ -203,13 +203,13 @@ class Lexer:
                 self.__pos += 2
             elif self.peekSubString(2) == self.peekChar() + "=":
                 self.popToken(Token(
-                            operators[self.peekChar() + "="],
+                            operators[self.peekSubString(2)],
                             self.linePos()))
                 self.popChar(), self.popChar()
             elif self.peekChar() in "+-<>=&|":
                 if self.peekSubString(2) == self.peekChar() + self.peekChar():
                     self.popToken(Token(
-                                operators[self.src[self.__pos : self.__pos + 2]],
+                                operators[self.peekSubString(2)],
                                 self.linePos()))
                     self.popChar()
                     self.popChar()
@@ -219,7 +219,7 @@ class Lexer:
                     self.popChar()
             else:
                 self.popToken(Token(
-                        operators[self.src[self.__pos]],
+                        operators[self.peekChar()],
                         self.linePos()))
                 self.popChar()
         else:
@@ -237,7 +237,7 @@ class Lexer:
         "ERROR" token will be returned.
         After reading the whole file, an "EOF" token is returned
         """
-        while self.peekChar() != None:
+        while self.peekChar() is not None:
 
             if self.isStringConstant():
                 self.stringConstant()
@@ -295,6 +295,7 @@ class Lexer:
         self.popToken(Token("EOF",  self.linePos()))
         return self.peekToken()
 
+
 def tokenization_test(source):
     with open(source) as file:
         text = file.read()
@@ -303,7 +304,7 @@ def tokenization_test(source):
         ret = ""
         while source.getNextToken().type != "EOF":
             if source.peekToken().type == "NEWLINE":
-               ret += str(source.peekToken()) + "\n"
+                ret += str(source.peekToken()) + "\n"
             else:
                 ret += str(source.peekToken())
 

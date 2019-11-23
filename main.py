@@ -1,8 +1,9 @@
 from lexer import Lexer
-import sys, glob
+import sys
+import glob
+
 
 verbose = True
-
 
 
 def main():
@@ -21,7 +22,6 @@ def main():
             print(f"{arg} is not valid C or C header file")
         else:
             print(f"\"{arg}\": OK!")
-
 
 
 if __name__ == "__main__":
