@@ -16,12 +16,7 @@ class Lexer:
         self.__token = None
 
     def peekSubString(self, size):
-        s = ""
-        i = 0
-        while i < size and self.__pos + i < self.len:
-            s += self.src[self.__pos + i]
-            i += 1
-        return s
+        return self.src[self.__pos: self.__pos + size]
 
     def peekChar(self):
         if self.__pos < self.len:
@@ -80,7 +75,7 @@ class Lexer:
 
     def isString(self):
         """
-        String constants can start either with `"` (one double quote character)
+        Strings can start either with `"` (one double quote character)
         or `L"` (an `L` immediatly followed by a double quote character).
         """
 
@@ -116,6 +111,16 @@ class Lexer:
         pass
 
     def constant(self):
+        """
+        Constant can be either:
+        -Integer (0, 1, etc)
+        -Octal (00, 01, etc)
+        -Hexadecimal (0x0, 0x1, etc)
+        Any of those can be preceded by any number of non consecutives '+' or
+        '-' signs ("-+-+-++2"-> KO, "+-+-+-2" -> OK), and contain ONE 'e' or
+        'E' character.
+        Hexadecimals constants only allow one 'X' or 'x'.
+        """
         sign = None
         tkn_value = ""
         while self.peekChar() in "+-":
@@ -132,15 +137,11 @@ class Lexer:
             if self.peekChar() in "xX":
                 for c in "xX":
                     if c in tkn_value:
-                        print(self.peekChar())
-                        print(tkn_value)
                         self.popToken(Token("ERROR", self.linePos()))
                         return
             elif self.peekChar() in "eE":
                 for c in "eE":
                     if c in tkn_value:
-                        print(self.peekChar())
-                        print(tkn_value)
                         self.popToken(Token("ERROR", self.linePos()))
                         return
             tkn_value += self.peekChar()
