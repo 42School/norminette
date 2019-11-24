@@ -117,12 +117,13 @@ class Lexer:
         -Octal (00, 01, etc)
         -Hexadecimal (0x0, 0x1, etc)
         Any of those can be preceded by any number of non consecutives '+' or
-        '-' signs ("-+-+-++2"-> KO, "+-+-+-2" -> OK), and contain ONE 'e' or
-        'E' character.
+        '-' signs ("-+-+-++2"-> KO, "+-+-+-2" -> OK)
         Hexadecimals constants only allow one 'X' or 'x'.
+        Exponential epressions cam only contain one 'E' or 'e' 
         """
         sign = None
         tkn_value = ""
+        tkn_prefix = ""
         while self.peekChar() in "+-":
             if self.peekChar() == '+' and sign in [None, '-']:
                 sign = '+'
@@ -131,11 +132,14 @@ class Lexer:
             elif self.peekChar() in "+-":
                 self.popToken(Token("ERROR", self.linePos()))
                 return
-            tkn_value += self.peekChar()
+            tkn_prefix += self.peekChar()
             self.popChar()
         bucket = ".0123456789aAbBcCdDeEfFxX"
         while self.peekChar() and self.peekChar() in bucket:
             if self.peekChar() in "xX":
+                if tkn_value.startswith("0") is False or len(tkn_value) > 1:
+                    self.popToken(Token("ERROR", self.linePos()))
+                    return
                 for c in "xX":
                     if c in tkn_value:
                         self.popToken(Token("ERROR", self.linePos()))
@@ -147,12 +151,17 @@ class Lexer:
                         self.popToken(Token("ERROR", self.linePos()))
                         return
             elif self.peekChar() in "aAbBcCdDeEfF" \
-                    and "x" not in tkn_value and "X" not in tkn_value:
+                    and tkn_value.startswith("0x") is False \
+                    and tkn_value.startswith("0X") is False:
+                print(tkn_value.startswith("0X"))
+                print(tkn_value.startswith("0x"))
                 self.popToken(Token("ERROR", self.linePos()))
                 return
             tkn_value += self.peekChar()
             self.popChar()
-        self.popToken(Token("CONSTANT", self.linePos(), tkn_value))
+        self.popToken(Token("CONSTANT",
+                            self.linePos(),
+                            tkn_prefix + tkn_value))
 
     def multComment(self):
         self.popChar(), self.popChar()
