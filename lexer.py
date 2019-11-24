@@ -60,7 +60,7 @@ class Lexer:
             return True
         elif self.peekChar() in "+-.":
             if (self.peekLastSeenToken()
-                        and self.peekLastSeenToken().type.startswith("OP_")) \
+                    and self.peekLastSeenToken().type.startswith("OP_")) \
                     or self.peekLastSeenToken() in [None, "NEWLINE"]:
                 if self.peekSubString(2) == self.peekChar() + self.peekChar():
                     return False
