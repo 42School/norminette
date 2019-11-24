@@ -28,12 +28,12 @@ class ConstantTokensTest(unittest.TestCase):
                         Lexer("+-+-+-+-+-+-+-+-+-+-42").getNextToken().test(),
                         "<CONSTANT=+-+-+-+-+-+-+-+-+-+-42>")
 
-    def test_float_constant(self):
+    def test_decimal_constant(self):
         self.assertEqual(
                         Lexer("4.2").getNextToken().test(),
                         "<CONSTANT=4.2>")
 
-    def test_float_constant_starting_with_dot(self):
+    def test_decimal_constant_starting_with_dot(self):
         self.assertEqual(
                         Lexer(".42").getNextToken().test(),
                         "<CONSTANT=.42>")
@@ -62,6 +62,16 @@ class ConstantTokensTest(unittest.TestCase):
         self.assertEqual(
                         Lexer("0x4e2").getNextToken().test(),
                         "<CONSTANT=0x4e2>")
+
+    def test_hex_and_exponential_with_sign_constant(self):
+        self.assertEqual(
+                        Lexer("-0x4e2").getNextToken().test(),
+                        "<CONSTANT=-0x4e2>")
+
+    def test_hex_and_exponential_with_many_signs_constant(self):
+        self.assertEqual(
+                        Lexer("-+-+-+-+-+-+-+-0x4e2").getNextToken().test(),
+                        "<CONSTANT=-+-+-+-+-+-+-+-0x4e2>")
 
 
 if __name__ == '__main__':
