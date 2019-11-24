@@ -128,11 +128,21 @@ class Lexer:
                 return
             tkn_value += self.peekChar()
             self.popChar()
-        while self.peekChar() and self.peekChar() in ".0123456789eE":
-            if self.peekChar() in "eE":
-                if "e" in tkn_value or "E" in tkn_value:
-                    self.popToken(Token("ERROR", self.linePos()))
-                    return
+        while self.peekChar() and self.peekChar() in ".0123456789eExX":
+            if self.peekChar() in "xX":
+                for c in "xX":
+                    if c in tkn_value:
+                        print(self.peekChar())
+                        print(tkn_value)
+                        self.popToken(Token("ERROR", self.linePos()))
+                        return
+            elif self.peekChar() in "eE":
+                for c in "eE":
+                    if c in tkn_value:
+                        print(self.peekChar())
+                        print(tkn_value)
+                        self.popToken(Token("ERROR", self.linePos()))
+                        return
             tkn_value += self.peekChar()
             self.popChar()
         self.popToken(Token("NUM_CONSTANT", self.linePos(), tkn_value))
@@ -254,10 +264,6 @@ class Lexer:
 #                continue
 #               #CHARACTER_CONSTANT
 
-#            elif self.peekChar().isdigit():
-#                continue
-#                #NUMERIC CONSTANT token
-
             elif self.src[self.__pos:].startswith("/*"):
                 self.multComment()
 
@@ -266,8 +272,6 @@ class Lexer:
 
             elif self.peekChar() in "+-*/,<>^&|!=%;:.~?":
                 self.operator()
-#            #elif self.peekChar() == IS A SYMBOL
-#                #continue
 
             elif self.peekChar() == ' ':
                 self.popToken(Token("SPACE", self.linePos()))
