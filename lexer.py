@@ -35,7 +35,7 @@ class Lexer:
         return self.__char
 
     def popChar(self):
-        if self.src[self.__pos] == '\\':
+        if self.__pos < self.len and self.src[self.__pos] == '\\':
             self.__pos += 1
         self.__pos += 1
         self.__line_pos += 1
@@ -59,16 +59,17 @@ class Lexer:
         if self.peekChar() in string.digits:
             return True
         elif self.peekChar() in "+-.":
-            if self.peekLastSeenToken() \
-                    and self.peekLastSeenToken().type.startswith("OP_"):
-                if self.src[self.__pos] == self.src[self.__pos + 1]:
+            if (self.peekLastSeenToken()
+                        and self.peekLastSeenToken().type.startswith("OP_")) \
+                    or self.peekLastSeenToken() in [None, "NEWLINE"]:
+                if self.peekSubString(2) == self.peekChar() + self.peekChar():
                     return False
                 for i in range(0, self.len - self.__pos):
                     if self.__pos + i == len:
                         break
-                    elif self.src[self.__pos + i] in "+-":
+                    elif self.src[self.__pos + i] in "+-.":
                         i += 1
-                    elif self.src[self.__pos + i] in ".0123456789":
+                    elif self.src[self.__pos + i] in "0123456789":
                         return True
                     else:
                         return False
@@ -106,7 +107,7 @@ class Lexer:
         while self.peekChar() not in ["\"", "\n", None]:
             tkn_value += self.peekChar()
             self.popChar()
-        tkn_value += self.peekChar()
+        tkn_value += self.peekChar() if self.peekChar() is not None else ""
         if self.peekChar() in ["\n", None]:
             self.popToken(Token("ERROR", self.linePos()))
         else:

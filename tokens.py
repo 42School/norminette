@@ -12,7 +12,10 @@ class Token:
     def __repr__(self):
         """
         Token representation for debugging, using the format <TYPE=value>
-        or simply <TYPE> for non-printables characteres
+        or simply <TYPE> when value is None
         """
         r = f'<{self.type}={self.value}>' if self.value else f'<{self.type}>'
         return r
+
+    def test(self):
+        return self.__repr__()
