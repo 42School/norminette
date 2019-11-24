@@ -55,7 +55,7 @@ class Lexer:
     def linePos(self):
         return self.__pos - self.__line_pos
 
-    def isNumConstant(self):
+    def isConstant(self):
         if self.peekChar() in string.digits:
             return True
         elif self.peekChar() in "+-.":
@@ -78,7 +78,7 @@ class Lexer:
         else:
             return False
 
-    def isStringConstant(self):
+    def isString(self):
         """
         String constants can start either with `"` (one double quote character)
         or `L"` (an `L` immediatly followed by a double quote character).
@@ -91,7 +91,7 @@ class Lexer:
         else:
             return False
 
-    def stringConstant(self):
+    def string(self):
         """
         If the string has no closing quote character, it is not properly
         formatted and we most likely won't be able to make sense of the file's
@@ -111,11 +111,11 @@ class Lexer:
         if self.peekChar() in ["\n", None]:
             self.popToken(Token("ERROR", self.linePos()))
         else:
-            self.popToken(Token("STRING_CONSTANT", self.linePos(), tkn_value))
+            self.popToken(Token("STRING", self.linePos(), tkn_value))
         self.popChar()
         pass
 
-    def numConstant(self):
+    def constant(self):
         sign = None
         tkn_value = ""
         while self.peekChar() in "+-":
@@ -145,7 +145,7 @@ class Lexer:
                         return
             tkn_value += self.peekChar()
             self.popChar()
-        self.popToken(Token("NUM_CONSTANT", self.linePos(), tkn_value))
+        self.popToken(Token("CONSTANT", self.linePos(), tkn_value))
 
     def multComment(self):
         self.popChar(), self.popChar()
@@ -250,14 +250,14 @@ class Lexer:
         """
         while self.peekChar() is not None:
 
-            if self.isStringConstant():
-                self.stringConstant()
+            if self.isString():
+                self.string()
 
             elif self.peekChar().isalpha() or self.peekChar() == '_':
                 self.identifier()
 
-            elif self.isNumConstant():
-                self.numConstant()
+            elif self.isConstant():
+                self.constant()
 
 
 #            elif self.peekChar() == '\'':
