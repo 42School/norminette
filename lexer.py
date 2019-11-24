@@ -119,7 +119,7 @@ class Lexer:
         Any of those can be preceded by any number of non consecutives '+' or
         '-' signs ("-+-+-++2"-> KO, "+-+-+-2" -> OK)
         Hexadecimals constants only allow one 'X' or 'x'.
-        Exponential epressions cam only contain one 'E' or 'e' 
+        Exponential epressions cam only contain one 'E' or 'e'
         """
         sign = None
         tkn_value = ""
@@ -153,8 +153,6 @@ class Lexer:
             elif self.peekChar() in "aAbBcCdDeEfF" \
                     and tkn_value.startswith("0x") is False \
                     and tkn_value.startswith("0X") is False:
-                print(tkn_value.startswith("0X"))
-                print(tkn_value.startswith("0x"))
                 self.popToken(Token("ERROR", self.linePos()))
                 return
             tkn_value += self.peekChar()
