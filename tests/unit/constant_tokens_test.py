@@ -58,20 +58,15 @@ class ConstantTokensTest(unittest.TestCase):
                         Lexer("0x42").getNextToken().test(),
                         "<CONSTANT=0x42>")
 
-    def test_hex_and_exponential_constant(self):
-        self.assertEqual(
-                        Lexer("0x4e2").getNextToken().test(),
-                        "<CONSTANT=0x4e2>")
-
-    def test_hex_and_exponential_with_sign_constant(self):
+    def test_hex_with_sign_constant(self):
         self.assertEqual(
                         Lexer("-0x4e2").getNextToken().test(),
                         "<CONSTANT=-0x4e2>")
 
     def test_hex_and_exponential_with_many_signs_constant(self):
         self.assertEqual(
-                        Lexer("-+-+-+-+-+-+-+-0x4e2").getNextToken().test(),
-                        "<CONSTANT=-+-+-+-+-+-+-+-0x4e2>")
+                        Lexer("-+-+-+-+-+-+-+-0Xe4Ae2").getNextToken().test(),
+                        "<CONSTANT=-+-+-+-+-+-+-+-0Xe4Ae2>")
 
 
 if __name__ == '__main__':

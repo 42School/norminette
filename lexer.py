@@ -133,17 +133,23 @@ class Lexer:
                 return
             tkn_value += self.peekChar()
             self.popChar()
-        while self.peekChar() and self.peekChar() in ".0123456789eExX":
+        bucket = ".0123456789aAbBcCdDeEfFxX"
+        while self.peekChar() and self.peekChar() in bucket:
             if self.peekChar() in "xX":
                 for c in "xX":
                     if c in tkn_value:
                         self.popToken(Token("ERROR", self.linePos()))
                         return
-            elif self.peekChar() in "eE":
+            elif self.peekChar() in "eE" \
+                    and "x" not in tkn_value and "X" not in tkn_value:
                 for c in "eE":
                     if c in tkn_value:
                         self.popToken(Token("ERROR", self.linePos()))
                         return
+            elif self.peekChar() in "aAbBcCdDeEfF" \
+                    and "x" not in tkn_value and "X" not in tkn_value:
+                self.popToken(Token("ERROR", self.linePos()))
+                return
             tkn_value += self.peekChar()
             self.popChar()
         self.popToken(Token("CONSTANT", self.linePos(), tkn_value))
