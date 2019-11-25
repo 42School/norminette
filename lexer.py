@@ -55,7 +55,8 @@ class Lexer:
             return True
         elif self.peekChar() in "+-.":
             if (self.peekLastSeenToken()
-                    and (self.peekLastSeenToken().type.startswith("OP_")
+                    and (
+                            self.peekLastSeenToken().type.startswith("OP_")
                             or self.peekLastSeenToken().type is brackets['('])
                     or self.peekLastSeenToken() in [None, "NEWLINE"]):
                 if self.peekSubString(2) == self.peekChar() + self.peekChar():
@@ -174,9 +175,10 @@ class Lexer:
         if tkn_value[-1] in "eExXi":
             self.popToken(Token("ERROR", self.linePos()))
         else:
-            self.popToken(Token("CONSTANT",
-                            self.linePos(),
-                            tkn_prefix + tkn_value))
+            self.popToken(Token(
+                                    "CONSTANT",
+                                    self.linePos(),
+                                    tkn_prefix + tkn_value))
 
     def multComment(self):
         self.popChar(), self.popChar()
