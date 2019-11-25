@@ -54,10 +54,10 @@ class Lexer:
         if self.peekChar() in string.digits:
             return True
         elif self.peekChar() in "+-.":
-            if self.peekLastSeenToken() \
-                    and (self.peekLastSeenToken().type.startswith("OP_") \
-                    or self.peekLastSeenToken().type is "OPENING_PARENTHESIS") \
-                    or self.peekLastSeenToken() in [None, "NEWLINE"]:
+            if (self.peekLastSeenToken()
+                    and (self.peekLastSeenToken().type.startswith("OP_")
+                            or self.peekLastSeenToken().type is brackets['('])
+                    or self.peekLastSeenToken() in [None, "NEWLINE"]):
                 if self.peekSubString(2) == self.peekChar() + self.peekChar():
                     return False
                 for i in range(0, self.len - self.__pos):
