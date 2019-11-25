@@ -9,7 +9,8 @@ stages:
 test_job: 
   stage: test
   script:
-    - echo "Running tests"
-    - python -m unittest discover tests/unit "*.py"
+    - echo "Checking PEP8"
     - pip install -r requirements.txt
     - pycodestyle $(find . -name "*.py")
+    - echo "Running tests"
+    - python -m unittest discover tests/unit "*.py"
