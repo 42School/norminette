@@ -54,23 +54,24 @@ class Lexer:
         if self.peekChar() in string.digits:
             return True
         elif self.peekChar() in "+-.":
-            if (self.peekLastSeenToken()
-                    and (self.peekLastSeenToken().type.startswith("OP_")
-                            or self.peekLastSeenToken().type is brackets['('])
+            if (self.peekLastSeenToken() and (
+                self.peekLastSeenToken().type.startswith("OP_")
+                or self.peekLastSeenToken().type is brackets['('])
                     or self.peekLastSeenToken() in [None, "NEWLINE"]):
-                if self.peekSubString(2) == self.peekChar() + self.peekChar():
+                if self.peekSubString(2) == self.peekChar() +
+                self.peekChar():
                     return False
-                for i in range(0, self.len - self.__pos):
-                    if self.src[self.__pos + i] in "+-.":
-                        i += 1
-                    elif self.src[self.__pos + i] in "0123456789":
-                        return True
-                    else:
-                        return False
+                    for i in range(0, self.len - self.__pos):
+                        if self.src[self.__pos + i] in "+-.":
+                            i += 1
+                        elif self.src[self.__pos + i] in "0123456789":
+                            return True
+                        else:
+                            return False
+                else:
+                    return False
             else:
                 return False
-        else:
-            return False
 
     def isString(self):
         """
@@ -174,9 +175,8 @@ class Lexer:
         if tkn_value[-1] in "eExXi":
             self.popToken(Token("ERROR", self.linePos()))
         else:
-            self.popToken(Token("CONSTANT",
-                            self.linePos(),
-                            tkn_prefix + tkn_value))
+            self.popToken(
+                Token("CONSTANT", self.linePos(), tkn_prefix + tkn_value))
 
     def multComment(self):
         self.popChar(), self.popChar()
