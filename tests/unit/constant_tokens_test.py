@@ -19,7 +19,7 @@ class ConstantTokensTest(unittest.TestCase):
                         "<CONSTANT=+42>")
 
     def test_minus_sign_constant(self):
-        self.assertEqual(
+         self.assertEqual(
                         Lexer("-42").getNextToken().test(),
                         "<CONSTANT=-42>")
 
