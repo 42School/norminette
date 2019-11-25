@@ -11,4 +11,5 @@ test_job:
   script:
     - echo "Running tests"
     - python -m unittest discover tests/unit "*.py"
+    - pip install -r requirement.txt
     - pycodestyle $(find . -name "*.py")
