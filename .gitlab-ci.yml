@@ -1,0 +1,13 @@
+image: python:3.7.5
+
+before_script:
+  - python -V
+
+stages: 
+  - test
+
+test_job: 
+  stage: test
+  script:
+    - echo "Running tests"
+    - python -m unittest discover tests/unit "*.py"
