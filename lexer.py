@@ -61,9 +61,7 @@ class Lexer:
                 if self.peekSubString(2) == self.peekChar() + self.peekChar():
                     return False
                 for i in range(0, self.len - self.__pos):
-                    if self.__pos + i == len:
-                        break
-                    elif self.src[self.__pos + i] in "+-.":
+                    if self.src[self.__pos + i] in "+-.":
                         i += 1
                     elif self.src[self.__pos + i] in "0123456789":
                         return True
@@ -157,7 +155,7 @@ class Lexer:
                     self.popToken(Token("ERROR", self.linePos()))
                     return
             elif self.peekChar() in "uU":
-                if "u" in tkn_value or "U" in tkn_value\
+                if "u" in tkn_value or "U" in tkn_value \
                         or "e" in tkn_value or "E" in tkn_value:
                     self.popToken(Token("ERROR", self.linePos()))
                     return
@@ -173,7 +171,10 @@ class Lexer:
                 return
             tkn_value += self.peekChar()
             self.popChar()
-        self.popToken(Token("CONSTANT",
+        if tkn_value[-1] in "eExXi":
+            self.popToken(Token("ERROR", self.linePos()))
+        else:
+            self.popToken(Token("CONSTANT",
                             self.linePos(),
                             tkn_prefix + tkn_value))
 
