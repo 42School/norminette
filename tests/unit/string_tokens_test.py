@@ -19,7 +19,7 @@ class StringTokenTest(unittest.TestCase):
                             '<STRING="Basic \\"string\\"">')
 
   def test_escaped_string(self):
-    self.assertEqual(Lexer('"Escaped \\\\\\"string\\\\\\\\\\"\\\\"').getNextToken().test(),
+    self.assertEqual(Lexer('"Escaped \\\\\\"string\\\\\\\\\\\"\\\\"').getNextToken().test(),
                             '<STRING="Escaped \\\\\\"string\\\\\\\\\\\"\\\\">')
 
 

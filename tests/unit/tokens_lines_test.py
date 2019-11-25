@@ -23,7 +23,6 @@ class TokensLinesTest(unittest.TestCase):
                     + "<SPACE><CONSTANT=42><OP_SEMI_COLON><NEWLINE><EOF>"
         self.assertEqual(eat_token_line(inpt), output)
 
-
     def test_tricky_operators_on_line(self):
         self.maxDiff = None
         inpt = "int a = +-+-42 * (-42+ -+-+42);\n"
@@ -33,6 +32,16 @@ class TokensLinesTest(unittest.TestCase):
                     + "<SPACE><CONSTANT=-+-+42><CLOSING_PARENTHESIS>" \
                     + "<OP_SEMI_COLON><NEWLINE><EOF>"
         self.assertEqual(eat_token_line(inpt), output)
+
+    def test_function_prototype_without_newline(self):
+        self.maxDiff = None
+        inpt = "void\tfoo(int a, char *b, ...);"
+        output = "<VOID><TAB><IDENTIFIER=foo><OPENING_PARENTHESIS><INT>" \
+                    + "<SPACE><IDENTIFIER=a><OP_COMMA><SPACE><CHAR><SPACE>" \
+                    + "<OP_MULT><IDENTIFIER=b><OP_COMMA><SPACE><OP_ELLIPSIS>" \
+                    + "<CLOSING_PARENTHESIS><OP_SEMI_COLON><EOF>"
+        self.assertEqual(eat_token_line(inpt), output)
+
 
 if __name__ == '__main__':
     unittest.main()
