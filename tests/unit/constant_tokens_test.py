@@ -73,6 +73,11 @@ class ConstantTokensTest(unittest.TestCase):
                         Lexer("42l").getNextToken().test(),
                         "<CONSTANT=42l>")
 
+    def test_unsigned_long_constant(self):
+        self.assertEqual(
+                        Lexer("42ul").getNextToken().test(),
+                        "<CONSTANT=42ul>")
+
     def test_long_long_constant(self):
         self.assertEqual(
                         Lexer("42ll").getNextToken().test(),
@@ -87,6 +92,21 @@ class ConstantTokensTest(unittest.TestCase):
         self.assertEqual(
                         Lexer("42u").getNextToken().test(),
                         "<CONSTANT=42u>")
+
+    def test_unsigned_mixed_caps_constant(self):
+        self.assertEqual(
+                        Lexer("42uLl").getNextToken().test(),
+                        "<CONSTANT=42uLl>")
+
+    def test_unsigned_mixed_caps_constant_2(self):
+        self.assertEqual(
+                        Lexer("42ULl").getNextToken().test(),
+                        "<CONSTANT=42ULl>")
+
+    def test_unsigned_mixed_caps_and_hex_constant(self):
+        self.assertEqual(
+                        Lexer("0x42UlL").getNextToken().test(),
+                        "<CONSTANT=0x42UlL>")
 
 
 if __name__ == '__main__':
