@@ -54,8 +54,9 @@ class Lexer:
         if self.peekChar() in string.digits:
             return True
         elif self.peekChar() in "+-.":
-            if (self.peekLastSeenToken()
-                    and self.peekLastSeenToken().type.startswith("OP_")) \
+            if self.peekLastSeenToken() \
+                    and (self.peekLastSeenToken().type.startswith("OP_") \
+                    or self.peekLastSeenToken().type is "OPENING_PARENTHESIS") \
                     or self.peekLastSeenToken() in [None, "NEWLINE"]:
                 if self.peekSubString(2) == self.peekChar() + self.peekChar():
                     return False
@@ -134,7 +135,7 @@ class Lexer:
                 return
             tkn_prefix += self.peekChar()
             self.popChar()
-        bucket = ".0123456789aAbBcCdDeEfFxX"
+        bucket = ".0123456789aAbBcCdDeEfFlLuUxX"
         while self.peekChar() and self.peekChar() in bucket:
             if self.peekChar() in "xX":
                 if tkn_value.startswith("0") is False or len(tkn_value) > 1:
@@ -150,9 +151,24 @@ class Lexer:
                     if c in tkn_value:
                         self.popToken(Token("ERROR", self.linePos()))
                         return
+            elif self.peekChar() in "lL":
+                if tkn_value.count("l") > 1 or tkn_value.count("L") > 1 \
+                        or "e" in tkn_value or "E" in tkn_value:
+                    self.popToken(Token("ERROR", self.linePos()))
+                    return
+            elif self.peekChar() in "uU":
+                if "u" in tkn_value or "U" in tkn_value\
+                        or "e" in tkn_value or "E" in tkn_value:
+                    self.popToken(Token("ERROR", self.linePos()))
+                    return
             elif self.peekChar() in "aAbBcCdDeEfF" \
                     and tkn_value.startswith("0x") is False \
                     and tkn_value.startswith("0X") is False:
+                self.popToken(Token("ERROR", self.linePos()))
+                return
+            elif self.peekChar() in "0123456789." \
+                    and "u" in tkn_value or "U" in tkn_value \
+                    or "l" in tkn_value or "L" in tkn_value:
                 self.popToken(Token("ERROR", self.linePos()))
                 return
             tkn_value += self.peekChar()
