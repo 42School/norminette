@@ -54,9 +54,16 @@ class Lexer:
         if self.peekChar() in string.digits:
             return True
         elif self.peekChar() in "+-.":
+<<<<<<< HEAD
             if (self.peekLastSeenToken() and (
                 self.peekLastSeenToken().type.startswith("OP_")
                 or self.peekLastSeenToken().type is brackets['('])
+=======
+            if (self.peekLastSeenToken()
+                    and (
+                            self.peekLastSeenToken().type.startswith("OP_")
+                            or self.peekLastSeenToken().type is brackets['('])
+>>>>>>> 5f95bf0929384eb1e15bab6720aad0c448b685f5
                     or self.peekLastSeenToken() in [None, "NEWLINE"]):
                 if self.peekSubString(2) == self.peekChar() +
                 self.peekChar():
@@ -175,8 +182,15 @@ class Lexer:
         if tkn_value[-1] in "eExXi":
             self.popToken(Token("ERROR", self.linePos()))
         else:
+<<<<<<< HEAD
             self.popToken(
                 Token("CONSTANT", self.linePos(), tkn_prefix + tkn_value))
+=======
+            self.popToken(Token(
+                                    "CONSTANT",
+                                    self.linePos(),
+                                    tkn_prefix + tkn_value))
+>>>>>>> 5f95bf0929384eb1e15bab6720aad0c448b685f5
 
     def multComment(self):
         self.popChar(), self.popChar()
