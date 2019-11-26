@@ -8,7 +8,7 @@ class Lexer:
     def __init__(self, source_code):
         self.src = source_code
         self.len = len(source_code)
-        self.__char = self.src[0]
+        self.__char = self.src[0] if self.src != "" else None
         self.__pos = 0
         self.__line_pos = 0
         self.__line = 0

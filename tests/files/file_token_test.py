@@ -1,6 +1,9 @@
 import unittest
 import sys
+import glob
 from lexer import Lexer
+
+
 
 sys.path.append('../..')
 
@@ -43,6 +46,12 @@ class FileTokenTest(unittest.TestCase):
                             eat_tokens("tests/files/tokenization_test3.c"),
                             read_file("tests/files/tokenization_test3.tokens"))
 
+
+    def test_file_4(self):
+        self.maxDiff = None
+        self.assertEqual(
+                            eat_tokens("tests/files/tokenization_test4.c"),
+                            read_file("tests/files/tokenization_test4.tokens"))
 
 if __name__ == '__main__':
     unittest.main()
