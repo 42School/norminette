@@ -10,7 +10,7 @@ def eat_tokens(line):
     line = ""
     while lex.getNextToken():
         line += lex.peekToken().test()
-        if lex.peekToken().type in ["EOF", "ERROR"]:
+        if lex.peekToken().type in ["EOF", "TKN_ERROR"]:
             break
     return line
 

@@ -82,7 +82,7 @@ class Lexer:
         If the string has no closing quote character, it is not properly
         formatted and we most likely won't be able to make sense of the file's
         content from here on. We'll stop parsing  here and send back an
-        ERROR token
+        TKN_ERROR token
         """
         tkn_value = ""
         if self.peekChar() == 'L':
@@ -95,7 +95,7 @@ class Lexer:
             self.popChar()
         tkn_value += self.peekChar() if self.peekChar() is not None else ""
         if self.peekChar() in ["\n", None]:
-            self.popToken(Token("ERROR", self.linePos()))
+            self.popToken(Token("TKN_ERROR", self.linePos()))
         else:
             self.popToken(Token("STRING", self.linePos(), tkn_value))
         self.popChar()
@@ -116,53 +116,53 @@ class Lexer:
         while self.peekChar() and self.peekChar() in bucket:
             if self.peekChar() in "xX":
                 if tkn_value.startswith("0") is False or len(tkn_value) > 1:
-                    self.popToken(Token("ERROR", self.linePos()))
+                    self.popToken(Token("TKN_ERROR", self.linePos()))
                     return
                 for c in "xX":
                     if c in tkn_value:
-                        self.popToken(Token("ERROR", self.linePos()))
+                        self.popToken(Token("TKN_ERROR", self.linePos()))
                         return
 
             elif self.peekChar() in "eE" \
                     and "x" not in tkn_value and "X" not in tkn_value:
                 for c in "eE":
                     if c in tkn_value:
-                        self.popToken(Token("ERROR", self.linePos()))
+                        self.popToken(Token("TKN_ERROR", self.linePos()))
                         return
 
             elif self.peekChar() in "lL":
                 lcount = tkn_value.count("l") + tkn_value.count("L")
                 if lcount > 1 or (lcount == 1 and tkn_value[-1] not in "lL") \
                         or "e" in tkn_value or "E" in tkn_value:
-                    self.popToken(Token("ERROR", self.linePos()))
+                    self.popToken(Token("TKN_ERROR", self.linePos()))
                     return
 
             elif self.peekChar() in "uU":
                 if "u" in tkn_value or "U" in tkn_value \
                         or "e" in tkn_value or "E" in tkn_value:
-                    self.popToken(Token("ERROR", self.linePos()))
+                    self.popToken(Token("TKN_ERROR", self.linePos()))
                     return
 
             elif self.peekChar() in "aAbBcCdDeEfF" \
                     and tkn_value.startswith("0x") is False \
                     and tkn_value.startswith("0X") is False:
-                self.popToken(Token("ERROR", self.linePos()))
+                self.popToken(Token("TKN_ERROR", self.linePos()))
                 return
 
             elif self.peekChar() in "0123456789" \
                     and "u" in tkn_value or "U" in tkn_value \
                     or "l" in tkn_value or "L" in tkn_value:
-                self.popToken(Token("ERROR", self.linePos()))
+                self.popToken(Token("TKN_ERROR", self.linePos()))
                 return
 
             elif self.peekChar() == '.' and '.' in tkn_value:
-                self.popToken(Token("ERROR", self.linePos()))
+                self.popToken(Token("TKN_ERROR", self.linePos()))
                 return
 
             tkn_value += self.peekChar()
             self.popChar()
         if tkn_value[-1] in "eExX":
-            self.popToken(Token("ERROR", self.linePos()))
+            self.popToken(Token("TKN_ERROR", self.linePos()))
         else:
             self.popToken(Token(
                                     "CONSTANT",
@@ -185,7 +185,7 @@ class Lexer:
         if tkn_value.endswith("*/"):
             self.popToken(Token("MULT_COMMENT", self.linePos(), tkn_value))
         else:
-            self.popToken(Token("ERROR", self.linePos()))
+            self.popToken(Token("TKN_ERROR", self.linePos()))
 
     def comment(self):
         tkn_value = "//"
@@ -267,7 +267,7 @@ class Lexer:
         code character after character and matching a character or set of
         characters to a pattern related to a token type.
         If no pattern matches the current character or set of character, an
-        "ERROR" token will be returned.
+        "TKN_ERROR" token will be returned.
         After reading the whole file, an "EOF" token is returned
         """
         while self.peekChar() is not None:
@@ -313,7 +313,7 @@ class Lexer:
                 self.popChar()
 
             else:
-                self.popToken(Token("ERROR", self.linePos()))
+                self.popToken(Token("TKN_ERROR", self.linePos()))
                 self.popChar()
 
             return self.peekToken()

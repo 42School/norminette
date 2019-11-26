@@ -11,7 +11,7 @@ def eat_tokens(line):
     line = ""
     while lex.getNextToken():
         line += lex.peekToken().test()
-        if lex.peekToken().type in ["EOF", "ERROR"]:
+        if lex.peekToken().type in ["EOF", "TKN_ERROR"]:
             break
     return line
 
@@ -124,32 +124,32 @@ class ConstantTokensTest(unittest.TestCase):
     def test_error_too_many_dots(self):
         self.assertEqual(
                         eat_tokens("4.4.4"),
-                        "<ERROR>")
+                        "<TKN_ERROR>")
 
     def test_error_too_many_e(self):
         self.assertEqual(
                         eat_tokens("4e4e4"),
-                        "<ERROR>")
+                        "<TKN_ERROR>")
 
     def test_error_too_many_x(self):
         self.assertEqual(
                         eat_tokens("4x4x4"),
-                        "<ERROR>")
+                        "<TKN_ERROR>")
 
     def test_error_too_many_u(self):
         self.assertEqual(
                         eat_tokens("42uul"),
-                        "<ERROR>")
+                        "<TKN_ERROR>")
 
     def test_error_too_many_l(self):
         self.assertEqual(
                         eat_tokens("42Lllu"),
-                        "<ERROR>")
+                        "<TKN_ERROR>")
 
     def test_error_misplaced_l(self):
         self.assertEqual(
                         eat_tokens("42lul"),
-                        "<ERROR>")
+                        "<TKN_ERROR>")
 
     def test_misplaced_e(self):
         self.assertEqual(
@@ -159,7 +159,7 @@ class ConstantTokensTest(unittest.TestCase):
     def test_another_misplaced_e(self):
         self.assertEqual(
                         eat_tokens(".42e"),
-                        "<ERROR>")
+                        "<TKN_ERROR>")
 
 
 if __name__ == '__main__':
