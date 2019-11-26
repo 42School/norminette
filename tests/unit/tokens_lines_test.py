@@ -11,7 +11,7 @@ def eat_tokens(line):
     line = ""
     while lex.getNextToken():
         line += lex.peekToken().test()
-        if lex.peekToken().type is "EOF":
+        if lex.peekToken().type == "EOF":
             break
     return line
 
