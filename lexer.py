@@ -138,8 +138,8 @@ class Lexer:
                         return
 
             elif self.peekChar() in "lL":
-                l = tkn_value.count("l") + tkn_value.count("L")
-                if l > 1 or (l == 1 and tkn_value[-1] not in "lL") \
+                lcount = tkn_value.count("l") + tkn_value.count("L")
+                if lcount > 1 or (lcount == 1 and tkn_value[-1] not in "lL") \
                         or "e" in tkn_value or "E" in tkn_value:
                     self.popToken(Token("ERROR", self.linePos()))
                     return
@@ -287,7 +287,6 @@ class Lexer:
 
             elif self.isConstant():
                 self.constant()
-
 
 #            elif self.peekChar() == '\'':
 #                continue
