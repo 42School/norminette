@@ -53,23 +53,21 @@ class Lexer:
     def isConstant(self):
         if self.peekChar() in string.digits:
             return True
-        elif self.peekChar() in "+-.":
+        elif self.peekChar() == ".":
+            """
             if (self.peekLastSeenToken()
                     and (
                             self.peekLastSeenToken().type.startswith("OP_")
                             or self.peekLastSeenToken().type is brackets['('])
                     or self.peekLastSeenToken() in [None, "NEWLINE"]):
-                if self.peekSubString(2) == self.peekChar() + self.peekChar():
+            """
+            for i in range(0, self.len - self.__pos):
+                if self.src[self.__pos + i] == ".":
+                    i += 1
+                elif self.src[self.__pos + i] in "0123456789":
+                    return True
+                else:
                     return False
-                for i in range(0, self.len - self.__pos):
-                    if self.src[self.__pos + i] in "+-.":
-                        i += 1
-                    elif self.src[self.__pos + i] in "0123456789":
-                        return True
-                    else:
-                        return False
-            else:
-                return False
         else:
             return False
 
@@ -116,24 +114,11 @@ class Lexer:
         -Integer (0, 1, etc)
         -Octal (00, 01, etc)
         -Hexadecimal (0x0, 0x1, etc)
-        Any of those can be preceded by any number of non consecutives '+' or
-        '-' signs ("-+-+-++2"-> KO, "+-+-+-2" -> OK)
         Hexadecimals constants only allow one 'X' or 'x'.
-        Exponential epressions cam only contain one 'E' or 'e'
+        Real numbers cam only contain one 'E' or 'e'
         """
         sign = None
         tkn_value = ""
-        tkn_prefix = ""
-        while self.peekChar() in "+-":
-            if self.peekChar() == '+' and sign in [None, '-']:
-                sign = '+'
-            elif self.peekChar() == '-' and sign in [None, '+']:
-                sign = '-'
-            elif self.peekChar() in "+-":
-                self.popToken(Token("ERROR", self.linePos()))
-                return
-            tkn_prefix += self.peekChar()
-            self.popChar()
         bucket = ".0123456789aAbBcCdDeEfFlLuUxX"
         while self.peekChar() and self.peekChar() in bucket:
             if self.peekChar() in "xX":
@@ -144,32 +129,43 @@ class Lexer:
                     if c in tkn_value:
                         self.popToken(Token("ERROR", self.linePos()))
                         return
+
             elif self.peekChar() in "eE" \
                     and "x" not in tkn_value and "X" not in tkn_value:
                 for c in "eE":
                     if c in tkn_value:
                         self.popToken(Token("ERROR", self.linePos()))
                         return
+
             elif self.peekChar() in "lL":
-                if tkn_value.count("l") > 1 or tkn_value.count("L") > 1 \
+                l = tkn_value.count("l") + tkn_value.count("L")
+                if l > 1 or (l == 1 and tkn_value[-1] not in "lL") \
                         or "e" in tkn_value or "E" in tkn_value:
                     self.popToken(Token("ERROR", self.linePos()))
                     return
+
             elif self.peekChar() in "uU":
                 if "u" in tkn_value or "U" in tkn_value \
                         or "e" in tkn_value or "E" in tkn_value:
                     self.popToken(Token("ERROR", self.linePos()))
                     return
+
             elif self.peekChar() in "aAbBcCdDeEfF" \
                     and tkn_value.startswith("0x") is False \
                     and tkn_value.startswith("0X") is False:
                 self.popToken(Token("ERROR", self.linePos()))
                 return
-            elif self.peekChar() in "0123456789." \
+
+            elif self.peekChar() in "0123456789" \
                     and "u" in tkn_value or "U" in tkn_value \
                     or "l" in tkn_value or "L" in tkn_value:
                 self.popToken(Token("ERROR", self.linePos()))
                 return
+
+            elif self.peekChar() == '.' and '.' in tkn_value:
+                self.popToken(Token("ERROR", self.linePos()))
+                return
+
             tkn_value += self.peekChar()
             self.popChar()
         if tkn_value[-1] in "eExX":
@@ -178,7 +174,7 @@ class Lexer:
             self.popToken(Token(
                                     "CONSTANT",
                                     self.linePos(),
-                                    tkn_prefix + tkn_value))
+                                    tkn_value))
 
     def multComment(self):
         self.popChar(), self.popChar()
