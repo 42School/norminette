@@ -156,6 +156,11 @@ class ConstantTokensTest(unittest.TestCase):
                         eat_tokens(".e42"),
                         "<OP_DOT><IDENTIFIER=e42><EOF>")
 
+    def test_another_misplaced_e(self):
+        self.assertEqual(
+                        eat_tokens(".42e"),
+                        "<ERROR>")
+
 
 if __name__ == '__main__':
     unittest.main()
