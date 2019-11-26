@@ -50,6 +50,16 @@ class Lexer:
     def linePos(self):
         return self.__pos - self.__line_pos
 
+    def isString(self):
+        """
+        Strings can start either with `"` (one double quote character)
+        or `L"` (an `L` immediatly followed by a double quote character).
+        """
+        if self.peekSubString(2) == 'L"' or self.peekChar() == '"':
+            return True
+        else:
+            return False
+
     def isConstant(self):
         if self.peekChar() in string.digits:
             return True
@@ -64,15 +74,10 @@ class Lexer:
         else:
             return False
 
-    def isString(self):
+    def isCharConstant(self):
         """
-        Strings can start either with `"` (one double quote character)
-        or `L"` (an `L` immediatly followed by a double quote character).
         """
-
-        if self.peekChar() == 'L':
-            return True if self.src[self.__pos + 1] == '"' else False
-        elif self.peekChar() == '"':
+        if self.peekChar() == '\'' or self.peekSubString(2) == 'L"':
             return True
         else:
             return False
@@ -169,6 +174,22 @@ class Lexer:
                                     self.linePos(),
                                     tkn_value))
 
+    def charConstant(self):
+        tkn_value = '\''
+        self.popChar()
+        while self.peekChar():
+            tkn_value += self.peekChar()
+            if self.peekChar() == '\n':
+                self.popChar()
+                self.popToken(Token("TKN_ERROR", self.linePos()))
+                return
+            if self.peekChar() == '\'':
+                self.popChar()
+                self.popToken(Token("CHAR_CONST", self.linePos(), tkn_value))
+                return
+            self.popChar()
+        self.popToken(Token("TKN_ERROR", self.linePos()))
+
     def multComment(self):
         self.popChar(), self.popChar()
         tkn_value = "/*"
@@ -196,16 +217,6 @@ class Lexer:
             if self.peekChar() == '\n':
                 break
         self.popToken(Token("COMMENT", self.linePos(), tkn_value))
-
-    def charConstant(self):
-        tkn_value = '\''
-        while self.peekChar():
-            tkn_value += self.peekChar()
-            self.popChar()
-            if self.peekChar() == '\'':
-                self.popChar()
-                tkn_value += '\''
-                break
 
     def identifier(self):
         tkn_value = re.findall(
@@ -281,9 +292,9 @@ class Lexer:
             elif self.isConstant():
                 self.constant()
 
-#            elif self.peekChar() == '\'':
-#                continue
-#               #CHARACTER_CONSTANT
+            elif self.isCharConstant():
+                self.charConstant()
+               #CHARACTER_CONSTANT
 
             elif self.src[self.__pos:].startswith("/*"):
                 self.multComment()
@@ -329,7 +340,7 @@ def tokenization_test(source):
         source = lexer.Lexer(text)
         ret = ""
         while source.getNextToken().type != "EOF":
-            if source.peekToken().type == "NEWLINE":
+            if source.peekToken().type in ["NEWLINE", "TKN_ERROR"]:
                 ret += str(source.peekToken()) + "\n"
             else:
                 ret += str(source.peekToken())

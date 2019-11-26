@@ -18,7 +18,7 @@ void	dont_get_me_started_on_this_one(int       a,char b);
 void	dumb_function(void)
 {
 	int a;
-	1 >>= 0
+
 	a = 4+ 2; // no space between identifier & operator
 	a = 4 +2; // no space between identifier & operator
 	a = 4   + 2; // too much spaces between identifier & operator
@@ -31,3 +31,4 @@ void	dumb_function(void)
 	dont_get_me_started_on_this_one("salut les copains", 25        );
 	return; //no space after return
 }
+
