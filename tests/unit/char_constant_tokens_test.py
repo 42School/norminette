@@ -46,5 +46,6 @@ class CharConstTokenTest(unittest.TestCase):
             Lexer("'A").getNextToken().test(),
             "<TKN_ERROR>")
 
+
 if __name__ == '__main__':
     unittest.main()

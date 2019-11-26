@@ -15,6 +15,7 @@ def eat_tokens(line):
             break
     return line
 
+
 """
 class TokensLinesTest(unittest.TestCase):
     def test_basic_line(self):

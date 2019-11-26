@@ -294,7 +294,6 @@ class Lexer:
 
             elif self.isCharConstant():
                 self.charConstant()
-               #CHARACTER_CONSTANT
 
             elif self.src[self.__pos:].startswith("/*"):
                 self.multComment()

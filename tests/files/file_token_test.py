@@ -17,9 +17,11 @@ def eat_tokens(filename):
                 break
         return output
 
+
 def read_file(filename):
     with open(filename) as f:
-       return f.read()
+        return f.read()
+
 
 class FileTokenTest(unittest.TestCase):
 
