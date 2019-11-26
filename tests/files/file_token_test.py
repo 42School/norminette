@@ -25,11 +25,23 @@ def read_file(filename):
 
 class FileTokenTest(unittest.TestCase):
 
-    def test_basic_file(self):
+    def test_file_1(self):
         self.maxDiff = None
         self.assertEqual(
                             eat_tokens("tests/files/tokenization_test1.c"),
                             read_file("tests/files/tokenization_test1.tokens"))
+
+    def test_file_2(self):
+        self.maxDiff = None
+        self.assertEqual(
+                            eat_tokens("tests/files/tokenization_test2.c"),
+                            read_file("tests/files/tokenization_test2.tokens"))
+
+    def test_file_3(self):
+        self.maxDiff = None
+        self.assertEqual(
+                            eat_tokens("tests/files/tokenization_test3.c"),
+                            read_file("tests/files/tokenization_test3.tokens"))
 
 
 if __name__ == '__main__':
