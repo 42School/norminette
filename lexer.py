@@ -54,13 +54,6 @@ class Lexer:
         if self.peekChar() in string.digits:
             return True
         elif self.peekChar() == ".":
-            """
-            if (self.peekLastSeenToken()
-                    and (
-                            self.peekLastSeenToken().type.startswith("OP_")
-                            or self.peekLastSeenToken().type is brackets['('])
-                    or self.peekLastSeenToken() in [None, "NEWLINE"]):
-            """
             for i in range(0, self.len - self.__pos):
                 if self.src[self.__pos + i] == ".":
                     i += 1
