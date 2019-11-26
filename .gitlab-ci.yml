@@ -11,6 +11,8 @@ test_job:
   script:
     - echo "Checking PEP8"
     - pip install -r requirements.txt
-    - pycodestyle $(find . -name "*.py")
-    - echo "Running tests"
+    - pycodestyle $(find -d . -name "*.py")
+    - echo "Running Lexer Unit Tests"
     - python -m unittest discover tests/unit "*.py"
+    - echo "Running Lexer tests on files"
+    - python -m unittest discover tests/files "*.py"
