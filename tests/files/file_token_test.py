@@ -1,8 +1,8 @@
 import unittest
 import sys
 import glob
+from functools import wraps
 from lexer import Lexer
-
 
 sys.path.append('../..')
 
@@ -26,7 +26,6 @@ def read_file(filename):
 
 
 class FileTokenTest(unittest.TestCase):
-
     def test_file_1(self):
         self.maxDiff = None
         self.assertEqual(
@@ -50,6 +49,12 @@ class FileTokenTest(unittest.TestCase):
         self.assertEqual(
                             eat_tokens("tests/files/tokenization_test4.c"),
                             read_file("tests/files/tokenization_test4.tokens"))
+
+    def test_file_5(self):
+        self.maxDiff = None
+        self.assertEqual(
+                            eat_tokens("tests/files/tokenization_test5.c"),
+                            read_file("tests/files/tokenization_test5.tokens"))
 
 
 if __name__ == '__main__':
