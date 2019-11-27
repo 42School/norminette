@@ -16,6 +16,7 @@ def eat_tokens(filename):
             if lex.peekToken().type == "NEWLINE":
                 output += '\n'
             if lex.peekToken().type == "TKN_ERROR":
+                return output + '\n'
                 break
         return output
 

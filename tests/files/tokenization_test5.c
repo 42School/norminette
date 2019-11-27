@@ -12,4 +12,6 @@ int	func()
 	double b=e42;
 	double c=.0e5;
 	double d=.e5+4e2;
+	double f=45e++ai;
 }
+
