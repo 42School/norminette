@@ -272,6 +272,16 @@ class Lexer:
                     self.linePos()))
             self.popChar()
 
+    def preprocessor(self):
+        tkn_value = ""
+        while self.peekChar():
+            tkn_value += self.peekChar()
+            self.popChar()
+            if self.peekSubString(2) in ["//", "/*"] \
+                    or self.peekChar() == '\n':
+                self.popToken(Token("PREPROC", self.linePos(), tkn_value))
+                return
+
     def getNextToken(self):
         """
         This method creates and return 1 token at a time by reading the source
@@ -294,6 +304,9 @@ class Lexer:
 
             elif self.isCharConstant():
                 self.charConstant()
+
+            elif self.peekChar() == '#':
+                self.preprocessor()
 
             elif self.src[self.__pos:].startswith("/*"):
                 self.multComment()

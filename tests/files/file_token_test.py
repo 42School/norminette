@@ -57,6 +57,12 @@ class FileTokenTest(unittest.TestCase):
                             eat_tokens("tests/files/tokenization_test5.c"),
                             read_file("tests/files/tokenization_test5.tokens"))
 
+    def test_file_6(self):
+        self.maxDiff = None
+        self.assertEqual(
+                            eat_tokens("tests/files/tokenization_test6.c"),
+                            read_file("tests/files/tokenization_test6.tokens"))
+
 
 if __name__ == '__main__':
     unittest.main()
