@@ -356,8 +356,16 @@ class Lexer:
             self.tokens.append(self.peekToken())
         return self.tokens, err
 
-def tokenization_test(source):
-    with open(source) as file:
-        text = file.read()
-        source = Lexer(text)
-        print(source.getTokens())
+    def checkTokens(self):
+        if self.tokens == []:
+            self.getTokens()
+            if self.tokens == []:
+                return ""
+        ret = ""
+        for i in range(0, len(self.tokens)):
+            ret += self.tokens[i].test()
+            ret += "" if self.tokens[i].type != "NEWLINE" else "\n"
+        if self.tokens[-1].type != "NEWLINE":
+            ret += "\n"
+        return ret
+

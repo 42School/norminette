@@ -3,16 +3,10 @@ import sys
 import glob
 
 
-verbose = True
-
 
 def main():
     args = sys.argv
     args.pop(0)
-
-    if '-v' in args:
-        verbose = True
-        args.pop(args.index('-v'))
 
     if args == []:
         args = glob.glob("**/*.[ch]", recursive=True)
@@ -21,7 +15,7 @@ def main():
         if arg[-2:] not in [".c", ".h"]:
             print(f"{arg} is not valid C or C header file")
         else:
-            print(f"\"{arg}\": OK!")
+            print(Lexer.getTokens())
 
 
 if __name__ == "__main__":
