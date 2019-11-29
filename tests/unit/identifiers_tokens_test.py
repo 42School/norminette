@@ -2,8 +2,6 @@ import unittest
 import sys
 from lexer import Lexer
 
-sys.path.append('../..')
-
 
 def eat_tokens(line):
     lex = Lexer(line)

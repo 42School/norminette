@@ -2,10 +2,8 @@ import unittest
 import sys
 import glob
 from functools import wraps
-
-sys.path.append('../..')
-
 from lexer import Lexer
+
 
 def read_file(filename):
     with open(filename) as f:

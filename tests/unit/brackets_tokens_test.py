@@ -3,9 +3,6 @@ import sys
 from lexer import Lexer
 
 
-sys.path.append('../..')
-
-
 class BracketsTokensTest(unittest.TestCase):
 
     def test_opening_bracket(self):

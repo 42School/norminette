@@ -3,9 +3,6 @@ import sys
 from lexer import Lexer
 
 
-sys.path.append('../..')
-
-
 class TokensOperatorsTest(unittest.TestCase):
 
     def test_op_right_assign(self):

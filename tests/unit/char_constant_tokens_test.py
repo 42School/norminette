@@ -2,8 +2,6 @@ import unittest
 import sys
 from lexer import Lexer
 
-sys.path.append('../..')
-
 
 class CharConstTokenTest(unittest.TestCase):
     def test_basic_char(self):
