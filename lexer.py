@@ -345,12 +345,10 @@ class Lexer:
         self.popToken(Token("EOF",  self.linePos()))
         return self.peekToken()
 
-
     def getTokens(self):
         err = None
         while self.getNextToken().type != "EOF":
             if self.peekToken().type == "TKN_ERROR":
-                #print error msg
                 err = f"Invalid token at {self.peekToken().pos}"
                 break
             self.tokens.append(self.peekToken())
@@ -368,4 +366,3 @@ class Lexer:
         if self.tokens[-1].type != "NEWLINE":
             ret += "\n"
         return ret
-

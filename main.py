@@ -3,7 +3,6 @@ import sys
 import glob
 
 
-
 def main():
     args = sys.argv
     args.pop(0)
