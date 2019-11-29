@@ -1,7 +1,7 @@
 class Token:
     def __init__(self, tkn_type, pos, tkn_value=None):
         self.type = str(tkn_type)
-        self.pos = int(pos)
+        self.pos = pos
         if tkn_value is not None:
             self.value = str(tkn_value)
             self.length = len(tkn_value)

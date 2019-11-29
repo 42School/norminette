@@ -14,6 +14,7 @@ class Lexer:
         self.__line = 0
         self.__last_seen_token = None
         self.__token = None
+        self.tokens = []
 
     def peekSubString(self, size):
         return self.src[self.__pos: self.__pos + size]
@@ -48,7 +49,7 @@ class Lexer:
         self.__token = token
 
     def linePos(self):
-        return self.__pos - self.__line_pos
+        return self.__line, self.__pos - self.__line_pos
 
     def isString(self):
         """
@@ -77,7 +78,7 @@ class Lexer:
     def isCharConstant(self):
         """
         """
-        if self.peekChar() == '\'' or self.peekSubString(2) == 'L"':
+        if self.peekChar() == '\'' or self.peekSubString(2) == "L'":
             return True
         else:
             return False
@@ -345,16 +346,18 @@ class Lexer:
         return self.peekToken()
 
 
+    def getTokens(self):
+        err = None
+        while self.getNextToken().type != "EOF":
+            if self.peekToken().type == "TKN_ERROR":
+                #print error msg
+                err = f"Invalid token at {self.peekToken().pos}"
+                break
+            self.tokens.append(self.peekToken())
+        return self.tokens, err
+
 def tokenization_test(source):
     with open(source) as file:
         text = file.read()
-        import lexer
-        source = lexer.Lexer(text)
-        ret = ""
-        while source.getNextToken().type != "EOF":
-            if source.peekToken().type in ["NEWLINE", "TKN_ERROR"]:
-                ret += str(source.peekToken()) + "\n"
-            else:
-                ret += str(source.peekToken())
-
-        print(ret, end="")
+        source = Lexer(text)
+        print(source.getTokens())
