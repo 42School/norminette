@@ -18,57 +18,57 @@ class ConstantTokensTest(unittest.TestCase):
     def test_basic_constant(self):
         self.assertEqual(
                         eat_tokens("42"),
-                        "<CONSTANT=42><EOF>")
+                        "<CONSTANT=42>")
 
     def test_plus_sign_constant(self):
         self.assertEqual(
                         eat_tokens("+42"),
-                        "<OP_PLUS><CONSTANT=42><EOF>")
+                        "<OP_PLUS><CONSTANT=42>")
 
     def test_minus_sign_constant(self):
         self.assertEqual(
                         eat_tokens("-42"),
-                        "<OP_MINUS><CONSTANT=42><EOF>")
+                        "<OP_MINUS><CONSTANT=42>")
 
     def test_many_signs_constant(self):
         self.assertEqual(
                         eat_tokens("+-42"),
-                        "<OP_PLUS><OP_MINUS><CONSTANT=42><EOF>")
+                        "<OP_PLUS><OP_MINUS><CONSTANT=42>")
 
     def test_decimal_constant(self):
         self.assertEqual(
                         eat_tokens("4.2"),
-                        "<CONSTANT=4.2><EOF>")
+                        "<CONSTANT=4.2>")
 
     def test_decimal_constant_starting_with_dot(self):
         self.assertEqual(
                         eat_tokens(".42"),
-                        "<CONSTANT=.42><EOF>")
+                        "<CONSTANT=.42>")
 
     def test_exponential_constant(self):
         self.assertEqual(
                         eat_tokens("4e2"),
-                        "<CONSTANT=4e2><EOF>")
+                        "<CONSTANT=4e2>")
 
     def test_exponential_constant_starting_with_dot(self):
         self.assertEqual(
                         eat_tokens(".4e2"),
-                        "<CONSTANT=.4e2><EOF>")
+                        "<CONSTANT=.4e2>")
 
     def test_octal_constant(self):
         self.assertEqual(
                         eat_tokens("042"),
-                        "<CONSTANT=042><EOF>")
+                        "<CONSTANT=042>")
 
     def test_hex_constant(self):
         self.assertEqual(
                         eat_tokens("0x42"),
-                        "<CONSTANT=0x42><EOF>")
+                        "<CONSTANT=0x42>")
 
     def test_hex_with_sign_constant(self):
         self.assertEqual(
                         eat_tokens("-0x4e2"),
-                        "<OP_MINUS><CONSTANT=0x4e2><EOF>")
+                        "<OP_MINUS><CONSTANT=0x4e2>")
 
     def test_hex_with_many_signs_constant(self):
         self.assertEqual(
@@ -76,47 +76,47 @@ class ConstantTokensTest(unittest.TestCase):
                         "<OP_MINUS><OP_PLUS><OP_MINUS><OP_PLUS><OP_MINUS>"
                         + "<OP_PLUS><OP_MINUS><OP_PLUS><OP_MINUS><OP_PLUS>"
                         + "<OP_MINUS><OP_PLUS><OP_MINUS><OP_PLUS><OP_MINUS>"
-                        + "<CONSTANT=0Xe4Ae2><EOF>")
+                        + "<CONSTANT=0Xe4Ae2>")
 
     def test_long_constant(self):
         self.assertEqual(
                         eat_tokens("42l"),
-                        "<CONSTANT=42l><EOF>")
+                        "<CONSTANT=42l>")
 
     def test_unsigned_long_constant(self):
         self.assertEqual(
                         eat_tokens("42ul"),
-                        "<CONSTANT=42ul><EOF>")
+                        "<CONSTANT=42ul>")
 
     def test_long_long_constant(self):
         self.assertEqual(
                         eat_tokens("42ll"),
-                        "<CONSTANT=42ll><EOF>")
+                        "<CONSTANT=42ll>")
 
     def test_unsigned_long_long_constant(self):
         self.assertEqual(
                         eat_tokens("42ull"),
-                        "<CONSTANT=42ull><EOF>")
+                        "<CONSTANT=42ull>")
 
     def test_unsigned_constant(self):
         self.assertEqual(
                         eat_tokens("42u"),
-                        "<CONSTANT=42u><EOF>")
+                        "<CONSTANT=42u>")
 
     def test_unsigned_mixed_caps_constant(self):
         self.assertEqual(
                         eat_tokens("42uLl"),
-                        "<CONSTANT=42uLl><EOF>")
+                        "<CONSTANT=42uLl>")
 
     def test_unsigned_mixed_caps_constant_2(self):
         self.assertEqual(
                         eat_tokens("42ULl"),
-                        "<CONSTANT=42ULl><EOF>")
+                        "<CONSTANT=42ULl>")
 
     def test_unsigned_mixed_caps_and_hex_constant(self):
         self.assertEqual(
                         eat_tokens("0x42UlL"),
-                        "<CONSTANT=0x42UlL><EOF>")
+                        "<CONSTANT=0x42UlL>")
 
     def test_error_too_many_dots(self):
         self.assertEqual(
@@ -151,7 +151,7 @@ class ConstantTokensTest(unittest.TestCase):
     def test_misplaced_e(self):
         self.assertEqual(
                         eat_tokens(".e42"),
-                        "<OP_DOT><IDENTIFIER=e42><EOF>")
+                        "<OP_DOT><IDENTIFIER=e42>")
 
     def test_another_misplaced_e(self):
         self.assertEqual(

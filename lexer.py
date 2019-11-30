@@ -12,8 +12,6 @@ class Lexer:
         self.__pos = 0
         self.__line_pos = 0
         self.__line = 0
-        self.__last_seen_token = None
-        self.__token = None
         self.tokens = []
 
     def peekSubString(self, size):
@@ -38,15 +36,7 @@ class Lexer:
         return self.peekChar()
 
     def peekToken(self):
-        return self.__token
-
-    def peekLastSeenToken(self):
-        return self.__last_seen_token
-
-    def popToken(self, token):
-        if token and token.type not in ["SPACE", "NEWLINE", "TAB"]:
-            self.__last_seen_token = token
-        self.__token = token
+        return self.tokens[-1]
 
     def linePos(self):
         return self.__line, self.__pos - self.__line_pos
@@ -99,9 +89,9 @@ class Lexer:
             self.popChar()
         tkn_value += self.peekChar() if self.peekChar() is not None else ""
         if self.peekChar() in ["\n", None]:
-            self.popToken(Token("TKN_ERROR", self.linePos()))
+            self.tokens.append(Token("TKN_ERROR", self.linePos()))
         else:
-            self.popToken(Token("STRING", self.linePos(), tkn_value))
+            self.tokens.append(Token("STRING", self.linePos(), tkn_value))
         self.popChar()
         pass
 
@@ -120,55 +110,55 @@ class Lexer:
         while self.peekChar() and self.peekChar() in bucket:
             if self.peekChar() in "xX":
                 if tkn_value.startswith("0") is False or len(tkn_value) > 1:
-                    self.popToken(Token("TKN_ERROR", self.linePos()))
+                    self.tokens.append(Token("TKN_ERROR", self.linePos()))
                     return
                 for c in "xX":
                     if c in tkn_value:
-                        self.popToken(Token("TKN_ERROR", self.linePos()))
+                        self.tokens.append(Token("TKN_ERROR", self.linePos()))
                         return
 
             elif self.peekChar() in "eE" \
                     and "x" not in tkn_value and "X" not in tkn_value:
                 for c in "eE":
                     if c in tkn_value:
-                        self.popToken(Token("TKN_ERROR", self.linePos()))
+                        self.tokens.append(Token("TKN_ERROR", self.linePos()))
                         return
 
             elif self.peekChar() in "lL":
                 lcount = tkn_value.count("l") + tkn_value.count("L")
                 if lcount > 1 or (lcount == 1 and tkn_value[-1] not in "lL") \
                         or "e" in tkn_value or "E" in tkn_value:
-                    self.popToken(Token("TKN_ERROR", self.linePos()))
+                    self.tokens.append(Token("TKN_ERROR", self.linePos()))
                     return
 
             elif self.peekChar() in "uU":
                 if "u" in tkn_value or "U" in tkn_value \
                         or "e" in tkn_value or "E" in tkn_value:
-                    self.popToken(Token("TKN_ERROR", self.linePos()))
+                    self.tokens.append(Token("TKN_ERROR", self.linePos()))
                     return
 
             elif self.peekChar() in "aAbBcCdDeEfF" \
                     and tkn_value.startswith("0x") is False \
                     and tkn_value.startswith("0X") is False:
-                self.popToken(Token("TKN_ERROR", self.linePos()))
+                self.tokens.append(Token("TKN_ERROR", self.linePos()))
                 return
 
             elif self.peekChar() in "0123456789" \
                     and "u" in tkn_value or "U" in tkn_value \
                     or "l" in tkn_value or "L" in tkn_value:
-                self.popToken(Token("TKN_ERROR", self.linePos()))
+                self.tokens.append(Token("TKN_ERROR", self.linePos()))
                 return
 
             elif self.peekChar() == '.' and '.' in tkn_value:
-                self.popToken(Token("TKN_ERROR", self.linePos()))
+                self.tokens.append(Token("TKN_ERROR", self.linePos()))
                 return
 
             tkn_value += self.peekChar()
             self.popChar()
         if tkn_value[-1] in "eExX":
-            self.popToken(Token("TKN_ERROR", self.linePos()))
+            self.tokens.append(Token("TKN_ERROR", self.linePos()))
         else:
-            self.popToken(Token(
+            self.tokens.append(Token(
                                     "CONSTANT",
                                     self.linePos(),
                                     tkn_value))
@@ -180,14 +170,17 @@ class Lexer:
             tkn_value += self.peekChar()
             if self.peekChar() == '\n':
                 self.popChar()
-                self.popToken(Token("TKN_ERROR", self.linePos()))
+                self.tokens.append(Token("TKN_ERROR", self.linePos()))
                 return
             if self.peekChar() == '\'':
                 self.popChar()
-                self.popToken(Token("CHAR_CONST", self.linePos(), tkn_value))
+                self.tokens.append(Token(
+                                        "CHAR_CONST",
+                                        self.linePos(),
+                                        tkn_value))
                 return
             self.popChar()
-        self.popToken(Token("TKN_ERROR", self.linePos()))
+        self.tokens.append(Token("TKN_ERROR", self.linePos()))
 
     def multComment(self):
         self.popChar(), self.popChar()
@@ -203,9 +196,9 @@ class Lexer:
                 self.popChar(), self.popChar()
                 break
         if tkn_value.endswith("*/"):
-            self.popToken(Token("MULT_COMMENT", self.linePos(), tkn_value))
+            self.tokens.append(Token("MULT_COMMENT", self.linePos(), tkn_value))
         else:
-            self.popToken(Token("TKN_ERROR", self.linePos()))
+            self.tokens.append(Token("TKN_ERROR", self.linePos()))
 
     def comment(self):
         tkn_value = "//"
@@ -215,7 +208,7 @@ class Lexer:
             self.popChar()
             if self.peekChar() == '\n':
                 break
-        self.popToken(Token("COMMENT", self.linePos(), tkn_value))
+        self.tokens.append(Token("COMMENT", self.linePos(), tkn_value))
 
     def identifier(self):
         tkn_value = re.findall(
@@ -223,11 +216,11 @@ class Lexer:
                             self.src[self.__pos:])[0]
         self.__pos += len(tkn_value)
         if tkn_value in keywords:
-            self.popToken(Token(
+            self.tokens.append(Token(
                             keywords[tkn_value],
                             self.linePos()))
         else:
-            self.popToken(Token(
+            self.tokens.append(Token(
                             "IDENTIFIER",
                             self.linePos(),
                             tkn_value))
@@ -235,38 +228,38 @@ class Lexer:
     def operator(self):
         if self.peekChar() in ".+-*/%<>^&|!=":
             if self.peekSubString(3) in [">>=", "<<=", "..."]:
-                self.popToken(Token(
+                self.tokens.append(Token(
                             operators[self.peekSubString(3)],
                             self.linePos()))
                 self.__pos += 3
             elif self.peekSubString(2) in [">>", "<<", "->"]:
-                self.popToken(Token(
+                self.tokens.append(Token(
                             operators[self.peekSubString(2)],
                             self.linePos()))
                 self.__pos += 2
             elif self.peekSubString(2) == self.peekChar() + "=":
-                self.popToken(Token(
+                self.tokens.append(Token(
                             operators[self.peekSubString(2)],
                             self.linePos()))
                 self.popChar(), self.popChar()
             elif self.peekChar() in "+-<>=&|":
                 if self.peekSubString(2) == self.peekChar() * 2:
-                    self.popToken(Token(
+                    self.tokens.append(Token(
                                 operators[self.peekSubString(2)],
                                 self.linePos()))
                     self.popChar()
                     self.popChar()
                 else:
-                    self.popToken(Token(
+                    self.tokens.append(Token(
                                 operators[self.peekChar()], self.linePos()))
                     self.popChar()
             else:
-                self.popToken(Token(
+                self.tokens.append(Token(
                         operators[self.peekChar()],
                         self.linePos()))
                 self.popChar()
         else:
-            self.popToken(Token(
+            self.tokens.append(Token(
                     operators[self.src[self.__pos]],
                     self.linePos()))
             self.popChar()
@@ -278,7 +271,7 @@ class Lexer:
             self.popChar()
             if self.peekSubString(2) in ["//", "/*"] \
                     or self.peekChar() == '\n':
-                self.popToken(Token("PREPROC", self.linePos(), tkn_value))
+                self.tokens.append(Token("PREPROC", self.linePos(), tkn_value))
                 return
 
     def getNextToken(self):
@@ -317,39 +310,40 @@ class Lexer:
                 self.operator()
 
             elif self.peekChar() == ' ':
-                self.popToken(Token("SPACE", self.linePos()))
+                self.tokens.append(Token("SPACE", self.linePos()))
                 self.popChar()
 
             elif self.peekChar() == '\t':
-                self.popToken(Token("TAB", self.linePos()))
+                self.tokens.append(Token("TAB", self.linePos()))
                 self.popChar()
 
-            elif self.peekChar() == '\n':
-                self.popToken(Token("NEWLINE", self.linePos()))
+            elif self.peekChar() in ['\n', '\\\n']:
+                self.tokens.append(Token("NEWLINE", self.linePos()))
                 self.__line_pos = 0
                 self.__line += 1
                 self.popChar()
 
             elif self.peekChar() in brackets:
-                self.popToken(Token(brackets[self.peekChar()], self.linePos()))
+                self.tokens.append(Token(
+                                    brackets[self.peekChar()],
+                                    self.linePos()))
                 self.popChar()
 
             else:
-                self.popToken(Token("TKN_ERROR", self.linePos()))
+                self.tokens.append(Token("TKN_ERROR", self.linePos()))
                 self.popChar()
 
             return self.peekToken()
 
-        self.popToken(Token("EOF",  self.linePos()))
-        return self.peekToken()
+        return None
 
     def getTokens(self):
         err = None
-        while self.getNextToken().type != "EOF":
+        while self.getNextToken():
             if self.peekToken().type == "TKN_ERROR":
                 err = f"Invalid token at {self.peekToken().pos}"
+                self.tokens.pop(-1)
                 break
-            self.tokens.append(self.peekToken())
         return self.tokens, err
 
     def checkTokens(self):
