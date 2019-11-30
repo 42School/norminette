@@ -196,7 +196,10 @@ class Lexer:
                 self.popChar(), self.popChar()
                 break
         if tkn_value.endswith("*/"):
-            self.tokens.append(Token("MULT_COMMENT", self.linePos(), tkn_value))
+            self.tokens.append(Token(
+                                    "MULT_COMMENT",
+                                    self.linePos(),
+                                    tkn_value))
         else:
             self.tokens.append(Token("TKN_ERROR", self.linePos()))
 
