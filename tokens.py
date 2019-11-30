@@ -14,7 +14,7 @@ class Token:
         Token representation for debugging, using the format <TYPE=value>
         or simply <TYPE> when value is None
         """
-        r = f'<{self.type}={self.value}>' if self.value else f'<{self.type}>'
+        r = f'<{self.type}={self.value}{self.pos}>' if self.value else f'<{self.type}{self.pos}>'
         return r
 
     def test(self):

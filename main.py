@@ -14,7 +14,7 @@ def main():
         if arg[-2:] not in [".c", ".h"]:
             print(f"{arg} is not valid C or C header file")
         else:
-            print(Lexer.getTokens())
+            print(arg + ": ok")
 
 
 if __name__ == "__main__":
