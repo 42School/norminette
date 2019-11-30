@@ -4,5 +4,5 @@ class FirstRule:
         self.name = "First Rule"
         # self.rule_func()
 
-    def rule_func(self):
+    def run(self):
         print("Hello my name is " + self.name)

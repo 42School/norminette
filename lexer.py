@@ -76,8 +76,6 @@ class Lexer:
             return False
 
     def isCharConstant(self):
-        """
-        """
         if self.peekChar() == '\'' or self.peekSubString(2) == "L'":
             return True
         else:
@@ -252,7 +250,7 @@ class Lexer:
                             self.linePos()))
                 self.popChar(), self.popChar()
             elif self.peekChar() in "+-<>=&|":
-                if self.peekSubString(2) == self.peekChar() + self.peekChar():
+                if self.peekSubString(2) == self.peekChar() * 2:
                     self.popToken(Token(
                                 operators[self.peekSubString(2)],
                                 self.linePos()))
@@ -355,6 +353,9 @@ class Lexer:
         return self.tokens, err
 
     def checkTokens(self):
+        """
+        This function is only used for testing
+        """
         if self.tokens == []:
             self.getTokens()
             if self.tokens == []:

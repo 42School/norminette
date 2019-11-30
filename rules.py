@@ -1,32 +1,28 @@
 import importlib
 from glob import glob
 
-# import rules.third_rule as third_rule
-
 
 class Rules:
     def __init__(self):
         self.rules = []
         self.getRules()
-        print(self.rules)
         pass
 
     def getRules(self):
-        filenames = glob('rules/*.py')
-
-
-        for f in filenames:
-            module_name = f.split('/')[1]
-            f_name_parts = module_name.split('_')
-            module_name = module_name.split('.')[0]
-            f_name_parts[-1] = f_name_parts[-1].split('.')[0]
-            c_name = "".join([file_part.capitalize()
-                    for file_part in f_name_parts])
-            if c_name != 'Init':
-                module_path = "rules." + module_name
-                module = importlib.import_module(module_path)
-                rule = getattr(module, c_name)
+        files = glob('rules/*.py')
+        for f in files:
+            mod_name = f.split('/')[1].split('.')[0]
+            class_name = "".join([s.capitalize() for s in mod_name.split('_')])
+            if class_name != 'Init':
+                path = "rules." + mod_name
+                module = importlib.import_module(path)
+                rule = getattr(module, class_name)
                 self.rules.append(rule)
-                rule().rule_func()
+# This is just for testing
+                rule().run()
 
-Rules()
+    def run(self, tokens):
+        error = False
+        for rule in self.rules:
+            error = True if rule().run() else error
+        return error
