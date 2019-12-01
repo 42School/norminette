@@ -1,6 +1,6 @@
 import unittest
 import sys
-from lexer import Lexer, TokenError
+from lexer.lexer import Lexer, TokenError
 
 
 class CharConstTokenTest(unittest.TestCase):

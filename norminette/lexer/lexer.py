@@ -1,7 +1,7 @@
 import re
 import string
-from tokens import Token
-from dictionary import keywords, operators, brackets
+from lexer.tokens import Token
+from lexer.dictionary import keywords, operators, brackets
 
 
 def read_file(filename):

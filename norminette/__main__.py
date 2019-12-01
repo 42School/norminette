@@ -1,7 +1,6 @@
-from lexer import Lexer
 import sys
 import glob
-
+from lexer.lexer import Lexer
 
 def main():
     args = sys.argv
@@ -14,7 +13,12 @@ def main():
         if arg[-2:] not in [".c", ".h"]:
             print(f"{arg} is not valid C or C header file")
         else:
-            print(arg + ": ok")
+            with open(arg) as f:
+                try:
+                    Lexer(f.read()).getTokens()
+                    print(arg + ": OK")
+                except:
+                    print(arg + ": KO")
 
 
 if __name__ == "__main__":

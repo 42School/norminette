@@ -1,6 +1,6 @@
 import unittest
 import sys
-from lexer import Lexer
+from lexer.lexer import Lexer
 
 
 def eat_tokens(line):

@@ -2,7 +2,7 @@ import unittest
 import sys
 import glob
 from functools import wraps
-from lexer import Lexer, TokenError
+from lexer.lexer import Lexer, TokenError
 
 
 def read_file(filename):

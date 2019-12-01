@@ -9,7 +9,7 @@ class Rules:
         pass
 
     def getRules(self):
-        files = glob('rules/*.py')
+        files = glob('*_rule.py')
         for f in files:
             mod_name = f.split('/')[1].split('.')[0]
             class_name = "".join([s.capitalize() for s in mod_name.split('_')])
