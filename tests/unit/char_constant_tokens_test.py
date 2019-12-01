@@ -1,9 +1,16 @@
 import unittest
 import sys
-from lexer import Lexer
+from lexer import Lexer, TokenError
 
 
 class CharConstTokenTest(unittest.TestCase):
+    def assertRaises(self, test):
+        try:
+            test()
+            return False
+        except TokenError:
+            return True
+
     def test_basic_char(self):
         self.assertEqual(
             Lexer("'*'").getNextToken().test(),
@@ -30,19 +37,13 @@ class CharConstTokenTest(unittest.TestCase):
             "<CHAR_CONST='0x042'>")
 
     def test_error_newline_in_const(self):
-        self.assertEqual(
-            Lexer("'\n1'").getNextToken().test(),
-            "<TKN_ERROR>")
+        self.assertRaises(Lexer("'\n1'").getNextToken)
 
     def test_error_escaped_newline_followed_by_newline(self):
-        self.assertEqual(
-            Lexer("'\\n\n'").getNextToken().test(),
-            "<TKN_ERROR>")
+        self.assertRaises(Lexer("'\\n\n'").getNextToken)
 
     def test_error_unclosed_quote(self):
-        self.assertEqual(
-            Lexer("'A").getNextToken().test(),
-            "<TKN_ERROR>")
+        self.assertRaises(Lexer("'A").getNextToken)
 
 
 if __name__ == '__main__':

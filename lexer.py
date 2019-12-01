@@ -8,6 +8,13 @@ def read_file(filename):
     with open(filename) as f:
         return f.read()
 
+class TokenError(Exception):
+   """Raised when the input doesn't match any token"""
+   def __init__(self, pos):
+        self.err = f"Token at line {pos[0]}, col {pos[1]} " \
+                    + "is not correctly formatted"
+
+
 class Lexer:
     def __init__(self, source_code):
         self.src = source_code
@@ -33,10 +40,10 @@ class Lexer:
         return self.__char
 
     def popChar(self):
-        if self.__pos < self.len and self.src[self.__pos] == '\\':
-            self.__pos += 1
         if self.peekChar() == "\t":
             self.__line_pos += 3
+        if self.__pos < self.len and self.src[self.__pos] == '\\':
+            self.__pos += 1
         self.__pos += 1
         self.__line_pos += 1
         return self.peekChar()
@@ -96,7 +103,7 @@ class Lexer:
             self.popChar()
         tkn_value += self.peekChar() if self.peekChar() is not None else ""
         if self.peekChar() in ["\n", None]:
-            self.tokens.append(Token("TKN_ERROR", pos))
+            raise TokenError(pos)
         else:
             self.tokens.append(Token("STRING", pos, tkn_value))
         self.popChar()
@@ -122,49 +129,43 @@ class Lexer:
                     return
                 for c in "xX":
                     if c in tkn_value:
-                        self.tokens.append(Token("TKN_ERROR", pos))
-                        return
+                        raise TokenError(pos)
 
             elif self.peekChar() in "eE" \
                     and "x" not in tkn_value and "X" not in tkn_value:
                 for c in "eE":
                     if c in tkn_value:
-                        self.tokens.append(Token("TKN_ERROR", pos))
-                        return
+                        raise TokenError(pos)
 
             elif self.peekChar() in "lL":
                 lcount = tkn_value.count("l") + tkn_value.count("L")
                 if lcount > 1 or (lcount == 1 and tkn_value[-1] not in "lL") \
                         or "e" in tkn_value or "E" in tkn_value:
-                    self.tokens.append(Token("TKN_ERROR", pos))
-                    return
+                    raise TokenError(pos)
 
             elif self.peekChar() in "uU":
                 if "u" in tkn_value or "U" in tkn_value \
                         or "e" in tkn_value or "E" in tkn_value:
-                    self.tokens.append(Token("TKN_ERROR", pos))
-                    return
+                    raise TokenError(pos)
 
             elif self.peekChar() in "aAbBcCdDeEfF" \
                     and tkn_value.startswith("0x") is False \
                     and tkn_value.startswith("0X") is False:
-                self.tokens.append(Token("TKN_ERROR", pos))
-                return
+                    raise TokenError(pos)
 
             elif self.peekChar() in "0123456789" \
                     and "u" in tkn_value or "U" in tkn_value \
                     or "l" in tkn_value or "L" in tkn_value:
-                self.tokens.append(Token("TKN_ERROR", pos))
-                return
+                raise TokenError(pos)
 
             elif self.peekChar() == '.' and '.' in tkn_value:
-                self.tokens.append(Token("TKN_ERROR", pos))
-                return
+                raise TokenError(pos)
 
             tkn_value += self.peekChar()
             self.popChar()
-        if tkn_value[-1] in "eExX":
-            self.tokens.append(Token("TKN_ERROR", pos))
+        if tkn_value[-1] in "eE" and tkn_value.startswith("0x") is False \
+                or tkn_value[-1] in "xX":
+            raise TokenError(pos)
         else:
             self.tokens.append(Token(
                                     "CONSTANT",
@@ -189,7 +190,7 @@ class Lexer:
                                         tkn_value))
                 return
             self.popChar()
-        self.tokens.append(Token("TKN_ERROR", pos))
+        raise TokenError(pos)
 
     def multComment(self):
         pos = self.linePos()
@@ -211,23 +212,25 @@ class Lexer:
                                     pos,
                                     tkn_value))
         else:
-            self.tokens.append(Token("TKN_ERROR", pos))
+            raise TokenError(pos)
 
     def comment(self):
         pos = self.linePos()
         tkn_value = "//"
         self.popChar(), self.popChar()
         while self.peekChar():
+            if self.peekChar() == '\n':
+                self.tokens.append(Token("COMMENT", pos, tkn_value))
+                return
             tkn_value += self.peekChar()
             self.popChar()
-            if self.peekChar() == '\n':
-                break
-        self.tokens.append(Token("COMMENT", pos, tkn_value))
+        raise TokenError(pos)
 
     def identifier(self):
         pos = self.linePos()
         tkn_value = ""
-        while self.peekChar() in string.ascii_letters + "0123456789_":
+        while self.peekChar() \
+                and self.peekChar() in string.ascii_letters + "0123456789_":
             tkn_value += self.peekChar()
             self.popChar()
         if tkn_value in keywords:
@@ -347,21 +350,16 @@ class Lexer:
                 self.popChar()
 
             else:
-                self.tokens.append(Token("TKN_ERROR", self.linePos()))
-                self.popChar()
+                raise TokenError(self.linePos())
 
             return self.peekToken()
 
         return None
 
     def getTokens(self):
-        err = None
         while self.getNextToken():
-            if self.peekToken().type == "TKN_ERROR":
-                err = f"Invalid token at {self.peekToken().pos}"
-                self.tokens.pop(-1)
-                break
-        return self.tokens, err
+            continue
+        return self.tokens
 
     def checkTokens(self):
         """
