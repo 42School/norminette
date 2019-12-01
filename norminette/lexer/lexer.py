@@ -12,7 +12,7 @@ def read_file(filename):
 class TokenError(Exception):
     def __init__(self, pos):
         self.pos = pos
-        self.err = f"Unexpected token line {pos[0]}, col {pos[1]}\n"
+        self.err = f"Unrecognized token line {pos[0]}, col {pos[1]}\n"
 
 
 class Lexer:
@@ -125,8 +125,7 @@ class Lexer:
         while self.peekChar() and self.peekChar() in bucket:
             if self.peekChar() in "xX":
                 if tkn_value.startswith("0") is False or len(tkn_value) > 1:
-                    self.tokens.append(Token("TKN_ERROR", pos))
-                    return
+                    raise TokenError(pos)
                 for c in "xX":
                     if c in tkn_value:
                         raise TokenError(pos)
