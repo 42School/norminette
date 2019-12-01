@@ -8,11 +8,13 @@ def read_file(filename):
     with open(filename) as f:
         return f.read()
 
+
 class TokenError(Exception):
-   """Raised when the input doesn't match any token"""
-   def __init__(self, pos):
-        self.err = f"Token at line {pos[0]}, col {pos[1]} " \
-                    + "is not correctly formatted"
+    def __init__(self, pos):
+        self.pos = pos
+        self.err = f(
+                    "Token at line {pos[0]}, col {pos[1]} "
+                    + "is not correctly formatted")
 
 
 class Lexer:
@@ -151,7 +153,7 @@ class Lexer:
             elif self.peekChar() in "aAbBcCdDeEfF" \
                     and tkn_value.startswith("0x") is False \
                     and tkn_value.startswith("0X") is False:
-                    raise TokenError(pos)
+                raise TokenError(pos)
 
             elif self.peekChar() in "0123456789" \
                     and "u" in tkn_value or "U" in tkn_value \

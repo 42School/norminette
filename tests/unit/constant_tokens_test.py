@@ -137,7 +137,7 @@ class ConstantTokensTest(unittest.TestCase):
                         "<OP_DOT><IDENTIFIER=e42>\n")
 
     def test_another_misplaced_e(self):
-        self.assertRaises(Lexer(".42e").checkTokens)#, TokenError)
+        self.assertRaises(Lexer(".42e").checkTokens)
 
 
 if __name__ == '__main__':
