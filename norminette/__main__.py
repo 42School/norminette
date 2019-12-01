@@ -1,6 +1,7 @@
 import sys
 import glob
-from lexer.lexer import Lexer
+from lexer.lexer import Lexer, TokenError
+
 
 def main():
     args = sys.argv
@@ -17,7 +18,7 @@ def main():
                 try:
                     Lexer(f.read()).getTokens()
                     print(arg + ": OK")
-                except:
+                except TokenError:
                     print(arg + ": KO")
 
 
