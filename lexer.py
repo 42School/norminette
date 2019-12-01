@@ -12,7 +12,7 @@ def read_file(filename):
 class TokenError(Exception):
     def __init__(self, pos):
         self.pos = pos
-        self.err = f"Unexpected token line {pos[0]}, col {pos[1]}"
+        self.err = f"Unexpected token line {pos[0]}, col {pos[1]}\n"
 
 
 class Lexer:
