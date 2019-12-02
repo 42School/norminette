@@ -40,9 +40,3 @@ class IdentifiersTokensTest(unittest.TestCase):
         self.assertEqual(
                 eat_tokens("this_is_a_very_long_identifier_"),
                 "<IDENTIFIER=this_is_a_very_long_identifier_>")
-
-    # def test_only_31_characters_are_significant(self):
-    #     self.assertEqual(
-    #             eat_tokens("this_is_a_very_long_identifier_this_should_not_count")
-    #             ,
-    #             "IDENTIFIER")

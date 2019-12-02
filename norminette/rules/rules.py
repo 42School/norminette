@@ -13,11 +13,10 @@ class Rules:
         for f in files:
             mod_name = f.split('/')[1].split('.')[0]
             class_name = "".join([s.capitalize() for s in mod_name.split('_')])
-            if class_name != 'Init':
-                path = "rules." + mod_name
-                module = importlib.import_module(path)
-                rule = getattr(module, class_name)
-                self.rules.append(rule)
+            path = "rules." + mod_name
+            module = importlib.import_module(path)
+            rule = getattr(module, class_name)
+            self.rules.append(rule)
 # This is just for testing
                 rule().run()
 
