@@ -2,7 +2,8 @@ import sys
 import glob
 import difflib
 from functools import wraps
-from lexer.lexer import Lexer, TokenError
+from lexer import Lexer
+from lexer import TokenError
 
 
 def read_file(filename):
@@ -16,18 +17,21 @@ class norminetteFileTester():
         self.__tests = 0
         self.__failed = 0
         self.__success = 0
+        self.result = []
 
     def assertEqual(self, first, second):
         self.maxDiff = None
         if first == second:
             self.__success += 1
             print("OK")
+            self.result.append(".")
         else:
             print("KO")
             self.__failed += 1
             diff = difflib.ndiff(first.splitlines(keepends=True),
                                  second.splitlines(keepends=True))
             diff = list(diff)
+            self.result.append("x")
             print(''.join(diff))
 
     def assertRaises(self, test, ref):
@@ -35,17 +39,17 @@ class norminetteFileTester():
             test()
             self.__failed += 1
             print("KO")
-            return False
+            self.result.append("x")
         except TokenError as e:
             if e.err == ref:
                 self.__success += 1
                 print("OK")
-                return True
+                self.result.append(".")
             else:
                 print("KO")
                 print(e.err + "(output)\n", ref + "(reference output)")
                 self.__failed += 1
-                return False
+                self.result.append("x")
 
     def test_files(self):
         files = glob.glob("tests/files/*.c")
@@ -62,8 +66,11 @@ class norminetteFileTester():
                 reference_output = read_file(f.split(".")[0] + ".err")
                 func = Lexer(read_file(f)).checkTokens
                 self.assertRaises(func, reference_output)
-        print(f'Total {self.__tests}, Success {self.__success}' +
-              f', Failed {self.__failed}')
+        print("----------------------------------")
+        print(f'Total {self.__tests}\nSuccess {self.__success}' +
+              f', Failed {self.__failed}:')
+        print("".join(self.result))
+        print("OK!" if self.__failed == 0 else "KO!")
         sys.exit(0 if self.__failed == 0 else 1)
 
 
