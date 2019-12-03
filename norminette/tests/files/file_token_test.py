@@ -24,14 +24,14 @@ class norminetteFileTester():
         if first == second:
             self.__success += 1
             print("OK")
-            self.result.append(".")
+            self.result.append("✓ ")
         else:
             print("KO")
             self.__failed += 1
             diff = difflib.ndiff(first.splitlines(keepends=True),
                                  second.splitlines(keepends=True))
             diff = list(diff)
-            self.result.append("x")
+            self.result.append("✗ ")
             print(''.join(diff))
 
     def assertRaises(self, test, ref):
@@ -39,17 +39,20 @@ class norminetteFileTester():
             test()
             self.__failed += 1
             print("KO")
-            self.result.append("x")
+            self.result.append("✗ ")
         except TokenError as e:
             if e.err == ref:
                 self.__success += 1
                 print("OK")
-                self.result.append(".")
+                self.result.append("✓ ")
             else:
-                print("KO")
-                print(e.err + "(output)\n", ref + "(reference output)")
                 self.__failed += 1
-                self.result.append("x")
+                print("KO")
+                diff = difflib.ndiff(e.err.splitlines(keepends=True),
+                                     ref.splitlines(keepends=True))
+                diff = list(diff)
+                self.result.append("✗ ")
+                print(''.join(diff))
 
     def test_files(self):
         files = glob.glob("tests/files/*.c")
@@ -58,19 +61,23 @@ class norminetteFileTester():
         for f in files:
             self.__tests += 1
             print(f.split('/')[-1], end=": ")
+
             if f.split('/')[-1].startswith("ok"):
                 output = Lexer(read_file(f)).checkTokens()
                 reference_output = read_file(f.split(".")[0] + ".tokens")
                 self.assertEqual(output, reference_output)
+
             elif f.split('/')[-1].startswith("ko"):
                 reference_output = read_file(f.split(".")[0] + ".err")
                 func = Lexer(read_file(f)).checkTokens
                 self.assertRaises(func, reference_output)
+
         print("----------------------------------")
-        print(f'Total {self.__tests}\nSuccess {self.__success}' +
-              f', Failed {self.__failed}:')
+        print(f"Total {self.__tests}")
         print("".join(self.result))
+        print(f"Success {self.__success}, Failed {self.__failed}: ", end="")
         print("OK!" if self.__failed == 0 else "KO!")
+
         sys.exit(0 if self.__failed == 0 else 1)
 
 
