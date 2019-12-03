@@ -121,7 +121,7 @@ class Lexer:
         pos = self.linePos()
         sign = None
         tkn_value = ""
-        bucket = ".0123456789aAbBcCdDeEfFlLuUxX"
+        bucket = ".0123456789aAbBcCdDeEfFlLuUxX-+"
         while self.peekChar() and self.peekChar() in bucket:
             if self.peekChar() in "xX":
                 if tkn_value.startswith("0") is False or len(tkn_value) > 1:
@@ -129,6 +129,12 @@ class Lexer:
                 for c in "xX":
                     if c in tkn_value:
                         raise TokenError(pos)
+
+            elif self.peekChar() in "+-":
+                if tkn_value.endswith("e") is False \
+                        and tkn_value.endswith("E") is False \
+                        or self.peekSubString(2) in ["++", "--"]:
+                    break
 
             elif self.peekChar() in "eE" \
                     and "x" not in tkn_value and "X" not in tkn_value:
@@ -147,7 +153,16 @@ class Lexer:
                         or "e" in tkn_value or "E" in tkn_value:
                     raise TokenError(pos)
 
-            elif self.peekChar() in "aAbBcCdDeEfF" \
+            elif self.peekChar() in "Ff":
+                if tkn_value.startswith("0x") is False \
+                    and tkn_value.startswith("0X") is False \
+                    and (
+                        "." not in tkn_value
+                        or "f" in tkn_value
+                        or "F" in tkn_value):
+                    raise TokenError(pos)
+
+            elif self.peekChar() in "aAbBcCdDeE" \
                     and tkn_value.startswith("0x") is False \
                     and tkn_value.startswith("0X") is False:
                 raise TokenError(pos)

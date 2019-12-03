@@ -2,6 +2,7 @@ void foo()
 {
 float a = 4.2;
 a = 4.2e4;
+a = 4.2e-4;
 a = 10.12e3f;
 a = 4.2f;
 a = .2f;
