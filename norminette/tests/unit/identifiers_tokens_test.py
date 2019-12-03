@@ -36,6 +36,9 @@ class IdentifiersTokensTest(unittest.TestCase):
     def test_identifier_can_not_start_with_a_number(self):
         self.assertNotEqual(eat_tokens("5_FOO_"), "<IDENTIFIER=5_FOO_>")
 
+    def test_identifier_can_not_have_a_space(self):
+        self.assertNotEqual(eat_tokens("foo 1"), "<IDENTIFIER=foo 1")
+
     def test_31_characters(self):
         self.assertEqual(
                 eat_tokens("this_is_a_very_long_identifier_"),
