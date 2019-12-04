@@ -98,21 +98,6 @@ class ConstantTokensTest(unittest.TestCase):
                         Lexer("42u").checkTokens(),
                         "<CONSTANT=42u>\n")
 
-    def test_unsigned_mixed_caps_constant(self):
-        self.assertEqual(
-                        Lexer("42uLl").checkTokens(),
-                        "<CONSTANT=42uLl>\n")
-
-    def test_unsigned_mixed_caps_constant_2(self):
-        self.assertEqual(
-                        Lexer("42ULl").checkTokens(),
-                        "<CONSTANT=42ULl>\n")
-
-    def test_unsigned_mixed_caps_and_hex_constant(self):
-        self.assertEqual(
-                        Lexer("0x42UlL").checkTokens(),
-                        "<CONSTANT=0x42UlL>\n")
-
     def test_error_too_many_dots(self):
         self.assertRaises(Lexer("4.4.4").checkTokens)
 

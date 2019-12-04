@@ -20,9 +20,9 @@ class Lexer:
         self.src = source_code
         self.len = len(source_code)
         self.__char = self.src[0] if self.src != "" else None
-        self.__pos = 0
-        self.__line_pos = 1
-        self.__line = 1
+        self.__pos = int(0)
+        self.__line_pos = int(1)
+        self.__line = int(1)
         self.tokens = []
 
     def peekSubString(self, size):
@@ -41,11 +41,14 @@ class Lexer:
 
     def popChar(self):
         if self.peekChar() == "\t":
-            self.__line_pos += 3
+            self.__line_pos = int((
+                                self.__line_pos + 4 -
+                                (self.__line_pos - 1) % 4) * 5 / 5)
+        else:
+            self.__line_pos += 1
         if self.__pos < self.len and self.src[self.__pos] == '\\':
             self.__pos += 1
         self.__pos += 1
-        self.__line_pos += 1
         return self.peekChar()
 
     def peekToken(self):
@@ -118,8 +121,8 @@ class Lexer:
         Hexadecimals constants only allow one 'X' or 'x'.
         Real numbers cam only contain one 'E' or 'e'
         """
+
         pos = self.linePos()
-        sign = None
         tkn_value = ""
         bucket = ".0123456789aAbBcCdDeEfFlLuUxX-+"
         while self.peekChar() and self.peekChar() in bucket:
@@ -152,6 +155,9 @@ class Lexer:
                 lcount = tkn_value.count("l") + tkn_value.count("L")
                 if lcount > 1 or (lcount == 1 and tkn_value[-1] not in "lL") \
                         or "e" in tkn_value or "E" in tkn_value:
+                    raise TokenError(pos)
+                elif self.peekChar() == 'l' and 'L' in tkn_value \
+                        or self.peekChar() == 'L' and 'l' in tkn_value:
                     raise TokenError(pos)
 
             elif self.peekChar() in "uU":
@@ -220,7 +226,7 @@ class Lexer:
             tkn_value += self.peekChar()
             if self.peekChar() == '\n':
                 self.__line += 1
-                self.__line_pos = 0
+                self.__line_pos = 1
             self.popChar()
             if self.src[self.__pos:].startswith("*/"):
                 tkn_value += "*/"
@@ -359,9 +365,9 @@ class Lexer:
 
             elif self.peekChar() in ['\n', '\\\n']:
                 self.tokens.append(Token("NEWLINE", self.linePos()))
-                self.__line_pos = 0
-                self.__line += 1
                 self.popChar()
+                self.__line_pos = 1
+                self.__line += 1
 
             elif self.peekChar() in brackets:
                 self.tokens.append(Token(
