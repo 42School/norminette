@@ -1,6 +1,7 @@
 import sys
 import glob
 from lexer.lexer import Lexer, TokenError
+from colors import format_output as txtformat
 
 
 def main():
@@ -18,8 +19,8 @@ def main():
                 try:
                     Lexer(f.read()).getTokens()
                     print(arg + ": OK")
-                except TokenError:
-                    print(arg + ": KO")
+                except TokenError as e:
+                    print(arg + f": KO!\n\t{txtformat(e.msg, 'red')}")
 
 
 if __name__ == "__main__":

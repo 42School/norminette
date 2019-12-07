@@ -11,8 +11,10 @@ def read_file(filename):
 
 class TokenError(Exception):
     def __init__(self, pos):
-        self.pos = pos
-        self.err = f"Unrecognized token line {pos[0]}, col {pos[1]}\n"
+        self.msg = f"Unrecognized token line {pos[0]}, col {pos[1]}"
+
+    def __repr__(self):
+        return self.msg
 
 
 class Lexer:
