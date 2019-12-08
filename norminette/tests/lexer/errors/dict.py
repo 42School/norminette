@@ -21,6 +21,5 @@ failed_tokens_tests = {
     "int number = 10UU": [1, 14],
     "float number=10.12fe10": [1, 14],
     "float number=10.fU": [1, 14],
-    "float number=e21.3E56": [1, 14],
     "float number=21.3E56E4654": [1, 14],
 }
