@@ -11,5 +11,16 @@ failed_tokens_tests = {
     "int number = 0x1ULl;": [1, 14],
     "int number = 0x1lL;": [1, 14],
     "int number = 0x1Ll;": [1, 14],
-    "int number = 0x1UlL;": [1, 14]
+    "int number = 0x1UlL;": [1, 14],
+    "int number = 10ullll": [1, 14],
+    "int number = 10lul": [1, 14],
+    "int number = 10lUl": [1, 14],
+    "int number = 10LUl": [1, 14],
+    "int number = 10uu": [1, 14],
+    "int number = 10Uu": [1, 14],
+    "int number = 10UU": [1, 14],
+    "float number=10.12fe10": [1, 14],
+    "float number=10.fU": [1, 14],
+    "float number=e21.3E56": [1, 14],
+    "float number=21.3E56E4654": [1, 14],
 }
