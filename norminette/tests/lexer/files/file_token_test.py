@@ -55,23 +55,22 @@ class norminetteFileTester():
                 print(''.join(diff))
 
     def test_files(self):
-        files = glob.glob("tests/lexer/files/ok_*.c")
+        files = glob.glob("tests/lexer/files/*.c")
         files.sort()
         for f in files:
             self.__tests += 1
             print(f.split('/')[-1], end=": ")
 
-            if f.split('/')[-1].startswith("ok"):
-                try:
-                    output = Lexer(read_file(f)).checkTokens()
-                except TokenError as t:
-                    self.__failed += 1
-                    print("KO")
-                    print(t)
-                    self.result.append("✗ ")
-                    continue
-                reference_output = read_file(f.split(".")[0] + ".tokens")
-                self.assertEqual(output, reference_output)
+            try:
+                output = Lexer(read_file(f)).checkTokens()
+            except TokenError as t:
+                self.__failed += 1
+                print("KO")
+                print(t)
+                self.result.append("✗ ")
+                continue
+            reference_output = read_file(f.split(".")[0] + ".tokens")
+            self.assertEqual(output, reference_output)
 
         print("----------------------------------")
         print(f"Total {self.__tests}")
