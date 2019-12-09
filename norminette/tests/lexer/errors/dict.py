@@ -19,12 +19,13 @@ failed_tokens_tests = {
     "int number = 10uu": [1, 14],
     "int number = 10Uu": [1, 14],
     "int number = 10UU": [1, 14],
-    "float number=10.12fe10": [1, 14],
-    "float number=10.fU": [1, 14],
-    "float number=21.3E56E4654": [1, 14],
-    "float number=105e4d": [1, 14],
     "int number = 0b0101e": [1, 14],
     "int number = 0b0101f": [1, 14],
     "int number = 0b0X101f": [1, 14],
     "int number = 0X101Uf": [1, 14],
+    "int number = 0101f": [1, 14],
+    "float number=10.12fe10": [1, 14],
+    "float number=10.fU": [1, 14],
+    "float number=21.3E56E4654": [1, 14],
+    "float number=105e4d": [1, 14]
 }
