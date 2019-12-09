@@ -172,20 +172,20 @@ class Lexer:
 
             elif self.peekChar() in "Ff":
                 if tkn_value.startswith("0x") is False \
-                    and tkn_value.startswith("0X") is False \
-                    and (
-                        "." not in tkn_value
-                        or "f" in tkn_value
-                        or "F" in tkn_value) \
-                    or "u" in tkn_value or "U" in tkn_value \
-                    or "l" in tkn_value or "L" in tkn_value:
+                        and tkn_value.startswith("0X") is False \
+                        and (
+                            "." not in tkn_value
+                            or "f" in tkn_value
+                            or "F" in tkn_value) \
+                        or "u" in tkn_value or "U" in tkn_value \
+                        or "l" in tkn_value or "L" in tkn_value:
                     raise TokenError(pos)
 
             elif self.peekChar() in "aAbBcCdDeE" \
                     and tkn_value.startswith("0x") is False \
                     and tkn_value.startswith("0X") is False \
                     or "u" in tkn_value or "U" in tkn_value \
-                    or "l" in tkn_value or "L" in tkn_value :
+                    or "l" in tkn_value or "L" in tkn_value:
                 raise TokenError(pos)
 
             elif self.peekChar() in "0123456789" \
