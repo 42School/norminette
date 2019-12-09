@@ -37,3 +37,5 @@ int number36 = 0x012fu;
 int number37 = 0x012fl;
 int number38 = 0x012fllu;
 int number39 = 0x012aeFfllu;
+int number40 = 0x012aeFfu;
+int number41 = 0x012eu;

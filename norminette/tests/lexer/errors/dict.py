@@ -29,5 +29,6 @@ failed_tokens_tests = {
     "float number=21.3E56E4654": [1, 14],
     "float number=105e4d": [1, 14],
     "float number=105flu": [1, 14],
-    "float number=105fu": [1, 14]
+    "float number=105fu": [1, 14],
+    "float number=105eu": [1, 14]
 }
