@@ -20,36 +20,20 @@ class norminetteTester():
         self.__success = 0
         self.result = []
 
-    def assertEqual(self, first, second):
-        self.maxDiff = None
-        if first == second:
-            self.__success += 1
-            print("OK")
-            self.result.append("✓ ")
-        else:
-            print("KO")
-            self.__failed += 1
-            diff = difflib.ndiff(first.splitlines(keepends=True),
-                                 second.splitlines(keepends=True))
-            diff = list(diff)
-            self.result.append("✗ ")
-            print(''.join(diff))
-
-    def assertRaises(self, test, ref):
+    def assertRaises(self, test, ref, test_line):
         try:
             diff = "".join(test())
             self.__failed += 1
-            print("KO")
+            print(test_line + "KO")
             print(diff, end="")
             self.result.append("✗ ")
         except TokenError as e:
             if e.msg == ref:
                 self.__success += 1
-                print(f"OK")
                 self.result.append("✓ ")
             else:
                 self.__failed += 1
-                print("KO")
+                print(test_line + "KO")
                 diff = difflib.ndiff(e.msg.splitlines(),
                                      ref.splitlines())
                 diff = list(diff)
@@ -63,9 +47,7 @@ class norminetteTester():
             self.__tests += 1
             ref_output = f"Unrecognized token line {val[0]}, col {val[1]}"
             func = Lexer(key).checkTokens
-            print(f"Test {i}:", end=" ")
-            print(repr(str(key)), end=" ")
-            self.assertRaises(func, ref_output)
+            self.assertRaises(func, ref_output, f"Test {i}: " + repr(str(key)))
             i += 1
 
         print("----------------------------------")
