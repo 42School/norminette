@@ -13,6 +13,7 @@ test_job:
     - pip install -r requirements.txt
     - pycodestyle $(find norminette/ -d -name "*.py")
     - echo "Running Lexer Unit Tests"
-    - cd norminette && python -m unittest discover tests/unit "*.py"
+    - cd norminette && python -m unittest discover tests/lexer/unit-tests "*.py"
     - echo "Running Lexer tests on files"
-    - python -m tests.files.file_token_test  
+    - python -m tests.lexer.files.file_token_test
+    - python -m tests.lexer.error.tester
