@@ -32,3 +32,7 @@ float number31 = -.6;
 float number32 = .6e12;
 int number33 = 0xee12;
 int number34 = 0x0ffe12;
+int number35 = 0x012ful;
+int number36 = 0x012fu;
+int number37 = 0x012fl;
+int number38 = 0x012fllu;

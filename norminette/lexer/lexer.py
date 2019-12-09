@@ -158,7 +158,8 @@ class Lexer:
             elif self.peekChar() in "lL":
                 lcount = tkn_value.count("l") + tkn_value.count("L")
                 if lcount > 1 or (lcount == 1 and tkn_value[-1] not in "lL") \
-                        or "e" in tkn_value or "E" in tkn_value:
+                        or ("e" in tkn_value or "E" in tkn_value) \
+                        and "0x" not in tkn_value and "0X" not in tkn_value:
                     raise TokenError(pos)
                 elif self.peekChar() == 'l' and 'L' in tkn_value \
                         or self.peekChar() == 'L' and 'l' in tkn_value:
@@ -166,8 +167,11 @@ class Lexer:
 
             elif self.peekChar() in "uU":
                 if "u" in tkn_value or "U" in tkn_value \
-                        or "e" in tkn_value or "E" in tkn_value \
-                        or "f" in tkn_value or "F" in tkn_value:
+                        or (("e" in tkn_value or "E" in tkn_value
+                            or "f" in tkn_value or "F" in tkn_value)
+                            and (
+                                "0x" not in tkn_value
+                                and "0X" not in tkn_value)):
                     raise TokenError(pos)
 
             elif self.peekChar() in "Ff":
