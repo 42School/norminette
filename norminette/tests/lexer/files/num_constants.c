@@ -30,3 +30,5 @@ float number29 = 10.e+6;
 float number30 = -6.;
 float number31 = -.6;
 float number32 = .6e12;
+int number33 = 0xee12;
+int number34 = 0x0ffe12;
