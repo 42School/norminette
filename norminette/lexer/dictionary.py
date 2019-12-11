@@ -37,6 +37,7 @@ keywords = {
     # Preprocessor directives ##
     'define': "DEFINE",
     'error': "ERROR",
+    'endif': "ENDIF",
     'ifdef': "IFDEF",
     'ifndef': "IFNDEF",
     'include': "INCLUDE",
