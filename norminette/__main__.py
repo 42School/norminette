@@ -25,7 +25,7 @@ def main():
                 except TokenError as e:
                     print(arg + f": KO!\n\t{txtformat(e.msg, 'red')}")
 
-    print(Rules().rules)
+
 
 if __name__ == "__main__":
     main()

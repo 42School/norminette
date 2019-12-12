@@ -19,7 +19,7 @@ class Rules:
             module = importlib.import_module("rules." + mod_name)
             rule = getattr(module, class_name)
             self.rules.append(rule)
-        # This is just for testing 
+        # This is just for testing
         # rule().run()
 
     def run(self, tokens):
