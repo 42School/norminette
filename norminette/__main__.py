@@ -26,6 +26,5 @@ def main():
                     print(arg + f": KO!\n\t{txtformat(e.msg, 'red')}")
 
 
-
 if __name__ == "__main__":
     main()
