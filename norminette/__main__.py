@@ -1,7 +1,8 @@
 import sys
 import glob
-from lexer.lexer import Lexer, TokenError
-from colors import format_output as txtformat
+from lexer import Lexer, TokenError
+from rules import Rules
+from tools.colors import format_output as txtformat
 
 
 def main():
@@ -14,7 +15,9 @@ def main():
     for arg in args:
         if arg[-2:] not in [".c", ".h"]:
             print(f"{arg} is not valid C or C header file")
+
         else:
+
             with open(arg) as f:
                 try:
                     Lexer(f.read()).getTokens()
@@ -22,6 +25,7 @@ def main():
                 except TokenError as e:
                     print(arg + f": KO!\n\t{txtformat(e.msg, 'red')}")
 
+    print(Rules().rules)
 
 if __name__ == "__main__":
     main()
