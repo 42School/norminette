@@ -61,8 +61,6 @@ class Lexer:
 
     def isString(self):
         """
-        Strings can start either with `"` (one double quote character)
-        or `L"` (an `L` immediatly followed by a double quote character).
         """
         if self.peekSubString(2) == 'L"' or self.peekChar() == '"':
             return True
@@ -91,10 +89,6 @@ class Lexer:
 
     def string(self):
         """
-        If the string has no closing quote character, it is not properly
-        formatted and we most likely won't be able to make sense of the file's
-        content from here on. We'll stop parsing  here and send back an
-        TKN_ERROR token
         """
         pos = self.linePos()
         tkn_value = ""
@@ -116,12 +110,6 @@ class Lexer:
 
     def constant(self):
         """
-        Constant can be either:
-        -Integer (0, 1, etc)
-        -Octal (00, 01, etc)
-        -Hexadecimal (0x0, 0x1, etc)
-        Hexadecimals constants only allow one 'X' or 'x'.
-        Real numbers cam only contain one 'E' or 'e'
         """
 
         pos = self.linePos()
@@ -335,12 +323,6 @@ class Lexer:
 
     def getNextToken(self):
         """
-        This method creates and return 1 token at a time by reading the source
-        code character after character and matching a character or set of
-        characters to a pattern related to a token type.
-        If no pattern matches the current character or set of character, an
-        "TKN_ERROR" token will be returned.
-        After reading the whole file, an "EOF" token is returned
         """
         while self.peekChar() is not None:
 
