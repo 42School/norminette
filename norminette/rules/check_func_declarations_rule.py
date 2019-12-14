@@ -36,7 +36,7 @@ class checkFuncDeclaration:
         self.name = "CheckFuncDeclaration"
 
     def checkLine(line):
-        s = """
+        """
         func declaration can be made of :
             (
                 (
