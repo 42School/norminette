@@ -123,7 +123,7 @@ class Lexer:
                     if c in tkn_value:
                         raise TokenError(pos)
 
-            elif self.peekChar() == 'b':
+            elif self.peekChar() in "bB":
                 if tkn_value != "0" \
                         and tkn_value.startswith("0x") is False \
                         and tkn_value.startswith("0X") is False:
