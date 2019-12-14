@@ -37,6 +37,7 @@ class checkFuncDeclaration:
 
     def checkLine(line):
         """
+        #need to add support for function pointers
         func declaration can be made of :
             (
                 (
@@ -82,7 +83,7 @@ class checkFuncDeclaration:
         for tkn in tokens:
             if tkn.type is "NEWLINE":
                 """Parse the line and check if it's a function declaration
-                or prototype, is so apply the rules to it
+                or prototype, if so apply the rules to it
                 """
                 pass
             else:
