@@ -44,3 +44,4 @@ int number43 = a--++-b;
 float number44 = .44e-4f;
 double number45 = .44e-4L;
 int number46 = 0xFeel;
+int number47 = 0B101010;
