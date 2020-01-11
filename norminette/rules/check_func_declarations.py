@@ -1,3 +1,5 @@
+from .norm_error import NormError
+
 type_specifiers = [
     "CHAR",
     "DOUBLE",
@@ -27,7 +29,7 @@ sign_specifiers = [
 ]
 
 
-class checkFuncDeclaration:
+class CheckFuncDeclarations:
     def __init__(self):
         self.name = "CheckFuncDeclaration"
 
@@ -68,6 +70,11 @@ class checkFuncDeclaration:
             i += self.skip_ws(tokens, i)
             if tokens[i].type in type_specifiers:
                 i += 1
+                j = i
+                j = self.skip_ws(tokens, j)
+                if tokens[j] in ["CLOSING_PARENTHESIS", "OP_COMMA"]:
+                    #append error 1002 to context
+                    pass
                 return True, i
             return True, i
 
@@ -148,6 +155,27 @@ class checkFuncDeclaration:
                 return True, i
 
         return False, pos
+
+    def count_extra_func_args(self, tokens, pos):
+        return 0
+
+    def check_func_args(self, tokens, pos):
+        i = pos
+        i += self.skip_ws(tokens, i)
+        arg_count = 0
+        par_count = 0
+        while tokens[i].type == "OPENING_PARENTHESIS":
+            i += 1
+            par_count += 1
+        i += self.skip_ws(tokens, i)
+        ret, jump = self.check_var_format
+        if ret is False:
+            return False, pos
+        else:
+            arg_count += 1
+
+    def check_return_type(self, tokens, pos):
+        pass
 
     def run(self, tokens):
         ret, jump = self.check_type_prefix(tokens, 0)

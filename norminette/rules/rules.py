@@ -1,6 +1,7 @@
 import importlib
 import os
 from glob import glob
+from .context import Context
 
 
 class Rules:
@@ -22,8 +23,20 @@ class Rules:
         # This is just for testing
         # rule().run()
 
-    def run(self, tokens):
+    def run(self, tokens, filename):
         error = False
-        for rule in self.rules:
-            error = True if rule().run() else error
-        return error
+        context = Context(filename)
+        for i in range(len(tokens)):
+            # print(tokens[i], end="" if tokens[i].type != "NEWLINE" else "\n")
+            for rule in self.rules:
+                ret, jump = rule(tokens[i:], context)
+                if ret is True:
+                    i += jump
+                    break
+        if context.errors != []:
+            print(filename + ": KO!")
+            for error in context.errors:
+                print(error)
+        else:
+            print(filename + ": OK!")
+        return

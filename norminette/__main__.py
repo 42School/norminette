@@ -8,6 +8,7 @@ from tools.colors import format_output as txtformat
 def main():
     args = sys.argv
     args.pop(0)
+    rules = Rules()
 
     if args == []:
         args = glob.glob("**/*.[ch]", recursive=True)
@@ -20,8 +21,8 @@ def main():
 
             with open(arg) as f:
                 try:
-                    Lexer(f.read()).getTokens()
-                    print(arg + ": OK")
+                    tokens = Lexer(f.read()).getTokens()
+                    rules.run(tokens, arg)
                 except TokenError as e:
                     print(arg + f": KO!\n\t{txtformat(e.msg, 'red')}")
 
