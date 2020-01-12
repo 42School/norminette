@@ -32,6 +32,7 @@ sign_specifiers = [
 class CheckFuncDeclarations:
     def __init__(self):
         self.name = "CheckFuncDeclaration"
+        self.__i = 0
 
     def skip_ws(self, tokens, pos):
         i = 0
@@ -58,7 +59,24 @@ class CheckFuncDeclarations:
                 i += self.skip_ws(tokens, i)
                 if tokens[i].type in type_specifiers:
                     i += 1
+                    j = i
+                    j + skip_ws(tokens, j)
+                    if tokens[j] in ["CLOSING_PARENTHESIS", "OP_COMMA"]:
+                        #append error 1002 to context
+                        context.errors.append(
+                                            NormError(
+                                                    1002,
+                                                    tokens[j].line,
+                                                    tokens[j].col))
                     return True, i
+                j = i
+                if tokens[j] in ["CLOSING_PARENTHESIS", "OP_COMMA"]:
+                    #append error 1002 to context
+                    context.errors.append(
+                                        NormError(
+                                                1002,
+                                                tokens[j].line,
+                                                tokens[j].col))
                 return True, i
 
             else:
@@ -74,13 +92,26 @@ class CheckFuncDeclarations:
                 j = self.skip_ws(tokens, j)
                 if tokens[j] in ["CLOSING_PARENTHESIS", "OP_COMMA"]:
                     #append error 1002 to context
-                    pass
+                    context.errors.append(
+                                        NormError(
+                                                1002,
+                                                tokens[j].line,
+                                                tokens[j].col))
                 return True, i
             return True, i
 
         elif tokens[i].type in type_specifiers \
                 or tokens[i].type == "IDENTIFIER":
             i += 1
+            j = i
+            j += self.skip_ws(tokens, j)
+            if tokens[j] in ["CLOSING_PARENTHESIS", "OP_COMMA"]:
+                #append error 1002 to context
+                context.errors.append(
+                                    NormError(
+                                            1002,
+                                            tokens[j].line,
+                                            tokens[j].col))
             return True, i
 
         return False, pos
@@ -95,16 +126,14 @@ class CheckFuncDeclarations:
         while True:
             i += self.skip_ws(tokens, i)
             ret, i = self.check_type_prefix(tokens, i)
-            print("THERE", ret, i, tokens[i:])
             if ret is True:
                 if tokens[i].type == "OP_COMMA":
                     i += 1
                     continue
                 i += self.skip_ws(tokens, i)
-                if tokens[i].type not in ["OP_COMMA", "CLOSING_PARENTHESIS"]:
-                    ret, i = self.check_var_format(tokens, i)
-                    if ret is False:
-                        return False, pos
+                ret, i = self.check_var_format(tokens, i)
+                if ret is False:
+                    return False, pos
 
             elif tokens[i].type == "OPENING_PARENTHESIS":
                 ret, i = self.check_func_pointer_args(tokens, i)
@@ -139,10 +168,8 @@ class CheckFuncDeclarations:
                 i += 1
 
             if tokens[i].type == "IDENTIFIER":
-                print(tokens[i])
                 i += 1
                 if tokens[i].type == "OPENING_PARENTHESIS":
-                    print("HERE")
                     ret, i = self.check_func_pointer_args(tokens, i)
                     print(ret, i)
                     if ret is False:
@@ -177,13 +204,16 @@ class CheckFuncDeclarations:
     def check_return_type(self, tokens, pos):
         pass
 
-    def run(self, tokens):
+    def run(self, tokens, context):
+        self.__i += 1
         ret, jump = self.check_type_prefix(tokens, 0)
-        print(ret, jump,  tokens[jump:])
+        i = jump
+        print(self.name, ret, i, self.__i)
         if ret is True:
             ret, jump = self.check_var_format(tokens, jump)
+            i += jump
+            print(self.name, ret, i, self.__i)
             if ret is True:
-                print(ret, jump, tokens[jump:])
-                return True,jump
-            return False
-        return ret
+                return True, i
+            return False, 0
+        return False, 0
