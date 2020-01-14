@@ -52,26 +52,6 @@ class CheckFuncDeclarations:
             i += 1
         return i
 
-    def skip_opening_parenthesis(self, context, pos):
-        i = 0
-        while context.peekToken(pos + i) is not None \
-                and i < stop:
-            if context.peekToken(pos + i).type == "OPENING_PARENTHESIS":
-                i += 1
-            elif context.peekToken(pos + i).type in whitespaces:
-                pos += 1
-        return i
-
-    def skip_closing_parenthesis(self, context, pos, stop):
-        i = 0
-        while context.peekToken(pos + i) is not None \
-                and i < stop:
-            if context.peekToken(pos + i).type == "CLOSING_PARENTHESIS":
-                i += 1
-            elif context.peekToken(pos + i).type in whitespaces:
-                pos += 1
-        return i
-
     def check_type_prefix(self, context, pos):
         i = pos
         i += self.skip_ws(context, i)
@@ -147,28 +127,54 @@ class CheckFuncDeclarations:
     def check_func_identifier(self, context, pos):
         i = pos
         i += self.skip_ws(context, i)
+        parenthesis = 0
         if context.peekToken(i) is not None \
-                and context.peekToken(i).type in [
-                                                    "OP_MULT",
-                                                    "OPENING_PARENTHESIS"]:
+                and context.peekToken(i).type in whitespaces:
+            # Skipping '*', '(' and whitespaces (' ', '\t', '\n')
             i += 1
-            ret, jump = self.check_func_identifier(self, context, i)
-        elif context.peekToken(i) is not None \
-                and context.peekToken(i).type == "CLOSING_PARENTHESIS":
-                return True, i
+        ret, jump = self.check_identifier_format(context, i)
+        if ret is True:
+            while context.peekToken(i) is not None \
+                    and context.peekToken(i).type == "CLOSING_PARENTHESIS":
+                i += 1
+            if context.peekToken(i) is not None \
+                    and context.peekToken(i).type == "OPENING_PARENTHESIS":
                 pass
         return False, pos
 
+    def push_sub_parenthesis(self, obj, depth, l):
+        while depth:
+            l = l[-1]
+            depth -= 1
+        l.append(obj)
+
+    def parse_parenthesis(self, context, pos):
+        i = pos
+        groups = []
+        depath = 0
+        while context.peekToken(i) is not None:
+            if context.peekToken(i).type == "OPENING_PARENTHESIS":
+                self.push_sub_parenthesis(context.peekToken(i), [], depth)
+            elif context.peekToken(i).type == "CLOSING_PARENTHESIS":
+                self.push_sub_parenthesis(context.peekToken(i), [], depth)
+            else:
+                self.push_sub_parenthesis(context.peekToken(i), [], depth)
+        pass
+
     def check_func_format(self, context):
         ret, jump = self.check_func_prefix(context)
-        if ret is True:
-            pos = jump
-            ret, jump = self.check_func_identifier
-        pass
+        if ret is False:
+            return False, 0
+        i = jump
+        i += self.skip_ws(context, i)
+        while context.peekToken(i) is not None \
+                and context.peekToken(i).type == "OP_MULT":
+            i += 1
+        i += self.skip_ws(context, i)
 
     def run(self, context):
         self.__i += 1
-        ret, jump = self.check_func_prefix(context)
+        ret, jump = self.check_func_format(context)
         print(context.tokens, ret, jump)
         if ret is True:
             pos = jump
