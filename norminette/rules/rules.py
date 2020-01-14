@@ -25,17 +25,18 @@ class Rules:
 
     def run(self, tokens, filename):
         error = False
-        context = Context(filename)
+        context = Context(filename, tokens)
         i = 0
-        while i < len(tokens):
+        while context.tokens != []:
             # print(tokens[i], end="" if tokens[i].type != "NEWLINE" else "\n")
             for rule in self.rules:
-                print('i = ', str(i))
-                print('tokens[i] = ', tokens[i:])
-                ret, jump = rule.run(tokens[i:], context)
+                # print('i = ', str(i))
+                # print('tokens[i] = ', tokens[i:])
+                jump = 0
+                ret, jump = rule.run(context)
                 if ret is True:
                     break
-            i += jump if jump != 0 else 1
+            context.popTokens(jump if jump > 0 else 1)
         if context.errors != []:
             print(filename + ": KO!")
             for error in context.errors:

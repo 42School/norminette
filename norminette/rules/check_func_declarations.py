@@ -28,192 +28,149 @@ sign_specifiers = [
     "UNSIGNED"
 ]
 
+whitespaces = [
+    "SPACE",
+    "TAB",
+    "NEWLINE"
+]
+
+arg_separator = [
+    "OP_COMMA",
+    "CLOSING_PARENTHESIS"
+]
+
 
 class CheckFuncDeclarations:
     def __init__(self):
         self.name = "CheckFuncDeclaration"
         self.__i = 0
 
-    def skip_ws(self, tokens, pos):
+    def skip_ws(self, context, pos):
         i = 0
-        while tokens[pos + i].type in ["SPACE", "TAB"]:
+        while context.peekToken(pos + i) is not None \
+                and context.peekToken(pos + i).type in whitespaces:
             i += 1
         return i
 
-    def check_type_prefix(self, tokens, pos):
+    def skip_opening_parenthesis(self, context, pos):
+        i = 0
+        while context.peekToken(pos + i) is not None \
+                and i < stop:
+            if context.peekToken(pos + i).type == "OPENING_PARENTHESIS":
+                i += 1
+            elif context.peekToken(pos + i).type in whitespaces:
+                pos += 1
+        return i
+
+    def skip_closing_parenthesis(self, context, pos, stop):
+        i = 0
+        while context.peekToken(pos + i) is not None \
+                and i < stop:
+            if context.peekToken(pos + i).type == "CLOSING_PARENTHESIS":
+                i += 1
+            elif context.peekToken(pos + i).type in whitespaces:
+                pos += 1
+        return i
+
+    def check_type_prefix(self, context, pos):
         i = pos
-        i += self.skip_ws(tokens, i)
+        i += self.skip_ws(context, i)
 
-        if tokens[i].type in misc_specifiers:
+        if context.peekToken(i) is not None \
+                and context.peekToken(i).type in misc_specifiers:
+            # Skipping "const/register/struct/static/volatile" keywords
             i += 1
-            i += self.skip_ws(tokens, i)
+            i += self.skip_ws(context, i)
 
-        if tokens[i].type in sign_specifiers:
+        if context.peekToken(i) is not None \
+                and context.peekToken(i).type in sign_specifiers:
+            # This case is the 'trickier'
             # sign specifier (signed, unsigned) can be followed by:
             # optionnal size specifier (long, short)
-            # optionnal type specifier (int, char, double, float, etc)
+            # AND/OR optionnal type specifier (int, char)
             i += 1
-            i += self.skip_ws(tokens, i)
-            if tokens[i].type in size_specifiers:
+            i += self.skip_ws(context, i)
+            if context.peekToken(i) is not None \
+                    and context.peekToken(i).type in size_specifiers:
                 i += 1
-                i += self.skip_ws(tokens, i)
-                if tokens[i].type in type_specifiers:
+                i += self.skip_ws(context, i)
+                if context.peekToken(i) is not None \
+                        and context.peekToken(i).type in type_specifiers:
                     i += 1
-                    j = i
-                    j + skip_ws(tokens, j)
-                    if tokens[j] in ["CLOSING_PARENTHESIS", "OP_COMMA"]:
-                        #append error 1002 to context
-                        context.errors.append(
-                                            NormError(
-                                                    1002,
-                                                    tokens[j].line,
-                                                    tokens[j].col))
+                    i += self.skip_ws(context, i)
                     return True, i
-                j = i
-                if tokens[j] in ["CLOSING_PARENTHESIS", "OP_COMMA"]:
-                    #append error 1002 to context
-                    context.errors.append(
-                                        NormError(
-                                                1002,
-                                                tokens[j].line,
-                                                tokens[j].col))
                 return True, i
 
             else:
                 i += 1
                 return True, i
-
-        elif tokens[i].type in size_specifiers:
+        elif context.peekToken(i) is not None \
+                and context.peekToken(i).type in size_specifiers:
             i += 1
-            i += self.skip_ws(tokens, i)
-            if tokens[i].type in type_specifiers:
-                i += 1
-                j = i
-                j = self.skip_ws(tokens, j)
-                if tokens[j] in ["CLOSING_PARENTHESIS", "OP_COMMA"]:
-                    #append error 1002 to context
-                    context.errors.append(
-                                        NormError(
-                                                1002,
-                                                tokens[j].line,
-                                                tokens[j].col))
+            i += self.skip_ws(context, i)
+            if context.peekToken(i).type is not None \
+                    and context.peekToken(i) in type_specifiers:
                 return True, i
             return True, i
-
-        elif tokens[i].type in type_specifiers \
-                or tokens[i].type == "IDENTIFIER":
-            i += 1
-            j = i
-            j += self.skip_ws(tokens, j)
-            if tokens[j] in ["CLOSING_PARENTHESIS", "OP_COMMA"]:
-                #append error 1002 to context
-                context.errors.append(
-                                    NormError(
-                                            1002,
-                                            tokens[j].line,
-                                            tokens[j].col))
+        elif context.peekToken(i) is not None \
+                and (
+                    context.peekToken(i).type in type_specifiers
+                    or context.peekToken(i).type == "IDENTIFIER"):
             return True, i
 
         return False, pos
 
-    def check_func_pointer_args(self, tokens, pos):
+    def check_identifier_format(self, context, pos):
         i = pos
-        i += self.skip_ws(tokens, i)
-        count = 0
-        while tokens[i].type == "OPENING_PARENTHESIS":
-            i += 1
-            count += 1
-        while True:
-            i += self.skip_ws(tokens, i)
-            ret, i = self.check_type_prefix(tokens, i)
-            if ret is True:
-                if tokens[i].type == "OP_COMMA":
-                    i += 1
-                    continue
-                i += self.skip_ws(tokens, i)
-                ret, i = self.check_var_format(tokens, i)
-                if ret is False:
-                    return False, pos
-
-            elif tokens[i].type == "OPENING_PARENTHESIS":
-                ret, i = self.check_func_pointer_args(tokens, i)
-
-            elif tokens[i].type == "CLOSING_PARENTHESIS": break
-
-            else: return False, pos
-
-        while tokens[i].type == "CLOSING_PARENTHESIS" and count > 0:
-            i += 1
-            count -= 1
-        return (True, i) if count == 0 else (False, pos)
-
-    def check_var_format(self, tokens, pos):
-        i = pos
-        i += self.skip_ws(tokens, i)
-        while tokens[i].type == "OP_MULT":
-            i += 1
-        i += self.skip_ws(tokens, i)
-
-        if tokens[i].type == "IDENTIFIER":
-            i += 1
-            return True, i
-
-        elif tokens[i].type == "OPENING_PARENTHESIS":
-            # This MIGHT be a function pointer
-            count = 0
-            while tokens[i].type == "OPENING_PARENTHESIS":
-                i +=  1
-                count += 1
-            while tokens[i].type == "OP_MULT":
-                i += 1
-
-            if tokens[i].type == "IDENTIFIER":
-                i += 1
-                if tokens[i].type == "OPENING_PARENTHESIS":
-                    ret, i = self.check_func_pointer_args(tokens, i)
-                    print(ret, i)
-                    if ret is False:
-                        return False, pos
-                while tokens[i].type == "CLOSING_PARENTHESIS" and count > 0:
-                    i += 1
-                    count -= 1
-                if count != 0:
-                    return False, pos
-                return True, i
-
-        return False, pos
-
-    def count_extra_func_args(self, tokens, pos):
-        return 0
-
-    def check_func_args(self, tokens, pos):
-        i = pos
-        i += self.skip_ws(tokens, i)
-        arg_count = 0
-        par_count = 0
-        while tokens[i].type == "OPENING_PARENTHESIS":
-            i += 1
-            par_count += 1
-        i += self.skip_ws(tokens, i)
-        ret, jump = self.check_var_format
-        if ret is False:
-            return False, pos
-        else:
-            arg_count += 1
-
-    def check_return_type(self, tokens, pos):
         pass
 
-    def run(self, tokens, context):
-        self.__i += 1
-        ret, jump = self.check_type_prefix(tokens, 0)
-        i = jump
-        print(self.name, ret, i, self.__i)
+    def check_func_pointer_args(self, context, pos):
+        pass
+
+    def check_func_args(self, context, pos):
+        pass
+
+    def count_func_args(self, context, pos):
+        return 0
+
+    def check_func_prefix(self, context):
+        i = self.skip_ws(context, 0)
+        ret, jump = self.check_type_prefix(context, i)
         if ret is True:
-            ret, jump = self.check_var_format(tokens, jump)
             i += jump
-            print(self.name, ret, i, self.__i)
-            if ret is True:
+            while context.peekToken(i) is not None \
+                    and context.peekToken(i).type == "OP_MULT":
+                i += 1
+            return ret, i
+        return False, 0
+
+    def check_func_identifier(self, context, pos):
+        i = pos
+        i += self.skip_ws(context, i)
+        if context.peekToken(i) is not None \
+                and context.peekToken(i).type in [
+                                                    "OP_MULT",
+                                                    "OPENING_PARENTHESIS"]:
+            i += 1
+            ret, jump = self.check_func_identifier(self, context, i)
+        elif context.peekToken(i) is not None \
+                and context.peekToken(i).type == "CLOSING_PARENTHESIS":
                 return True, i
-            return False, 0
+                pass
+        return False, pos
+
+    def check_func_format(self, context):
+        ret, jump = self.check_func_prefix(context)
+        if ret is True:
+            pos = jump
+            ret, jump = self.check_func_identifier
+        pass
+
+    def run(self, context):
+        self.__i += 1
+        ret, jump = self.check_func_prefix(context)
+        print(context.tokens, ret, jump)
+        if ret is True:
+            pos = jump
+            return True, pos
         return False, 0
