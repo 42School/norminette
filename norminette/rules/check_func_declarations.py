@@ -115,9 +115,8 @@ class CheckFuncDeclarations:
 
     def check_func_prefix(self, context):
         i = self.skip_ws(context, 0)
-        ret, jump = self.check_type_prefix(context, i)
+        ret, i = self.check_type_prefix(context, i)
         if ret is True:
-            i += jump
             while context.peekToken(i) is not None \
                     and context.peekToken(i).type == "OP_MULT":
                 i += 1
@@ -156,6 +155,7 @@ class CheckFuncDeclarations:
             return False, 0
         i += self.skip_ws(context, i)
         groups, i = self.parse_parentheses(context, i)
+        print(groups)
         #
         if ret is True:
             return True, i
