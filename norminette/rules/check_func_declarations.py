@@ -46,21 +46,21 @@ class CheckFuncDeclarations:
         self.__i = 0
 
     def skip_ws(self, context, pos):
-        i = 0
-        while context.peekToken(pos + i) is not None \
-                and context.peekToken(pos + i).type in whitespaces:
+        i = pos
+        while context.peekToken(i) is not None \
+                and context.peekToken(i).type in whitespaces:
             i += 1
         return i
 
     def check_type_prefix(self, context, pos):
         i = pos
-        i += self.skip_ws(context, i)
+        i = self.skip_ws(context, i)
 
         if context.peekToken(i) is not None \
                 and context.peekToken(i).type in misc_specifiers:
             # Skipping "const/register/struct/static/volatile" keywords
             i += 1
-            i += self.skip_ws(context, i)
+            i = self.skip_ws(context, i)
 
         if context.peekToken(i) is not None \
                 and context.peekToken(i).type in sign_specifiers:
@@ -69,15 +69,15 @@ class CheckFuncDeclarations:
             # optionnal size specifier (long, short)
             # AND/OR optionnal type specifier (int, char)
             i += 1
-            i += self.skip_ws(context, i)
+            i = self.skip_ws(context, i)
             if context.peekToken(i) is not None \
                     and context.peekToken(i).type in size_specifiers:
                 i += 1
-                i += self.skip_ws(context, i)
+                i = self.skip_ws(context, i)
                 if context.peekToken(i) is not None \
                         and context.peekToken(i).type in type_specifiers:
                     i += 1
-                    i += self.skip_ws(context, i)
+                    i = self.skip_ws(context, i)
                     return True, i
                 return True, i
 
@@ -87,7 +87,7 @@ class CheckFuncDeclarations:
         elif context.peekToken(i) is not None \
                 and context.peekToken(i).type in size_specifiers:
             i += 1
-            i += self.skip_ws(context, i)
+            i = self.skip_ws(context, i)
             if context.peekToken(i).type is not None \
                     and context.peekToken(i) in type_specifiers:
                 return True, i
@@ -125,58 +125,53 @@ class CheckFuncDeclarations:
         return False, 0
 
     def check_func_identifier(self, context, pos):
-        i = pos
-        i += self.skip_ws(context, i)
-        parenthesis = 0
-        if context.peekToken(i) is not None \
-                and context.peekToken(i).type in whitespaces:
-            # Skipping '*', '(' and whitespaces (' ', '\t', '\n')
-            i += 1
-        ret, jump = self.check_identifier_format(context, i)
-        if ret is True:
-            while context.peekToken(i) is not None \
-                    and context.peekToken(i).type == "CLOSING_PARENTHESIS":
-                i += 1
-            if context.peekToken(i) is not None \
-                    and context.peekToken(i).type == "OPENING_PARENTHESIS":
-                pass
         return False, pos
 
-    def push_sub_parenthesis(self, obj, depth, l):
-        while depth:
+    def push_sub_parentheses(self, obj, depth, l):
+        while depth > 0:
             l = l[-1]
             depth -= 1
         l.append(obj)
 
-    def parse_parenthesis(self, context, pos):
+    def parse_parentheses(self, context, pos):
         i = pos
         groups = []
-        depath = 0
-        while context.peekToken(i) is not None:
+        depth = 0
+        while context.peekToken(i) is not None \
+                and context.peekToken(i).type != "OPENING_BRACKET" \
+                and context.peekToken(i).type != "OP_SEMI_COLON":
             if context.peekToken(i).type == "OPENING_PARENTHESIS":
-                self.push_sub_parenthesis(context.peekToken(i), [], depth)
+                self.push_sub_parentheses([], depth, groups)
+                depth += 1
             elif context.peekToken(i).type == "CLOSING_PARENTHESIS":
-                self.push_sub_parenthesis(context.peekToken(i), [], depth)
+                depth -= 1
             else:
-                self.push_sub_parenthesis(context.peekToken(i), [], depth)
-        pass
+                self.push_sub_parentheses(context.peekToken(i), depth, groups)
+            i += 1
+        return groups, i
 
     def check_func_format(self, context):
-        ret, jump = self.check_func_prefix(context)
+        ret, i = self.check_func_prefix(context)
         if ret is False:
             return False, 0
-        i = jump
         i += self.skip_ws(context, i)
-        while context.peekToken(i) is not None \
-                and context.peekToken(i).type == "OP_MULT":
-            i += 1
-        i += self.skip_ws(context, i)
+        groups, i = self.parse_parentheses(context, i)
+        #
+        if ret is True:
+            return True, i
+        #
+        ret, i = self.check_func_format(context, i)
+        if ret is False:
+            return False, 0
+        else:
+            return True, i
 
     def run(self, context):
         self.__i += 1
         ret, jump = self.check_func_format(context)
-        print(context.tokens, ret, jump)
-        if ret is True:
-            pos = jump
-            return True, pos
-        return False, 0
+        if ret is False:
+            return False, 0
+        print(context.tokens[:jump], '\n')
+        #
+        # Check for ';' or '{' in order to call for depending subrules
+        return True, jump

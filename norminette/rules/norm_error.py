@@ -1,7 +1,8 @@
 errors = {
-    1000: "function declared line {self.line} has too many arguments.",
-    1001: "function declared line {self.line} missing 'void' qualifier.",
-    1002: "missing paramater name or type qualifier line {self.line}."
+    1000: "function has too many arguments.",
+    1001: "function missing 'void' qualifier.",
+    1002: "missing paramater name or type qualifier.",
+    9999: "Consecutive newlines."
 }
 
 
@@ -10,6 +11,7 @@ class NormError:
         self.errno = errno
         self.line = line
         self.col = col
+        self.msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
 
     def __str__(self):
-        return f"Error (E{self.errno}): {errors.get(self.errno)}"
+        return f"E{self.errno}({self.line}, {self.col}):\t " + self.msg

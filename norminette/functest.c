@@ -1,4 +1,3 @@
-
 int foo(int a);
 int bar(int a, int b);
 int ((foobar)(int a))
@@ -20,6 +19,10 @@ char *    (s(void))
 
 int main(void)
 {
+	int ((*fp)(int));
+	int (*fpp)(int *f(int));
+
+	fp = f;
 	write(1, s(), strlen(s()));
 	return 1;
 }
