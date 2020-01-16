@@ -83,7 +83,6 @@ class CheckFuncDeclarations:
                 return True, i
 
             else:
-                i += 1
                 return True, i
         elif context.peekToken(i) is not None \
                 and context.peekToken(i).type in size_specifiers:
@@ -97,6 +96,7 @@ class CheckFuncDeclarations:
                 and (
                     context.peekToken(i).type in type_specifiers
                     or context.peekToken(i).type == "IDENTIFIER"):
+            i += 1
             return True, i
 
         return False, pos
@@ -136,6 +136,7 @@ class CheckFuncDeclarations:
                         or group[i].type in [
                             "OP_MULT",
                             "OP_COMMA",
+                            "IDENTIFIER",
                             "CONSTANT",
                             "OPENING_SQUARE_BRACKET",
                             "CLOSING_SQUARE_BRACKET"]:
@@ -145,6 +146,7 @@ class CheckFuncDeclarations:
             elif isinstance(group[i], list):
                 if group[i] == []:
                     i += 1
+                    return True
                 else:
                     ret = self.innerleft_func_arguments(group[i])
                     if ret is False:
@@ -158,13 +160,12 @@ class CheckFuncDeclarations:
         #True, True if identifier and func args are found in the same scope
         i = 0
         while i in range(len(group)):
+            #print(group[i], i)
             if isinstance(group[i], Token):
                 if group[i].type in whitespaces:
                     i += 1
-                    continue
                 elif group[i].type == "OP_MULT":
                     i += 1
-                    continue
                 elif group[i].type == "IDENTIFIER":
                     #now check if there is function arguments in this scope or
                     # sub scope
@@ -179,17 +180,18 @@ class CheckFuncDeclarations:
                     return False, False
             else:
                 ret = self.innerleft_identifier(group[i])
-                if ret is [True, True]:
+                #print("ret is: ", ret)
+                if ret[0] is True and ret[1] is True:
                     return True, True
-                elif ret is [True, False]:
+                elif ret[0] is True and ret[0] is False:
                     i += 1
-                    if i < len(group):
-                        while i in range(len(group)):
-                            if group[i] == []:
-                                return True, True
-                            else:
-                                #print(group[i:])
-                                ret = self.innerleft_func_arguments(group[i:])
+                    while i in range(len(group)):
+                        if group[i] == []:
+                            return True, True
+                        else:
+                            #print(group[i:])
+                            ret = self.innerleft_func_arguments(group[i:])
+                            if ret is True:
                                 return True, ret
                 else:
                     return False, False
@@ -209,26 +211,33 @@ class CheckFuncDeclarations:
         ret, i = self.check_func_prefix(context)
         if ret is False:
             return False, 0
-        i += self.skip_ws(context, i)
+        #print("1 -- out of checkfuncprefix", ret, i, context.tokens[:i])
+        i = self.skip_ws(context, i)
+        #print("2 -- out of skip_ws", ret, i, context.tokens[i])
         groups, i = self.parse_parentheses(context, i)
-        #print("groups from parse_parentheses: ", groups)
-        #
-        #if ret is True:
-        #    return True, i
-        #
+        #print("3 -- groups from parse parenthese", groups, "tokens read->", i)
         ret = self.innerleft_identifier(groups)
-        print(ret)
-        if False in ret:
-            return False, 0
+        #print("4 -- ret out of innerleft", ret)
+        #print(ret)
+        if ret[0] is True:
+            #print(context.tokens[:i])
+            if ret[1] is True:
+                return ret, i
+            else:
+                ret = self.innerleft_func_arguments(groups)
+                if ret is False:
+                    return False, 0
+                else:
+                    return ret, i
         else:
-            return ret, i
+            return False, 0
 
     def run(self, context):
         self.__i += 1
         ret, jump = self.check_func_format(context)
         if ret is False:
             return False, 0
-        print(context.tokens[:jump], '\n')
+        #print(context.tokens[:jump], '\n')
         #
         # Check for ';' or '{' in order to call for depending subrules
         return True, jump

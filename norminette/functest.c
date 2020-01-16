@@ -1,4 +1,3 @@
-//These are functions
 int foo(int a);
 int ((foobar)(int a)) { return 1;}
 int bar(int a, int b);
