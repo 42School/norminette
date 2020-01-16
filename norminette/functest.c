@@ -1,13 +1,17 @@
+//These are functions
 int foo(int a);
+int ((foobar)(int a)) { return 1;}
 int bar(int a, int b);
-int ((foobar)(int a))
+int ((foo2bar)(int a))
 {
 	return 1;
 }
 int (f(int a));
 int func(int a);
-int (*fp(int))(int a);
-int b = 0;
+int (*fp(int a))(int) { return foo; }
+//int ((*T)(int))(int);
+int ((*p)(int)) = 0;
+int ((*p)(int));// { return f;}
 
 #include <string.h>
 #include <unistd.h>
@@ -20,7 +24,8 @@ char *    (s(void))
 int main(void)
 {
 	int ((*fp)(int));
-	int (*fpp)(int *f(int));
+	int (*ffp)();
+	int (**fpp)(int *f(int));
 
 	fp = f;
 	write(1, s(), strlen(s()));

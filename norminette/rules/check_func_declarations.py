@@ -1,4 +1,5 @@
 from .norm_error import NormError
+from lexer import Token
 
 type_specifiers = [
     "CHAR",
@@ -52,7 +53,7 @@ class CheckFuncDeclarations:
             i += 1
         return i
 
-    def check_type_prefix(self, context, pos):
+    def check_functype_prefix(self, context, pos):
         i = pos
         i = self.skip_ws(context, i)
 
@@ -100,32 +101,6 @@ class CheckFuncDeclarations:
 
         return False, pos
 
-    def check_identifier_format(self, context, pos):
-        i = pos
-        pass
-
-    def check_func_pointer_args(self, context, pos):
-        pass
-
-    def check_func_args(self, context, pos):
-        pass
-
-    def count_func_args(self, context, pos):
-        return 0
-
-    def check_func_prefix(self, context):
-        i = self.skip_ws(context, 0)
-        ret, i = self.check_type_prefix(context, i)
-        if ret is True:
-            while context.peekToken(i) is not None \
-                    and context.peekToken(i).type == "OP_MULT":
-                i += 1
-            return ret, i
-        return False, 0
-
-    def check_func_identifier(self, context, pos):
-        return False, pos
-
     def push_sub_parentheses(self, obj, depth, l):
         while depth > 0:
             l = l[-1]
@@ -149,22 +124,104 @@ class CheckFuncDeclarations:
             i += 1
         return groups, i
 
+    def innerleft_func_arguments(self, group):
+        i = 0
+        while i in range(len(group)):
+            if isinstance(group[i], Token):
+                if group[i].type in whitespaces \
+                        or group[i].type in type_specifiers \
+                        or group[i].type in misc_specifiers \
+                        or group[i].type in sign_specifiers \
+                        or group[i].type in size_specifiers \
+                        or group[i].type in [
+                            "OP_MULT",
+                            "OP_COMMA",
+                            "CONSTANT",
+                            "OPENING_SQUARE_BRACKET",
+                            "CLOSING_SQUARE_BRACKET"]:
+                    i += 1
+                else:
+                    return False #Maybe?
+            elif isinstance(group[i], list):
+                if group[i] == []:
+                    i += 1
+                else:
+                    ret = self.innerleft_func_arguments(group[i])
+                    if ret is False:
+                        return False
+                    i += 1
+        return True
+
+    def innerleft_identifier(self, group, lvl=0):
+        #False, False if no identifier is found
+        #True, False if identifier is found but no function arguments are found
+        #True, True if identifier and func args are found in the same scope
+        i = 0
+        while i in range(len(group)):
+            if isinstance(group[i], Token):
+                if group[i].type in whitespaces:
+                    i += 1
+                    continue
+                elif group[i].type == "OP_MULT":
+                    i += 1
+                    continue
+                elif group[i].type == "IDENTIFIER":
+                    #now check if there is function arguments in this scope or
+                    # sub scope
+                    #print("in innerleft_identifier: ", group[i:])
+                    i += 1
+                    ret = self.innerleft_func_arguments(group[i:])
+                    if ret is True:
+                        return True, True
+                    else:
+                        return True, False
+                else:
+                    return False, False
+            else:
+                ret = self.innerleft_identifier(group[i])
+                if ret is [True, True]:
+                    return True, True
+                elif ret is [True, False]:
+                    i += 1
+                    if i < len(group):
+                        while i in range(len(group)):
+                            if group[i] == []:
+                                return True, True
+                            else:
+                                #print(group[i:])
+                                ret = self.innerleft_func_arguments(group[i:])
+                                return True, ret
+                else:
+                    return False, False
+        return False, False
+
+    def check_func_prefix(self, context):
+        i = self.skip_ws(context, 0)
+        ret, i = self.check_functype_prefix(context, i)
+        if ret is True:
+            while context.peekToken(i) is not None \
+                    and context.peekToken(i).type == "OP_MULT":
+                i += 1
+            return ret, i
+        return False, 0
+
     def check_func_format(self, context):
         ret, i = self.check_func_prefix(context)
         if ret is False:
             return False, 0
         i += self.skip_ws(context, i)
         groups, i = self.parse_parentheses(context, i)
-        print(groups)
+        #print("groups from parse_parentheses: ", groups)
         #
-        if ret is True:
-            return True, i
+        #if ret is True:
+        #    return True, i
         #
-        ret, i = self.check_func_format(context, i)
-        if ret is False:
+        ret = self.innerleft_identifier(groups)
+        print(ret)
+        if False in ret:
             return False, 0
         else:
-            return True, i
+            return ret, i
 
     def run(self, context):
         self.__i += 1
