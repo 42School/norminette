@@ -44,6 +44,7 @@ arg_separator = [
 class CheckFuncDeclarations:
     def __init__(self):
         self.name = "CheckFuncDeclaration"
+        self.subrules = ["CheckFuncArgumentCount", "CheckSpacing"]
         self.__i = 0
 
     def skip_ws(self, context, pos):
@@ -138,6 +139,7 @@ class CheckFuncDeclarations:
                             "OP_COMMA",
                             "IDENTIFIER",
                             "CONSTANT",
+                            "OP_ELLIPSIS",
                             "OPENING_SQUARE_BRACKET",
                             "CLOSING_SQUARE_BRACKET"]:
                     i += 1
@@ -238,6 +240,14 @@ class CheckFuncDeclarations:
         if ret is False:
             return False, 0
         #print(context.tokens[:jump], '\n')
-        #
+        for rulename in self.subrules:
+            if rulename in context.rules:
+                print(rulename)
         # Check for ';' or '{' in order to call for depending subrules
+        if context.tokens[jump] == "OPENING_BRACKET":
+            #FUNCTION BODY
+            pass
+        else:
+            #FUNCTION PROTOTYPE
+            pass
         return True, jump

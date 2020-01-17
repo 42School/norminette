@@ -18,19 +18,20 @@ class Rules:
             class_name = "".join([s.capitalize() for s in mod_name.split('_')])
             module = importlib.import_module("rules." + mod_name)
             rule = getattr(module, class_name)
-            self.rules.update(class_name=rule())
+            self.rules[class_name] = rule()
 
     def run(self, tokens, filename):
         error = False
-        context = Context(filename, tokens)
+        context = Context(filename, tokens, self.rules)
         i = 0
         while context.tokens != []:
             for rulename, rule in self.rules.items():
                 jump = 0
                 ret, jump = rule.run(context)
                 if ret is True:
+                    print(rulename, ":", context.tokens[:jump])
                     break
-            print(context.tokens[:jump if jump > 0 else 1])
+            #print(context.tokens[:jump if jump > 0 else 1])
             context.popTokens(jump if jump > 0 else 1)
         if context.errors != []:
             print(filename + ": KO!")

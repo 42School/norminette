@@ -1,15 +1,17 @@
 from rules.norm_error import NormError
 
 class Context:
-    def __init__(self, filename, tokens):
+    def __init__(self, filename, tokens, rules):
         self.filename = filename
         self.filetype = filename.split('.')[-1]
         self.tokens = tokens
+        self.rules = rules
         self.errors = []
         self.scope = "global"
         self.indent_lvl = 0
         self.lines = 1
         self.functions = 0
+        self.declarations_allowed = True
 
     def peekToken(self, pos):
         if pos >= len(self.tokens):
