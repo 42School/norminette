@@ -25,7 +25,7 @@ class Context:
                 self.lines += 1
                 if self.peekToken(i + 1) is not None \
                         and self.peekToken(i + 1).type == "NEWLINE":
-                    # Append "consecutive newlines" error
+                    # That's just a "dummy" rule
                     self.pushError(9999, self.peekToken(i))
         self.tokens = self.tokens[stop:]
 
