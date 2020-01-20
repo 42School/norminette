@@ -18,17 +18,17 @@ class ConstantTokensTest(unittest.TestCase):
     def test_plus_sign_constant(self):
         self.assertEqual(
                         Lexer("+42").checkTokens(),
-                        "<OP_PLUS><CONSTANT=42>\n")
+                        "<PLUS><CONSTANT=42>\n")
 
     def test_minus_sign_constant(self):
         self.assertEqual(
                         Lexer("-42").checkTokens(),
-                        "<OP_MINUS><CONSTANT=42>\n")
+                        "<MINUS><CONSTANT=42>\n")
 
     def test_many_signs_constant(self):
         self.assertEqual(
                         Lexer("+-42").checkTokens(),
-                        "<OP_PLUS><OP_MINUS><CONSTANT=42>\n")
+                        "<PLUS><MINUS><CONSTANT=42>\n")
 
     def test_decimal_constant(self):
         self.assertEqual(
@@ -63,14 +63,14 @@ class ConstantTokensTest(unittest.TestCase):
     def test_hex_with_sign_constant(self):
         self.assertEqual(
                         Lexer("-0x4e2").checkTokens(),
-                        "<OP_MINUS><CONSTANT=0x4e2>\n")
+                        "<MINUS><CONSTANT=0x4e2>\n")
 
     def test_hex_with_many_signs_constant(self):
         self.assertEqual(
                         Lexer("-+-+-+-+-+-+-+-0Xe4Ae2").checkTokens(),
-                        "<OP_MINUS><OP_PLUS><OP_MINUS><OP_PLUS><OP_MINUS>"
-                        + "<OP_PLUS><OP_MINUS><OP_PLUS><OP_MINUS><OP_PLUS>"
-                        + "<OP_MINUS><OP_PLUS><OP_MINUS><OP_PLUS><OP_MINUS>"
+                        "<MINUS><PLUS><MINUS><PLUS><MINUS>"
+                        + "<PLUS><MINUS><PLUS><MINUS><PLUS>"
+                        + "<MINUS><PLUS><MINUS><PLUS><MINUS>"
                         + "<CONSTANT=0Xe4Ae2>\n")
 
     def test_long_constant(self):
@@ -119,7 +119,7 @@ class ConstantTokensTest(unittest.TestCase):
     def test_misplaced_e(self):
         self.assertEqual(
                         Lexer(".e42").checkTokens(),
-                        "<OP_DOT><IDENTIFIER=e42>\n")
+                        "<DOT><IDENTIFIER=e42>\n")
 
     def test_another_misplaced_e(self):
         self.assertRaises(Lexer(".42e").checkTokens)

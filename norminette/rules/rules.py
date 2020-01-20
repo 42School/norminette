@@ -31,7 +31,7 @@ class Rules:
                 if ret is True:
                     print(rulename, ":", context.tokens[:jump])
                     break
-            #print(context.tokens[:jump if jump > 0 else 1])
+            # print(context.tokens[:jump if jump > 0 else 1])
             context.popTokens(jump if jump > 0 else 1)
         if context.errors != []:
             print(filename + ": KO!")
