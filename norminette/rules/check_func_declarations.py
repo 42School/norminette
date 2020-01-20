@@ -36,7 +36,7 @@ whitespaces = [
 ]
 
 arg_separator = [
-    "OP_COMMA",
+    "COMMA",
     "CLOSING_PARENTHESIS"
 ]
 
@@ -113,12 +113,12 @@ class CheckFuncDeclarations:
         groups = []
         depth = 0
         while context.peekToken(i) is not None \
-                and context.peekToken(i).type != "OPENING_BRACKET" \
-                and context.peekToken(i).type != "OP_SEMI_COLON":
-            if context.peekToken(i).type == "OPENING_PARENTHESIS":
+                and context.peekToken(i).type != "LBRACE" \
+                and context.peekToken(i).type != "SEMI_COLON":
+            if context.peekToken(i).type == "LPARENTHESIS":
                 self.push_sub_parentheses([], depth, groups)
                 depth += 1
-            elif context.peekToken(i).type == "CLOSING_PARENTHESIS":
+            elif context.peekToken(i).type == "RPARENTHESIS":
                 depth -= 1
             else:
                 self.push_sub_parentheses(context.peekToken(i), depth, groups)
@@ -135,13 +135,13 @@ class CheckFuncDeclarations:
                         or group[i].type in sign_specifiers \
                         or group[i].type in size_specifiers \
                         or group[i].type in [
-                            "OP_MULT",
-                            "OP_COMMA",
+                            "MULT",
+                            "COMMA",
                             "IDENTIFIER",
                             "CONSTANT",
-                            "OP_ELLIPSIS",
-                            "OPENING_SQUARE_BRACKET",
-                            "CLOSING_SQUARE_BRACKET"]:
+                            "ELLIPSIS",
+                            "LBRACKET",
+                            "RBRACKET"]:
                     i += 1
                 else:
                     return False
@@ -166,7 +166,7 @@ class CheckFuncDeclarations:
             if isinstance(group[i], Token):
                 if group[i].type in whitespaces:
                     i += 1
-                elif group[i].type == "OP_MULT":
+                elif group[i].type == "MULT":
                     i += 1
                 elif group[i].type == "IDENTIFIER":
                     # now check if there is function arguments in this scope or
@@ -204,7 +204,7 @@ class CheckFuncDeclarations:
         ret, i = self.check_functype_prefix(context, i)
         if ret is True:
             while context.peekToken(i) is not None \
-                    and context.peekToken(i).type == "OP_MULT":
+                    and context.peekToken(i).type == "MULT":
                 i += 1
             return ret, i
         return False, 0
@@ -239,12 +239,12 @@ class CheckFuncDeclarations:
         ret, jump = self.check_func_format(context)
         if ret is False:
             return False, 0
-        # print(context.tokens[:jump], '\n')
+        print(context.tokens[:jump], '\n')
         for rulename in self.subrules:
             if rulename in context.rules:
                 print(rulename)
         # Check for ';' or '{' in order to call for depending subrules
-        if context.tokens[jump] == "OPENING_BRACKET":
+        if context.tokens[jump] == "LBRACE":
             # FUNCTION BODY
             pass
         else:
