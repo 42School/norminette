@@ -33,8 +33,10 @@ keywords = {
     'unsigned': "UNSIGNED",
     'void': "VOID",
     'volatile': "VOLATILE",
-    'while': "WHILE",
-    # Preprocessor directives ##
+    'while': "WHILE"
+}
+
+preproc_keywords = {
     'define': "DEFINE",
     'error': "ERROR",
     'endif': "ENDIF",
@@ -97,10 +99,10 @@ operators = {
 }
 
 brackets = {
-    '{':    "OPENING_BRACKET",
-    '}':    "CLOSING_BRACKET",
-    '(':    "OPENING_PARENTHESIS",
-    ')':    "CLOSING_PARENTHESIS",
-    '[':    "OPENING_SQUARE_BRACKET",
-    ']':    "CLOSING_SQUARE_BRACKET"
+    '{':    "LBRACE",
+    '}':    "RBRACE",
+    '(':    "LPARENTHESIS",
+    ')':    "RPARENTHESIS",
+    '[':    "LBRACKET",
+    ']':    "RBRACKET"
 }

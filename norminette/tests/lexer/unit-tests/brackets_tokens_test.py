@@ -8,26 +8,26 @@ class BracketsTokensTest(unittest.TestCase):
     def test_opening_bracket(self):
         self.assertEqual(
                         Lexer("{").getNextToken().type,
-                        "OPENING_BRACKET")
+                        "LBRACE")
 
     def test_closing_bracket(self):
-        self.assertEqual(Lexer("}").getNextToken().type, "CLOSING_BRACKET")
+        self.assertEqual(Lexer("}").getNextToken().type, "RBRACE")
 
     def test_opening_parenthesis(self):
-        self.assertEqual(Lexer("(").getNextToken().type, "OPENING_PARENTHESIS")
+        self.assertEqual(Lexer("(").getNextToken().type, "LPARENTHESIS")
 
     def test_closing_parenthesis(self):
-        self.assertEqual(Lexer(")").getNextToken().type, "CLOSING_PARENTHESIS")
+        self.assertEqual(Lexer(")").getNextToken().type, "RPARENTHESIS")
 
     def test_opening_square_bracket(self):
         self.assertEqual(
                         Lexer("[").getNextToken().type,
-                        "OPENING_SQUARE_BRACKET")
+                        "LBRACKET")
 
     def test_closing_square_bracket(self):
         self.assertEqual(
                         Lexer("]").getNextToken().type,
-                        "CLOSING_SQUARE_BRACKET")
+                        "RBRACKET")
 
 
 if __name__ == '__main__':

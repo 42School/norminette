@@ -1,7 +1,7 @@
 import re
 import string
 from lexer.tokens import Token
-from lexer.dictionary import keywords, operators, brackets
+from lexer.dictionary import keywords, preproc_keywords, operators, brackets
 
 
 def read_file(filename):
@@ -318,8 +318,15 @@ class Lexer:
             self.popChar()
             if self.peekSubString(2) in ["//", "/*"] \
                     or self.peekChar() == '\n':
-                self.tokens.append(Token("PREPROC", pos, tkn_value))
-                return
+                break
+        tkn_key = tkn_value[1:].split()[0]
+        if tkn_key not in preproc_keywords:
+            raise TokenError(self.linePos())
+        else:
+            self.tokens.append(Token(
+                        preproc_keywords.get(tkn_key),
+                        pos,
+                        tkn_value))
 
     def getNextToken(self):
         """

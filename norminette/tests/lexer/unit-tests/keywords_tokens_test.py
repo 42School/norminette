@@ -8,8 +8,6 @@ def eat_tokens(line):
     line = ""
     while lex.getNextToken():
         line += lex.peekToken().test()
-        if lex.peekToken().type in ["EOF", "TKN_ERROR"]:
-            break
     return line
 
 
@@ -109,25 +107,25 @@ class TokensKeywordsTest(unittest.TestCase):
         self.assertEqual(eat_tokens("while"), "<WHILE>")
 
     def test_define_keyword(self):
-        self.assertEqual(eat_tokens("define"), "<DEFINE>")
+        self.assertEqual(eat_tokens("#define"), "<DEFINE=#define>")
 
     def test_error_keyword(self):
-        self.assertEqual(eat_tokens("error"), "<ERROR>")
+        self.assertEqual(eat_tokens("#error"), "<ERROR=#error>")
 
     def test_ifndef_keyword(self):
-        self.assertEqual(eat_tokens("ifndef"), "<IFNDEF>")
+        self.assertEqual(eat_tokens("#ifndef"), "<IFNDEF=#ifndef>")
 
     def test_ifdef_keyword(self):
-        self.assertEqual(eat_tokens("ifdef"), "<IFDEF>")
+        self.assertEqual(eat_tokens("#ifdef"), "<IFDEF=#ifdef>")
 
     def test_include_keyword(self):
-        self.assertEqual(eat_tokens("include"), "<INCLUDE>")
+        self.assertEqual(eat_tokens("#include"), "<INCLUDE=#include>")
 
     def test_pragma_keyword(self):
-        self.assertEqual(eat_tokens("pragma"), "<PRAGMA>")
+        self.assertEqual(eat_tokens("#pragma"), "<PRAGMA=#pragma>")
 
     def test_undef_keyword(self):
-        self.assertEqual(eat_tokens("undef"), "<UNDEF>")
+        self.assertEqual(eat_tokens("#undef"), "<UNDEF=#undef>")
 
 
 if __name__ == '__main__':
