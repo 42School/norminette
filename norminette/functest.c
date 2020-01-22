@@ -1,5 +1,5 @@
 int foo(int a[2]);
-int ((foobar)(int a)) { return 1;}
+int ((*foobar)(int a)); //{ return 1;}
 int bar(int a, int b, ...);
 int ((((foo2bar(int a)))))
 {
@@ -7,6 +7,11 @@ int ((((foo2bar(int a)))))
 }
 int f(int a);
 int func(int a);
+char (*s1(void))
+{
+	return malloc(sizeof(char) * 1);
+}
+
 
 
 int (*fp(int a))(int) { return foo; }

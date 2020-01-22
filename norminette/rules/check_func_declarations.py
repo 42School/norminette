@@ -1,4 +1,3 @@
-from .norm_error import NormError
 from lexer import Token
 
 type_specifiers = [
@@ -44,8 +43,11 @@ arg_separator = [
 class CheckFuncDeclarations:
     def __init__(self):
         self.name = "CheckFuncDeclaration"
-        self.subrules = ["CheckFuncArgumentCount", "CheckSpacing"]
         self.__i = 0
+        self.subrules = [
+                "CheckFuncDeclaration",
+                "CheckSpacing"
+            ]
 
     def skip_ws(self, context, pos):
         i = pos
@@ -224,13 +226,13 @@ class CheckFuncDeclarations:
         if ret[0] is True:
             # print(context.tokens[:i])
             if ret[1] is True:
-                return ret, i
+                return True, i
             else:
                 ret = self.innerleft_func_arguments(groups)
                 if ret is False:
                     return False, 0
                 else:
-                    return ret, i
+                    return True, i
         else:
             return False, 0
 
@@ -239,10 +241,8 @@ class CheckFuncDeclarations:
         ret, jump = self.check_func_format(context)
         if ret is False:
             return False, 0
-        print(context.tokens[:jump], '\n')
-        for rulename in self.subrules:
-            if rulename in context.rules:
-                print(rulename)
+        # print(ret, jump)
+        # print(context.tokens[:jump], '\n')
         # Check for ';' or '{' in order to call for depending subrules
         if context.tokens[jump] == "LBRACE":
             # FUNCTION BODY

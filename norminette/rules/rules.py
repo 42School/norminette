@@ -1,14 +1,14 @@
 import importlib
 import os
 from glob import glob
-from .context import Context
+from context import Context
 
 
 class Rules:
     def __init__(self):
         self.rules = {}
+        self.registry = {}
         self.getRules()
-        pass
 
     def getRules(self):
         path = os.path.dirname(os.path.realpath(__file__))
@@ -19,6 +19,7 @@ class Rules:
             module = importlib.import_module("rules." + mod_name)
             rule = getattr(module, class_name)
             self.rules[class_name] = rule()
+            self.registry[class_name] = self.rules[class_name].subrules
 
     def run(self, tokens, filename):
         error = False
@@ -29,7 +30,13 @@ class Rules:
                 jump = 0
                 ret, jump = rule.run(context)
                 if ret is True:
-                    print(rulename, ":", context.tokens[:jump])
+                    """
+                    print(self.registry[rulename])
+                    print(
+                            f"{rulename} (line ({context.lines},",
+                            f"{context.tokens[0]}) : {context.tokens[:jump]}"
+                        )
+                    """
                     break
             # print(context.tokens[:jump if jump > 0 else 1])
             context.popTokens(jump if jump > 0 else 1)

@@ -1,4 +1,4 @@
-from rules.norm_error import NormError
+from norm_error import NormError
 
 
 class Context:
@@ -11,7 +11,7 @@ class Context:
         self.scope = "global"
         self.indent_lvl = 0
         self.lines = 1
-        self.functions = 0
+        self.functions_declared = 0
         self.declarations_allowed = True
 
     def peekToken(self, pos):
