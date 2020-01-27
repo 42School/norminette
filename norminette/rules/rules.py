@@ -21,9 +21,8 @@ class Rules:
             self.rules[class_name] = rule()
             self.registry[class_name] = self.rules[class_name].subrules
 
-    def run(self, tokens, filename):
+    def run(self, tokens, filename, context):
         error = False
-        context = Context(filename, tokens, self.rules)
         i = 0
         while context.tokens != []:
             for rulename, rule in self.rules.items():
@@ -38,7 +37,7 @@ class Rules:
                         )
                     """
                     break
-            # print(context.tokens[:jump if jump > 0 else 1])
+            print(context.tokens[0:jump if jump > 0 else 1])
             context.popTokens(jump if jump > 0 else 1)
         if context.errors != []:
             print(filename + ": KO!")

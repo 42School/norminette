@@ -1,14 +1,15 @@
 import sys
 import glob
 from lexer import Lexer, TokenError
-from rules import Rules
+from registry import Registry
+from context import Context
 from tools.colors import format_output as txtformat
 
 
 def main():
     args = sys.argv
     args.pop(0)
-    rules = Rules()
+    registry = Registry()
 
     if args == []:
         args = glob.glob("**/*.[ch]", recursive=True)
@@ -21,8 +22,10 @@ def main():
 
             with open(arg) as f:
                 try:
-                    tokens = Lexer(f.read()).getTokens()
-                    rules.run(tokens, arg)
+                    source = f.read()
+                    tokens = Lexer(source).getTokens()
+                    context = Context(arg, tokens)
+                    registry.run(context)
                 except TokenError as e:
                     print(arg + f": KO!\n\t{txtformat(e.msg, 'red')}")
 

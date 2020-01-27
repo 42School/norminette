@@ -2,27 +2,27 @@ from norm_error import NormError
 
 
 class Context:
-    def __init__(self, filename, tokens, rules):
+    def __init__(self, filename, tokens):
         self.filename = filename
         self.filetype = filename.split('.')[-1]
         self.tokens = tokens
-        self.rules = rules
         self.errors = []
+        self.tkn_scope = -1
         self.scope = "global"
         self.indent_lvl = 0
         self.lines = 1
         self.functions_declared = 0
         self.declarations_allowed = True
 
-    def peekToken(self, pos):
+    def peek_token(self, pos):
         if pos >= len(self.tokens):
             return None
         return self.tokens[pos]
 
-    def popTokens(self, stop):
+    def pop_tokens(self, stop):
         for i in range(stop):
-            if self.peekToken(i) is not None \
-                    and self.peekToken(i).type == "NEWLINE":
+            if self.peek_token(i) is not None \
+                    and self.peek_token(i).type == "NEWLINE":
                 self.lines += 1
         self.tokens = self.tokens[stop:]
 

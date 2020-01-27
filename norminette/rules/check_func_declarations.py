@@ -42,17 +42,17 @@ arg_separator = [
 
 class CheckFuncDeclarations:
     def __init__(self):
-        self.name = "CheckFuncDeclaration"
+        self.name = "CheckFuncDeclarations"
         self.__i = 0
         self.subrules = [
-                "CheckFuncDeclaration",
                 "CheckSpacing"
             ]
+        self.primary = True
 
     def skip_ws(self, context, pos):
         i = pos
-        while context.peekToken(i) is not None \
-                and context.peekToken(i).type in whitespaces:
+        while context.peek_token(i) is not None \
+                and context.peek_token(i).type in whitespaces:
             i += 1
         return i
 
@@ -60,26 +60,26 @@ class CheckFuncDeclarations:
         i = pos
         i = self.skip_ws(context, i)
 
-        if context.peekToken(i) is not None \
-                and context.peekToken(i).type in misc_specifiers:
+        if context.peek_token(i) is not None \
+                and context.peek_token(i).type in misc_specifiers:
             # Skipping "const/register/struct/static/volatile" keywords
             i += 1
             i = self.skip_ws(context, i)
 
-        if context.peekToken(i) is not None \
-                and context.peekToken(i).type in sign_specifiers:
+        if context.peek_token(i) is not None \
+                and context.peek_token(i).type in sign_specifiers:
             # This case is the 'trickier'
             # sign specifier (signed, unsigned) can be followed by:
             # optionnal size specifier (long, short)
             # AND/OR optionnal type specifier (int, char)
             i += 1
             i = self.skip_ws(context, i)
-            if context.peekToken(i) is not None \
-                    and context.peekToken(i).type in size_specifiers:
+            if context.peek_token(i) is not None \
+                    and context.peek_token(i).type in size_specifiers:
                 i += 1
                 i = self.skip_ws(context, i)
-                if context.peekToken(i) is not None \
-                        and context.peekToken(i).type in type_specifiers:
+                if context.peek_token(i) is not None \
+                        and context.peek_token(i).type in type_specifiers:
                     i += 1
                     i = self.skip_ws(context, i)
                     return True, i
@@ -87,18 +87,18 @@ class CheckFuncDeclarations:
 
             else:
                 return True, i
-        elif context.peekToken(i) is not None \
-                and context.peekToken(i).type in size_specifiers:
+        elif context.peek_token(i) is not None \
+                and context.peek_token(i).type in size_specifiers:
             i += 1
             i = self.skip_ws(context, i)
-            if context.peekToken(i).type is not None \
-                    and context.peekToken(i) in type_specifiers:
+            if context.peek_token(i).type is not None \
+                    and context.peek_token(i) in type_specifiers:
                 return True, i
             return True, i
-        elif context.peekToken(i) is not None \
+        elif context.peek_token(i) is not None \
                 and (
-                    context.peekToken(i).type in type_specifiers
-                    or context.peekToken(i).type == "IDENTIFIER"):
+                    context.peek_token(i).type in type_specifiers
+                    or context.peek_token(i).type == "IDENTIFIER"):
             i += 1
             return True, i
 
@@ -114,16 +114,16 @@ class CheckFuncDeclarations:
         i = pos
         groups = []
         depth = 0
-        while context.peekToken(i) is not None \
-                and context.peekToken(i).type != "LBRACE" \
-                and context.peekToken(i).type != "SEMI_COLON":
-            if context.peekToken(i).type == "LPARENTHESIS":
+        while context.peek_token(i) is not None \
+                and context.peek_token(i).type != "LBRACE" \
+                and context.peek_token(i).type != "SEMI_COLON":
+            if context.peek_token(i).type == "LPARENTHESIS":
                 self.push_sub_parentheses([], depth, groups)
                 depth += 1
-            elif context.peekToken(i).type == "RPARENTHESIS":
+            elif context.peek_token(i).type == "RPARENTHESIS":
                 depth -= 1
             else:
-                self.push_sub_parentheses(context.peekToken(i), depth, groups)
+                self.push_sub_parentheses(context.peek_token(i), depth, groups)
             i += 1
         return groups, i
 
@@ -205,8 +205,8 @@ class CheckFuncDeclarations:
         i = self.skip_ws(context, 0)
         ret, i = self.check_functype_prefix(context, i)
         if ret is True:
-            while context.peekToken(i) is not None \
-                    and context.peekToken(i).type == "MULT":
+            while context.peek_token(i) is not None \
+                    and context.peek_token(i).type == "MULT":
                 i += 1
             return ret, i
         return False, 0
@@ -244,6 +244,7 @@ class CheckFuncDeclarations:
         # print(ret, jump)
         # print(context.tokens[:jump], '\n')
         # Check for ';' or '{' in order to call for depending subrules
+        context.tkn_scope = jump
         if context.tokens[jump] == "LBRACE":
             # FUNCTION BODY
             pass

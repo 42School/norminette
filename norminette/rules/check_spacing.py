@@ -1,9 +1,9 @@
-class CheckFuncArgumentCount:
+class CheckSpacing:
     def __init__(self):
-        self.name = "CheckFuncArgumentCount"
+        self.name = "CheckSpacing"
         self.subrules = []
         self.primary = False
-        pass
 
     def run(self, context):
         return False, 0
+        pass
