@@ -1,9 +1,6 @@
-class CheckFuncArgumentCount:
-    def __init__(self):
-        self.name = "CheckFuncArgumentCount"
-        self.subrules = []
-        self.primary = False
-        pass
+from rules import Rule
 
+
+class CheckFuncArgumentCount(Rule):
     def run(self, context):
         return False, 0

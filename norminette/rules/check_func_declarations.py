@@ -1,4 +1,5 @@
 from lexer import Token
+from rules import Rule
 
 type_specifiers = [
     "CHAR",
@@ -40,12 +41,11 @@ arg_separator = [
 ]
 
 
-class CheckFuncDeclarations:
+class CheckFuncDeclarations(Rule):
     def __init__(self):
-        self.name = "CheckFuncDeclarations"
-        self.__i = 0
-        self.subrules = [
-                "CheckSpacing"
+        super().__init__()
+        self.dependencies = [
+                "CheckFuncSpacing"
             ]
         self.primary = True
 
@@ -237,18 +237,15 @@ class CheckFuncDeclarations:
             return False, 0
 
     def run(self, context):
-        self.__i += 1
         ret, jump = self.check_func_format(context)
         if ret is False:
             return False, 0
         # print(ret, jump)
         # print(context.tokens[:jump], '\n')
         # Check for ';' or '{' in order to call for depending subrules
-        context.tkn_scope = jump
-        if context.tokens[jump] == "LBRACE":
-            # FUNCTION BODY
-            pass
+        jump = self.skip_ws(context, jump)
+        if context.tokens[jump].type == "LBRACE":
+            context.tkn_scope = jump
+            return True, jump
         else:
-            # FUNCTION PROTOTYPE
-            pass
-        return True, jump
+            return False, 0

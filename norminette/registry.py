@@ -22,7 +22,7 @@ class Registry:
             if rule.primary is True:
                 self.primary_rules[rule.name] = rule
             self.rules[class_name] = rule
-            self.registry[class_name] = self.rules[class_name].subrules
+            self.registry[class_name] = self.rules[class_name].dependencies
 
     def run(self, context):
         while context.tokens != []:
@@ -31,11 +31,13 @@ class Registry:
                 ret, jump = rule.run(context)
                 if ret is True:
                     # print(context.tokens[0:jump])
-                    self.apply_depedencies(name, context)
+                    self.apply_dependencies(name, context)
                     context.pop_tokens(jump)
                     break
                 else:
                     context.pop_tokens(1)
+        for err in context.errors:
+            print(err)
 
     def apply_dependencies(self, rulename, context):
         for d in self.registry[rulename]:

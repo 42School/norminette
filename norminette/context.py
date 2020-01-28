@@ -7,11 +7,12 @@ class Context:
         self.filetype = filename.split('.')[-1]
         self.tokens = tokens
         self.errors = []
-        self.tkn_scope = -1
-        self.scope = "global"
+        self.tkn_scope = 0
         self.indent_lvl = 0
         self.lines = 1
         self.functions_declared = 0
+        self.var_declared = 0
+        self.global_scope = True
         self.declarations_allowed = True
 
     def peek_token(self, pos):
@@ -26,5 +27,5 @@ class Context:
                 self.lines += 1
         self.tokens = self.tokens[stop:]
 
-    def pushError(self, errno, tkn):
+    def new_error(self, errno, tkn):
         self.errors.append(NormError(errno, tkn.pos[0], tkn.pos[1]))

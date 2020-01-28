@@ -1,7 +1,8 @@
+#include <stdlib.h>
 int foo(int a[2]);
 int ((*foobar)(int a)); //{ return 1;}
 int bar(int a, int b, ...);
-int ((((foo2bar(int a)))))
+  int ((((foo2bar(int a)))))
 {
 	return 1;
 }
@@ -14,14 +15,14 @@ char (*s1(void))
 
 
 
-int (*fp(int a))(int) { return foo; }
+//int (*fp(int a))(int) { return foo; }
 
 
 //int ((*T)(int))(int);
 int ((*p)(int)) = 0;
-int ((*p)(int));// { return f;}
+		int ((*p)(int)) { return f;}
 
-int ((*fppppp)(int a)) {return 1;}
+//int ((*fppppp)(int a)) {return 1;}
 
 #include <string.h>
 #include <unistd.h>
