@@ -1,9 +1,14 @@
 errors = {
-    1000: "space/tabs before function type.",
-    1001: "function missing 'void' qualifier.",
-    1002: "missing paramater name or type qualifier.",
+    1000: "spaces at beginning of line",
+    1001: "two or more consecutives spaces",
+    1002: "space after tab",
+    1003: "missing space before operator",
+    1004: "missing space after operator",
+    1005: "extra space before operator",
+    1006: "extra space after operator",
+    1010: "space before function name",
     # This is a dummy rule
-    9999: "Consecutive newlines."
+    9999: "Consecutive newlines"
 }
 
 

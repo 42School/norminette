@@ -1,14 +1,14 @@
 #include <stdlib.h>
 int foo(int a[2]);
 int ((*foobar)(int a)); //{ return 1;}
-int bar(int a, int b, ...);
-  int ((((foo2bar(int a)))))
+int bar(int a,int b, ...);
+int	((((foo2bar(int a,int b   ,int c)))))
 {
 	return 1;
 }
 int f(int a);
 int func(int a);
-char (*s1(void))
+char	(*s1(void))
 {
 	return malloc(sizeof(char) * 1);
 }
@@ -19,15 +19,15 @@ char (*s1(void))
 
 
 //int ((*T)(int))(int);
-int ((*p)(int)) = 0;
-		int ((*p)(int)) { return f;}
+int (*p)(int) = 0;
+		int (*p)(int) { return f;}
 
 //int ((*fppppp)(int a)) {return 1;}
 
 #include <string.h>
 #include <unistd.h>
 
-char *    (s(void))
+char	*    (s(void))
 {
 	return strdup("yo!\n");
 }

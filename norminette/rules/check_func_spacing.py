@@ -1,6 +1,5 @@
 from rules import Rule
 
-
 whitespaces = [
     "SPACE",
     "TAB",
@@ -48,12 +47,9 @@ class CheckFuncSpacing(Rule):
             i += 1
         return i
 
-    def check_type_prefix_spacing(self, context, pos):
+    def skip_type_prefix(self, context, pos):
         i = pos
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type in whitespaces:
-            context.new_error(1000, context.peek_token(i))
-            i = self.skip_ws(context, i)
+        i = self.skip_ws(context, i)
 
         if context.peek_token(i) is not None \
                 and context.peek_token(i).type in misc_specifiers:
@@ -77,27 +73,23 @@ class CheckFuncSpacing(Rule):
                         and context.peek_token(i).type in type_specifiers:
                     i += 1
                     i = self.skip_ws(context, i)
-                    return True, i
-                return True, i
+                    return i
+                return i
 
             else:
-                return True, i
+                return i
         elif context.peek_token(i) is not None \
                 and context.peek_token(i).type in size_specifiers:
             i += 1
             i = self.skip_ws(context, i)
             if context.peek_token(i).type is not None \
                     and context.peek_token(i) in type_specifiers:
-                return True, i
-            return True, i
-        elif context.peek_token(i) is not None \
-                and (
-                    context.peek_token(i).type in type_specifiers
-                    or context.peek_token(i).type == "IDENTIFIER"):
-            i += 1
-            return True, i
+                return i
+            return i
 
-        return False, pos
+        else:
+            i += 1
+            return i
 
     def trim_newlines(self, context):
         i = 0
@@ -113,7 +105,10 @@ class CheckFuncSpacing(Rule):
         return line
 
     def run(self, context):
-        tkns = context.tokens[:context.tkn_scope]
         start = self.trim_newlines(context)
-        self.check_type_prefix_spacing(context, start)
+        i = self.skip_type_prefix(context, start)
+        if context.peek_token(i).type == "TAB":
+            pass
+        else:
+            context.new_error(1010, context.peek_token(i))
         return False, 0

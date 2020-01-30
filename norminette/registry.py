@@ -40,7 +40,7 @@ class Registry:
             print(err)
 
     def apply_dependencies(self, rulename, context):
-        for d in self.registry[rulename]:
-            self.rules[d].run(context)
-            self.apply_dependencies(self.rules[d].name, context)
+        for r in self.registry[rulename]:
+            self.rules[r].run(context)
+            self.apply_dependencies(self.rules[r].name, context)
         pass

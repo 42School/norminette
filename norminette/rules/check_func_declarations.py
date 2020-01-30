@@ -45,7 +45,9 @@ class CheckFuncDeclarations(Rule):
     def __init__(self):
         super().__init__()
         self.dependencies = [
-                "CheckFuncSpacing"
+                "CheckFuncSpacing",
+                "CheckSpacing",
+                "CheckOperatorsSpacing"
             ]
         self.primary = True
 
