@@ -18,10 +18,11 @@ class NormError:
         self.line = line
         self.col = col
         if col is not None:
-            self.msg_prefix = f"(line: {self.line}, col: {self.col}):\t"
+            self.error_pos = f"(line: {self.line}, col: {self.col}):\t"
         else:
-            self.msg_prefix = f"(line: {self.line}):\t "
-        self.msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
+            self.error_pos = f"(line: {self.line}):\t "
+        self.error_msg_prefix = f"\tE{self.errno}" + self.error_pos
+        self.error_msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
 
     def __str__(self):
-        return f"E{self.errno}" + self.msg_prefix + self.msg
+        return self.error_msg_prefix + self.error_msg

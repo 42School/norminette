@@ -31,16 +31,26 @@ class Registry:
                 ret, jump = rule.run(context)
                 if ret is True:
                     # print(context.tokens[0:jump])
+                    context.history.append(rule.name)
                     self.apply_dependencies(name, context)
+                    print(context.history)
+                    context.history.pop(-1)
                     context.pop_tokens(jump)
                     break
-                else:
+                else: # REMOVE THIS ONCE ALL RULES ARE DONE !!!!
                     context.pop_tokens(1)
+        if context.errors == []:
+            print(context.filename + ": OK!")
+        else:
+            print(context.filename + ": KO!")
         for err in context.errors:
             print(err)
 
     def apply_dependencies(self, rulename, context):
         for r in self.registry[rulename]:
             self.rules[r].run(context)
-            self.apply_dependencies(self.rules[r].name, context)
+            context.history.append(r)
+            print(context.history, context.get_parent_rule())
+            self.apply_dependencies(r, context)
+            context.history.pop(-1)
         pass

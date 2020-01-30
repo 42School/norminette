@@ -107,8 +107,6 @@ class CheckFuncSpacing(Rule):
     def run(self, context):
         start = self.trim_newlines(context)
         i = self.skip_type_prefix(context, start)
-        if context.peek_token(i).type == "TAB":
-            pass
-        else:
+        if context.peek_token(i).type == "SPACE":
             context.new_error(1010, context.peek_token(i))
         return False, 0

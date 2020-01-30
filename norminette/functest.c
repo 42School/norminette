@@ -27,7 +27,7 @@ int (*p)(int) = 0;
 #include <string.h>
 #include <unistd.h>
 
-char	*    (s(void))
+char	*(s(void))
 {
 	return strdup("yo!\n");
 }

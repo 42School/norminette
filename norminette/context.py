@@ -6,6 +6,7 @@ class Context:
         self.filename = filename
         self.filetype = filename.split('.')[-1]
         self.tokens = tokens
+        self.history = []
         self.errors = []
         self.tkn_scope = 0
         self.indent_lvl = 0
@@ -29,3 +30,6 @@ class Context:
 
     def new_error(self, errno, tkn):
         self.errors.append(NormError(errno, tkn.pos[0], tkn.pos[1]))
+
+    def get_parent_rule(self):
+        return self.history[-1 if len(self.history) == 1 else -2]
