@@ -33,7 +33,7 @@ class Registry:
                     # print(context.tokens[0:jump])
                     context.history.append(rule.name)
                     self.apply_dependencies(name, context)
-                    print(context.history)
+                    # print(context.history)
                     context.history.pop(-1)
                     context.pop_tokens(jump)
                     break
@@ -43,14 +43,13 @@ class Registry:
             print(context.filename + ": OK!")
         else:
             print(context.filename + ": KO!")
-        for err in context.errors:
-            print(err)
+            for err in context.errors:
+                print(err)
 
     def apply_dependencies(self, rulename, context):
         for r in self.registry[rulename]:
             self.rules[r].run(context)
             context.history.append(r)
-            print(context.history, context.get_parent_rule())
+            # print(context.history, context.get_parent_rule())
             self.apply_dependencies(r, context)
             context.history.pop(-1)
-        pass

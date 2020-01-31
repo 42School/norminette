@@ -6,6 +6,8 @@ errors = {
     1004: "missing space after operator",
     1005: "extra space before operator",
     1006: "extra space after operator",
+    1007: "space after pointer",
+    1008: "bad spacing before pointer",
     1010: "space before function name",
     # This is a dummy rule
     9999: "Consecutive newlines"
@@ -21,7 +23,7 @@ class NormError:
             self.error_pos = f"(line: {self.line}, col: {self.col}):\t"
         else:
             self.error_pos = f"(line: {self.line}):\t "
-        self.error_msg_prefix = f"\tE{self.errno}" + self.error_pos
+        self.error_msg_prefix = f"\tE{self.errno} " + self.error_pos
         self.error_msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
 
     def __str__(self):

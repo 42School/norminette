@@ -14,7 +14,9 @@ def main():
     targets = []
 
     for arg in args:
-        if os.path.isdir(arg):
+        if os.path.exists(arg) is False:
+            print(f"'{arg}' no such file or directory")
+        elif os.path.isdir(arg):
             if arg[-1] != '/':
                 arg = arg + '/'
             targets.extend(glob.glob(arg + '**/*.c', recursive=True))
