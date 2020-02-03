@@ -39,6 +39,7 @@ arg_separator = [
     "CLOSING_PARENTHESIS"
 ]
 
+
 class CheckFuncSpacing(Rule):
     def skip_ws(self, context, pos):
         i = pos
@@ -94,7 +95,7 @@ class CheckFuncSpacing(Rule):
     def trim_newlines(self, context):
         i = 0
         line = 0
-        while i < context.tkn_scope and  context.peek_token(i) is not None \
+        while i < context.tkn_scope and context.peek_token(i) is not None \
                 and context.peek_token(i).type not in misc_specifiers \
                 and context.peek_token(i).type not in size_specifiers \
                 and context.peek_token(i).type not in sign_specifiers \

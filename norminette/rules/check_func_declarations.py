@@ -140,6 +140,8 @@ class CheckFuncDeclarations(Rule):
                         or group[i].type in size_specifiers \
                         or group[i].type in [
                             "MULT",
+                            "PLUS",
+                            "MINUS",
                             "COMMA",
                             "IDENTIFIER",
                             "CONSTANT",

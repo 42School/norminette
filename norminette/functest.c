@@ -8,7 +8,7 @@ int	((((foo2bar(int a,int b   ,int c)))))
 }
 int f(int a);
 int func(int a);
-char	(*s1(void))
+char	(*s1(int a[1 +-+-1]))
 {
 	return malloc(sizeof(char) * 1);
 }

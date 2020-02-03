@@ -1,4 +1,5 @@
-import importlib, os
+import importlib
+import os
 from glob import glob
 from context import Context
 
@@ -37,7 +38,7 @@ class Registry:
                     context.history.pop(-1)
                     context.pop_tokens(jump)
                     break
-                else: # REMOVE THIS ONCE ALL RULES ARE DONE !!!!
+                else:  # REMOVE THIS ONCE ALL RULES ARE DONE !!!!
                     context.pop_tokens(1)
         if context.errors == []:
             print(context.filename + ": OK!")
