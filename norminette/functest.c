@@ -8,7 +8,7 @@ int	((((foo2bar(int a,int b   ,int c)))))
 }
 int f(int a);
 int func(int a);
-char	(*s1(int a[1 +-+-1]))
+char	(*s1(int a[1 + -+-*truc]))
 {
 	return malloc(sizeof(char) * 1);
 }
@@ -27,7 +27,7 @@ int (*p)(int) = 0;
 #include <string.h>
 #include <unistd.h>
 
-char* (s(void))
+char * (s(void))
 {
 	return strdup("yo!\n");
 }

@@ -127,24 +127,24 @@ class CheckOperatorsSpacing(Rule):
 
     def check_prefix(self, context, pos):
         if pos > 0 and context.peek_token(pos - 1).type != "SPACE":
-            context.new_error(1003, context.peek_token(pos - 1))
+            context.new_error(1003, context.peek_token(pos))
         if pos + 1 < len(context.tokens[:context.tkn_scope]) \
                 and context.peek_token(pos + 1).type == "SPACE":
-            context.new_error(1006, context.peek_token(pos + 1))
+            context.new_error(1006, context.peek_token(pos))
 
     def check_suffix(self, context, pos):
         if pos + 1 < len(context.tokens[:context.tkn_scope]) \
                 and context.peek_token(pos + 1).type != "SPACE":
-            context.new_error(1004, context.peek_token(pos + 1))
+            context.new_error(1004, context.peek_token(pos))
         if pos > 0 and context.peek_token(pos - 1).type == "SPACE":
-            context.new_error(1005, context.peek_token(pos - 1))
+            context.new_error(1005, context.peek_token(pos))
 
     def check_prefix_and_suffix(self, context, pos):
         if pos > 0 and context.peek_token(pos - 1).type != "SPACE":
-            context.new_error(1003, context.peek_token(pos - 1))
+            context.new_error(1003, context.peek_token(pos))
         if pos + 1 < len(context.tokens[:context.tkn_scope]) \
                 and context.peek_token(pos + 1).type != "SPACE":
-            context.new_error(1004, context.peek_token(pos + 1))
+            context.new_error(1004, context.peek_token(pos))
 
     def check_combined_op(self, context, pos):
         lpointer = ["SPACE", "TAB", "LPARENTHESIS"]
@@ -152,11 +152,13 @@ class CheckOperatorsSpacing(Rule):
         if context.peek_token(pos).type in ["PLUS", "MINUS"]:
             if self.last_seen_tkn.type in lsign:
                 if pos > 0 and context.peek_token(pos - 1).type != "SPACE":
-                    context.new_error(1003, context.peek_token(pos - 1))
+                    context.new_error(1003, context.peek_token(pos))
                 i = 1
                 while context.peek_token(pos + i).type \
                         in ["PLUS", "MINUS", "MULT"]:
                     i += 1
+                if context.peek_token(pos + i).type in ["SPACE", "TAB"]:
+                    context.new_error(1006, context.peek_token(pos + i - 1))
                 return i
             else :
                 self.check_prefix_and_suffix(context, pos)
@@ -166,13 +168,13 @@ class CheckOperatorsSpacing(Rule):
                 if context.peek_token(pos - 1).type not in lpointer:
                     context.new_error(1008, context.peek_token(pos))
                 if context.peek_token(pos + 1).type in ["SPACE", "TAB"]:
-                    context.new_error(1007, context.peek_token(pos + 1))
+                    context.new_error(1007, context.peek_token(pos))
                 i = 1
                 while context.peek_token(pos + i).type \
                         in ["MULT", "LPARENTHESIS"]:
+                    i += 1
                     if context.peek_token(pos + i).type == "SPACE":
                         context.new_error(1007, context.peek_token(pos + i))
-                    i += 1
                 return (i)
             pass
         pass
