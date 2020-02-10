@@ -19,7 +19,6 @@ class norminetteFileTester():
         self.result = []
 
     def assertEqual(self, first, second):
-        self.maxDiff = None
         if first == second:
             self.__success += 1
             print("OK")

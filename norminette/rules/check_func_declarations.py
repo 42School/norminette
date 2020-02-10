@@ -46,6 +46,7 @@ class CheckFuncDeclarations(Rule):
         super().__init__()
         self.dependencies = [
                 "CheckFuncSpacing",
+                "CheckFuncArgumentsName",
                 "CheckSpacing",
                 "CheckOperatorsSpacing"
             ]
@@ -58,6 +59,48 @@ class CheckFuncDeclarations(Rule):
             i += 1
         return i
 
+    def check_sign_specifier(self, context, pos):
+        i = pos
+        i = self.skip_ws(context, i)
+        if context.peek_token(i) is not None \
+                and context.peek_token(i).type in sign_specifiers:
+            i += 1
+            i = self.skip_ws(context, i)
+            ret, i = self.check_size_specifier(self, context, i)
+            if ret is True:
+                return True, i
+            ret, i = self.check_type_specifier(self, context, i)
+            return True, i
+        else:
+            return False, pos
+
+    def check_size_specifier(self, context, pos):
+        i = pos
+        i = self.skip_ws(context, i)
+        if context.peek_token(i) is not None \
+                and context.peek_token(i).type in size_specifiers:
+            i += 1
+            i = self.skip_ws(context, i)
+            return self.check_type_specifier(self, context, i)
+        else:
+            return False, pos
+        pass
+
+    def check_type_specifier(self, context, pos):
+        i = pos
+        if context.peek_token(i) is not None \
+                and context.peek_token(i).type in type_specifiers:
+            i += 1
+            i = self.skip_ws(context, i)
+            return True, pos
+        elif context.peek_token(i) is not None \
+                and context.peek_token(i).type == "IDENTIFIER":
+            i += 1
+            i = self.skip_ws(context, i)
+            return True, pos
+        else:
+            return False, pos
+
     def check_functype_prefix(self, context, pos):
         i = pos
         i = self.skip_ws(context, i)
@@ -67,7 +110,18 @@ class CheckFuncDeclarations(Rule):
             # Skipping "const/register/struct/static/volatile" keywords
             i += 1
             i = self.skip_ws(context, i)
-
+        """
+        ret, i = self.check_sign_specifier(context, i)
+        if ret is True:
+            return ret, i
+        ret, i = self.check_size_specifier(context, i)
+        if ret is True:
+            return ret, i
+        ret, i = self.check_type_specifier(context, i)
+        if ret is True:
+            return ret, i
+        return False, pos
+        """
         if context.peek_token(i) is not None \
                 and context.peek_token(i).type in sign_specifiers:
             # This case is the 'trickier'
@@ -106,7 +160,7 @@ class CheckFuncDeclarations(Rule):
 
         return False, pos
 
-    def push_sub_parentheses(self, obj, depth, group):
+    def push_elem(self, obj, depth, group):
         while depth > 0:
             group = group[-1]
             depth -= 1
@@ -116,16 +170,17 @@ class CheckFuncDeclarations(Rule):
         i = pos
         groups = []
         depth = 0
+        #print("in parenthese: ", context.tokens[pos:])
         while context.peek_token(i) is not None \
                 and context.peek_token(i).type != "LBRACE" \
                 and context.peek_token(i).type != "SEMI_COLON":
             if context.peek_token(i).type == "LPARENTHESIS":
-                self.push_sub_parentheses([], depth, groups)
+                self.push_elem([], depth, groups)
                 depth += 1
             elif context.peek_token(i).type == "RPARENTHESIS":
                 depth -= 1
             else:
-                self.push_sub_parentheses(context.peek_token(i), depth, groups)
+                self.push_elem(context.peek_token(i), depth, groups)
             i += 1
         return groups, i
 
@@ -167,6 +222,7 @@ class CheckFuncDeclarations(Rule):
         # True, False if identifier is found but no function argument are found
         # True, True if identifier and func args are found in the same scope
         i = 0
+        # print(group)
         while i in range(len(group)):
             # print(group[i], i)
             if isinstance(group[i], Token):
@@ -219,7 +275,7 @@ class CheckFuncDeclarations(Rule):
         ret, i = self.check_func_prefix(context)
         if ret is False:
             return False, 0
-        # print("1-- out of checkfuncprefix", ret, i, context.tokens[:i])
+        # print("1-- out of checkfuncprefix", ret, i, context.tokens)
         i = self.skip_ws(context, i)
         # print("2-- out of skip_ws", ret, i, context.tokens[i])
         groups, i = self.parse_parentheses(context, i)
@@ -241,15 +297,18 @@ class CheckFuncDeclarations(Rule):
             return False, 0
 
     def run(self, context):
+        # print(context.tokens)
         ret, jump = self.check_func_format(context)
         if ret is False:
             return False, 0
-        # print(ret, jump)
-        # print(context.tokens[:jump], '\n')
+        #print(ret, jump)
+        #print(context.tokens[:jump], '\n')
         # Check for ';' or '{' in order to call for depending subrules
         jump = self.skip_ws(context, jump)
         if context.tokens[jump].type == "LBRACE":
+            #print(context.tokens[:jump])
             context.tkn_scope = jump
             return True, jump
-        else:
-            return False, 0
+        elif context.tokens[jump].type == "SEMI_COLON":
+            context.tkn_scope = jump
+            return True, jump

@@ -9,6 +9,9 @@ errors = {
     1007: "space after pointer",
     1008: "bad spacing before pointer",
     1010: "space before function name",
+    1011: "extra tabs before function name",
+    1012: "missing 'void' keyword",
+    1013: "missing type qualifier or identifier in function arguments",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

@@ -1,10 +1,5 @@
+from lexer import Token
 from rules import Rule
-
-whitespaces = [
-    "SPACE",
-    "TAB",
-    "NEWLINE"
-]
 
 type_specifiers = [
     "CHAR",
@@ -34,13 +29,19 @@ sign_specifiers = [
     "UNSIGNED"
 ]
 
+whitespaces = [
+    "SPACE",
+    "TAB",
+    "NEWLINE"
+]
+
 arg_separator = [
     "COMMA",
     "CLOSING_PARENTHESIS"
 ]
 
 
-class CheckFuncSpacing(Rule):
+class CheckFuncArgumentsName(Rule):
     def skip_ws(self, context, pos):
         i = pos
         while context.peek_token(i) is not None \
@@ -87,35 +88,63 @@ class CheckFuncSpacing(Rule):
                     and context.peek_token(i) in type_specifiers:
                 return i
             return i
-
         else:
             i += 1
             return i
 
-    def trim_newlines(self, context):
-        i = 0
-        line = 0
-        while i < context.tkn_scope and context.peek_token(i) is not None \
-                and context.peek_token(i).type not in misc_specifiers \
-                and context.peek_token(i).type not in size_specifiers \
-                and context.peek_token(i).type not in sign_specifiers \
-                and context.peek_token(i).type not in type_specifiers:
-            if context.peek_token(i).type == "NEWLINE":
-                line = i + 1
+    def push_sub_parentheses(self, obj, depth, group):
+        while depth > 0:
+            group = group[-1]
+            depth -= 1
+        group.append(obj)
+
+    def parse_parentheses(self, context, pos):
+        i = pos
+        groups = []
+        depth = 0
+        while context.peek_token(i) is not None \
+                and context.peek_token(i).type != "LBRACE" \
+                and context.peek_token(i).type != "SEMI_COLON":
+            if context.peek_token(i).type == "LPARENTHESIS":
+                self.push_sub_parentheses([], depth, groups)
+                depth += 1
+                #self.push_sub_parentheses(context.peek_token(i), depth, groups)
+            elif context.peek_token(i).type == "RPARENTHESIS":
+                depth -= 1
+            elif context.peek_token(i).type not in whitespaces:
+                self.push_sub_parentheses(context.peek_token(i), depth, groups)
             i += 1
-        return line
+        return groups, i
+
+    def check_arg_format(self, context, group, pos):
+        i = pos
+        pass
+
+    def check_args_format(self, context, group, pos):
+        return
+        if len(group) == 0:
+            # how to get the position?????
+            return
+        self.check_arg_format(context, group, pos)
+        # print(group)
+
+    def check_sub_group(self, context, group):
+        #print(group, len(group))
+        if len(group) == 1 and isinstance(group[0], list):
+            self.check_sub_group(context, group[0])
+        else:
+            i = 0
+            self.check_args_format(context, group[-1], 0)
+            #print('->',group,"\n", "-->",  group[-1])
 
     def run(self, context):
-        start = self.trim_newlines(context)
-        i = self.skip_type_prefix(context, start)
-        if context.peek_token(i).type == "SPACE":
-            context.new_error(1010, context.peek_token(i))
-        if context.peek_token(i).type == "TAB":
-            j = i
-            while context.peek_token(i).type == "TAB":
-                i += 1
-            if j + 1 < i:
-                context.new_error(1011, context.peek_token(i))
-            if context.peek_token(i).type == "SPACE":
-                context.new_error(1010, context.peek_token(i))
+        return True, 0
+        pos = self.skip_type_prefix(context, 0)
+        pos = self.skip_ws(context, pos)
+        # print(context.tokens[:context.tkn_scope])
+        groups, pos = self.parse_parentheses(context, pos)
+        #print(groups)
+        # print(groups, "->",  groups[-1])
+        self.check_sub_group(context, groups)
+        print("\n")
         return False, 0
