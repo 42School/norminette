@@ -8,7 +8,7 @@ type_specifiers = [
     "FLOAT",
     "INT",
     "UNION",
-    "VOID",
+    "VOID"
 ]
 
 misc_specifiers = [
@@ -76,75 +76,97 @@ class CheckFuncArgumentsName(Rule):
                     i += 1
                     i = self.skip_ws(context, i)
                     return i
-                return i
+                return True, i
 
             else:
-                return i
+                return True, i
         elif context.peek_token(i) is not None \
                 and context.peek_token(i).type in size_specifiers:
             i += 1
             i = self.skip_ws(context, i)
             if context.peek_token(i).type is not None \
                     and context.peek_token(i) in type_specifiers:
-                return i
-            return i
+                return True, i
+            return True, i
+        elif context.peek_token(i) is not None \
+                and (
+                    context.peek_token(i).type in type_specifiers
+                    or context.peek_token(i).type == "IDENTIFIER"):
+            i += 1
+            return True, i
         else:
             i += 1
-            return i
+            return False, i
 
-    def push_sub_parentheses(self, obj, depth, group):
-        while depth > 0:
-            group = group[-1]
-            depth -= 1
-        group.append(obj)
-
-    def parse_parentheses(self, context, pos):
-        i = pos
-        groups = []
-        depth = 0
+    def check_arg_format(self, context, pos):
+        i = self.skip_ws(context, pos)
+        ret, i = self.skip_type_prefix(context, i)
+        i = self.skip_ws(context, i)
         while context.peek_token(i) is not None \
-                and context.peek_token(i).type != "LBRACE" \
-                and context.peek_token(i).type != "SEMI_COLON":
-            if context.peek_token(i).type == "LPARENTHESIS":
-                self.push_sub_parentheses([], depth, groups)
-                depth += 1
-                #self.push_sub_parentheses(context.peek_token(i), depth, groups)
-            elif context.peek_token(i).type == "RPARENTHESIS":
-                depth -= 1
-            elif context.peek_token(i).type not in whitespaces:
-                self.push_sub_parentheses(context.peek_token(i), depth, groups)
+                and (context.peek_token(i).type == "MULT"
+                    or context.peek_token(i).type in whitespaces):
             i += 1
-        return groups, i
+        stop = ["COMMA", "RPARENTHESIS"]
+        if ret is True:
+            if context.peek_token(i) is not None \
+                    and context.peek_token(i).type != "IDENTIFIER":
+                context.new_error(1013, context.peek_token(i - 1))
+            else:
+                i += 1
+                i = self.skip_ws(context, i)
+                while context.peek_token(i) is not None \
+                        and context.peek_token(i).type not in stop:
+                    i += 1
+        else:
+            context.new_error(1013, context.peek_token(i - 1))
+        return i
 
-    def check_arg_format(self, context, group, pos):
+    def check_args(self, context, pos):
         i = pos
+        while context.peek_token(i) is not None \
+                and context.peek_token(i).type != "IDENTIFIER":
+            i += 1
+        while context.peek_token(i) is not None \
+                and context.peek_token(i).type != "LPARENTHESIS":
+            i += 1
+        i += 1
+        p = 1
+        j = i
+        while context.peek_token(i) is not None:
+            if context.peek_token(i).type not in whitespaces + ["VOID"]:
+                i = -1
+                break
+            i += 1
+        if i == -1:
+            return
+        while p > 0 and context.peek_token(i) is not None:
+            if context.peek_token(i).type == "LPARENTHESIS":
+                p += 1
+                while p:
+                    if context.peek_token(i) is not None:
+                        if context.peek_token(i).type == "LPARENTHESIS":
+                            p += 1
+                        elif context.peek_token(i).type == "RPARENTHESIS":
+                            p -= 1
+                    else:
+                        break
+                    i += 1
+            elif context.peek_token(i).type == "RPARENTHESIS":
+                p -= 1
+                i += 1
+            elif context.peek_token(i).type == "COMMA":
+                i += 1
+            else:
+                i = self.check_arg_format(context, i)
         pass
 
-    def check_args_format(self, context, group, pos):
-        return
-        if len(group) == 0:
-            # how to get the position?????
-            return
-        self.check_arg_format(context, group, pos)
-        # print(group)
-
-    def check_sub_group(self, context, group):
-        #print(group, len(group))
-        if len(group) == 1 and isinstance(group[0], list):
-            self.check_sub_group(context, group[0])
-        else:
-            i = 0
-            self.check_args_format(context, group[-1], 0)
-            #print('->',group,"\n", "-->",  group[-1])
-
     def run(self, context):
-        return True, 0
-        pos = self.skip_type_prefix(context, 0)
+        ret, pos = self.skip_type_prefix(context, 0)
+        #print(context.tokens[pos:context.tkn_scope])
         pos = self.skip_ws(context, pos)
+        self.check_args(context, pos)
         # print(context.tokens[:context.tkn_scope])
-        groups, pos = self.parse_parentheses(context, pos)
         #print(groups)
         # print(groups, "->",  groups[-1])
-        self.check_sub_group(context, groups)
-        print("\n")
+        #print("\n")
         return False, 0
