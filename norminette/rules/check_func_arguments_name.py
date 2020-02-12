@@ -100,8 +100,15 @@ class CheckFuncArgumentsName(Rule):
 
     def check_arg_format(self, context, pos):
         i = self.skip_ws(context, pos)
+        if context.peek_token(i) is not None \
+                and context.peek_token(i).type == "VOID":
+            i += 1
+            i = self.skip_ws(context, i)
+            if context.peek_token(i) is not None \
+                    and context.peek_token(i).type == "RPARENTHESIS":
+                return i
+        i = self.skip_ws(context, pos)
         ret, i = self.skip_type_prefix(context, i)
-        i = self.skip_ws(context, i)
         while context.peek_token(i) is not None \
                 and (context.peek_token(i).type == "MULT"
                     or context.peek_token(i).type in whitespaces):
@@ -110,7 +117,7 @@ class CheckFuncArgumentsName(Rule):
         if ret is True:
             if context.peek_token(i) is not None \
                     and context.peek_token(i).type != "IDENTIFIER":
-                context.new_error(1013, context.peek_token(i - 1))
+                context.new_error(1016, context.peek_token(i - 1))
             else:
                 i += 1
                 i = self.skip_ws(context, i)
@@ -118,8 +125,11 @@ class CheckFuncArgumentsName(Rule):
                         and context.peek_token(i).type not in stop:
                     i += 1
         else:
-            context.new_error(1013, context.peek_token(i - 1))
+            context.new_error(1016, context.peek_token(i - 1))
         return i
+
+    def no_arg_func(self, context, pos):
+        pass
 
     def check_args(self, context, pos):
         i = pos
@@ -131,14 +141,6 @@ class CheckFuncArgumentsName(Rule):
             i += 1
         i += 1
         p = 1
-        j = i
-        while context.peek_token(i) is not None:
-            if context.peek_token(i).type not in whitespaces + ["VOID"]:
-                i = -1
-                break
-            i += 1
-        if i == -1:
-            return
         while p > 0 and context.peek_token(i) is not None:
             if context.peek_token(i).type == "LPARENTHESIS":
                 p += 1
@@ -158,15 +160,9 @@ class CheckFuncArgumentsName(Rule):
                 i += 1
             else:
                 i = self.check_arg_format(context, i)
-        pass
 
     def run(self, context):
         ret, pos = self.skip_type_prefix(context, 0)
-        #print(context.tokens[pos:context.tkn_scope])
         pos = self.skip_ws(context, pos)
         self.check_args(context, pos)
-        # print(context.tokens[:context.tkn_scope])
-        #print(groups)
-        # print(groups, "->",  groups[-1])
-        #print("\n")
         return False, 0

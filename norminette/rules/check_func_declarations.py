@@ -50,7 +50,8 @@ class CheckFuncDeclarations(Rule):
                 "CheckFuncName",
                 "CheckEmptyFuncParams",
                 "CheckSpacing",
-                "CheckOperatorsSpacing"
+                "CheckOperatorsSpacing",
+                "CheckLineLen"
             ]
         self.primary = True
 
@@ -127,7 +128,6 @@ class CheckFuncDeclarations(Rule):
 
         if context.peek_token(i) is not None \
                 and context.peek_token(i).type == "STRUCT":
-            print("YOUHOUUUU")
             i += 1
             i = self.skip_ws(context, i)
             if context.peek_token(i) is not None \
@@ -318,11 +318,16 @@ class CheckFuncDeclarations(Rule):
         #print(ret, jump)
         #print(context.tokens[:jump], '\n')
         # Check for ';' or '{' in order to call for depending subrules
-        jump = self.skip_ws(context, jump)
-        if context.tokens[jump].type == "LBRACE":
+        i = jump
+        while context.peek_token(i) is not None \
+                and context.peek_token(i).type in whitespaces:
+            if context.peek_token(i - 1).type == "NEWLINE":
+                jump = i - 1
+            i += 1
+        if context.tokens[i].type == "LBRACE":
             #print(context.tokens[:jump])
-            context.tkn_scope = jump - 1
+            context.tkn_scope = jump
             return True, jump - 1
-        elif context.tokens[jump].type == "SEMI_COLON":
-            context.tkn_scope = jump - 1
-            return True, jump - 1
+        elif context.tokens[i].type == "SEMI_COLON":
+            context.tkn_scope = jump
+            return True, jump

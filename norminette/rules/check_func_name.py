@@ -97,13 +97,13 @@ class CheckFuncName(Rule):
     def run(self, context):
         legal = string.ascii_lowercase + string.digits + '_'
         _, i = self.skip_type_prefix(context, 0)
-        print(context.tokens[:context.tkn_scope])
         while context.peek_token(i) \
                 and context.peek_token(i).type != "IDENTIFIER":
             i += 1
-        print(context.peek_token(i).value)
+        if context.peek_token(i) is None:
+            return False, 0
         for c in context.peek_token(i).value:
             if c not in legal:
-                context.new_error(2003, context.peek_token(i))
+                context.new_error(1018, context.peek_token(i))
                 break
         return False, 0

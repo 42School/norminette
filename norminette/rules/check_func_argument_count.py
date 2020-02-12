@@ -121,5 +121,4 @@ class CheckFuncArgumentCount(Rule):
                 args += 1
             i += 1
         if args > 4:
-            context.new_error(2002, context.peek_token(pos))
-        return False, 0
+            context.new_error(1017, context.peek_token(pos))

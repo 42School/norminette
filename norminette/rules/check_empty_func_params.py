@@ -107,6 +107,6 @@ class CheckEmptyFuncParams(Rule):
         i = self.skip_ws(context, i)
         if context.peek_token(i) is not None \
                 and context.peek_token(i).type == "RPARENTHESIS":
-            context.new_error(2000, context.peek_token(i))
+            context.new_error(1015, context.peek_token(i))
 
         pass

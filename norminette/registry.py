@@ -2,7 +2,16 @@ import importlib
 import os
 from glob import glob
 from context import Context
+from functools import cmp_to_key
 
+
+def sort_errs(a, b):
+    if a.line == b.line:
+        return b.col - a.col
+    elif a.line < b.line:
+        return -1
+    else:
+        return 1
 
 class Registry:
     def __init__(self):
@@ -32,19 +41,21 @@ class Registry:
                 jump = 0
                 ret, jump = rule.run(context)
                 if ret is True:
-                    # print(context.tokens[:jump])
+                    print(context.tokens[:jump])
                     context.history.append(rule.name)
                     self.apply_dependencies(name, context)
                     # print(context.history)
                     context.history.pop(-1)
-                    context.pop_tokens(jump)
+                    context.eat_tokens(jump)
                     break
             if ret is False:  # REMOVE THIS ONCE ALL RULES ARE DONE !!!!
-                context.pop_tokens(1)
+                context.eat_tokens(1)
         if context.errors == []:
             print(context.filename + ": OK!")
         else:
             print(context.filename + ": KO!")
+            sorted(context.errors, key=cmp_to_key(sort_errs))
+            print([str(a.col)+":"+ str(a.line)+"\n" for a in context.errors])
             for err in context.errors:
                 print(err)
 

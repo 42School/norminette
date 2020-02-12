@@ -13,6 +13,7 @@ class Context:
         self.lines = 1
         self.functions_declared = 0
         self.var_declared = 0
+        self.var_alignment = [0]
         self.global_scope = True
         self.declarations_allowed = True
 
@@ -21,7 +22,7 @@ class Context:
             return None
         return self.tokens[pos]
 
-    def pop_tokens(self, stop):
+    def eat_tokens(self, stop):
         for i in range(stop):
             if self.peek_token(i) is not None \
                     and self.peek_token(i).type == "NEWLINE":
