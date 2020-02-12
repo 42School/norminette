@@ -55,7 +55,7 @@ class Registry:
         else:
             print(context.filename + ": KO!")
             sorted(context.errors, key=cmp_to_key(sort_errs))
-            print([str(a.col)+":"+ str(a.line)+"\n" for a in context.errors])
+            print([str(a.col)+":"+ str(a.line) for a in context.errors])
             for err in context.errors:
                 print(err)
 

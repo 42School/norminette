@@ -12,7 +12,7 @@ class CheckBrace(Rule):
     def  __init__(self):
         super().__init__()
         self.primary = True
-        self.dependencies = ["CheckSpacing", "CheckLineLen"]
+        self.dependencies = [ "CheckLineLen"]
 
     def skip_ws(self, context, pos):
         i = pos

@@ -1,30 +1,35 @@
 #include <stdlib.h>
+typedef int t_type;
 
 /* basic func */
 int foo(int a) { return 1; }
 
 /* basic func, name and params wrapped in parentheses */
-int (foo2(int a)) { return 1; }
+int   (foo2(int a))
+{ return 1; }
 
 /* basic func, name wrapped in parentheses */
-int (foo3)(int a) { return 1; }
+t_type (foo3)(int *f(int), int a) { return 1; }
 
 /* basic func, name and params wrapped in way too much parentheses */
 int ((((foo4(int a))))) { return 1; }
 
 /* basic func, returning a pointer*/
-int *foo5(int a){ return malloc(sizeof(int)); }
+int *foo5(){ return malloc(sizeof(int)); }
 
 /* func returning a func pointer*/
-int (*foo6(int a))(int) { return foo; }
+int(*foo6(int a, b, int, int c, int d))(int)
+{
+return foo;
+}
 
 /* func returning a func pointer wrapped in way too much parentheses */
 int (((*foo7(int a))(int))) { return foo; }
 
-/* func returning a func pointer, wrapped in way too much parentheses #2 */
-int (((*foo8(int a))(int))) { return foo; }
+/*       func returning a func pointer, wrapped in way too much parentheses #2 */
+int (((*foOo8(void))(int)))
+{ return foo; }
 
-/* func pointer, not a a func!!*/
-int	*(foo9)(int);
-int	(*(foo10)(int));
-
+/* func pointers, not funcs!!*/
+//int	 *(foo9)(int);
+//int	(*(foo10)(int));
