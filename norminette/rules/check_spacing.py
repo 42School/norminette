@@ -3,7 +3,6 @@ from rules import Rule
 
 class CheckSpacing(Rule):
     def run(self, context):
-        print("CS------------>",context.tokens[:context.tkn_scope])
         i = 0
         for i in range(len(context.tokens[:context.tkn_scope])):
             if context.peek_token(i).type == "SPACE":

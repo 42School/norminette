@@ -34,31 +34,6 @@ class Registry:
             self.rules[class_name] = rule
             self.registry[class_name] = self.rules[class_name].dependencies
 
-    def run(self, context):
-        # print(context.tokens)
-        while context.tokens != []:
-            for name, rule in self.primary_rules.items():
-                jump = 0
-                ret, jump = rule.run(context)
-                if ret is True:
-                    print(context.tokens[:jump])
-                    context.history.append(rule.name)
-                    self.apply_dependencies(name, context)
-                    # print(context.history)
-                    context.history.pop(-1)
-                    context.eat_tokens(jump)
-                    break
-            if ret is False:  # REMOVE THIS ONCE ALL RULES ARE DONE !!!!
-                context.eat_tokens(1)
-        if context.errors == []:
-            print(context.filename + ": OK!")
-        else:
-            print(context.filename + ": KO!")
-            sorted(context.errors, key=cmp_to_key(sort_errs))
-            print([str(a.col)+":"+ str(a.line) for a in context.errors])
-            for err in context.errors:
-                print(err)
-
     def apply_dependencies(self, rulename, context):
         for r in self.registry[rulename]:
             self.rules[r].run(context)
@@ -66,3 +41,32 @@ class Registry:
             # print(context.history, context.get_parent_rule())
             self.apply_dependencies(r, context)
             context.history.pop(-1)
+
+    def run(self, context):
+        while context.tokens != []:
+            for name, rule in self.primary_rules.items():
+                jump = 0
+                ret, jump = rule.run(context)
+                if ret is True:
+                    #print(f"Rule {rule.name} matched {jump} tokens :\t",
+                            #context.tokens[:jump])
+                    context.history.append(rule.name)
+                    self.apply_dependencies(name, context)
+                    # print(context.history)
+                    context.history.pop(-1)
+                    context.eat_tokens(jump)
+                    break
+
+            ###################################################################
+            if ret is False: ####### Remove these one ALL rules are done ######
+                context.eat_tokens(1) #########################################
+            ###################################################################
+
+        if context.errors == []:
+            print(context.filename + ": OK!")
+        else:
+            print(context.filename + ": KO!")
+            sorted(context.errors, key=cmp_to_key(sort_errs))
+            for err in context.errors:
+                print(err)
+

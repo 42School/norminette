@@ -12,7 +12,7 @@ class CheckBrace(Rule):
     def  __init__(self):
         super().__init__()
         self.primary = True
-        self.dependencies = [ "CheckLineLen"]
+        self.dependencies = ["CheckSpacing", "CheckLineLen"]
 
     def skip_ws(self, context, pos):
         i = pos
@@ -39,7 +39,6 @@ class CheckBrace(Rule):
                         err = True
                         return True, i
                 if context.peek_token(i).pos[1] > 1 and not err:
-                    print("----------->", context.peek_token(i))
                     context.new_error(1013, context.peek_token(i))
                     err = True
             i += 1
