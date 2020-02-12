@@ -118,4 +118,6 @@ class CheckFuncSpacing(Rule):
                 context.new_error(1011, context.peek_token(i))
             if context.peek_token(i).type == "SPACE":
                 context.new_error(1010, context.peek_token(i))
+        else:
+            context.new_error(1012, context.peek_token(i))
         return False, 0

@@ -32,7 +32,7 @@ class Registry:
                 jump = 0
                 ret, jump = rule.run(context)
                 if ret is True:
-                    print(context.tokens[:jump])
+                    # print(context.tokens[:jump])
                     context.history.append(rule.name)
                     self.apply_dependencies(name, context)
                     # print(context.history)
