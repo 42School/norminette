@@ -15,7 +15,6 @@ misc_specifiers = [
     "CONST",
     "REGISTER",
     "STATIC",
-    "STRUCT",
     "VOLATILE"
 ]
 
@@ -47,6 +46,9 @@ class CheckFuncDeclarations(Rule):
         self.dependencies = [
                 "CheckFuncSpacing",
                 "CheckFuncArgumentsName",
+                "CheckFuncArgumentCount",
+                "CheckFuncName",
+                "CheckEmptyFuncParams",
                 "CheckSpacing",
                 "CheckOperatorsSpacing"
             ]
@@ -122,6 +124,18 @@ class CheckFuncDeclarations(Rule):
             return ret, i
         return False, pos
         """
+
+        if context.peek_token(i) is not None \
+                and context.peek_token(i).type == "STRUCT":
+            print("YOUHOUUUU")
+            i += 1
+            i = self.skip_ws(context, i)
+            if context.peek_token(i) is not None \
+                    and context.peek_token(i).type == "IDENTIFIER":
+                return True, i
+            else:
+                return False, 0
+
         if context.peek_token(i) is not None \
                 and context.peek_token(i).type in sign_specifiers:
             # This case is the 'trickier'
@@ -307,8 +321,8 @@ class CheckFuncDeclarations(Rule):
         jump = self.skip_ws(context, jump)
         if context.tokens[jump].type == "LBRACE":
             #print(context.tokens[:jump])
-            context.tkn_scope = jump
-            return True, jump
+            context.tkn_scope = jump - 1
+            return True, jump - 1
         elif context.tokens[jump].type == "SEMI_COLON":
-            context.tkn_scope = jump
-            return True, jump
+            context.tkn_scope = jump - 1
+            return True, jump - 1
