@@ -51,7 +51,8 @@ class CheckFuncDeclarations(Rule):
                 "CheckEmptyFuncParams",
                 "CheckSpacing",
                 "CheckOperatorsSpacing",
-                "CheckLineLen"
+                "CheckLineLen",
+                "CheckLineIndent"
             ]
         self.primary = True
 
@@ -326,8 +327,6 @@ class CheckFuncDeclarations(Rule):
             i += 1
         if context.tokens[i].type == "LBRACE":
             #print(context.tokens[:jump])
-            context.tkn_scope = jump
             return True, jump - 1
         elif context.tokens[i].type == "SEMI_COLON":
-            context.tkn_scope = jump
             return True, jump

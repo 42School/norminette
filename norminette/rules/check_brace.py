@@ -12,7 +12,7 @@ class CheckBrace(Rule):
     def  __init__(self):
         super().__init__()
         self.primary = True
-        self.dependencies = ["CheckSpacing", "CheckLineLen"]
+        self.dependencies = ["CheckSpacing", "CheckLineLen", "CheckLineIndent"]
 
     def skip_ws(self, context, pos):
         i = pos
@@ -23,35 +23,35 @@ class CheckBrace(Rule):
 
     def run(self, context):
         i = self.skip_ws(context, 0)
-        err = False
+
+        if context.peek_token(i) is None \
+                or context.peek_token(i).type not in ["LBRACE", "RBRACE"]:
+            return False, 0
+
         if context.peek_token(i) is not None \
-                and context.peek_token(i).type in ["LBRACE", "RBRACE"]:
-            if context.peek_token(i).type == "LBRACE":
-                context.indent_lvl += 1
-            else:
-                context.indent_lvl -= 1
-            if context.peek_token(i).pos[1] > 1:
-                for tkn in context.tokens[:i]:
-                    if tkn.type == "NEWLINE":
-                        break
-                    if tkn.type not in ["TAB", "SPACE"]:
-                        context.new_error(1013, context.peek_token(i))
-                        err = True
-                        return True, i
-                if context.peek_token(i).pos[1] > 1 and not err:
-                    context.new_error(1013, context.peek_token(i))
-                    err = True
-            i += 1
-            j = i
-            while context.peek_token(j) is not None:
-                if context.peek_token(j).type == "NEWLINE":
+                and context.peek_token(i).type == "LBRACE":
+            context.indent_lvl += 1
+        elif context.peek_token(i) is not None \
+                and context.peek_token(i).type == "RBRACE":
+            context.indent_lvl -= 1
+
+        if context.peek_token(i).pos[1] > 1:
+            """
+            reverse list excluding brace, grab from list[0] to list[x] ='\n'
+            check for anything else than whitespaces characters
+            """
+            l = []
+            for t in context.tokens[:i:-1]:
+                l.append(t)
+                if t.type == "NEWLINE":
                     break
-                elif context.peek_token(j).type in ["SPACE", "TAB"]:
-                    j += 1
-                elif not err:
-                    context.new_error(1013, context.peek_token(i))
-                    return True, i
-                else:
-                    return True, i
-            return True, j
-        return False, 0
+            if l is [] or l[0].pos[1] > 1:
+                context.new_error(1013, context.peek_token(i))
+                return True, i + 1
+
+        for t in context.tokens[i + 1:]:
+            if t.type == "NEWLINE":
+                return True, i + 1
+            elif t.type not in ["TAB", "SPACE"]:
+                context.new_error(1013, context.peek_token(i))
+                return True, i + 1

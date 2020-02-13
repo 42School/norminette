@@ -4,7 +4,7 @@ from rules import Rule
 class CheckSpacing(Rule):
     def run(self, context):
         i = 0
-        for i in range(len(context.tokens[:context.tkn_scope])):
+        while i in range(len(context.tokens[:context.tkn_scope])):
             if context.peek_token(i).type == "SPACE":
                 if context.peek_token(i).pos[1] == 1:
                     context.new_error(1000, context.peek_token(i))
@@ -15,3 +15,5 @@ class CheckSpacing(Rule):
                             and context.peek_token(i) is not None \
                             and context.peek_token(i).type == "SPACE":
                         i += 1
+            else:
+                i += 1

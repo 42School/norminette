@@ -10,13 +10,15 @@ errors = {
     1008: "bad spacing before pointer",
     1010: "space before function name",
     1011: "extra tabs before function name",
-    1012: "missing tab before function",
+    1012: "missing tab before function name",
     1013: "braces should be on their own line",
     1014: "line too long",
     1015: "missing 'void' keyword",
     1016: "missing type qualifier or identifier in function arguments",
     1017: "function has more than four arguments",
     1018: "function name should contain only lowercase characters, digits or '_'",
+    1019: "missing tabs for indent level",
+    1020: "extra tabs for indent level",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

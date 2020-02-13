@@ -9,9 +9,9 @@ def sort_errs(a, b):
     if a.line == b.line:
         return b.col - a.col
     elif a.line < b.line:
-        return -1
-    else:
         return 1
+    else:
+        return -1
 
 class Registry:
     def __init__(self):
@@ -48,8 +48,11 @@ class Registry:
                 jump = 0
                 ret, jump = rule.run(context)
                 if ret is True:
-                    #print(f"Rule {rule.name} matched {jump} tokens :\t",
-                            #context.tokens[:jump])
+                    """
+                    print(f"Rule {rule.name} matched {jump} tokens :\t",
+                            context.tokens[:jump])
+                    """
+                    context.tkn_scope = jump
                     context.history.append(rule.name)
                     self.apply_dependencies(name, context)
                     # print(context.history)
