@@ -40,12 +40,12 @@ class CheckBrace(Rule):
             reverse list excluding brace, grab from list[0] to list[x] ='\n'
             check for anything else than whitespaces characters
             """
-            l = []
-            for t in context.tokens[:i:-1]:
-                l.append(t)
+            li = []
+            for t in context.tokens[i - 1::-1]:
+                li.append(t)
                 if t.type == "NEWLINE":
                     break
-            if l is [] or l[0].pos[1] > 1:
+            if li is [] or li[0].pos[1] > 1:
                 context.new_error(1013, context.peek_token(i))
                 return True, i + 1
 

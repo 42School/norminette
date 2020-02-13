@@ -16,7 +16,8 @@ errors = {
     1015: "missing 'void' keyword",
     1016: "missing type qualifier or identifier in function arguments",
     1017: "function has more than four arguments",
-    1018: "function name should contain only lowercase characters, digits or '_'",
+    1018: "user defined identifier should contain only lowercase characters,\
+ digits or '_'",
     1019: "missing tabs for indent level",
     1020: "extra tabs for indent level",
     # This is a dummy rule

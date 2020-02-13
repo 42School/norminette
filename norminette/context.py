@@ -12,7 +12,7 @@ class Context:
         self.indent_lvl = 0
         self.lines = 1
         self.functions_declared = 0
-        self.var_declared = 0
+        self.var_declared = [0]
         self.var_alignment = [0]
         self.global_scope = True
         self.declarations_allowed = True

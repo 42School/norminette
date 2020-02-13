@@ -326,6 +326,7 @@ class CheckFuncDeclarations(Rule):
                 jump = i - 1
             i += 1
         if context.tokens[i].type == "LBRACE":
+            context.functions_declared += 1
             #print(context.tokens[:jump])
             return True, jump - 1
         elif context.tokens[i].type == "SEMI_COLON":
