@@ -18,7 +18,7 @@ int *foo5(){ return malloc(sizeof(int)); }
 /* func returning a func pointer*/
 int(*foo6(int a, b, int *z, int c, int d))(int)
 {
-return foo;
+return foo; 
 }
 
 /* func returning a func pointer wrapped in way too much parentheses */
@@ -28,6 +28,10 @@ int (((*foo7(int a))(int))) { return foo; }
 int (((*foOo8(void))(int)))
 {int
 
+	
+
+
+	
 
 
 
@@ -38,11 +42,7 @@ int (((*foOo8(void))(int)))
 
 
 
-
-
-
-
-
+ 
 
 
 

@@ -320,15 +320,16 @@ class CheckFuncDeclarations(Rule):
         #print(ret, jump)
         #print(context.tokens[:jump], '\n')
         # Check for ';' or '{' in order to call for depending subrules
-        i = jump
-        while context.peek_token(i) is not None \
-                and context.peek_token(i).type in whitespaces:
-            if context.peek_token(i - 1).type == "NEWLINE":
-                jump = i - 1
-            i += 1
-        if context.tokens[i].type == "LBRACE":
+        if context.peek_token(jump) is not None \
+                and context.peek_token(jump).type == "LBRACE":
             context.functions_declared += 1
-            #print(context.tokens[:jump])
             return True, jump - 1
-        elif context.tokens[i].type == "SEMI_COLON":
+            #print(context.tokens[:jump])
+        elif context.peek_token(jump) is not None \
+                and context.peek_token(jump).type == "SEMI_COLON":
+            while context.peek_token(jump) is not None \
+                    and context.peek_token(jump).type != "NEWLINE":
+                if context.peek_token(jump) not in ["TAB", "SPACE"]:
+                    break
+                jump += 1
             return True, jump
