@@ -20,6 +20,7 @@ errors = {
  digits or '_'",
     1019: "missing tabs for indent level",
     1020: "extra tabs for indent level",
+    1021: "function has more than 25 lines",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

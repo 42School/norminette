@@ -26,16 +26,34 @@ int (((*foo7(int a))(int))) { return foo; }
 
 /*       func returning a func pointer, wrapped in way too much parentheses #2 */
 int (((*foOo8(void))(int)))
-{ return foo; }
-while 1
-{
-	if 1
-{
-	int f11();
-		int fw1();
-			int f1w425();
-	}
-	}
+{int
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a();
+return foo;
+}
 /* func pointers, not funcs!!*/
 //int	 *(foo9)(int);
 //int	(*(foo10)(int));

@@ -52,6 +52,7 @@ class CheckFuncDeclarations(Rule):
                 "CheckSpacing",
                 "CheckOperatorsSpacing",
                 "CheckLineLen",
+                "CheckLineCount",
                 "CheckLineIndent"
             ]
         self.primary = True

@@ -12,7 +12,12 @@ class CheckBrace(Rule):
     def  __init__(self):
         super().__init__()
         self.primary = True
-        self.dependencies = ["CheckSpacing", "CheckLineLen", "CheckLineIndent"]
+        self.dependencies = [
+            "CheckSpacing",
+            "CheckLineLen",
+            "CheckScopeLevel",
+            "CheckLineCount",
+            "CheckLineIndent"]
 
     def skip_ws(self, context, pos):
         i = pos
@@ -31,9 +36,21 @@ class CheckBrace(Rule):
         if context.peek_token(i) is not None \
                 and context.peek_token(i).type == "LBRACE":
             context.indent_lvl += 1
+            context.scope_lvl += 1
+            if context.global_scope is True:
+                context.global_scope = False
         elif context.peek_token(i) is not None \
                 and context.peek_token(i).type == "RBRACE":
             context.indent_lvl -= 1
+            context.scope_lvl -= 1
+            if context.scope_lvl < 1:
+                context.global_scope = True
+
+        j = i + 1
+
+        while context.peek_token(j) \
+                and context.peek_token(j).type in ["SPACE", "TAB"]:
+            j += 1
 
         if context.peek_token(i).pos[1] > 1:
             """
@@ -47,11 +64,11 @@ class CheckBrace(Rule):
                     break
             if li is [] or li[0].pos[1] > 1:
                 context.new_error(1013, context.peek_token(i))
-                return True, i + 1
+                return True, j
 
         for t in context.tokens[i + 1:]:
             if t.type == "NEWLINE":
-                return True, i + 1
+                return True, j
             elif t.type not in ["TAB", "SPACE"]:
                 context.new_error(1013, context.peek_token(i))
-                return True, i + 1
+                return True, j

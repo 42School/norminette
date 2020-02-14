@@ -6,12 +6,7 @@ from functools import cmp_to_key
 
 
 def sort_errs(a, b):
-    if a.line == b.line:
-        return b.col - a.col
-    elif a.line < b.line:
-        return 1
-    else:
-        return -1
+    return a.col - b.col if a.line == b.line else a.line - b.line
 
 class Registry:
     def __init__(self):
@@ -38,7 +33,6 @@ class Registry:
         for r in self.registry[rulename]:
             self.rules[r].run(context)
             context.history.append(r)
-            # print(context.history, context.get_parent_rule())
             self.apply_dependencies(r, context)
             context.history.pop(-1)
 
@@ -48,10 +42,8 @@ class Registry:
                 jump = 0
                 ret, jump = rule.run(context)
                 if ret is True:
-                    """
-                    print(f"Rule {rule.name} matched {jump} tokens :\t",
-                            context.tokens[:jump])
-                    """
+                    #print(f"Rule {rule.name} matched {jump} tokens :\t",
+                    #        context.tokens[:jump])
                     context.tkn_scope = jump
                     context.history.append(rule.name)
                     self.apply_dependencies(name, context)
@@ -61,7 +53,7 @@ class Registry:
                     break
 
             ###################################################################
-            if ret is False: ####### Remove these one ALL rules are done ######
+            if ret is False: # Remove these one ALL  primary rules are done ###
                 context.eat_tokens(1) #########################################
             ###################################################################
 
@@ -69,7 +61,7 @@ class Registry:
             print(context.filename + ": OK!")
         else:
             print(context.filename + ": KO!")
-            sorted(context.errors, key=cmp_to_key(sort_errs))
+            context.errors = sorted(context.errors, key=cmp_to_key(sort_errs))
             for err in context.errors:
                 print(err)
 

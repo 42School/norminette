@@ -6,7 +6,6 @@ class CheckLineIndent(Rule):
         lines = [[]]
         for t in context.tokens[:context.tkn_scope]:
             if t.type == "NEWLINE":
-                lines[-1].append(t)
                 lines.append([])
             else:
                 lines[-1].append(t)
@@ -14,12 +13,15 @@ class CheckLineIndent(Rule):
         if lines[-1] == []:
             lines = lines[:-1]
 
+        lines = [li for li in lines if li != []]
+
         for l in lines:
             if len(l) > 0 and l[0].pos[1] > 1:
                 continue
             else:
                 lvl = context.indent_lvl
-                for i in range(len(l)):
+                i = 0
+                while i in range(len(l)):
                     if l[i].type == "TAB":
                         lvl -= 1
                         i += 1
