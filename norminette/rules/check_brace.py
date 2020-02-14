@@ -15,7 +15,6 @@ class CheckBrace(Rule):
         self.dependencies = [
             "CheckSpacing",
             "CheckLineLen",
-            "CheckScopeLevel",
             "CheckLineCount",
             "CheckLineIndent"]
 
