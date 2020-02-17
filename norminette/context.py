@@ -23,6 +23,21 @@ class Context:
             return None
         return self.tokens[pos]
 
+    def check_token(self, pos, value):
+        tkn = self.peek_token(pos)
+        if tkn is None:
+            return False
+        if isinstance(value, list):
+            if tkn.type in value:
+                return True
+            else:
+                return False
+        else:
+            if tkn.type == value:
+                return True
+            else:
+                return False
+
     def eat_tokens(self, stop):
         self.tokens = self.tokens[stop:]
 

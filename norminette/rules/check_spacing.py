@@ -22,12 +22,12 @@ class CheckSpacing(Rule):
                         i += 1
                 if context.peek_token(i) is not None \
                         and context.peek_token(i).type == "NEWLINE":
-                    context.new_error(1023, context.peek_token(i -1))
+                    context.new_error(1023, context.peek_token(i - 1))
             elif context.peek_token(i).type == "TAB":
                 if context.peek_token(i).pos[1] == 1:
                     while context.peek_token(i).type == "TAB":
                         i += 1
                     if context.peek_token(i).type == "NEWLINE":
-                        context.new_error(1023, context.peek_token(i -1))
+                        context.new_error(1023, context.peek_token(i - 1))
             else:
                 i += 1

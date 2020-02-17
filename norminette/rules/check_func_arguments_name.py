@@ -110,8 +110,7 @@ class CheckFuncArgumentsName(Rule):
         i = self.skip_ws(context, pos)
         ret, i = self.skip_type_prefix(context, i)
         while context.peek_token(i) is not None \
-                and (context.peek_token(i).type == "MULT"
-                    or context.peek_token(i).type in whitespaces):
+                and context.check_token(i, ["MULT"] + whitespaces):
             i += 1
         stop = ["COMMA", "RPARENTHESIS"]
         if ret is True:

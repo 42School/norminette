@@ -7,6 +7,7 @@ from lexer import Lexer
 def test_file(filename):
     pass
 
+
 class norminetteFileTester():
 
     def __init__(self):

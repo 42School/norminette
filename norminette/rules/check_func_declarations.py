@@ -57,55 +57,6 @@ class CheckFuncDeclarations(Rule):
             ]
         self.primary = True
 
-    def skip_ws(self, context, pos):
-        i = pos
-        while context.peek_token(i) is not None \
-                and context.peek_token(i).type in whitespaces:
-            i += 1
-        return i
-
-    def check_sign_specifier(self, context, pos):
-        i = pos
-        i = self.skip_ws(context, i)
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type in sign_specifiers:
-            i += 1
-            i = self.skip_ws(context, i)
-            ret, i = self.check_size_specifier(self, context, i)
-            if ret is True:
-                return True, i
-            ret, i = self.check_type_specifier(self, context, i)
-            return True, i
-        else:
-            return False, pos
-
-    def check_size_specifier(self, context, pos):
-        i = pos
-        i = self.skip_ws(context, i)
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type in size_specifiers:
-            i += 1
-            i = self.skip_ws(context, i)
-            return self.check_type_specifier(self, context, i)
-        else:
-            return False, pos
-        pass
-
-    def check_type_specifier(self, context, pos):
-        i = pos
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type in type_specifiers:
-            i += 1
-            i = self.skip_ws(context, i)
-            return True, pos
-        elif context.peek_token(i) is not None \
-                and context.peek_token(i).type == "IDENTIFIER":
-            i += 1
-            i = self.skip_ws(context, i)
-            return True, pos
-        else:
-            return False, pos
-
     def check_functype_prefix(self, context, pos):
         i = pos
         i = self.skip_ws(context, i)
@@ -115,7 +66,7 @@ class CheckFuncDeclarations(Rule):
             # Skipping "const/register/struct/static/volatile" keywords
             i += 1
             i = self.skip_ws(context, i)
-        """
+
         ret, i = self.check_sign_specifier(context, i)
         if ret is True:
             return ret, i
@@ -126,8 +77,8 @@ class CheckFuncDeclarations(Rule):
         if ret is True:
             return ret, i
         return False, pos
-        """
 
+        """
         if context.peek_token(i) is not None \
                 and context.peek_token(i).type == "STRUCT":
             i += 1
@@ -175,6 +126,7 @@ class CheckFuncDeclarations(Rule):
             return True, i
 
         return False, pos
+        """
 
     def push_elem(self, obj, depth, group):
         while depth > 0:
@@ -186,10 +138,8 @@ class CheckFuncDeclarations(Rule):
         i = pos
         groups = []
         depth = 0
-        #print("in parenthese: ", context.tokens[pos:])
-        while context.peek_token(i) is not None \
-                and context.peek_token(i).type != "LBRACE" \
-                and context.peek_token(i).type != "SEMI_COLON":
+        # print("in parenthese: ", context.tokens[pos:])
+        while context.check_token(i, ["LBRACE", "SEMI_COLON"]) is False:
             if context.peek_token(i).type == "LPARENTHESIS":
                 self.push_elem([], depth, groups)
                 depth += 1
@@ -281,16 +231,33 @@ class CheckFuncDeclarations(Rule):
         i = self.skip_ws(context, 0)
         ret, i = self.check_functype_prefix(context, i)
         if ret is True:
-            while context.peek_token(i) is not None \
-                    and context.peek_token(i).type == "MULT":
+            while context.check_token(i, "MULT"):
                 i += 1
             return ret, i
         return False, 0
+
+    def check_function_pointer(self, context, pos):
+        i = pos
+        i = self.skip_ws(context, i)
+        p = 0
+        if context.check_token(i, "LPARENTHESIS"):
+            i += 1
+            while context.check_token(i, ["LPARENTHESIS"] + whitespaces):
+                if context.check_token(i, "LPARENTHESIS"):
+                    p += 1
+                i += 1
+            if context.check_token(i, "MULT") is False:
+                return False, pos
+            i += 1
 
     def check_func_format(self, context):
         ret, i = self.check_func_prefix(context)
         if ret is False:
             return False, 0
+
+        """
+        """
+
         # print("1-- out of checkfuncprefix", ret, i, context.tokens)
         i = self.skip_ws(context, i)
         # print("2-- out of skip_ws", ret, i, context.tokens[i])
@@ -317,19 +284,16 @@ class CheckFuncDeclarations(Rule):
         ret, jump = self.check_func_format(context)
         if ret is False:
             return False, 0
-        #print(ret, jump)
-        #print(context.tokens[:jump], '\n')
+        # print(ret, jump)
+        # print(context.tokens[:jump], '\n')
         # Check for ';' or '{' in order to call for depending subrules
-        if context.peek_token(jump) is not None \
-                and context.peek_token(jump).type == "LBRACE":
+        if context.check_token(jump, "LBRACE"):
             context.functions_declared += 1
             return True, jump - 1
-            #print(context.tokens[:jump])
-        elif context.peek_token(jump) is not None \
-                and context.peek_token(jump).type == "SEMI_COLON":
-            while context.peek_token(jump) is not None \
-                    and context.peek_token(jump).type != "NEWLINE":
-                if context.peek_token(jump) not in ["TAB", "SPACE"]:
+            # print(context.tokens[:jump])
+        elif context.check_token(jump, "SEMI_COLON"):
+            while context.check_token(jump, "NEWLINE"):
+                if context.check_token(jump, ["TAB", "SPACE"]) is False:
                     break
                 jump += 1
             return True, jump

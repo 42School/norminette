@@ -16,10 +16,10 @@ operators = [
     "EQUALS",
     "NOT_EQUAL",
     "ASSIGN",
-#    "COLON",
-#    "SEMI_COLON",
-#    "COMMA",
-#    "DOT",
+    # "COLON",
+    # "SEMI_COLON",
+    # "COMMA",
+    # "DOT",
     "NOT",
     "MINUS",
     "PLUS",
@@ -134,7 +134,7 @@ class CheckOperatorsSpacing(Rule):
 
     def check_suffix(self, context, pos):
         if pos + 1 < len(context.tokens[:context.tkn_scope]) \
-                and context.peek_token(pos + 1).type != "SPACE":
+                and not context.check_token(pos + 1, ["SPACE", "NEWLINE"]):
             context.new_error(1004, context.peek_token(pos))
         if pos > 0 and context.peek_token(pos - 1).type == "SPACE":
             context.new_error(1005, context.peek_token(pos))
@@ -160,7 +160,7 @@ class CheckOperatorsSpacing(Rule):
                 if context.peek_token(pos + i).type in ["SPACE", "TAB"]:
                     context.new_error(1006, context.peek_token(pos + i - 1))
                 return i
-            else :
+            else:
                 self.check_prefix_and_suffix(context, pos)
                 return 1
         if context.peek_token(pos).type == "MULT":

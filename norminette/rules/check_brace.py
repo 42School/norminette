@@ -1,15 +1,8 @@
 from rules import Rule
 
 
-whitespaces = [
-    "SPACE",
-    "TAB",
-    "NEWLINE"
-]
-
-
 class CheckBrace(Rule):
-    def  __init__(self):
+    def __init__(self):
         super().__init__()
         self.primary = True
         self.dependencies = [
@@ -18,18 +11,10 @@ class CheckBrace(Rule):
             "CheckLineCount",
             "CheckLineIndent"]
 
-    def skip_ws(self, context, pos):
-        i = pos
-        while context.peek_token(i) is not None \
-                and context.peek_token(i).type in whitespaces:
-            i += 1
-        return i
-
     def run(self, context):
         i = self.skip_ws(context, 0)
 
-        if context.peek_token(i) is None \
-                or context.peek_token(i).type not in ["LBRACE", "RBRACE"]:
+        if context.check_token(i, ["LBRACE", "RBRACE"]) is False:
             return False, 0
 
         if context.peek_token(i) is not None \
@@ -51,7 +36,8 @@ class CheckBrace(Rule):
                 and context.peek_token(j).type in ["SPACE", "TAB"]:
             j += 1
 
-        if context.peek_token(i).pos[1] > 1:
+        if context.peek_token(i) is not None \
+                and context.peek_token(i).pos[1] > 1:
             """
             reverse list excluding brace, grab from list[0] to list[x] ='\n'
             check for anything else than whitespaces characters
@@ -71,3 +57,5 @@ class CheckBrace(Rule):
             elif t.type not in ["TAB", "SPACE"]:
                 context.new_error(1013, context.peek_token(i))
                 return True, j
+
+        return False, 0

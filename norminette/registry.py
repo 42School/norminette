@@ -8,6 +8,7 @@ from functools import cmp_to_key
 def sort_errs(a, b):
     return a.col - b.col if a.line == b.line else a.line - b.line
 
+
 class Registry:
     def __init__(self):
         self.rules = {}
@@ -42,7 +43,7 @@ class Registry:
                 jump = 0
                 ret, jump = rule.run(context)
                 if ret is True:
-                    #print(f"Rule {rule.name} matched {jump} tokens :\t",
+                    # print(f"Rule {rule.name} matched {jump} tokens :\t",
                     #        context.tokens[:jump])
                     context.tkn_scope = jump
                     context.history.append(rule.name)
@@ -52,10 +53,10 @@ class Registry:
                     context.eat_tokens(jump)
                     break
 
-            ###################################################################
-            if ret is False: # Remove these one ALL  primary rules are done ###
-                context.eat_tokens(1) #########################################
-            ###################################################################
+            # #################################################################
+            if ret is False:  # Remove these one ALL  primary rules are done
+                context.eat_tokens(1)  # ######################################
+            # #################################################################
 
         if context.errors == []:
             print(context.filename + ": OK!")
@@ -64,4 +65,3 @@ class Registry:
             context.errors = sorted(context.errors, key=cmp_to_key(sort_errs))
             for err in context.errors:
                 print(err)
-

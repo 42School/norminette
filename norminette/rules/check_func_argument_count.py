@@ -108,7 +108,7 @@ class CheckFuncArgumentCount(Rule):
         p = 1
         args = 1
         while p and context.peek_token(i) is not None:
-#            print(context.peek_token(i).type, args)
+            # print(context.peek_token(i).type, args)
             if context.peek_token(i).type == "LPARENTHESIS":
                 p += 1
                 while p > 1 and context.peek_token(i) is not None:

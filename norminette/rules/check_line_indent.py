@@ -27,8 +27,8 @@ class CheckLineIndent(Rule):
                         i += 1
                         continue
                     elif l[i].type == "LBRACE":
-                       lvl -= 1
-                       break
+                        lvl -= 1
+                        break
                     break
                 if lvl > 0:
                     context.new_error(1019, l[i])
