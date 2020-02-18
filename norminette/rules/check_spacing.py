@@ -29,5 +29,10 @@ class CheckSpacing(Rule):
                         i += 1
                     if context.peek_token(i).type == "NEWLINE":
                         context.new_error(1023, context.peek_token(i - 1))
+                else:
+                    """
+                    Maybe check for correct tabs here as well?
+                    """
+                    i += 1
             else:
                 i += 1

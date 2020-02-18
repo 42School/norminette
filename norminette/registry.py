@@ -32,6 +32,7 @@ class Registry:
 
     def apply_dependencies(self, rulename, context):
         for r in self.registry[rulename]:
+            # print(f"trying: {r}")
             self.rules[r].run(context)
             context.history.append(r)
             self.apply_dependencies(r, context)
@@ -44,7 +45,7 @@ class Registry:
                 ret, jump = rule.run(context)
                 if ret is True:
                     # print(f"Rule {rule.name} matched {jump} tokens :\t",
-                    #        context.tokens[:jump])
+                    #      context.tokens[:jump])
                     context.tkn_scope = jump
                     context.history.append(rule.name)
                     self.apply_dependencies(name, context)
@@ -53,10 +54,10 @@ class Registry:
                     context.eat_tokens(jump)
                     break
 
-            # #################################################################
-            if ret is False:  # Remove these one ALL  primary rules are done
-                context.eat_tokens(1)  # ######################################
-            # #################################################################
+                # #############################################################
+                else:  # Remove these one ALL  primary rules are done
+                    context.eat_tokens(1)  # ##################################
+                # #############################################################
 
         if context.errors == []:
             print(context.filename + ": OK!")
