@@ -38,6 +38,10 @@ whitespaces = [
 
 
 class CheckEmptyFuncParams(Rule):
+    def __init__(self):
+        super().__init__()
+        self.depends_on = ["CheckFuncDeclarations"]
+
     def skip_ws(self, context, pos):
         i = pos
         while context.peek_token(i) is not None \
@@ -109,4 +113,4 @@ class CheckEmptyFuncParams(Rule):
                 and context.peek_token(i).type == "RPARENTHESIS":
             context.new_error(1015, context.peek_token(i))
 
-        pass
+        return False, 0

@@ -38,6 +38,10 @@ whitespaces = [
 
 
 class CheckFuncName(Rule):
+    def __init__(self):
+        super().__init__()
+        self.depends_on = ["CheckFuncDeclarations"]
+
     def skip_ws(self, context, pos):
         i = pos
         while context.peek_token(i) is not None \

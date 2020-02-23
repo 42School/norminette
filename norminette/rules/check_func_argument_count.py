@@ -37,6 +37,10 @@ whitespaces = [
 
 
 class CheckFuncArgumentCount(Rule):
+    def __init__(self):
+        super().__init__()
+        self.depends_on = ["CheckFuncDeclarations"]
+
     def skip_ws(self, context, pos):
         i = pos
         while context.peek_token(i) is not None \
@@ -122,3 +126,5 @@ class CheckFuncArgumentCount(Rule):
             i += 1
         if args > 4:
             context.new_error(1017, context.peek_token(pos))
+
+        return False, 0

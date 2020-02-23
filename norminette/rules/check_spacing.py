@@ -2,32 +2,37 @@ from rules import Rule
 
 
 class CheckSpacing(Rule):
+    def __init__(self):
+        super().__init__()
+        self.depends_on = ["CheckFuncDeclarations"]
+
     def run(self, context):
         i = 0
         while i in range(len(context.tokens[:context.tkn_scope])):
-            if context.peek_token(i).type == "SPACE":
+            if context.check_token(i, "SPACE"):
                 if context.peek_token(i).pos[1] == 1:
-                    if context.peek_token(i + 1) is not None \
-                            and context.peek_token(i + 1).type == "NEWLINE":
+                    while i < context.tkn_scope \
+                            and context.check_token(i, "SPACE"):
+                        i += 1
+                    if context.check_token(i + 1, "NEWLINE"):
                         context.new_error(1022, context.peek_token(i))
                         i += 1
                         continue
                     context.new_error(1000, context.peek_token(i))
+                    continue
                 i += 1
-                if context.peek_token(i).type == "SPACE":
+                if context.check_token(i, "SPACE"):
                     context.new_error(1001, context.peek_token(i - 1))
                     while i < context.tkn_scope \
-                            and context.peek_token(i) is not None \
-                            and context.peek_token(i).type == "SPACE":
+                            and context.check_token(i, "SPACE"):
                         i += 1
-                if context.peek_token(i) is not None \
-                        and context.peek_token(i).type == "NEWLINE":
+                if context.check_token(i, "NEWLINE"):
                     context.new_error(1023, context.peek_token(i - 1))
-            elif context.peek_token(i).type == "TAB":
+            elif context.check_token(i, "TAB"):
                 if context.peek_token(i).pos[1] == 1:
-                    while context.peek_token(i).type == "TAB":
+                    while context.check_token(i, "TAB"):
                         i += 1
-                    if context.peek_token(i).type == "NEWLINE":
+                    if context.check_token(i, "NEWLINE"):
                         context.new_error(1023, context.peek_token(i - 1))
                 else:
                     """
@@ -36,3 +41,4 @@ class CheckSpacing(Rule):
                     i += 1
             else:
                 i += 1
+        return False, 0
