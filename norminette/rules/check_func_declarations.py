@@ -43,189 +43,75 @@ arg_separator = [
 class CheckFuncDeclarations(Rule):
     def __init__(self):
         super().__init__()
-        self.dependencies = [
-                "CheckFuncSpacing",
-                "CheckFuncArgumentsName",
-                "CheckFuncArgumentCount",
-                "CheckFuncName",
-                "CheckEmptyFuncParams",
-                "CheckSpacing",
-                "CheckOperatorsSpacing",
-                "CheckLineLen",
-                "CheckLineCount",
-                "CheckLineIndent"
-            ]
         self.primary = True
 
-    def check_functype_prefix(self, context, pos):
+    def has_args(self, context, pos, ilvl):
+        #arguments check is not correctly done
+        i = self.skip_ws(context, pos)
+        if context.check_token(i, "LPARENTHESIS") is False:
+            return False, pos
+        i += 1
+        alvl = ilvl + 1
+        while context.check_token(i, ["SEMI_COLON", "LBRACE"]) is False \
+                and context.peek_token(i) is not None:
+            if context.check_token(i, "LPARENTHESIS"):
+                alvl += 1
+            elif context.check_token(i, "RPARENTHESIS"):
+                alvl -= 1
+                if alvl == ilvl:
+                    return True, i 
+            i += 1
+        else:
+            return False, pos
+
+    def returns_function_pointer(self, context, pos):
         i = pos
         i = self.skip_ws(context, i)
-
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type in misc_specifiers:
-            # Skipping "const/register/struct/static/volatile" keywords
+        if context.check_token(i, "LPARENTHESIS") is False:
+            return False, pos
+        i += 1
+        ilvl = 1 #
+        plvl = 0
+        while context.check_token(
+                i, ["LPARENTHESIS", "MULT"] + whitespaces):
+            if context.check_token(i, "LPARENTHESIS"):
+                ilvl += 1
+            elif context.check_token(i, "MULT") and plvl == 0:
+                plvl = ilvl
             i += 1
-            i = self.skip_ws(context, i)
-
-        ret, i = self.check_sign_specifier(context, i)
-        if ret is True:
-            return ret, i
-        ret, i = self.check_size_specifier(context, i)
-        if ret is True:
-            return ret, i
-        ret, i = self.check_type_specifier(context, i)
-        if ret is True:
-            return ret, i
-        return False, pos
-
-        """
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type == "STRUCT":
+        if context.check_token(i, "IDENTIFIER") is False  or plvl == 0:
+            return False, pos
+        i += 1
+        ret, i = self.has_args(context, i, plvl)
+        #print(1, ret, context.tokens[:i])
+        if ret is False:
+            return False, pos
+        i += 1
+        ret, i = self.has_args(context, i, plvl)
+        #print(2, ret, context.tokens[:i], plvl - 1)
+        if ret is False:
+            return False, pos
+        while context.check_token(i, whitespaces + "RPARENTHESIS"):
             i += 1
-            i = self.skip_ws(context, i)
-            if context.peek_token(i) is not None \
-                    and context.peek_token(i).type == "IDENTIFIER":
-                return True, i
-            else:
-                return False, 0
+        return True, i
 
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type in sign_specifiers:
-            # This case is the 'trickier'
-            # sign specifier (signed, unsigned) can be followed by:
-            # optionnal size specifier (long, short)
-            # AND/OR optionnal type specifier (int, char)
+    def is_function(self, context, pos):
+        i = self.skip_ws(context, pos)
+        ilvl = 0
+        while context.check_token(i, ["MULT", "LPARENTHESIS"] + whitespaces):
+            if context.check_token(i, "LPARENTHESIS"):
+                ilvl += 1
             i += 1
-            i = self.skip_ws(context, i)
-            if context.peek_token(i) is not None \
-                    and context.peek_token(i).type in size_specifiers:
-                i += 1
-                i = self.skip_ws(context, i)
-                if context.peek_token(i) is not None \
-                        and context.peek_token(i).type in type_specifiers:
-                    i += 1
-                    i = self.skip_ws(context, i)
-                    return True, i
-                return True, i
-
-            else:
-                return True, i
-        elif context.peek_token(i) is not None \
-                and context.peek_token(i).type in size_specifiers:
+        if context.check_token(i, "IDENTIFIER") is False:
+            return False, pos
+        i += 1
+        ret, i = self.has_args(context, i, ilvl)
+        while ilvl > 0:
+            if context.check_token(i, "RPARENTHESIS"):
+                ilvl -= 1
             i += 1
-            i = self.skip_ws(context, i)
-            if context.peek_token(i).type is not None \
-                    and context.peek_token(i) in type_specifiers:
-                return True, i
-            return True, i
-        elif context.peek_token(i) is not None \
-                and (
-                    context.peek_token(i).type in type_specifiers
-                    or context.peek_token(i).type == "IDENTIFIER"):
-            i += 1
-            return True, i
-
-        return False, pos
-        """
-
-    def push_elem(self, obj, depth, group):
-        while depth > 0:
-            group = group[-1]
-            depth -= 1
-        group.append(obj)
-
-    def parse_parentheses(self, context, pos):
-        i = pos
-        groups = []
-        depth = 0
-        # print("in parenthese: ", context.tokens[pos:])
-        while context.check_token(i, ["LBRACE", "SEMI_COLON"]) is False:
-            if context.peek_token(i).type == "LPARENTHESIS":
-                self.push_elem([], depth, groups)
-                depth += 1
-            elif context.peek_token(i).type == "RPARENTHESIS":
-                depth -= 1
-            else:
-                self.push_elem(context.peek_token(i), depth, groups)
-            i += 1
-        return groups, i
-
-    def innerleft_func_arguments(self, group):
-        i = 0
-        while i in range(len(group)):
-            if isinstance(group[i], Token):
-                if group[i].type in whitespaces \
-                        or group[i].type in type_specifiers \
-                        or group[i].type in misc_specifiers \
-                        or group[i].type in sign_specifiers \
-                        or group[i].type in size_specifiers \
-                        or group[i].type in [
-                            "MULT",
-                            "PLUS",
-                            "MINUS",
-                            "COMMA",
-                            "IDENTIFIER",
-                            "CONSTANT",
-                            "ELLIPSIS",
-                            "LBRACKET",
-                            "RBRACKET"]:
-                    i += 1
-                else:
-                    return False
-            elif isinstance(group[i], list):
-                if group[i] == []:
-                    i += 1
-                    return True
-                else:
-                    ret = self.innerleft_func_arguments(group[i])
-                    if ret is False:
-                        return False
-                    i += 1
-        return True
-
-    def innerleft_identifier(self, group, lvl=0):
-        # False, False if no identifier is found
-        # True, False if identifier is found but no function argument are found
-        # True, True if identifier and func args are found in the same scope
-        i = 0
-        # print(group)
-        while i in range(len(group)):
-            # print(group[i], i)
-            if isinstance(group[i], Token):
-                if group[i].type in whitespaces:
-                    i += 1
-                elif group[i].type == "MULT":
-                    i += 1
-                elif group[i].type == "IDENTIFIER":
-                    # now check if there is function arguments in this scope or
-                    # sub scope
-                    # print("in innerleft_identifier: ", group[i:])
-                    i += 1
-                    ret = self.innerleft_func_arguments(group[i:])
-                    if ret is True:
-                        return True, True
-                    else:
-                        return True, False
-                else:
-                    return False, False
-            else:
-                ret = self.innerleft_identifier(group[i])
-                # print("ret is: ", ret)
-                if ret[0] is True and ret[1] is True:
-                    return True, True
-                elif ret[0] is True and ret[0] is False:
-                    i += 1
-                    while i in range(len(group)):
-                        if group[i] == []:
-                            return True, True
-                        else:
-                            # print(group[i:])
-                            ret = self.innerleft_func_arguments(group[i:])
-                            if ret is True:
-                                return True, ret
-                else:
-                    return False, False
-        return False, False
+        # print("IS FUNC: after has_args -->",ret, i)
+        return ret, (i if ret is True else pos)
 
     def check_func_prefix(self, context):
         i = self.skip_ws(context, 0)
@@ -236,64 +122,49 @@ class CheckFuncDeclarations(Rule):
             return ret, i
         return False, 0
 
-    def check_function_pointer(self, context, pos):
-        i = pos
-        i = self.skip_ws(context, i)
-        p = 0
-        if context.check_token(i, "LPARENTHESIS"):
-            i += 1
-            while context.check_token(i, ["LPARENTHESIS"] + whitespaces):
-                if context.check_token(i, "LPARENTHESIS"):
-                    p += 1
-                i += 1
-            if context.check_token(i, "MULT") is False:
-                return False, pos
-            i += 1
 
     def check_func_format(self, context):
-        ret, i = self.check_func_prefix(context)
+        ret, i = self.check_type_specifier(context, 0)
+        #print("out of prfix", ret, context.tokens[:i+1])
         if ret is False:
             return False, 0
 
-        """
-        """
-
-        # print("1-- out of checkfuncprefix", ret, i, context.tokens)
         i = self.skip_ws(context, i)
-        # print("2-- out of skip_ws", ret, i, context.tokens[i])
-        groups, i = self.parse_parentheses(context, i)
-        # print("3-- groups from parse parenthese", groups, "tokens read->", i)
-        ret = self.innerleft_identifier(groups)
-        # print("4-- ret out of innerleft", ret)
-        # print(ret)
-        if ret[0] is True:
-            # print(context.tokens[:i])
-            if ret[1] is True:
-                return True, i
-            else:
-                ret = self.innerleft_func_arguments(groups)
-                if ret is False:
-                    return False, 0
-                else:
-                    return True, i
-        else:
-            return False, 0
+        pos = 0
+        if context.check_token(i, "LPARENTHESIS"):
+            ret, pos = self.returns_function_pointer(context, i)
+            #print("out of returns...", ret, context.tokens[:pos+1])
+            if ret is False:
+                ret, pos = self.is_function(context, i)
+                #print("out of is_func...", ret, context.tokens[:pos+1])
+
+        elif context.check_token(i, ["MULT", "IDENTIFIER"]):
+            ret, pos = self.is_function(context, i)
+            #print("Out of is_func...", ret, context.tokens[:pos+1])
+            #        print(ret, i, context.tokens[:i])
+
+        return ret, (pos if ret is True else 0)
 
     def run(self, context):
-        # print(context.tokens)
         ret, jump = self.check_func_format(context)
+
         if ret is False:
             return False, 0
-        # print(ret, jump)
-        # print(context.tokens[:jump], '\n')
-        # Check for ';' or '{' in order to call for depending subrules
+
+        #print("Out of check_func_format...", ret, context.tokens[:jump + 1])
+        jump = self.skip_ws(context, jump + 1)
+        #print("Out of check_func_format...", ret, context.tokens[:jump + 1])
+
+
         if context.check_token(jump, "LBRACE"):
             context.functions_declared += 1
-            return True, jump - 1
+            return True, jump
             # print(context.tokens[:jump])
         elif context.check_token(jump, "SEMI_COLON"):
-            while context.check_token(jump, "NEWLINE"):
+            while context.check_token(jump, "NEWLINE") is False:
                 if context.check_token(jump, ["TAB", "SPACE"]) is False:
                     break
                 jump += 1
             return True, jump
+
+        return False, 0

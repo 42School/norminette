@@ -123,6 +123,7 @@ whitespaces = [
 class CheckOperatorsSpacing(Rule):
     def __init__(self):
         super().__init__()
+        self.depends_on = ["CheckFuncDeclarations"]
         self.last_seen_tkn = None
 
     def check_prefix(self, context, pos):

@@ -40,47 +40,49 @@ arg_separator = [
 class Rule:
     def __init__(self):
         self.name = type(self).__name__
-        self.dependencies = []
+        self.depends_on = []
         self.primary = False
+
+    def register(self, registry):
+        for rule in self.depends_on:
+            if rule in registry.dependencies:
+                registry.dependencies[rule].append(self.name)
+            else:
+                registry.dependencies[rule] = [self.name]
 
     def skip_ws(self, context, pos):
         while context.check_token(pos, ["TAB", "SPACE", "NEWLINE"]):
             pos += 1
         return pos
 
-    def check_sign_specifier(self, context, pos):
-        i = pos
-        i = self.skip_ws(context, i)
+    def check_type_specifier(self, context, pos):
+        i = self.skip_ws(context, pos)
+
+        if context.check_token(i, misc_specifiers):
+            i += 1
+            i = self.skip_ws(context, i)
+
         if context.check_token(i, sign_specifiers):
             i += 1
-            ret, i = self.check_size_specifier(context, i)
-            if ret is True:
+            i = self.skip_ws(context, i)
+            if context.check_token(i, size_specifiers):
+                i += 1
+                i = self.skip_ws(context, i)
+                if context.check_token(i, type_specifiers):
+                    i += 1
+                    return True, i
                 return True, i
-            return self.check_type_specifier(context, i)
-        else:
-            return False, pos
+            return True. i
 
-    def check_size_specifier(self, context, pos):
-        i = pos
-        i = self.skip_ws(context, i)
-        if context.check_token(i, size_specifiers):
+        if context.check_token(i, sign_specifiers):
             i += 1
-            return self.check_type_specifier(context, i)
-        else:
-            return False, pos
-        pass
-
-    def check_struct_prefix(self, context, pos):
-        i = pos
-        pass
-
-    def check_type_specifier(self, context, pos):
-        i = pos
-        i = self.skip_ws(context, i)
-        if context.check_token(i, type_specifiers):
-            i += 1
+            i = self.skip_ws(context, i)
+            if context.check_token(i,sign_specifiers):
+                i += 1
+                return True. i
             return True, i
-        elif context.check_token(i, "IDENTIFIER"):
+
+        if context.check_token(i, type_specifiers + ["IDENTIFIER"]):
             i += 1
             return True, i
         else:
