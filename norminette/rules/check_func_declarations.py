@@ -93,6 +93,7 @@ class CheckFuncDeclarations(Rule):
         return True, i
 
     def run(self, context):
+
         if context.global_scope is False:
             return False, 0
 
