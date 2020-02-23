@@ -7,8 +7,9 @@ int   (foo2(int a))
 { return 1; }
 
 
-/* basic func, name wrapped in parentheses */
-int (*foo3(int *f(int), int a)) { return 1; }
+/* basic func, name wrapped in parentheses
+ * */
+int (*foo3(int *f(int), int a)) { return ; }
 
 /* basic func, name and params wrapped in way too much parentheses */
 int ((((foo4(int a))))) { return 1; }
@@ -23,9 +24,9 @@ return foo;
 }
 
 /* func returning a func pointer wrapped in way too much parentheses */
-int (((*foo7(int a,
-	int b))(int))) { return foo; }
-	r
+int (((*foo7(int a, 
+			int b))(int))) { return foo; }
+	
 
 /*       func returning a func pointer, wrapped in way too much parentheses #2 */
 int (((*foOo8(void))(int)))

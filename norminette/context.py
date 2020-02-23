@@ -8,7 +8,7 @@ class Context:
         self.tokens = tokens
         self.history = []
         self.errors = []
-        self.tkn_scope = 0
+        self.tkn_scope = len(tokens)
         self.indent_lvl = 0
         self.lines = 0
         self.functions_declared = 0
@@ -22,6 +22,9 @@ class Context:
         if pos >= len(self.tokens):
             return None
         return self.tokens[pos]
+
+    def pop_tokens(self, stop):
+        self.tokens = self.tokens[stop:]
 
     def check_token(self, pos, value):
         tkn = self.peek_token(pos)
@@ -37,9 +40,6 @@ class Context:
                 return True
             else:
                 return False
-
-    def eat_tokens(self, stop):
-        self.tokens = self.tokens[stop:]
 
     def new_error(self, errno, tkn):
         self.errors.append(NormError(errno, tkn.pos[0], tkn.pos[1]))

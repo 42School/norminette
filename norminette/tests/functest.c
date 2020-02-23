@@ -20,7 +20,7 @@ char	(*s1(int a[1]))
 
 //int ((*T)(int))(int);
 int (*p)(int) = 0;
-int ((*p)(int))() { return f;}
+int ((*p)(int))(int) { return f;}
 
 //int ((*fppppp)(int a)) {return 1;}
 

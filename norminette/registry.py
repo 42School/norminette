@@ -1,6 +1,4 @@
-import importlib
-import os
-from glob import glob
+import rules
 from context import Context
 from functools import cmp_to_key
 
@@ -11,53 +9,37 @@ def sort_errs(a, b):
 
 class Registry:
     def __init__(self):
-        self.rules = {}
-        self.primary_rules = {}
-        self.registry = {}
-        self.get_rules()
+        self.rules = rules.rules
+        self.primary_rules = rules.primary_rules
+        self.dependencies = {}
+        for k, r in self.rules.items():
+            r.register(self)
 
-    def get_rules(self):
-        path = os.path.dirname(os.path.realpath(__file__))
-        files = glob(path + "/rules/check_*.py")
-        for f in files:
-            mod_name = f.split('/')[-1].split('.')[0]
-            class_name = "".join([s.capitalize() for s in mod_name.split('_')])
-            module = importlib.import_module("rules." + mod_name)
-            rule = getattr(module, class_name)
-            rule = rule()
-            if rule.primary is True:
-                self.primary_rules[rule.name] = rule
-            self.rules[class_name] = rule
-            self.registry[class_name] = self.rules[class_name].dependencies
-
-    def apply_dependencies(self, rulename, context):
-        for r in self.registry[rulename]:
-            # print(f"trying: {r}")
-            self.rules[r].run(context)
-            context.history.append(r)
-            self.apply_dependencies(r, context)
+    def run_rules(self, context, rule):
+        ret, read = rule.run(context)
+        if ret is True:
+            context.tkn_scope = read
+            context.history.append(rule.name)
+            for r in self.dependencies.get(rule.name, []):
+                self.run_rules(context, self.rules[r])
             context.history.pop(-1)
+            context.tkn_scope = 0
+        return ret, read
 
     def run(self, context):
         while context.tokens != []:
+            context.tkn_scope = len(context.tokens)
             for name, rule in self.primary_rules.items():
-                jump = 0
-                ret, jump = rule.run(context)
+                ret, jump = self.run_rules(context, rule)
                 if ret is True:
-                    # print(f"Rule {rule.name} matched {jump} tokens :\t",
-                    #      context.tokens[:jump])
-                    context.tkn_scope = jump
-                    context.history.append(rule.name)
-                    self.apply_dependencies(name, context)
-                    # print(context.history)
-                    context.history.pop(-1)
-                    context.eat_tokens(jump)
+                    print(f"Rule {rule.name} matched {jump} tokens :\t",
+                         context.tokens[:jump])
+                    context.pop_tokens(jump)
                     break
-
-                # #############################################################
-                else:  # Remove these one ALL  primary rules are done
-                    context.eat_tokens(1)  # ##################################
-                # #############################################################
+            # #############################################################
+            else:  # Remove these one ALL  primary rules are done
+                context.pop_tokens(1)  # ##################################
+            # #############################################################
 
         if context.errors == []:
             print(context.filename + ": OK!")

@@ -85,5 +85,5 @@ class Rule:
         if context.check_token(i, type_specifiers + ["IDENTIFIER"]):
             i += 1
             return True, i
-        else:
-            return False, pos
+
+        return False, pos
