@@ -38,7 +38,7 @@ class norminetteFileTester():
             self.__tests += 1
             print(f.split('/')[-1], end=": ")
             try:
-                output = Lexer(read_file(f)).checkTokens()
+                output = Lexer(read_file(f)).check_tokens()
             except TokenError as t:
                 self.__failed += 1
                 print("KO")

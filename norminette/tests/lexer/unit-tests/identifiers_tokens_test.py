@@ -6,9 +6,9 @@ from lexer.lexer import Lexer
 def eat_tokens(line):
     lex = Lexer(line)
     line = ""
-    while lex.getNextToken():
-        line += lex.peekToken().test()
-        if lex.peekToken().type in ["EOF", "ERROR"]:
+    while lex.get_next_token():
+        line += lex.peek_token().test()
+        if lex.peek_token().type in ["EOF", "ERROR"]:
             break
     return line
 

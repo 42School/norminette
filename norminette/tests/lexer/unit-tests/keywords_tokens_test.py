@@ -6,8 +6,8 @@ from lexer.lexer import Lexer
 def eat_tokens(line):
     lex = Lexer(line)
     line = ""
-    while lex.getNextToken():
-        line += lex.peekToken().test()
+    while lex.get_next_token():
+        line += lex.peek_token().test()
     return line
 
 

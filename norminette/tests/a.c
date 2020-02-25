@@ -10,4 +10,7 @@ int	((*((((bar)(void))))))(int)
 
 int	(*(f)(char a, int t, int b))(int) { return foo;}
 
-int	(*fp)(int) = (void*)0;
+int	(*fp)(int); //Function pointer, NOT FUNC!
+int	((*(fp2))(int a));
+
+int ((*f2)(int)) {};
