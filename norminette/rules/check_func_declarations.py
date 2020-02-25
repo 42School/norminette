@@ -97,7 +97,6 @@ class CheckFuncDeclarations(Rule):
         if ret is False:
             return False, 0
 
-
         if context.check_token(read, "LBRACE"):
             context.functions_declared += 1
             return True, read
