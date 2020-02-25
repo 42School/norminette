@@ -3,7 +3,7 @@ from rules import Rule
 
 type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID"]
 
-misc_specifiers = ["CONST","REGISTER", "STATIC", "VOLATILE"]
+misc_specifiers = ["CONST", "REGISTER", "STATIC", "VOLATILE"]
 
 size_specifiers = ["LONG", "SHORT"]
 
@@ -13,6 +13,7 @@ all_types = type_specifiers + size_specifiers + sign_specifiers \
             + misc_specifiers
 
 whitespaces = ["NEWLINE", "SPACE", "TAB"]
+
 
 class CheckFuncDeclarations(Rule):
     def __init__(self):
@@ -39,8 +40,8 @@ class CheckFuncDeclarations(Rule):
 
     def check_func_identifier(self, context, pos):
         i = self.skip_ws(context, pos)
-        p = 0 # Pointer Operator
-        lp = 0 #left_parenthesis
+        pp = 0  # Pointer operator's position
+        lp = 0  # Left parenthesis
 
         if context.check_token(i, "IDENTIFIER"):
             i += 1
@@ -50,20 +51,21 @@ class CheckFuncDeclarations(Rule):
             i += 1
             d = ["LPARENTHESIS", "MULT"] + whitespaces
             while context.check_token(i, d):
-                if context.check_token(i, "LPARENTHESIS"):
+                if context.check_token(i, "MULT") and not pp:
+                    pp = i
+                elif pp and context.check_token(i, "LPARENTHESIS"):
                     lp += 1
-                if context.check_token(i, "LPARENTHESIS"):
-                    lp -= 1
-                elif context.check_token(i, "MULT") and not p:
-                    p = i
                 i += 1
             if context.check_token(i, "IDENTIFIER") is False:
                 return False, pos, False
             i += 1
             while context.check_token(i, ["RPARENTHESIS"] + whitespaces):
+                if context.check_token(i, "RPARENTHESIS"):
+                    lp -= 1
                 i += 1
-            #print(context.tokens[:i])
-            return True, i, (True if p else False)
+            if pp and lp < 0 and context.check_token(i, "LPARENTHESIS"):
+                return False, pos, False
+            return True, i, (True if pp else False)
 
         return False, pos, False
 
@@ -73,14 +75,11 @@ class CheckFuncDeclarations(Rule):
         if ret is False:
             return False, 0
 
-        #print("0---", ret, i, context.tokens[:i])
         ret, i, fp = self.check_func_identifier(context, i)
-        #print("1---", ret, i, fp, context.tokens[:i])
         if ret is False:
             return False, 0
 
         ret, i = self.check_args(context, i)
-        #print("2---", ret, context.tokens[:i])
         if ret is False:
             return False, 0
 

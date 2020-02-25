@@ -8,7 +8,6 @@ class CheckLineIndent(Rule):
 
     def run(self, context):
         lines = [[]]
-#        print("tokens:", context.tokens[:context.tkn_scope + 1])
         for t in context.tokens[:context.tkn_scope]:
             if t.type == "NEWLINE":
                 lines.append([])
@@ -17,10 +16,8 @@ class CheckLineIndent(Rule):
 
         lines = [li for li in lines if li != []]
 
-        z=0
+        z = 0
         for l in lines:
-#            print(l, z)
-#            z+=1
             if len(l) > 0 and l[0].pos[1] > 1:
                 continue
             else:

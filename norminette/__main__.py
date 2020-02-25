@@ -35,7 +35,7 @@ def main():
             with open(target) as f:
                 try:
                     source = f.read()
-                    tokens = Lexer(source).getTokens()
+                    tokens = Lexer(source).get_tokens()
                     context = Context(target, tokens)
                     registry.run(context)
                 except TokenError as e:
