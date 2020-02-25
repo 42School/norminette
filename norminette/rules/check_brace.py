@@ -5,11 +5,6 @@ class CheckBrace(Rule):
     def __init__(self):
         super().__init__()
         self.primary = True
-        self.dependencies = [
-            "CheckSpacing",
-            "CheckLineLen",
-            "CheckLineCount",
-            "CheckLineIndent"]
 
     def run(self, context):
         i = self.skip_ws(context, 0)

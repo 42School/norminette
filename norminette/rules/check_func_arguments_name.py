@@ -53,73 +53,24 @@ class CheckFuncArgumentsName(Rule):
             i += 1
         return i
 
-    def skip_type_prefix(self, context, pos):
-        i = pos
-        i = self.skip_ws(context, i)
-
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type in misc_specifiers:
-            # Skipping "const/register/struct/static/volatile" keywords
-            i += 1
-            i = self.skip_ws(context, i)
-
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type in sign_specifiers:
-            # This case is the 'trickier'
-            # sign specifier (signed, unsigned) can be followed by:
-            # optionnal size specifier (long, short)
-            # AND/OR optionnal type specifier (int, char)
-            i += 1
-            i = self.skip_ws(context, i)
-            if context.peek_token(i) is not None \
-                    and context.peek_token(i).type in size_specifiers:
-                i += 1
-                i = self.skip_ws(context, i)
-                if context.peek_token(i) is not None \
-                        and context.peek_token(i).type in type_specifiers:
-                    i += 1
-                    i = self.skip_ws(context, i)
-                    return i
-                return True, i
-
-            else:
-                return True, i
-        elif context.peek_token(i) is not None \
-                and context.peek_token(i).type in size_specifiers:
-            i += 1
-            i = self.skip_ws(context, i)
-            if context.peek_token(i).type is not None \
-                    and context.peek_token(i) in type_specifiers:
-                return True, i
-            return True, i
-        elif context.peek_token(i) is not None \
-                and (
-                    context.peek_token(i).type in type_specifiers
-                    or context.peek_token(i).type == "IDENTIFIER"):
-            i += 1
-            return True, i
-        else:
-            i += 1
-            return False, i
-
     def check_arg_format(self, context, pos):
         i = self.skip_ws(context, pos)
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type == "VOID":
+        if context.check_token(i, "VOID"):
             i += 1
             i = self.skip_ws(context, i)
-            if context.peek_token(i) is not None \
-                    and context.peek_token(i).type == "RPARENTHESIS":
+            if context.check_token(i, "RPARENTHESIS"):
                 return i
+        elif context.check_token(i, "ELLIPSIS"):
+            i += 1
+            return i
         i = self.skip_ws(context, pos)
-        ret, i = self.skip_type_prefix(context, i)
+        ret, i = self.check_type_specifier(context, i)
         while context.peek_token(i) is not None \
                 and context.check_token(i, ["MULT"] + whitespaces):
             i += 1
         stop = ["COMMA", "RPARENTHESIS"]
         if ret is True:
-            if context.peek_token(i) is not None \
-                    and context.peek_token(i).type != "IDENTIFIER":
+            if context.check_token(i, "IDENTIFIER"):
                 context.new_error(1016, context.peek_token(i - 1))
             else:
                 i += 1
@@ -128,6 +79,7 @@ class CheckFuncArgumentsName(Rule):
                         and context.peek_token(i).type not in stop:
                     i += 1
         else:
+            print("here", context.tokens[:i], context.tokens[i])
             context.new_error(1016, context.peek_token(i - 1))
         return i
 
@@ -135,14 +87,14 @@ class CheckFuncArgumentsName(Rule):
         pass
 
     def check_args(self, context, pos):
-        i = pos
-        while context.peek_token(i) is not None \
-                and context.peek_token(i).type != "IDENTIFIER":
+        i = self.skip_ws(context, pos)
+        while context.check_token(i, "IDENTIFIER") is False:
             i += 1
-        while context.peek_token(i) is not None \
-                and context.peek_token(i).type != "LPARENTHESIS":
+        while context.check_token(i, "LPARENTHESIS") is False:
             i += 1
         i += 1
+        if context.check_token(i, "RPARENTHESIS"):
+            return
         p = 1
         while p > 0 and context.peek_token(i) is not None:
             if context.peek_token(i).type == "LPARENTHESIS":
@@ -165,7 +117,6 @@ class CheckFuncArgumentsName(Rule):
                 i = self.check_arg_format(context, i)
 
     def run(self, context):
-        ret, pos = self.skip_type_prefix(context, 0)
-        pos = self.skip_ws(context, pos)
+        ret, pos = self.check_type_specifier(context, 0)
         self.check_args(context, pos)
         return False, 0

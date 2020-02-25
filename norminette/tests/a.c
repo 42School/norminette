@@ -1,9 +1,14 @@
 int	(foo(int a))
 {
+	if (1)
+		{
+}
 	return (1);
 }
 
-int (faa)(void)
+short int a() { return 1; }
+
+int (faa)(int *a(int), char b, int c, int r)
 {
 	return 1;
 }
@@ -12,6 +17,10 @@ int (faa)(void)
 int	*truc()
 {
 	return malloc(sizeof(int));
+}
+
+int (*f2(void))(int) {
+	return foo;
 }
 
 int	((*((((bar)(int a))))))(int)

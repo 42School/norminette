@@ -4,7 +4,7 @@ from rules import Rule
 class CheckLineCount(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["CheckFuncDeclarations"]
+        self.depends_on = ["CheckFuncDeclarations", "CheckBrace"]
 
     def run(self, context):
         if context.global_scope is True:

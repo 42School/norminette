@@ -74,12 +74,12 @@ class Rule:
                 return True, i
             return True, i
 
-        if context.check_token(i, sign_specifiers):
+        if context.check_token(i, size_specifiers):
             i += 1
             i = self.skip_ws(context, i)
-            if context.check_token(i, sign_specifiers):
+            if context.check_token(i, type_specifiers):
                 i += 1
-                return True. i
+                return True, i
             return True, i
 
         if context.check_token(i, type_specifiers + ["IDENTIFIER"]):
