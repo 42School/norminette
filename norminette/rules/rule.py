@@ -55,35 +55,65 @@ class Rule:
             pos += 1
         return pos
 
-    def check_type_specifier(self, context, pos):
+    def skip_misc_specifier(self, context, pos):
         i = self.skip_ws(context, pos)
-
         if context.check_token(i, misc_specifiers):
             i += 1
             i = self.skip_ws(context, i)
+        return i
+
+    def check_type_specifier(self, context, pos):
+        i = self.skip_misc_specifier(context, pos)
 
         if context.check_token(i, sign_specifiers):
             i += 1
-            i = self.skip_ws(context, i)
+            i = self.skip_misc_specifier(context, i)
             if context.check_token(i, size_specifiers):
                 i += 1
-                i = self.skip_ws(context, i)
+                i = self.skip_misc_specifier(context, i)
                 if context.check_token(i, type_specifiers):
                     i += 1
+                    i = self.skip_misc_specifier(context, i)
                     return True, i
                 return True, i
             return True, i
 
         if context.check_token(i, size_specifiers):
             i += 1
-            i = self.skip_ws(context, i)
+            i = self.skip_misc_specifier(context, i)
             if context.check_token(i, type_specifiers):
                 i += 1
+                i = self.skip_misc_specifier(context, i)
                 return True, i
             return True, i
 
+        if context.check_token(i, ["STRUCT", "ENUM", "UNION"]):
+            i += 1
+            i = self.skip_misc_specifier(context, i)
+            if context.check_token(i, "IDENTIFIER"):
+                i += 1
+                return True, i
+            return False, 0
+
         if context.check_token(i, type_specifiers + ["IDENTIFIER"]):
             i += 1
+            i = self.skip_misc_specifier(context, i)
             return True, i
 
+        return False, pos
+
+    def check_identifier(self, context, pos):
+        i = pos
+        p = 0
+        while context.check_token(i, whitespaces + ["MULT", "LPARENTHESIS"]):
+            if context.check_token(i, "LPARENTHESIS"):
+                p += 1
+            i += 1
+        if context.check_token(i, "IDENTIFIER"):
+            i += 1
+            while p:
+                if context.check_token(i, "RPARENTHESIS"):
+                    p -= 1
+                i += 1
+            return True, i
         return False, pos

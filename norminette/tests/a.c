@@ -20,8 +20,7 @@ int	*truc()
 }
 
 int (*f2(void))(int) {
-	return foo;
-}
+	return foo; }
 
 int	((*((((bar)(int a))))))(int)
 {
@@ -30,9 +29,34 @@ int	((*((((bar)(int a))))))(int)
 
 int	(*(f)(char a, int t, int b))(int) { return foo;}
 
-int	(*fp)(int); //Function pointer, NOT FUNC!
+int	(*fp(int)); //Function pointer, NOT FUNC!
 int	((*(fp2))(int a));
 
-//int ((*f2)(int)) {};
-int (*fff[1])(void);
+//int ((*T)(int))(int);
 
+int ((*f23(int))) ;
+int (*fff[1])(void);
+enum Bla {
+	A,
+	B
+};
+
+enum Bla	func(void);
+unsigned enum Bla	func(void);
+long long enum Bla	func(void);
+enum long long Bla	func(void);
+enum long long Bla	func(void);
+ Bla	func(void);
+youpi	func2(void);
+trololo43 const	func3(youpibanane cahuete);
+trololo43	func3(youpibanane);
+trololo43	func3(cahuete);
+trololo43	func3(youpibanane	cahuete);
+trololo43	func3(youpibanane cahuete, lol choupette);
+trololo43	func3(youpibanane cahuete, lol  choupette);
+trololo43	func3(youpibanane cahuete,lol choupette);
+trololo43	func3(youpibanane cahuete, lol ***choupette);
+trololo43	func3(youpibanane cahuete, lol * choupette);
+trololo43	func3(youpibanane **cahuete, lol*** **choupette);
+trololo	trololol	func4(uopi sks);
+***func4(udidf fdfd);

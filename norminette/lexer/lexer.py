@@ -273,21 +273,25 @@ class Lexer:
     def operator(self):
         pos = self.line_pos()
         if self.peek_char() in ".+-*/%<>^&|!=":
+
             if self.peek_sub_string(3) in [">>=", "<<=", "..."]:
                 self.tokens.append(Token(
                             operators[self.peek_sub_string(3)],
                             pos))
                 self.__pos += 3
+
             elif self.peek_sub_string(2) in [">>", "<<", "->"]:
                 self.tokens.append(Token(
                             operators[self.peek_sub_string(2)],
                             pos))
                 self.__pos += 2
+
             elif self.peek_sub_string(2) == self.peek_char() + "=":
                 self.tokens.append(Token(
                             operators[self.peek_sub_string(2)],
                             pos))
                 self.pop_char(), self.pop_char()
+
             elif self.peek_char() in "+-<>=&|":
                 if self.peek_sub_string(2) == self.peek_char() * 2:
                     self.tokens.append(Token(
@@ -295,15 +299,18 @@ class Lexer:
                                 pos))
                     self.pop_char()
                     self.pop_char()
+
                 else:
                     self.tokens.append(Token(
                                 operators[self.peek_char()], pos))
                     self.pop_char()
+
             else:
                 self.tokens.append(Token(
                         operators[self.peek_char()],
                         pos))
                 self.pop_char()
+
         else:
             self.tokens.append(Token(
                     operators[self.src[self.__pos]],

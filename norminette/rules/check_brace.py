@@ -27,24 +27,29 @@ class CheckBrace(Rule):
 
         j = i + 1
 
-        while context.peek_token(j) \
-                and context.peek_token(j).type in ["SPACE", "TAB"]:
+        while context.check_token(j, ["SPACE", "TAB"]):
             j += 1
 
         if context.peek_token(i) is not None \
                 and context.peek_token(i).pos[1] > 1:
             """
-            reverse list excluding brace, grab from list[0] to list[x] ='\n'
+            reverse list including brace, grab from list[0] to list[x] ='\n'
             check for anything else than whitespaces characters
             """
             li = []
-            for t in context.tokens[i - 1::-1]:
-                li.append(t)
+            for t in context.tokens[i::-1]:
                 if t.type == "NEWLINE":
                     break
-            if li is [] or li[0].pos[1] > 1:
-                context.new_error(1013, context.peek_token(i))
-                return True, j
+                li.append(t)
+
+            if li[0].pos[1] > 1:
+                li.reverse()
+                if li[0].type in ["SPACE", "TAB"] and li[0].pos[1] > 1:
+                    context.new_error(1013, context.peek_token(i))
+                    return True, j
+                if len([t for t in li if t.type not in ["TAB", "SPACE"]]) > 1:
+                    context.new_error(1013, context.peek_token(i))
+                    return True, j
 
         for t in context.tokens[i + 1:]:
             if t.type == "NEWLINE":

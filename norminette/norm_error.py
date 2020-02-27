@@ -16,8 +16,8 @@ errors = {
     1015: "missing 'void' keyword",
     1016: "missing type qualifier or identifier in function arguments",
     1017: "function has more than four arguments",
-    1018: "user defined identifiers should contain only lowercase characters,\
- digits or '_'",
+    1018: "user defined identifiers should contain only lowercase characters, \
+digits or '_'",
     1019: "missing tabs for indent level",
     1020: "extra tabs for indent level",
     1021: "function has more than 25 lines",
@@ -37,8 +37,8 @@ class NormError:
             self.error_pos = f"(line: {self.line}, col: {self.col}):\t"
         else:
             self.error_pos = f"(line: {self.line}):\t "
-        self.error_msg_prefix = f"\tE{self.errno} " + self.error_pos
+        self.prefix = f"\tE{self.errno} " + self.error_pos
         self.error_msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
 
     def __str__(self):
-        return self.error_msg_prefix + self.error_msg
+        return self.prefix + self.error_msg

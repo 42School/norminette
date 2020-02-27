@@ -9,7 +9,7 @@ int   (foo2(int a))
 
 /* basic func, name wrapped in parentheses
  * */
-int (*foo3(int *f(int), int a)) { return ; }
+int (*foo3(int *f(int), int a)) { return (int*)0; }
 
 /* basic func, name and params wrapped in way too much parentheses */
 int ((((foo4(int a))))) { return 1; }
@@ -18,7 +18,7 @@ int ((((foo4(int a))))) { return 1; }
 int *foo5(){ return malloc(sizeof(int)); }
 
 /* func returning a func pointer*/
-int(*foo6(int a, b, int *z, int c, int d))(int)
+int(*foo6(int a, int b, int *z, int c, int d))(int)
 {
 return foo; 
 }
@@ -30,32 +30,8 @@ int (((*foo7(int a,
 
 /*       func returning a func pointer, wrapped in way too much parentheses #2 */
 int (((*foOo8(void))(int)))
-{int
-
-	
-
-
-	
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-a();
+{
+int a();
 return foo;
 }
 /* func pointers, not funcs!!*/

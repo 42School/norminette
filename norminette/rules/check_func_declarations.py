@@ -1,17 +1,6 @@
 from lexer import Token
 from rules import Rule
 
-type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID"]
-
-misc_specifiers = ["CONST", "REGISTER", "STATIC", "VOLATILE"]
-
-size_specifiers = ["LONG", "SHORT"]
-
-sign_specifiers = ["SIGNED", "UNSIGNED"]
-
-all_types = type_specifiers + size_specifiers + sign_specifiers \
-            + misc_specifiers
-
 whitespaces = ["NEWLINE", "SPACE", "TAB"]
 
 
@@ -72,16 +61,25 @@ class CheckFuncDeclarations(Rule):
         ret, i = self.check_type_specifier(context, i)
         if ret is False:
             return False, 0
+
+        name_pos = i
         ret, i, fp = self.check_func_identifier(context, i)
         if ret is False:
             return False, 0
 
+        arg_start = i
+        while context.peek_token(name_pos).type != "IDENTIFIER":
+            name_pos += 1
         ret, i = self.check_args(context, i)
         if ret is False:
             return False, 0
 
         if fp is True:
             ret, i = self.check_args(context, i)
+        arg_end = i
+        context.funcnames.append(context.peek_token(name_pos).value)
+        context.fname_pos = name_pos
+        context.arg_pos = [arg_start, arg_end]
 
         while context.check_token(i, ["RPARENTHESIS"] + whitespaces):
             i += 1
