@@ -43,9 +43,9 @@ class CheckEmptyFuncParams(Rule):
         self.depends_on = ["CheckFuncDeclarations"]
 
     def run(self, context):
-       i = context.arg_pos[0] + 1
-       i = self.skip_ws(context, i)
-       if context.check_token(i, "VOID") is False \
+        i = context.arg_pos[0] + 1
+        i = self.skip_ws(context, i)
+        if context.check_token(i, "VOID") is False \
                 and context.check_token(i, "RPARENTHESIS") is True:
             context.new_error(1015, context.peek_token(i))
-       return False, 0
+        return False, 0

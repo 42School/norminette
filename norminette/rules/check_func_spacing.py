@@ -45,7 +45,6 @@ class CheckFuncSpacing(Rule):
         super().__init__()
         self.depends_on = ["CheckFuncDeclarations"]
 
-
     def run(self, context):
         i = context.fname_pos - 1
         if context.peek_token(i).type == "SPACE":
