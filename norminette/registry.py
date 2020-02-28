@@ -29,7 +29,7 @@ class Registry:
     def run(self, context):
         while context.tokens != []:
             context.tkn_scope = len(context.tokens)
-            for name, rule in self.primary_rules.items():
+            for rule in self.primary_rules:
                 ret, jump = self.run_rules(context, rule)
                 if ret is True:
                     print(

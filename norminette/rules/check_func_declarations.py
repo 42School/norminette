@@ -1,13 +1,13 @@
 from lexer import Token
-from rules import Rule
+from rules import PrimaryRule
 
 whitespaces = ["NEWLINE", "SPACE", "TAB"]
 
 
-class CheckFuncDeclarations(Rule):
+class CheckFuncDeclarations(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.primary = True
+        self.priority = 10
 
     def check_args(self, context, pos):
         i = self.skip_ws(context, pos)

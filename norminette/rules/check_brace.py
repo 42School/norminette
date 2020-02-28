@@ -1,10 +1,9 @@
-from rules import Rule
+from rules import PrimaryRule
 
 
-class CheckBrace(Rule):
+class CheckBrace(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.primary = True
 
     def run(self, context):
         i = self.skip_ws(context, 0)

@@ -46,14 +46,6 @@ class CheckFuncArgumentsName(Rule):
         super().__init__()
         self.depends_on = ["CheckFuncDeclarations"]
 
-    def skip_nested_par(self, context, pos):
-        i = pos + 1
-        while context.peek_token(i).type != "RPARENTHESIS":
-            if context.peek_token(i).type == "LPARENTHESIS":
-                i = self.skip_nested_par(context, i)
-            i += 1
-        return i
-
     def check_arg_format(self, context, pos):
         """
         A valid argument contains either:
@@ -81,17 +73,20 @@ class CheckFuncArgumentsName(Rule):
             else:
                 i += 1
                 i = self.skip_ws(context, i)
+
             while i < context.arg_pos[1] \
                     and context.peek_token(i).type not in stop:
                 if context.peek_token(i).type == "LPARENTHESIS":
                     i = self.skip_nested_par(context, i)
                 i += 1
             i += 1
+
         else:
             while context.peek_token(i) is not None \
                     and context.peek_token(i).type not in stop:
                 i += 1
             i += 1
+
         return i
 
     def no_arg_func(self, context, pos):

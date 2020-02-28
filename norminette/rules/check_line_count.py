@@ -8,12 +8,10 @@ class CheckLineCount(Rule):
 
     def run(self, context):
         if context.global_scope is True:
-            if context.lines > 25:
+            if context.get_parent_rule() == "CheckFuncDeclarations" \
+                    and context.lines > 25:
                 context.new_error(1021, context.tokens[context.tkn_scope])
             context.lines = 0
-            return False, 0
-
-        if context.global_scope is True:
             return False, 0
 
         if context.get_parent_rule() == "CheckBrace":

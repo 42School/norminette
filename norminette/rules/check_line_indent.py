@@ -14,26 +14,22 @@ class CheckLineIndent(Rule):
             else:
                 lines[-1].append(t)
 
-        lines = [li for li in lines if li != []]
+        lines = [li for li in lines if li != [] and li[0].pos[1] == 1]
 
-        z = 0
         for l in lines:
-            if len(l) > 0 and l[0].pos[1] > 1:
-                continue
+            lvl = context.indent_lvl
+            for i in range(len(l)):
+                if l[i].type == "TAB":
+                    lvl -= 1
+                    i += 1
+                    continue
+                elif l[i].type == "LBRACE":
+                    lvl -= 1
+                break
             else:
-                lvl = context.indent_lvl
-                i = 0
-                while i in range(len(l)):
-                    if l[i].type == "TAB":
-                        lvl -= 1
-                        i += 1
-                        continue
-                    elif l[i].type == "LBRACE":
-                        lvl -= 1
-                        break
-                    break
-                if lvl > 0:
-                    context.new_error(1019, l[i])
-                elif lvl < 0:
-                    context.new_error(1020, l[i])
+                continue
+            if lvl > 0:
+                context.new_error(1019, l[i])
+            elif lvl < 0:
+                context.new_error(1020, l[i])
         return False, 0

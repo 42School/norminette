@@ -2,6 +2,7 @@ int	(foo(int a))
 {
 	if (1)
 		{
+					
 }
 	return (1);
 }

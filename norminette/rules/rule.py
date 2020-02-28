@@ -55,6 +55,22 @@ class Rule:
             pos += 1
         return pos
 
+    def skip_nested_par(self, context, pos):
+        i = pos + 1
+        while context.peek_token(i).type != "RPARENTHESIS":
+            if context.peek_token(i).type == "LPARENTHESIS":
+                i = self.skip_nested_par(context, i)
+            i += 1
+        return i
+
+    def skip_nested_brace(self, context, pos):
+        i = pos + 1
+        while context.peek_token(i).type != "RBRACE":
+            if context.peek_token(i).type == "LBRACE":
+                i = self.skip_nested_brace(context, i)
+            i += 1
+        return i
+
     def skip_misc_specifier(self, context, pos):
         i = self.skip_ws(context, pos)
         if context.check_token(i, misc_specifiers):
@@ -104,16 +120,15 @@ class Rule:
 
     def check_identifier(self, context, pos):
         i = pos
-        p = 0
         while context.check_token(i, whitespaces + ["MULT", "LPARENTHESIS"]):
-            if context.check_token(i, "LPARENTHESIS"):
-                p += 1
             i += 1
         if context.check_token(i, "IDENTIFIER"):
-            i += 1
-            while p:
-                if context.check_token(i, "RPARENTHESIS"):
-                    p -= 1
-                i += 1
             return True, i
         return False, pos
+
+
+class PrimaryRule(Rule):
+    def __init__(self):
+        super().__init__()
+        self.primary = True
+        self.priority = 0
