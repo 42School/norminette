@@ -39,7 +39,7 @@ def main():
                     context = Context(target, tokens)
                     registry.run(context)
                 except TokenError as e:
-                    print(target + f": KO!\n\t{txtformat(e.msg, 'red')}")
+                    print(target + f": KO!\t{txtformat(e.msg, 'red')}")
 
 
 if __name__ == "__main__":

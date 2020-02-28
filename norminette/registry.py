@@ -32,9 +32,7 @@ class Registry:
             for rule in self.primary_rules:
                 ret, jump = self.run_rules(context, rule)
                 if ret is True:
-                    print(
-                            f"Rule {rule.name} matched {jump} tokens :\t",
-                            context.tokens[:jump])
+                    context.dprint(rule.name, jump)
                     context.pop_tokens(jump)
                     break
             # #############################################################

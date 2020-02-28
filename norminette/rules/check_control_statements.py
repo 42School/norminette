@@ -18,7 +18,7 @@ class CheckControlStatements(PrimaryRule):
         i = self.skip_ws(context, i)
         if context.check_token(i, "LPARENTHESIS") is False:
             return False, 0
-        i = self.skip_nested_par(context, i)
+        i = self.skip_nest(context, i)
         i += 1
         while context.peek_token(i) is not None:
             if context.check_token(i, ["RBRACE", "NEWLINE"]) is True:

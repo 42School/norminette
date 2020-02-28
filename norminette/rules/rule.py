@@ -71,6 +71,30 @@ class Rule:
             i += 1
         return i
 
+    def skip_nest(self, context, pos, c=None):
+        i = pos
+        print(context.tokens[:i], )
+        if c is None:
+            c = context.peek_token(i).type
+        rbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
+        lbrackets = ["LBRACKET", "LBRACE", "RPARENTHESIS"]
+        if c not in rbrackets:
+            return pos
+        while True:
+            if context.check_token(i, "LPARENTHESIS") is True:
+                i = self.skip_nest(context, i + 1, "RPARENTHESIS")
+            elif context.check_token(i, "LBRACE") is True:
+                i = self.skip_nest(context, i + 1, "RBRACE")
+            elif context.check_token(i, "LBRACKET") is True:
+                i = self.skip_nest(context, i + 1, "RBRACKET")
+            elif context.check_token(i, rbrackets) is True:
+                if c == context.peek_token(i).type:
+                    return i
+                #raise nesting error?
+                return 0
+            i += 1
+        return i
+
     def skip_misc_specifier(self, context, pos):
         i = self.skip_ws(context, pos)
         if context.check_token(i, misc_specifiers):
@@ -120,11 +144,24 @@ class Rule:
 
     def check_identifier(self, context, pos):
         i = pos
-        while context.check_token(i, whitespaces + ["MULT", "LPARENTHESIS"]):
+        while context.check_token(i, whitespaces + ["MULT"]):
             i += 1
         if context.check_token(i, "IDENTIFIER"):
             return True, i
         return False, pos
+
+    def skip_brackets(self, context, pos):
+        i = self.skip_ws(context, pos)
+        if context.check_token(i, "LBRACKET") is True:
+            b = 1
+            i += 1
+            while b:
+                if context.check_token(i, "LBRACKET"):
+                    b += 1
+                elif context.check_token(i, "RBRACKET"):
+                    b -= 1
+                i += 1
+        return i
 
 
 class PrimaryRule(Rule):

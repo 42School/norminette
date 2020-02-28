@@ -77,7 +77,7 @@ class CheckFuncArgumentsName(Rule):
             while i < context.arg_pos[1] \
                     and context.peek_token(i).type not in stop:
                 if context.peek_token(i).type == "LPARENTHESIS":
-                    i = self.skip_nested_par(context, i)
+                    i = self.skip_nest(context, i)
                 i += 1
             i += 1
 

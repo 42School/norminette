@@ -1,5 +1,5 @@
 from norm_error import NormError
-
+from lexer.dictionary import operators, brackets
 
 class Context:
     def __init__(self, filename, tokens):
@@ -20,6 +20,20 @@ class Context:
         self.funcnames = []
         self.fname_pos = 0
         self.arg_pos = [0, 0]
+
+    def dprint(self, rule, pos):
+        print(f"{self.filename} - {rule}:", end="")
+        i = 1
+        for t in self.tokens[:pos]:
+            if i == 0:
+                print("\t\t", end="")
+            if t.type == "NEWLINE":
+                print(t)
+                i = 0
+            else:
+                print(t, end=" ")
+                i += 1
+        print("")
 
     def peek_token(self, pos):
         if pos >= len(self.tokens):

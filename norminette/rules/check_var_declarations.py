@@ -12,24 +12,11 @@ class CheckVarDeclarations(PrimaryRule):
         i = self.skip_ws(context, pos)
         while context.check_token(i, sep) is False:
             if context.check_token(i, "LPARENTHESIS") is True:
-                i = self.skip_nested_par(context, i)
+                i = self.skip_nest(context, i)
             elif context.check_token(i, "LBRACE") is True:
-                i = self.skip_nested_brace(context, i)
+                i = self.skip_nest(context, i)
             i += 1
         return True, i
-
-    def skip_brackets(self, context, pos):
-        i = self.skip_ws(context, pos)
-        if context.check_token(i, "LBRACKET") is True:
-            b = 1
-            i += 1
-            while b:
-                if context.check_token(i, "LBRACKET"):
-                    b += 1
-                elif context.check_token(i, "RBRACKET"):
-                    b -= 1
-                i += 1
-        return i
 
     def var_declaration(self, context, pos):
         ret, i = self.check_identifier(context, pos)
@@ -63,7 +50,11 @@ class CheckVarDeclarations(PrimaryRule):
         ret, i = self.var_declaration(context, i)
         if ret is False:
             return False, 0
-        while context.check_token(i, "SEMI_COLON") is False:
+        while ret:
             ret, i = self.var_declaration(context, i)
+            if context.check_token(i, "SEMI_COLON") is True:
+                break
+        else:
+            return False, 0
         i += 1
         return True, i
