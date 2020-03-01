@@ -55,45 +55,26 @@ class Rule:
             pos += 1
         return pos
 
-    def skip_nested_par(self, context, pos):
-        i = pos + 1
-        while context.peek_token(i).type != "RPARENTHESIS":
-            if context.peek_token(i).type == "LPARENTHESIS":
-                i = self.skip_nested_par(context, i)
-            i += 1
-        return i
-
-    def skip_nested_brace(self, context, pos):
-        i = pos + 1
-        while context.peek_token(i).type != "RBRACE":
-            if context.peek_token(i).type == "LBRACE":
-                i = self.skip_nested_brace(context, i)
-            i += 1
-        return i
-
-    def skip_nest(self, context, pos, c=None):
-        i = pos
-        print(context.tokens[:i], )
-        if c is None:
-            c = context.peek_token(i).type
+    def skip_nest(self, context, pos):
         rbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
-        lbrackets = ["LBRACKET", "LBRACE", "RPARENTHESIS"]
-        if c not in rbrackets:
+        lbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
+        c = context.peek_token(pos).type
+        if c not in lbrackets:
             return pos
-        while True:
-            if context.check_token(i, "LPARENTHESIS") is True:
-                i = self.skip_nest(context, i + 1, "RPARENTHESIS")
-            elif context.check_token(i, "LBRACE") is True:
-                i = self.skip_nest(context, i + 1, "RBRACE")
-            elif context.check_token(i, "LBRACKET") is True:
-                i = self.skip_nest(context, i + 1, "RBRACKET")
+        c = rbrackets[lbrackets.index(c)]
+        i = pos + 1
+        while context.peek_token(i) is not None:
+            if context.check_token(i, lbrackets) is True:
+                i = self.skip_nest(context, i)
+                if i == -1:
+                    return -1
             elif context.check_token(i, rbrackets) is True:
                 if c == context.peek_token(i).type:
                     return i
-                #raise nesting error?
-                return 0
+                # raise nesting error?
+                return -1
             i += 1
-        return i
+        return -1
 
     def skip_misc_specifier(self, context, pos):
         i = self.skip_ws(context, pos)

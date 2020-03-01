@@ -1,4 +1,5 @@
 from rules import PrimaryRule
+from context import Scope, GlobalScope
 
 
 class CheckBrace(PrimaryRule):
@@ -10,19 +11,6 @@ class CheckBrace(PrimaryRule):
 
         if context.check_token(i, ["LBRACE", "RBRACE"]) is False:
             return False, 0
-
-        if context.peek_token(i) is not None \
-                and context.peek_token(i).type == "LBRACE":
-            context.indent_lvl += 1
-            context.scope_lvl += 1
-            if context.global_scope is True:
-                context.global_scope = False
-        elif context.peek_token(i) is not None \
-                and context.peek_token(i).type == "RBRACE":
-            context.indent_lvl -= 1
-            context.scope_lvl -= 1
-            if context.scope_lvl < 1:
-                context.global_scope = True
 
         j = i + 1
 

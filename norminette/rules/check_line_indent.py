@@ -17,7 +17,7 @@ class CheckLineIndent(Rule):
         lines = [li for li in lines if li != [] and li[0].pos[1] == 1]
 
         for l in lines:
-            lvl = context.indent_lvl
+            lvl = context.scope.indent
             for i in range(len(l)):
                 if l[i].type == "TAB":
                     lvl -= 1

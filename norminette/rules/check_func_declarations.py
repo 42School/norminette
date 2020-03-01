@@ -1,5 +1,6 @@
 from lexer import Token
 from rules import PrimaryRule
+from context import GlobalScope
 
 whitespaces = ["NEWLINE", "SPACE", "TAB"]
 
@@ -7,7 +8,7 @@ whitespaces = ["NEWLINE", "SPACE", "TAB"]
 class CheckFuncDeclarations(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 100
 
     def check_args(self, context, pos):
         i = self.skip_ws(context, pos)
@@ -77,7 +78,7 @@ class CheckFuncDeclarations(PrimaryRule):
         if fp is True:
             ret, i = self.check_args(context, i)
         arg_end = i
-        context.funcnames.append(context.peek_token(name_pos).value)
+        context.scope.fnames.append(context.peek_token(name_pos).value)
         context.fname_pos = name_pos
         context.arg_pos = [arg_start, arg_end]
 
@@ -88,7 +89,7 @@ class CheckFuncDeclarations(PrimaryRule):
 
     def run(self, context):
 
-        if context.global_scope is False:
+        if type(context.scope) is not GlobalScope:
             return False, 0
 
         ret, read = self.check_func_format(context)
@@ -96,7 +97,7 @@ class CheckFuncDeclarations(PrimaryRule):
             return False, 0
 
         if context.check_token(read, "LBRACE"):
-            context.functions_declared += 1
+            context.scope.functions += 1
             return True, read
 
         elif context.check_token(read, "SEMI_COLON"):

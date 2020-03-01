@@ -10,10 +10,10 @@ class CheckVarDeclarations(PrimaryRule):
     def assignment_right_side(self, context, pos):
         sep = ["COMMA", "SEMI_COLON", "ASSIGN"]
         i = self.skip_ws(context, pos)
+        lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
+        rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
         while context.check_token(i, sep) is False:
-            if context.check_token(i, "LPARENTHESIS") is True:
-                i = self.skip_nest(context, i)
-            elif context.check_token(i, "LBRACE") is True:
+            if context.check_token(i, lbrackets) is True:
                 i = self.skip_nest(context, i)
             i += 1
         return True, i

@@ -30,6 +30,7 @@ class Registry:
         while context.tokens != []:
             context.tkn_scope = len(context.tokens)
             for rule in self.primary_rules:
+                # print(rule.name)
                 ret, jump = self.run_rules(context, rule)
                 if ret is True:
                     context.dprint(rule.name, jump)
