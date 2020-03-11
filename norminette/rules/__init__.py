@@ -16,9 +16,17 @@ for f in files:
     module = importlib.import_module("rules." + mod_name)
     rule = getattr(module, class_name)
     rule = rule()
-    if rule.primary is True:
-        primary_rules[rule.name] = rule
     rules[class_name] = rule
+
+files = glob(path + "/is_*.py")
+
+for f in files:
+    mod_name = f.split('/')[-1].split('.')[0]
+    class_name = "".join([s.capitalize() for s in mod_name.split('_')])
+    module = importlib.import_module("rules." + mod_name)
+    rule = getattr(module, class_name)
+    primary_rules[class_name] = rule()
+
 
 
 primary_rules = [v for k, v in sorted(

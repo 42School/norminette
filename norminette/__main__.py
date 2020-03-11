@@ -4,7 +4,7 @@ import os
 from lexer import Lexer, TokenError
 from registry import Registry
 from context import Context
-from tools.colors import format_output as txtformat
+from tools.colors import colors
 
 
 def main():
@@ -26,6 +26,7 @@ def main():
 
     if args == []:
         targets = glob.glob("**/*.[ch]", recursive=True)
+        target = targets.sort()
 
     for target in targets:
         if target[-2:] not in [".c", ".h"]:
@@ -35,11 +36,14 @@ def main():
             with open(target) as f:
                 try:
                     source = f.read()
-                    tokens = Lexer(source).get_tokens()
+                    lexer = Lexer(source)
+                    tokens = lexer.get_tokens()
+                    #print(f"\n\n{target}")
+                    #lexer.print_tokens()
                     context = Context(target, tokens)
                     registry.run(context)
                 except TokenError as e:
-                    print(target + f": KO!\t{txtformat(e.msg, 'red')}")
+                    print(target + f": KO!\t{colors(e.msg, 'red')}")
 
 
 if __name__ == "__main__":

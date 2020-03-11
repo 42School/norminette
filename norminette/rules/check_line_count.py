@@ -5,9 +5,20 @@ from context import GlobalScope
 class CheckLineCount(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["CheckFuncDeclarations", "CheckBrace"]
+        self.depends_on = [
+                            "IsAssignation",
+                            "IsControlStatement",
+                            "IsEmptyLine",
+                            "IsFuncDeclaration",
+                            "IsUdefType",
+                            "IsExpressionStatement",
+                            "IsVarDeclaration"]
 
     def run(self, context):
+        for t in context.tokens[:context.tkn_scope + 1]:
+            if t.type == "NEWLINE":
+                context.scope.lines += 1
+
         if type(context.scope) is GlobalScope:
             if context.get_parent_rule() == "CheckFuncDeclarations" \
                     and context.scope.lines > 25:
@@ -23,7 +34,4 @@ class CheckLineCount(Rule):
                 if context.scope.lvl == 0:
                     return False, 0
 
-        for t in context.tokens[:context.tkn_scope + 1]:
-            if t.type == "NEWLINE":
-                context.scope.lines += 1
         return False, 0

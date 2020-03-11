@@ -1,17 +1,18 @@
 from lexer import Token
 from rules import PrimaryRule
-from context import GlobalScope
+from context import GlobalScope, Function
 
 whitespaces = ["NEWLINE", "SPACE", "TAB"]
 
 
-class CheckFuncDeclarations(PrimaryRule):
+class IsFuncDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 100
+        self.priority = 10
+        self.scope = [GlobalScope]
 
     def check_args(self, context, pos):
-        i = self.skip_ws(context, pos)
+        i = context.skip_ws(pos)
         while context.check_token(i, whitespaces + ["RPARENTHESIS"]):
             i += 1
         if context.check_token(i, "LPARENTHESIS") is False:
@@ -29,7 +30,7 @@ class CheckFuncDeclarations(PrimaryRule):
         return True, i
 
     def check_func_identifier(self, context, pos):
-        i = self.skip_ws(context, pos)
+        i = context.skip_ws(pos)
         pp = 0  # Pointer operator's position
         lp = 0  # Left parenthesis counter (nesting level)
 
@@ -58,8 +59,8 @@ class CheckFuncDeclarations(PrimaryRule):
         return True, i, (True if pp else False)
 
     def check_func_format(self, context):
-        i = self.skip_ws(context, 0)
-        ret, i = self.check_type_specifier(context, i)
+        i = context.skip_ws(0)
+        ret, i = context.check_type_specifier(i)
         if ret is False:
             return False, 0
 
@@ -98,10 +99,14 @@ class CheckFuncDeclarations(PrimaryRule):
 
         if context.check_token(read, "LBRACE"):
             context.scope.functions += 1
+            read += 1
+            context.sub = context.scope.inner(Function)
+            read = context.eol(read)
             return True, read
 
         elif context.check_token(read, "SEMI_COLON"):
             read += 1
+            read = context.eol(read)
             return True, read
 
         return False, 0

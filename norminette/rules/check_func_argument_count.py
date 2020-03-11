@@ -39,7 +39,7 @@ whitespaces = [
 class CheckFuncArgumentCount(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["CheckFuncDeclarations"]
+        self.depends_on = ["IsFuncDeclarations"]
 
     def run(self, context):
         return False, 0

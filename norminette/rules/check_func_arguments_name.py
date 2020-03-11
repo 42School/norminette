@@ -44,7 +44,7 @@ arg_separator = [
 class CheckFuncArgumentsName(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["CheckFuncDeclarations"]
+        self.depends_on = ["IsFuncDeclarations"]
 
     def check_arg_format(self, context, pos):
         """
@@ -53,31 +53,31 @@ class CheckFuncArgumentsName(Rule):
         - an ellipsis
         """
 
-        i = self.skip_ws(context, pos)
+        i = context.skip_ws(pos)
         stop = ["COMMA", "RPARENTHESIS"]
 
         if context.check_token(i, "ELLIPSIS"):
             i += 1
             return i
 
-        ret, i = self.check_type_specifier(context, i)
+        ret, i = context.check_type_specifier(i)
         while context.peek_token(i) is not None \
                 and context.check_token(i, ["MULT"] + whitespaces):
             i += 1
 
         if ret is True:
-            i = self.skip_misc_specifier(context, i)
-            ret, i = self.check_identifier(context, i)
+            i = context.skip_misc_specifier(i)
+            ret, i = context.check_identifier(i)
             if ret is False:
                 context.new_error(1016, context.peek_token(i - 1))
             else:
                 i += 1
-                i = self.skip_ws(context, i)
+                i = context.skip_ws(i)
 
             while i < context.arg_pos[1] \
                     and context.peek_token(i).type not in stop:
                 if context.peek_token(i).type == "LPARENTHESIS":
-                    i = self.skip_nest(context, i)
+                    i = context.skip_nest(i)
                 i += 1
             i += 1
 
@@ -90,10 +90,10 @@ class CheckFuncArgumentsName(Rule):
         return i
 
     def no_arg_func(self, context, pos):
-        i = self.skip_ws(context, pos)
+        i = context.skip_ws(pos)
         if context.check_token(i, "VOID"):
             i += 1
-            i = self.skip_ws(context, i)
+            i = context.skip_ws(i)
             if context.check_token(i, "RPARENTHESIS"):
                 return True
         elif context.check_token(i, "RPARENTHESIS"):

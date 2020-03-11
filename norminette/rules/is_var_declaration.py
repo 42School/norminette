@@ -1,25 +1,27 @@
 from lexer import Token
 from rules import PrimaryRule
+from context import GlobalScope, UserDefinedType, ControlStructure, Function
 
 
-class CheckVarDeclarations(PrimaryRule):
+class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.priority = 10
+        self.scope = [GlobalScope, UserDefinedType, Function, ControlStructure]
 
     def assignment_right_side(self, context, pos):
         sep = ["COMMA", "SEMI_COLON", "ASSIGN"]
-        i = self.skip_ws(context, pos)
+        i = context.skip_ws(pos)
         lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
         rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
         while context.check_token(i, sep) is False:
             if context.check_token(i, lbrackets) is True:
-                i = self.skip_nest(context, i)
+                i = context.skip_nest(i)
             i += 1
         return True, i
 
     def var_declaration(self, context, pos):
-        ret, i = self.check_identifier(context, pos)
+        ret, i = context.check_identifier(pos)
         if ret is False:
             return ret, pos
 
@@ -27,7 +29,7 @@ class CheckVarDeclarations(PrimaryRule):
         i += 1
         while context.check_token(i, pclose):
             i += 1
-        i = self.skip_brackets(context, i)
+        i = context.skip_nest(i)
         while context.check_token(i, pclose):
             i += 1
         if context.check_token(i, "ASSIGN") is True:
@@ -43,7 +45,7 @@ class CheckVarDeclarations(PrimaryRule):
         return False, pos
 
     def run(self, context):
-        ret, i = self.check_type_specifier(context, 0)
+        ret, i = context.check_type_specifier(0)
         if ret is False:
             return False, 0
 
@@ -57,4 +59,5 @@ class CheckVarDeclarations(PrimaryRule):
         else:
             return False, 0
         i += 1
+        i = context.eol(i)
         return True, i

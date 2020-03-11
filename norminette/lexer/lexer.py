@@ -60,8 +60,6 @@ class Lexer:
         return self.__line, self.__line_pos
 
     def is_string(self):
-        """
-        """
         if self.peek_sub_string(2) == 'L"' or self.peek_char() == '"':
             return True
         else:
@@ -88,8 +86,6 @@ class Lexer:
             return False
 
     def string(self):
-        """
-        """
         pos = self.line_pos()
         tkn_value = ""
         if self.peek_char() == 'L':
@@ -397,6 +393,17 @@ class Lexer:
         while self.get_next_token():
             continue
         return self.tokens
+
+    def print_tokens(self):
+        if self.tokens == []:
+            return
+        for t in self.tokens:
+            if t.type == "NEWLINE":
+                print(t)
+            else:
+                print(t, end ="")
+        if self.tokens[-1].type != "NEWLINE":
+            print("")
 
     def check_tokens(self):
         """

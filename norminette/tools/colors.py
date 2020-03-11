@@ -1,4 +1,4 @@
-def format_output(text, *argv):
+def colors(text, *argv):
     options = {
         "bold": 1,
         "dim": 2,
