@@ -6,7 +6,7 @@ from context import GlobalScope, UserDefinedType, ControlStructure, Function
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 1
         self.scope = [GlobalScope, UserDefinedType, Function, ControlStructure]
 
     def assignment_right_side(self, context, pos):

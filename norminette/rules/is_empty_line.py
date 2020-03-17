@@ -11,7 +11,7 @@ whitespaces = ["SPACE", "TAB", "NEWLINE"]
 class IsEmptyLine(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 0
         self.scope = [
                         GlobalScope,
                         Function,

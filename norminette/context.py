@@ -2,6 +2,7 @@ from norm_error import NormError
 from lexer.dictionary import operators, brackets
 from tools.colors import colors
 from scope import *
+from exceptions import CParsingError
 
 type_specifiers = [
     "CHAR",
@@ -59,6 +60,9 @@ class Context:
         self.sub = None
         self.fname_pos = 0
         self.arg_pos = [0, 0]
+
+        #preprocessor handling
+        self.preproc_scope_indent = 0
 
     def peek_token(self, pos):
         if pos >= len(self.tokens):
@@ -136,8 +140,8 @@ In \"{self.scope.name}\" from \
         return pos
 
     def skip_nest(self, pos):
-        rbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
         lbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
+        rbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
         c = self.peek_token(pos).type
         if c not in lbrackets:
             return pos
@@ -151,7 +155,7 @@ In \"{self.scope.name}\" from \
             elif self.check_token(i, rbrackets) is True:
                 if c == self.peek_token(i).type:
                     return i
-                raise CParsingError("Nested parenheses, braces or brackets are \
+                raise CParsingError("Nested parenheses, braces, brackets or preprocessors are \
 not correctly closed")
 
             i += 1

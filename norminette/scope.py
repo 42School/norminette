@@ -52,7 +52,6 @@ class ControlStructure(Scope):
         super().__init__(parent)
         self.multiline = True
 
-
 class UserDefinedType(Scope):
     """
     User defined type scope (struct, union, enum), only variables declarations

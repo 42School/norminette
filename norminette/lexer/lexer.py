@@ -38,7 +38,6 @@ class Lexer:
                 self.__char = self.src[self.__pos]
         else:
             self.__char = None
-
         return self.__char
 
     def pop_char(self):
