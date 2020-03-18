@@ -65,14 +65,14 @@ class Context:
         self.preproc_scope_indent = 0
 
     def peek_token(self, pos):
-        if pos >= len(self.tokens):
-            return None
-        return self.tokens[pos]
+        return self.tokens[pos] if pos < len(self.tokens) else None
 
     def pop_tokens(self, stop):
         self.tokens = self.tokens[stop:]
 
     def check_token(self, pos, value):
+        """Compares the token at 'pos' against a value or list of values
+        """
         tkn = self.peek_token(pos)
 
         if tkn is None:
@@ -94,6 +94,8 @@ class Context:
         return self.history[-1 if len(self.history) == 1 else -2]
 
     def update(self):
+        """Updates the scope if needed after a primary rule has succeeded
+        """
         if self.sub is not None:
             self.scope = self.sub
             self.sub = None
@@ -106,7 +108,13 @@ class Context:
                     self.sub = None
                     self.update()
 
-    def _print_tokens_type(self, pos):
+    def dprint(self, rule, pos):
+        """Debug printing, shows the primary rules that succeed in matching
+            tokens and print the matching tokens
+        """
+        print(f"{colors(self.filename, 'cyan')} - {colors(rule, 'green')} \
+In \"{self.scope.name}\" from \
+\"{self.scope.parent.name if self.scope.parent is not  None else None}\":")
         i = 0
         for t in self.tokens[:pos]:
             if i == 0:
@@ -120,13 +128,10 @@ class Context:
         if self.tokens[pos - 1].type != "NEWLINE":
             print("")
 
-    def dprint(self, rule, pos):
-        print(f"{colors(self.filename, 'cyan')} - {colors(rule, 'green')} \
-In \"{self.scope.name}\" from \
-\"{self.scope.parent.name if self.scope.parent is not  None else None}\":")
-        self._print_tokens_type(pos)
-
     def eol(self, pos):
+        """Skips white space characters (tab, space) until end of line (included)
+            or any other token (excluded)
+        """
         while self.check_token(pos, ["TAB", "SPACE", "NEWLINE"]) is True:
             if self.check_token(pos, "NEWLINE"):
                 pos += 1
@@ -140,6 +145,10 @@ In \"{self.scope.name}\" from \
         return pos
 
     def skip_nest(self, pos):
+        """Skips anything between two brackets, parentheses or braces starting
+            at 'pos', if the brackets, parentheses or braces are not closed or 
+            are closed in the wrong order an error shall be raised
+        """
         lbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
         rbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
         c = self.peek_token(pos).type
@@ -169,6 +178,14 @@ not correctly closed")
         return i
 
     def check_type_specifier(self, pos):
+        """Returns True if the tokens starting at 'pos' could match a valid
+            type specifier. Valid type specifiers consist of:
+                -an optionnal 'misc' specifier (const, register, volatile ...)
+                -an optionnal size specifier (long or short)
+                -a type specifier (int, char, double, etc...)
+                    OR an IDENTIFIER
+                    OR a user type specifier (struct, union, enum) + IDENTIFIER
+        """
         i = self.skip_misc_specifier(pos)
 
         if self.check_token(i, sign_specifiers):
