@@ -23,8 +23,6 @@ class CheckLineIndent(Rule):
                     lvl -= 1
                     i += 1
                     continue
-                #elif l[i].type == "LBRACE":
-                #    lvl -= 1
                 break
             else:
                 continue

@@ -3,7 +3,6 @@ from rules import PrimaryRule
 from context import GlobalScope, UserDefinedType
 
 
-
 utypes = ["UNION", "STRUCT", "ENUM"]
 
 

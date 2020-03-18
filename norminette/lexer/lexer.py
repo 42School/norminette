@@ -32,7 +32,7 @@ class Lexer:
 
     def peek_char(self):
         """ Return current character being checked,
-            if the character is a \ (backslash character) the following
+            if the character is a backslash character the following
             character is appended to the return value. It will allow us to
             parse escaped characters easier.
         """
@@ -290,8 +290,8 @@ class Lexer:
         raise TokenError(pos)
 
     def identifier(self):
-        """Identifiers can start with any letter [a-z][A-Z] or an underscore '_'
-            and contain any letters [a-z][A-Z] digits [0-9] or underscores '_'
+        """Identifiers can start with any letter [a-z][A-Z] or an underscore
+            and contain any letters [a-z][A-Z] digits [0-9] or underscores
         """
         pos = self.line_pos()
         tkn_value = ""
@@ -451,7 +451,7 @@ class Lexer:
         return None
 
     def get_tokens(self):
-        """Iterate through self.get_next_token() to convert source code into a 
+        """Iterate through self.get_next_token() to convert source code into a
             token list
         """
         while self.get_next_token():
@@ -465,7 +465,7 @@ class Lexer:
             if t.type == "NEWLINE":
                 print(t)
             else:
-                print(t, end ="")
+                print(t, end="")
         if self.tokens[-1].type != "NEWLINE":
             print("")
 

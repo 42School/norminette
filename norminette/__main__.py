@@ -39,8 +39,6 @@ def main():
                     lexer = Lexer(source)
                     tokens = lexer.get_tokens()
                     print(tokens)
-                    #print(f"\n\n{target}")
-                    #lexer.print_tokens()
                     context = Context(target, tokens)
                     registry.run(context)
                 except TokenError as e:

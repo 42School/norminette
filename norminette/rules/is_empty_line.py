@@ -8,6 +8,7 @@ from context import (
 
 whitespaces = ["SPACE", "TAB", "NEWLINE"]
 
+
 class IsEmptyLine(PrimaryRule):
     def __init__(self):
         super().__init__()

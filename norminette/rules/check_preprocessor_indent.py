@@ -2,6 +2,8 @@ from rules import Rule
 
 ALLOWED_PREPROC = ["DEFINE", "IFNDEF", "IFDEF", "IF", "ELIF", "ELSE", "ENDIF"]
 MORE_INDENT = ["DEFINE"]
+
+
 class CheckPreprocessorIndent(Rule):
     def __init__(self):
         super().__init__()

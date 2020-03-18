@@ -61,7 +61,7 @@ class Context:
         self.fname_pos = 0
         self.arg_pos = [0, 0]
 
-        #preprocessor handling
+        # Preprocessor handling
         self.preproc_scope_indent = 0
 
     def peek_token(self, pos):
@@ -129,8 +129,8 @@ In \"{self.scope.name}\" from \
             print("")
 
     def eol(self, pos):
-        """Skips white space characters (tab, space) until end of line (included)
-            or any other token (excluded)
+        """Skips white space characters (tab, space) until end of line
+            (included) or any other token (excluded)
         """
         while self.check_token(pos, ["TAB", "SPACE", "NEWLINE"]) is True:
             if self.check_token(pos, "NEWLINE"):
@@ -146,7 +146,7 @@ In \"{self.scope.name}\" from \
 
     def skip_nest(self, pos):
         """Skips anything between two brackets, parentheses or braces starting
-            at 'pos', if the brackets, parentheses or braces are not closed or 
+            at 'pos', if the brackets, parentheses or braces are not closed or
             are closed in the wrong order an error shall be raised
         """
         lbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
@@ -164,8 +164,8 @@ In \"{self.scope.name}\" from \
             elif self.check_token(i, rbrackets) is True:
                 if c == self.peek_token(i).type:
                     return i
-                raise CParsingError("Nested parentheses, braces or brackets are \
-not correctly closed")
+                raise CParsingError("Nested parentheses, braces or brackets\
+ are not correctly closed")
 
             i += 1
         return -1

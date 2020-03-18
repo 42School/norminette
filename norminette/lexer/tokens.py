@@ -1,5 +1,6 @@
 from lexer.dictionary import operators, brackets, keywords, preproc_keywords
 
+
 class Token:
     def __init__(self, tkn_type, pos, tkn_value=None):
         self.type = str(tkn_type)

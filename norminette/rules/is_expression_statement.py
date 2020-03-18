@@ -16,7 +16,6 @@ class IsExpressionStatement(PrimaryRule):
 
     def run(self, context):
         i = 0
-        #print(context.tokens[0:])
         while context.peek_token(i) is not None:
             if context.check_token(i, "SEMI_COLON") is True:
                 break

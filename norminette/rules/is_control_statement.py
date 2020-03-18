@@ -6,7 +6,6 @@ cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH"]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
 
 
-
 class IsControlStatement(PrimaryRule):
     def __init__(self):
         super().__init__()

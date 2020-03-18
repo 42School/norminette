@@ -17,7 +17,6 @@ class IsBlockEnd(PrimaryRule):
                         VariableAssignation,
                         ControlStructure]
 
-
     def check_udef_typedef(self, context, pos):
         i = context.skip_ws(pos)
         if context.check_token(i, "IDENTIFIER") is False:

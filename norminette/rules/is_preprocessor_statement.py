@@ -10,7 +10,6 @@ pcs_end = ["ENDIF"]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
 
 
-
 class IsPreprocessorStatement(PrimaryRule):
     def __init__(self):
         super().__init__()
@@ -24,7 +23,8 @@ class IsPreprocessorStatement(PrimaryRule):
             context.preproc_scope_indent += 1
         elif context.check_token(i, pcs_end) is True:
             i += 1
-            context.preproc_scope_indent -= 1 if context.preproc_scope_indent > 0 else 0
+            if context.preproc_scope_indent > 0:
+                context.preproc_scope_indent -= 1
         elif context.check_token(i, pm_keywords + ps_keywords) is True:
             i += 1
             context.eol(i)
