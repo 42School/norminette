@@ -15,7 +15,6 @@ class IsControlStatement(PrimaryRule):
 
     def run(self, context):
         i = context.skip_ws(0)
-        print (i)
         if context.check_token(i, cs_keywords) is False:
             return False, 0
 

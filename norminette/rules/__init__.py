@@ -32,5 +32,3 @@ for f in files:
 primary_rules = [v for k, v in sorted(
         primary_rules.items(),
         key=lambda item: -item[1].priority)]
-print (primary_rules)
-print (rules)

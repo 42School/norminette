@@ -155,7 +155,7 @@ In \"{self.scope.name}\" from \
             elif self.check_token(i, rbrackets) is True:
                 if c == self.peek_token(i).type:
                     return i
-                raise CParsingError("Nested parenheses, braces, brackets or preprocessors are \
+                raise CParsingError("Nested parentheses, braces or brackets are \
 not correctly closed")
 
             i += 1

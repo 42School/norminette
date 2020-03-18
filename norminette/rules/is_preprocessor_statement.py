@@ -20,10 +20,13 @@ class IsPreprocessorStatement(PrimaryRule):
     def run(self, context):
         i = context.skip_ws(0)
         if context.check_token(i, pcs_keywords) is True:
+            i += 1
             context.preproc_scope_indent += 1
         elif context.check_token(i, pcs_end) is True:
+            i += 1
             context.preproc_scope_indent -= 1 if context.preproc_scope_indent > 0 else 0
-        elif context.check_token(i, pm_keywords) is True:
+        elif context.check_token(i, pm_keywords + ps_keywords) is True:
+            i += 1
             context.eol(i)
             return True, i
         else:
