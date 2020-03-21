@@ -7,20 +7,25 @@ from context import Context
 from tools.colors import colors
 
 
+
+
 def main():
     args = sys.argv
     args.pop(0)
     registry = Registry()
     targets = []
+    debug = False
 
     for arg in args:
-        if os.path.exists(arg) is False:
+        if arg == "-D":
+            debug = True
+            args.pop(args.index("-D"))
+        elif os.path.exists(arg) is False:
             print(f"'{arg}' no such file or directory")
         elif os.path.isdir(arg):
             if arg[-1] != '/':
                 arg = arg + '/'
             targets.extend(glob.glob(arg + '**/*.c', recursive=True))
-
         elif os.path.isfile(arg):
             targets.append(arg)
 
@@ -38,7 +43,7 @@ def main():
                     source = f.read()
                     lexer = Lexer(source)
                     tokens = lexer.get_tokens()
-                    context = Context(target, tokens)
+                    context = Context(target, tokens, debug)
                     registry.run(context)
                 except TokenError as e:
                     print(target + f": KO!\n\t{colors(e.msg, 'red')}")
