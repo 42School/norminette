@@ -19,7 +19,7 @@ def main():
         if arg == "-D":
             debug = True
             if args == [arg]:
-                args = [] 
+                args = []
         elif os.path.exists(arg) is False:
             print(f"'{arg}' no such file or directory")
         elif os.path.isdir(arg):

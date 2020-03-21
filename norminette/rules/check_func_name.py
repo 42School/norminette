@@ -6,7 +6,7 @@ import string
 class CheckFuncName(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsFuncDeclarations"]
+        self.depends_on = ["IsFuncDeclaration"]
 
     def run(self, context):
         """
