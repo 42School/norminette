@@ -1,3 +1,0 @@
-int /*la*/ main(void)
-{
-}
