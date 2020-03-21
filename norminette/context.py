@@ -44,11 +44,12 @@ arg_separator = [
 
 
 class Context:
-    def __init__(self, filename, tokens):
+    def __init__(self, filename, tokens, debug=False):
         # File relative informations
         self.filename = filename
         self.filetype = filename.split('.')[-1]  # ?
         self.tokens = tokens
+        self.debug = debug
 
         # Rule relative informations
         self.history = []
@@ -112,6 +113,8 @@ class Context:
         """Debug printing, shows the primary rules that succeed in matching
             tokens and print the matching tokens
         """
+        if self.debug is False:
+            return
         print(f"{colors(self.filename, 'cyan')} - {colors(rule, 'green')} \
 In \"{self.scope.name}\" from \
 \"{self.scope.parent.name if self.scope.parent is not  None else None}\":")

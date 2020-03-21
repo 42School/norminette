@@ -1,15 +1,22 @@
 import unittest
 import glob
 import difflib
+import sys
 from lexer import Lexer
+from registry import Registry
+from context import Context
+from io import StringIO
 
 
-def test_file(filename):
-    pass
+registry = Registry()
 
 
-class norminetteFileTester():
+def read_file(filename):
+    with open(filename) as f:
+        return f.read()
 
+
+class norminetteRuleTester():
     def __init__(self):
         self.__tests = 0
         self.__failed = 0
@@ -17,7 +24,6 @@ class norminetteFileTester():
         self.result = []
 
     def assertEqual(self, test, ref):
-        self.maxDiff
         if test == ref:
             self.__success += 1
             print("OK")
@@ -31,19 +37,31 @@ class norminetteFileTester():
             self.result.append("✗ ")
             print(''.join(diff))
 
+    def test_file(self, filename):
+        stdout = sys.stdout
+        sys.stdout = buff = StringIO()
+        lexer = Lexer(read_file(filename))
+        context = Context(filename, lexer.get_tokens())
+        registry.run(context)
+        reference_output = read_file(filename.split(".")[0] + ".out")
+        sys.stdout = stdout
+        self.assertEqual(buff.getvalue(), reference_output)
+
     def run_tests(self):
-        files = glob.glob("tests/rules/files/*.c")
+        files = glob.glob("tests/rules/*.c")
         files.sort()
         for f in files:
             self.__tests += 1
             print(f.split('/')[-1], end=": ")
             try:
-                output = Lexer(read_file(f)).check_tokens()
-            except TokenError as t:
+                self.test_file(f)
+            except Exception as e:
                 self.__failed += 1
                 print("KO")
-                print(t)
+                print(e)
                 self.result.append("✗ ")
                 continue
-            reference_output = read_file(f.split(".")[0] + ".tokens")
-            self.assertEqual(output, reference_output)
+
+
+if __name__ == '__main__':
+    norminetteRuleTester().run_tests()

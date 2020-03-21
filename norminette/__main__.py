@@ -38,11 +38,10 @@ def main():
                     source = f.read()
                     lexer = Lexer(source)
                     tokens = lexer.get_tokens()
-                    print(tokens)
                     context = Context(target, tokens)
                     registry.run(context)
                 except TokenError as e:
-                    print(target + f": KO!\t{colors(e.msg, 'red')}")
+                    print(target + f": KO!\n\t{colors(e.msg, 'red')}")
 
 
 if __name__ == "__main__":
