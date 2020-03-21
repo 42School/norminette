@@ -1,0 +1,3 @@
+tests/rules/ko_var_name.c: KO!
+	E1018 (line: 1, col: 1):	user defined identifiers should contain only lowercase characters, digits or '_'
+	E1018 (line: 2, col: 1):	user defined identifiers should contain only lowercase characters, digits or '_'

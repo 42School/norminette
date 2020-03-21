@@ -95,7 +95,8 @@ class Context:
         return self.history[-1 if len(self.history) == 1 else -2]
 
     def update(self):
-        """Updates the scope if needed after a primary rule has succeeded
+        """Updates informations about the context and  the scope if needed
+            after a primary rule has succeeded
         """
         if self.sub is not None:
             self.scope = self.sub
@@ -108,6 +109,8 @@ class Context:
                     self.scope = self.scope.outer()
                     self.sub = None
                     self.update()
+
+        self.arg_pos = [0, 0]
 
     def dprint(self, rule, pos):
         """Debug printing, shows the primary rules that succeed in matching
