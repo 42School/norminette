@@ -46,7 +46,7 @@ class Lexer:
         return self.__char
 
     def pop_char(self):
-        """ Popa character that's been read by increasing self.__pos,
+        """ Pop a character that's been read by increasing self.__pos,
             for escaped characters self.__pos will be increased twice
         """
         if self.peek_char() == "\t":
@@ -161,6 +161,8 @@ class Lexer:
             be appended to any of those. tokens
 
             Plus/minus operators ('+'/'-') can prefix any of those tokens
+
+            a numeric constant could start with a '.' (dot character)
         """
         pos = self.line_pos()
         tkn_value = ""
@@ -247,10 +249,7 @@ class Lexer:
                 or tkn_value[-1] in "xX":
             raise TokenError(pos)
         else:
-            self.tokens.append(Token(
-                                    "CONSTANT",
-                                    pos,
-                                    tkn_value))
+            self.tokens.append(Token("CONSTANT", pos, tkn_value))
 
     def mult_comment(self):
         pos = self.line_pos()
@@ -267,10 +266,7 @@ class Lexer:
                 self.pop_char(), self.pop_char()
                 break
         if tkn_value.endswith("*/"):
-            self.tokens.append(Token(
-                                    "MULT_COMMENT",
-                                    pos,
-                                    tkn_value))
+            self.tokens.append(Token("MULT_COMMENT", pos, tkn_value))
         else:
             raise TokenError(pos)
 
@@ -304,19 +300,16 @@ class Lexer:
                 continue
             tkn_value += self.peek_char()
             self.pop_char()
+
         if tkn_value in keywords:
-            self.tokens.append(Token(
-                            keywords[tkn_value],
-                            pos))
+            self.tokens.append(Token(keywords[tkn_value], pos))
+
         else:
-            self.tokens.append(Token(
-                            "IDENTIFIER",
-                            pos,
-                            tkn_value))
+            self.tokens.append(Token("IDENTIFIER", pos, tkn_value))
 
     def operator(self):
         """Operators can be made of one or more sign, so the longest operators
-            need to be looked for first in order to avoid false positives
+            need to be looked up for first in order to avoid false positives
             eg: '>>' being understood as two 'MORE_THAN' operators instead of
                 one 'RIGHT_SHIFT' operator
         """

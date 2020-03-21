@@ -9,7 +9,7 @@ from context import (
 whitespaces = ["SPACE", "TAB", "NEWLINE"]
 
 
-class IsEmptyLine(PrimaryRule):
+class IsEndOfLine(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.priority = 0

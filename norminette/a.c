@@ -1,0 +1,3 @@
+int /*la*/ main(void)
+{
+}
