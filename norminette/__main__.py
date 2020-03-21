@@ -14,10 +14,12 @@ def main():
     targets = []
     debug = False
 
+    # This here should be change to use argparse module I think
     for arg in args:
         if arg == "-D":
             debug = True
-            args.pop(args.index("-D"))
+            if args == [arg]:
+                args = [] 
         elif os.path.exists(arg) is False:
             print(f"'{arg}' no such file or directory")
         elif os.path.isdir(arg):
