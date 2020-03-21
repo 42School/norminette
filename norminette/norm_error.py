@@ -23,12 +23,13 @@ digits or '_'",
     1021: "function has more than 25 lines",
     1022: "space or tab on empty line",
     1023: "space before newline",
-
-    1050: "Unrecognized preprocessor statement",
-    1051: "Preprocessor statement not at the beginning of the line",
-    1052: "Preprocessor statement must only contain constant defines",
-    1053: "Expected EOL after preprocessor statement",
-    1054: "Bad preprocessor indentation",
+    "PREPROC_UKN_STATEMENT": "Unrecognized preprocessor statement",
+    "PREPROC_START_LINE": "Preprocessor statement not at the beginning of the\
+ line",
+    "PREPROC_CONSTANT": "Preprocessor statement must only contain constant\
+ defines",
+    "PREPROC_EXPECTED_EOL": "Expected EOL after preprocessor statement",
+    "PREPROC_BAD_INDENT": "Bad preprocessor indentation",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }
