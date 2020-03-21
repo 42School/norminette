@@ -7,8 +7,6 @@ from context import Context
 from tools.colors import colors
 
 
-
-
 def main():
     args = sys.argv
     args.pop(0)
