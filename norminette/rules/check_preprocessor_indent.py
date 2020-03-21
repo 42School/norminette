@@ -22,7 +22,7 @@ class CheckPreprocessorIndent(Rule):
         if context.check_token(i, MORE_INDENT) is False:
             current_indent -= 1
         fmt = ''
-        val = tken.value[1:]
+        val = tken.value[1:] if tken.value else tken.type
         length = 0
         while length < current_indent:
             if val[length] != ' ':

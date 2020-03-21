@@ -13,5 +13,6 @@ class IsComment(PrimaryRule):
         i = context.skip_ws(0)
         if context.check_token(i, ["MULT_COMMENT", "COMMENT"]) is True:
             i += 1
+            i = context.eol(i)
             return True, i
         return False, 0

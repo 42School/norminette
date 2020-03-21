@@ -31,6 +31,7 @@ class IsControlStatement(PrimaryRule):
         if context.check_token(i, "LBRACE") is False:
             context.sub = context.scope.inner(ControlStructure)
             context.sub.multiline = False
+            i = context.eol(i)
             return True, i
         context.sub = context.scope.inner(ControlStructure)
         i += 1

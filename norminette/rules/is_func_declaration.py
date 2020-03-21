@@ -45,6 +45,7 @@ class IsFuncDeclaration(PrimaryRule):
             elif pp and context.check_token(i, "LPARENTHESIS"):
                 lp += 1
             i += 1
+        i = context.skip_misc_specifier(i)
         if context.check_token(i, "IDENTIFIER") is False:
             return False, pos, False
 

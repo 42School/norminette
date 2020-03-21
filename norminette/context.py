@@ -233,8 +233,17 @@ In \"{self.scope.name}\" from \
 
     def check_identifier(self, pos):
         i = pos
-        while self.check_token(i, whitespaces + ["MULT"]):
+        p = 0
+        while self.check_token(i, whitespaces + ["MULT", "LPARENTHESIS"]):
             i += 1
+            if self.check_token(i, "LPARENTHESIS"):
+                p += 1
+
+        i = self.skip_misc_specifier(i)
         if self.check_token(i, "IDENTIFIER"):
+            while p and self.check_token(i, whitespaces + ["RPARENTHESIS"]):
+                if self.check_token(i, "RPARENTHESIS"):
+                    p -= 1
+                i += 1
             return True, i
         return False, pos

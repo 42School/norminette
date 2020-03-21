@@ -43,7 +43,7 @@ arg_separator = [
 class CheckFuncSpacing(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["CheckFuncDeclarations"]
+        self.depends_on = ["CheckFuncDeclaration"]
 
     def run(self, context):
         i = context.fname_pos - 1

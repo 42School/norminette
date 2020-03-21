@@ -1,0 +1,3 @@
+tests/rules/ko_too_many_instruction.c: KO!
+	E1024 (line: 1, col: 8):	too much instruction on one line
+	E1024 (line: 5, col: 23):	too much instruction on one line

@@ -29,6 +29,5 @@ class CheckLineIndent(Rule):
             if lvl > 0:
                 context.new_error(1019, l[i])
             elif lvl < 0:
-                print(context.scope, context.scope.indent,  1020)
                 context.new_error(1020, l[i])
         return False, 0

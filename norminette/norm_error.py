@@ -23,6 +23,7 @@ digits or '_'",
     1021: "function has more than 25 lines",
     1022: "space or tab on empty line",
     1023: "space before newline",
+    1024: "too much instruction on one line",
     "PREPROC_UKN_STATEMENT": "Unrecognized preprocessor statement",
     "PREPROC_START_LINE": "Preprocessor statement not at the beginning of the\
  line",

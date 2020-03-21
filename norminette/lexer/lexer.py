@@ -424,7 +424,7 @@ class Lexer:
                 self.__line_pos = 1
                 self.__line += 1
 
-            elif self.peek_char() == '\n':
+            elif self.peek_char() == '\\\n':
                 self.tokens.append(Token("ESCAPED_NEWLINE", self.line_pos()))
                 self.pop_char()
                 self.__line_pos = 1

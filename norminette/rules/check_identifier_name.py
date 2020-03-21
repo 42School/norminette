@@ -22,6 +22,8 @@ class CheckIdentifierName(Rule):
                     break
         else:
             _, i = context.check_type_specifier(0)
+            while context.check_token(i, "IDENTIFIER") is False:
+                i += 1
             for c in context.peek_token(i).value:
                 if c not in legal_characters:
                     context.new_error(

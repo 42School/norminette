@@ -37,13 +37,17 @@ class IsBlockEnd(PrimaryRule):
         i += 1
         if type(context.scope) is UserDefinedType:
             if context.scope.typedef is True:
-                return self.check_udef_typedef(context, i)
+                ret, i = self.check_udef_typedef(context, i)
+                i = context.eol(i)
+                return ret, i
             i = context.skip_ws(i)
             if context.check_token(i, "SEMI_COLON"):
                 i += 1
+                i = context.eol(i)
                 return True, i
         if type(context.scope) is VariableAssignation:
             pass
         if type(context.scope) is ControlStructure:
             pass
+        i = context.eol(i)
         return True, i

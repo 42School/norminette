@@ -3,6 +3,10 @@ from rules import PrimaryRule
 from context import GlobalScope, UserDefinedType, ControlStructure, Function
 
 
+lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
+rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
+
+
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
@@ -12,8 +16,6 @@ class IsVarDeclaration(PrimaryRule):
     def assignment_right_side(self, context, pos):
         sep = ["COMMA", "SEMI_COLON", "ASSIGN"]
         i = context.skip_ws(pos)
-        lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
-        rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
         while context.check_token(i, sep) is False:
             if context.check_token(i, lbrackets) is True:
                 i = context.skip_nest(i)
@@ -29,7 +31,9 @@ class IsVarDeclaration(PrimaryRule):
         i += 1
         while context.check_token(i, pclose):
             i += 1
-        i = context.skip_nest(i)
+        if context.check_token(i, lbrackets):
+            i = context.skip_nest(i)
+            i += 1
         while context.check_token(i, pclose):
             i += 1
         if context.check_token(i, "ASSIGN") is True:

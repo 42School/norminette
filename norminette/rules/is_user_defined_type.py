@@ -10,15 +10,25 @@ class IsUserDefinedType(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.priority = 10
-        self.scope = [GlobalScope]
+        self.scope = [GlobalScope, UserDefinedType]
 
     def utype_definition(self, context, pos):
         i = pos
         if context.check_token(i, utypes) is False:
             return False, pos
-        ret, i = context.check_type_specifier(i)
-        if ret is False:
-            return False, pos
+        i += 1
+        i = context.skip_ws(i)
+        if context.check_token(i, "IDENTIFIER") is False:
+            if type(context.scope) is not UserDefinedType:
+                return False, 0
+            i = context.skip_ws(i)
+            if context.check_token(i, "LBRACE") is False:
+                return False, pos
+            context.sub = context.scope.inner(UserDefinedType)
+            # print(context.tokens[i])
+            i += 1
+            return True, i
+        i += 1
         i = context.skip_ws(i)
         if context.check_token(i, "SEMI_COLON") is True:
             i += 1
@@ -76,6 +86,7 @@ class IsUserDefinedType(PrimaryRule):
         if ret is True:
             i = context.eol(i)
             return True, i
+#        print(ret, i, context.peek_token(i))
         ret, i = self.utype_definition(context, i)
         if ret is True:
             i = context.eol(i)
