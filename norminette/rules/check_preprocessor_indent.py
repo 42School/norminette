@@ -31,6 +31,7 @@ class CheckPreprocessorIndent(Rule):
         if val[length] == ' ':
             context.new_error("PREPROC_BAD_INDENT", context.peek_token(i))
         context.pop_tokens(1)
-        if context.check_token(i, "NEWLINE") is False:
+        tken = context.peek_token(i)
+        if tken is not None and tken.type != "NEWLINE":
             context.new_error("PREPROC_EXPECTED_EOL", context.peek_token(i))
         return False, 0

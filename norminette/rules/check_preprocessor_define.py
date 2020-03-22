@@ -21,7 +21,7 @@ class CheckPreprocessorDefine(Rule):
         i += 1
         while tkns[i].type in ["TAB", "SPACE"]:
             i += 1
-        if tkns[i].type not in ["CONSTANT", "STRING"]:
+        if tkns[i].type not in ["CONSTANT", "STRING", "STRUCT"]:
             context.new_error("PREPROC_CONSTANT", context.peek_token(0))
         i += 1
         return False, 0
