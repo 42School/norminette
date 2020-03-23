@@ -6,6 +6,12 @@ class Rule:
         self.primary = False
 
     def register(self, registry):
+        if self.depends_on == []:
+            if 'all' in registry.dependencies:
+                registry.dependencies['all'].append(self.name)
+            else:
+                registry.dependencies['all'] = [self.name]
+
         for rule in self.depends_on:
             if rule in registry.dependencies:
                 registry.dependencies[rule].append(self.name)

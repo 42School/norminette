@@ -18,8 +18,9 @@ errors = {
     1017: "function has more than four arguments",
     1018: "user defined identifiers should contain only lowercase characters, \
 digits or '_'",
-    1019: "missing tabs for indent level",
-    1020: "extra tabs for indent level",
+    "TOO_FEW_TAB": "Missing tabs for indent level",
+    "TOO_MANY_TAB": "Extra tabs for indent level",
+    "SPACE_REPLACE_TAB": "Found space when expecting tab",
     1021: "function has more than 25 lines",
     1022: "space or tab on empty line",
     1023: "space before newline",

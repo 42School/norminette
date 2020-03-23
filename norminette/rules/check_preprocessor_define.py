@@ -14,14 +14,16 @@ class CheckPreprocessorDefine(Rule):
         val = context.peek_token(i).value.split("define")[1]
         content = Lexer(val)
         tkns = content.get_tokens()
-        while tkns[i].type in ["TAB", "SPACE"]:
+        while context.check_token(i, ["TAB", "SPACE"]) is True:
             i += 1
+        i += 1
         if tkns[i].type != "IDENTIFIER":
             context.new_error("PREPROC_CONSTANT", context.peek_token(0))
         i += 1
-        while tkns[i].type in ["TAB", "SPACE"]:
+        while context.check_token(i, ["TAB", "SPACE"]) is True:
             i += 1
-        if tkns[i].type not in ["CONSTANT", "STRING", "STRUCT"]:
+        i += 1
+        if context.check_token(i, ["CONSTANT", "STRING", "STRUCT"]):
             context.new_error("PREPROC_CONSTANT", context.peek_token(0))
         i += 1
         return False, 0
