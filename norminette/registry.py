@@ -40,7 +40,7 @@ class Registry:
                     break
             # #############################################################
             else:  # Remove these one ALL  primary rules are done
-                print("#, ", context.tokens[0])
+                #print("#, ", context.tokens[0])
                 context.pop_tokens(1)  # ##################################
             # #############################################################
 
