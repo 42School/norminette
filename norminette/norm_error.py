@@ -23,7 +23,7 @@ digits or '_'",
     1021: "function has more than 25 lines",
     1022: "space or tab on empty line",
     1023: "space before newline",
-    1024: "too much instruction on one line",
+    1024: "Too many instructions on a single line",
     "PREPROC_UKN_STATEMENT": "Unrecognized preprocessor statement",
     "PREPROC_START_LINE": "Preprocessor statement not at the beginning of the\
  line",
@@ -31,6 +31,11 @@ digits or '_'",
  defines",
     "PREPROC_EXPECTED_EOL": "Expected EOL after preprocessor statement",
     "PREPROC_BAD_INDENT": "Bad preprocessor indentation",
+    "USER_DEFINED_TYPEDEF": "User defined typedef must start with t_",
+    "STRUCT_TYPE_NAMING": "Structure name must start with s_",
+    "ENUM_TYPE_NAMING": "Enum name must start with e_",
+    "UNION_TYPE_NAMING": "Union name must start with u_",
+    "GLOBAL_VAR_NAMING": "Global variable must start with g_",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

@@ -1,0 +1,12 @@
+tests/rules/ko_struct_name.c: KO!
+        ESTRUCT_TYPE_NAMING (line: 1, col: 16): Structure name must start with s_
+        EUSER_DEFINED_TYPEDEF (line: 1, col: 23):       User defined typedef must start with t_
+        EGLOBAL_VAR_NAMING (line: 2, col: 19):  Global variable must start with g_
+        EGLOBAL_VAR_NAMING (line: 3, col: 10):  Global variable must start with g_
+        ESTRUCT_TYPE_NAMING (line: 5, col: 16): Structure name must start with s_
+        ESTRUCT_TYPE_NAMING (line: 6, col: 12): Structure name must start with s_
+        EUNION_TYPE_NAMING (line: 7, col: 11):  Union name must start with u_
+        EUNION_TYPE_NAMING (line: 8, col: 19):  Union name must start with u_
+        EUSER_DEFINED_TYPEDEF (line: 8, col: 24):       User defined typedef must start with t_
+        EENUM_TYPE_NAMING (line: 9, col: 10):   Enum name must start with e_
+        EUSER_DEFINED_TYPEDEF (line: 10, col: 5):       User defined typedef must start with t_
