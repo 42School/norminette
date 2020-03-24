@@ -42,9 +42,8 @@ class IsUserDefinedType(PrimaryRule):
 
     def typedef(self, context, pos):
         i = pos
-        ret, i = context.check_type_specifier(i)
-        if ret is False \
-                or "TYPEDEF" not in [tkn.type for tkn in context.tokens[:pos]]:
+        ret, i = context.check_type_specifier(i, True)
+        if ret is False :
             return False, pos
 
         if [utype for utype in context.tokens[:i] if utype.type in utypes]:

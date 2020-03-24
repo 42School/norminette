@@ -17,8 +17,6 @@ class IsControlStatement(PrimaryRule):
         if context.check_token(i, cs_keywords) is False:
             return False, 0
 
-        print("HERE")
-
         i += 1
         i = context.skip_ws(i)
         if context.check_token(i, "LPARENTHESIS") is False:

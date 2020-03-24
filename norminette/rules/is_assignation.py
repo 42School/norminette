@@ -7,7 +7,7 @@ class IsAssignation(PrimaryRule):
         super().__init__()
         self.primary = True
         self.priority = 5
-        self.scope = [GlobalScope, Function, ControlStructure, UserDefinedType]
+        self.scope = []
 
     def run(self, context):
         i = context.skip_ws(0)
