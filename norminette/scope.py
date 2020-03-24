@@ -48,9 +48,9 @@ class ControlStructure(Scope):
     only one instruction, if that instruction creates a new sub scope, it can
     contain as many instruction as that scope can "hold"
     """
-    def __init__(self, parent):
+    def __init__(self, parent, multiline=True):
         super().__init__(parent)
-        self.multiline = True
+        self.multiline = multiline
 
 
 class UserDefinedType(Scope):

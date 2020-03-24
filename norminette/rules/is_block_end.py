@@ -32,6 +32,7 @@ class IsBlockEnd(PrimaryRule):
         i = context.skip_ws(0)
         if context.check_token(i, "RBRACE") is False:
             return False, 0
+        print("HERE")
 
         context.sub = context.scope.outer()
         i += 1

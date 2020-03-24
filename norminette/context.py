@@ -183,7 +183,14 @@ In \"{self.scope.name}\" from \
             i = self.skip_ws(i)
         return i
 
-    def check_type_specifier(self, pos):
+    def skip_typedef(self, pos):
+        i = self.skip_ws(pos)
+        if self.check_token(i, "TYPEDEF"):
+            i += 1
+            i += self.skip_misc_specifier(pos)
+        return i
+
+    def check_type_specifier(self, pos, user_def_type=False):
         """Returns True if the tokens starting at 'pos' could match a valid
             type specifier. Valid type specifiers consist of:
                 -an optionnal 'misc' specifier (const, register, volatile ...)
@@ -197,12 +204,18 @@ In \"{self.scope.name}\" from \
         if self.check_token(i, sign_specifiers):
             i += 1
             i = self.skip_misc_specifier(i)
+            if user_def_type is True:
+                i = self.skip_typedef(i)
             if self.check_token(i, size_specifiers):
                 i += 1
                 i = self.skip_misc_specifier(i)
+                if user_def_type is True:
+                    i = self.skip_typedef(i)
                 if self.check_token(i, type_specifiers):
                     i += 1
                     i = self.skip_misc_specifier(i)
+                    if user_def_type is True:
+                        i = self.skip_typedef(i)
                     return True, i
                 return True, i
             return True, i
@@ -210,9 +223,13 @@ In \"{self.scope.name}\" from \
         if self.check_token(i, size_specifiers):
             i += 1
             i = self.skip_misc_specifier(i)
+            if user_def_type is True:
+                i = self.skip_typedef(i)
             if self.check_token(i, type_specifiers):
                 i += 1
                 i = self.skip_misc_specifier(i)
+                if user_def_type is True:
+                    i = self.skip_typedef(i)
                 return True, i
             return True, i
 
@@ -221,12 +238,16 @@ In \"{self.scope.name}\" from \
             i = self.skip_misc_specifier(i)
             if self.check_token(i, "IDENTIFIER"):
                 i += 1
+                if user_def_type is True:
+                    i = self.skip_typedef(i)
                 return True, i
             return False, 0
 
         if self.check_token(i, type_specifiers + ["IDENTIFIER"]):
             i += 1
             i = self.skip_misc_specifier(i)
+            if user_def_type is True:
+                i = self.skip_typedef(i)
             return True, i
 
         return False, pos

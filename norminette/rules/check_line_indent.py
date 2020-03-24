@@ -1,13 +1,16 @@
 from rules import Rule
+from scope import *
+
 
 
 class CheckLineIndent(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["CheckFuncDeclarations", "CheckVarDeclarations"]
+        self.depends_on = []
 
     def run(self, context):
         lines = [[]]
+#        print("THEEERE")
         for t in context.tokens[:context.tkn_scope]:
             if t.type == "NEWLINE":
                 lines.append([])
@@ -27,7 +30,7 @@ class CheckLineIndent(Rule):
             else:
                 continue
             if lvl > 0:
-                context.new_error(1019, l[i])
+                context.new_error("TOO_FEW_TAB", l[i])
             elif lvl < 0:
-                context.new_error(1020, l[i])
+                context.new_error("TOO_MANY_TAB", l[i])
         return False, 0

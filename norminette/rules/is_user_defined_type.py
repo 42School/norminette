@@ -42,24 +42,21 @@ class IsUserDefinedType(PrimaryRule):
 
     def typedef(self, context, pos):
         i = pos
-        if context.check_token(i, "TYPEDEF") is False:
+        ret, i = context.check_type_specifier(i)
+        if ret is False \
+                or "TYPEDEF" not in [tkn.type for tkn in context.tokens[:pos]]:
             return False, pos
 
-        i += 1
-        ret, i = context.check_type_specifier(i)
-        if ret is False:
-            # most likely a "fatal" error since typedef keyword was found
-            return False, pos
         if [utype for utype in context.tokens[:i] if utype.type in utypes]:
             i += 1
             i = context.skip_ws(i)
-            # print(context.tokens[:i], context.peek_token(i))
             if context.check_token(i, "IDENTIFIER") is True:
                 i += 1
                 i = context.skip_ws(i)
                 if context.check_token(i, "SEMI_COLON") is False:
                     # most likely a "fatal" error since typedef
                     # keyword was found
+                    raise CParsingError("No semi colon found after typedef")
                     return False, pos
                 i += 1
                 return True, i
