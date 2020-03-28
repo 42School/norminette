@@ -3,11 +3,14 @@ from context import Context
 from functools import cmp_to_key
 
 
+
+
 def sort_errs(a, b):
     return a.col - b.col if a.line == b.line else a.line - b.line
 
 
 class Registry:
+    global has_err
     def __init__(self):
         self.rules = rules.rules
         self.primary_rules = rules.primary_rules
@@ -17,6 +20,7 @@ class Registry:
 
     def run_rules(self, context, rule):
         ret, read = rule.run(context)
+        print(context.history, context.tokens[:5])
         if ret is True:
             context.tkn_scope = read
             context.history.append(rule.name)
@@ -29,7 +33,7 @@ class Registry:
             context.tkn_scope = 0
         return ret, read
 
-    def run(self, context):
+    def run(self, context, source):
         while context.tokens != []:
             context.tkn_scope = len(context.tokens)
             for rule in self.primary_rules:

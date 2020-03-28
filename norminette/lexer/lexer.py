@@ -464,7 +464,7 @@ class Lexer:
 
     def check_tokens(self):
         """
-        This function is only used for testing
+        Only used for testing
         """
         if self.tokens == []:
             self.get_tokens()

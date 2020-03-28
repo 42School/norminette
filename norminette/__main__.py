@@ -5,9 +5,15 @@ from lexer import Lexer, TokenError
 from registry import Registry
 from context import Context
 from tools.colors import colors
+# import sentry_sdk
 
 
-def main():
+# sentry_sdk.init("https://e67d9ba802fe430bab932d7b11c9b028@sentry.42.fr/72")
+
+
+has_err = False
+
+if __name__ == "__main__":
     args = sys.argv
     args.pop(0)
     registry = Registry()
@@ -44,10 +50,11 @@ def main():
                     lexer = Lexer(source)
                     tokens = lexer.get_tokens()
                     context = Context(target, tokens, debug)
-                    registry.run(context)
+                    registry.run(context, source)
+                    if context.errors is not []:
+                        has_err = True
                 except TokenError as e:
+                    print(has_err)
                     print(target + f": KO!\n\t{colors(e.msg, 'red')}")
 
-
-if __name__ == "__main__":
-    main()
+    sys.exit(1 if has_err else 0)
