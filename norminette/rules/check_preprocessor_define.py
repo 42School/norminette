@@ -9,7 +9,6 @@ class CheckPreprocessorDefine(Rule):
 
     def run(self, context):
         i = 0
-        print("checkpreprocdefine", context.tokens[:3])
         if context.check_token(i, "DEFINE") is False:
             return False, 0
         val = context.peek_token(i).value.split("define")[1]
@@ -17,7 +16,6 @@ class CheckPreprocessorDefine(Rule):
         tkns = content.get_tokens()
         while context.check_token(i, ["TAB", "SPACE"]) is True:
             i += 1
-        i += 1
         if tkns[i].type != "IDENTIFIER":
             context.new_error("PREPROC_CONSTANT", context.peek_token(0))
         i += 1

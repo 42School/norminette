@@ -20,7 +20,7 @@ class Registry:
 
     def run_rules(self, context, rule):
         ret, read = rule.run(context)
-#        print(context.history, context.tokens[:5])
+#        print(context.history, context.tokens[:5], rule)
         if ret is True:
             context.tkn_scope = read
             context.history.append(rule.name)

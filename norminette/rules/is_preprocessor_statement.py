@@ -36,6 +36,5 @@ class IsPreprocessorStatement(PrimaryRule):
             i += 1
         else:
             return False, 0
-        context.eol(i)
-        print("out", context.tokens[:i + 1])
+        i = context.eol(i)
         return True, i
