@@ -2,6 +2,7 @@ import sys
 import glob
 import os
 from lexer import Lexer, TokenError
+from exceptions import CParsingError
 from registry import Registry
 from context import Context
 from tools.colors import colors
@@ -53,6 +54,7 @@ if __name__ == "__main__":
                     registry.run(context, source)
                     if context.errors is not []:
                         has_err = True
+                # except (TokenError, CParsingError) as e:
                 except TokenError as e:
                     print(has_err)
                     print(target + f": KO!\n\t{colors(e.msg, 'red')}")

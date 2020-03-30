@@ -1,5 +1,5 @@
 tests/rules/ko_preproc_indent.c: KO!
-	EPREPROC_BAD_INDENT (line: 1, col: 1):	Bad preprocessor indentation
-	EPREPROC_BAD_INDENT (line: 3, col: 1):	Bad preprocessor indentation
-	EPREPROC_BAD_INDENT (line: 4, col: 1):	Bad preprocessor indentation
-	EPREPROC_BAD_INDENT (line: 5, col: 1):	Bad preprocessor indentation
+	PREPROC_BAD_INDENT (line: 1, col: 1):	Bad preprocessor indentation
+	PREPROC_BAD_INDENT (line: 3, col: 1):	Bad preprocessor indentation
+	PREPROC_BAD_INDENT (line: 4, col: 1):	Bad preprocessor indentation
+	PREPROC_BAD_INDENT (line: 5, col: 1):	Bad preprocessor indentation

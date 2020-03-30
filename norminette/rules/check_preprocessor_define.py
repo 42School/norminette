@@ -9,6 +9,7 @@ class CheckPreprocessorDefine(Rule):
 
     def run(self, context):
         i = 0
+        print("checkpreprocdefine", context.tokens[:3])
         if context.check_token(i, "DEFINE") is False:
             return False, 0
         val = context.peek_token(i).value.split("define")[1]

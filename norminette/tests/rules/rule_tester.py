@@ -42,7 +42,7 @@ class norminetteRuleTester():
         sys.stdout = buff = StringIO()
         lexer = Lexer(read_file(filename))
         context = Context(filename, lexer.get_tokens())
-        registry.run(context)
+        registry.run(context, read_file(filename))
         reference_output = read_file(filename.split(".")[0] + ".out")
         sys.stdout = stdout
         self.assertEqual(buff.getvalue(), reference_output)

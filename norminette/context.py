@@ -131,7 +131,7 @@ In \"{self.scope.name}\" from \
             else:
                 print(t, end=" ")
                 i += 1
-        if self.tokens[pos - 1].type != "NEWLINE":
+        if pos - 1 < len(self.tokens) and self.tokens[pos - 1].type != "NEWLINE":
             print("")
 
     def eol(self, pos):
@@ -191,8 +191,8 @@ In \"{self.scope.name}\" from \
         return i
 
     def check_type_specifier(self, pos, user_def_type=False):
-        """Returns True if the tokens starting at 'pos' could match a valid
-            type specifier. Valid type specifiers consist of:
+        """Returns (True, pos + n) if the tokens from 'pos' to 'n' could match a
+            valid type specifier. Valid type specifiers consist of:
                 -an optionnal 'misc' specifier (const, register, volatile ...)
                 -an optionnal size specifier (long or short)
                 -a type specifier (int, char, double, etc...)

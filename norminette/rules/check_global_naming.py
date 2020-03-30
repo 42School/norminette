@@ -33,10 +33,16 @@ class CheckGlobalNaming(Rule):
         if context.scope.name != "GlobalScope":
             return False, 0
         i = context.skip_ws(i)
+        """
         while context.check_token(i, types) is True:
+            print(context.peek_token(i))
             if context.check_token(i, "IDENTIFIER"):
                 last_id = context.peek_token(i)
             i += 1
-        if last_id.value.startswith("g_") is False:
+        """
+        _, i = context.check_type_specifier(i)
+        while context.check_token(i, "IDENTIFIER") is False:
+            i += 1
+        if context.peek_token(i).value.startswith("g_") is False:
                 context.new_error("GLOBAL_VAR_NAMING", context.peek_token(i))
         return False, i

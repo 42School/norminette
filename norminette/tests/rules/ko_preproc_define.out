@@ -1,7 +1,7 @@
-rules/ko_preproc_define.c: KO!
-        EPREPROC_CONSTANT (line: 1, col: 1):    Preprocessor statement must only contain constant defines
-        EPREPROC_CONSTANT (line: 2, col: 1):    Preprocessor statement must only contain constant defines
-        EPREPROC_CONSTANT (line: 3, col: 1):    Preprocessor statement must only contain constant defines
-        EPREPROC_CONSTANT (line: 4, col: 1):    Preprocessor statement must only contain constant defines
-        EPREPROC_CONSTANT (line: 5, col: 1):    Preprocessor statement must only contain constant defines
-        EPREPROC_START_LINE (line: 6, col: 1):  Preprocessor statement not at the beginning of the line
+tests/rules/ko_preproc_define.c: KO!
+		PREPROC_CONSTANT (line: 1, col: 1):    Preprocessor statement must only contain constant defines
+		PREPROC_CONSTANT (line: 2, col: 1):    Preprocessor statement must only contain constant defines
+		PREPROC_CONSTANT (line: 3, col: 1):    Preprocessor statement must only contain constant defines
+		PREPROC_CONSTANT (line: 4, col: 1):    Preprocessor statement must only contain constant defines
+		PREPROC_CONSTANT (line: 5, col: 1):    Preprocessor statement must only contain constant defines
+		PREPROC_START_LINE (line: 6, col: 1):  Preprocessor statement not at the beginning of the line
