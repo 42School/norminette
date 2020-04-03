@@ -10,7 +10,7 @@ from context import (
 class IsBlockEnd(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 9
         self.scope = [
                         Function,
                         UserDefinedType,

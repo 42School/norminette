@@ -4,7 +4,7 @@ from tools.colors import colors
 from scope import *
 from exceptions import CParsingError
 
-type_specifiers = [
+types = [
     "CHAR",
     "DOUBLE",
     "ENUM",
@@ -12,6 +12,16 @@ type_specifiers = [
     "INT",
     "UNION",
     "VOID",
+    "LONG",
+    "SHORT",
+    "SIGNED",
+    "UNSIGNED"
+]
+
+utypes = [
+    "STRUCT",
+    "ENUM",
+    "UNION"
 ]
 
 misc_specifiers = [
@@ -198,7 +208,6 @@ In \"{self.scope.name}\" from \
                 -a type specifier (int, char, double, etc...)
                     OR an IDENTIFIER
                     OR a user type specifier (struct, union, enum) + IDENTIFIER
-        """
         i = self.skip_misc_specifier(pos)
 
         if self.check_token(i, sign_specifiers):
@@ -238,7 +247,7 @@ In \"{self.scope.name}\" from \
             i = self.skip_misc_specifier(i)
             if self.check_token(i, "IDENTIFIER"):
                 i += 1
-                if user_def_type is True:
+                iÿhf user_def_type is True:
                     i = self.skip_typedef(i)
                 return True, i
             return False, 0
@@ -249,8 +258,41 @@ In \"{self.scope.name}\" from \
             if user_def_type is True:
                 i = self.skip_typedef(i)
             return True, i
+        """
 
-        return False, pos
+        i = self.skip_misc_specifier(pos)
+        i = self.skip_ws(i)
+        if user_def_type is True:
+            if self.check_token(i, utypes + ["TYPEDEF"]) is True:
+                while self.check_token(i, whitespaces + utypes + ["TYPEDEF"]) is True:
+                    i += 1
+                if self.check_token(i, "IDENTIFIER") is True:
+                    i += 1
+                    return True, i
+                #Raise CParsingError?
+            if self.check_token(i, types + ["IDENTIFIER", "TYPEDEF"]) is False:
+                return False, 0
+            if self.check_token(i, "IDENTIFIER") is True:
+                i += 1
+                return True, i
+            while self.check_token(i, types + whitespaces + ["TYPEDEF"]) is True:
+                i += 1
+            return True, i
+        else:
+            if self.check_token(i, utypes) is True:
+                i += 1
+                i = self.skip_ws(i)
+                if self.check_token(i, "IDENTIFIER") is True:
+                    i += 1
+                    return True, i
+            if self.check_token(i, types + ["IDENTIFIER"]) is False:
+                return False, 0
+            if self.check_token(i, "IDENTIFIER") is True:
+                i += 1
+                return True, i
+            while self.check_token(i, types + whitespaces) is True:
+                i += 1
+            return True, i
 
     def check_identifier(self, pos):
         i = pos

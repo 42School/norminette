@@ -80,37 +80,54 @@ class IsUserDefinedType(PrimaryRule):
     """
 
     def typedef(self, context, pos):
-        if "TYPEDEF" not in [tkn.type for tkn in context.tokens[:pos]]:
-            return False, 0
         i = context.skip_ws(pos)
+        if "TYPEDEF" not in [tkn.type for tkn in context.tokens[:i]]:
+            return False, 0
         ret, i = context.check_identifier(i)
+        print("in typedef after checking IDENTIFIER -->", ret, context.tokens[:i])
         if ret is False:
+            if context.check_token(i, "LBRACE"):
+                return True, i
             return False, 0
         i += 1
         return True, i
 
     def utype_definition(self, context, pos):
         utypes = ["STRUCT", "ENUM", "UNION"]
-        if not [tkn for tkn in context.tokens[:pos] if tnk.type in utypes]:
+        if not [tkn for tkn in context.tokens[:pos] if tkn.type in utypes]:
             return False, 0
         ret, i = context.check_identifier(pos)
+        print("in utype_definition after checking IDENTIFIER -->", ret)
         if ret is False:
+            i = context.skip_ws(i)
             return False, 0
         pass
 
     def run(self, context):
-        ret, i = context.check_type_specifier(0, True)
+        i = context.skip_ws(0)
+        if context.check_token(i, "RBRACE"):
+            # Closing udef_type_scope
+            i += 1
+            ret, i = context.check_type_specifier(i, True)
+            ret, i = self.typedef(context, i)
+            print("RBRACE", ret)
+            return ret, i
+        ret, i = context.check_type_specifier(i, True)
         if ret is False:
             return False, 0
         ret, i = self.typedef(context, i)
-#        print(ret, i, context.peek_token(i))
         if ret is True:
-            i = context.eol(i)
+            i = context.skip_ws(i)
             if context.check_token(i, "LBRACE") is True:
                 i += 1
-                # create new scope
+                i = context.eol(i)
+                context.sub = context.scope.inner(UserDefinedType)
             elif context.check_token(i, "SEMI_COLON") is True:
                 i += 1
+            else:
+                raise CParsingError("Unexpected token after user type \
+declaration")
+            i = context.eol(i)
             return True, i
         ret, i = self.utype_definition(context, i)
         if ret is True:
