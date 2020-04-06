@@ -36,6 +36,12 @@ class IsBlockEnd(PrimaryRule):
         context.sub = context.scope.outer()
         i += 1
         if type(context.scope) is UserDefinedType:
+            i = context.skip_ws(i)
+            if context.check_token(i, "TYPEDEF") is True:
+                i += 1
+                ret, i = self.check_udef_typedef(context, i)
+                i = context.eol(i)
+                return ret, i
             if context.scope.typedef is True:
                 ret, i = self.check_udef_typedef(context, i)
                 i = context.eol(i)

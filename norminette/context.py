@@ -247,7 +247,7 @@ In \"{self.scope.name}\" from \
             i = self.skip_misc_specifier(i)
             if self.check_token(i, "IDENTIFIER"):
                 i += 1
-                iÿhf user_def_type is True:
+                if user_def_type is True:
                     i = self.skip_typedef(i)
                 return True, i
             return False, 0
