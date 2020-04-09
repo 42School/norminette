@@ -33,6 +33,7 @@ class CheckTypedefDeclaration(Rule):
             return False, 0
         i += 1
         i = context.skip_ws(i)
+        last_identifier = None
         while tkns[i].type in types:
             if context.check_token(i, "IDENTIFIER"):
                 last_identifier = tkns[i]
@@ -44,6 +45,8 @@ class CheckTypedefDeclaration(Rule):
             if tkns[i].type == "IDENTIFIER":
                 last_identifier = tkns[i]
             i += 1
+        if last_identifier is None:
+            return False, 0
         if last_identifier.value.startswith("t_") is False:
             context.new_error("USER_DEFINED_TYPEDEF", last_identifier)
         if context.check_token(i, "SEMI_COLON") is False:

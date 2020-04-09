@@ -2,6 +2,14 @@ from rules import PrimaryRule
 from context import Function, ControlStructure
 
 
+keywords = [
+    "BREAK",
+    "CONTINUE",
+    "GOTO",
+    "RETURN"
+]
+
+
 class IsExpressionStatement(PrimaryRule):
     def __init__(self):
         super().__init__()
@@ -10,10 +18,9 @@ class IsExpressionStatement(PrimaryRule):
 
     def check_instruction(self, context, pos):
         i = context.skip_ws(pos)
-        if context.check_token(i, "IDENTIFIER") is False:
-            return False,0
+        if context.check_token(i, ["IDENTIFIER"] + keywords) is False:
+            return False, 0
         i += 1
-
         # TO DO:
         # Skip possible brackets:
         # eg: "f[0]();" is a valid instruction
@@ -24,6 +31,10 @@ class IsExpressionStatement(PrimaryRule):
 
         # Shouldn't use skip_nest, should parse manually ?
         i = context.skip_nest(i)
+        i += 1
+        i = context.skip_ws(i)
+        if context.check_token(i, "SEMI_COLON") is False:
+            return False, 0
         i += 1
         # print(context.peek_token(i))
         return True, i
