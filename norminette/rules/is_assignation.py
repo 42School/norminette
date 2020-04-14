@@ -28,9 +28,12 @@ class IsAssignation(PrimaryRule):
         i = context.skip_ws(0)
         if context.check_identifier(i) is False:
             return False, 0
-        #print("YOUHOU", context.tokens[:i], i)
         i += 1
         i = context.skip_ws(i)
+        if context.check_token(i, "LBRACKET"):
+            i = context.skip_nest(i)
+            i += 1
+            i = context.skip_ws(i)
         if context.check_token(i, assign_ops) is False:
             return False, 0
         i += 1
