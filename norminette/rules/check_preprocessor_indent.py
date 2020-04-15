@@ -1,6 +1,6 @@
 from rules import Rule
 
-ALLOWED_PREPROC = ["DEFINE", "IFNDEF", "IFDEF", "IF", "ELIF", "ELSE", "ENDIF"]
+ALLOWED_PREPROC = ["DEFINE", "IFNDEF", "IFDEF", "IF", "ELIF", "ELSE", "ENDIF", "INCLUDE"]
 MORE_INDENT = ["DEFINE"]
 
 

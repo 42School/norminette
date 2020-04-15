@@ -1,5 +1,6 @@
 from rules import PrimaryRule
 from context import GlobalScope, VariableAssignation
+from exceptions import CParsingError
 
 
 assign_ops = [
@@ -16,6 +17,44 @@ assign_ops = [
     "ASSIGN"
 ]
 
+types = [
+    "CHAR",
+    "DOUBLE",
+    "ENUM",
+    "FLOAT",
+    "INT",
+    "UNION",
+    "VOID",
+    "LONG",
+    "SHORT",
+    "SIGNED",
+    "UNSIGNED",
+    "STRUCT",
+    "ENUM",
+    "UNION",
+    "CONST",
+    "REGISTER",
+    "STATIC",
+    "VOLATILE"
+]
+
+op = [
+    "MULT",
+    "LPARENTHESIS",
+    "RPARENTHESIS",
+    "LBRACKET",
+    "RBRACKET",
+    "MINUS",
+    "PLUS",
+    "DIV",
+    "INC",
+    "DEC",
+    "PTR",
+    "DOT"
+]
+
+ws = ["SPACE", "TAB", "NEWLINE"]
+
 
 class IsAssignation(PrimaryRule):
     def __init__(self):
@@ -24,16 +63,27 @@ class IsAssignation(PrimaryRule):
         self.priority = 5
         self.scope = []
 
-    def run(self, context):
-        i = context.skip_ws(0)
-        if context.check_identifier(i) is False:
-            return False, 0
-        i += 1
-        i = context.skip_ws(i)
-        if context.check_token(i, "LBRACKET"):
-            i = context.skip_nest(i)
+    def skip_ptr(self, context, pos):
+        i = context.skip_ws(pos)
+        while context.check_token(i, operators + ws + ["IDENTIFIER"]) is True:
             i += 1
-            i = context.skip_ws(i)
+        return i
+
+    def check_identifier(self, context, pos):
+        i = pos
+        while context.check_token(i, types + ws + op + ["IDENTIFIER", "CONSTANT"]):
+            if context.check_token(i, "LBRACKET"):
+                    i = context.skip_nest(i)
+            i += 1
+        if "IDENTIFIER" in [t.type for t in context.tokens[:i + 1]]:
+            return True, i
+        else:
+            return False, 0
+
+    def run(self, context):
+        ret, i = self.check_identifier(context, 0)
+        if ret is False:
+            return False, 0
         if context.check_token(i, assign_ops) is False:
             return False, 0
         i += 1
