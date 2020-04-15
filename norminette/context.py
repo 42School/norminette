@@ -107,12 +107,14 @@ class Context:
 
     def update(self):
         """Updates informations about the context and  the scope if needed
-            after a primary rule has succeeded
+            after a primary rule has succeeded.
+            Do nothing on empty lines since they can be anywhere
         """
+        if len(self.history) > 0 and self.history[-1] == "IsEmptyLine":
+            return
         if self.sub is not None:
             self.scope = self.sub
             self.sub = None
-
         elif type(self.scope) is ControlStructure:
 
             if self.scope.multiline is False:

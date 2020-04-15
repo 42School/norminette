@@ -29,7 +29,7 @@ class Registry:
             if 'all' in self.dependencies:
                 for r in self.dependencies['all']:
                     self.run_rules(context, self.rules[r])
-            context.history.pop(-1)
+            #context.history.pop(-1)
             context.tkn_scope = 0
         return ret, read
 

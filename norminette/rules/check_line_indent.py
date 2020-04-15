@@ -10,6 +10,8 @@ class CheckLineIndent(Rule):
 
     def run(self, context):
         expected = context.scope.indent
+        if context.history[-1] == "IsEmptyLine":
+            return False, 0
         got = 0
         while context.check_token(got, "TAB"):
             got += 1

@@ -4,7 +4,10 @@ int main(void)
 	{
 		return (val);
 	}
-	else if (toto)
+	else if (toto
+		&& tata || ( yoyo
+			|| tutu)
+		&& tata)
 		if (che)
 			return (void);
 	else

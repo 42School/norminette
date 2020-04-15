@@ -16,7 +16,7 @@ class IsEmptyLine(PrimaryRule):
         i = 0
         while context.check_token(i, ["SPACE", "TAB"]) is True:
             i += 1
-        i += 1
         if context.check_token(i, "NEWLINE") is True:
+            i = context.eol(i)
             return True, i
         return False, 0
