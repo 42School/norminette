@@ -156,8 +156,11 @@ In \"{self.scope.name}\" from \
             pos += 1
         return pos
 
-    def skip_ws(self, pos):
-        while self.check_token(pos, whitespaces):
+    def skip_ws(self, pos, nl=False):
+        ws = whitespaces[:]
+        if nl == False:
+            ws.remove("NEWLINE")
+        while self.check_token(pos, ws):
             pos += 1
         return pos
 

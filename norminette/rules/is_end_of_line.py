@@ -12,7 +12,7 @@ whitespaces = ["SPACE", "TAB", "NEWLINE"]
 class IsEndOfLine(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 0
+        self.priority = 1
         self.scope = [
                         GlobalScope,
                         Function,
@@ -21,12 +21,10 @@ class IsEndOfLine(PrimaryRule):
                         VariableAssignation]
 
     def run(self, context):
+        return False, 0
         i = 0
         while context.check_token(i, whitespaces):
-            if context.check_token(i, "NEWLINE"):
-                break
             i += 1
-        else:
-            return False, 0
-        i += 1
-        return True, i
+        if context.check_token(i, "NEWLINE"):
+            return True, i + 1
+        return False, 0

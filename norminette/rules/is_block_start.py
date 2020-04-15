@@ -7,7 +7,7 @@ from context import (
                     ControlStructure)
 
 
-class IsBlockEnd(PrimaryRule):
+class IsBlockStart(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.priority = 10
@@ -29,31 +29,10 @@ class IsBlockEnd(PrimaryRule):
         return True, i
 
     def run(self, context):
-        i = context.skip_ws(0)
-        if context.check_token(i, "RBRACE") is False:
+        i = context.skip_ws(0, nl=False)
+        if context.check_token(i, "LBRACE") is False:
             return False, 0
-
-        context.sub = context.scope.outer()
         i += 1
-        if type(context.scope) is UserDefinedType:
-            i = context.skip_ws(i)
-            if context.check_token(i, "TYPEDEF") is True:
-                i += 1
-                ret, i = self.check_udef_typedef(context, i)
-                i = context.eol(i)
-                return ret, i
-            if context.scope.typedef is True:
-                ret, i = self.check_udef_typedef(context, i)
-                i = context.eol(i)
-                return ret, i
-            i = context.skip_ws(i)
-            if context.check_token(i, "SEMI_COLON"):
-                i += 1
-                i = context.eol(i)
-                return True, i
-        if type(context.scope) is VariableAssignation:
-            pass
-        if type(context.scope) is ControlStructure:
-            pass
+        context.scope.multiline = True
         i = context.eol(i)
         return True, i

@@ -1,6 +1,6 @@
 errors = {
-    1000: "spaces at beginning of line",
-    1001: "two or more consecutives spaces",
+    "SPC_INSTEAD_TAB": "Spaces at beginning of line",
+    "CONSECUTIVE_SPC": "Two or more consecutives spaces",
     1002: "space after tab",
     1003: "missing space before operator",
     1004: "missing space after operator",
@@ -18,12 +18,12 @@ errors = {
     1017: "function has more than four arguments",
     1018: "user defined identifiers should contain only lowercase characters, \
 digits or '_'",
-     "TOO_FEW_TAB": "Missing tabs for indent level",
+    "TOO_FEW_TAB": "Missing tabs for indent level",
     "TOO_MANY_TAB": "Extra tabs for indent level",
     "SPACE_REPLACE_TAB": "Found space when expecting tab",
     1021: "function has more than 25 lines",
-    1022: "space or tab on empty line",
-    1023: "space before newline",
+    "SPACE_EMPTY_LINE": "Space on empty line",
+    "SPC_BEFORE_NL": "Space before newline",
     1024: "Too many instructions on a single line",
     "PREPROC_UKN_STATEMENT": "Unrecognized preprocessor statement",
     "PREPROC_START_LINE": "Preprocessor statement not at the beginning of the\

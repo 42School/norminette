@@ -2,7 +2,7 @@ from lexer import Token
 from rules import PrimaryRule
 from context import GlobalScope, Function
 
-whitespaces = ["NEWLINE", "SPACE", "TAB"]
+whitespaces = ["SPACE", "TAB"]
 
 
 class IsFuncDeclaration(PrimaryRule):
@@ -98,7 +98,7 @@ class IsFuncDeclaration(PrimaryRule):
         if ret is False:
             return False, 0
 
-        if context.check_token(read, "LBRACE"):
+        if context.check_token(read, "NEWLINE"):
             context.scope.functions += 1
             read += 1
             context.sub = context.scope.inner(Function)
