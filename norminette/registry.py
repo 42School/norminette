@@ -34,6 +34,7 @@ class Registry:
         return ret, read
 
     def run(self, context, source):
+        unrecognized_tkns = []
         while context.tokens != []:
             context.tkn_scope = len(context.tokens)
             for rule in self.primary_rules:
@@ -41,6 +42,9 @@ class Registry:
                     continue
                 ret, jump = self.run_rules(context, rule)
                 if ret is True:
+                    if unrecognized_tkns != []:
+                        print("uncaught->", unrecognized_tkns)
+                        unrecognized_tkns = []
                     context.dprint(rule.name, jump)
                     context.update()
                     context.pop_tokens(jump)
@@ -48,7 +52,8 @@ class Registry:
             # #############################################################
             else:  # Remove these one ALL  primary rules are done
                 if context.debug is True:
-                    print("#, ", context.tokens[0])
+                    # print("#, ", context.tokens[0])
+                    unrecognized_tkns.append(context.tokens[0])
                 context.pop_tokens(1)  # ##################################
             # #############################################################
 
