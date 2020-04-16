@@ -37,6 +37,13 @@ digits or '_'",
     "ENUM_TYPE_NAMING": "Enum name must start with e_",
     "UNION_TYPE_NAMING": "Union name must start with u_",
     "GLOBAL_VAR_NAMING": "Global variable must start with g_",
+    "EOL_OPERATOR": "Logic operator at the end of line",
+    "EMPTY_LINE_FUNCTION": "Empty line in function",
+    "EMPTY_LINE_FILE_START": "Empty line at start of file",
+    "EMPTY_LINE_FUNCTION": "Empty line in function",
+    "EMPTY_LINE_EOF": "Empty line at end of file",
+    "WRONG_SCOPE_VAR": "Variable declared in incorrect scope",
+    "VAR_DECL_START_FUNC": "Variable declaration not at start of function",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

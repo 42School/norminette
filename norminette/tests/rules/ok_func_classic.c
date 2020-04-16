@@ -1,5 +1,6 @@
 int main(void)
 {
+	int i;
 	while (i < 0)
 	{
 		return (val);
@@ -10,8 +11,12 @@ int main(void)
 		&& tata)
 		if (che)
 			return (void);
-	else
+	else if (toto && tata || toutou
+		|| toto)
 	{
+		a = a + (((a
+						+ b))
+				+ c);
 		return ("toto");
 	}
 	else if (woa)

@@ -8,6 +8,8 @@ class CheckSpacing(Rule):
 
     def run(self, context):
         i = 0
+        if context.history[-1] == "IsEmptyLine":
+            return False, 0
         while i in range(len(context.tokens[:context.tkn_scope])):
             if context.check_token(i, "SPACE"):
                 if context.peek_token(i).pos[1] == 1:

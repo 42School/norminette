@@ -9,7 +9,7 @@ whitespaces = ["TAB", "SPACE", "NEWLINE"]
 class IsEmptyLine(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 0
+        self.priority = 11
         self.scope = []
 
     def run(self, context):

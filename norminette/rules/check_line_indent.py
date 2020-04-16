@@ -19,6 +19,6 @@ class CheckLineIndent(Rule):
             expected -= 1
         if expected > got:
             context.new_error("TOO_FEW_TAB", context.peek_token(0))
-        elif got > expected: 
+        elif got > expected:
             context.new_error("TOO_MANY_TAB", context.peek_token(0))
         return False, 0
