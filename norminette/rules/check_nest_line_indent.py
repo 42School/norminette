@@ -24,7 +24,6 @@ class CheckNestLineIndent(Rule):
                 while context.check_token(i, "TAB") is True:
                     indent += 1
                     i += 1
-                    print (indent)
                 if indent > expected:
                     context.new_error("TOO_MANY_TAB", context.peek_token(i))
                 elif indent < expected:

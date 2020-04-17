@@ -44,6 +44,7 @@ digits or '_'",
     "EMPTY_LINE_EOF": "Empty line at end of file",
     "WRONG_SCOPE_VAR": "Variable declared in incorrect scope",
     "VAR_DECL_START_FUNC": "Variable declaration not at start of function",
+    "TOO_MANY_FUNCS": "Too many functions in file",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

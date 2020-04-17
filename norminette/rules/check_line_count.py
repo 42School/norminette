@@ -5,14 +5,7 @@ from context import GlobalScope
 class CheckLineCount(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = [
-                            "IsAssignation",
-                            "IsControlStatement",
-                            "IsEmptyLine",
-                            "IsFuncDeclaration",
-                            "IsUdefType",
-                            "IsExpressionStatement",
-                            "IsVarDeclaration"]
+        self.depends_on = []
 
     def run(self, context):
         for t in context.tokens[:context.tkn_scope + 1]:
