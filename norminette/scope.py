@@ -6,7 +6,7 @@ class Scope:
         self.indent = (parent.indent + 1) if parent is not None else 0
         self.lines = 0
         # ########################################################## #
-        self.vdeclarations_allowed = True
+        self.vdeclarations_allowed = False
         self.vars = 0
         self.vars_alignment = 0
         # ########################################################## #
@@ -38,6 +38,7 @@ class Function(Scope):
     def __init__(self, parent):
         super().__init__(parent)
         self.fname_pos = 0
+        self.vdeclarations_allowed = None
         self.args = []
 
 

@@ -17,22 +17,13 @@ class IsBlockStart(PrimaryRule):
                         VariableAssignation,
                         ControlStructure]
 
-    def check_udef_typedef(self, context, pos):
-        i = context.skip_ws(pos)
-        if context.check_token(i, "IDENTIFIER") is False:
-            return False, 0
-        i += 1
-        i = context.skip_ws(i)
-        if context.check_token(i, "SEMI_COLON") is False:
-            return False, 0
-        i += 1
-        return True, i
-
     def run(self, context):
         i = context.skip_ws(0, nl=False)
         if context.check_token(i, "LBRACE") is False:
             return False, 0
         i += 1
         context.scope.multiline = True
+        while (context.check_token(i, "NEWLINE")) is False:
+            i += 1
         i = context.eol(i)
         return True, i

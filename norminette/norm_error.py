@@ -45,6 +45,10 @@ digits or '_'",
     "WRONG_SCOPE_VAR": "Variable declared in incorrect scope",
     "VAR_DECL_START_FUNC": "Variable declaration not at start of function",
     "TOO_MANY_FUNCS": "Too many functions in file",
+    "BRACE_SHOULD_EOL": "Expected newline after brace",
+    "CONSECUTIVE_NEWLINES": "Consecutive newlines",
+    "NEWLINE_PRECEDES_FUNC": "Functions must be separated by a newline",
+    "NL_AFTER_VAR_DECL": "Variable declarations must be followed by a newline",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }
