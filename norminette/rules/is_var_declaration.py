@@ -10,7 +10,7 @@ rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 1
+        self.priority = 10
         self.scope = [GlobalScope, UserDefinedType, Function, ControlStructure]
 
     def assignment_right_side(self, context, pos):

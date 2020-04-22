@@ -54,8 +54,6 @@ class CheckAssignationIndent(Rule):
         i = 0
         expected = context.scope.indent
         nest = expected + 1
-        if context.history[-1] == "IsEmptyLine":
-            return False, 0
         while context.check_token(i, "SEMI_COLON") is False:
             if context.check_token(i, "NEWLINE") is True:
                 if context.check_token(i - 1, operators) is True:
