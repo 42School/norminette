@@ -48,6 +48,40 @@ class IsVarDeclaration(PrimaryRule):
             return True, i
         return False, pos
 
+    def is_func_pointer(self, context, pos):
+        i = context.skip_ws(pos)
+        if context.check_token(i, "LPARENTHESIS") is False:
+            return False, pos
+
+        i += 1
+        p = 1
+        plvl= 0 # nesting level of the first pointer operator encountered
+
+        while p and context.check_token(i, ["MULT", "LPARENTHESIS"] + ws):
+            if context.check_token(i, "MULT") and not plvl:
+                plvl = p
+            elif context.check_token(i, "LPARENTHESIS"):
+                p += 1
+            i += 1
+
+
+
+        while p and context.peek_token(i) is not None:
+            if context.check_token(i, "LPARENTHESIS") is True:
+                p += 1
+                if identifier is True:
+                    return False, pos
+            elif context.check_token(i, "RPARENTHESIS") is True:
+                p -= 1
+                if identifier is True:
+                    par_pos = i
+                    break
+            elif context.check_token(i, "IDENTIFIER") is True:
+                identifier = True
+            i += 1
+        else:
+            return False, pos
+
     def run(self, context):
         ret, i = context.check_type_specifier(0)
         if ret is False:

@@ -25,3 +25,6 @@ class PrimaryRule(Rule):
         self.primary = True
         self.priority = 0
         self.scope = []
+
+    def run(self, context):
+        return False, 0

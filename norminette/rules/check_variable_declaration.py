@@ -17,7 +17,7 @@ class CheckVariableDeclaration(Rule):
                 context.new_error("VAR_DECL_START_FUNC", context.peek_token(i))
             elif context.scope.vdeclarations_allowed == None:
                 context.scope.vdeclarations_allowed = True
-        elif context.scope.type == "GlobalScope":
+        elif context.scope.name == "GlobalScope":
             pass
         else:
             context.new_error("WRONG_SCOPE_VAR", context.peek_token(i))

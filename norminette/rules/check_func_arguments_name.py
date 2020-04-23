@@ -44,7 +44,7 @@ arg_separator = [
 class CheckFuncArgumentsName(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsFuncDeclarations"]
+        self.depends_on = ["_IsFuncDeclaration"]
 
     def check_arg_format(self, context, pos):
         """

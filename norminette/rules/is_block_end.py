@@ -52,6 +52,13 @@ class IsBlockEnd(PrimaryRule):
                 i = context.eol(i)
                 return True, i
         if type(context.scope) is VariableAssignation:
+            i = context.skip_ws(i)
+            if context.check_token(i, "SEMI_COLON"):
+                #Fatal err?
+                return False, 0
+            i += 1
+            i = context.eol(i)
+            return True, i
             pass
         if type(context.scope) is ControlStructure:
             pass
