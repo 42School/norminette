@@ -52,6 +52,10 @@ digits or '_'",
     "MULT_ASSIGN_LINE": "Multiple assignations on a single line",
     "MULT_DECL_LINE": "Multiple declarations on a single line",
     "DECL_ASSIGN_LINE": "Declaration and assignation on a single line",
+    "FORBIDDEN_CS": "Forbidden control structure",
+    "SPACE_AFTER_KW": "Missing space after keyword",
+    "RETURN_PARENTHESIS": "Return value must be in parenthesis",
+    "EXP_SEMI_COLON": "Expected semicolon",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

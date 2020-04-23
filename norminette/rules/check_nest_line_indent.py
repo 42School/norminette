@@ -7,7 +7,7 @@ nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]
 class CheckNestLineIndent(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsControlStatement"]
+        self.depends_on = ["IsControlStatement", "IsExpressionStatement"]
 
     def find_nest_content(self, context, nest, i):
         expected = context.scope.indent + nest
