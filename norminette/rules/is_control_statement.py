@@ -2,7 +2,7 @@ from rules import PrimaryRule
 from context import ControlStructure, Function
 
 
-cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH"]
+cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH", "CASE", "DEFAULT"]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
 
 
@@ -16,7 +16,15 @@ class IsControlStatement(PrimaryRule):
         i = context.skip_ws(0, nl=False)
         if context.check_token(i, cs_keywords) is False:
             return False, 0
-        token = context.peek_token(i)
+        if context.check_token(i, ["SWITCH", "CASE", "DEFAULT"]) is True:
+            i += 1
+            i = context.skip_ws(i, nl=False)
+            if context.check_token(i, "CONSTANT") is True:
+                i += 1
+            if context.check_token(i, "COLON") is True:
+                i += 1
+                i = context.eol(i)
+                return True, i
         if context.check_token(i, "ELSE") is True:
             i += 1
             while context.check_token(i, ["TAB", "SPACE"]) is True:
@@ -31,7 +39,6 @@ class IsControlStatement(PrimaryRule):
         i += 1
         i = context.skip_ws(i, nl=False)
         if context.check_token(i, "LPARENTHESIS") is False:
-            # Seems like fatal error
             return False, 0
         i = context.skip_nest(i)
         i += 1

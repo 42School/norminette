@@ -44,7 +44,7 @@ arg_separator = [
 class CheckFuncArgumentsName(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["_IsFuncDeclaration"]
+        self.depends_on = ["IsFuncDeclaration"]
 
     def check_arg_format(self, context, pos):
         """
@@ -69,7 +69,7 @@ class CheckFuncArgumentsName(Rule):
             i = context.skip_misc_specifier(i)
             ret, i = context.check_identifier(i)
             if ret is False:
-                context.new_error(1016, context.peek_token(i - 1))
+                context.new_error("MISSING_IDENTIFIER", context.peek_token(i - 1))
             else:
                 i += 1
                 i = context.skip_ws(i)
@@ -97,6 +97,7 @@ class CheckFuncArgumentsName(Rule):
             if context.check_token(i, "RPARENTHESIS"):
                 return True
         elif context.check_token(i, "RPARENTHESIS"):
+            context.new_error("NO_ARGS_VOID", context.peek_token(i))
             return True
         return False
 
