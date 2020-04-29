@@ -80,7 +80,7 @@ class IsUserDefinedType(PrimaryRule):
     """
 
     def typedef(self, context, pos):
-        i = context.skip_ws(pos)
+        i = context.skip_ws(pos, nl=True)
         if "TYPEDEF" not in [tkn.type for tkn in context.tokens[:i]]:
             return False, pos
         ret, i = context.check_identifier(i)

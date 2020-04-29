@@ -14,7 +14,7 @@ errors = {
     1013: "braces should be on their own line",
     1014: "line too long",
     1015: "missing 'void' keyword",
-    1016: "missing type qualifier or identifier in function arguments",
+    "MISSING_IDENTIFIER": "missing type qualifier or identifier in function arguments",
     1017: "function has more than four arguments",
     1018: "user defined identifiers should contain only lowercase characters, \
 digits or '_'",
@@ -56,6 +56,10 @@ digits or '_'",
     "SPACE_AFTER_KW": "Missing space after keyword",
     "RETURN_PARENTHESIS": "Return value must be in parenthesis",
     "EXP_SEMI_COLON": "Expected semicolon",
+    "NO_ARGS_VOID": "Empty function argument requires void",
+    "MISALIGNED_VAR_DECL": "Misaligned variable declaration",
+    "WRONG_SCOPE_COMMENT": "Comment is invalid in this scope",
+    "MACRO_NAME_CAPITAL": "Macro name must be capitalized",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

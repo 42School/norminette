@@ -18,6 +18,6 @@ class CheckBrace(Rule):
         i += 1
         i = context.skip_ws(i, nl=False)
         if context.check_token(i, "NEWLINE") is False:
-            context.new_error("BRACE_SHOULD_EOL", context.peek_token(i))
+            context.new_error("BRACE_SHOULD_EOL", context.peek_token(i - 1))
 
         return False, 0
