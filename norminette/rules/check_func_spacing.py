@@ -43,20 +43,21 @@ arg_separator = [
 class CheckFuncSpacing(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["CheckFuncDeclaration"]
+        self.depends_on = ["IsFuncDeclaration"]
 
     def run(self, context):
         i = context.fname_pos - 1
         if context.peek_token(i).type == "SPACE":
-            context.new_error(1010, context.peek_token(i))
+            context.new_error("SPACE_BEFORE_FUNC", context.peek_token(i))
+            return False, 0
         if context.peek_token(i).type == "TAB":
             j = i
             while context.peek_token(j).type == "TAB":
                 j -= 1
             if j + 1 < i:
-                context.new_error(1011, context.peek_token(i))
+                context.new_error("TOO_MANY_TABS_FUNC", context.peek_token(i))
             if context.peek_token(i).type == "SPACE":
-                context.new_error(1010, context.peek_token(i))
+                context.new_error("SPACE_BEFORE_FUNC", context.peek_token(i))
         else:
-            context.new_error(1012, context.peek_token(i))
+            context.new_error("MISSING_TAB_FUNC", context.peek_token(i))
         return False, 0

@@ -13,7 +13,7 @@ class CheckIdentifierName(Rule):
         Raises 1018 error, bad formated user defined identifier
         """
         legal_characters = string.ascii_lowercase + string.digits + '_'
-        if context.history[-1] == "IsFuncDeclaration":
+        if context.history[-1] == "IsFuncDeclaration" or context.history[-1] == "IsFuncPrototype":
             for c in context.scope.fnames[-1]:
                 if c not in legal_characters:
                     context.new_error(

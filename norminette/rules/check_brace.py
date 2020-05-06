@@ -19,5 +19,6 @@ class CheckBrace(Rule):
         i = context.skip_ws(i, nl=False)
         if context.check_token(i, "NEWLINE") is False:
             context.new_error("BRACE_SHOULD_EOL", context.peek_token(i - 1))
-
+        if context.scope.name == "Function" and context.scope.lines > 25:
+            context.new_error("TOO_MANY_LINES", context.peek_token(i))
         return False, 0

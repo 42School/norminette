@@ -9,6 +9,7 @@ class Scope:
         self.vdeclarations_allowed = False
         self.vars = 0
         self.vars_alignment = 0
+        self.func_alignment = 0
         # ########################################################## #
         self.fdeclarations_allowed = False  # False everywhere but GlobalScope
 

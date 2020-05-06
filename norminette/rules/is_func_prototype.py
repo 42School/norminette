@@ -5,7 +5,7 @@ from context import GlobalScope, Function
 whitespaces = ["SPACE", "TAB"]
 
 
-class IsFuncDeclaration(PrimaryRule):
+class IsFuncPrototype(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.priority = 10
@@ -103,11 +103,11 @@ class IsFuncDeclaration(PrimaryRule):
             read += 1
             context.sub = context.scope.inner(Function)
             read = context.eol(read)
-            return True, read
+            return False, 0
 
         elif context.check_token(read, "SEMI_COLON"):
             read += 1
             read = context.eol(read)
-            return False, 0
+            return True, read
 
         return False, 0

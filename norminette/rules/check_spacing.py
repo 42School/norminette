@@ -20,7 +20,7 @@ class CheckSpacing(Rule):
                         context.new_error("SPACE_EMPTY_LINE", context.peek_token(i))
                         i += 1
                         continue
-                    context.new_error("SPACE_INSTEAD_TAB", context.peek_token(i))
+                    context.new_error("SPACE_REPLACE_TAB", context.peek_token(i))
                     continue
                 i += 1
                 if context.check_token(i, "SPACE"):

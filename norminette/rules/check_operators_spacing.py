@@ -123,7 +123,7 @@ whitespaces = [
 class CheckOperatorsSpacing(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["CheckFuncDeclarations"]
+        self.depends_on = ["IsFuncDeclaration", "IsFuncPrototype"]
         self.last_seen_tkn = None
 
     def check_prefix(self, context, pos):
@@ -150,6 +150,7 @@ class CheckOperatorsSpacing(Rule):
     def check_combined_op(self, context, pos):
         lpointer = ["SPACE", "TAB", "LPARENTHESIS"]
         lsign = operators + ["LBRACKET"]
+        i = 0
         if context.peek_token(pos).type in ["PLUS", "MINUS"]:
             if self.last_seen_tkn.type in lsign:
                 if pos > 0 and context.peek_token(pos - 1).type != "SPACE":
@@ -187,7 +188,10 @@ class CheckOperatorsSpacing(Rule):
         while i < len(context.tokens[:context.tkn_scope]):
             if context.peek_token(i).type in c_operators:
                 pos = i
-                i += self.check_combined_op(context, i)
+                val = self.check_combined_op(context, i)
+                if val == None:
+                    return False, 0
+                i += val
                 self.last_seen_tkn = context.peek_token(pos)
                 continue
             elif context.peek_token(i).type in ps_operators:

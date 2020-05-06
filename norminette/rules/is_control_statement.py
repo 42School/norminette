@@ -29,6 +29,10 @@ class IsControlStatement(PrimaryRule):
             i += 1
             while context.check_token(i, ["TAB", "SPACE"]) is True:
                 i += 1
+            if context.check_token(i, "SEMI_COLON") is True:
+                i += 1
+                i = context.eol(i)
+                return True, i
             if context.check_token(i, "NEWLINE") is True:
                 context.sub = context.scope.inner(ControlStructure)
                 context.sub.multiline = False
@@ -42,7 +46,11 @@ class IsControlStatement(PrimaryRule):
             return False, 0
         i = context.skip_nest(i)
         i += 1
-        i = context.skip_ws(i)
+        i = context.skip_ws(i, nl=False)
+        if context.check_token(i, "SEMI_COLON") is True:
+            i += 1
+            i = context.eol(i)
+            return True, i
         context.sub = context.scope.inner(ControlStructure)
         context.sub.multiline = False
         i = context.eol(i)

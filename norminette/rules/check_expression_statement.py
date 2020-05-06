@@ -47,6 +47,7 @@ class CheckExpressionStatement(Rule):
             if context.check_token(i, kw) is True:
                 if context.check_token(i + 1, "SPACE") is False:
                     context.new_error("SPACE_AFTER_KW", context.peek_token(i))
+                    return False, 0
             if context.check_token(i, "RETURN") is True:
                 tmp = i
                 while context.check_token(tmp, "SEMI_COLON") is False:

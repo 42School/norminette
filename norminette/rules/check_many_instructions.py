@@ -13,6 +13,7 @@ class CheckManyInstructions(Rule):
                         "IsControlStatement",
                         "IsExpressionStatement",
                         "IsFuncDeclaration",
+                        "IsFuncPrototype",
                         "IsUserDefinedType",
                         "IsVarDeclaration"]
 
