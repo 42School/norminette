@@ -22,6 +22,7 @@ class IsBlockStart(PrimaryRule):
         if context.check_token(i, "LBRACE") is False:
             return False, 0
         i += 1
+        context.scope.pretend_multiline = False
         context.scope.multiline = True
         while (context.check_token(i, "NEWLINE")) is False:
             i += 1

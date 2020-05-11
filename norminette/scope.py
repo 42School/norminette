@@ -12,6 +12,8 @@ class Scope:
         self.func_alignment = 0
         # ########################################################## #
         self.fdeclarations_allowed = False  # False everywhere but GlobalScope
+        self.pretend_multiline = False
+        self.multiline = False
 
     def inner(self, sub):
         return sub(self)
@@ -21,6 +23,8 @@ class Scope:
             self.parent.lines += self.lines
         return self.parent
 
+    def get_outer(self):
+        return self.parent
 
 class GlobalScope(Scope):
     def __init__(self):

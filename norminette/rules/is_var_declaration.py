@@ -64,8 +64,6 @@ class IsVarDeclaration(PrimaryRule):
                 p += 1
             i += 1
 
-
-
         while p and context.peek_token(i) is not None:
             if context.check_token(i, "LPARENTHESIS") is True:
                 p += 1

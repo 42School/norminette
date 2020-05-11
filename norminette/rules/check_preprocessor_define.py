@@ -15,15 +15,15 @@ class CheckPreprocessorDefine(Rule):
         content = Lexer(val)
         tkns = content.get_tokens()
         i = 1
-        while tkns[i].type == "TAB" or tkns[i].type == "SPACE":
+        while context.check_token(i, ["TAB", "SPACE"]):
             i += 1
         if tkns[i].type == "IDENTIFIER" and tkns[i].value.isupper() is False:
             context.new_error("MACRO_NAME_CAPITAL", context.peek_token(0))
         i += 1
-        while tkns[i].type == "SPACE" or tkns[i].type == "TAB":
+        while context.check_token(i, ["TAB", "SPACE"]):
             i += 1
         i += 1
-        if len(tkns) < i and tkns[i].type != "STRING" and tkns[i].type != "CONSTANT":
+        if context.check_token(i, ["STRING", "CONSTANT"]) is False:
             context.new_error("PREPROC_CONSTANT", context.peek_token(0))
         i += 1
         return False, 0

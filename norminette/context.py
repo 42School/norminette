@@ -116,12 +116,10 @@ class Context:
             self.scope = self.sub
             self.sub = None
         elif type(self.scope) is ControlStructure:
-
-            if self.scope.multiline is False:
-                if self.scope.lines > 0:
-                    self.scope = self.scope.outer()
-                    self.sub = None
-                    self.update()
+            while type(self.scope) is ControlStructure and self.scope.multiline is False and self.scope.lines > 0:
+                self.scope = self.scope.outer()
+                self.sub = None
+                self.update()
 
         self.arg_pos = [0, 0]
 

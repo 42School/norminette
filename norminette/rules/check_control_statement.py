@@ -30,6 +30,7 @@ class CheckControlStatement(Rule):
         while context.check_token(i, "RPARENTHESIS") is False:
             if context.check_token(i, assigns) is True:
                 context.new_error("ASSIGN_IN_CONTROL", context.peek_token(i))
+                return -1
             if context.check_token(i, forbidden_cs) is True:
                 context.new_error("FORBIDDEN_CS", context.peek_token(i))
             i += 1
@@ -42,6 +43,7 @@ class CheckControlStatement(Rule):
                 context.new_error("FORBIDDEN_CS", context.peek_token(i))
                 return True, i
             elif context.check_token(i, "LPARENTHESIS") is True:
-                self.check_nest(context, i)
+                if self.check_nest(context, i) == -1:
+                    return True, i
             i += 1
         return False, 0

@@ -33,7 +33,10 @@ class IsBlockEnd(PrimaryRule):
         if context.check_token(i, "RBRACE") is False:
             return False, 0
 
-        context.sub = context.scope.outer()
+        if type(context.scope) != ControlStructure:
+            context.sub = context.scope.outer()
+        else:
+            context.scope.multiline = False
         i += 1
         if type(context.scope) is UserDefinedType:
             i = context.skip_ws(i)
