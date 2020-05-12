@@ -22,5 +22,5 @@ class CheckManyInstructions(Rule):
         Raises 1018 error, bad formated user defined identifier
         """
         if context.peek_token(0).pos[1] > 1:
-            context.new_error(1024, context.peek_token(0))
+            context.new_error("TOO_MANY_INSTR", context.peek_token(0))
         return False, 0

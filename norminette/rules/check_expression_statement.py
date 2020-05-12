@@ -39,11 +39,11 @@ kw = [
 class CheckExpressionStatement(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsExpressionStatement"]
+        self.depends_on = ["IsExpressionStatement", "IsControlStatement"]
 
     def run(self, context):
         i = 0
-        while context.check_token(i, "SEMI_COLON") is False:
+        while context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
             if context.check_token(i, kw) is True:
                 if context.check_token(i + 1, "SPACE") is False:
                     context.new_error("SPACE_AFTER_KW", context.peek_token(i))

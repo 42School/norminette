@@ -24,7 +24,7 @@ ws = ["SPACE", "TAB","NEWLINE"]
 class IsExpressionStatement(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 0
+        self.priority = 1
         self.scope = [Function, ControlStructure]
 
     def check_reserved_keywords(self, context, pos):

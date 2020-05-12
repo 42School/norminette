@@ -12,7 +12,6 @@ class Scope:
         self.func_alignment = 0
         # ########################################################## #
         self.fdeclarations_allowed = False  # False everywhere but GlobalScope
-        self.pretend_multiline = False
         self.multiline = False
 
     def inner(self, sub):

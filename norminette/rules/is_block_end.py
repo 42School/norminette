@@ -45,15 +45,15 @@ class IsBlockEnd(PrimaryRule):
                 ret, i = self.check_udef_typedef(context, i)
                 i = context.eol(i)
                 return ret, i
-            if context.scope.typedef is True:
-                ret, i = self.check_udef_typedef(context, i)
-                i = context.eol(i)
-                return ret, i
-            i = context.skip_ws(i)
-            if context.check_token(i, "SEMI_COLON"):
+            elif context.check_token(i, 'SEMI_COLON') is True:
                 i += 1
                 i = context.eol(i)
                 return True, i
+
+            ret, i = self.check_udef_typedef(context, i)
+            i = context.eol(i)
+            return ret, i
+
         if type(context.scope) is VariableAssignation:
             i = context.skip_ws(i)
             if context.check_token(i, "SEMI_COLON"):

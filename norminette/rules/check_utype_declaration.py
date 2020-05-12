@@ -25,7 +25,7 @@ utypes = [
     "UNION"
 ]
 
-class CheckTypedefDeclaration(Rule):
+class CheckUtypeDeclaration(Rule):
     def __init__(self):
         super().__init__()
         self.depends_on = ["IsUserDefinedType"]
@@ -35,9 +35,9 @@ class CheckTypedefDeclaration(Rule):
         i = context.skip_ws(i)
         tkns = context.tokens
 
-        if context.check_token(i, "TYPEDEF") is False:
+        if context.check_token(i, types + utypes) is False:
             return False, 0
-        i += 1
+        return False, 0
         if context.check_token(i, "SPACE") is False:
             context.new_error("TAB_REPLACE_SPACE", context.peek_token(i))
         i += 1

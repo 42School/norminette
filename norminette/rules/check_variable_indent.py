@@ -51,7 +51,8 @@ assigns_or_eol = [
     "XOR_ASSIGN",
     "OR_ASSIGN",
     "ASSIGN",
-    "SEMI_COLON"
+    "SEMI_COLON",
+    "NEWLINE"
 ]
 
 class CheckVariableIndent(Rule):
@@ -64,6 +65,7 @@ class CheckVariableIndent(Rule):
         current_indent = context.scope.indent
         type_identifier_nb = -1
         has_tab = False
+        line_start = True
         id_length = 0
         buffer_len = 0
         while context.check_token(i, assigns_or_eol) is False:
@@ -79,6 +81,7 @@ class CheckVariableIndent(Rule):
                         return True, i
                     i += 1
             if context.check_token(i, keywords) is True and type_identifier_nb > 0:
+                line_start = False
                 type_identifier_nb -= 1
                 if context.peek_token(i).length == 0:
                     id_length = len(str(context.peek_token(i))) - 2
@@ -96,11 +99,15 @@ class CheckVariableIndent(Rule):
                 has_tab += 1
                 current_indent += 1
             elif context.check_token(i, "IDENTIFIER") is True and type_identifier_nb == 0:
+                line_start = False
                 if context.scope.vars_alignment == 0:
                     context.scope.vars_alignment = current_indent
                 elif current_indent != context.scope.vars_alignment:
                     context.new_error("MISALIGNED_VAR_DECL", context.peek_token(i))
                     return True, i
                 return False, 0
+            elif context.check_token(i, "TAB") and type_identifier_nb > 0 and \
+                line_start == False:
+                context.new_error("TAB_REPLACE_SPACE", context.peek_token(i))
             i += 1
         return False, 0
