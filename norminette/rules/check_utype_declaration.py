@@ -37,7 +37,6 @@ class CheckUtypeDeclaration(Rule):
 
         if context.check_token(i, types + utypes) is False:
             return False, 0
-        return False, 0
         if context.check_token(i, "SPACE") is False:
             context.new_error("TAB_REPLACE_SPACE", context.peek_token(i))
         i += 1

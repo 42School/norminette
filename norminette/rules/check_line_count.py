@@ -8,11 +8,12 @@ class CheckLineCount(Rule):
         self.depends_on = []
 
     def run(self, context):
-        for t in context.tokens[:context.tkn_scope + 1]:
+        for t in context.tokens[:context.tkn_scope]:
             if t.type == "NEWLINE":
                 context.scope.lines += 1
 
         if type(context.scope) is GlobalScope:
+
             if context.get_parent_rule() == "CheckFuncDeclarations" \
                     and context.scope.lines > 25:
                 context.new_error("TOO_MANY_LINES", context.tokens[context.tkn_scope])

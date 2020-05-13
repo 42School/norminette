@@ -22,8 +22,8 @@ class Registry:
         ret, read = rule.run(context)
 #        print(context.history, context.tokens[:5], rule)
         if ret is True:
-            context.tkn_scope = read
             if rule.name.startswith("Is"):
+                context.tkn_scope = read
                 context.history.append(rule.name)
             for r in self.dependencies.get(rule.name, []):
                 self.run_rules(context, self.rules[r])

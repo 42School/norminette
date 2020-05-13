@@ -29,8 +29,10 @@ class GlobalScope(Scope):
     def __init__(self):
         super().__init__()
         self.fdeclarations_allowed = True
+        self.include_allowed = True
         self.fnames = []
         self.functions = 0
+        self.header_protection = -1
         self.func_alignment = 0
 
 

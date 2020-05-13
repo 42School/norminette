@@ -68,6 +68,10 @@ digits or '_'",
     "ASSIGN_IN_CONTROL": "Assignment in control structure",
     "VLA_FORBIDDEN": "Variable length array forbidden",
     "TOO_MANY_ARGS": "Function has more than 4 arguments",
+    "INCLUDE_HEADER_ONLY": ".c file includes are forbidden",
+    "INCLUDE_START_FILE": "Include must be at the start of file",
+    "HEADER_PROT_ALL": "Header protection must include all the instructions",
+    "HEADER_PROT_NAME": "Wrong header protection name",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }
