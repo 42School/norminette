@@ -27,9 +27,7 @@ class CheckFuncDeclaration(Rule):
             if len(context.history) > 1 and context.history[-2] != "IsEmptyLine":
                 context.new_error("NEWLINE_PRECEDES_FUNC", context.peek_token(i))
         #this is a func prototype
-        else:
-            if context.filetype == 'h' and context.scope.header_protection != 1:
-                context.new_error("HEADER_PROT_ALL", context.peek_token(0))
+
         i = context.fname_pos + 2
         while context.check_token(i, "RPARENTHESIS") is False:
             if context.check_token(i, "COMMA"):

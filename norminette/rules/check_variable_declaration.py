@@ -32,9 +32,6 @@ class CheckVariableDeclaration(Rule):
                 context.scope.vdeclarations_allowed = True
         elif context.scope.name == "GlobalScope" or context.scope.name == "UserDefinedType":
             pass
-        elif context.filetype == 'h':
-            if context.scope.header_protection != 1:
-                context.new_error("HEADER_PROT_ALL", context.peek_token(0))
         else:
             context.new_error("WRONG_SCOPE_VAR", context.peek_token(i))
         while context.check_token(i, "SEMI_COLON") is False:
@@ -45,7 +42,6 @@ class CheckVariableDeclaration(Rule):
                     i += 1
                     continue
                 context.new_error("DECL_ASSIGN_LINE", context.peek_token(i))
-            #maybe needs to be more thorough?
             if context.check_token(i, "COMMA") is True:
                 context.new_error("MULT_DECL_LINE", context.peek_token(i))
             i += 1
