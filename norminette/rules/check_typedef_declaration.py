@@ -31,6 +31,7 @@ class CheckTypedefDeclaration(Rule):
         self.depends_on = ["IsUserDefinedType"]
 
     def run(self, context):
+        return False, 0
         i = 0
         i = context.skip_ws(i)
         tkns = context.tokens

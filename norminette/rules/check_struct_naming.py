@@ -14,6 +14,7 @@ class CheckStructNaming(Rule):
         self.__i = 0
 
     def run(self, context):
+        return False, 0
         self.__i += 1
         i = 0
         i = context.skip_ws(i)

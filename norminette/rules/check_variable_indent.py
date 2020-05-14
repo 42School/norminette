@@ -60,7 +60,8 @@ class CheckVariableIndent(Rule):
         super().__init__()
         self.depends_on = ["IsVarDeclaration"]
 
-    def run(self, context):
+
+    def check_tabs(self, context):
         i = 0
         current_indent = context.scope.indent
         type_identifier_nb = -1
@@ -98,16 +99,27 @@ class CheckVariableIndent(Rule):
             elif context.check_token(i, "TAB") is True and type_identifier_nb == 0:
                 has_tab += 1
                 current_indent += 1
-            elif context.check_token(i, "IDENTIFIER") is True and type_identifier_nb == 0:
-                line_start = False
-                if context.scope.vars_alignment == 0:
-                    context.scope.vars_alignment = current_indent
-                elif current_indent != context.scope.vars_alignment:
-                    context.new_error("MISALIGNED_VAR_DECL", context.peek_token(i))
-                    return True, i
-                return False, 0
             elif context.check_token(i, "TAB") and type_identifier_nb > 0 and \
                 line_start == False:
                 context.new_error("TAB_REPLACE_SPACE", context.peek_token(i))
             i += 1
         return False, 0
+
+    def run(self, context):
+        i = 0
+        identifier = None
+        self.check_tabs(context)
+        while context.check_token(i, "SEMI_COLON") is False:
+            if context.check_token(i, "IDENTIFIER") is True:
+                identifier = context.peek_token(i)
+            i += 1
+        if context.scope.vars_alignment == 0:
+            context.scope.vars_alignment = identifier.pos[1]
+        elif context.scope.vars_alignment != identifier.pos[1]:
+            context.new_error("MISALIGNED_VAR_DECL", context.peek_token(i))
+            return True, i
+        return False, 0
+
+
+
+
