@@ -6,7 +6,7 @@ import string
 class CheckIdentifierName(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsFuncDeclaration", "IsVarDeclaration"]
+        self.depends_on = ["IsFuncDeclaration", "IsFuncPrototype", "IsVarDeclaration"]
 
     def run(self, context):
         """
@@ -17,7 +17,7 @@ class CheckIdentifierName(Rule):
             for c in context.scope.fnames[-1]:
                 if c not in legal_characters:
                     context.new_error(
-                                    1018,
+                                    "FORBIDDEN_CHAR_NAME",
                                     context.peek_token(context.fname_pos))
                     break
         else:
@@ -27,7 +27,7 @@ class CheckIdentifierName(Rule):
             for c in context.peek_token(i).value:
                 if c not in legal_characters:
                     context.new_error(
-                                    1018,
+                                    "FORBIDDEN_CHAR_NAME",
                                     context.peek_token(context.fname_pos))
                     break
 

@@ -1,4 +1,4 @@
 tests/rules/ko_func_name.c: KO!
-	1018 (line: 1, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
-	1018 (line: 2, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
-	1018 (line: 3, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME (line: 1, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME (line: 2, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME (line: 3, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'

@@ -99,6 +99,7 @@ class CheckVariableIndent(Rule):
             elif context.check_token(i, "TAB") is True and type_identifier_nb == 0:
                 has_tab += 1
                 current_indent += 1
+                type_identifier_nb -= 1
             elif context.check_token(i, "TAB") and type_identifier_nb > 0 and \
                 line_start == False:
                 context.new_error("TAB_REPLACE_SPACE", context.peek_token(i))

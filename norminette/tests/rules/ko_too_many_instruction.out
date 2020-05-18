@@ -1,3 +1,6 @@
 tests/rules/ko_too_many_instruction.c: KO!
-	1024 (line: 1, col: 8):	too much instruction on one line
-	1024 (line: 5, col: 23):	too much instruction on one line
+	TOO_MANY_INSTR (line: 1, col: 10):	Too many instructions on a single line
+	MISALIGNED_VAR_DECL (line: 1, col: 20):	Misaligned variable declaration
+	TOO_MANY_INSTR (line: 5, col: 23):	Too many instructions on a single line
+	TOO_FEW_TAB (line: 5, col: 23):	Missing tabs for indent level
+	TOO_FEW_TAB (line: 5, col: 23):	Missing tabs for indent level

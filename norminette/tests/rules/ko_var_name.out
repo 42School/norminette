@@ -1,3 +1,7 @@
 tests/rules/ko_var_name.c: KO!
-	1018 (line: 1, col: 1):	user defined identifiers should contain only lowercase characters, digits or '_'
-	1018 (line: 2, col: 1):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME (line: 1, col: 1):	user defined identifiers should contain only lowercase characters, digits or '_'
+	SPACE_REPLACE_TAB (line: 1, col: 4):	Found space when expecting tab
+	GLOBAL_VAR_NAMING (line: 1, col: 5):	Global variable must start with g_
+	FORBIDDEN_CHAR_NAME (line: 2, col: 1):	user defined identifiers should contain only lowercase characters, digits or '_'
+	SPACE_REPLACE_TAB (line: 2, col: 4):	Found space when expecting tab
+	GLOBAL_VAR_NAMING (line: 2, col: 5):	Global variable must start with g_

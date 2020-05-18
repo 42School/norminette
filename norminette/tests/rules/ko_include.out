@@ -1,0 +1,4 @@
+tests/rules/ko_include.c: KO!
+	INCLUDE_HEADER_ONLY (line: 1, col: 1):	.c file includes are forbidden
+	MACRO_NAME_CAPITAL (line: 2, col: 1):	Macro name must be capitalized
+	INCLUDE_HEADER_ONLY (line: 3, col: 1):	.c file includes are forbidden

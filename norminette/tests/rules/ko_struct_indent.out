@@ -1,0 +1,6 @@
+tests/rules/ko_struct_indent.c: KO!
+	MISALIGNED_VAR_DECL (line: 3, col: 34):	Misaligned variable declaration
+	MISALIGNED_VAR_DECL (line: 5, col: 24):	Misaligned variable declaration
+	MISALIGNED_VAR_DECL (line: 9, col: 29):	Misaligned variable declaration
+	MISALIGNED_VAR_DECL (line: 12, col: 14):	Misaligned variable declaration
+	MISALIGNED_VAR_DECL (line: 14, col: 12):	Misaligned variable declaration

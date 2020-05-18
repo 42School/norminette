@@ -1,10 +1,11 @@
 tests/rules/ko_struct_name.c: KO!
-	1024 (line: 1, col: 8):	Too many instructions on a single line
-	GLOBAL_VAR_NAMING (line: 1, col: 23):	Global variable must start with g_
-	GLOBAL_VAR_NAMING (line: 2, col: 14):	Global variable must start with g_
-	GLOBAL_VAR_NAMING (line: 3, col: 5):	Global variable must start with g_
-	1024 (line: 8, col: 12):	Too many instructions on a single line
-	GLOBAL_VAR_NAMING (line: 8, col: 24):	Global variable must start with g_
-	1024 (line: 10, col: 14):	Too many instructions on a single line
-	1024 (line: 13, col: 16):	Too many instructions on a single line
-	TOO_FEW_TAB (line: 14, col: 1):	Missing tabs for indent level
+	USER_DEFINED_TYPEDEF (line: 1, col: 25):	User defined typedef must start with t_
+	STRUCT_TYPE_NAMING (line: 1, col: 25):	Structure name must start with s_
+	GLOBAL_VAR_NAMING (line: 3, col: 25):	Global variable must start with g_
+	STRUCT_TYPE_NAMING (line: 6, col: 12):	Structure name must start with s_
+	UNION_TYPE_NAMING (line: 7, col: 11):	Union name must start with u_
+	USER_DEFINED_TYPEDEF (line: 8, col: 25):	User defined typedef must start with t_
+	UNION_TYPE_NAMING (line: 8, col: 25):	Union name must start with u_
+	ENUM_TYPE_NAMING (line: 9, col: 10):	Enum name must start with e_
+	USER_DEFINED_TYPEDEF (line: 10, col: 5):	User defined typedef must start with t_
+	STRUCT_TYPE_NAMING (line: 10, col: 5):	Structure name must start with s_
