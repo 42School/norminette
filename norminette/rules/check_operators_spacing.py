@@ -76,6 +76,7 @@ ps_operators = [
     "ASSIGN",  # =
     "COLON",  # :
     "DIV",  # /
+    "MULT", # *
     "MODULO",  # %
     "LESS_THAN",  # <
     "MORE_THAN",  # >
@@ -109,7 +110,6 @@ c_operators = [
     # operators that could be "glued" with another token ("x + *y", "5 + -5")
     "PLUS",
     "MINUS",
-    "MULT"
 ]
 
 left_auth = [
@@ -123,7 +123,6 @@ whitespaces = [
     "SPACE",
     "TAB"
 ]
-
 
 class CheckOperatorsSpacing(Rule):
     def __init__(self):
@@ -185,32 +184,35 @@ class CheckOperatorsSpacing(Rule):
             else:
                 self.check_prefix_and_suffix(context, pos)
                 return 1
-        if context.peek_token(pos).type == "MULT":
-            has_initial_id = False
-            tmp = 0
-            while context.check_token(tmp, ["IDENTIFIER", "SEMI_COLON", "NEWLINE"]) is False:
-                tmp += 1
-            if context.check_token(tmp, "IDENTIFIER") is True:
-                has_initial_id = True
-            if context.check_token(pos - 1, lpointer) == False:
-                context.new_error("SPC_BFR_POINTER", context.peek_token(pos))
-            if context.check_token(pos + 1, ["SPACE", "TAB"]) and has_initial_id == True:
-                context.new_error("SPC_AFTER_POINTER", context.peek_token(pos))
-            elif context.check_token(pos + 1, ["SPACE", "TAB"]) is False \
-                and has_initial_id == False:
-                context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
-            i = 1
-            while context.peek_token(pos + i).type in ["MULT", "LPARENTHESIS"]:
-                i += 1
-                if context.peek_token(pos + i).type == "SPACE":
-                    context.new_error("SPC_AFTER_POINTER", context.peek_token(pos + i))
-                return (i)
+        #if context.peek_token(pos).type == "MULT":
+            #has_initial_id = False
+            #tmp = 0
+            #while context.check_token(tmp, ["IDENTIFIER", "SEMI_COLON", "NEWLINE"]) is False:
+                #tmp += 1
+            #if context.check_token(tmp, "IDENTIFIER") is True:
+                #has_initial_id = True
+            #if context.check_token(pos - 1, lpointer) == False:
+                #context.new_error("SPC_BFR_POINTER", context.peek_token(pos))
+            #if context.check_token(pos + 1, ["SPACE", "TAB"]) and has_initial_id == True:
+                #context.new_error("SPC_AFTER_POINTER", context.peek_token(pos))
+            #elif context.check_token(pos + 1, ["SPACE", "TAB"]) is False \
+                #and has_initial_id == False:
+                #context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
+            #i = 1
+            #while context.peek_token(pos + i).type in ["MULT", "LPARENTHESIS"]:
+                #i += 1
+                #if context.peek_token(pos + i).type == "SPACE":
+                    #context.new_error("SPC_AFTER_POINTER", context.peek_token(pos + i))
+                #return (i)
 
     def run(self, context):
         self.last_seen_tkn = None
         i = 0
         while i < len(context.tokens[:context.tkn_scope]):
-            if context.check_token(i, c_operators):
+            if context.check_token(i, ["MULT", "BWISE_OPERATOR"]):
+                if context.is_operator(i) is False:
+                    return False, 0
+            if context.check_token(i, c_operators)is True:
                 pos = i
                 val = self.check_combined_op(context, i)
                 if val == None:
@@ -218,16 +220,16 @@ class CheckOperatorsSpacing(Rule):
                 i += val
                 self.last_seen_tkn = context.peek_token(pos)
                 continue
-            elif context.peek_token(i).type in ps_operators:
+            elif context.check_token(i, ps_operators)is True:
                 self.check_prefix_and_suffix(context, i)
-            elif context.peek_token(i).type in s_operators:
+            elif context.check_token(i, s_operators)is True:
                 self.check_suffix(context, i)
-            elif context.peek_token(i).type in son_operators and \
+            elif context.check_token(i, son_operators) is True and \
                 context.check_token(i + 1, "NEWLINE") is False:
                 self.check_suffix(context, i)
-            elif context.peek_token(i).type in p_operators:
+            elif context.check_token(i, p_operators)is True:
                 self.check_prefix(context, i)
-            if context.peek_token(i).type not in whitespaces:
+            if context.check_token(i, whitespaces) is False:
                 self.last_seen_tkn = context.peek_token(i)
             i += 1
         return True, 0

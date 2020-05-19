@@ -3,7 +3,7 @@ from rules import PrimaryRule
 from context import GlobalScope, Function
 
 whitespaces = ["SPACE", "TAB"]
-
+precedes_func_name = ["MULT", "BWISE_AND"]
 
 class IsFuncPrototype(PrimaryRule):
     def __init__(self):
@@ -73,6 +73,8 @@ class IsFuncPrototype(PrimaryRule):
         arg_start = i
         while context.peek_token(name_pos).type != "IDENTIFIER":
             name_pos += 1
+        while context.check_token(name_pos, precedes_func_name) is True:
+            name_pos -= 1
         ret, i = self.check_args(context, i)
         if ret is False:
             return False, 0

@@ -47,6 +47,8 @@ class CheckFuncSpacing(Rule):
 
     def run(self, context):
         i = context.fname_pos - 1
+        while context.check_token(i, ["MULT", "BWISE_AND"]) is True:
+            i -= 1
         if context.peek_token(i).type == "SPACE":
             context.new_error("SPACE_BEFORE_FUNC", context.peek_token(i))
             return False, 0

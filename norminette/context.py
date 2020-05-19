@@ -24,6 +24,45 @@ utypes = [
     "UNION"
 ]
 
+operators = [
+    "RIGHT_ASSIGN",
+    "LEFT_ASSIGN",
+    "ADD_ASSIGN",
+    "SUB_ASSIGN",
+    "MUL_ASSIGN",
+    "DIV_ASSIGN",
+    "MOD_ASSIGN",
+    "AND_ASSIGN",
+    "XOR_ASSIGN",
+    "OR_ASSIGN",
+    "LESS_OR_EQUAL",
+    "GREATER_OR_EQUAL",
+    "EQUALS",
+    "NOT_EQUAL",
+    "ASSIGN",
+    "NOT",
+    "MINUS",
+    "PLUS",
+    "MULT",
+    "DIV",
+    "MODULO",
+    "LESS_THAN",
+    "MORE_THAN",
+    "ELLIPSIS",
+    "INC",
+    "DEC",
+    "PTR",
+    "AND",
+    "OR",
+    "BWISE_XOR",
+    "BWISE_OR",
+    "BWISE_NOT",
+    "BWISE_AND",
+    "RIGHT_SHIFT",
+    "LEFT_SHIFT",
+    "TERN_CONDITION"
+]
+
 misc_specifiers = [
     "CONST",
     "REGISTER",
@@ -263,3 +302,17 @@ In \"{self.scope.name}\" from \
                 i += 1
             return True, i
         return False, pos
+
+    def is_operator(self, pos):
+        """
+        Returns True if the given operator (among '*&') is an actual operator,
+        and returns False if said operator is a pointer/adress indicator
+        """
+        i = 0
+        pos -= 1
+        while pos > 0:
+            if self.check_token(pos, ["IDENTIFIER", "CONSTANT"]) is True:
+                return True
+            elif self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND"] + operators):
+                return False
+            pos -= 1

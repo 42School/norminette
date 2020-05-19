@@ -72,6 +72,7 @@ digits or '_'",
     "INCLUDE_START_FILE": "Include must be at the start of file",
     "HEADER_PROT_ALL": "Header protection must include all the instructions",
     "HEADER_PROT_NAME": "Wrong header protection name",
+    "TERNARY_FBIDDEN": "Ternaries are forbidden",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

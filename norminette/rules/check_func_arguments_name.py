@@ -58,6 +58,8 @@ class CheckFuncArgumentsName(Rule):
 
         if context.check_token(i, "ELLIPSIS"):
             i += 1
+            if context.peek_token(i).type in stop:
+                i += 1
             return i
 
         ret, i = context.check_type_specifier(i)
