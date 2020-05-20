@@ -184,34 +184,30 @@ class CheckOperatorsSpacing(Rule):
             else:
                 self.check_prefix_and_suffix(context, pos)
                 return 1
-        #if context.peek_token(pos).type == "MULT":
-            #has_initial_id = False
-            #tmp = 0
-            #while context.check_token(tmp, ["IDENTIFIER", "SEMI_COLON", "NEWLINE"]) is False:
-                #tmp += 1
-            #if context.check_token(tmp, "IDENTIFIER") is True:
-                #has_initial_id = True
-            #if context.check_token(pos - 1, lpointer) == False:
-                #context.new_error("SPC_BFR_POINTER", context.peek_token(pos))
-            #if context.check_token(pos + 1, ["SPACE", "TAB"]) and has_initial_id == True:
-                #context.new_error("SPC_AFTER_POINTER", context.peek_token(pos))
-            #elif context.check_token(pos + 1, ["SPACE", "TAB"]) is False \
-                #and has_initial_id == False:
-                #context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
-            #i = 1
-            #while context.peek_token(pos + i).type in ["MULT", "LPARENTHESIS"]:
-                #i += 1
-                #if context.peek_token(pos + i).type == "SPACE":
-                    #context.new_error("SPC_AFTER_POINTER", context.peek_token(pos + i))
-                #return (i)
+        if context.peek_token(pos).type == "MULT":
+            tmp = 0
+            while context.check_token(tmp, ["IDENTIFIER", "SEMI_COLON", "NEWLINE"]) is False:
+                tmp += 1
+            if context.check_token(pos - 1, lpointer) == False:
+                context.new_error("SPC_BFR_POINTER", context.peek_token(pos))
+            if context.check_token(pos + 1, ["SPACE", "TAB"]) and has_initial_id == True:
+                context.new_error("SPC_AFTER_POINTER", context.peek_token(pos))
+            i = 1
+            while context.peek_token(pos + i).type in ["MULT", "LPARENTHESIS"]:
+                i += 1
+                if context.peek_token(pos + i).type == "SPACE":
+                    context.new_error("SPC_AFTER_POINTER", context.peek_token(pos + i))
+                return (i)
 
     def run(self, context):
         self.last_seen_tkn = None
         i = 0
         while i < len(context.tokens[:context.tkn_scope]):
-            if context.check_token(i, ["MULT", "BWISE_OPERATOR"]):
+            if context.check_token(i, ["MULT", "BWISE_AND"]) is True:
                 if context.is_operator(i) is False:
-                    return False, 0
+                    self.check_combined_op(context, i)
+                    i += 1
+                    continue
             if context.check_token(i, c_operators)is True:
                 pos = i
                 val = self.check_combined_op(context, i)
@@ -232,4 +228,4 @@ class CheckOperatorsSpacing(Rule):
             if context.check_token(i, whitespaces) is False:
                 self.last_seen_tkn = context.peek_token(i)
             i += 1
-        return True, 0
+        return False, 0

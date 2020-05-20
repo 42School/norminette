@@ -8,7 +8,7 @@ precedes_func_name = ["MULT", "BWISE_AND"]
 class IsFuncPrototype(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 20
         self.scope = [GlobalScope]
 
     def check_args(self, context, pos):
@@ -54,9 +54,8 @@ class IsFuncPrototype(PrimaryRule):
             if context.check_token(i, "RPARENTHESIS"):
                 lp -= 1
             i += 1
-        if pp and lp < 0 and context.check_token(i, "LPARENTHESIS"):
+        if pp and lp < 0 and context.check_token(i, "LPARENTHESIS") is False:
             return False, pos, False
-
         return True, i, (True if pp else False)
 
     def check_func_format(self, context):

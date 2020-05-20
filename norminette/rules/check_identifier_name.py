@@ -6,7 +6,7 @@ import string
 class CheckIdentifierName(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsFuncDeclaration", "IsFuncPrototype", "IsVarDeclaration"]
+        self.depends_on = []
 
     def run(self, context):
         """

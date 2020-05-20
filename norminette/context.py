@@ -60,7 +60,8 @@ operators = [
     "BWISE_AND",
     "RIGHT_SHIFT",
     "LEFT_SHIFT",
-    "TERN_CONDITION"
+    "TERN_CONDITION",
+    "COMMA"
 ]
 
 misc_specifiers = [
