@@ -8,6 +8,17 @@ class CheckPreprocessorDefine(Rule):
         super().__init__()
         self.depends_on = ["IsPreprocessorStatement"]
 
+    def skip_define_nest(self, i, tkns):
+        eq = {
+            'LPARENTHESIS': 'RPARENTHESIS',
+            'LBRACKET': 'RBRACKET',
+            'LBRACE': 'RBRACE'
+        }
+        eq_val = eq[tkns[i].type]
+        while i < len(tkns) and tkns[i].type != eq_val:
+            i += 1
+        return i
+
     def run(self, context):
         i = context.skip_ws(0)
         if context.check_token(i, "DEFINE") is False:
@@ -34,12 +45,20 @@ class CheckPreprocessorDefine(Rule):
         i += 1
         if context.filetype == 'h' and context.scope.header_protection != 1:
             context.new_error("HEADER_PROT_ALL", context.peek_token(0))
-        while len(tkns) > i and tkns[i] in ["TAB", "SPACE"]:
+        if tkns[i].type not in ['TAB', "SPACE"]:
+            if tkns[i].type in ["LPARENTHESIS", "LBRACKET", "RPARENTHESIS"]:
+                i = self.skip_define_nest(i, tkns)
+            context.new_error("PREPROC_CONSTANT", context.peek_token(0))
+            while len(tkns) > i and tkns[i].type not in ['TAB', "SPACE"]:
+                i += 1
+        while len(tkns) > i and tkns[i].type in ["TAB", "SPACE"]:
             i += 1
         if i <= len(tkns) and tkns[i].type == "IDENTIFIER" and tkns[i].value.isupper() is False:
             context.new_error("PREPROC_CONSTANT", context.peek_token(0))
-        #elif len(tkns) > i + 1:
-        #    context.new_error("PREPROC_CONSTANT", context.peek_token(0))
-        elif len(tkns) > i and tkns[i].type in ["STRING", "CONSTANT"] is False:
+        elif len(tkns) > i and tkns[i].type not in ["STRING", "CONSTANT"]:
             context.new_error("PREPROC_CONSTANT", context.peek_token(0))
+        while len(tkns) > i and tkns[i].type in ['SPACE', 'TAB']:
+            i += 1
+        if tkns[i].type != 'NEWLINE':
+            context.new_error("TOO_MANY_VALS", context.peek_token(0))
         return False, 0

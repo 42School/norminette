@@ -63,13 +63,14 @@ class CheckUtypeDeclaration(Rule):
         if is_td == True:
             if ids[check][0].value.startswith('t_') is False:
                 context.new_error("USER_DEFINED_TYPEDEF", context.peek_token(loc))
-            name = ids[check - 1][0]
+            if utype is not None:
+                name = ids[check - 1][0]
             loc = ids[check][1]
-        if utype.type == "STRUCT" and name.value.startswith('s_') is False:
+        if utype is not None and utype.type == "STRUCT" and name.value.startswith('s_') is False:
             context.new_error("STRUCT_TYPE_NAMING", context.peek_token(loc))
-        if utype.type == "UNION" and name.value.startswith('u_') is False:
+        if utype is not None and utype.type == "UNION" and name.value.startswith('u_') is False:
             context.new_error("UNION_TYPE_NAMING", context.peek_token(loc))
-        if utype.type == "ENUM" and name.value.startswith('e_') is False:
+        if utype is not None and utype.type == "ENUM" and name.value.startswith('e_') is False:
             context.new_error("ENUM_TYPE_NAMING", context.peek_token(loc))
         if is_td or (is_td == False and contain_full_def == False):
             tmp = ids[-1][1] - 1
@@ -91,7 +92,7 @@ class CheckUtypeDeclaration(Rule):
             if context.scope.vars_alignment == 0:
                 context.scope.vars_alignment = current_indent
             elif context.scope.vars_alignment != current_indent:
-                context.new_error("MISALIGNED_VAR_DECL", context.peek_token(current_indent))
+                context.new_error("MISALIGNED_VAR_DECL", context.peek_token(0))
                 return True, i
             return False, 0
 

@@ -23,7 +23,10 @@ class IsBlockStart(PrimaryRule):
             return False, 0
         i += 1
         context.scope.multiline = True
-        while (context.check_token(i, "NEWLINE")) is False:
-            i += 1
-        i = context.eol(i)
+        #tmp = i
+        #while context.peek_token(tmp) and (context.check_token(tmp, "NEWLINE")) is False:
+            #tmp += 1
+        #tmp = context.eol(tmp)
+        #if context.peek_token(tmp) is not None:
+            #i = tmp
         return True, i

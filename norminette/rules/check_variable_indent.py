@@ -112,11 +112,15 @@ class CheckVariableIndent(Rule):
         self.check_tabs(context)
         while context.check_token(i, "SEMI_COLON") is False:
             if context.check_token(i, "IDENTIFIER") is True:
-                while context.check_token(i - 1, ["MULT", "BWISE_AND"]) is True \
-                and context.is_operator(i - 1) is False:
-                    i -= 1
                 identifier = context.peek_token(i)
             i += 1
+        i -= 1
+        if context.check_token(i - 1, ["MULT", "BWISE_AND"]) is True:
+            i -= 1
+            while context.check_token(i, ["MULT", "BWISE_AND"]) is True \
+            and context.is_operator(i) is False:
+                i -= 1
+            identifier = context.peek_token(i)
         if context.scope.vars_alignment == 0:
             context.scope.vars_alignment = identifier.pos[1]
         elif context.scope.vars_alignment != identifier.pos[1]:

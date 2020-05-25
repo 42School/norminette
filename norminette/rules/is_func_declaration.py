@@ -98,7 +98,9 @@ class IsFuncDeclaration(PrimaryRule):
         if ret is False:
             return False, 0
 
-        if context.check_token(read, "NEWLINE"):
+        if context.check_token(read, ["NEWLINE", "LBRACE"]):
+            if context.check_token(read, ["LBRACE"]) is True:
+                read -= 2
             context.scope.functions += 1
             read += 1
             context.sub = context.scope.inner(Function)

@@ -11,11 +11,7 @@ class IsBlockEnd(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.priority = 10
-        self.scope = [
-                        Function,
-                        UserDefinedType,
-                        VariableAssignation,
-                        ControlStructure]
+        self.scope = []
 
     def check_udef_typedef(self, context, pos):
         i = context.skip_ws(pos)
@@ -32,7 +28,6 @@ class IsBlockEnd(PrimaryRule):
         i = context.skip_ws(0)
         if context.check_token(i, "RBRACE") is False:
             return False, 0
-
         if type(context.scope) != ControlStructure:
             context.sub = context.scope.outer()
         else:

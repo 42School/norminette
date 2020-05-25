@@ -84,7 +84,6 @@ class IsUserDefinedType(PrimaryRule):
         if "TYPEDEF" not in [tkn.type for tkn in context.tokens[:i]]:
             return False, pos
         ret, i = context.check_identifier(i)
-        print (ret, i)
         if ret is False:
             i += 1
             if context.check_token(i, "LBRACE"):

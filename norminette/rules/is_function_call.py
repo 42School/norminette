@@ -65,11 +65,14 @@ class IsFunctionCall(PrimaryRule):
 
     def run(self, context):
         i = context.skip_ws(0, nl=False)
-        if context.check_token(i, "IDENTIFIER") is True and context.check_token(i + 1, "LPARENTHESIS") is True:
-            i = context.skip_nest(i)
-            while context.check_token(i, "SEMI_COLON") is False:
-                i += 1
+        if context.check_token(i, "IDENTIFIER") is True:
             i += 1
-            i = context.eol(i)
-            return True, i
+            i = context.skip_ws(i)
+            if context.check_token(i, "LPARENTHESIS") is True:
+                i = context.skip_nest(i)
+                while context.check_token(i, "SEMI_COLON") is False:
+                    i += 1
+                i += 1
+                i = context.eol(i)
+                return True, i
         return False, 0
