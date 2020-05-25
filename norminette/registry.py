@@ -1,6 +1,8 @@
 import rules
 from context import Context
 from functools import cmp_to_key
+from exceptions import CParsingError
+
 
 
 
@@ -43,21 +45,18 @@ class Registry:
                     continue
                 ret, jump = self.run_rules(context, rule)
                 if ret is True:
-                    if unrecognized_tkns != []:
-                        print("uncaught->", unrecognized_tkns)
-                        unrecognized_tkns = []
                     context.dprint(rule.name, jump)
                     context.update()
                     context.pop_tokens(jump)
                     break
             # #############################################################
             else:  # Remove these one ALL  primary rules are done
-                if context.debug is True:
                     # print("#, ", context.tokens[0])
-                    unrecognized_tkns.append(context.tokens[0])
+                unrecognized_tkns.append(context.tokens[0])
                 context.pop_tokens(1)  # ##################################
             # #############################################################
-
+        if unrecognized_tkns != []:
+            raise CParsingError(f"Unrecognized line while parsing line {unrecognized_tkns[0].pos[0]}")
         if context.errors == []:
             print(context.filename + ": OK!")
         else:

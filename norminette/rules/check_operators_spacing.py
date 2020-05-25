@@ -167,7 +167,7 @@ class CheckOperatorsSpacing(Rule):
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_combined_op(self, context, pos):
-        lpointer = ["SPACE", "TAB", "LPARENTHESIS", "LBRACKET"]
+        lpointer = ["SPACE", "TAB", "LPARENTHESIS", "LBRACKET", "MULT"]
         lsign = operators + ["LBRACKET"]
         i = 0
         if context.peek_token(pos).type in ["PLUS", "MINUS"]:
@@ -178,8 +178,9 @@ class CheckOperatorsSpacing(Rule):
                 while context.peek_token(pos + i).type \
                         in ["PLUS", "MINUS", "MULT"]:
                     i += 1
-                if context.peek_token(pos + i).type in ["SPACE", "TAB"]:
-                    context.new_error("NO_SPC_AFR_OPR", context.peek_token(pos + i - 1))
+                #Creates unwanted error, commenting for now
+                #if context.peek_token(pos + i).type in ["SPACE", "TAB"]:
+                #    context.new_error("NO_SPC_AFR_OPR", context.peek_token(pos + i - 1))
                 return i
             else:
                 self.check_prefix_and_suffix(context, pos)
@@ -190,7 +191,7 @@ class CheckOperatorsSpacing(Rule):
                 tmp += 1
             if context.check_token(pos - 1, lpointer) == False:
                 context.new_error("SPC_BFR_POINTER", context.peek_token(pos))
-            if context.check_token(pos + 1, ["SPACE", "TAB"]) and has_initial_id == True:
+            if context.check_token(pos + 1, ["SPACE", "TAB"]):
                 context.new_error("SPC_AFTER_POINTER", context.peek_token(pos))
             i = 1
             while context.peek_token(pos + i).type in ["MULT", "LPARENTHESIS"]:

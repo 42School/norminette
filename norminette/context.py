@@ -311,6 +311,8 @@ In \"{self.scope.name}\" from \
         """
         i = 0
         pos -= 1
+        if self.history[-1] == "IsFuncPrototype" or self.history[-1] == "IsFuncDeclaration":
+            return False
         while pos > 0:
             if self.check_token(pos, ["IDENTIFIER", "CONSTANT"]) is True:
                 return True
