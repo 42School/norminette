@@ -70,7 +70,7 @@ class IsFunctionCall(PrimaryRule):
             i = context.skip_ws(i)
             if context.check_token(i, "LPARENTHESIS") is True:
                 i = context.skip_nest(i)
-                while context.check_token(i, "SEMI_COLON") is False:
+                while context.peek_token(i) is not None and context.check_token(i, "SEMI_COLON") is False:
                     i += 1
                 i += 1
                 i = context.eol(i)

@@ -92,7 +92,7 @@ class IsAssignation(PrimaryRule):
             i += 1
             context.sub = context.scope.inner(VariableAssignation)
             return True, i
-        while context.check_token(i, "SEMI_COLON") is False:
+        while context.check_token(i, ["SEMI_COLON"]) is False:
             i += 1
             if context.peek_token(i) is None:
                 return False, 0

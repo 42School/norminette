@@ -61,14 +61,20 @@ operators = [
     "RIGHT_SHIFT",
     "LEFT_SHIFT",
     "TERN_CONDITION",
-    "COMMA"
+    "COMMA",
+    "GOTO",
+    "LABEL",
+    "SWITCH",
+    "CASE"
 ]
 
 misc_specifiers = [
     "CONST",
     "REGISTER",
     "STATIC",
-    "VOLATILE"
+    "VOLATILE",
+    "EXTERN",
+    "INLINE"
 ]
 
 size_specifiers = [
@@ -222,17 +228,17 @@ In \"{self.scope.name}\" from \
             elif self.check_token(i, rbrackets) is True:
                 if c == self.peek_token(i).type:
                     return i
-                raise CParsingError("Nested parentheses, braces or brackets\
+            i += 1
+        raise CParsingError("Nested parentheses, braces or brackets\
  are not correctly closed")
 
-            i += 1
         return -1
 
-    def skip_misc_specifier(self, pos):
-        i = self.skip_ws(pos)
+    def skip_misc_specifier(self, pos, nl=False):
+        i = self.skip_ws(pos, nl=nl)
         if self.check_token(i, misc_specifiers):
             i += 1
-            i = self.skip_ws(i)
+            i = self.skip_ws(i, nl=nl)
         return i
 
     def skip_typedef(self, pos):
@@ -242,7 +248,7 @@ In \"{self.scope.name}\" from \
             i += self.skip_misc_specifier(pos)
         return i
 
-    def check_type_specifier(self, pos, user_def_type=False):
+    def check_type_specifier(self, pos, user_def_type=False, nl=False):
         """Returns (True, pos + n) if the tokens from 'pos' to 'n' could match
             a valid type specifier. Valid type specifiers consist of:
                 -an optionnal 'misc' specifier (const, register, volatile ...)
@@ -251,9 +257,8 @@ In \"{self.scope.name}\" from \
                     OR an IDENTIFIER
                     OR a user type specifier (struct, union, enum) + IDENTIFIER
         """
-
-        i = self.skip_misc_specifier(pos)
-        i = self.skip_ws(i)
+        i = self.skip_misc_specifier(pos, nl=nl)
+        i = self.skip_ws(i, nl=nl)
         if user_def_type is True:
             if self.check_token(i, utypes + ["TYPEDEF"]) is True:
                 while self.check_token(i, whitespaces + utypes + ["TYPEDEF"]) is True:
@@ -286,18 +291,18 @@ In \"{self.scope.name}\" from \
                 i += 1
             return True, i
 
-    def check_identifier(self, pos):
+    def check_identifier(self, pos, nl=False):
         i = pos
         p = 0
-        i = self.skip_misc_specifier(i)
-        while self.check_token(i, whitespaces + ["MULT", "LPARENTHESIS"]):
+        i = self.skip_misc_specifier(i, nl=nl)
+        while self.check_token(i, whitespaces + ["MULT", "LPARENTHESIS"]) is True:
             i += 1
             if self.check_token(i, "LPARENTHESIS"):
                 p += 1
 
-        i = self.skip_misc_specifier(i)
+        i = self.skip_misc_specifier(i, nl=nl)
         if self.check_token(i, "IDENTIFIER"):
-            while p and self.check_token(i, whitespaces + ["RPARENTHESIS"]):
+            while p and self.check_token(i, whitespaces + ["RPARENTHESIS"]) is True:
                 if self.check_token(i, "RPARENTHESIS"):
                     p -= 1
                 i += 1

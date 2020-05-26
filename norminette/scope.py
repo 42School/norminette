@@ -13,6 +13,7 @@ class Scope:
         # ########################################################## #
         self.fdeclarations_allowed = False  # False everywhere but GlobalScope
         self.multiline = False
+        self.header_protection = -1
 
     def inner(self, sub):
         return sub(self)
@@ -32,7 +33,6 @@ class GlobalScope(Scope):
         self.include_allowed = True
         self.fnames = []
         self.functions = 0
-        self.header_protection = -1
         self.func_alignment = 0
 
 

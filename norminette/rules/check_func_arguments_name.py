@@ -56,12 +56,15 @@ class CheckFuncArgumentsName(Rule):
         i = context.skip_ws(pos)
         stop = ["COMMA", "RPARENTHESIS"]
 
+        if context.check_token(i, "NEWLINE"):
+            context.new_error("NEWLINE_IN_DECL", context.peek_token(i))
+            i += 1
+
         if context.check_token(i, "ELLIPSIS"):
             i += 1
             if context.peek_token(i).type in stop:
                 i += 1
             return i
-
         ret, i = context.check_type_specifier(i)
         while context.peek_token(i) is not None \
                 and context.check_token(i, ["MULT"] + whitespaces):
@@ -76,7 +79,7 @@ class CheckFuncArgumentsName(Rule):
                 i += 1
                 i = context.skip_ws(i)
 
-            while i < context.arg_pos[1] \
+            while context.peek_token(i) is not None and i < context.arg_pos[1] \
                     and context.peek_token(i).type not in stop:
                 if context.peek_token(i).type == "LPARENTHESIS":
                     i = context.skip_nest(i)
@@ -88,7 +91,6 @@ class CheckFuncArgumentsName(Rule):
                     and context.peek_token(i).type not in stop:
                 i += 1
             i += 1
-
         return i
 
     def no_arg_func(self, context, pos):

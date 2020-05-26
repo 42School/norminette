@@ -10,6 +10,7 @@ class CheckPreprocessorInclude(Rule):
 
     def run(self, context):
         i = 0
+        filetype = ''
         if context.check_token(i, "INCLUDE") is False:
             return False, 0
         if type(context.scope) is not GlobalScope or context.scope.include_allowed == False:
@@ -22,15 +23,16 @@ class CheckPreprocessorInclude(Rule):
         while context.check_token(i, ["TAB", "SPACE"]):
             i += 1
         if tkns[i].type == "LESS_THAN":
-            while tkns[i].type != "DOT":
+            while tkns[i].type != "DOT" and tkns[i].type != "MORE_THAN":
                 i += 1
-            i += 1
-            filetype = tkns[i].value
+            if tkns[i].type == "DOT":
+                i += 1
+                filetype = tkns[i].value
         elif tkns[i].type == "STRING":
             try:
                 filetype = tkns[i].value.split('.')[-1][0]
             except:
                 filetype = ''
-        if filetype == 'c':
+        if filetype and filetype != 'h':
             context.new_error("INCLUDE_HEADER_ONLY", context.peek_token(0))
         return False, 0

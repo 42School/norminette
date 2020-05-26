@@ -26,7 +26,6 @@ class IsUserDefinedType(PrimaryRule):
             if context.check_token(i, "LBRACE") is False:
                 return False, pos
             context.sub = context.scope.inner(UserDefinedType)
-            # print(context.tokens[i])
             i += 1
             return True, i
         i += 1
@@ -56,7 +55,6 @@ class IsUserDefinedType(PrimaryRule):
                 if context.check_token(i, "SEMI_COLON") is False:
                     # most likely a "fatal" error since typedef
                     # keyword was found
-                    print(context.tokens[:i], context.tokens[i], context.filename)
                     raise CParsingError("No semi colon found after typedef")
                     return False, pos
                 i += 1
@@ -121,13 +119,11 @@ class IsUserDefinedType(PrimaryRule):
 
         #i = context.skip_ws(0)
         #ret, i = context.check_type_specifier(i, True)
-        #print (ret, i, context.peek_token(i))
         #if ret is False:
             #return False, 0
         #ret, i = self.typedef(context, i)
         #if ret is True:
             #i = context.skip_ws(i, nl=False)
-            #print (context.peek_token(i))
             #if context.check_token(i, "SEMI_COLON") is True:
                 #i = context.eol(i)
                 #return True, i

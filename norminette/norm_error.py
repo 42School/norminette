@@ -73,6 +73,8 @@ digits or '_'",
     "HEADER_PROT_ALL": "Header protection must include all the instructions",
     "HEADER_PROT_NAME": "Wrong header protection name",
     "TERNARY_FBIDDEN": "Ternaries are forbidden",
+    "TOO_MANY_VALS": "Too many values on define",
+    "NEWLINE_IN_DECL": "Newline in function declaration",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

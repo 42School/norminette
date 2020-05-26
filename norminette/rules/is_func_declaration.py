@@ -12,7 +12,7 @@ class IsFuncDeclaration(PrimaryRule):
         self.scope = [GlobalScope]
 
     def check_args(self, context, pos):
-        i = context.skip_ws(pos)
+        i = context.skip_ws(pos, nl=True)
         while context.check_token(i, whitespaces + ["RPARENTHESIS"]):
             i += 1
         if context.check_token(i, "LPARENTHESIS") is False:
@@ -30,7 +30,7 @@ class IsFuncDeclaration(PrimaryRule):
         return True, i
 
     def check_func_identifier(self, context, pos):
-        i = context.skip_ws(pos)
+        i = context.skip_ws(pos, nl=True)
         pp = 0  # Pointer operator's position
         lp = 0  # Left parenthesis counter (nesting level)
 
@@ -45,7 +45,7 @@ class IsFuncDeclaration(PrimaryRule):
             elif pp and context.check_token(i, "LPARENTHESIS"):
                 lp += 1
             i += 1
-        i = context.skip_misc_specifier(i)
+        i = context.skip_misc_specifier(i, nl=True)
         if context.check_token(i, "IDENTIFIER") is False:
             return False, pos, False
 
@@ -60,11 +60,10 @@ class IsFuncDeclaration(PrimaryRule):
         return True, i, (True if pp else False)
 
     def check_func_format(self, context):
-        i = context.skip_ws(0)
-        ret, i = context.check_type_specifier(i)
+        i = context.skip_ws(0, nl=True)
+        ret, i = context.check_type_specifier(i, nl=True)
         if ret is False:
             return False, 0
-
         name_pos = i
         ret, i, fp = self.check_func_identifier(context, i)
         if ret is False:

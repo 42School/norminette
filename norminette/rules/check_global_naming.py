@@ -35,7 +35,6 @@ class CheckGlobalNaming(Rule):
         i = context.skip_ws(i)
         """
         while context.check_token(i, types) is True:
-            print(context.peek_token(i))
             if context.check_token(i, "IDENTIFIER"):
                 last_id = context.peek_token(i)
             i += 1

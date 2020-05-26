@@ -59,8 +59,8 @@ class IsFuncPrototype(PrimaryRule):
         return True, i, (True if pp else False)
 
     def check_func_format(self, context):
-        i = context.skip_ws(0)
-        ret, i = context.check_type_specifier(i)
+        i = context.skip_ws(0, nl=True)
+        ret, i = context.check_type_specifier(i, nl=True)
         if ret is False:
             return False, 0
 

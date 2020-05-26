@@ -1,7 +1,7 @@
 from rules import Rule
 from lexer import Lexer, TokenError
 import math
-
+from exceptions import CParsingError
 
 types = [
     "STRUCT",
@@ -40,7 +40,7 @@ class CheckUtypeDeclaration(Rule):
         utype = None
         contain_full_def = False
         ids = []
-        while context.check_token(i, ['SEMI_COLON']) is False:
+        while context.check_token(i, ['SEMI_COLON']) is False and i < len(context.tokens):
             if context.check_token(i, ['SPACE', 'TAB']):
                 pass
             if context.check_token(i, utypes) is True:
@@ -54,17 +54,23 @@ class CheckUtypeDeclaration(Rule):
                 i = context.skip_nest(i)
             i += 1
         check = -1
-        if contain_full_def == False and is_td == False:
+        if contain_full_def == False and is_td == False and len(ids) > 1:
             check = -2
         else:
             check = -1
+        if len(ids) == 0:
+            return False, 0
         name = ids[check][0]
         loc = ids[check][1]
         if is_td == True:
             if ids[check][0].value.startswith('t_') is False:
                 context.new_error("USER_DEFINED_TYPEDEF", context.peek_token(loc))
             if utype is not None:
-                name = ids[check - 1][0]
+                if len(ids) > 1:
+                    name = ids[check - 1][0]
+                else:
+                    pass
+                    #raise CParsingError(f"{context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}")
             loc = ids[check][1]
         if utype is not None and utype.type == "STRUCT" and name.value.startswith('s_') is False:
             context.new_error("STRUCT_TYPE_NAMING", context.peek_token(loc))
@@ -74,13 +80,13 @@ class CheckUtypeDeclaration(Rule):
             context.new_error("ENUM_TYPE_NAMING", context.peek_token(loc))
         if is_td or (is_td == False and contain_full_def == False):
             tmp = ids[-1][1] - 1
-            while (context.check_token(tmp, "TAB")) is True:
+            while (context.check_token(tmp, "TAB")) is True and tmp > 0:
                 tmp -= 1
             if context.check_token(tmp, "SPACE") is True:
                 context.new_error("SPACE_REPLACE_TAB", context.peek_token(tmp))
             while tmp > 0:
                 if context.check_token(tmp, "RBRACE") is True:
-                    while context.check_token(tmp, "LBRACE") is False:
+                    while context.check_token(tmp, "LBRACE") is False and tmp > 0:
                         tmp -= 1
                     continue
                 if context.check_token(tmp, "TAB") is True:

@@ -56,7 +56,8 @@ if __name__ == "__main__":
                         has_err = True
                 # except (TokenError, CParsingError) as e:
                 except TokenError as e:
-                    print(has_err)
+                    print(target + f": KO!\n\t{colors(e.msg, 'red')}")
+                except CParsingError as e:
                     print(target + f": KO!\n\t{colors(e.msg, 'red')}")
 
     sys.exit(1 if has_err else 0)

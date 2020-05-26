@@ -1,6 +1,6 @@
 from rules import PrimaryRule
 from context import ControlStructure, Function
-
+from exceptions import CParsingError
 
 cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH", "CASE", "DEFAULT"]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
@@ -39,7 +39,7 @@ class IsControlStatement(PrimaryRule):
                 i = context.eol(i)
                 return True, i
             elif context.check_token(i, "IF") is False:
-                print ("Parse error", context.peek_token(i))
+                raise CParsingError(f"{context.filename}: Error parsing line {context.peek_token(0).pos[0]}")
         i += 1
         i = context.skip_ws(i, nl=False)
         if context.check_token(i, "LPARENTHESIS") is False:

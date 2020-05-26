@@ -22,6 +22,8 @@ class CheckFuncDeclaration(Rule):
         while context.check_token(tmp, ["SEMI_COLON", "NEWLINE"]) is False:
             tmp += 1
 
+        if tmp < context.tkn_scope - 1:
+            context.new_error("NEWLINE_IN_DECL", context.peek_token(tmp))
         #this is a func declaration
         if context.check_token(tmp, "SEMI_COLON") is False:
             if len(context.history) > 1 and context.history[-2] != "IsEmptyLine":

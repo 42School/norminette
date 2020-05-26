@@ -33,7 +33,8 @@ keywords = {
     'unsigned': "UNSIGNED",
     'void': "VOID",
     'volatile': "VOLATILE",
-    'while': "WHILE"
+    'while': "WHILE",
+    'inline': "INLINE"
 }
 
 preproc_keywords = {

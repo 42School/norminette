@@ -1,6 +1,6 @@
 from rules import PrimaryRule
 from context import Function, ControlStructure
-
+from exceptions import CParsingError
 
 keywords = [
     "BREAK",
@@ -39,9 +39,14 @@ class IsExpressionStatement(PrimaryRule):
         elif context.check_token(pos, "GOTO"):
             i = pos + 1
             i = context.skip_ws(i)
+            while context.check_token(i, ["MULT", "BWISE_AND"]) is True and context.is_operator(i) is False:
+                i += 1
             if context.check_token(i, "IDENTIFIER") is False:
-                raise CParsingError("Goto statement should be followed by \
-a label")
+                if context.check_token(i, "LPARENTHESIS") is True:
+                    #parse label value here
+                    i = context.skip_nest(i)
+                else:
+                    raise CParsingError("Goto statement should be followed by a label")
             i += 1
             i = context.skip_ws(i)
             i += 1
@@ -72,7 +77,6 @@ a label")
         if context.check_token(i, "SEMI_COLON") is False:
             return False, pos
         i += 1
-        # print(context.peek_token(i))
         return True, i
 
     def check_inc_dec(self, context, pos):

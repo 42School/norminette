@@ -1,0 +1,2 @@
+const
+int	main(void);
