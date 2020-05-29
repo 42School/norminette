@@ -133,7 +133,6 @@ class CheckOperatorsSpacing(Rule):
             "IsExpressionStatement",
             "IsAssignation",
             "IsControlStatement",
-            "IsUserDefinedType"
         ]
         self.last_seen_tkn = None
 

@@ -28,8 +28,6 @@ class CheckPreprocessorIndent(Rule):
             if val[length] != ' ':
                 context.new_error("PREPROC_BAD_INDENT", context.peek_token(i))
             length += 1
-        if val[length] == ' ':
-            context.new_error("PREPROC_BAD_INDENT", context.peek_token(i))
         i += 1
         tken = context.peek_token(i)
         if tken is not None and tken.type != "NEWLINE":

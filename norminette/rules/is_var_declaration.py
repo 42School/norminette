@@ -10,7 +10,7 @@ rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 4
         self.scope = [GlobalScope, UserDefinedType, Function, ControlStructure]
 
     def assignment_right_side(self, context, pos):
@@ -23,30 +23,58 @@ class IsVarDeclaration(PrimaryRule):
         return True, i
 
     def var_declaration(self, context, pos):
-        ret, i = context.check_identifier(pos)
-        if ret is False:
-            return ret, pos
-
         pclose = ["RPARENTHESIS", "NEWLINE", "SPACE", "TAB"]
-        i += 1
-        while context.check_token(i, pclose):
+        brackets = 0
+        parenthesis = 0
+        braces = 0
+        i = pos
+
+        while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "SEMI_COLON"]) is False:
+            if context.check_token(i, lbrackets) is True:
+                if context.check_token(i, "LBRACE") is True:
+                    braces += 1
+                if context.check_token(i, "LBRACKET") is True:
+                    brackets += 1
+                if context.check_token(i, "LPARENTHESIS") is True:
+                    parenthesis += 1
+            if context.check_token(i, rbrackets) is True:
+                if context.check_token(i, "RBRACE") is True:
+                    braces -= 1
+                if context.check_token(i, "RBRACKET") is True:
+                    brackets -= 1
+                if context.check_token(i, "RPARENTHESIS") is True:
+                    parenthesis -= 1
+            if context.check_token(i, "ASSIGN") is True:
+                ret, i = self.assignment_right_side(context, i + 1)
+                if ret is False:
+                    return False, pos
             i += 1
-        if context.check_token(i, lbrackets):
-            i = context.skip_nest(i)
-            i += 1
-        while context.check_token(i, pclose):
-            i += 1
-        if context.check_token(i, "ASSIGN") is True:
-            i += 1
-            ret, i = self.assignment_right_side(context, i)
-            if ret is False:
-                return False, pos
         if context.check_token(i, "SEMI_COLON") is True:
             return True, i
         if context.check_token(i, "COMMA") is True:
             i += 1
             return True, i
         return False, pos
+
+        #i += 1
+        #while context.check_token(i, pclose):
+            #i += 1
+        #while context.check_token(i, lbrackets):
+            #i = context.skip_nest(i)
+            #i += 1
+        #while context.check_token(i, pclose):
+            #i += 1
+        #if context.check_token(i, "ASSIGN") is True:
+            #i += 1
+            #ret, i = self.assignment_right_side(context, i)
+            #if ret is False:
+                #return False, pos
+        #if context.check_token(i, "SEMI_COLON") is True:
+            #return True, i
+        #if context.check_token(i, "COMMA") is True:
+            #i += 1
+            #return True, i
+        #return False, pos
 
     def is_func_pointer(self, context, pos):
         i = context.skip_ws(pos)
@@ -91,9 +119,8 @@ class IsVarDeclaration(PrimaryRule):
         while ret:
             ret, i = self.var_declaration(context, i)
             if context.check_token(i, "SEMI_COLON") is True:
-                break
-        else:
-            return False, 0
-        i += 1
-        i = context.eol(i)
-        return True, i
+                i += 1
+                i = context.eol(i)
+                return True, i
+        return False, 0
+

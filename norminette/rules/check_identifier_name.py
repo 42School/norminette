@@ -21,10 +21,8 @@ class CheckIdentifierName(Rule):
                                     "FORBIDDEN_CHAR_NAME",
                                     context.peek_token(context.fname_pos))
                     break
-        else:
-            _, i = context.check_type_specifier(0)
         while i < context.tkn_scope and context.peek_token(i) is not None:
-            if context.peek_token(i).type == "IDENTIFIER":
+            if context.check_token(i, "IDENTIFIER"):
                 for c in context.peek_token(i).value:
                     if c not in legal_characters:
                         context.new_error(

@@ -1,5 +1,6 @@
 from rules import Rule
 from lexer import Lexer, TokenError
+from scope import *
 import math
 from exceptions import CParsingError
 
@@ -93,6 +94,9 @@ class CheckUtypeDeclaration(Rule):
                     context.new_error("SPACE_REPLACE_TAB", context.peek_token(tmp))
                 tmp -= 1
         if contain_full_def == False:
+            if context.scope.name == "GlobalScope":
+                if ids[-1][0].value.startswith('t_') is False:
+                    context.new_error("GLOBAL_VAR_NAMING", context.peek_token(ids[-1][1]))
             i = 0
             current_indent = ids[-1][0].pos[1]
             if context.scope.vars_alignment == 0:

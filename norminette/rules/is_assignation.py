@@ -14,7 +14,9 @@ assign_ops = [
     "AND_ASSIGN",
     "XOR_ASSIGN",
     "OR_ASSIGN",
-    "ASSIGN"
+    "ASSIGN",
+    "INC",
+    "DEC"
 ]
 
 types = [
@@ -47,8 +49,6 @@ op = [
     "MINUS",
     "PLUS",
     "DIV",
-    "INC",
-    "DEC",
     "PTR",
     "DOT"
 ]

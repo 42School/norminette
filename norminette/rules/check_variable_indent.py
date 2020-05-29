@@ -52,7 +52,8 @@ assigns_or_eol = [
     "OR_ASSIGN",
     "ASSIGN",
     "SEMI_COLON",
-    "NEWLINE"
+    "NEWLINE",
+    "COMMA"
 ]
 
 class CheckVariableIndent(Rule):

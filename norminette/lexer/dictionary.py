@@ -34,7 +34,8 @@ keywords = {
     'void': "VOID",
     'volatile': "VOLATILE",
     'while': "WHILE",
-    'inline': "INLINE"
+    'inline': "INLINE",
+    'NULL': "NULL"
 }
 
 preproc_keywords = {

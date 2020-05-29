@@ -100,10 +100,6 @@ class IsFuncPrototype(PrimaryRule):
             return False, 0
 
         if context.check_token(read, "NEWLINE"):
-            context.scope.functions += 1
-            read += 1
-            context.sub = context.scope.inner(Function)
-            read = context.eol(read)
             return False, 0
 
         elif context.check_token(read, "SEMI_COLON"):

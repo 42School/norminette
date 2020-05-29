@@ -14,7 +14,7 @@ from tools.colors import colors
 
 has_err = False
 
-if __name__ == "__main__":
+def main():
     args = sys.argv
     args.pop(0)
     registry = Registry()
@@ -61,3 +61,6 @@ if __name__ == "__main__":
                     print(target + f": KO!\n\t{colors(e.msg, 'red')}")
 
     sys.exit(1 if has_err else 0)
+
+if __name__ == "__main__":
+    main()
