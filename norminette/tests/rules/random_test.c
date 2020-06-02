@@ -1,2 +1,1 @@
-const
-int	main(void);
+ptr = malloc(sizeof(char) * ++len);

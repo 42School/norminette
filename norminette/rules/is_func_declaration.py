@@ -60,7 +60,9 @@ class IsFuncDeclaration(PrimaryRule):
         return True, i, (True if pp else False)
 
     def check_func_format(self, context):
-        i = context.skip_ws(0, nl=True)
+        i = context.skip_ws(0, nl=False)
+        if context.check_token(i, "NEWLINE") is True:
+            return False, 0
         ret, i = context.check_type_specifier(i, nl=True)
         if ret is False:
             return False, 0

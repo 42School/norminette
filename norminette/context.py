@@ -208,6 +208,33 @@ In \"{self.scope.name}\" from \
             pos += 1
         return pos
 
+
+    def skip_nest_reverse(self, pos):
+        """Skips anything between two brackets, parentheses or braces starting
+            at 'pos', if the brackets, parentheses or braces are not closed or
+            are closed in the wrong order an error shall be raised
+        """
+        rbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
+        lbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
+        c = self.peek_token(pos).type
+        if c not in lbrackets:
+            return pos
+        c = rbrackets[lbrackets.index(c)]
+        i = pos - 1
+        while self.peek_token(i) is not None:
+            if self.check_token(i, lbrackets) is True:
+                i = self.skip_nest(i)
+                if i == -1:
+                    return -1
+            elif self.check_token(i, rbrackets) is True:
+                if c == self.peek_token(i).type:
+                    return i
+            i -= 1
+        raise CParsingError("Nested parentheses, braces or brackets\
+ are not correctly closed")
+
+        return -1
+
     def skip_nest(self, pos):
         """Skips anything between two brackets, parentheses or braces starting
             at 'pos', if the brackets, parentheses or braces are not closed or
@@ -318,8 +345,11 @@ In \"{self.scope.name}\" from \
         pos -= 1
         if self.history[-1] == "IsFuncPrototype" or self.history[-1] == "IsFuncDeclaration":
             return False
+        skip = 0
         while pos > 0:
-            if self.check_token(pos, ["IDENTIFIER", "CONSTANT"]) is True:
+            if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
+                pos = self.skip_nest_reverse(pos) - 1
+            if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF"]) is True:
                 return True
             elif self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND"] + operators):
                 return False

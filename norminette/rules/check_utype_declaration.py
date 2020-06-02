@@ -49,7 +49,13 @@ class CheckUtypeDeclaration(Rule):
             if context.check_token(i, "TYPEDEF") is True:
                 is_td = True
             if context.check_token(i, "IDENTIFIER") is True:
-                ids.append((context.peek_token(i), i))
+                if context.check_token(i - 1, ["MULT", "BWISE_AND"]) is True:
+                    tmp = i - 1
+                    while context.check_token(tmp, ["MULT", "BWISE_AND"]) is True and context.is_operator(tmp) == False:
+                        tmp -= 1
+                    ids.append((context.peek_token(tmp), tmp))
+                else:
+                    ids.append((context.peek_token(i), i))
             if context.check_token(i, 'LBRACE') is True:
                 contain_full_def = True
                 i = context.skip_nest(i)
@@ -91,7 +97,7 @@ class CheckUtypeDeclaration(Rule):
                         tmp -= 1
                     continue
                 if context.check_token(tmp, "TAB") is True:
-                    context.new_error("SPACE_REPLACE_TAB", context.peek_token(tmp))
+                    context.new_error("TAB_REPLACE_SPACE", context.peek_token(tmp))
                 tmp -= 1
         if contain_full_def == False:
             if context.scope.name == "GlobalScope":

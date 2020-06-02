@@ -1,6 +1,6 @@
 typedef struct s_toto	t_toto;
 union u_toto				var;
-int							g_int;
+int							g_int, _var;
 
 typedef struct s_toto {
 	struct s_toto	plait;
