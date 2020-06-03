@@ -57,6 +57,7 @@ class CheckPreprocessorDefine(Rule):
             context.new_error("PREPROC_CONSTANT", context.peek_token(0))
         elif len(tkns) > i and tkns[i].type not in ["STRING", "CONSTANT"]:
             context.new_error("PREPROC_CONSTANT", context.peek_token(0))
+        i += 1
         while len(tkns) > i and tkns[i].type in ['SPACE', 'TAB']:
             i += 1
         if len(tkns) > i and tkns[i].type != 'NEWLINE':

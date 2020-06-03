@@ -56,8 +56,10 @@ def main():
                         has_err = True
                 # except (TokenError, CParsingError) as e:
                 except TokenError as e:
+                    has_err = True
                     print(target + f": KO!\n\t{colors(e.msg, 'red')}")
                 except CParsingError as e:
+                    has_err = True
                     print(target + f": KO!\n\t{colors(e.msg, 'red')}")
 
     sys.exit(1 if has_err else 0)

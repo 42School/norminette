@@ -336,6 +336,34 @@ In \"{self.scope.name}\" from \
             return True, i
         return False, pos
 
+    def is_glued_operator(self, pos):
+        """
+        Returns True if operator (among +-) at given pos is glued to identifier, number 
+        or constant
+        """
+        not_glued = [
+            'IDENTIFIER'
+        ]
+        glued = [
+            'LPARENTHESIS',
+            'LBRACKET',
+            'LBRACE',
+        ]
+        glued = glued + operators
+        start = pos
+        if self.check_token(pos, ['PLUS', 'MINUS']) is False:
+            return False
+        pos += 1
+        pos = self.skip_ws(pos, nl=False)
+        if self.check_token(pos, ['IDENTIFIER', 'CONSTANT']) is False:
+            return False
+        pos = start - 1
+        while (self.check_token(pos, ["SPACE", "TAB"])) is True:
+            pos -= 1
+        if self.check_token(pos, glued) is True:
+            return True
+        return False
+
     def is_operator(self, pos):
         """
         Returns True if the given operator (among '*&') is an actual operator,

@@ -30,6 +30,6 @@ class CheckBrace(Rule):
                         context.new_error("BRACE_SHOULD_EOL", context.peek_token(i - 1))
             else:
                 context.new_error("BRACE_SHOULD_EOL", context.peek_token(i - 1))
-        if context.scope.name == "Function" and context.scope.lines > 25:
+        if context.scope.name == "Function" and context.scope.lines > 26:
             context.new_error("TOO_MANY_LINES", context.peek_token(i))
         return False, 0
