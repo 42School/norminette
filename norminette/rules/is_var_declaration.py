@@ -99,7 +99,8 @@ class IsVarDeclaration(PrimaryRule):
         ret, i = context.check_type_specifier(0)
         if ret is False:
             return False, 0
-
+        if context.check_token(i - 1, ['SPACE', 'TAB']) is False:
+            return False, 0
         ret, i = self.var_declaration(context, i)
         if ret is False:
             return False, 0
@@ -110,4 +111,3 @@ class IsVarDeclaration(PrimaryRule):
                 i = context.eol(i)
                 return True, i
         return False, 0
-
