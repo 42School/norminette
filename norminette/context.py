@@ -24,7 +24,32 @@ utypes = [
     "UNION"
 ]
 
-operators = [
+glued_operators = [
+    "MINUS",
+    "PLUS",
+    "MULT",
+    "DIV",
+    "MODULO",
+    "TERN_CONDITION",
+    "COMMA",
+    "GOTO",
+    "LABEL",
+    "SWITCH",
+    "CASE",
+    "LESS_OR_EQUAL",
+    "GREATER_OR_EQUAL",
+    "EQUALS",
+    "NOT_EQUAL",
+    "LESS_THAN",
+    "MORE_THAN",
+    "BWISE_XOR",
+    "BWISE_OR",
+    "BWISE_NOT",
+    "BWISE_AND",
+    "RIGHT_SHIFT",
+    "LEFT_SHIFT",
+    "TERN_CONDITION",
+    "ASSIGN",
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
     "ADD_ASSIGN",
@@ -35,6 +60,9 @@ operators = [
     "AND_ASSIGN",
     "XOR_ASSIGN",
     "OR_ASSIGN",
+]
+
+operators = [
     "LESS_OR_EQUAL",
     "GREATER_OR_EQUAL",
     "EQUALS",
@@ -67,7 +95,6 @@ operators = [
     "SWITCH",
     "CASE"
 ]
-
 misc_specifiers = [
     "CONST",
     "REGISTER",
@@ -263,7 +290,7 @@ In \"{self.scope.name}\" from \
 
     def skip_misc_specifier(self, pos, nl=False):
         i = self.skip_ws(pos, nl=nl)
-        if self.check_token(i, misc_specifiers):
+        while self.check_token(i, misc_specifiers):
             i += 1
             i = self.skip_ws(i, nl=nl)
         return i
@@ -349,7 +376,7 @@ In \"{self.scope.name}\" from \
             'LBRACKET',
             'LBRACE',
         ]
-        glued = glued + operators
+        glued = glued + glued_operators
         start = pos
         if self.check_token(pos, ['PLUS', 'MINUS']) is False:
             return False

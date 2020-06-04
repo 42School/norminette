@@ -183,7 +183,7 @@ class CheckOperatorsSpacing(Rule):
 
 
     def check_combined_op(self, context, pos):
-        lpointer = ["SPACE", "TAB", "LPARENTHESIS", "LBRACKET", "MULT", "NOT"]
+        lpointer = ["SPACE", "TAB", "LPARENTHESIS", "LBRACKET", "MULT", "NOT", "RPARENTHESIS", "RBRACKET", "RBRACE"]
         lsign = operators + ["LBRACKET"]
         i = 0
         if context.peek_token(pos).type == "MULT":

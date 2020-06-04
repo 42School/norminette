@@ -75,6 +75,7 @@ digits or '_'",
     "TERNARY_FBIDDEN": "Ternaries are forbidden",
     "TOO_MANY_VALS": "Too many values on define",
     "NEWLINE_IN_DECL": "Newline in function declaration",
+    "MULT_IN_SINGLE_INSTR": "Multiple instructions in single line control structure",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

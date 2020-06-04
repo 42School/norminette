@@ -17,8 +17,6 @@ operators = [
     "NOT_EQUAL",
     "ASSIGN",
     "SEMI_COLON",
-    "COLON",
-    "COMMA",
     "DOT",
     "NOT",
     "MINUS",
@@ -28,9 +26,6 @@ operators = [
     "MODULO",
     "LESS_THAN",
     "MORE_THAN",
-    "ELLIPSIS",
-    "INC",
-    "DEC",
     "PTR",
     "AND",
     "OR",
@@ -40,7 +35,6 @@ operators = [
     "BWISE_AND",
     "RIGHT_SHIFT",
     "LEFT_SHIFT",
-    "TERN_CONDITION"
 ]
 
 nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]

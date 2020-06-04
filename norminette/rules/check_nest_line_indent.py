@@ -1,7 +1,42 @@
 from rules import Rule
 from scope import *
 
-
+operators = [
+    "RIGHT_ASSIGN",
+    "LEFT_ASSIGN",
+    "ADD_ASSIGN",
+    "SUB_ASSIGN",
+    "MUL_ASSIGN",
+    "DIV_ASSIGN",
+    "MOD_ASSIGN",
+    "AND_ASSIGN",
+    "XOR_ASSIGN",
+    "OR_ASSIGN",
+    "LESS_OR_EQUAL",
+    "GREATER_OR_EQUAL",
+    "EQUALS",
+    "NOT_EQUAL",
+    "ASSIGN",
+    "SEMI_COLON",
+    "DOT",
+    "NOT",
+    "MINUS",
+    "PLUS",
+    "MULT",
+    "DIV",
+    "MODULO",
+    "LESS_THAN",
+    "MORE_THAN",
+    "PTR",
+    "AND",
+    "OR",
+    "BWISE_XOR",
+    "BWISE_OR",
+    "BWISE_NOT",
+    "BWISE_AND",
+    "RIGHT_SHIFT",
+    "LEFT_SHIFT",
+]
 nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]
 
 class CheckNestLineIndent(Rule):
@@ -17,7 +52,7 @@ class CheckNestLineIndent(Rule):
                 i += 1
                 i = self.find_nest_content(context, nest, i)
             elif context.check_token(i, "NEWLINE") is True:
-                if context.check_token(i - 1, ["OR", "AND"]):
+                if context.check_token(i - 1, operators):
                     context.new_error("EOL_OPERATOR", context.peek_token(i - 1))
                 indent = 0
                 i += 1

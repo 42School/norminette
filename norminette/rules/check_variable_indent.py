@@ -1,6 +1,7 @@
 from rules import Rule
 from scope import *
 import math
+import string
 
 
 keywords = [
@@ -73,13 +74,18 @@ class CheckVariableIndent(Rule):
         while context.check_token(i, assigns_or_eol) is False:
             if context.check_token(i, keywords) is True:
                 type_identifier_nb += 1
+            if context.check_token(i, ["LPARENTHESIS", "LBRACE", "LBRACKET"]):
+                i = context.skip_nest(i)
             i += 1
         i = 0
         while context.check_token(i, assigns_or_eol) is False:
             if context.check_token(i, "LBRACKET") is True:
                 while context.check_token(i, "RBRACKET") is False:
                     if context.check_token(i, "IDENTIFIER") is True:
-                        context.new_error("VLA_FORBIDDEN", context.peek_token(i))
+                        for c in context.peek_token(i).value:
+                            if c in string.ascii_lowercase:
+                                context.new_error("VLA_FORBIDDEN", context.peek_token(i))
+                                continue
                         return True, i
                     i += 1
             if context.check_token(i, keywords) is True and type_identifier_nb > 0:
@@ -111,11 +117,14 @@ class CheckVariableIndent(Rule):
         i = 0
         identifier = None
         self.check_tabs(context)
-        while context.check_token(i, "SEMI_COLON") is False:
+        while context.check_token(i, ["SEMI_COLON", "COMMA", "ASSIGN"]) is False:
+            if context.check_token(i, ["LBRACKET", "LPARENTHESIS", "LBRACE"]) is True:
+                i = context.skip_nest(i)
             if context.check_token(i, "IDENTIFIER") is True:
-                identifier = context.peek_token(i)
+                ident = (context.peek_token(i), i)
             i += 1
-        i -= 1
+        i = ident[1]
+        identifier = ident[0]
         if context.check_token(i - 1, ["MULT", "BWISE_AND"]) is True:
             i -= 1
             while context.check_token(i, ["MULT", "BWISE_AND"]) is True \
@@ -128,7 +137,3 @@ class CheckVariableIndent(Rule):
             context.new_error("MISALIGNED_VAR_DECL", context.peek_token(i))
             return True, i
         return False, 0
-
-
-
-

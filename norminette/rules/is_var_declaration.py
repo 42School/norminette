@@ -32,27 +32,31 @@ class IsVarDeclaration(PrimaryRule):
         while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "SEMI_COLON"]) is False:
             if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
                 identifier = True
-            if context.check_token(i, lbrackets) is True:
+            elif context.check_token(i, lbrackets) is True:
                 if context.check_token(i, "LBRACE") is True:
                     braces += 1
                 if context.check_token(i, "LBRACKET") is True:
                     brackets += 1
                 if context.check_token(i, "LPARENTHESIS") is True:
                     parenthesis += 1
-            if context.check_token(i, rbrackets) is True:
+            elif context.check_token(i, rbrackets) is True:
                 if context.check_token(i, "RBRACE") is True:
                     braces -= 1
                 if context.check_token(i, "RBRACKET") is True:
                     brackets -= 1
                 if context.check_token(i, "RPARENTHESIS") is True:
                     parenthesis -= 1
-            if context.check_token(i, "ASSIGN") is True:
+            elif context.check_token(i, "ASSIGN") is True:
                 if identifier == False:
                     return False, pos
                 ret, i = self.assignment_right_side(context, i + 1)
                 i -= 1
                 if ret is False:
                     return False, pos
+            elif context.check_token(i, ['SPACE', "TAB", "MULT", "BWISE_AND"]):
+                pass
+            elif parenthesis == 0 and brackets == 0 and braces == 0:
+                return False, 0
             i += 1
         if identifier == False:
             return False, pos
@@ -99,7 +103,7 @@ class IsVarDeclaration(PrimaryRule):
         ret, i = context.check_type_specifier(0)
         if ret is False:
             return False, 0
-        if context.check_token(i - 1, ['SPACE', 'TAB']) is False:
+        if context.check_token(i, ['SPACE', 'TAB']) is False and context.check_token(i - 1, ['SPACE', 'TAB']) is False:
             return False, 0
         ret, i = self.var_declaration(context, i)
         if ret is False:
