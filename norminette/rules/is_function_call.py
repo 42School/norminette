@@ -65,6 +65,27 @@ class IsFunctionCall(PrimaryRule):
 
     def run(self, context):
         i = context.skip_ws(0, nl=False)
+        types = []
+        while context.check_token(i, "LPARENTHESIS") is True:
+            typ, i = context.parenthesis_contain(i)
+            types.append(typ)
+            if typ == None:
+                i = context.skip_ws(i + 1)
+                if context.check_token(i, "IDENTIFIER") is True:
+                    i += 1
+                    i = context.skip_ws(i)
+                    if context.check_token(i, "LPARENTHESIS") is True:
+                        i = context.skip_nest(i)
+                        while context.peek_token(i) is not None and context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
+                            i += 1
+                        if context.peek_token(i) is None or context.check_token(i, "NEWLINE") is True:
+                            return False
+                        i += 1
+                        i = context.eol(i)
+                        return True, i
+            elif typ == "function" or typ == "cast":
+                i += 1
+                i = context.skip_ws(i)
         if context.check_token(i, "IDENTIFIER") is True:
             i += 1
             i = context.skip_ws(i)

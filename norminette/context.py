@@ -431,15 +431,17 @@ In \"{self.scope.name}\" from \
                 while self.check_token(tmp, ws) is True:
                     tmp += 1
                 if self.check_token(tmp, "IDENTIFIER") is True:
-                    return "function", i
+                    return "function", tmp + 1
                 return None, start
             if self.check_token(i, "IDENTIFIER") is True:
                 tmp = i + 1
                 while self.check_token(tmp, ws) is True:
                     tmp += 1
-                if self.check_token(tmp, ["MULT", "RPARENTHESIS"]) is True:
-                    return "cast", i
+                if self.check_token(tmp, "MULT") is True:
+                    return "cast", tmp + 1
+                if self.check_token(tmp, "RPARENTHESIS") is True:
+                    return "cast", tmp
             if self.check_token(i, types) is True:
                 return "cast", i
             i += 1
-        return None, i
+        return None, start
