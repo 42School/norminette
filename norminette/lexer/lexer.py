@@ -363,7 +363,6 @@ class Lexer:
         pos = self.line_pos()
         tkn_value = ""
         while self.peek_char():
-            print (self.peek_char())
             tkn_value += self.peek_char()
             self.pop_char()
             #if self.peek_sub_string(2) == "\\\n":

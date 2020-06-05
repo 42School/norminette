@@ -402,7 +402,6 @@ In \"{self.scope.name}\" from \
         if self.history[-1] == "IsFuncPrototype" or self.history[-1] == "IsFuncDeclaration":
             return False
         start = self.skip_ws(start, nl=False)
-        print (self.peek_token(start))
         if self.check_token(start, "RPARENTHESIS") is True:
             return False
         skip = 0
