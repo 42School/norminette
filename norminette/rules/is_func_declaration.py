@@ -64,7 +64,6 @@ class IsFuncDeclaration(PrimaryRule):
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
         ret, i = context.check_type_specifier(i, nl=True)
-        print (ret, context.peek_token(i))
         if ret is False:
             return False, 0
         name_pos = i

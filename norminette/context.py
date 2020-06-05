@@ -397,8 +397,13 @@ In \"{self.scope.name}\" from \
         and returns False if said operator is a pointer/adress indicator
         """
         i = 0
+        start = pos + 1
         pos -= 1
         if self.history[-1] == "IsFuncPrototype" or self.history[-1] == "IsFuncDeclaration":
+            return False
+        start = self.skip_ws(start, nl=False)
+        print (self.peek_token(start))
+        if self.check_token(start, "RPARENTHESIS") is True:
             return False
         skip = 0
         while pos > 0:
@@ -409,3 +414,32 @@ In \"{self.scope.name}\" from \
             elif self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND"] + operators):
                 return False
             pos -= 1
+
+    def parenthesis_contain(self, i):
+        start = i
+        ws = ["SPACE", "TAB", "NEWLINE"]
+        if self.check_token(i, "RPARENTHESIS") is True:
+            while i > 0 and self.check_token(i, "LPARENTHESIS") is False:
+                i -= 1
+        if self.check_token(i, "LPARENTHESIS") is False:
+            return None, start
+        while self.check_token(i, "RPARENTHESIS") is False:
+            if self.check_token(i, ws) is True:
+                pass
+            if self.check_token(i, ["MULT"]):
+                tmp = i + 1
+                while self.check_token(tmp, ws) is True:
+                    tmp += 1
+                if self.check_token(tmp, "IDENTIFIER") is True:
+                    return "function", i
+                return None, start
+            if self.check_token(i, "IDENTIFIER") is True:
+                tmp = i + 1
+                while self.check_token(tmp, ws) is True:
+                    tmp += 1
+                if self.check_token(tmp, ["MULT", "RPARENTHESIS"]) is True:
+                    return "cast", i
+            if self.check_token(i, types) is True:
+                return "cast", i
+            i += 1
+        return None, i

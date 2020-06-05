@@ -8,7 +8,6 @@ from context import Context
 from tools.colors import colors
 # import sentry_sdk
 
-
 # sentry_sdk.init("https://e67d9ba802fe430bab932d7b11c9b028@sentry.42.fr/72")
 
 
