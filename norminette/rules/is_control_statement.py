@@ -1,5 +1,5 @@
 from rules import PrimaryRule
-from context import ControlStructure, Function
+from context import ControlStructure, Function, GlobalScope
 from exceptions import CParsingError
 
 cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH", "CASE", "DEFAULT"]
@@ -19,9 +19,19 @@ class IsControlStatement(PrimaryRule):
         if context.check_token(i, ["SWITCH", "CASE", "DEFAULT"]) is True:
             i += 1
             i = context.skip_ws(i, nl=False)
-            if context.check_token(i, "CONSTANT") is True:
+            if context.check_token(i, "LPARENTHESIS") is True:
                 i += 1
+            i = context.skip_ws(i, nl=False)
+            if context.check_token(i, ["CONSTANT", "IDENTIFIER"]) is True:
+                i += 1
+            i = context.skip_ws(i, nl=False)
+            context.sub = context.scope.inner(ControlStructure)
+            context.sub.multiline = False
             if context.check_token(i, "COLON") is True:
+                i += 1
+                i = context.eol(i)
+                return True, i
+            else:
                 i += 1
                 i = context.eol(i)
                 return True, i

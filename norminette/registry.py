@@ -25,6 +25,7 @@ class Registry:
 #        print(context.history, context.tokens[:5], rule)
         if ret is True:
             if rule.name.startswith("Is"):
+                print ("Line", context.tokens[0].pos[0])
                 context.tkn_scope = read
                 context.history.append(rule.name)
             for r in self.dependencies.get(rule.name, []):

@@ -363,10 +363,11 @@ class Lexer:
         pos = self.line_pos()
         tkn_value = ""
         while self.peek_char():
+            print (self.peek_char())
             tkn_value += self.peek_char()
             self.pop_char()
-            if self.peek_sub_string(2) == "\\\n":
-                raise TokenError(self.line_pos())
+            #if self.peek_sub_string(2) == "\\\n":
+            #    raise TokenError(self.line_pos())
             if self.peek_sub_string(2) in ["//", "/*"] \
                     or self.peek_char() == '\n':
                 break
@@ -385,7 +386,6 @@ class Lexer:
             and current file's parsing will stop
         """
         while self.peek_char() is not None:
-
             if self.is_string():
                 self.string()
 

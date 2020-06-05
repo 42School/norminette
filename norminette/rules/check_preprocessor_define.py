@@ -27,6 +27,9 @@ class CheckPreprocessorDefine(Rule):
         content = Lexer(val)
         tkns = content.get_tokens()
         i = 1
+        for tkn in tkns:
+            if tkn.type == "ESCAPED_NEWLINE":
+                context.new_error("NEWLINE_DEFINE", tkn)
         while tkns[i] in ["TAB", "SPACE"]:
             i += 1
         if tkns[i].type == "IDENTIFIER" and tkns[i].value.isupper() is False:
