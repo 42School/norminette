@@ -25,13 +25,15 @@ class CheckAssignation(Rule):
         tmp_typ = None
         while context.check_token(i, "SEMI_COLON") is False:
             if context.check_token(i, "LPARENTHESIS") is True:
+                print (context.peek_token(i), i)
                 tmp_typ, i = context.parenthesis_contain(i)
+                print (context.peek_token(i), i)
                 if tmp_typ != None:
                     typ = tmp_typ
                 if tmp_typ is None:
                     tmp = i + 1
                     while context.check_token(tmp, "RPARENTHESIS") is False:
-                        if context.check_token(tmp, "COMMA") is True and typ != "function":
+                        if context.check_token(tmp, "COMMA") is True and typ != "function" and typ is not None:
                             context.new_error("TOO_MANY_INSTR", context.peek_token(tmp))
                         tmp += 1
             if context.check_token(i, assigns) is True:

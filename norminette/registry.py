@@ -21,11 +21,15 @@ class Registry:
             r.register(self)
 
     def run_rules(self, context, rule):
+        #if rule.name.startswith("Is"):
+        #    print (rule.name)
         ret, read = rule.run(context)
-#        print(context.history, context.tokens[:5], rule)
+        #print(context.history, context.tokens[:5], rule)
+        #if rule.name.startswith("Is"):
+            #print (rule.name, ret)
         if ret is True:
             if rule.name.startswith("Is"):
-                print ("Line", context.tokens[0].pos[0], rule.name)
+                #print ("Line", context.tokens[0].pos[0], rule.name)
                 context.tkn_scope = read
                 context.history.append(rule.name)
             for r in self.dependencies.get(rule.name, []):

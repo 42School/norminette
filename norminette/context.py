@@ -101,7 +101,8 @@ misc_specifiers = [
     "STATIC",
     "VOLATILE",
     "EXTERN",
-    "INLINE"
+    "INLINE",
+    "RESTRICT"
 ]
 
 size_specifiers = [

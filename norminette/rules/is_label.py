@@ -10,9 +10,10 @@ class IsLabel(PrimaryRule):
         if context.check_token(i, "IDENTIFIER") is False:
             return False, 0
         i += 1
-        i = context.skip_ws(0)
+        i = context.skip_ws(i)
         if context.check_token(i, "COLON") is False:
             return False, 0
-        i += 1
+        while context.check_token(i, "NEWLINE") is False:
+            i += 1
         i = context.eol(i)
         return True, i

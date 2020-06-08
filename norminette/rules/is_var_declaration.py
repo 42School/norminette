@@ -15,8 +15,8 @@ class IsVarDeclaration(PrimaryRule):
 
     def assignment_right_side(self, context, pos):
         sep = ["COMMA", "SEMI_COLON", "ASSIGN"]
-        i = context.skip_ws(pos)
-        while context.check_token(i, sep) is False:
+        i = context.skip_ws(pos, nl=True)
+        while context.peek_token(i) and context.check_token(i, sep) is False:
             if context.check_token(i, lbrackets) is True:
                 i = context.skip_nest(i)
             i += 1
@@ -53,7 +53,7 @@ class IsVarDeclaration(PrimaryRule):
                 i -= 1
                 if ret is False:
                     return False, pos
-            elif context.check_token(i, ['SPACE', "TAB", "MULT", "BWISE_AND"]):
+            elif context.check_token(i, ["NEWLINE", 'SPACE', "TAB", "MULT", "BWISE_AND", "NEWLINE"]):
                 pass
             elif parenthesis == 0 and brackets == 0 and braces == 0:
                 return False, 0

@@ -46,6 +46,7 @@ def main():
         else:
             with open(target) as f:
                 try:
+                    print ("Running on", target)
                     source = f.read()
                     lexer = Lexer(source)
                     tokens = lexer.get_tokens()

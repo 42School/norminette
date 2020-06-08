@@ -16,7 +16,7 @@ class CheckPreprocessorInclude(Rule):
         if type(context.scope) is not GlobalScope or context.scope.include_allowed == False:
             context.new_error("INCLUDE_START_FILE", context.peek_token(i))
             return True, i
-        val = context.peek_token(i).value.split("#include", 1)[1]
+        val = context.peek_token(i).value.split("include", 1)[1]
         content = Lexer(val)
         tkns = content.get_tokens()
         i = 1

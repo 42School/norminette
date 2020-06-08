@@ -46,6 +46,7 @@ class CheckIdentifierName(Rule):
                         err = None
                 if err is not None:
                     context.new_error(err[0], err[1])
+                    break
             i += 1
             #elif context.peek_token(i) == "DEFINE":
                 #content = Lexer(context.peek_token(i).value)

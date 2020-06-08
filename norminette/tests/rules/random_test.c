@@ -1,6 +1,9 @@
+#define TOTO		TUTU		/* awda awd */
+
+
 typedef enum
 {
-	int	a;
-}	t_toto;
-
-int i = 0;
+	TOTO = 0,
+	TUTU,
+	TITI,
+} sf_toto;

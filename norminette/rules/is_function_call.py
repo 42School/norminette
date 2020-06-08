@@ -79,7 +79,7 @@ class IsFunctionCall(PrimaryRule):
                         while context.peek_token(i) is not None and context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
                             i += 1
                         if context.peek_token(i) is None or context.check_token(i, "NEWLINE") is True:
-                            return False
+                            return False, 0
                         i += 1
                         i = context.eol(i)
                         return True, i

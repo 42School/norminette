@@ -61,6 +61,12 @@ class CheckUtypeDeclaration(Rule):
                 i = context.skip_nest(i)
             i += 1
         check = -1
+        print (ids, len(ids))
+        print (is_td)
+        if is_td == True and len(ids) < 2:
+            print ('a')
+            context.new_error("MISSING_TYPEDEF_ID", context.peek_token(0))
+            return False, 0
         if contain_full_def == False and is_td == False and len(ids) > 1:
             check = -2
         else:

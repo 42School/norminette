@@ -32,7 +32,8 @@ class IsControlStatement(PrimaryRule):
                 i = context.eol(i)
                 return True, i
             else:
-                i += 1
+                while context.check_token(i, ["NEWLINE"]) is False:
+                    i += 1
                 i = context.eol(i)
                 return True, i
         if context.check_token(i, "ELSE") is True:
