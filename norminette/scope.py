@@ -14,6 +14,7 @@ class Scope:
         self.fdeclarations_allowed = False  # False everywhere but GlobalScope
         self.multiline = False
         self.header_protection = -1
+        self.tmp_scope = None
 
     def inner(self, sub):
         return sub(self)
@@ -34,7 +35,6 @@ class GlobalScope(Scope):
         self.fnames = []
         self.functions = 0
         self.func_alignment = 0
-
 
 class Function(Scope):
     """
@@ -61,6 +61,15 @@ class ControlStructure(Scope):
 
 
 class UserDefinedType(Scope):
+    """
+    User defined type scope (struct, union, enum), only variables declarations
+    are allowed within this scope
+    """
+    def __init__(self, parent, typedef=False):
+        super().__init__(parent)
+        self.typedef = typedef
+
+class UserDefinedEnum(Scope):
     """
     User defined type scope (struct, union, enum), only variables declarations
     are allowed within this scope

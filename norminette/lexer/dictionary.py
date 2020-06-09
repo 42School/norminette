@@ -45,8 +45,8 @@ preproc_keywords = {
     'endif': "ENDIF",
     'ifdef': "IFDEF",
     'ifndef': "IFNDEF",
-    'if': "IF",
-    'else': "ELSE",
+    'if': "#IF",
+    'else': "#ELSE",
     'include': "INCLUDE",
     'pragma': "PRAGMA",
     'undef': "UNDEF"

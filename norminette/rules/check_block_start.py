@@ -8,6 +8,21 @@ class CheckBlockStart(Rule):
 
     def run(self, context):
         outer = context.scope.get_outer()
+        if len(context.history) > 2:
+            i = 0
+            for item in context.history[::]:
+                if item != "IsEmptyLine":
+                    if i == 2:
+                        hist_1 = item
+                    elif i == 3:
+                        hist_2 = item
+                    i += 1
+            if type(context.scope) is GlobalScope and context.tmp_scope is not None \
+            and hist_1 == "IsFuncDeclaration" and hist_2 == "IsPreprocessorStatement":
+                context.scope.functions -= 1
+                context.scope = context.tmp_scope
+                context.scope.multiline = True
+                context.tmp_scope = None
         if type(context.scope) == ControlStructure and outer is not None and type(outer) == ControlStructure:
             if outer.multiline == False:
                 context.new_error("MULT_IN_SINGLE_INSTR", context.peek_token(0))

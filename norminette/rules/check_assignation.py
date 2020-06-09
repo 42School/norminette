@@ -25,9 +25,7 @@ class CheckAssignation(Rule):
         tmp_typ = None
         while context.check_token(i, "SEMI_COLON") is False:
             if context.check_token(i, "LPARENTHESIS") is True:
-                print (context.peek_token(i), i)
                 tmp_typ, i = context.parenthesis_contain(i)
-                print (context.peek_token(i), i)
                 if tmp_typ != None:
                     typ = tmp_typ
                 if tmp_typ is None:

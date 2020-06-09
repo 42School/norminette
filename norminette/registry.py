@@ -3,13 +3,8 @@ from context import Context
 from functools import cmp_to_key
 from exceptions import CParsingError
 
-
-
-
-
 def sort_errs(a, b):
     return a.col - b.col if a.line == b.line else a.line - b.line
-
 
 class Registry:
     global has_err

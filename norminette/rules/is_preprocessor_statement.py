@@ -7,9 +7,9 @@ pp_keywords = [
                 "INCLUDE",
                 "UNDEF",
                 "DEFINE",
-                "IF",
+                "#IF",
                 "ELIF",
-                "ELSE",
+                "#ELSE",
                 "IFDEF",
                 "IFNDEF",
                 "ENDIF"]

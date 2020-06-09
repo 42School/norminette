@@ -4,7 +4,8 @@ from context import (
                     Function,
                     UserDefinedType,
                     VariableAssignation,
-                    ControlStructure)
+                    ControlStructure,
+                    UserDefinedEnum)
 
 
 class IsBlockEnd(PrimaryRule):
@@ -33,7 +34,7 @@ class IsBlockEnd(PrimaryRule):
         else:
             context.scope.multiline = False
         i += 1
-        if type(context.scope) is UserDefinedType:
+        if type(context.scope) in (UserDefinedType, UserDefinedEnum):
             i = context.skip_ws(i)
             if context.check_token(i, "TYPEDEF") is True:
                 i += 1

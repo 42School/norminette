@@ -26,7 +26,7 @@ class CheckFuncDeclaration(Rule):
             context.new_error("NEWLINE_IN_DECL", context.peek_token(tmp))
         #this is a func declaration
         if context.check_token(tmp, "SEMI_COLON") is False:
-            if len(context.history) > 1 and context.history[-2] != "IsEmptyLine" and context.history[-1] == 'IsFuncDeclaration':
+            if len(context.history) > 1 and context.history[-2] != "IsEmptyLine" and context.history[-2] != "IsPreprocessorStatement" and context.history[-1] == 'IsFuncDeclaration':
                 context.new_error("NEWLINE_PRECEDES_FUNC", context.peek_token(i))
         #this is a func prototype
 

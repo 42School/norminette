@@ -1,5 +1,6 @@
 from lexer import Token
 from rules import PrimaryRule
+from scope import *
 from context import (
                     Function,
                     UserDefinedType,
@@ -15,7 +16,9 @@ class IsBlockStart(PrimaryRule):
                         Function,
                         UserDefinedType,
                         VariableAssignation,
-                        ControlStructure]
+                        ControlStructure,
+                        UserDefinedEnum,
+                        GlobalScope]
 
     def run(self, context):
         i = context.skip_ws(0, nl=False)
