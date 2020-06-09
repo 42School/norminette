@@ -117,7 +117,7 @@ class CheckVariableIndent(Rule):
         i = 0
         identifier = None
         self.check_tabs(context)
-        while context.check_token(i, ["SEMI_COLON", "COMMA", "ASSIGN"]) is False:
+        while context.peek_token(i) and context.check_token(i, ["SEMI_COLON", "COMMA", "ASSIGN"]) is False:
             if context.check_token(i, ["LBRACKET", "LPARENTHESIS", "LBRACE"]) is True:
                 i = context.skip_nest(i)
             if context.check_token(i, "IDENTIFIER") is True:

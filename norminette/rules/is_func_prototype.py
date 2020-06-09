@@ -26,7 +26,6 @@ misc_identifier = [
     "RESTRICT",
     "SIGNED",
     "UNSIGNED",
-    "LONG",
     "SHORT",
     "TYPEDEF",
     "STRUCT",
