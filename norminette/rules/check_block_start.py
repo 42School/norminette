@@ -17,7 +17,7 @@ class CheckBlockStart(Rule):
                     elif i == 3:
                         hist_2 = item
                     i += 1
-            if type(context.scope) is GlobalScope and context.tmp_scope is not None \
+            if type(context.scope) is GlobalScope and context.scope.tmp_scope is not None \
             and hist_1 == "IsFuncDeclaration" and hist_2 == "IsPreprocessorStatement":
                 context.scope.functions -= 1
                 context.scope = context.tmp_scope

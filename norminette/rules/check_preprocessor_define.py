@@ -20,6 +20,9 @@ class CheckPreprocessorDefine(Rule):
         return i
 
     def check_function_declaration(self, context):
+        i = context.skip_ws(0)
+        if context.check_token(i, ['#IF', "#ELSE", "IFDEF", "IFNDEF"]) is False:
+            return
         context.tmp_scope = context.scope
         context.scope = context.scope.get_outer()
 

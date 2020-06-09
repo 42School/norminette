@@ -96,4 +96,8 @@ class IsFunctionCall(PrimaryRule):
                 i += 1
                 i = context.eol(i)
                 return True, i
+        elif len(types) > 1 and typ == "cast" and types[-2] == "function":
+            i += 1
+            i = context.eol(i)
+            return True, i
         return False, 0

@@ -103,6 +103,8 @@ misc_specifiers = [
     "EXTERN",
     "INLINE",
     "RESTRICT"
+    "SIGNED",
+    "UNSIGNED",
 ]
 
 size_specifiers = [

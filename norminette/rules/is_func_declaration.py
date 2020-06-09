@@ -104,7 +104,7 @@ class IsFuncDeclaration(PrimaryRule):
         args = False
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
-        while context.peek_token(i) and context.check_token(i, "NEWLINE") is False:
+        while context.peek_token(i): #and context.check_token(i, "NEWLINE") is False:
             if context.check_token(i, misc_identifier) is True:
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
@@ -115,6 +115,12 @@ class IsFuncDeclaration(PrimaryRule):
                 if identifier is not None:
                     type_id.append(identifier[0])
                 identifier = (context.peek_token(i), i)
+            if context.check_token(i, "NEWLINE") is True:
+                if args == False:
+                    i += 1
+                    continue
+                else:
+                    break
             if context.check_token(i, "LPARENTHESIS") is True:
                 par = context.parenthesis_contain(i)
                 if par[0] == "function":
@@ -131,43 +137,19 @@ class IsFuncDeclaration(PrimaryRule):
                 i += 1
         if len(type_id) > 0 and args == True:
             i = identifier[1]
+            i = context.skip_ws(i, nl=True)
             while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
                 i += 1
             context.scope.fnames.append(context.peek_token(i).value)
             context.fname_pos = i
             context.arg_pos = [arg_start, arg_end]
             i += 1
+            i = context.skip_ws(i, nl=True)
             while context.check_token(i, ["RPARENTHESIS"]) is True:
                 i += 1
             i = context.skip_nest(i)
             return True, i + 1
         return False, 0
-        #ret, i = context.check_type_specifier(i, nl=True)
-        """if ret is False:
-            return False, 0
-        name_pos = i
-        ret, i, fp = self.check_func_identifier(context, i)
-        if ret is False:
-            return False, 0
-
-        arg_start = i
-        while context.peek_token(name_pos).type != "IDENTIFIER":
-            name_pos += 1
-        ret, i = self.check_args(context, i)
-        if ret is False:
-            return False, 0
-
-        if fp is True:
-            ret, i = self.check_args(context, i)
-        arg_end = i
-        context.scope.fnames.append(context.peek_token(name_pos).value)
-        context.fname_pos = name_pos
-        context.arg_pos = [arg_start, arg_end]
-
-        while context.check_token(i, ["RPARENTHESIS"] + whitespaces):
-            i += 1
-"""
-        return True, i
 
     def run(self, context):
 
