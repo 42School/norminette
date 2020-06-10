@@ -15,6 +15,7 @@ class Scope:
         self.multiline = False
         self.header_protection = -1
         self.tmp_scope = None
+        self.include_allowed = False
 
     def inner(self, sub):
         return sub(self)
@@ -31,10 +32,10 @@ class GlobalScope(Scope):
     def __init__(self):
         super().__init__()
         self.fdeclarations_allowed = True
-        self.include_allowed = True
         self.fnames = []
         self.functions = 0
         self.func_alignment = 0
+        self.include_allowed = True
 
 class Function(Scope):
     """

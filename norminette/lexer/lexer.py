@@ -365,7 +365,9 @@ class Lexer:
         while self.peek_char():
             tkn_value += self.peek_char()
             self.pop_char()
-            #if self.peek_sub_string(2) == "\\\n":
+            if self.peek_sub_string(2) == "\\\n":
+                self.__line_pos = 1
+                self.__line += 1
             #    raise TokenError(self.line_pos())
             if self.peek_sub_string(2) in ["//", "/*"] \
                     or self.peek_char() == '\n':

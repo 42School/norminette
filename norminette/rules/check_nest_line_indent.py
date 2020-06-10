@@ -60,9 +60,9 @@ class CheckNestLineIndent(Rule):
                     indent += 1
                     i += 1
                 if indent > expected:
-                    context.new_error("TOO_MANY_TAB", context.peek_token(i))
+                    context.new_error("TOO_MANY_TAB", context.peek_token(0))
                 elif indent < expected:
-                    context.new_error("TOO_FEW_TAB", context.peek_token(i))
+                    context.new_error("TOO_FEW_TAB", context.peek_token(0))
             elif context.check_token(i, "RPARENTHESIS"):
                 return i
             i += 1

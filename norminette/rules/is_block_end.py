@@ -18,7 +18,8 @@ class IsBlockEnd(PrimaryRule):
         i = context.skip_ws(pos)
         if context.check_token(i, "IDENTIFIER") is False:
             return False, 0
-        i += 1
+        while context.check_token(i, ["IDENTIFIER", "SPACE", "TAB"]):
+            i += 1
         i = context.skip_ws(i)
         if context.check_token(i, "SEMI_COLON") is False:
             return False, 0

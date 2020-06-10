@@ -20,7 +20,7 @@ class IsControlStatement(PrimaryRule):
             i += 1
             i = context.skip_ws(i, nl=False)
             if context.check_token(i, "LPARENTHESIS") is True:
-                i += 1
+                i = context.skip_nest(i)
             i = context.skip_ws(i, nl=False)
             if context.check_token(i, ["CONSTANT", "IDENTIFIER"]) is True:
                 i += 1

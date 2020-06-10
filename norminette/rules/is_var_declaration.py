@@ -32,6 +32,12 @@ class IsVarDeclaration(PrimaryRule):
         while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "SEMI_COLON"]) is False:
             if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
                 identifier = True
+            elif context.check_token(i, ["COMMENT", "MULT_COMMENT"]) is True:
+                i += 1
+                continue
+            elif context.check_token(i, ["COLON", "CONSTANT"]) is True and identifier == True:
+                i += 1
+                continue
             elif context.check_token(i, lbrackets) is True:
                 if context.check_token(i, "LBRACE") is True:
                     braces += 1

@@ -186,7 +186,7 @@ class Context:
             after a primary rule has succeeded.
             Do nothing on empty lines since they can be anywhere
         """
-        if len(self.history) > 0 and self.history[-1] == "IsEmptyLine":
+        if len(self.history) > 0 and (self.history[-1] == "IsEmptyLine" or self.history[-1] == "IsComment" or self.history[-1] == "IsPreprocessorStatement"):
             return
         if self.sub is not None:
             self.scope = self.sub
