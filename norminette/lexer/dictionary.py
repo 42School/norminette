@@ -43,6 +43,7 @@ preproc_keywords = {
     'define': "DEFINE",
     'error': "ERROR",
     'endif': "ENDIF",
+    'elif': "ELIF",
     'ifdef': "IFDEF",
     'ifndef': "IFNDEF",
     'if': "#IF",

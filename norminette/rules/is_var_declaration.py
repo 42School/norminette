@@ -6,6 +6,32 @@ from context import GlobalScope, UserDefinedType, ControlStructure, Function
 lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
 rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
 
+misc_specifiers = [
+    "CONST",
+    "REGISTER",
+    "STATIC",
+    "VOLATILE",
+    "EXTERN",
+    "INLINE",
+    "RESTRICT"
+    "SIGNED",
+    "UNSIGNED",
+]
+
+type_specifiers = [
+    "CHAR",
+    "DOUBLE",
+    "ENUM",
+    "FLOAT",
+    "INT",
+    "UNION",
+    "VOID",
+    "LONG",
+    "SHORT",
+    "STRUCT",
+    "ENUM",
+    "UNION"
+]
 
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
@@ -59,7 +85,7 @@ class IsVarDeclaration(PrimaryRule):
                 i -= 1
                 if ret is False:
                     return False, pos
-            elif context.check_token(i, ["NEWLINE", 'SPACE', "TAB", "MULT", "BWISE_AND", "NEWLINE"]):
+            elif context.check_token(i, ['SPACE', "TAB", "MULT", "BWISE_AND", "NEWLINE"] + misc_specifiers + type_specifiers):
                 pass
             elif parenthesis == 0 and brackets == 0 and braces == 0:
                 return False, 0

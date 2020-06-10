@@ -16,7 +16,7 @@ class CheckPreprocessorProtection(Rule):
             return False, 0
         protection = context.filename.upper().split('/')[-1].replace('.', '_')
         val = context.peek_token(i).value.split(' ')[-1]
-        content = Lexer(val)
+        content = Lexer(val, context.peek_token(i).pos[0])
         tkns = content.get_tokens()
         if context.check_token(i, "IFNDEF") is True:
             if tkns[0].value == protection and context.scope.header_protection == -1 and context.preproc_scope_indent == 1:

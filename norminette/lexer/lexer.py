@@ -18,13 +18,13 @@ class TokenError(Exception):
 
 
 class Lexer:
-    def __init__(self, source_code):
+    def __init__(self, source_code, starting_line=1):
         self.src = source_code
         self.len = len(source_code)
         self.__char = self.src[0] if self.src != "" else None
         self.__pos = int(0)
-        self.__line_pos = int(1)
-        self.__line = int(1)
+        self.__line_pos = int(starting_line)
+        self.__line = int(starting_line)
         self.tokens = []
 
     def peek_sub_string(self, size):
@@ -373,7 +373,7 @@ class Lexer:
                     or self.peek_char() == '\n':
                 break
         tkn_key = tkn_value[1:].split()[0]
-        if tkn_key not in preproc_keywords:
+        if tkn_key not in preproc_keywords and tkn_key[:len('include')] != 'include':
             raise TokenError(self.line_pos())
         else:
             self.tokens.append(Token(

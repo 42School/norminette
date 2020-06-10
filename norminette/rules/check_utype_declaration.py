@@ -70,18 +70,20 @@ class CheckUtypeDeclaration(Rule):
             check = -1
         if len(ids) == 0:
             return False, 0
-        name = ids[check][0]
+        name = ids[0][0]
         loc = ids[check][1]
         if is_td == True:
             if ids[check][0].value.startswith('t_') is False:
                 context.new_error("USER_DEFINED_TYPEDEF", context.peek_token(loc))
             if utype is not None:
                 if len(ids) > 1:
-                    name = ids[check - 1][0]
+                    name = ids[0][0]
                 else:
                     pass
                     #raise CParsingError(f"{context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}")
-            loc = ids[check][1]
+            loc = ids[0][1]
+        else:
+            loc = ids[0][1]
         if utype is not None and utype.type == "STRUCT" and name.value.startswith('s_') is False:
             context.new_error("STRUCT_TYPE_NAMING", context.peek_token(loc))
         if utype is not None and utype.type == "UNION" and name.value.startswith('u_') is False:

@@ -344,8 +344,9 @@ In \"{self.scope.name}\" from \
             if self.check_token(i, "IDENTIFIER") is True:
                 i += 1
                 return True, i
-            while self.check_token(i, types + whitespaces) is True:
+            while self.check_token(i, types + whitespaces + ["MULT", "BWISE_AND"]) is True:
                 i += 1
+            i = self.skip_misc_specifier(pos, nl=nl)
             return True, i
 
     def check_identifier(self, pos, nl=False):

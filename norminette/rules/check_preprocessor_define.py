@@ -35,7 +35,7 @@ class CheckPreprocessorDefine(Rule):
         if context.check_token(i, "DEFINE") is False:
             return False, 0
         val = context.peek_token(i).value.split("define")[1]
-        content = Lexer(val)
+        content = Lexer(val, context.peek_token(i).pos[0])
         tkns = content.get_tokens()
         i = 1
         for tkn in tkns:

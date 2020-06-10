@@ -17,7 +17,7 @@ class CheckPreprocessorInclude(Rule):
             context.new_error("INCLUDE_START_FILE", context.peek_token(i))
             return True, i
         val = context.peek_token(i).value.split("include", 1)[1]
-        content = Lexer(val)
+        content = Lexer(val, context.peek_token(i).pos[0])
         tkns = content.get_tokens()
         i = 1
         while context.check_token(i, ["TAB", "SPACE"]):

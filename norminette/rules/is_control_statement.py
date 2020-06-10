@@ -2,20 +2,23 @@ from rules import PrimaryRule
 from context import ControlStructure, Function, GlobalScope
 from exceptions import CParsingError
 
-cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH", "CASE", "DEFAULT"]
+cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH", "CASE", "DEFAULT", "IDENTIFIER"]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
 
 
 class IsControlStatement(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 12
         self.scope = [Function, ControlStructure]
 
     def run(self, context):
+        is_id = False
         i = context.skip_ws(0, nl=False)
         if context.check_token(i, cs_keywords) is False:
             return False, 0
+        if context.check_token(i, "IDENTIFIER") is True:
+            is_id = True
         if context.check_token(i, ["SWITCH", "CASE", "DEFAULT"]) is True:
             i += 1
             i = context.skip_ws(i, nl=False)
@@ -49,8 +52,13 @@ class IsControlStatement(PrimaryRule):
                 context.sub.multiline = False
                 i = context.eol(i)
                 return True, i
-            elif context.check_token(i, "IF") is False:
+            elif context.check_token(i, ["IF", "LBRACE", "COMMENT", "MULT_COMMENT"]) is False:
                 raise CParsingError(f"{context.filename}: Error parsing line {context.peek_token(0).pos[0]}")
+            else:
+                context.sub = context.scope.inner(ControlStructure)
+                context.sub.multiline = False
+                i = context.eol(i)
+                return True, i
         i += 1
         i = context.skip_ws(i, nl=False)
         if context.check_token(i, "LPARENTHESIS") is False:
@@ -59,6 +67,8 @@ class IsControlStatement(PrimaryRule):
         i += 1
         i = context.skip_ws(i, nl=False)
         if context.check_token(i, "SEMI_COLON") is True:
+            if is_id == True:
+                return False, 0
             i += 1
             i = context.eol(i)
             return True, i

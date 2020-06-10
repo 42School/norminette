@@ -14,8 +14,8 @@ class IsAmbiguousDeclaration(PrimaryRule):
 
     def run(self, context):
         i = context.skip_ws(0, nl=False)
-        if context.check_token(i, "SEMI_COLON"):
+        while context.peek_token(i) and context.check_token(i, "NEWLINE") is False:
+            if context.check_token(i, ["SEMI_COLON", "IDENTIFIER", "SPACE", "TAB"]) is False:
+                return False, 0
             i += 1
-            i = context.eol(i)
-            return True, i
-        return False, 0
+        return True, i

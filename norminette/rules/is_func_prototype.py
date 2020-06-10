@@ -136,6 +136,7 @@ class IsFuncPrototype(PrimaryRule):
             context.fname_pos = i
             context.arg_pos = [arg_start, arg_end]
             i += 1
+            i = context.skip_ws(i)
             while context.check_token(i, ["RPARENTHESIS"]) is True:
                 i += 1
             i = context.skip_nest(i)
