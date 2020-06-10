@@ -19,7 +19,7 @@ whitespaces = ["TAB", "SPACE", "NEWLINE"]
 class IsPreprocessorStatement(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 20
         self.scope = []
 
     def run(self, context):

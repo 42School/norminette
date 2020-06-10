@@ -1,5 +1,7 @@
-t_buff_manager	conversion
-	(t_buff_manager man, t_flag_mod flags, t_fstring str, t_fstring prefix)
+int	main(void)
 {
-	return (0);
+	int				fd;
+	unsigned long	size;
+	if (read(fd, &size, sizeof(unsigned long)) < (ssize_t)sizeof(unsigned long))
+		return (false);
 }

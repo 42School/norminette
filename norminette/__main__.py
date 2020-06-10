@@ -18,6 +18,7 @@ def main():
     args.pop(0)
     registry = Registry()
     targets = []
+    has_err = None
     debug = False
 
     # This here should be change to use argparse module I think
