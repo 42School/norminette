@@ -1,6 +1,6 @@
 from lexer import Token
 from rules import PrimaryRule
-from context import GlobalScope, Function
+from context import GlobalScope, Function, UserDefinedType
 
 whitespaces = ["SPACE", "TAB"]
 assigns = [
@@ -140,7 +140,10 @@ class IsFuncDeclaration(PrimaryRule):
             i = context.skip_ws(i, nl=True)
             while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
                 i += 1
-            context.scope.fnames.append(context.peek_token(i).value)
+            sc = context.scope
+            while type(sc) != GlobalScope:
+                sc = sc.outer()
+            sc.fnames.append(context.peek_token(i).value)
             context.fname_pos = i
             context.arg_pos = [arg_start, arg_end]
             i += 1

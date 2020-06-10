@@ -1,1 +1,4 @@
-OBJECT_UNLOCKM;
+typedef struct toto_t
+{
+	nt (*update_callback)(const char *value, const struct update_rule_callback_s *rule_update_data);
+} s_toto;
