@@ -135,7 +135,10 @@ class IsVarDeclaration(PrimaryRule):
         ret, i = context.check_type_specifier(0)
         if ret is False:
             return False, 0
-        if context.check_token(i, ['SPACE', 'TAB']) is False and context.check_token(i - 1, ['SPACE', 'TAB']) is False:
+        tmp = i - 1
+        while context.check_token(tmp, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
+            tmp -= 1
+        if context.check_token(tmp, ['SPACE', 'TAB']) is False and context.check_token(tmp - 1, ['SPACE', 'TAB']) is False:
             return False, 0
         ret, i = self.var_declaration(context, i)
         if ret is False:

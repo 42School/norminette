@@ -71,6 +71,8 @@ class IsFunctionCall(PrimaryRule):
             types.append(typ)
             if typ == None:
                 i = context.skip_ws(i + 1)
+                while context.check_token(i, ["MULT", "BWISE_AND"]):
+                    i += 1
                 if context.check_token(i, "IDENTIFIER") is True:
                     i += 1
                     i = context.skip_ws(i)
@@ -86,6 +88,8 @@ class IsFunctionCall(PrimaryRule):
             elif typ == "function" or typ == "cast":
                 i += 1
                 i = context.skip_ws(i)
+        while context.check_token(i, ["MULT", "BWISE_AND"]):
+            i += 1
         if context.check_token(i, "IDENTIFIER") is True:
             i += 1
             i = context.skip_ws(i)

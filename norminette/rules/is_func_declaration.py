@@ -104,12 +104,16 @@ class IsFuncDeclaration(PrimaryRule):
         args = False
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
-        while context.peek_token(i): #and context.check_token(i, "NEWLINE") is False:
+        while context.peek_token(i):
+            if context.check_token(i, "NEWLINE") is True and identifier == False and misc_id == [] and type_id == []:
+                return False, 0
             if context.check_token(i, misc_identifier) is True:
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if context.check_token(i, assigns) is True:
+            if context.check_token(i, assigns + ["TYPEDEF"]) is True:
+                return False, 0
+            if context.check_token(i, "SEMI_COLON") is True:
                 return False, 0
             elif context.check_token(i, "IDENTIFIER") is True:
                 if identifier is not None:
@@ -126,16 +130,22 @@ class IsFuncDeclaration(PrimaryRule):
                 if par[0] == "function":
                     if identifier is not None:
                         type_id.append(identifier[0])
+                    while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
+                        i += 1
                     identifier = (context.peek_token(i), i)
                     i = context.skip_nest(i)
-                else:
+                elif identifier is not None:
                     args = True
                     arg_start = i
                     i = context.skip_nest(i)
                     arg_end = i
+                    break
+                else:
+                    i += 1
             else:
                 i += 1
-        if len(type_id) > 0 and args == True:
+        #print (type_id, args, identifier)
+        if len(type_id) > 0 and args == True and identifier != None:
             i = identifier[1]
             i = context.skip_ws(i, nl=True)
             while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
@@ -146,12 +156,16 @@ class IsFuncDeclaration(PrimaryRule):
             sc.fnames.append(context.peek_token(i).value)
             context.fname_pos = i
             context.arg_pos = [arg_start, arg_end]
-            i += 1
+            i = arg_end
             i = context.skip_ws(i, nl=True)
             while context.check_token(i, ["RPARENTHESIS"]) is True:
                 i += 1
-            i = context.skip_nest(i)
-            return True, i + 1
+            i = context.skip_ws(i, nl=True)
+            if context.check_token(i, "LPARENTHESIS") is True:
+                i = context.skip_nest(i)
+                i += 1
+            i = context.skip_ws(i, nl=True)
+            return True, i
         return False, 0
 
     def run(self, context):
@@ -164,7 +178,7 @@ class IsFuncDeclaration(PrimaryRule):
             return False, 0
         if context.check_token(read, ["NEWLINE", "LBRACE"]):
             if context.check_token(read, ["LBRACE"]) is True:
-                read -= 2
+                read -= 1
             context.scope.functions += 1
             read += 1
             context.sub = context.scope.inner(Function)

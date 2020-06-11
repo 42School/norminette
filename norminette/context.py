@@ -346,7 +346,7 @@ In \"{self.scope.name}\" from \
                 return True, i
             while self.check_token(i, types + whitespaces + ["MULT", "BWISE_AND"]) is True:
                 i += 1
-            i = self.skip_misc_specifier(pos, nl=nl)
+            i = self.skip_misc_specifier(i, nl=nl)
             return True, i
 
     def check_identifier(self, pos, nl=False):
@@ -420,18 +420,25 @@ In \"{self.scope.name}\" from \
 
     def parenthesis_contain(self, i):
         start = i
+        deep = 0
         ws = ["SPACE", "TAB", "NEWLINE"]
         if self.check_token(i, "RPARENTHESIS") is True:
             while i > 0 and self.check_token(i, "LPARENTHESIS") is False:
                 i -= 1
         if self.check_token(i, "LPARENTHESIS") is False:
             return None, start
-        while self.check_token(i, "RPARENTHESIS") is False:
+        deep = 1
+        i += 1
+        while deep > 0:
+            if self.check_token(i, "LPARENTHESIS") is True:
+                deep += 1
+            if self.check_token(i, "RPARENTHESIS") is True:
+                deep -= 1
             if self.check_token(i, ws) is True:
                 pass
             if self.check_token(i, ["MULT"]):
                 tmp = i + 1
-                while self.check_token(tmp, ws) is True:
+                while self.check_token(tmp, ws + ["LPARENTHESIS"]) is True:
                     tmp += 1
                 if self.check_token(tmp, "IDENTIFIER") is True:
                     return "function", tmp + 1

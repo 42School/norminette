@@ -10,7 +10,7 @@ utypes = ["TYPEDEF", "UNION", "STRUCT", "ENUM"]
 class IsUserDefinedType(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 12
         self.scope = [GlobalScope, UserDefinedType]
 
 

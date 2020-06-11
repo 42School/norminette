@@ -74,7 +74,7 @@ class CheckNestLineIndent(Rule):
         nest = 0
         if context.history[-1] == "IsEmptyLine":
             return False, 0
-        while context.check_token(i, ["LPARENTHESIS", "NEWLINE"]) is False:
+        while context.peek_token(i) and context.check_token(i, ["LPARENTHESIS", "NEWLINE"]) is False:
             i += 1
         if context.check_token(i, "NEWLINE") is True:
             return False, 0

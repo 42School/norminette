@@ -17,7 +17,7 @@ class Registry:
 
     def run_rules(self, context, rule):
         #if rule.name.startswith("Is"):
-        #    print (rule.name)
+        #print (rule.name)
         ret, read = rule.run(context)
         #print(context.history, context.tokens[:5], rule)
         #if rule.name.startswith("Is"):

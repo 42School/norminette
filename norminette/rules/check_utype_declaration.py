@@ -53,7 +53,7 @@ class CheckUtypeDeclaration(Rule):
                     tmp = i - 1
                     while context.check_token(tmp, ["MULT", "BWISE_AND"]) is True and context.is_operator(tmp) == False:
                         tmp -= 1
-                    ids.append((context.peek_token(tmp), tmp))
+                    ids.append((context.peek_token(i), tmp))
                 else:
                     ids.append((context.peek_token(i), i))
             if context.check_token(i, 'LBRACE') is True:
@@ -61,7 +61,7 @@ class CheckUtypeDeclaration(Rule):
                 i = context.skip_nest(i)
             i += 1
         check = -1
-        if is_td == True and len(ids) < 2:
+        if is_td == True and len(ids) < 2 and utype != None:
             context.new_error("MISSING_TYPEDEF_ID", context.peek_token(0))
             return False, 0
         if contain_full_def == False and is_td == False and len(ids) > 1:
@@ -105,9 +105,9 @@ class CheckUtypeDeclaration(Rule):
                     context.new_error("TAB_REPLACE_SPACE", context.peek_token(tmp))
                 tmp -= 1
         if contain_full_def == False:
-            if context.scope.name == "GlobalScope":
-                if ids[-1][0].value.startswith('t_') is False:
-                    context.new_error("GLOBAL_VAR_NAMING", context.peek_token(ids[-1][1]))
+            #if context.scope.name == "GlobalScope":
+               # if ids[-1][0].value.startswith('t_') is False:
+               #    context.new_error("GLOBAL_VAR_NAMING", context.peek_token(ids[-1][1]))
             i = 0
             current_indent = ids[-1][0].pos[1]
             if context.scope.vars_alignment == 0:
@@ -116,34 +116,3 @@ class CheckUtypeDeclaration(Rule):
                 context.new_error("MISALIGNED_VAR_DECL", context.peek_token(0))
                 return True, i
             return False, 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            current_indent = context.scope.indent
-            while context.check_token(i, "SEMI_COLON") is False:
-                if context.check_token(i, 'IDENTIFIER'):
-                    if context.peek_token(i).value == ids[-1][0]:
-                        if context.scope.vars_alignment == 0:
-                            context.scope.vars_alignment = current_indent
-                        elif current_indent != context.scope.vars_alignment:
-                            context.new_error("MISALIGNED_VAR_DECL", context.peek_token(i))
-                            return True, i
-                        return False, 0
-                    current_indent += math.floor((len(context.peek_token(i).value)) / 4)
-                elif context.check_token(i, ["STRUCT", "ENUM", "UNION"]):
-                    current_indent += 2
-                elif context.check_token(i, "TAB"):
-                    current_indent += 1
-                i += 1
-        return False, 0
