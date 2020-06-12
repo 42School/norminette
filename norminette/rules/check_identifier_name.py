@@ -38,7 +38,7 @@ class CheckIdentifierName(Rule):
         while i < context.tkn_scope and context.peek_token(i) is not None:
             if context.check_token(i, assigns) is True:
                 passed_assign = True
-            if context.check_token(i, "IDENTIFIER"):
+            if context.check_token(i, "IDENTIFIER") and hist not in ['IsFuncDeclaration', 'IsFuncPrototype']:
                 for c in context.peek_token(i).value:
                     if c not in legal_characters:
                         err = ("FORBIDDEN_CHAR_NAME", context.peek_token(i))

@@ -109,7 +109,14 @@ class CheckUtypeDeclaration(Rule):
                # if ids[-1][0].value.startswith('t_') is False:
                #    context.new_error("GLOBAL_VAR_NAMING", context.peek_token(ids[-1][1]))
             i = 0
-            current_indent = ids[-1][0].pos[1]
+            identifier = ids[-1][0]
+            i = ids[-1][1]
+            if context.check_token(i - 1, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:
+                i -= 1
+                while context.check_token(i, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True \
+                and context.is_operator(i) is False:
+                    i -= 1
+            current_indent = context.peek_token(i).pos[1]
             if context.scope.vars_alignment == 0:
                 context.scope.vars_alignment = current_indent
             elif context.scope.vars_alignment != current_indent:

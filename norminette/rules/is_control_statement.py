@@ -10,7 +10,7 @@ class IsControlStatement(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.priority = 12
-        self.scope = [Function, ControlStructure]
+        self.scope = [Function, ControlStructure, GlobalScope]
 
     def run(self, context):
         is_id = False

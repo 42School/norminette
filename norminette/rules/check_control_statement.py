@@ -38,6 +38,8 @@ class CheckControlStatement(Rule):
 
     def run(self, context):
         i = 0
+        if context.scope.name == "GlobalScope":
+            context.new_error("WRONG_SCOPE", context.peek_token(0))
         while context.check_token(i, "NEWLINE") is False:
             if context.check_token(i, forbidden_cs) is True:
                 context.new_error("FORBIDDEN_CS", context.peek_token(i))

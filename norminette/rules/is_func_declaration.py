@@ -3,6 +3,19 @@ from rules import PrimaryRule
 from context import GlobalScope, Function, UserDefinedType
 
 whitespaces = ["SPACE", "TAB"]
+preproc = [
+    "DEFINE",
+    "ERROR",
+    "ENDIF",
+    "ELIF",
+    "IFDEF",
+    "IFNDEF",
+    "#IF",
+    "#ELSE",
+    "INCLUDE",
+    "PRAGMA",
+    "UNDEF"
+]
 assigns = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -111,7 +124,7 @@ class IsFuncDeclaration(PrimaryRule):
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if context.check_token(i, assigns + ["TYPEDEF"]) is True:
+            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE"]) is True:
                 return False, 0
             if context.check_token(i, "SEMI_COLON") is True:
                 return False, 0
@@ -139,6 +152,13 @@ class IsFuncDeclaration(PrimaryRule):
                     arg_start = i
                     i = context.skip_nest(i)
                     arg_end = i
+                    while (context.check_token(i, "RPARENTHESIS")) is True:
+                        i += 1
+                    i = context.skip_ws(i)
+                    if context.check_token(i, "LPARENTHESIS") is True:
+                        arg_start = i
+                        i = context.skip_nest(i)
+                        arg_end = i
                     break
                 else:
                     i += 1
@@ -176,8 +196,8 @@ class IsFuncDeclaration(PrimaryRule):
         ret, read = self.check_func_format(context)
         if ret is False:
             return False, 0
-        if context.check_token(read, ["NEWLINE", "LBRACE"]):
-            if context.check_token(read, ["LBRACE"]) is True:
+        if context.check_token(read, ["NEWLINE", "LBRACE"] + preproc):
+            if context.check_token(read, ["LBRACE"] + preproc) is True:
                 read -= 1
             context.scope.functions += 1
             read += 1

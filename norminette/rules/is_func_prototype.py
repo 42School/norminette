@@ -65,6 +65,7 @@ class IsFuncPrototype(PrimaryRule):
             elif context.peek_token(i) is None:
                 return False, 0
             i += 1
+        print ('a')
         return True, i
 
     def check_func_identifier(self, context, pos):
@@ -108,7 +109,7 @@ class IsFuncPrototype(PrimaryRule):
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if context.check_token(i, assigns + ["TYPEDEF"]) is True:
+            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE"]) is True:
                 return False, 0
             elif context.check_token(i, "IDENTIFIER") is True:
                 if identifier is not None:

@@ -30,6 +30,6 @@ class CheckPreprocessorIndent(Rule):
             length += 1
         i += 1
         tken = context.peek_token(i)
-        if tken is not None and tken.type != "NEWLINE":
+        if tken is not None and tken.type not in ["NEWLINE", "COMMENT", "MULT_COMMENT"]:
             context.new_error("PREPROC_EXPECTED_EOL", context.peek_token(i))
         return False, 0

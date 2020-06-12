@@ -36,7 +36,7 @@ type_specifiers = [
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 5
+        self.priority = 21
         self.scope = [GlobalScope, UserDefinedType, Function, ControlStructure]
 
     def assignment_right_side(self, context, pos):
@@ -48,13 +48,12 @@ class IsVarDeclaration(PrimaryRule):
             i += 1
         return True, i
 
-    def var_declaration(self, context, pos):
+    def var_declaration(self, context, pos, identifier=False):
         pclose = ["RPARENTHESIS", "NEWLINE", "SPACE", "TAB"]
         brackets = 0
         parenthesis = 0
         braces = 0
         i = pos
-        identifier = False
         while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "SEMI_COLON"]) is False:
             if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
                 identifier = True
@@ -70,7 +69,12 @@ class IsVarDeclaration(PrimaryRule):
                 if context.check_token(i, "LBRACKET") is True:
                     brackets += 1
                 if context.check_token(i, "LPARENTHESIS") is True:
-                    parenthesis += 1
+                    ret, tmp = self.is_func_pointer(context, i)
+                    if ret == True:
+                        identifier = True
+                        i = tmp
+                    else:
+                        parenthesis += 1
             elif context.check_token(i, rbrackets) is True:
                 if context.check_token(i, "RBRACE") is True:
                     braces -= 1
@@ -93,7 +97,10 @@ class IsVarDeclaration(PrimaryRule):
         if identifier == False:
             return False, pos
         if context.check_token(i, "SEMI_COLON") is True:
-            return True, i
+            if brackets == 0 and braces == 0 and parenthesis == 0:
+                return True, i
+            else:
+                return False, 0
         if context.check_token(i, "COMMA") is True:
             i += 1
             return True, i
@@ -101,9 +108,10 @@ class IsVarDeclaration(PrimaryRule):
 
     def is_func_pointer(self, context, pos):
         i = context.skip_ws(pos)
+        ws = ['SPACE', "TAB", "NEWLINE"]
         if context.check_token(i, "LPARENTHESIS") is False:
             return False, pos
-
+        identifier = False
         i += 1
         p = 1
         plvl= 0 # nesting level of the first pointer operator encountered
@@ -130,6 +138,9 @@ class IsVarDeclaration(PrimaryRule):
             i += 1
         else:
             return False, pos
+        i += 1
+        i = context.skip_nest(i)
+        return True, i
 
     def run(self, context):
         ret, i = context.check_type_specifier(0)

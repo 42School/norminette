@@ -118,16 +118,16 @@ class CheckVariableIndent(Rule):
         identifier = None
         self.check_tabs(context)
         while context.peek_token(i) and context.check_token(i, ["SEMI_COLON", "COMMA", "ASSIGN"]) is False:
-            if context.check_token(i, ["LBRACKET", "LPARENTHESIS", "LBRACE"]) is True:
+            if context.check_token(i, ["LBRACKET", "LBRACE"]) is True:
                 i = context.skip_nest(i)
             if context.check_token(i, "IDENTIFIER") is True:
                 ident = (context.peek_token(i), i)
             i += 1
         i = ident[1]
         identifier = ident[0]
-        if context.check_token(i - 1, ["MULT", "BWISE_AND"]) is True:
+        if context.check_token(i - 1, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:
             i -= 1
-            while context.check_token(i, ["MULT", "BWISE_AND"]) is True \
+            while context.check_token(i, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True \
             and context.is_operator(i) is False:
                 i -= 1
             identifier = context.peek_token(i)

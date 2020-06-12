@@ -81,6 +81,7 @@ digits or '_'",
     "LABEL_FBIDDEN": "Label statements are forbidden",
     "PREPROC_GLOBAL": "Preprocessors can only be used in the global scope",
     "WRONG_SCOPE_FCT": "Function prototype in incorrect scope",
+    "WRONG_SCOPE": "Statement is in incorrect scope",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

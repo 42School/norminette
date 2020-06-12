@@ -31,7 +31,10 @@ class CheckPreprocessorDefine(Rule):
         if len(context.history) > 1 and context.history[-2] == "IsFuncDeclaration":
             self.check_function_declaration(context)
         if type(context.scope) is not GlobalScope:
-            context.new_error("PREPROC_GLOBAL", context.peek_token(0))
+            if type(context.scope) == Function and context.scope.multiline == False:
+                pass
+            else:
+                context.new_error("PREPROC_GLOBAL", context.peek_token(0))
         if context.check_token(i, "DEFINE") is False:
             return False, 0
         val = context.peek_token(i).value.split("define")[1]
