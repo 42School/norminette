@@ -3,6 +3,7 @@ import glob
 import os
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
+import argparse
 from lexer import Lexer, TokenError
 from exceptions import CParsingError
 from registry import Registry
@@ -16,31 +17,31 @@ from tools.colors import colors
 has_err = False
 
 def main():
-    args = sys.argv
-    args.pop(0)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("file", help="File(s) or folder(s) you wanna run the parser on. Can be None.", default=[], action='append', nargs='?')
+    parser.add_argument("-d", "--debug", action="count", help="Debug output", default=0)
+    parser.add_argument('--version', action='version', version='%(prog)s 2.0')
+    args = parser.parse_args()
     registry = Registry()
     targets = []
     has_err = None
     debug = False
 
-    # This here should be change to use argparse module I think
-    for arg in args:
-        if arg == "-D":
-            debug = True
-            if args == [arg]:
-                args = []
-        elif os.path.exists(arg) is False:
-            print(f"'{arg}' no such file or directory")
-        elif os.path.isdir(arg):
-            if arg[-1] != '/':
-                arg = arg + '/'
-            targets.extend(glob.glob(arg + '**/*.c', recursive=True))
-        elif os.path.isfile(arg):
-            targets.append(arg)
-
-    if args == []:
+    if args.debug > 0:
+        debug = True
+    if args.file == [[]] or args.file == []:
         targets = glob.glob("**/*.[ch]", recursive=True)
         target = targets.sort()
+    else:
+        for arg in args.file:
+            if os.path.exists(arg) is False:
+                print(f"'{arg}' no such file or directory")
+            elif os.path.isdir(arg):
+                if arg[-1] != '/':
+                    arg = arg + '/'
+                targets.extend(glob.glob(arg + '**/*.c', recursive=True))
+            elif os.path.isfile(arg):
+                targets.append(arg)
 
     for target in targets:
         if target[-2:] not in [".c", ".h"]:
