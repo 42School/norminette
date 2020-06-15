@@ -69,8 +69,8 @@ class IsVarDeclaration(PrimaryRule):
                 if context.check_token(i, "LBRACKET") is True:
                     brackets += 1
                 if context.check_token(i, "LPARENTHESIS") is True:
-                    ret, tmp = self.is_func_pointer(context, i)
-                    if ret == True:
+                    ret, tmp = context.parenthesis_contain(i)
+                    if ret == 'function' or ret == 'pointer':
                         identifier = True
                         i = tmp
                     else:

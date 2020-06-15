@@ -1,0 +1,17 @@
+[36mtests/rules/ok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<IFNDEF=#ifndef OK_PROTECTION_H> <NEWLINE>
+[36mtests/rules/ok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<DEFINE=# define OK_PROTECTION_H> <NEWLINE>
+[36mtests/rules/ok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<DEFINE=# define TOTO "tata"> <NEWLINE>
+[36mtests/rules/ok_protection.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 4":
+		<VOID> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtests/rules/ok_protection.h[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 5":
+		<INT> <TAB> <IDENTIFIER=g_toto> <SEMI_COLON> <NEWLINE>
+[36mtests/rules/ok_protection.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 6":
+		<NEWLINE>
+[36mtests/rules/ok_protection.h[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 7":
+		<IDENTIFIER=v> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtests/rules/ok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 8":
+		<ENDIF=#endif> <NEWLINE>
+tests/rules/ok_protection.h: OK!

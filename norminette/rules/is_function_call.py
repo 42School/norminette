@@ -67,25 +67,21 @@ class IsFunctionCall(PrimaryRule):
         i = context.skip_ws(0, nl=False)
         types = []
         while context.check_token(i, "LPARENTHESIS") is True:
+            start = i
             typ, i = context.parenthesis_contain(i)
             types.append(typ)
-            if typ == None:
+            if typ == None or typ == "pointer":
                 i = context.skip_ws(i + 1)
-                while context.check_token(i, ["MULT", "BWISE_AND"]):
-                    i += 1
-                if context.check_token(i, "IDENTIFIER") is True:
-                    i += 1
-                    i = context.skip_ws(i)
-                    if context.check_token(i, "LPARENTHESIS") is True:
-                        i = context.skip_nest(i)
-                        while context.peek_token(i) is not None and context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
-                            i += 1
-                        if context.peek_token(i) is None or context.check_token(i, "NEWLINE") is True:
-                            return False, 0
+                if context.peek_token(i) is None or context.check_token(i, "NEWLINE") is True:
+                    return False, 0
+                #i += 1
+                if len(types) > 1:
+                    i = context.skip_ws(i, nl=False)
+                    if context.check_token(i, "SEMI_COLON"):
                         i += 1
-                        i = context.eol(i)
-                        return True, i
-            elif typ == "function" or typ == "cast":
+                    i = context.eol(i)
+                    return True, i
+            elif typ == "function" or typ == "cast" or typ == "pointer":
                 i += 1
                 i = context.skip_ws(i)
         while context.check_token(i, ["MULT", "BWISE_AND"]):
@@ -100,7 +96,7 @@ class IsFunctionCall(PrimaryRule):
                 i += 1
                 i = context.eol(i)
                 return True, i
-        elif len(types) > 1 and typ == "cast" and types[-2] == "function":
+        elif len(types) > 1 and typ == "cast" and (types[-2] == "function" or types[-2] == "pointer"):
             i += 1
             i = context.eol(i)
             return True, i

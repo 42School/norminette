@@ -1,0 +1,25 @@
+[36mok_func_ptr.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=f2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 2":
+		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=g_fp> <LPARENTHESIS> <INT> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 3":
+		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=g_v> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 4":
+		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=g_f> <RPARENTHESIS> <LPARENTHESIS> <INT> <COMMA> <SPACE> <FLOAT> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 5":
+		<TYPEDEF> <SPACE> <INT> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=t_funcptr> <RPARENTHESIS> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 6":
+		<TYPEDEF> <SPACE> <INT> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=t_funcptr> <RPARENTHESIS> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <SPACE> 
+[36mok_func_ptr.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 6":
+		<COMMENT=//doesnt work> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 8":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 9":
+		<LBRACE> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=func_pointer> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=arg1> <COMMA> <SPACE> <IDENTIFIER=arg2> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 11":
+		<RBRACE> <NEWLINE>
+ok_func_ptr.c: OK!

@@ -34,7 +34,9 @@ class CheckVariableDeclaration(Rule):
             pass
         else:
             context.new_error("WRONG_SCOPE_VAR", context.peek_token(i))
-        while context.check_token(i, "SEMI_COLON") is False:
+        while context.peek_token(i) and context.check_token(i, "SEMI_COLON") is False:
+            if context.check_token(i, "LPARENTHESIS") is True:
+                i = context.skip_nest(i)
             if context.check_token(i, "STATIC") is True:
                 static = True
             if context.check_token(i, assigns) is True and static == False:

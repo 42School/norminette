@@ -4,12 +4,17 @@ from context import GlobalScope, Function, UserDefinedType
 
 whitespaces = ["SPACE", "TAB"]
 preproc = [
-    "IFNDEF",
+    "DEFINE",
+    "ERROR",
+    "ENDIF",
+    "ELIF",
     "IFDEF",
+    "IFNDEF",
     "#IF",
     "#ELSE",
-    "DEFINE",
-    "ENDIF"
+    "INCLUDE",
+    "PRAGMA",
+    "UNDEF"
 ]
 assigns = [
     "RIGHT_ASSIGN",
@@ -131,6 +136,16 @@ class IsFuncPrototype(PrimaryRule):
                     while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
                         i += 1
                     identifier = (context.peek_token(i), i)
+                    i = context.skip_nest(i)
+                elif par[0] == "pointer":
+                    if identifier is not None:
+                        type_id.append(identifier[0])
+                    while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
+                        i += 1
+                    identifier = (context.peek_token(i), i)
+                    nxt = par[1] + 1
+                    if context.check_token(nxt, ["LPARENTHESIS"]) is False:
+                        return False, 0
                     i = context.skip_nest(i)
                 else:
                     args = True

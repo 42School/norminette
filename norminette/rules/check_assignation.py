@@ -30,7 +30,7 @@ class CheckAssignation(Rule):
                     typ = tmp_typ
                 if tmp_typ is None:
                     tmp = i + 1
-                    while context.check_token(tmp, "RPARENTHESIS") is False:
+                    while context.peek_token(tmp) and context.check_token(tmp, "RPARENTHESIS") is False:
                         if context.check_token(tmp, "COMMA") is True and typ != "function" and typ is not None:
                             context.new_error("TOO_MANY_INSTR", context.peek_token(tmp))
                         tmp += 1

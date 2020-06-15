@@ -11,7 +11,7 @@ rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
 class IsEnumVarDecl(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 5
+        self.priority = 9
         self.scope = [UserDefinedEnum]
 
     def assignment_right_side(self, context, pos):
@@ -30,7 +30,7 @@ class IsEnumVarDecl(PrimaryRule):
         braces = 0
         i = pos
         identifier = False
-        while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "RBRACE"]) is False:
+        while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "RBRACE", "NEWLINE"]) is False:
             if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
                 identifier = True
             elif context.check_token(i, lbrackets) is True:
@@ -61,41 +61,9 @@ class IsEnumVarDecl(PrimaryRule):
             i += 1
         if identifier == False:
             return False, pos
-        if context.check_token(i, "COMMA") is True:
+        if context.check_token(i, ["NEWLINE", "COMMA"]) is True:
             return True, i
         return False, pos
-
-    def is_func_pointer(self, context, pos):
-        i = context.skip_ws(pos)
-        if context.check_token(i, "LPARENTHESIS") is False:
-            return False, pos
-
-        i += 1
-        p = 1
-        plvl= 0 # nesting level of the first pointer operator encountered
-
-        while p and context.check_token(i, ["MULT", "LPARENTHESIS"] + ws):
-            if context.check_token(i, "MULT") and not plvl:
-                plvl = p
-            elif context.check_token(i, "LPARENTHESIS"):
-                p += 1
-            i += 1
-
-        while p and context.peek_token(i) is not None:
-            if context.check_token(i, "LPARENTHESIS") is True:
-                p += 1
-                if identifier is True:
-                    return False, pos
-            elif context.check_token(i, "RPARENTHESIS") is True:
-                p -= 1
-                if identifier is True:
-                    par_pos = i
-                    break
-            elif context.check_token(i, "IDENTIFIER") is True:
-                identifier = True
-            i += 1
-        else:
-            return False, pos
 
     def run(self, context):
         #ret, i = context.check_type_specifier(0)
@@ -108,7 +76,7 @@ class IsEnumVarDecl(PrimaryRule):
             return False, 0
         while ret:
             ret, i = self.var_declaration(context, i)
-            if context.check_token(i, "COMMA") is True:
+            if context.check_token(i,["COMMA", "NEWLINE"]) is True:
                 i += 1
                 i = context.eol(i)
                 return True, i

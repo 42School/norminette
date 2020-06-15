@@ -420,38 +420,78 @@ In \"{self.scope.name}\" from \
 
     def parenthesis_contain(self, i):
         start = i
-        deep = 0
         ws = ["SPACE", "TAB", "NEWLINE"]
-        if self.check_token(i, "RPARENTHESIS") is True:
-            while i > 0 and self.check_token(i, "LPARENTHESIS") is False:
-                i -= 1
-        if self.check_token(i, "LPARENTHESIS") is False:
-            return None, start
-        deep = 1
         i += 1
-        while deep > 0:
-            if self.check_token(i, "LPARENTHESIS") is True:
-                deep += 1
-            if self.check_token(i, "RPARENTHESIS") is True:
+        deep = 1
+        identifier = None
+        pointer = None
+        while (deep > 0):
+            if self.check_token(i, "RPARENTHESIS"):
                 deep -= 1
-            if self.check_token(i, ws) is True:
+            elif self.check_token(i, "LPARENTHESIS"):
+                deep += 1
+                if identifier is not None and deep > 0:
+                    return "pointer", self.skip_nest(start)
+            elif self.check_token(i, "COMMA"):
+                return None, self.skip_nest(start)
+            elif self.check_token(i, ws):
                 pass
-            if self.check_token(i, ["MULT"]):
+            elif self.check_token(i, types):
+                return "cast", self.skip_nest(start)
+            elif self.check_token(i, "IDENTIFIER"):
                 tmp = i + 1
-                while self.check_token(tmp, ws + ["LPARENTHESIS"]) is True:
-                    tmp += 1
-                if self.check_token(tmp, "IDENTIFIER") is True:
-                    return "function", tmp + 1
-                return None, start
-            if self.check_token(i, "IDENTIFIER") is True:
+                tmp = self.skip_ws(tmp)
+                if pointer == True:
+                    if self.check_token(tmp, "RPARENTHESIS"):
+                        tmp += 1
+                        #start = tmp
+                    if self.check_token(tmp, "LPARENTHESIS"):
+                        return "pointer", self.skip_nest(start)
+                return None, self.skip_nest(start)
+            elif self.check_token(i, "MULT"):
                 tmp = i + 1
-                while self.check_token(tmp, ws) is True:
-                    tmp += 1
-                if self.check_token(tmp, "MULT") is True:
-                    return "cast", tmp + 1
-                if self.check_token(tmp, "RPARENTHESIS") is True:
-                    return "cast", tmp
-            if self.check_token(i, types) is True:
-                return "cast", i
+                pointer = True
+                if identifier != None:
+                    return "cast", self.skip_nest(start)
             i += 1
-        return None, start
+        return None, self.skip_nest(start)
+
+
+
+    #def parenthesis_contain(self, i):
+        #start = i
+        #deep = 0
+        #ws = ["SPACE", "TAB", "NEWLINE"]
+        #if self.check_token(i, "RPARENTHESIS") is True:
+            #while i > 0 and self.check_token(i, "LPARENTHESIS") is False:
+                #i -= 1
+        #if self.check_token(i, "LPARENTHESIS") is False:
+            #return None, start
+        #deep = 1
+        #i += 1
+        #while deep > 0:
+            #if self.check_token(i, "LPARENTHESIS") is True:
+                #deep += 1
+            #if self.check_token(i, "RPARENTHESIS") is True:
+                #deep -= 1
+            #if self.check_token(i, ws) is True:
+                #pass
+            #if self.check_token(i, ["MULT"]):
+                #tmp = i + 1
+                #while self.check_token(tmp, ws + ["LPARENTHESIS"]) is True:
+                    #tmp += 1
+                #if self.check_token(tmp, "IDENTIFIER") is True:
+                    #return "function", tmp + 1
+                #return None, start
+            #if self.check_token(i, "IDENTIFIER") is True:
+                #tmp = i + 1
+                #while self.check_token(tmp, ws) is True:
+                    #tmp += 1
+                #if self.check_token(tmp, "MULT") is True:
+                    #return "cast", tmp + 1
+                #if self.check_token(tmp, "RPARENTHESIS") is True:
+                    #return "cast", tmp
+            #if self.check_token(i, types) is True:
+                #return "cast", i
+            #i += 1
+        #return None, start

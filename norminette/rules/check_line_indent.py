@@ -20,7 +20,7 @@ class CheckLineIndent(Rule):
         if context.check_token(got, ["LBRACE", "RBRACE"]) and expected > 0:
             expected -= 1
         if expected > got:
-            context.new_error("TOOs_FEW_TAB", context.peek_token(0))
+            context.new_error("TOO_FEW_TAB", context.peek_token(0))
             return False, got
         elif got > expected:
             context.new_error("TOO_MANY_TAB", context.peek_token(0))
