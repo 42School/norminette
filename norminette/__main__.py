@@ -4,6 +4,8 @@ import os
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 import argparse
+import pkg_resources
+__version__ = pkg_resources.get_distribution('norminette').version
 from lexer import Lexer, TokenError
 from exceptions import CParsingError
 from registry import Registry
@@ -20,7 +22,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("file", help="File(s) or folder(s) you wanna run the parser on. Can be None.", default=[], action='append', nargs='?')
     parser.add_argument("-d", "--debug", action="count", help="Debug output", default=0)
-    parser.add_argument('--version', action='version', version='%(prog)s 2.0')
+    parser.add_argument('--version', action='version', version='%(prog)s ' + __version__)
     args = parser.parse_args()
     registry = Registry()
     targets = []
@@ -50,7 +52,7 @@ def main():
         else:
             with open(target) as f:
                 try:
-                    print ("Running on", target)
+                    #print ("Running on", target)
                     source = f.read()
                     lexer = Lexer(source)
                     tokens = lexer.get_tokens()

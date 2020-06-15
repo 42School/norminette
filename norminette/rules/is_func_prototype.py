@@ -3,6 +3,14 @@ from rules import PrimaryRule
 from context import GlobalScope, Function, UserDefinedType
 
 whitespaces = ["SPACE", "TAB"]
+preproc = [
+    "IFNDEF",
+    "IFDEF",
+    "#IF",
+    "#ELSE",
+    "DEFINE",
+    "ENDIF"
+]
 assigns = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -109,7 +117,7 @@ class IsFuncPrototype(PrimaryRule):
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE"]) is True:
+            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE"] + preproc) is True:
                 return False, 0
             elif context.check_token(i, "IDENTIFIER") is True:
                 if identifier is not None:
