@@ -1,6 +1,8 @@
 import sys
 import glob
 import os
+file_dir = os.path.dirname(__file__)
+sys.path.append(file_dir)
 from lexer import Lexer, TokenError
 from exceptions import CParsingError
 from registry import Registry
