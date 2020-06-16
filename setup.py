@@ -8,9 +8,6 @@ setup(
     description="Open source norminette",
     package_dir={'lexer':'norminette/lexer', 'rules':'norminette/rules', 'tools':'norminette/tools'},
     packages=find_namespace_packages(),#['norminette', 'norminette.lexer', 'norminette.rules'],
-    setup_requires=[
-        'argparse',
-    ],
     entry_points={
         'console_scripts': [
             'norminette = norminette.__main__:main',

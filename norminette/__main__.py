@@ -21,16 +21,14 @@ has_err = False
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("file", help="File(s) or folder(s) you wanna run the parser on. If no file provided, runs on current folder.", default=[], action='append', nargs='*')
-    parser.add_argument("-d", "--debug", action="count", help="Debug output", default=0)
+    parser.add_argument("-d", "--debug", action="count", help="Debug output (multiple values available)", default=0)
     parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__)
     args = parser.parse_args()
     registry = Registry()
     targets = []
     has_err = None
-    debug = False
 
-    if args.debug > 0:
-        debug = True
+    debug = args.debug
     args.file = args.file[0]
     if args.file == [[]] or args.file == []:
         targets = glob.glob("**/*.[ch]", recursive=True)

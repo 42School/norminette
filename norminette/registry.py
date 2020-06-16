@@ -63,8 +63,10 @@ class Registry:
                 context.pop_tokens(1)  # ##################################
             # #############################################################
         if unrecognized_tkns != []:
-            print ("uncaught ->", unrecognized_tkns)
-            #raise CParsingError(f"Unrecognized line while parsing line {unrecognized_tkns[0].pos[0]}")
+            if context.debug == 0:
+                raise CParsingError(f"Unrecognized line while parsing line {unrecognized_tkns[0].pos[0]}")
+            else:
+                print ("uncaught ->", unrecognized_tkns)
         if context.errors == []:
             print(context.filename + ": OK!")
         else:
