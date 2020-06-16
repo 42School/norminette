@@ -1,11 +1,39 @@
-tests/rules/ko_struct_name.c: KO!
+[36mko_struct_name.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=t_toto> <TAB> <IDENTIFIER=s_toto> <SEMI_COLON> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 2":
+		<UNION> <SPACE> <IDENTIFIER=u_toto> <TAB> <TAB> <TAB> <IDENTIFIER=u_var> <SEMI_COLON> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 3":
+		<INT> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=s_int> <SEMI_COLON> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
+		<NEWLINE>
+[36mko_struct_name.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 5":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=toto> <SPACE> <LBRACE> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 6":
+		<TAB> <STRUCT> <SPACE> <IDENTIFIER=v_toto> <TAB> <TAB> <IDENTIFIER=ba> <SEMI_COLON> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 7":
+		<TAB> <UNION> <SPACE> <IDENTIFIER=s_toto> <TAB> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsUserDefinedType[0m In "UserDefinedType" from "GlobalScope" line 8":
+		<TAB> <TYPEDEF> <SPACE> <UNION> <SPACE> <IDENTIFIER=test> <TAB> <IDENTIFIER=s_test> <SEMI_COLON> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 9":
+		<TAB> <ENUM> <SPACE> <IDENTIFIER=g_toto> <TAB> <TAB> <TAB> <IDENTIFIER=vv> <SEMI_COLON> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 10":
+		<RBRACE> <TAB> <IDENTIFIER=u_struct> <SEMI_COLON> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 11":
+		<NEWLINE>
+[36mko_struct_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 12":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 13":
+		<LBRACE> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 14":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_struct_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
+		<RBRACE> <NEWLINE>
+ko_struct_name.c: KO!
+	STRUCT_TYPE_NAMING (line: 1, col: 16):	Structure name must start with s_
 	USER_DEFINED_TYPEDEF (line: 1, col: 25):	User defined typedef must start with t_
-	STRUCT_TYPE_NAMING (line: 1, col: 25):	Structure name must start with s_
+	GLOBAL_VAR_NAMING (line: 2, col: 25):	Global variable must start with g_
 	GLOBAL_VAR_NAMING (line: 3, col: 25):	Global variable must start with g_
-	STRUCT_TYPE_NAMING (line: 6, col: 12):	Structure name must start with s_
-	UNION_TYPE_NAMING (line: 7, col: 11):	Union name must start with u_
+	STRUCT_TYPE_NAMING (line: 5, col: 16):	Structure name must start with s_
+	UNION_TYPE_NAMING (line: 8, col: 19):	Union name must start with u_
 	USER_DEFINED_TYPEDEF (line: 8, col: 25):	User defined typedef must start with t_
-	UNION_TYPE_NAMING (line: 8, col: 25):	Union name must start with u_
-	ENUM_TYPE_NAMING (line: 9, col: 10):	Enum name must start with e_
 	USER_DEFINED_TYPEDEF (line: 10, col: 5):	User defined typedef must start with t_
-	STRUCT_TYPE_NAMING (line: 10, col: 5):	Structure name must start with s_

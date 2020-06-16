@@ -66,11 +66,6 @@ class IsEnumVarDecl(PrimaryRule):
         return False, pos
 
     def run(self, context):
-        #ret, i = context.check_type_specifier(0)
-        #if ret is False:
-        #    return False, 0
-        #if context.check_token(i, ['SPACE', 'TAB']) is False and context.check_token(i - 1, ['SPACE', 'TAB']) is False:
-        #    return False, 0
         ret, i = self.var_declaration(context, 0)
         if ret is False:
             return False, 0

@@ -5,12 +5,10 @@ void	tata(const char w);
 int	main(int toto, int c, int v)
 {
 	if (i --)
-	{
 		while (1)
 		{
 			return ;
 		}
-	}
 	else
 		return ;
 }

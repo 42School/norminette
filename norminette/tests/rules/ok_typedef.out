@@ -1,0 +1,35 @@
+[36mok_typedef.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_struct> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 4":
+		<TAB> <INT> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 5":
+		<RBRACE> <TAB> <IDENTIFIER=t_struct> <SEMI_COLON> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 6":
+		<NEWLINE>
+[36mok_typedef.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 7":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_struct> <TAB> <IDENTIFIER=t_struct> <SEMI_COLON> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
+		<NEWLINE>
+[36mok_typedef.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 9":
+		<STRUCT> <SPACE> <IDENTIFIER=s_type> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 10":
+		<LBRACE> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 11":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 12":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 13":
+		<NEWLINE>
+[36mok_typedef.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 14":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 15":
+		<LBRACE> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 16":
+		<TAB> <STRUCT> <SPACE> <IDENTIFIER=s_type> <TAB> <IDENTIFIER=toto> <SEMI_COLON> <NEWLINE>
+[36mok_typedef.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 17":
+		<RBRACE> <NEWLINE>
+ok_typedef.c: OK!

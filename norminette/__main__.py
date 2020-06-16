@@ -20,9 +20,9 @@ has_err = False
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("file", help="File(s) or folder(s) you wanna run the parser on. Can be None.", default=[], action='append', nargs='?')
+    parser.add_argument("file", help="File(s) or folder(s) you wanna run the parser on. If no file provided, runs on current folder.", default=[], action='append', nargs='*')
     parser.add_argument("-d", "--debug", action="count", help="Debug output", default=0)
-    parser.add_argument('--version', action='version', version='%(prog)s ' + __version__)
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__)
     args = parser.parse_args()
     registry = Registry()
     targets = []
@@ -31,6 +31,7 @@ def main():
 
     if args.debug > 0:
         debug = True
+    args.file = args.file[0]
     if args.file == [[]] or args.file == []:
         targets = glob.glob("**/*.[ch]", recursive=True)
         target = targets.sort()
@@ -41,7 +42,7 @@ def main():
             elif os.path.isdir(arg):
                 if arg[-1] != '/':
                     arg = arg + '/'
-                targets.extend(glob.glob(arg + '**/*.c', recursive=True))
+                targets.extend(glob.glob(arg + '**/*.[ch]', recursive=True))
             elif os.path.isfile(arg):
                 targets.append(arg)
 

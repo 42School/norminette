@@ -1,0 +1,33 @@
+[36mok_comment.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<DEFINE=#define TTOO 1> <NEWLINE>
+[36mok_comment.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
+		<NEWLINE>
+[36mok_comment.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 3":
+		<INT> <TAB> <IDENTIFIER=g_toto> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_comment.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
+		<NEWLINE>
+[36mok_comment.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 5":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_comment.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 6":
+		<LBRACE> <NEWLINE>
+[36mok_comment.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=tab> <LBRACKET> <CONSTANT=1> <RBRACKET> <SEMI_COLON> <NEWLINE>
+[36mok_comment.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <VOID> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=l> <SEMI_COLON> <NEWLINE>
+[36mok_comment.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 9":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
+[36mok_comment.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <STATIC> <SPACE> <IDENTIFIER=t_struct> <TAB> <TAB> <IDENTIFIER=t> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_comment.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 11":
+		<NEWLINE>
+[36mok_comment.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=i> <INC> <RPARENTHESIS> <NEWLINE>
+[36mok_comment.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 13":
+		<TAB> <LBRACE> <NEWLINE>
+[36mok_comment.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 14":
+		<TAB> <TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mok_comment.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 15":
+		<TAB> <RBRACE> <NEWLINE>
+[36mok_comment.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 16":
+		<RBRACE> <NEWLINE>
+ok_comment.c: OK!

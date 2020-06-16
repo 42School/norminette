@@ -1,0 +1,7 @@
+[36mok_function_pointer.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
+		<VOID> <TAB> <MULT> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <SPACE> <MULT> <IDENTIFIER=i> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_function_pointer.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 2":
+		<INT> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=fpfunc> <RPARENTHESIS> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=x> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=y> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_function_pointer.c[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 3":
+		<IDENTIFIER=result> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <MULT> <IDENTIFIER=fpcomparer> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=a> <COMMA> <SPACE> <IDENTIFIER=a> <SPACE> <MULT> <SPACE> <MULT> <IDENTIFIER=b> <RPARENTHESIS> <SEMI_COLON> 
+ok_function_pointer.c: OK!

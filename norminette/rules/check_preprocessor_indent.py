@@ -9,6 +9,15 @@ class CheckPreprocessorIndent(Rule):
         super().__init__()
         self.depends_on = ["IsPreprocessorStatement"]
 
+    def get_space_number(self, val):
+        val = val[1:]
+        spaces = 0
+        for i in val:
+            if i == ' ':
+                spaces += 1
+            else:
+                return spaces
+
     def run(self, context):
         i = 0
         i = context.skip_ws(i)
@@ -21,13 +30,15 @@ class CheckPreprocessorIndent(Rule):
             context.new_error("PREPROC_UKN_STATEMENT", context.peek_token(i))
         if context.check_token(i, MORE_INDENT) is False:
             current_indent -= 1
+
+        if current_indent < 0:
+            current_indent = 0
         fmt = ''
         val = tken.value[1:] if tken.value else tken.type
-        length = 0
-        while length < current_indent:
-            if val[length] != ' ':
-                context.new_error("PREPROC_BAD_INDENT", context.peek_token(i))
-            length += 1
+        spaces = self.get_space_number(tken.value if tken.value else tken.type)
+        if current_indent != spaces:
+            context.new_error("PREPROC_BAD_INDENT", context.peek_token(i))
+
         i += 1
         tken = context.peek_token(i)
         if tken is not None and tken.type not in ["NEWLINE", "COMMENT", "MULT_COMMENT"]:

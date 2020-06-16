@@ -2,10 +2,10 @@
 		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=f2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mok_func_ptr.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 2":
 		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=g_fp> <LPARENTHESIS> <INT> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mok_func_ptr.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 3":
-		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=g_v> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mok_func_ptr.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 4":
-		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=g_f> <RPARENTHESIS> <LPARENTHESIS> <INT> <COMMA> <SPACE> <FLOAT> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 3":
+		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=g_v> <RPARENTHESIS> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_ptr.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 4":
+		<INT> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=g_f> <RPARENTHESIS> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <COMMA> <SPACE> <FLOAT> <SPACE> <IDENTIFIER=b> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mok_func_ptr.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 5":
 		<TYPEDEF> <SPACE> <INT> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=t_funcptr> <RPARENTHESIS> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mok_func_ptr.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 6":

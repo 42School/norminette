@@ -1,1 +1,13 @@
-tests/rules/ok_func_name.c: OK!
+[36mok_func_name.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
+		<NEWLINE>
+[36mok_func_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 3":
+		<INT> <TAB> <IDENTIFIER=func2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 4":
+		<LBRACE> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 6":
+		<RBRACE> <NEWLINE>
+ok_func_name.c: OK!

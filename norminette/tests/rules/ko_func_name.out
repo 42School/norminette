@@ -1,4 +1,10 @@
-tests/rules/ko_func_name.c: KO!
+[36mko_func_name.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=BAD_funcname1> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_func_name.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 2":
+		<INT> <TAB> <IDENTIFIER=bad_funcName2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_func_name.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 3":
+		<INT> <TAB> <IDENTIFIER=B> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+ko_func_name.c: KO!
 	FORBIDDEN_CHAR_NAME (line: 1, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
 	FORBIDDEN_CHAR_NAME (line: 2, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
 	FORBIDDEN_CHAR_NAME (line: 3, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'

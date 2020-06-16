@@ -1,0 +1,9 @@
+[36mok_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<INCLUDE=#include <stdio.h>> <NEWLINE>
+[36mok_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<INCLUDE=#include "main.h"> <NEWLINE>
+[36mok_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mok_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
+		<INCLUDE=#include <main.h>> 
+ok_include.c: OK!

@@ -1,6 +1,21 @@
-tests/rules/ko_too_many_instruction.c: KO!
+[36mko_too_many_instruction.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=g_a> <SEMI_COLON> <SPACE> 
+[36mko_too_many_instruction.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=g_b> <SEMI_COLON> <NEWLINE>
+[36mko_too_many_instruction.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
+		<NEWLINE>
+[36mko_too_many_instruction.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 3":
+		<VOID> <TAB> <IDENTIFIER=f> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_too_many_instruction.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 4":
+		<LBRACE> <NEWLINE>
+[36mko_too_many_instruction.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=write> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="a"> <COMMA> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <SPACE> 
+[36mko_too_many_instruction.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 5":
+		<IDENTIFIER=write> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="a"> <COMMA> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_too_many_instruction.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 6":
+		<RBRACE> <NEWLINE>
+ko_too_many_instruction.c: KO!
 	TOO_MANY_INSTR (line: 1, col: 10):	Too many instructions on a single line
-	MISALIGNED_VAR_DECL (line: 1, col: 20):	Misaligned variable declaration
+	MISALIGNED_VAR_DECL (line: 1, col: 17):	Misaligned variable declaration
 	TOO_MANY_INSTR (line: 5, col: 23):	Too many instructions on a single line
-	TOO_FEW_TAB (line: 5, col: 23):	Missing tabs for indent level
 	TOO_FEW_TAB (line: 5, col: 23):	Missing tabs for indent level

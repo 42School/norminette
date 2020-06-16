@@ -1,6 +1,38 @@
-tests/rules/ko_struct_indent.c: KO!
-	MISALIGNED_VAR_DECL (line: 3, col: 34):	Misaligned variable declaration
-	MISALIGNED_VAR_DECL (line: 5, col: 24):	Misaligned variable declaration
+[36mko_struct_indent.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_toto> <TAB> <IDENTIFIER=t_toto> <SEMI_COLON> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 2":
+		<UNION> <SPACE> <IDENTIFIER=u_toto> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=var> <SEMI_COLON> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 3":
+		<INT> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=g_int> <COMMA> <SPACE> <IDENTIFIER=_var> <SEMI_COLON> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
+		<NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 5":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_toto> <SPACE> <LBRACE> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 6":
+		<TAB> <STRUCT> <SPACE> <IDENTIFIER=s_toto> <TAB> <IDENTIFIER=plait> <SEMI_COLON> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 7":
+		<TAB> <UNION> <SPACE> <IDENTIFIER=u_toto> <TAB> <TAB> <TAB> <IDENTIFIER=yo> <SEMI_COLON> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsUserDefinedType[0m In "UserDefinedType" from "GlobalScope" line 8":
+		<TAB> <TYPEDEF> <SPACE> <UNION> <SPACE> <IDENTIFIER=u_test> <TAB> <TAB> <IDENTIFIER=t_test> <SEMI_COLON> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 9":
+		<TAB> <ENUM> <SPACE> <IDENTIFIER=e_toto> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=abc> <SEMI_COLON> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 10":
+		<RBRACE> <TAB> <IDENTIFIER=t_struct> <SEMI_COLON> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 11":
+		<NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 12":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 13":
+		<LBRACE> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 14":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_struct_indent.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
+		<RBRACE> <NEWLINE>
+ko_struct_indent.c: KO!
+	GLOBAL_VAR_NAMING (line: 2, col: 29):	Global variable must start with g_
+	MISALIGNED_VAR_DECL (line: 2, col: 29):	Misaligned variable declaration
+	MISALIGNED_VAR_DECL (line: 3, col: 29):	Misaligned variable declaration
+	MULT_DECL_LINE (line: 3, col: 34):	Multiple declarations on a single line
+	MISALIGNED_VAR_DECL (line: 7, col: 29):	Misaligned variable declaration
+	MISALIGNED_VAR_DECL (line: 8, col: 1):	Misaligned variable declaration
 	MISALIGNED_VAR_DECL (line: 9, col: 29):	Misaligned variable declaration
-	MISALIGNED_VAR_DECL (line: 12, col: 14):	Misaligned variable declaration
-	MISALIGNED_VAR_DECL (line: 14, col: 12):	Misaligned variable declaration

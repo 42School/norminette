@@ -1,1 +1,15 @@
-tests/rules/ok_preproc_indent.c: OK!
+[36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<DEFINE=#define STUFF 1> <NEWLINE>
+[36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<IFNDEF=#ifndef FOO> <NEWLINE>
+[36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<DEFINE=# define FOO> <NEWLINE>
+[36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
+		<IFNDEF=# ifndef BAR> <NEWLINE>
+[36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
+		<DEFINE=#  define BAR> <NEWLINE>
+[36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
+		<ENDIF=#endif> <NEWLINE>
+[36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 7":
+		<ENDIF=#endif> <NEWLINE>
+ok_preproc_indent.c: OK!

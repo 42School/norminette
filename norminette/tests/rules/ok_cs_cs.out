@@ -1,0 +1,13 @@
+[36mok_cs_cs.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_cs_cs.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mok_cs_cs.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mok_cs_cs.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 4":
+		<TAB> <TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mok_cs_cs.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <BREAK> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mok_cs_cs.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 6":
+		<RBRACE> <NEWLINE>
+ok_cs_cs.c: OK!

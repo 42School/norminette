@@ -1,1 +1,37 @@
-tests/rules/ok_struct_name.c: OK!
+[36mok_struct_name.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_toto> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 4":
+		<RBRACE> <TAB> <TAB> <IDENTIFIER=t_toto> <SEMI_COLON> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 5":
+		<STRUCT> <SPACE> <IDENTIFIER=s_tata> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 6":
+		<LBRACE> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 7":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 8":
+		<TAB> <INT> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 9":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 10":
+		<NEWLINE>
+[36mok_struct_name.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 11":
+		<UNION> <SPACE> <IDENTIFIER=u_val> <TAB> <TAB> <TAB> <IDENTIFIER=g_var> <SEMI_COLON> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 12":
+		<STRUCT> <SPACE> <IDENTIFIER=s_toto> <TAB> <TAB> <IDENTIFIER=g_var> <SEMI_COLON> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 13":
+		<NEWLINE>
+[36mok_struct_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 14":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 15":
+		<LBRACE> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 16":
+		<TAB> <STRUCT> <SPACE> <IDENTIFIER=s_type> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=val> <SEMI_COLON> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 17":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_struct_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 18":
+		<RBRACE> <NEWLINE>
+ok_struct_name.c: OK!

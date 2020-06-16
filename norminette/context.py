@@ -430,7 +430,7 @@ In \"{self.scope.name}\" from \
                 deep -= 1
             elif self.check_token(i, "LPARENTHESIS"):
                 deep += 1
-                if identifier is not None and deep > 0:
+                if identifier is not None and deep >= 0:
                     return "pointer", self.skip_nest(start)
             elif self.check_token(i, "COMMA"):
                 return None, self.skip_nest(start)
@@ -442,7 +442,10 @@ In \"{self.scope.name}\" from \
                 tmp = i + 1
                 tmp = self.skip_ws(tmp)
                 if pointer == True:
-                    if self.check_token(tmp, "RPARENTHESIS"):
+                    if self.check_token(tmp, "LBRACKET"):
+                        tmp = self.skip_nest(tmp)
+                        tmp += 1
+                    while self.check_token(tmp, "RPARENTHESIS"):
                         tmp += 1
                         #start = tmp
                     if self.check_token(tmp, "LPARENTHESIS"):

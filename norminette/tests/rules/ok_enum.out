@@ -1,0 +1,13 @@
+[36mok_enum.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<TYPEDEF> <SPACE> <ENUM> <SPACE> <IDENTIFIER=e_toto> <NEWLINE>
+[36mok_enum.c[0m - [32mIsBlockStart[0m In "UserDefinedEnum" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mok_enum.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 3":
+		<TAB> <IDENTIFIER=TOTO> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <COMMA> <NEWLINE>
+[36mok_enum.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 4":
+		<TAB> <IDENTIFIER=TUTU> <COMMA> <NEWLINE>
+[36mok_enum.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=TITI> <COMMA> <NEWLINE>
+[36mok_enum.c[0m - [32mIsBlockEnd[0m In "UserDefinedEnum" from "GlobalScope" line 6":
+		<RBRACE> <TAB> <IDENTIFIER=t_toto> <SEMI_COLON> <NEWLINE>
+ok_enum.c: OK!

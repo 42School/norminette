@@ -1,0 +1,40 @@
+[36mko_var_decl.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
+		<VOID> <TAB> <IDENTIFIER=tata> <LPARENTHESIS> <CONST> <SPACE> <CHAR> <SPACE> <IDENTIFIER=xc> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 2":
+		<VOID> <TAB> <IDENTIFIER=tata> <LPARENTHESIS> <CONST> <SPACE> <IDENTIFIER=t_struct> <SPACE> <MULT> <IDENTIFIER=a> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 3":
+		<VOID> <TAB> <IDENTIFIER=tata> <LPARENTHESIS> <CONST> <SPACE> <CHAR> <SPACE> <IDENTIFIER=w> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
+		<NEWLINE>
+[36mko_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 5":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=toto> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=c> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=v> <RPARENTHESIS> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 6":
+		<LBRACE> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=i> <SPACE> <DEC> <RPARENTHESIS> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 8":
+		<TAB> <TAB> <WHILE> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 9":
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 10":
+		<TAB> <TAB> <TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 11":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <ELSE> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 13":
+		<TAB> <TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 14":
+		<RBRACE> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 15":
+		<NEWLINE>
+[36mko_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 16":
+		<VOID> <TAB> <IDENTIFIER=toto> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 17":
+		<LBRACE> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 18":
+		<TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mko_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 19":
+		<RBRACE> <NEWLINE>
+ko_var_decl.c: KO!
+	MULT_IN_SINGLE_INSTR (line: 9, col: 1):	Multiple instructions in single line control structure

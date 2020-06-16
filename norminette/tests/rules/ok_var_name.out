@@ -1,1 +1,89 @@
-tests/rules/ok_var_name.c: OK!
+[36mok_var_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <INT> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e2> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <INT> <TAB> <IDENTIFIER=f4> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 8":
+		<RBRACE> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
+		<NEWLINE>
+[36mok_var_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 10":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 11":
+		<LBRACE> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 13":
+		<TAB> <INT> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 14":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 15":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e2> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 16":
+		<TAB> <INT> <TAB> <IDENTIFIER=f4> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 17":
+		<RBRACE> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 18":
+		<NEWLINE>
+[36mok_var_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 19":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 20":
+		<LBRACE> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 21":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 22":
+		<TAB> <INT> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 23":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 24":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e2> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 25":
+		<TAB> <INT> <TAB> <IDENTIFIER=f4> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 26":
+		<RBRACE> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 27":
+		<NEWLINE>
+[36mok_var_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 28":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 29":
+		<LBRACE> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 30":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 31":
+		<TAB> <INT> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 32":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 33":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e2> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 34":
+		<TAB> <INT> <TAB> <IDENTIFIER=f4> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 35":
+		<RBRACE> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 36":
+		<NEWLINE>
+[36mok_var_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 37":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 38":
+		<LBRACE> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 39":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 40":
+		<TAB> <INT> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 41":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 42":
+		<TAB> <INT> <TAB> <IDENTIFIER=c_d_e2> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 43":
+		<TAB> <INT> <TAB> <IDENTIFIER=f4> <SEMI_COLON> <NEWLINE>
+[36mok_var_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 44":
+		<RBRACE> <NEWLINE>
+ok_var_name.c: OK!

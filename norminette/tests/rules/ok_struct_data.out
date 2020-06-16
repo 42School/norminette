@@ -1,0 +1,23 @@
+[36mok_struct_data.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_struct_data.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mok_struct_data.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <TAB> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
+[36mok_struct_data.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 4":
+		<NEWLINE>
+[36mok_struct_data.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=i> <DOT> <IDENTIFIER=c> <SEMI_COLON> <NEWLINE>
+[36mok_struct_data.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <IDENTIFIER=v> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=v> <PTR> <IDENTIFIER=v> <SEMI_COLON> <NEWLINE>
+[36mok_struct_data.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <IDENTIFIER=v> <PTR> <IDENTIFIER=c> <RPARENTHESIS> <NEWLINE>
+[36mok_struct_data.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 8":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=c> <DOT> <IDENTIFIER=v> <SPACE> <NOT_EQUAL> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mok_struct_data.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 9":
+		<TAB> <TAB> <TAB> <IDENTIFIER=i> <PTR> <IDENTIFIER=c> <PTR> <IDENTIFIER=i> <SPACE> <ADD_ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mok_struct_data.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <IDENTIFIER=i> <PTR> <IDENTIFIER=c> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=i> <PTR> <IDENTIFIER=c> <SPACE> <MULT> <SPACE> <IDENTIFIER=i> <PTR> <LPARENTHESIS> <MULT> <IDENTIFIER=d> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_struct_data.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 11":
+		<RBRACE> <NEWLINE>
+ok_struct_data.c: OK!

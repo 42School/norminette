@@ -1,0 +1,84 @@
+[36mok_func_classic.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=g_toto> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
+		<NEWLINE>
+[36mok_func_classic.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 3":
+		<TAB> <COMMENT=// toototo> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 4":
+		<TAB> <MULT_COMMENT=/*
+	 ** aallo
+	 **
+	 */> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
+		<NEWLINE>
+[36mok_func_classic.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 9":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 10":
+		<LBRACE> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <INT> <TAB> <TAB> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <STATIC> <SPACE> <INT> <TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 13":
+		<NEWLINE>
+[36mok_func_classic.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 14":
+		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <IDENTIFIER=i> <SPACE> <LESS_THAN> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 15":
+		<TAB> <LBRACE> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 16":
+		<TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=val> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 17":
+		<TAB> <RBRACE> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 18":
+		<TAB> <IDENTIFIER=arr> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <CHAR> <SPACE> <MULT> <MULT> <RPARENTHESIS> <IDENTIFIER=malloc> <LPARENTHESIS> <SIZEOF> <LPARENTHESIS> <CHAR> <SPACE> <MULT> <RPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <TAB> <MULT> <SPACE> <LPARENTHESIS> <IDENTIFIER=ft_lstsize> <LPARENTHESIS> <IDENTIFIER=lst> <RPARENTHESIS> <SPACE> <PLUS> <SPACE> <CONSTANT=1> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 20":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=b> <SPACE> <PLUS> <SPACE> <IDENTIFIER=c> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 21":
+		<TAB> <ELSE> <SPACE> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=toto> <NEWLINE>
+		<TAB> <TAB> <AND> <SPACE> <IDENTIFIER=tata> <SPACE> <OR> <SPACE> <LPARENTHESIS> <IDENTIFIER=yoyo> <NEWLINE>
+		<TAB> <TAB> <TAB> <OR> <SPACE> <IDENTIFIER=tutu> <RPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <AND> <SPACE> <IDENTIFIER=tata> <RPARENTHESIS> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 25":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=che> <RPARENTHESIS> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 26":
+		<TAB> <TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 27":
+		<RBRACE> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 28":
+		<NEWLINE>
+[36mok_func_classic.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 29":
+		<INT> <TAB> <IDENTIFIER=toto2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 30":
+		<LBRACE> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 31":
+		<TAB> <ELSE> <SPACE> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=toto> <SPACE> <AND> <SPACE> <IDENTIFIER=tata> <SPACE> <OR> <SPACE> <IDENTIFIER=toutou> <NEWLINE>
+		<TAB> <TAB> <OR> <SPACE> <IDENTIFIER=toto> <RPARENTHESIS> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 33":
+		<TAB> <LBRACE> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 34":
+		<TAB> <TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=a> <NEWLINE>
+		<TAB> <TAB> <TAB> <PLUS> <SPACE> <LPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=a> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <PLUS> <SPACE> <IDENTIFIER=b> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <RPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <TAB> <RPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <PLUS> <SPACE> <IDENTIFIER=c> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 44":
+		<TAB> <TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 45":
+		<TAB> <RBRACE> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 46":
+		<TAB> <ELSE> <SPACE> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=woa> <RPARENTHESIS> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 47":
+		<TAB> <LBRACE> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 48":
+		<TAB> <TAB> <IDENTIFIER=print> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=a> <SPACE> <PLUS> <SPACE> <CHAR_CONST='wolabrute'> <RPARENTHESIS> <SPACE> <PLUS> <SPACE> <IDENTIFIER=b> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 49":
+		<TAB> <RBRACE> <NEWLINE>
+[36mok_func_classic.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 50":
+		<RBRACE> <NEWLINE>
+ok_func_classic.c: OK!

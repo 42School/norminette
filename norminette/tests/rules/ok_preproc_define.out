@@ -1,1 +1,7 @@
-tests/rules/ok_preproc_define.c: OK!
+[36mok_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<DEFINE=#define TOTO "TATA"> <NEWLINE>
+[36mok_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<DEFINE=#define PRINTF       "printf"> <NEWLINE>
+[36mok_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<DEFINE=#define TOTO 12> <NEWLINE>
+ok_preproc_define.c: OK!

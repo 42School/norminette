@@ -1,0 +1,194 @@
+[36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <LPARENTHESIS> <IDENTIFIER=foo> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 4":
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "ControlStructure" from "Function" line 5":
+		<TAB> <TAB> <TAB> <TAB> <TAB> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 6":
+		<RBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 8":
+		<RBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 10":
+		<SHORT> <SPACE> <INT> <SPACE> <IDENTIFIER=a> <LPARENTHESIS> <RPARENTHESIS> <SPACE> 
+[36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 10":
+		<LBRACE> <SPACE> 
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 10":
+		<RETURN> <SPACE> <CONSTANT=1> <SEMI_COLON> <SPACE> 
+[36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 10":
+		<RBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 11":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 12":
+		<INT> <SPACE> <LPARENTHESIS> <IDENTIFIER=faa> <RPARENTHESIS> <LPARENTHESIS> <INT> <SPACE> <MULT> <IDENTIFIER=a> <LPARENTHESIS> <INT> <RPARENTHESIS> <COMMA> <SPACE> <CHAR> <SPACE> <IDENTIFIER=b> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=c> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=r> <RPARENTHESIS> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 13":
+		<LBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 14":
+		<TAB> <RETURN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
+		<RBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 16":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 17":
+		<INCLUDE=#include <stdlib.h>> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 18":
+		<INT> <TAB> <MULT> <IDENTIFIER=truc> <LPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 19":
+		<LBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 20":
+		<TAB> <RETURN> <SPACE> <IDENTIFIER=malloc> <LPARENTHESIS> <SIZEOF> <LPARENTHESIS> <INT> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 21":
+		<RBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 22":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 23":
+		<INT> <SPACE> <LPARENTHESIS> <MULT> <IDENTIFIER=f2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> 
+[36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 23":
+		<LBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 24":
+		<TAB> <RETURN> <SPACE> <IDENTIFIER=foo> <SEMI_COLON> <SPACE> 
+[36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 24":
+		<RBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 25":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 26":
+		<INT> <TAB> <LPARENTHESIS> <LPARENTHESIS> <MULT> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=bar> <RPARENTHESIS> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 27":
+		<LBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 28":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=foo> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 29":
+		<RBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 30":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 31":
+		<INT> <TAB> <LPARENTHESIS> <MULT> <LPARENTHESIS> <IDENTIFIER=f> <RPARENTHESIS> <LPARENTHESIS> <CHAR> <SPACE> <IDENTIFIER=a> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=t> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=b> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> 
+[36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 31":
+		<LBRACE> <SPACE> 
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 31":
+		<RETURN> <SPACE> <IDENTIFIER=foo> <SEMI_COLON> 
+[36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 31":
+		<RBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 32":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 33":
+		<INT> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=fp> <LPARENTHESIS> <INT> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <SPACE> 
+[36mlong_test.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 33":
+		<COMMENT=//Function pointer, NOT FUNC!> <NEWLINE>
+[36mlong_test.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 34":
+		<INT> <TAB> <LPARENTHESIS> <LPARENTHESIS> <MULT> <LPARENTHESIS> <IDENTIFIER=fp2> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 35":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 36":
+		<COMMENT=//int ((*T)(int))(int);> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 37":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 38":
+		<INT> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <MULT> <IDENTIFIER=f23> <LPARENTHESIS> <INT> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 39":
+		<INT> <SPACE> <LPARENTHESIS> <MULT> <IDENTIFIER=fff> <LBRACKET> <CONSTANT=1> <RBRACKET> <RPARENTHESIS> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 40":
+		<ENUM> <SPACE> <IDENTIFIER=Bla> <SPACE> <LBRACE> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 41":
+		<TAB> <IDENTIFIER=A> <COMMA> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 42":
+		<TAB> <IDENTIFIER=B> <NEWLINE>
+[36mlong_test.c[0m - [32mIsBlockEnd[0m In "UserDefinedEnum" from "GlobalScope" line 43":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 44":
+		<NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 45":
+		<ENUM> <SPACE> <IDENTIFIER=Bla> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 46":
+		<UNSIGNED> <SPACE> <ENUM> <SPACE> <IDENTIFIER=Bla> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 47":
+		<LONG> <SPACE> <LONG> <SPACE> <ENUM> <SPACE> <IDENTIFIER=Bla> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 48":
+		<ENUM> <SPACE> <LONG> <SPACE> <LONG> <SPACE> <IDENTIFIER=Bla> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 49":
+		<ENUM> <SPACE> <LONG> <SPACE> <LONG> <SPACE> <IDENTIFIER=Bla> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 50":
+		<SPACE> <IDENTIFIER=Bla> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 51":
+		<IDENTIFIER=youpi> <TAB> <IDENTIFIER=func2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 52":
+		<IDENTIFIER=trololo43> <SPACE> <CONST> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 53":
+		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 54":
+		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=cahuete> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 55":
+		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <TAB> <IDENTIFIER=cahuete> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 56":
+		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <SPACE> <IDENTIFIER=lol> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 57":
+		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <SPACE> <IDENTIFIER=lol> <SPACE> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 58":
+		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <IDENTIFIER=lol> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 59":
+		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <SPACE> <IDENTIFIER=lol> <SPACE> <MULT> <MULT> <MULT> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 60":
+		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <SPACE> <IDENTIFIER=lol> <SPACE> <MULT> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 61":
+		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <MULT> <MULT> <IDENTIFIER=cahuete> <COMMA> <SPACE> <IDENTIFIER=lol> <MULT> <MULT> <MULT> <SPACE> <MULT> <MULT> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 62":
+		<IDENTIFIER=trololo> <TAB> <IDENTIFIER=trololol> <TAB> <IDENTIFIER=func4> <LPARENTHESIS> <IDENTIFIER=uopi> <SPACE> <IDENTIFIER=sks> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mlong_test.c[0m - [32mIsFunctionCall[0m In "GlobalScope" from "None" line 63":
+		<MULT> <MULT> <MULT> <IDENTIFIER=func4> <LPARENTHESIS> <IDENTIFIER=udidf> <SPACE> <IDENTIFIER=fdfd> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+long_test.c: KO!
+	TOO_MANY_TAB (line: 4, col: 1):	Extra tabs for indent level
+	SPACE_EMPTY_LINE (line: 5, col: 1):	Space on empty line
+	EMPTY_LINE_FUNCTION (line: 5, col: 1):	Empty line in function
+	TOO_FEW_TAB (line: 6, col: 1):	Missing tabs for indent level
+	SPACE_BEFORE_FUNC (line: 10, col: 10):	space before function name
+	NO_ARGS_VOID (line: 10, col: 13):	Empty function argument requires void
+	BRACE_SHOULD_EOL (line: 10, col: 16):	Expected newline after brace
+	TOO_FEW_TAB (line: 10, col: 17):	Missing tabs for indent level
+	RETURN_PARENTHESIS (line: 10, col: 25):	Return value must be in parenthesis
+	SPACE_BEFORE_FUNC (line: 12, col: 4):	space before function name
+	RETURN_PARENTHESIS (line: 14, col: 13):	Return value must be in parenthesis
+	INCLUDE_START_FILE (line: 17, col: 1):	Include must be at the start of file
+	NO_ARGS_VOID (line: 18, col: 11):	Empty function argument requires void
+	SPACE_BEFORE_FUNC (line: 23, col: 4):	space before function name
+	MISSING_IDENTIFIER (line: 23, col: 17):	missing type qualifier or identifier in function arguments
+	RETURN_PARENTHESIS (line: 24, col: 15):	Return value must be in parenthesis
+	TOO_MANY_FUNCS (line: 26, col: 1):	Too many functions in file
+	MISSING_IDENTIFIER (line: 26, col: 29):	missing type qualifier or identifier in function arguments
+	TOO_MANY_FUNCS (line: 31, col: 1):	Too many functions in file
+	MISSING_IDENTIFIER (line: 31, col: 34):	missing type qualifier or identifier in function arguments
+	BRACE_SHOULD_EOL (line: 31, col: 40):	Expected newline after brace
+	TOO_FEW_TAB (line: 31, col: 41):	Missing tabs for indent level
+	RETURN_PARENTHESIS (line: 31, col: 51):	Return value must be in parenthesis
+	GLOBAL_VAR_NAMING (line: 33, col: 7):	Global variable must start with g_
+	GLOBAL_VAR_NAMING (line: 34, col: 9):	Global variable must start with g_
+	MISALIGNED_VAR_DECL (line: 34, col: 19):	Misaligned variable declaration
+	SPACE_REPLACE_TAB (line: 38, col: 4):	Found space when expecting tab
+	GLOBAL_VAR_NAMING (line: 38, col: 8):	Global variable must start with g_
+	SPACE_REPLACE_TAB (line: 39, col: 4):	Found space when expecting tab
+	ENUM_TYPE_NAMING (line: 40, col: 6):	Enum name must start with e_
+	FORBIDDEN_CHAR_NAME (line: 40, col: 6):	user defined identifiers should contain only lowercase characters, digits or '_'
+	BRACE_SHOULD_EOL (line: 43, col: 1):	Expected newline after brace
+	MISALIGNED_FUNC_DECL (line: 46, col: 21):	Misaligned function declaration
+	MISALIGNED_FUNC_DECL (line: 47, col: 21):	Misaligned function declaration
+	MISALIGNED_FUNC_DECL (line: 48, col: 21):	Misaligned function declaration
+	MISALIGNED_FUNC_DECL (line: 49, col: 21):	Misaligned function declaration
+	SPACE_REPLACE_TAB (line: 50, col: 2):	Found space when expecting tab
+	MISALIGNED_FUNC_DECL (line: 50, col: 9):	Misaligned function declaration
+	MISALIGNED_FUNC_DECL (line: 51, col: 9):	Misaligned function declaration
+	MISALIGNED_FUNC_DECL (line: 52, col: 17):	Misaligned function declaration
+	MISSING_IDENTIFIER (line: 53, col: 19):	missing type qualifier or identifier in function arguments
+	MISSING_IDENTIFIER (line: 54, col: 19):	missing type qualifier or identifier in function arguments
+	CONSECUTIVE_SPC (line: 57, col: 43):	Two or more consecutives spaces
+	SPC_AFTER_OPERATOR (line: 58, col: 38):	missing space after operator
+	SPC_AFTER_POINTER (line: 60, col: 44):	space after pointer
+	SPC_BFR_POINTER (line: 61, col: 45):	bad spacing before pointer
+	SPC_AFTER_POINTER (line: 61, col: 47):	space after pointer
+	SPC_AFTER_POINTER (line: 61, col: 48):	space after pointer
+	MISALIGNED_FUNC_DECL (line: 62, col: 21):	Misaligned function declaration
