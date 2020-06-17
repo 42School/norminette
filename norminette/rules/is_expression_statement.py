@@ -45,7 +45,7 @@ class IsExpressionStatement(PrimaryRule):
                 if context.check_token(i, "LPARENTHESIS") is True:
                     #parse label value here
                     i = context.skip_nest(i)
-                else:
+                elif context.debug == 0:
                     raise CParsingError("Goto statement should be followed by a label")
             i += 1
             i = context.skip_ws(i)
@@ -132,32 +132,10 @@ class IsExpressionStatement(PrimaryRule):
         i += 1
         return True, i
 
-    """
-    def skip_cast(self, context, pos):
-        p = 0
-        while context.check_token(i. ws + ["LPARENTHESIS", "MULT"]) is True:
-            if context.check_token(i, "LPARENTHESIS") is True:
-                p += 1
-            i += 1
-
-        if context.check_token(i, "IDENTIFIER") is False:
-            return False, pos
-
-        i += 1
-        while context.check_token(i, ws + ["MULT"]) is True:
-            i += 1
-        while context.check_token(i, ws + ["RPARENTHESIS"]) is True:
-            if context.check_token(i, "RPARENTHESIS") is True:
-                p -= 1
-            i += 1
-
-        if p:
-            return False, 0
-
-        return True, i
-    """
-
     def run(self, context):
+        """
+            Catches expression statement by elimination
+        """
         i = context.skip_ws(0)
         ret, i = self.check_instruction(context, i)
         if ret is False:

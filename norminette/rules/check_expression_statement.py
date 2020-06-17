@@ -42,6 +42,11 @@ class CheckExpressionStatement(Rule):
         self.depends_on = ["IsExpressionStatement", "IsControlStatement"]
 
     def run(self, context):
+        """
+            C keywords (return, break, continue...) must be followed by a space, with the 
+            exception of sizeof
+            Return values in a function must be contained in parenthesis
+        """
         i = 0
         while context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
             if context.check_token(i, kw) is True:

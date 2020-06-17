@@ -19,6 +19,12 @@ class CheckPreprocessorIndent(Rule):
                 return spaces
 
     def run(self, context):
+        """
+            Preprocessor statements must be indented by an additionnal space for each #ifdef/#ifndef/#if 
+            statement.
+            Structure is `#{indentation}preproc_statement`
+            Preprocessor must always be at the start of the line
+        """
         i = 0
         i = context.skip_ws(i)
         tken = context.peek_token(i)

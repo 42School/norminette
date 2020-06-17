@@ -46,6 +46,9 @@ class CheckFuncSpacing(Rule):
         self.depends_on = ["IsFuncDeclaration"]
 
     def run(self, context):
+        """
+            Function return type and function name must be separated by a tab
+        """
         i = context.fname_pos - 1
         while context.check_token(i, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:
             i -= 1

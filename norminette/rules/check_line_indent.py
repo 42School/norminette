@@ -9,6 +9,9 @@ class CheckLineIndent(Rule):
         self.depends_on = []
 
     def run(self, context):
+        """
+            Each new scope (function, control structure, struct/enum type declaration) adds a tab to the general indentation
+        """
         expected = context.scope.indent
         if context.history[-1] == "IsEmptyLine" or context.history[-1] == "IsComment" or context.history[-1] == "IsPreprocessorStatement":
             return False, 0

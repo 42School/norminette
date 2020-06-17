@@ -107,6 +107,9 @@ class CheckFuncArgumentsName(Rule):
         return False
 
     def run(self, context):
+        """
+            Empty functions arguments must use void
+        """
         i = context.arg_pos[0] + 1
         ret = self.no_arg_func(context, i)
         if ret is True:

@@ -9,6 +9,10 @@ class CheckPreprocessorInclude(Rule):
         self.depends_on = ["IsPreprocessorStatement"]
 
     def run(self, context):
+        """
+            Includes must be at the start of the file
+            You cannot include anything that isn't an header file
+        """
         i = 0
         filetype = ''
         if context.check_token(i, "INCLUDE") is False:

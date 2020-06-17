@@ -350,6 +350,10 @@ In \"{self.scope.name}\" from \
             return True, i
 
     def check_identifier(self, pos, nl=False):
+        """
+            Determines the function return value or the variable type and returns
+            an iterator to the next token
+        """
         i = pos
         p = 0
         i = self.skip_misc_specifier(i, nl=nl)
@@ -369,8 +373,8 @@ In \"{self.scope.name}\" from \
 
     def is_glued_operator(self, pos):
         """
-        Returns True if operator (among +-) at given pos is glued to identifier, number 
-        or constant
+            Returns True if operator (among +-) at given pos is glued to identifier, number 
+            or constant
         """
         not_glued = [
             'IDENTIFIER'
@@ -397,8 +401,8 @@ In \"{self.scope.name}\" from \
 
     def is_operator(self, pos):
         """
-        Returns True if the given operator (among '*&') is an actual operator,
-        and returns False if said operator is a pointer/adress indicator
+            Returns True if the given operator (among '*&') is an actual operator,
+            and returns False if said operator is a pointer/adress indicator
         """
         i = 0
         start = pos + 1
@@ -419,6 +423,11 @@ In \"{self.scope.name}\" from \
             pos -= 1
 
     def parenthesis_contain(self, i):
+        """
+            Explore parenthesis to return its content
+            Function, pointer, cast, or other
+            Uses basic string as return value and skips to the end of the parenthesis nest
+        """
         start = i
         ws = ["SPACE", "TAB", "NEWLINE"]
         i += 1
@@ -458,43 +467,3 @@ In \"{self.scope.name}\" from \
                     return "cast", self.skip_nest(start)
             i += 1
         return None, self.skip_nest(start)
-
-
-
-    #def parenthesis_contain(self, i):
-        #start = i
-        #deep = 0
-        #ws = ["SPACE", "TAB", "NEWLINE"]
-        #if self.check_token(i, "RPARENTHESIS") is True:
-            #while i > 0 and self.check_token(i, "LPARENTHESIS") is False:
-                #i -= 1
-        #if self.check_token(i, "LPARENTHESIS") is False:
-            #return None, start
-        #deep = 1
-        #i += 1
-        #while deep > 0:
-            #if self.check_token(i, "LPARENTHESIS") is True:
-                #deep += 1
-            #if self.check_token(i, "RPARENTHESIS") is True:
-                #deep -= 1
-            #if self.check_token(i, ws) is True:
-                #pass
-            #if self.check_token(i, ["MULT"]):
-                #tmp = i + 1
-                #while self.check_token(tmp, ws + ["LPARENTHESIS"]) is True:
-                    #tmp += 1
-                #if self.check_token(tmp, "IDENTIFIER") is True:
-                    #return "function", tmp + 1
-                #return None, start
-            #if self.check_token(i, "IDENTIFIER") is True:
-                #tmp = i + 1
-                #while self.check_token(tmp, ws) is True:
-                    #tmp += 1
-                #if self.check_token(tmp, "MULT") is True:
-                    #return "cast", tmp + 1
-                #if self.check_token(tmp, "RPARENTHESIS") is True:
-                    #return "cast", tmp
-            #if self.check_token(i, types) is True:
-                #return "cast", i
-            #i += 1
-        #return None, start

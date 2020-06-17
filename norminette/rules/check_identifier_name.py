@@ -15,7 +15,8 @@ class CheckIdentifierName(Rule):
 
     def run(self, context):
         """
-        Raises 1018 error, bad formated user defined identifier
+            Function can only be declared in the global scope
+            User defined identifiers can only contain lowercase characters, '_' or digits
         """
         i = 0
         legal_characters = string.ascii_lowercase + string.digits + '_'
@@ -54,16 +55,4 @@ class CheckIdentifierName(Rule):
                     context.new_error(err[0], err[1])
                     break
             i += 1
-            #elif context.peek_token(i) == "DEFINE":
-                #content = Lexer(context.peek_token(i).value)
-                #tkns = content.get_tokens()
-                #v = 0
-                #while v < len(tkns):
-                    #if tkns[v] == "IDENTIFIER":
-                        #for c in tkns[v].value:
-                            #if c not in legal_characters:
-                                #context.new_error(
-                                                #"FORBIDDEN_CHAR_NAME",
-                                                #context.peek_token(tkns[v]))
-                                #break
         return False, 0

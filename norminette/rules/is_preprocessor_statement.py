@@ -23,6 +23,10 @@ class IsPreprocessorStatement(PrimaryRule):
         self.scope = []
 
     def run(self, context):
+        """
+            Catches any kind of preprocessor statements
+            Handles indentation related informations
+        """
         i = context.skip_ws(0)
         if context.check_token(i, pp_keywords) is True:
             if context.peek_token(i).value is None \

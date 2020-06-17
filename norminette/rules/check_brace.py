@@ -8,6 +8,10 @@ class CheckBrace(Rule):
         self.depends_on = ["IsBlockStart", "IsBlockEnd"]
 
     def run(self, context):
+        """
+            C files must end with an empty line
+            Functions can only have 25 lines
+        """
         i = 0
         i = context.skip_ws(i, nl=False)
         #if context.check_token(i, ["RBRACE", "LBRACE"]) is False and context.scope.type != "GlobalScope":

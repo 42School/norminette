@@ -28,17 +28,14 @@ class CheckGlobalNaming(Rule):
         self.depends_on = ["IsVarDeclaration"]
 
     def run(self, context):
+        """
+            Global variable names must be preceded by g_
+        """
         i = 0
         last_id = ""
         if context.scope.name != "GlobalScope":
             return False, 0
         i = context.skip_ws(i)
-        """
-        while context.check_token(i, types) is True:
-            if context.check_token(i, "IDENTIFIER"):
-                last_id = context.peek_token(i)
-            i += 1
-        """
         _, i = context.check_type_specifier(i)
         while context.check_token(i, "IDENTIFIER") is False:
             i += 1

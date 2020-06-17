@@ -13,11 +13,8 @@ errors = {
     "MISSING_TAB_FUNC": "missing tab before function name",
     "MISSING_TAB_VAR": "missing tab before variable name",
     "TOO_MANY_TAB_VAR": "extra tab before variable name",
-    1013: "braces should be on their own line",
     "LINE_TOO_LONG": "line too long",
-    1015: "missing 'void' keyword",
     "MISSING_IDENTIFIER": "missing type qualifier or identifier in function arguments",
-    1017: "function has more than four arguments",
     "FORBIDDEN_CHAR_NAME": "user defined identifiers should contain only lowercase characters, \
 digits or '_'",
     "TOO_FEW_TAB": "Missing tabs for indent level",
@@ -82,6 +79,7 @@ digits or '_'",
     "PREPROC_GLOBAL": "Preprocessors can only be used in the global scope",
     "WRONG_SCOPE_FCT": "Function prototype in incorrect scope",
     "WRONG_SCOPE": "Statement is in incorrect scope",
+    "INCORRECT_DEFINE": "Incorrect values in define",
     # This is a dummy rule
     9999: "Consecutive newlines"
 }

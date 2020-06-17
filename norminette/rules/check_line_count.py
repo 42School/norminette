@@ -8,6 +8,9 @@ class CheckLineCount(Rule):
         self.depends_on = []
 
     def run(self, context):
+        """
+            Each function can only have 25 lines between its opening and closing brackets
+        """
         for t in context.tokens[:context.tkn_scope]:
             if t.type == "NEWLINE":
                 context.scope.lines += 1

@@ -9,6 +9,9 @@ class IsTernary(Rule):
         self.scope = []
 
     def run(self, context):
+        """
+            Catches ternaries and raises an error
+        """
         i = 0
         while context.peek_token(i) is not None and context.check_token(i, "SEMI_COLON") is False:
             if context.check_token(i, "TERN_CONDITION") is True:

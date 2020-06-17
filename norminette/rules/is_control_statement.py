@@ -13,6 +13,10 @@ class IsControlStatement(PrimaryRule):
         self.scope = [Function, ControlStructure, GlobalScope]
 
     def run(self, context):
+        """
+            Catches control statements, including for/switch
+            Includes the condition, even if over multiple lines
+        """
         is_id = False
         i = context.skip_ws(0, nl=False)
         if context.check_token(i, cs_keywords) is False:

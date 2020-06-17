@@ -7,6 +7,9 @@ class CheckComment(Rule):
         self.depends_on = ["IsComment"]
 
     def run(self, context):
+        """
+            Comments are only allowed in GlobalScope.
+        """
         i = context.skip_ws(0)
         if context.scope.name != "GlobalScope":
             context.new_error("WRONG_SCOPE_COMMENT", context.peek_token(i))

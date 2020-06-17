@@ -27,6 +27,12 @@ class CheckPreprocessorDefine(Rule):
         context.scope = context.scope.get_outer()
 
     def run(self, context):
+        """
+            Preprocessor statements must be defined only in the global scope
+            Defined names must be in capital letters
+            Define cannot contain newlines
+            Define can only contain constant values, such as integers and strings
+        """
         i = context.skip_ws(0)
         if len(context.history) > 1 and context.history[-2] == "IsFuncDeclaration":
             self.check_function_declaration(context)

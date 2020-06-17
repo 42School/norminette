@@ -7,6 +7,12 @@ class CheckBlockStart(Rule):
         self.depends_on = ["IsBlockStart"]
 
     def run(self, context):
+        """
+            Braces signal that the control structure, function, or user defined type can contain
+            multiple lines.
+            A control structure that has no braces can only contain one instruction line, but can
+            contain multiple control structures
+        """
         outer = context.scope.get_outer()
         if len(context.history) > 2:
             i = 0

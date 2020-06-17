@@ -21,6 +21,11 @@ class CheckVariableDeclaration(Rule):
         self.depends_on = ["IsVarDeclaration"]
 
     def run(self, context):
+        """
+            Variables can be declared as global or in the scope of a function
+            Only static and global variables can be assigned on their assignation line
+            Each variable must be declared on a separate line
+        """
         i = 0
         static = False
         if context.scope.name == "Function":

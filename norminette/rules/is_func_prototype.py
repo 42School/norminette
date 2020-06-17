@@ -177,7 +177,12 @@ class IsFuncPrototype(PrimaryRule):
         return False, 0
 
     def run(self, context):
-
+        """
+            Catches function prototypes
+            Allows newline inside it
+            End condition is SEMI_COLON token, otherwise line will be considered as
+            function declaration
+        """
         if type(context.scope) is not GlobalScope and type(context.scope) is not UserDefinedType:
             return False, 0
 

@@ -21,6 +21,11 @@ class IsBlockStart(PrimaryRule):
                         GlobalScope]
 
     def run(self, context):
+        """
+            Catches LBRACE tokens
+            Creates new scope based on previous instruction or set it to multiline if it
+            is a control statement
+        """
         i = context.skip_ws(0, nl=False)
         if context.check_token(i, "LBRACE") is False:
             return False, 0

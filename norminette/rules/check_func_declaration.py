@@ -16,6 +16,10 @@ class CheckFuncDeclaration(Rule):
         self.depends_on = ["IsFuncDeclaration", "IsFuncPrototype"]
 
     def run(self, context):
+        """
+            Maximum 4 arguments in a function
+            Function declaration must be preceded by a newline
+        """
         i = 0
         tmp = 0
         arg = 1

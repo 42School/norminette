@@ -41,9 +41,12 @@ whitespaces = [
 class CheckEmptyFuncParams(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = [IsFuncDeclaration]
+        self.depends_on = ["IsFuncDeclaration", "IsFuncPrototype"]
 
     def run(self, context):
+        """
+            Empty functions arguments must use void
+        """
         i = context.arg_pos[0] + 1
         i = context.skip_ws(i)
         if context.check_token(i, "VOID") is False \

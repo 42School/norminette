@@ -143,6 +143,9 @@ class IsVarDeclaration(PrimaryRule):
         return True, i
 
     def run(self, context):
+        """
+            Catches all kinds of variable declarations
+        """
         ret, i = context.check_type_specifier(0)
         if ret is False:
             return False, 0

@@ -37,6 +37,13 @@ class CheckControlStatement(Rule):
         return
 
     def run(self, context):
+        """
+            Forbidden control structures:
+                - For
+                - Switch case
+                - Goto
+            Assignations must be done outside of control structures
+        """
         i = 0
         if context.scope.name == "GlobalScope":
             context.new_error("WRONG_SCOPE", context.peek_token(0))

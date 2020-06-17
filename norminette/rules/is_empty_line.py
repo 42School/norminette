@@ -13,6 +13,10 @@ class IsEmptyLine(PrimaryRule):
         self.scope = []
 
     def run(self, context):
+        """
+            Catches empty line
+            BUG: Catches end of line token on unrecognized line
+        """
         i = 0
         while context.check_token(i, ["SPACE", "TAB"]) is True:
             i += 1

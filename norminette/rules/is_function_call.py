@@ -64,6 +64,9 @@ class IsFunctionCall(PrimaryRule):
         self.scope = []
 
     def run(self, context):
+        """
+            Catches function calls when it's in an assignation
+        """
         i = context.skip_ws(0, nl=False)
         types = []
         while context.check_token(i, "LPARENTHESIS") is True:

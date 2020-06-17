@@ -66,6 +66,9 @@ class IsEnumVarDecl(PrimaryRule):
         return False, pos
 
     def run(self, context):
+        """
+            Enum have special var declarations so this catches these specific variables
+        """
         ret, i = self.var_declaration(context, 0)
         if ret is False:
             return False, 0

@@ -47,6 +47,9 @@ class CheckPrototypeIndent(Rule):
         self.depends_on = ["IsFuncPrototype"]
 
     def run(self, context):
+        """
+            All function prototypes names must be aligned on the same indentation
+        """
         i = 0
         type_identifier_nb = -1
         current_indent = 0

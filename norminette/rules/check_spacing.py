@@ -7,6 +7,10 @@ class CheckSpacing(Rule):
         self.depends_on = []
 
     def run(self, context):
+        """
+            Indentation (except for preprocessors) must be done with tabs
+            There cannot be trailing spaces or tabs at the end of line
+        """
         i = 0
         if context.history[-1] == "IsEmptyLine":
             return False, 0
@@ -37,9 +41,6 @@ class CheckSpacing(Rule):
                     if context.check_token(i, "NEWLINE"):
                         context.new_error("SPC_BEFORE_NL", context.peek_token(i - 1))
                 else:
-                    """
-                    Maybe check for correct tabs here as well?
-                    """
                     i += 1
             else:
                 i += 1

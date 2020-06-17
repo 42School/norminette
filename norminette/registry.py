@@ -40,6 +40,13 @@ class Registry:
         return ret, read
 
     def run(self, context, source):
+        """
+            Main function for each file.
+            Primary rules are determined by the prefix "Is" and 
+            are run by order of priority as defined in each class
+            Each secondary rule is then run in arbitrary order based on their
+            dependencies
+        """
         unrecognized_tkns = []
         while context.tokens != []:
             context.tkn_scope = len(context.tokens)

@@ -1,4 +1,8 @@
 class Scope:
+    """
+        Main scope class
+        Contain various scope informations updated as the norminette runs through the file
+    """
     def __init__(self, parent=None):
         self.parent = parent
         self.name = type(self).__name__
@@ -21,14 +25,27 @@ class Scope:
         return sub(self)
 
     def outer(self):
+        """
+            Return outer scope (None if called on GlobalScope)
+            Adds the line of current scope to parent scope
+            to calculate function length or control structure length
+        """
         if self.parent is not None:
             self.parent.lines += self.lines
         return self.parent
 
     def get_outer(self):
+        """
+            Allows to peek to the parent scope without adding lines to
+            the parent scope
+        """
         return self.parent
 
 class GlobalScope(Scope):
+    """
+        GlobalScope contains every other scope
+        Has no parent scope (returns None)
+    """
     def __init__(self):
         super().__init__()
         self.fdeclarations_allowed = True
@@ -84,5 +101,6 @@ class VariableAssignation(Scope):
     """
     This isn't an 'actual' C scope, but it'll help us parse multiple
     assignations (int foo[4] = {0, 0, 0, 0};) easier.
+    - Unused
     """
     pass

@@ -19,7 +19,7 @@ class CheckManyInstructions(Rule):
 
     def run(self, context):
         """
-        Raises 1018 error, bad formated user defined identifier
+            Each instruction must be separated by a newline
         """
         if context.peek_token(0).pos[1] > 1:
             context.new_error("TOO_MANY_INSTR", context.peek_token(0))

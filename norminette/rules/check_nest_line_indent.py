@@ -69,6 +69,9 @@ class CheckNestLineIndent(Rule):
         return i
 
     def run(self, context):
+        """
+            Each nest (parenthesis, brackets, braces) adds a tab to the general indentation
+        """
         i = 0
         expected = context.scope.indent
         nest = 0

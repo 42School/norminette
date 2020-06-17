@@ -35,6 +35,14 @@ class CheckInHeader(Rule):
         ]
 
     def run(self, context):
+        """
+            Each .h file must be protected against double inclusion
+            Instructions allowed in header files:
+                - Variable declaration
+                - User defined types
+                - Comments
+                - Function prototypes
+        """
         if context.filetype != 'h':
             return False, 0
         sc = context.scope

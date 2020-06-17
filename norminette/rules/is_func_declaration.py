@@ -189,7 +189,11 @@ class IsFuncDeclaration(PrimaryRule):
         return False, 0
 
     def run(self, context):
-
+        """
+            Catches function declaration
+            Allows newline inside it
+            Creates context variable for function name, arg_start, arg_end
+        """
         if type(context.scope) is not GlobalScope:
             return False, 0
 

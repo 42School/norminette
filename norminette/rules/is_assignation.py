@@ -81,6 +81,10 @@ class IsAssignation(PrimaryRule):
             return False, 0
 
     def run(self, context):
+        """
+            Catches all assignation instructions
+            Requires assign token
+        """
         ret, i = self.check_identifier(context, 0)
         if ret is False:
             return False, 0

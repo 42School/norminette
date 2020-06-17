@@ -27,6 +27,11 @@ class IsBlockEnd(PrimaryRule):
         return True, i
 
     def run(self, context):
+        """
+            Catches RBRACE tokens.
+            Handles scope related stuff: Exiting a scope is done here and in registry.py
+            Scope is calculated AFTER the rules have run for this primary rule
+        """
         i = context.skip_ws(0)
         if context.check_token(i, "RBRACE") is False:
             return False, 0

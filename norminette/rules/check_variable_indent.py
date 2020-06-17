@@ -114,6 +114,9 @@ class CheckVariableIndent(Rule):
         return False, 0
 
     def run(self, context):
+        """
+            Each variable must be indented at the same level for its scope
+        """
         i = 0
         identifier = None
         self.check_tabs(context)

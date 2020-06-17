@@ -10,6 +10,9 @@ class IsComment(PrimaryRule):
         self.scope = []
 
     def run(self, context):
+        """
+            Catches comments tokens
+        """
         i = context.skip_ws(0)
         if context.check_token(i, ["MULT_COMMENT", "COMMENT"]) is True:
             i += 1

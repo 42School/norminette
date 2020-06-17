@@ -34,6 +34,13 @@ class CheckUtypeDeclaration(Rule):
         self.depends_on = ["IsUserDefinedType"]
 
     def run(self, context):
+        """
+            User defined types must respect the following rules:
+                - Struct names start with s_
+                - Enum names start with e_
+                - Union names start with u_
+                - Typedef names start with t_
+        """
         i = 0
         i = context.skip_ws(i)
         tkns = context.tokens
@@ -79,8 +86,10 @@ class CheckUtypeDeclaration(Rule):
                 if len(ids) > 1:
                     name = ids[0][0]
                 else:
-                    pass
-                    #raise CParsingError(f"{context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}")
+                    if context.debug >= 1:
+                        pass
+                    elif context.debug == 0:
+                        raise CParsingError(f"{context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}")
             loc = ids[0][1]
         else:
             loc = ids[0][1]
@@ -105,9 +114,6 @@ class CheckUtypeDeclaration(Rule):
                     context.new_error("TAB_REPLACE_SPACE", context.peek_token(tmp))
                 tmp -= 1
         if contain_full_def == False:
-            #if context.scope.name == "GlobalScope":
-               # if ids[-1][0].value.startswith('t_') is False:
-               #    context.new_error("GLOBAL_VAR_NAMING", context.peek_token(ids[-1][1]))
             i = 0
             identifier = ids[-1][0]
             i = ids[-1][1]

@@ -9,6 +9,15 @@ class CheckPreprocessorProtection(Rule):
         self.depends_on = ["IsPreprocessorStatement"]
 
     def run(self, context):
+        """
+            Header protection must be as follows:
+            ```
+            #ifndef __FILENAME_H__
+            # define __FILENAME_H__
+            #endif
+            ```
+            Any header instruction must be within the header protection
+        """
         i = 0
         if type(context.scope) is not GlobalScope:
             return False, 0

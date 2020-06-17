@@ -40,6 +40,10 @@ class CheckAssignation(Rule):
         return False, 0
 
     def run(self, context):
+        """
+            Only one assignation at a time
+            Unless the variable is static (or global), you cannot assign its value when you declare it.
+        """
         i = 0
         assign_present = False
         while context.check_token(i, "SEMI_COLON") is False:

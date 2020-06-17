@@ -45,6 +45,9 @@ class CheckAssignationIndent(Rule):
         self.depends_on = ["IsAssignation"]
 
     def run(self, context):
+        """
+            Declared variables must be aligned using tabs with other variables on the same scope
+        """
         i = 0
         expected = context.scope.indent
         nest = expected + 1

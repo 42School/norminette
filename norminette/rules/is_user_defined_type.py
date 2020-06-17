@@ -36,6 +36,10 @@ class IsUserDefinedType(PrimaryRule):
         return ret, i
 
     def run(self, context):
+        """
+            Catches user type definitions
+            Can include the whole type definition
+        """
         i = context.skip_ws(0, nl=False)
         enum = False
         while context.check_token(i, utypes) is False:

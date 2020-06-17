@@ -202,6 +202,11 @@ class CheckOperatorsSpacing(Rule):
                 return (i)
 
     def run(self, context):
+        """
+            Some operators must be followed by a space,
+            some must be only followed by a space,
+            and the rest must be preceded and followed by a space.
+        """
         self.last_seen_tkn = None
         i = 0
         while i < len(context.tokens[:context.tkn_scope]):
