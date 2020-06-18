@@ -25,7 +25,7 @@
 		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <IDENTIFIER=i> <SPACE> <LESS_THAN> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
 [36mok_func_classic.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 15":
 		<TAB> <LBRACE> <NEWLINE>
-[36mok_func_classic.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 16":
+[36mok_func_classic.c[0m - [32mIsDeclaration[0m In "ControlStructure" from "Function" line 16":
 		<TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=val> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mok_func_classic.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 17":
 		<TAB> <RBRACE> <NEWLINE>

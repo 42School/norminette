@@ -42,7 +42,7 @@
 		<INT> <TAB> <MULT> <IDENTIFIER=truc> <LPARENTHESIS> <RPARENTHESIS> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 19":
 		<LBRACE> <NEWLINE>
-[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 20":
+[36mlong_test.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 20":
 		<TAB> <RETURN> <SPACE> <IDENTIFIER=malloc> <LPARENTHESIS> <SIZEOF> <LPARENTHESIS> <INT> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 21":
 		<RBRACE> <NEWLINE>
@@ -52,7 +52,7 @@
 		<INT> <SPACE> <LPARENTHESIS> <MULT> <IDENTIFIER=f2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> 
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 23":
 		<LBRACE> <NEWLINE>
-[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 24":
+[36mlong_test.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 24":
 		<TAB> <RETURN> <SPACE> <IDENTIFIER=foo> <SEMI_COLON> <SPACE> 
 [36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 24":
 		<RBRACE> <NEWLINE>
@@ -62,7 +62,7 @@
 		<INT> <TAB> <LPARENTHESIS> <LPARENTHESIS> <MULT> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=bar> <RPARENTHESIS> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 27":
 		<LBRACE> <NEWLINE>
-[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 28":
+[36mlong_test.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 28":
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=foo> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 29":
 		<RBRACE> <NEWLINE>
@@ -72,7 +72,7 @@
 		<INT> <TAB> <LPARENTHESIS> <MULT> <LPARENTHESIS> <IDENTIFIER=f> <RPARENTHESIS> <LPARENTHESIS> <CHAR> <SPACE> <IDENTIFIER=a> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=t> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=b> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> 
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 31":
 		<LBRACE> <SPACE> 
-[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 31":
+[36mlong_test.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 31":
 		<RETURN> <SPACE> <IDENTIFIER=foo> <SEMI_COLON> 
 [36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 31":
 		<RBRACE> <NEWLINE>
@@ -130,6 +130,7 @@
 		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <SPACE> <IDENTIFIER=lol> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 57":
 		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <SPACE> <IDENTIFIER=lol> <SPACE> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+<COMMA>
 [36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 58":
 		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <IDENTIFIER=lol> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 59":
@@ -149,32 +150,37 @@ long_test.c: KO!
 	TOO_FEW_TAB (line: 6, col: 1):	Missing tabs for indent level
 	SPACE_BEFORE_FUNC (line: 10, col: 10):	space before function name
 	NO_ARGS_VOID (line: 10, col: 13):	Empty function argument requires void
+	BRACE_NEWLINE (line: 10, col: 15):	Expected newline before brace
 	BRACE_SHOULD_EOL (line: 10, col: 16):	Expected newline after brace
+	TOO_MANY_INSTR (line: 10, col: 17):	Too many instructions on a single line
 	TOO_FEW_TAB (line: 10, col: 17):	Missing tabs for indent level
 	RETURN_PARENTHESIS (line: 10, col: 25):	Return value must be in parenthesis
+	TOO_MANY_INSTR (line: 10, col: 27):	Too many instructions on a single line
 	SPACE_BEFORE_FUNC (line: 12, col: 4):	space before function name
 	RETURN_PARENTHESIS (line: 14, col: 13):	Return value must be in parenthesis
 	INCLUDE_START_FILE (line: 17, col: 1):	Include must be at the start of file
 	NO_ARGS_VOID (line: 18, col: 11):	Empty function argument requires void
 	SPACE_BEFORE_FUNC (line: 23, col: 4):	space before function name
 	MISSING_IDENTIFIER (line: 23, col: 17):	missing type qualifier or identifier in function arguments
-	RETURN_PARENTHESIS (line: 24, col: 15):	Return value must be in parenthesis
+	BRACE_NEWLINE (line: 23, col: 22):	Expected newline before brace
+	TOO_MANY_INSTR (line: 24, col: 17):	Too many instructions on a single line
 	TOO_MANY_FUNCS (line: 26, col: 1):	Too many functions in file
 	MISSING_IDENTIFIER (line: 26, col: 29):	missing type qualifier or identifier in function arguments
 	TOO_MANY_FUNCS (line: 31, col: 1):	Too many functions in file
 	MISSING_IDENTIFIER (line: 31, col: 34):	missing type qualifier or identifier in function arguments
+	BRACE_NEWLINE (line: 31, col: 39):	Expected newline before brace
 	BRACE_SHOULD_EOL (line: 31, col: 40):	Expected newline after brace
 	TOO_FEW_TAB (line: 31, col: 41):	Missing tabs for indent level
-	RETURN_PARENTHESIS (line: 31, col: 51):	Return value must be in parenthesis
+	TOO_MANY_INSTR (line: 31, col: 52):	Too many instructions on a single line
 	GLOBAL_VAR_NAMING (line: 33, col: 7):	Global variable must start with g_
 	GLOBAL_VAR_NAMING (line: 34, col: 9):	Global variable must start with g_
 	MISALIGNED_VAR_DECL (line: 34, col: 19):	Misaligned variable declaration
 	SPACE_REPLACE_TAB (line: 38, col: 4):	Found space when expecting tab
 	GLOBAL_VAR_NAMING (line: 38, col: 8):	Global variable must start with g_
+	NO_SPC_AFR_OPR (line: 38, col: 17):	extra space after operator
 	SPACE_REPLACE_TAB (line: 39, col: 4):	Found space when expecting tab
 	ENUM_TYPE_NAMING (line: 40, col: 6):	Enum name must start with e_
 	FORBIDDEN_CHAR_NAME (line: 40, col: 6):	user defined identifiers should contain only lowercase characters, digits or '_'
-	BRACE_SHOULD_EOL (line: 43, col: 1):	Expected newline after brace
 	MISALIGNED_FUNC_DECL (line: 46, col: 21):	Misaligned function declaration
 	MISALIGNED_FUNC_DECL (line: 47, col: 21):	Misaligned function declaration
 	MISALIGNED_FUNC_DECL (line: 48, col: 21):	Misaligned function declaration
@@ -188,7 +194,6 @@ long_test.c: KO!
 	CONSECUTIVE_SPC (line: 57, col: 43):	Two or more consecutives spaces
 	SPC_AFTER_OPERATOR (line: 58, col: 38):	missing space after operator
 	SPC_AFTER_POINTER (line: 60, col: 44):	space after pointer
-	SPC_BFR_POINTER (line: 61, col: 45):	bad spacing before pointer
 	SPC_AFTER_POINTER (line: 61, col: 47):	space after pointer
 	SPC_AFTER_POINTER (line: 61, col: 48):	space after pointer
 	MISALIGNED_FUNC_DECL (line: 62, col: 21):	Misaligned function declaration

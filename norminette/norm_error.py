@@ -1,7 +1,7 @@
 errors = {
     "SPC_INSTEAD_TAB": "Spaces at beginning of line",
+    "TAB_INSTEAD_SPC": "Found tab when expecting space",
     "CONSECUTIVE_SPC": "Two or more consecutives spaces",
-    1002: "space after tab",
     "SPC_BFR_OPERATOR": "missing space before operator",
     "SPC_AFTER_OPERATOR": "missing space after operator",
     "NO_SPC_BFR_OPR": "extra space before operator",
@@ -26,10 +26,8 @@ digits or '_'",
     "SPC_BEFORE_NL": "Space before newline",
     "TOO_MANY_INSTR": "Too many instructions on a single line",
     "PREPROC_UKN_STATEMENT": "Unrecognized preprocessor statement",
-    "PREPROC_START_LINE": "Preprocessor statement not at the beginning of the\
- line",
-    "PREPROC_CONSTANT": "Preprocessor statement must only contain constant\
- defines",
+    "PREPROC_START_LINE": "Preprocessor statement not at the beginning of the line",
+    "PREPROC_CONSTANT": "Preprocessor statement must only contain constant defines",
     "PREPROC_EXPECTED_EOL": "Expected EOL after preprocessor statement",
     "PREPROC_BAD_INDENT": "Bad preprocessor indentation",
     "USER_DEFINED_TYPEDEF": "User defined typedef must start with t_",
@@ -80,8 +78,7 @@ digits or '_'",
     "WRONG_SCOPE_FCT": "Function prototype in incorrect scope",
     "WRONG_SCOPE": "Statement is in incorrect scope",
     "INCORRECT_DEFINE": "Incorrect values in define",
-    # This is a dummy rule
-    9999: "Consecutive newlines"
+    "BRACE_NEWLINE": "Expected newline before brace",
 }
 
 

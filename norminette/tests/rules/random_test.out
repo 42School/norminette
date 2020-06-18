@@ -1,0 +1,3 @@
+[36mrandom_test.c[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 1":
+		<IDENTIFIER=arr> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <CHAR> <SPACE> <MULT> <MULT> <RPARENTHESIS> <IDENTIFIER=malloc> <LPARENTHESIS> <SIZEOF> <LPARENTHESIS> <CHAR> <SPACE> <MULT> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+random_test.c: OK!

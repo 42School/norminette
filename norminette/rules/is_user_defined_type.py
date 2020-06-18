@@ -38,7 +38,8 @@ class IsUserDefinedType(PrimaryRule):
     def run(self, context):
         """
             Catches user type definitions
-            Can include the whole type definition
+            Can include the whole type definition in case it's a structure
+            Variable declarations aren't included
         """
         i = context.skip_ws(0, nl=False)
         enum = False

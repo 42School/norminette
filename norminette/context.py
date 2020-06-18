@@ -50,6 +50,7 @@ glued_operators = [
     "LEFT_SHIFT",
     "TERN_CONDITION",
     "ASSIGN",
+    "AND_ASSIGN",
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
     "ADD_ASSIGN",
@@ -68,6 +69,17 @@ operators = [
     "EQUALS",
     "NOT_EQUAL",
     "ASSIGN",
+    "AND_ASSIGN",
+    "RIGHT_ASSIGN",
+    "LEFT_ASSIGN",
+    "ADD_ASSIGN",
+    "SUB_ASSIGN",
+    "MUL_ASSIGN",
+    "DIV_ASSIGN",
+    "MOD_ASSIGN",
+    "AND_ASSIGN",
+    "XOR_ASSIGN",
+    "OR_ASSIGN",
     "NOT",
     "MINUS",
     "PLUS",
@@ -133,7 +145,7 @@ arg_separator = [
 class Context:
     def __init__(self, filename, tokens, debug=False):
         # File relative informations
-        self.filename = filename
+        self.filename = filename.split('/')[-1]
         self.filetype = filename.split('.')[-1]  # ?
         self.tokens = tokens
         self.debug = int(debug)
@@ -418,9 +430,10 @@ In \"{self.scope.name}\" from \
                 pos = self.skip_nest_reverse(pos) - 1
             if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF"]) is True:
                 return True
-            elif self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND"] + operators):
+            elif self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND"] + operators + types):
                 return False
             pos -= 1
+        return False
 
     def parenthesis_contain(self, i):
         """

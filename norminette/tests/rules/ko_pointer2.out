@@ -1,0 +1,138 @@
+[36mko_pointer2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> 
+[36mko_pointer2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 1":
+		<LBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 2":
+		<TAB> <INT> <TAB> <MULT> <MULT> <MULT> <TAB> <MULT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <TAB> <TAB> <IDENTIFIER=b> <SEMI_COLON> <TAB> 
+[36mko_pointer2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 3":
+		<IDENTIFIER=a> <SPACE> <AND_ASSIGN> <SPACE> <MULT> <MULT> <MULT> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 4":
+		<RBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mko_pointer2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 6":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> 
+[36mko_pointer2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 6":
+		<LBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <INT> <TAB> <MULT> <MULT> <MULT> <TAB> <MULT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <INT> <TAB> <TAB> <TAB> <IDENTIFIER=b> <SEMI_COLON> <TAB> 
+[36mko_pointer2.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 8":
+		<IF> <SPACE> <TAB> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <CONSTANT=5> <SPACE> <MULT> <SPACE> <TAB> <TAB> <SPACE> <MULT> <MULT> <MULT> <IDENTIFIER=a> <RPARENTHESIS> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 9":
+		<TAB> <LBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 10":
+		<TAB> <TAB> <IDENTIFIER=b> <SPACE> <ASSIGN> <SPACE> <TAB> <TAB> <SPACE> <TAB> <CONSTANT=12> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsDeclaration[0m In "ControlStructure" from "Function" line 11":
+		<TAB> <TAB> <IDENTIFIER=b> <NEWLINE>
+		<TAB> <TAB> <TAB> <AND> <SPACE> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 13":
+		<TAB> <RBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 14":
+		<RBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 15":
+		<NEWLINE>
+[36mko_pointer2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 16":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> 
+[36mko_pointer2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 16":
+		<LBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 17":
+		<TAB> <INT> <TAB> <MULT> <MULT> <MULT> <TAB> <MULT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 18":
+		<TAB> <INT> <TAB> <TAB> <TAB> <IDENTIFIER=b> <SEMI_COLON> <TAB> 
+[36mko_pointer2.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 18":
+		<IF> <SPACE> <TAB> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <CONSTANT=5> <SPACE> <MULT> <SPACE> <TAB> <TAB> <SPACE> <MULT> <MULT> <MULT> <IDENTIFIER=a> <RPARENTHESIS> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 19":
+		<TAB> <LBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 20":
+		<TAB> <TAB> <IDENTIFIER=b> <SPACE> <ASSIGN> <SPACE> <TAB> <TAB> <SPACE> <TAB> <CONSTANT=12> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "ControlStructure" from "Function" line 21":
+		<TAB> <TAB> <IDENTIFIER=b> <NEWLINE>
+		<TAB> <TAB> <TAB> <MULT> <MULT> <MULT> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 23":
+		<TAB> <RBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 24":
+		<RBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 25":
+		<NEWLINE>
+[36mko_pointer2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 26":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> 
+[36mko_pointer2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 26":
+		<LBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 27":
+		<TAB> <INT> <TAB> <MULT> <MULT> <MULT> <TAB> <MULT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 28":
+		<TAB> <INT> <TAB> <TAB> <TAB> <IDENTIFIER=b> <SEMI_COLON> <TAB> 
+[36mko_pointer2.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 28":
+		<IF> <SPACE> <TAB> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <CONSTANT=5> <SPACE> <MULT> <SPACE> <TAB> <TAB> <SPACE> <MULT> <MULT> <MULT> <IDENTIFIER=a> <RPARENTHESIS> <SPACE> 
+[36mko_pointer2.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 28":
+		<LBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 29":
+		<TAB> <TAB> <IDENTIFIER=b> <SPACE> <ASSIGN> <SPACE> <TAB> <TAB> <SPACE> <TAB> <CONSTANT=12> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 30":
+		<TAB> <RBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 31":
+		<RBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 32":
+		<NEWLINE>
+[36mko_pointer2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 33":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> 
+[36mko_pointer2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 33":
+		<LBRACE> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 34":
+		<TAB> <INT> <TAB> <MULT> <MULT> <MULT> <TAB> <MULT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 35":
+		<TAB> <INT> <TAB> <TAB> <TAB> <IDENTIFIER=b> <SEMI_COLON> <TAB> 
+[36mko_pointer2.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 35":
+		<IF> <SPACE> <TAB> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <CONSTANT=5> <SPACE> <MULT> <SPACE> <TAB> <TAB> <SPACE> <MULT> <MULT> <MULT> <TAB> <IDENTIFIER=a> <RPARENTHESIS> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 36":
+		<TAB> <TAB> <IDENTIFIER=b> <SPACE> <ASSIGN> <SPACE> <TAB> <TAB> <SPACE> <TAB> <CONSTANT=12> <SEMI_COLON> <NEWLINE>
+[36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 37":
+		<RBRACE> <NEWLINE>
+ko_pointer2.c: KO!
+	BRACE_NEWLINE (line: 1, col: 16):	Expected newline before brace
+	SPC_AFTER_POINTER (line: 2, col: 11):	space after pointer
+	SPC_AFTER_POINTER (line: 2, col: 13):	space after pointer
+	TOO_MANY_INSTR (line: 3, col: 21):	Too many instructions on a single line
+	NL_AFTER_VAR_DECL (line: 3, col: 21):	Variable declarations must be followed by a newline
+	TOO_FEW_TAB (line: 3, col: 21):	Missing tabs for indent level
+	BRACE_NEWLINE (line: 6, col: 16):	Expected newline before brace
+	SPC_AFTER_POINTER (line: 7, col: 11):	space after pointer
+	SPC_AFTER_POINTER (line: 7, col: 13):	space after pointer
+	TOO_MANY_INSTR (line: 8, col: 21):	Too many instructions on a single line
+	NL_AFTER_VAR_DECL (line: 8, col: 21):	Variable declarations must be followed by a newline
+	TOO_FEW_TAB (line: 8, col: 21):	Missing tabs for indent level
+	TAB_INSTEAD_SPC (line: 8, col: 24):	Found tab when expecting space
+	TAB_INSTEAD_SPC (line: 10, col: 13):	Found tab when expecting space
+	NEWLINE_IN_DECL (line: 11, col: 10):	Newline in function declaration
+	BRACE_NEWLINE (line: 16, col: 16):	Expected newline before brace
+	SPC_AFTER_POINTER (line: 17, col: 11):	space after pointer
+	SPC_AFTER_POINTER (line: 17, col: 13):	space after pointer
+	TOO_MANY_INSTR (line: 18, col: 21):	Too many instructions on a single line
+	NL_AFTER_VAR_DECL (line: 18, col: 21):	Variable declarations must be followed by a newline
+	TOO_FEW_TAB (line: 18, col: 21):	Missing tabs for indent level
+	TAB_INSTEAD_SPC (line: 18, col: 24):	Found tab when expecting space
+	TAB_INSTEAD_SPC (line: 20, col: 13):	Found tab when expecting space
+	WRONG_SCOPE_VAR (line: 21, col: 1):	Variable declared in incorrect scope
+	BRACE_NEWLINE (line: 26, col: 16):	Expected newline before brace
+	SPC_AFTER_POINTER (line: 27, col: 11):	space after pointer
+	SPC_AFTER_POINTER (line: 27, col: 13):	space after pointer
+	TOO_MANY_INSTR (line: 28, col: 21):	Too many instructions on a single line
+	NL_AFTER_VAR_DECL (line: 28, col: 21):	Variable declarations must be followed by a newline
+	TOO_FEW_TAB (line: 28, col: 21):	Missing tabs for indent level
+	TAB_INSTEAD_SPC (line: 28, col: 24):	Found tab when expecting space
+	NO_SPC_AFR_OPR (line: 28, col: 58):	extra space after operator
+	TOO_FEW_TAB (line: 28, col: 60):	Missing tabs for indent level
+	TAB_INSTEAD_SPC (line: 29, col: 13):	Found tab when expecting space
+	BRACE_NEWLINE (line: 33, col: 16):	Expected newline before brace
+	SPC_AFTER_POINTER (line: 34, col: 11):	space after pointer
+	SPC_AFTER_POINTER (line: 34, col: 13):	space after pointer
+	TOO_MANY_INSTR (line: 35, col: 21):	Too many instructions on a single line
+	NL_AFTER_VAR_DECL (line: 35, col: 21):	Variable declarations must be followed by a newline
+	TOO_FEW_TAB (line: 35, col: 21):	Missing tabs for indent level
+	TAB_INSTEAD_SPC (line: 35, col: 24):	Found tab when expecting space
+	SPC_AFTER_POINTER (line: 35, col: 56):	space after pointer
+	TAB_INSTEAD_SPC (line: 36, col: 13):	Found tab when expecting space

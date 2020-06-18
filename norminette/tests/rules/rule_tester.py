@@ -41,18 +41,18 @@ class norminetteRuleTester():
         stdout = sys.stdout
         sys.stdout = buff = StringIO()
         lexer = Lexer(read_file(filename))
-        context = Context(filename, lexer.get_tokens())
+        context = Context(filename, lexer.get_tokens(), debug=2)
         registry.run(context, read_file(filename))
         reference_output = read_file(filename.split(".")[0] + ".out")
         sys.stdout = stdout
         self.assertEqual(buff.getvalue(), reference_output)
 
     def run_tests(self):
-        files = glob.glob("tests/rules/*.c")
+        files = glob.glob("tests/rules/*.[ch]")
         files.sort()
         for f in files:
             self.__tests += 1
-            print(f.split('/')[-1], end=": ")
+            print("TESTER -", f.split('/')[-1], end=": ")
             try:
                 self.test_file(f)
             except Exception as e:

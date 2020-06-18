@@ -130,7 +130,7 @@ class CheckVariableIndent(Rule):
         identifier = ident[0]
         if context.check_token(i - 1, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:
             i -= 1
-            while context.check_token(i, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True \
+            while context.check_token(i - 1, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True \
             and context.is_operator(i) is False:
                 i -= 1
             identifier = context.peek_token(i)
