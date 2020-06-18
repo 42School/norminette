@@ -34,11 +34,16 @@ class CheckFuncDeclaration(Rule):
             if len(context.history) > 1 and context.history[-2] != "IsEmptyLine" and context.history[-2] != "IsPreprocessorStatement" and context.history[-1] == 'IsFuncDeclaration':
                 context.new_error("NEWLINE_PRECEDES_FUNC", context.peek_token(i))
         #this is a func prototype
-        i = context.fname_pos + 2
+        i = context.fname_pos + 1
+        if context.check_token(i, "LPARENTHESIS") is False:
+            context.new_error("EXP_PARENTHESIS", context.peek_token(i))
+        i += 1
         while context.check_token(i, "RPARENTHESIS") is False:
             if context.check_token(i, "COMMA"):
                 arg += 1
             i += 1
+        if context.check_token(i - 1, ["SPACE", "TAB"]) is True:
+            context.new_error("NO_SPC_BFR_PAR", context.peek_token(i))
         if arg > 4:
             context.new_error("TOO_MANY_ARGS", context.peek_token(i))
         arg = []

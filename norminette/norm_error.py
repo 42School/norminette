@@ -18,6 +18,7 @@ errors = {
     "MISSING_TAB_VAR": "missing tab before variable name",
     "TOO_MANY_TAB_VAR": "extra tab before variable name",
     "LINE_TOO_LONG": "line too long",
+    "EXP_PARENTHESIS": "Expected parenthesis",
     "MISSING_IDENTIFIER": "missing type qualifier or identifier in function arguments",
     "FORBIDDEN_CHAR_NAME": "user defined identifiers should contain only lowercase characters, \
 digits or '_'",

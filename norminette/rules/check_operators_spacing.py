@@ -164,6 +164,7 @@ class CheckOperatorsSpacing(Rule):
         if context.history[-1] == "IsFuncDeclaration" or context.history[-1] == "IsFuncPrototype":
             return False
         tmp = pos + 1
+        #Here is `(_`
         while context.peek_token(tmp) and context.check_token(tmp, ["SPACE", "TAB"]) is True:
             tmp += 1
         if context.check_token(tmp, "NEWLINE") is False:
@@ -172,6 +173,7 @@ class CheckOperatorsSpacing(Rule):
             elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT"]) is False and tmp != pos + 1:
                 context.new_error("NO_SPC_AFR_PAR", context.peek_token(pos))
         tmp = pos - 1
+        #Here is `_(`
         while tmp >= 0 and context.check_token(tmp, ["SPACE", "TAB"]) is True:
             tmp -= 1
         if context.check_token(tmp, "NEWLINE") is False:
@@ -186,6 +188,7 @@ class CheckOperatorsSpacing(Rule):
         if context.history[-1] == "IsFuncDeclaration" or context.history[-1] == "IsFuncPrototype":
             return False
         tmp = pos + 1
+        #Here is `)_`
         while context.peek_token(tmp) and context.check_token(tmp, ["SPACE", "TAB"]) is True:
             tmp += 1
         if context.check_token(tmp, "NEWLINE") is False:
@@ -194,6 +197,7 @@ class CheckOperatorsSpacing(Rule):
             elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER"]) is False and tmp == pos + 1:
                 context.new_error("SPC_AFTER_PAR", context.peek_token(pos))
         tmp = pos - 1
+        #Here is `_)`
         while tmp > 0 and context.check_token(tmp, ["SPACE", "TAB"]) is True:
             tmp -= 1
         if context.check_token(tmp, "NEWLINE") is False:
