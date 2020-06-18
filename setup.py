@@ -2,7 +2,7 @@ from setuptools import setup, find_namespace_packages
 
 setup(
     name="norminette",
-    version="2.0.1",
+    version="2.0.2",
     author="42",
     author_email="pedago@42.fr",
     description="Open source norminette",

@@ -1,1 +1,2 @@
-arr = (char **)malloc(sizeof(char *));
+(*a) = b * a;
+(int) i;

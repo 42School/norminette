@@ -169,18 +169,18 @@ class CheckOperatorsSpacing(Rule):
         if context.check_token(tmp, "NEWLINE") is False:
             if context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT"]) is True and tmp != pos + 1:
                 print (context.peek_token(tmp))
-                context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
+                context.new_error("SPC_AFTER_PAR", context.peek_token(pos))
             elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT"]) is False and tmp != pos + 1:
-                context.new_error("NO_SPC_AFR_OPR", context.peek_token(pos))
+                context.new_error("NO_SPC_AFR_PAR", context.peek_token(pos))
         tmp = pos - 1
         while tmp >= 0 and context.check_token(tmp, ["SPACE", "TAB"]) is True:
             tmp -= 1
         if context.check_token(tmp, "NEWLINE") is False:
             if context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER", "SIZEOF"]) is True and tmp != pos - 1:
                 if context.check_token(tmp, ["MULT", "BWISE_AND"]) is True and context.is_operator == False:
-                    context.new_error("NO_SPC_BFR_OPR", context.peek_token(pos))
+                    context.new_error("NO_SPC_BFR_PAR", context.peek_token(pos))
             elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER", "SIZEOF"]) is False and tmp == pos - 1:
-                context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
+                context.new_error("SPC_BFR_PAR", context.peek_token(pos))
         return False
 
     def check_rnest(self, context, pos):
@@ -190,16 +190,16 @@ class CheckOperatorsSpacing(Rule):
         while context.peek_token(tmp) and context.check_token(tmp, ["SPACE", "TAB"]) is True:
             tmp += 1
         if context.check_token(tmp, "NEWLINE") is False:
-            if context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER"]) is True and tmp != pos + 1:
-                context.new_error("NO_SPC_AFR_OPR", context.peek_token(pos))
+            if context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC"]) is True and tmp != pos + 1:
+                context.new_error("NO_SPC_AFR_PAR", context.peek_token(pos))
             elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER"]) is False and tmp == pos + 1:
-                context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
+                context.new_error("SPC_AFTER_PAR", context.peek_token(pos))
         tmp = pos - 1
         while tmp > 0 and context.check_token(tmp, ["SPACE", "TAB"]) is True:
             tmp -= 1
         if context.check_token(tmp, "NEWLINE") is False:
-            if context.check_token(tmp, lnests + rnests) is True and tmp != pos - 1:
-                context.new_error("NO_SPC_BFR_OPR", context.peek_token(pos))
+            if context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER"]) is True and tmp != pos - 1:
+                context.new_error("NO_SPC_BFR_PAR", context.peek_token(pos))
         return False
 
     def check_suffix(self, context, pos):
