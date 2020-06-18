@@ -168,7 +168,6 @@ class CheckOperatorsSpacing(Rule):
             tmp += 1
         if context.check_token(tmp, "NEWLINE") is False:
             if context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT"]) is True and tmp != pos + 1:
-                print (context.peek_token(tmp))
                 context.new_error("SPC_AFTER_PAR", context.peek_token(pos))
             elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT"]) is False and tmp != pos + 1:
                 context.new_error("NO_SPC_AFR_PAR", context.peek_token(pos))
@@ -205,7 +204,6 @@ class CheckOperatorsSpacing(Rule):
     def check_suffix(self, context, pos):
         if pos + 1 < len(context.tokens[:context.tkn_scope]) \
                 and not context.check_token(pos + 1, ["SPACE", "NEWLINE", "TAB"]):
-            print (context.peek_token(pos))
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
         if pos > 0 and context.peek_token(pos - 1).type == "SPACE":
             context.new_error("NO_SPC_BFR_OPR", context.peek_token(pos))
