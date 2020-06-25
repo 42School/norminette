@@ -11,12 +11,23 @@ from exceptions import CParsingError
 from registry import Registry
 from context import Context
 from tools.colors import colors
-# import sentry_sdk
-
-# sentry_sdk.init("https://e67d9ba802fe430bab932d7b11c9b028@sentry.42.fr/72")
+import _thread
+from threading import Thread, Event
+from multiprocessing import Process, Queue
+import time
+import sentry_sdk
+from sentry_sdk import configure_scope
+sentry_sdk.init("https://e67d9ba802fe430bab932d7b11c9b028@sentry.42.fr/72")
 
 
 has_err = False
+
+def timeout(e, timeval=5):
+    time.sleep(timeval)
+    if e.is_set():
+        return
+    sentry_sdk.capture_exception(Exception(TimeoutError))
+    _thread.interrupt_main()
 
 def main():
     parser = argparse.ArgumentParser()
@@ -29,15 +40,13 @@ def main():
     registry = Registry()
     targets = []
     has_err = None
+    content = None
 
     debug = args.debug
-    print (args)
     if args.cfile != None or args.hfile != None:
-        from_content = True
         targets = ['file.c'] if args.cfile else ['file.h']
         content = args.cfile if args.cfile else args.hfile
     else:
-        from_content = False
         args.file = args.file[0]
         if args.file == [[]] or args.file == []:
             targets = glob.glob("**/*.[ch]", recursive=True)
@@ -52,13 +61,19 @@ def main():
                     targets.extend(glob.glob(arg + '**/*.[ch]', recursive=True))
                 elif os.path.isfile(arg):
                     targets.append(arg)
-
+    event = []
     for target in targets:
         if target[-2:] not in [".c", ".h"]:
             print(f"{arg} is not valid C or C header file")
         else:
+            with configure_scope() as scope:
+                scope.set_extra("File", target)
             try:
-                if from_content == False:
+                event.append(Event())
+                proc = Thread(target=timeout, args=(event[-1], 5, ))
+                proc.daemon = True
+                proc.start()
+                if content == None:
                     with open(target) as f:
                         #print ("Running on", target)
                         source = f.read()
@@ -68,16 +83,21 @@ def main():
                 tokens = lexer.get_tokens()
                 context = Context(target, tokens, debug)
                 registry.run(context, source)
+                event[-1].set()
                 if context.errors is not []:
                     has_err = True
             # except (TokenError, CParsingError) as e:
             except TokenError as e:
                 has_err = True
                 print(target + f": KO!\n\t{colors(e.msg, 'red')}")
+                event[-1].set()
             except CParsingError as e:
                 has_err = True
                 print(target + f": KO!\n\t{colors(e.msg, 'red')}")
-
+                event[-1].set()
+            except KeyboardInterrupt as e:
+                event[-1].set()
+                sys.exit(1)
     sys.exit(1 if has_err else 0)
 
 if __name__ == "__main__":
