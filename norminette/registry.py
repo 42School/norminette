@@ -56,6 +56,8 @@ class Registry:
                 ret, jump = self.run_rules(context, rule)
                 if ret is True:
                     if unrecognized_tkns != []:
+                        if context.debug == 0:
+                            raise CParsingError(f"Unrecognized line while parsing line {unrecognized_tkns}")
                         print ('uncaught -> ', context.filename)
                         print ('uncaught -> ', unrecognized_tkns)
                         unrecognized_tkns = []
@@ -70,8 +72,9 @@ class Registry:
                 context.pop_tokens(1)  # ##################################
             # #############################################################
         if unrecognized_tkns != []:
+            print (context.debug)
             if context.debug == 0:
-                raise CParsingError(f"Unrecognized line while parsing line {unrecognized_tkns[0].pos[0]}")
+                raise CParsingError(f"Unrecognized line while parsing line {unrecognized_tkns}")
             else:
                 print ("uncaught ->", unrecognized_tkns)
         if context.errors == []:

@@ -13,7 +13,7 @@ int a = f();
 
 struct foo {
 int a, b, c;
-;
+};
 
 typedef struct f0o {
 	int a, b, c;

@@ -143,7 +143,7 @@ arg_separator = [
 
 
 class Context:
-    def __init__(self, filename, tokens, debug=False):
+    def __init__(self, filename, tokens, debug=0):
         # File relative informations
         self.filename = filename.split('/')[-1]
         self.filetype = filename.split('.')[-1]  # ?
