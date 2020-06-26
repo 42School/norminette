@@ -5,8 +5,8 @@ file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 import argparse
 import pkg_resources
-#__version__ = pkg_resources.get_distribution('norminette').version
-__version__ = "2.0.3"
+__version__ = pkg_resources.get_distribution('norminette').version
+#__version__ = "2.0.3"
 from lexer import Lexer, TokenError
 from exceptions import CParsingError
 from registry import Registry
