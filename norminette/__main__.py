@@ -18,7 +18,7 @@ from multiprocessing import Process, Queue
 import time
 import sentry_sdk
 from sentry_sdk import configure_scope
-sentry_sdk.init("https://e67d9ba802fe430bab932d7b11c9b028@sentry.42.fr/72")
+#sentry_sdk.init("https://e67d9ba802fe430bab932d7b11c9b028@sentry.42.fr/72")
 
 
 has_err = False
@@ -27,7 +27,7 @@ def timeout(e, timeval=5):
     time.sleep(timeval)
     if e.is_set():
         return
-    sentry_sdk.capture_exception(Exception(TimeoutError))
+    #sentry_sdk.capture_exception(Exception(TimeoutError))
     _thread.interrupt_main()
 
 def main():

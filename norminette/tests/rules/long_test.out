@@ -130,7 +130,6 @@
 		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <SPACE> <IDENTIFIER=lol> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 57":
 		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <SPACE> <IDENTIFIER=lol> <SPACE> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-<COMMA>
 [36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 58":
 		<IDENTIFIER=trololo43> <TAB> <IDENTIFIER=func3> <LPARENTHESIS> <IDENTIFIER=youpibanane> <SPACE> <IDENTIFIER=cahuete> <COMMA> <IDENTIFIER=lol> <SPACE> <IDENTIFIER=choupette> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mlong_test.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 59":
@@ -177,8 +176,9 @@ long_test.c: KO!
 	MISALIGNED_VAR_DECL (line: 34, col: 19):	Misaligned variable declaration
 	SPACE_REPLACE_TAB (line: 38, col: 4):	Found space when expecting tab
 	GLOBAL_VAR_NAMING (line: 38, col: 8):	Global variable must start with g_
-	NO_SPC_AFR_OPR (line: 38, col: 17):	extra space after operator
+	NO_SPC_AFR_PAR (line: 38, col: 17):	Extra space after parenthesis (brace/bracket)
 	SPACE_REPLACE_TAB (line: 39, col: 4):	Found space when expecting tab
+	EXP_PARENTHESIS (line: 39, col: 10):	Expected parenthesis
 	ENUM_TYPE_NAMING (line: 40, col: 6):	Enum name must start with e_
 	FORBIDDEN_CHAR_NAME (line: 40, col: 6):	user defined identifiers should contain only lowercase characters, digits or '_'
 	MISALIGNED_FUNC_DECL (line: 46, col: 21):	Misaligned function declaration

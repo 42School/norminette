@@ -35,6 +35,8 @@ class CheckFuncDeclaration(Rule):
                 context.new_error("NEWLINE_PRECEDES_FUNC", context.peek_token(i))
         #this is a func prototype
         i = context.fname_pos + 1
+        while (context.check_token(i, ["RPARENTHESIS", "SPACE", "TAB"])) is True:
+            i += 1
         if context.check_token(i, "LPARENTHESIS") is False:
             context.new_error("EXP_PARENTHESIS", context.peek_token(i))
         i += 1

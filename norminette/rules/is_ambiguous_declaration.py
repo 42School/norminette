@@ -18,7 +18,7 @@ class IsAmbiguousDeclaration(PrimaryRule):
         """
         i = context.skip_ws(0, nl=False)
         while context.peek_token(i) and context.check_token(i, "NEWLINE") is False:
-            if context.check_token(i, ["SEMI_COLON", "IDENTIFIER", "SPACE", "TAB"]) is False:
+            if context.check_token(i, ["SEMI_COLON"]) is False:
                 return False, 0
             i += 1
-        return False, 0
+        return True, i

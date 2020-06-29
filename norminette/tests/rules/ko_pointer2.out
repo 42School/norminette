@@ -124,7 +124,7 @@ ko_pointer2.c: KO!
 	NL_AFTER_VAR_DECL (line: 28, col: 21):	Variable declarations must be followed by a newline
 	TOO_FEW_TAB (line: 28, col: 21):	Missing tabs for indent level
 	TAB_INSTEAD_SPC (line: 28, col: 24):	Found tab when expecting space
-	NO_SPC_AFR_OPR (line: 28, col: 58):	extra space after operator
+	NO_SPC_AFR_PAR (line: 28, col: 58):	Extra space after parenthesis (brace/bracket)
 	TOO_FEW_TAB (line: 28, col: 60):	Missing tabs for indent level
 	TAB_INSTEAD_SPC (line: 29, col: 13):	Found tab when expecting space
 	BRACE_NEWLINE (line: 33, col: 16):	Expected newline before brace

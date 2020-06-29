@@ -43,12 +43,19 @@ class IsUserDefinedType(PrimaryRule):
         """
         i = context.skip_ws(0, nl=False)
         enum = False
-        while context.check_token(i, utypes) is False:
-            if context.peek_token(i) is None:
-                return False, 0
+        p = 0
+        while context.peek_token(i) is not None:
+            if context.check_token(i, utypes) is True and p <= 0:
+                break
+            if context.check_token(i, "LPARENTHESIS") is True:
+                p += 1
+            if context.check_token(i, "RPARENTHESIS") is True:
+                p -= 1
             if context.check_token(i, ['NEWLINE', 'SEMI_COLON']) is True:
                 return False, 0
             i += 1
+        if context.peek_token(i) is None:
+            return False, 0
         while context.check_token(i, ["NEWLINE", "SEMI_COLON"]) is False:
             if context.check_token(i, "ENUM") is True:
                 enum = True

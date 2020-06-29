@@ -24,15 +24,15 @@ class CheckPreprocessorInclude(Rule):
         content = Lexer(val, context.peek_token(i).pos[0])
         tkns = content.get_tokens()
         i = 1
-        while context.check_token(i, ["TAB", "SPACE"]):
+        while tkns[i].type in ["TAB", "SPACE"]:
             i += 1
-        if tkns[i].type == "LESS_THAN":
-            while tkns[i].type != "DOT" and tkns[i].type != "MORE_THAN":
+        if i < len(tkns) and tkns[i].type == "LESS_THAN":
+            while i < len(tkns) and tkns[i].type != "DOT" and tkns[i].type != "MORE_THAN":
                 i += 1
-            if tkns[i].type == "DOT":
+            if i < len(tkns) and tkns[i].type == "DOT":
                 i += 1
                 filetype = tkns[i].value
-        elif tkns[i].type == "STRING":
+        elif i < len(tkns) and tkns[i].type == "STRING":
             try:
                 filetype = tkns[i].value.split('.')[-1][0]
             except:

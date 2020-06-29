@@ -82,13 +82,14 @@ ko_pointer3.c: KO!
 	TOO_MANY_INSTR (line: 15, col: 21):	Too many instructions on a single line
 	NL_AFTER_VAR_DECL (line: 15, col: 21):	Variable declarations must be followed by a newline
 	TOO_FEW_TAB (line: 15, col: 21):	Missing tabs for indent level
-	NO_SPC_AFR_OPR (line: 15, col: 38):	extra space after operator
-	NO_SPC_AFR_OPR (line: 15, col: 40):	extra space after operator
-	NO_SPC_BFR_OPR (line: 15, col: 40):	extra space before operator
-	NO_SPC_AFR_OPR (line: 15, col: 42):	extra space after operator
-	NO_SPC_BFR_OPR (line: 15, col: 42):	extra space before operator
-	NO_SPC_BFR_OPR (line: 15, col: 44):	extra space before operator
+	NO_SPC_AFR_PAR (line: 15, col: 38):	Extra space after parenthesis (brace/bracket)
+	NO_SPC_AFR_PAR (line: 15, col: 40):	Extra space after parenthesis (brace/bracket)
+	NO_SPC_BFR_PAR (line: 15, col: 40):	Extra space before parenthesis (brace/bracket)
+	NO_SPC_AFR_PAR (line: 15, col: 42):	Extra space after parenthesis (brace/bracket)
+	NO_SPC_BFR_PAR (line: 15, col: 42):	Extra space before parenthesis (brace/bracket)
+	NO_SPC_BFR_PAR (line: 15, col: 44):	Extra space before parenthesis (brace/bracket)
 	TAB_INSTEAD_SPC (line: 16, col: 9):	Found tab when expecting space
+	NO_SPC_BFR_PAR (line: 16, col: 33):	Extra space before parenthesis (brace/bracket)
 	BRACE_NEWLINE (line: 19, col: 16):	Expected newline before brace
 	TAB_REPLACE_SPACE (line: 20, col: 8):	Found tab when expecting space
 	SPACE_REPLACE_TAB (line: 20, col: 13):	Found space when expecting tab

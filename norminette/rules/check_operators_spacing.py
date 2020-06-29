@@ -57,6 +57,13 @@ assign_operators = [
     "ASSIGN"
 ]
 
+gps_operators = [
+    "BWISE_XOR",  # ^
+    "BWISE_OR",  # |
+    "BWISE_NOT",  # !
+    "BWISE_AND",  # &
+]
+
 ps_operators = [
     # operators that should be prefixed and suffixed by a space
     "RIGHT_ASSIGN",  # >>=
@@ -82,10 +89,6 @@ ps_operators = [
     "MORE_THAN",  # >
     "AND",  # &
     "OR",  # |
-    "BWISE_XOR",  # ^
-    "BWISE_OR",  # |
-    "BWISE_NOT",  # !
-    "BWISE_AND",  # &
     "RIGHT_SHIFT",  # >>
     "LEFT_SHIFT",  # <<
     "TERN_CONDITION"  # ?
@@ -180,7 +183,7 @@ class CheckOperatorsSpacing(Rule):
             if context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER", "SIZEOF"]) is True and tmp != pos - 1:
                 if context.check_token(tmp, ["MULT", "BWISE_AND"]) is True and context.is_operator == False:
                     context.new_error("NO_SPC_BFR_PAR", context.peek_token(pos))
-            elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER", "SIZEOF"]) is False and tmp == pos - 1:
+            elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "BWISE_OR", "BWISE_XOR", "BWISE_NOT", "IDENTIFIER", "SIZEOF"]) is False and tmp == pos - 1:
                 context.new_error("SPC_BFR_PAR", context.peek_token(pos))
         return False
 
@@ -211,6 +214,18 @@ class CheckOperatorsSpacing(Rule):
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
         if pos > 0 and context.peek_token(pos - 1).type == "SPACE":
             context.new_error("NO_SPC_BFR_OPR", context.peek_token(pos))
+
+    def check_glued_prefix_and_suffix(self, context, pos):
+        if pos > 0 and context.peek_token(pos - 1).type != "SPACE":
+            if context.check_token(pos - 1, "TAB") is True:
+                tmp = -1
+                while context.check_token(pos + tmp, "TAB") is True:
+                    tmp -= 1
+                if context.check_token(pos + tmp, "NEWLINE") is True:
+                    return False, 0
+            context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
+        if pos + 1 < len(context.tokens[:context.tkn_scope]) and context.check_token(pos + 1, ["SPACE", "LPARENTHESIS", "LBRACKET", "LBRACE"]) is False:
+            context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_prefix_and_suffix(self, context, pos):
         if pos > 0 and context.peek_token(pos - 1).type != "SPACE":
@@ -288,6 +303,8 @@ class CheckOperatorsSpacing(Rule):
                 self.check_rnest(context, i)
             elif context.check_token(i, ps_operators)is True:
                 self.check_prefix_and_suffix(context, i)
+            elif context.check_token(i, gps_operators)is True:
+                self.check_glued_prefix_and_suffix(context, i)
             elif context.check_token(i, s_operators)is True:
                 self.check_suffix(context, i)
             elif context.check_token(i, son_operators) is True and \

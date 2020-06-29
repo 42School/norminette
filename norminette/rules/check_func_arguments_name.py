@@ -54,6 +54,7 @@ class CheckFuncArgumentsName(Rule):
         """
 
         i = context.skip_ws(pos)
+        p = 0
         stop = ["COMMA", "RPARENTHESIS"]
         if context.check_token(i, ["COMMENT", "MULT_COMMENT"]):
             context.new_error("WRONG_SCOPE_COMMENT", context.peek_token(i))
@@ -67,8 +68,11 @@ class CheckFuncArgumentsName(Rule):
                 i += 1
             return i
         ret, i = context.check_type_specifier(i)
-        while context.peek_token(i) is not None \
-                and context.check_token(i, ["MULT"] + whitespaces):
+        while context.peek_token(i) is not None and context.check_token(i, ["MULT", "LPARENTHESIS"] + whitespaces):
+            if context.check_token(i, "LPARENTHESIS") is True:
+                p += 1
+            if context.check_token(i, "RPARENTHESIS") is True:
+                p -= 1
             i += 1
 
         if ret is True:
@@ -79,9 +83,13 @@ class CheckFuncArgumentsName(Rule):
             else:
                 i += 1
                 i = context.skip_ws(i)
+            while context.peek_token(i) is not None and i < context.arg_pos[1]:
+                if context.check_token(i, stop) is True:
+                    if context.check_token(i, "RPARENTHESIS") is True and p > 0:
 
-            while context.peek_token(i) is not None and i < context.arg_pos[1] \
-                    and context.peek_token(i).type not in stop:
+                        p -= 1
+                    else:
+                        break
                 if context.peek_token(i).type == "LPARENTHESIS":
                     i = context.skip_nest(i)
                 i += 1

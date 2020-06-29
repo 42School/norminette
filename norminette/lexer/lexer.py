@@ -372,6 +372,8 @@ class Lexer:
             if self.peek_sub_string(2) in ["//", "/*"] \
                     or self.peek_char() == '\n':
                 break
+        if len(tkn_value) <= 1:
+            raise TokenError(self.line_pos())
         tkn_key = tkn_value[1:].split()[0]
         if tkn_key not in preproc_keywords and tkn_key[:len('include')] != 'include':
             raise TokenError(self.line_pos())

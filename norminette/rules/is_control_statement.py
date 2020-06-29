@@ -72,13 +72,14 @@ class IsControlStatement(PrimaryRule):
             return False, 0
         i = context.skip_nest(i)
         i += 1
-        i = context.skip_ws(i, nl=False)
-        if context.check_token(i, "SEMI_COLON") is True:
+        tmp = context.skip_ws(i, nl=True)
+        if context.check_token(tmp, "SEMI_COLON") is True:
             if is_id == True:
                 return False, 0
-            i += 1
-            i = context.eol(i)
-            return True, i
+            tmp += 1
+            tmp = context.eol(tmp)
+            return True, tmp
+        i = context.skip_ws(i, nl=False)
         context.sub = context.scope.inner(ControlStructure)
         context.sub.multiline = False
         i = context.eol(i)
