@@ -24,7 +24,7 @@ class CheckPreprocessorInclude(Rule):
         content = Lexer(val, context.peek_token(i).pos[0])
         tkns = content.get_tokens()
         i = 1
-        while tkns[i].type in ["TAB", "SPACE"]:
+        while i < len(tkns) and tkns[i].type in ["TAB", "SPACE"]:
             i += 1
         if i < len(tkns) and tkns[i].type == "LESS_THAN":
             while i < len(tkns) and tkns[i].type != "DOT" and tkns[i].type != "MORE_THAN":

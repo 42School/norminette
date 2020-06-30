@@ -18,7 +18,7 @@ class IsDeclaration(PrimaryRule):
                 p += 1
             if context.check_token(i, 'RPARENTHESIS'):
                 p -= 1
-            if context.check_token(i, 'IDENTIFIER'):
+            if context.check_token(i, ['IDENTIFIER', "NULL"]):
                 ident = context.peek_token(i)
             i += 1
         i += 1

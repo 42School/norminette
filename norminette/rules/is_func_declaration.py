@@ -200,6 +200,9 @@ class IsFuncDeclaration(PrimaryRule):
         ret, read = self.check_func_format(context)
         if ret is False:
             return False, 0
+        while context.check_token(read, ["COMMENT", "MULT_COMMENT"]) is True:
+            read += 1
+        read = context.skip_ws(read, nl=False)
         if context.check_token(read, ["NEWLINE", "LBRACE"] + preproc):
             if context.check_token(read, ["LBRACE"] + preproc) is True:
                 read -= 1

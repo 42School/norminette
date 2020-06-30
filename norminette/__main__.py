@@ -18,7 +18,6 @@ from multiprocessing import Process, Queue
 import time
 import sentry_sdk
 from sentry_sdk import configure_scope
-#sentry_sdk.init("https://e67d9ba802fe430bab932d7b11c9b028@sentry.42.fr/72")
 
 
 has_err = False
@@ -27,7 +26,7 @@ def timeout(e, timeval=5):
     time.sleep(timeval)
     if e.is_set():
         return
-    #sentry_sdk.capture_exception(Exception(TimeoutError))
+    sentry_sdk.capture_exception(Exception(TimeoutError))
     _thread.interrupt_main()
 
 def main():
@@ -35,6 +34,7 @@ def main():
     parser.add_argument("file", help="File(s) or folder(s) you wanna run the parser on. If no file provided, runs on current folder.", default=[], action='append', nargs='*')
     parser.add_argument("-d", "--debug", action="count", help="Debug output (multiple values available)", default=0)
     parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__)
+    parser.add_argument('-s', '--sentry', action='store_true', default=False)
     parser.add_argument('--cfile', action='store', help="Store C file content directly instead of filename")
     parser.add_argument('--hfile', action='store', help="Store header file content directly instead of filename")
     args = parser.parse_args()
@@ -44,6 +44,8 @@ def main():
     content = None
 
     debug = args.debug
+    if args.sentry == True:
+        sentry_sdk.init("https://e67d9ba802fe430bab932d7b11c9b028@sentry.42.fr/72")
     if args.cfile != None or args.hfile != None:
         targets = ['file.c'] if args.cfile else ['file.h']
         content = args.cfile if args.cfile else args.hfile
@@ -71,12 +73,13 @@ def main():
                 scope.set_extra("File", target)
             try:
                 event.append(Event())
-                proc = Thread(target=timeout, args=(event[-1], 5, ))
-                proc.daemon = True
-                proc.start()
+                if args.sentry == True:
+                    proc = Thread(target=timeout, args=(event[-1], 5, ))
+                    proc.daemon = True
+                    proc.start()
                 if content == None:
                     with open(target) as f:
-                        #print ("Running on", target)
+                        print ("Running on", target)
                         source = f.read()
                 else:
                     source = content
