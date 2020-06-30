@@ -470,6 +470,7 @@ In \"{self.scope.name}\" from \
                     while self.check_token(tmp, "RPARENTHESIS"):
                         tmp += 1
                         #start = tmp
+                    tmp = self.skip_ws(tmp)
                     if self.check_token(tmp, "LPARENTHESIS"):
                         return "pointer", self.skip_nest(start)
                 return None, self.skip_nest(start)

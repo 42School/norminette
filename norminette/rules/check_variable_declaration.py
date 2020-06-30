@@ -28,6 +28,7 @@ class CheckVariableDeclaration(Rule):
         """
         i = 0
         static = False
+        passed_assign = False
         if context.scope.name == "Function":
             if context.history[-2] != "IsBlockStart" and context.history[-2] != "IsVarDeclaration":
                 context.new_error("VAR_DECL_START_FUNC", context.peek_token(i))
@@ -42,6 +43,8 @@ class CheckVariableDeclaration(Rule):
         while context.peek_token(i) and context.check_token(i, "SEMI_COLON") is False:
             if context.check_token(i, "LPARENTHESIS") is True:
                 i = context.skip_nest(i)
+            if context.check_token(i, "ASSIGN") is True:
+                passed_assign = True
             if context.check_token(i, "STATIC") is True:
                 static = True
             if context.check_token(i, assigns) is True and static == False:
@@ -49,7 +52,7 @@ class CheckVariableDeclaration(Rule):
                     i += 1
                     continue
                 context.new_error("DECL_ASSIGN_LINE", context.peek_token(i))
-            if context.check_token(i, "COMMA") is True:
+            if context.check_token(i, "COMMA") is True and passed_assign == False:
                 context.new_error("MULT_DECL_LINE", context.peek_token(i))
             i += 1
         return False, 0

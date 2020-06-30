@@ -92,10 +92,10 @@ class IsAssignation(PrimaryRule):
             return False, 0
         i += 1
         i = context.skip_ws(i)
-        if context.check_token(i, "LBRACE") is True:
-            i += 1
-            context.sub = context.scope.inner(VariableAssignation)
-            return True, i
+        #if context.check_token(i, "LBRACE") is True:
+            #i += 1
+            #context.sub = context.scope.inner(VariableAssignation)
+            #return True, i
         while context.check_token(i, ["SEMI_COLON"]) is False:
             i += 1
             if context.peek_token(i) is None:
