@@ -50,7 +50,8 @@ preproc_keywords = {
     'else': "#ELSE",
     'include': "INCLUDE",
     'pragma': "PRAGMA",
-    'undef': "UNDEF"
+    'undef': "UNDEF",
+    'warning': 'WARNING'
 }
 
 """

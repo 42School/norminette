@@ -183,7 +183,7 @@ class CheckOperatorsSpacing(Rule):
             if context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER", "SIZEOF"]) is True and tmp != pos - 1:
                 if context.check_token(tmp, ["MULT", "BWISE_AND"]) is True and context.is_operator == False:
                     context.new_error("NO_SPC_BFR_PAR", context.peek_token(pos))
-            elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "BWISE_OR", "BWISE_XOR", "BWISE_NOT", "IDENTIFIER", "SIZEOF"]) is False and tmp == pos - 1:
+            elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "BWISE_OR", "BWISE_XOR", "BWISE_NOT", "IDENTIFIER", "SIZEOF", "NOT"]) is False and tmp == pos - 1:
                 context.new_error("SPC_BFR_PAR", context.peek_token(pos))
         return False
 

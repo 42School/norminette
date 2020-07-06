@@ -12,7 +12,9 @@ pp_keywords = [
                 "#ELSE",
                 "IFDEF",
                 "IFNDEF",
-                "ENDIF"]
+                "ENDIF",
+                "ERROR",
+                "WARNING"]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
 
 

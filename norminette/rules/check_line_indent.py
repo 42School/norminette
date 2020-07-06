@@ -21,7 +21,18 @@ class CheckLineIndent(Rule):
         while context.check_token(got, "TAB"):
             got += 1
         if context.check_token(got, ["LBRACE", "RBRACE"]) and expected > 0:
-            expected -= 1
+            if context.check_token(got, "RBRACE") is True:
+                expected -= 1
+            else:
+                hist = context.history[:len(context.history) - 1]
+                for item in hist[::-1]:
+                    if item == "IsEmptyLine" or item == "IsComment" or item == "IsPreprocessorStatement":
+                        continue
+                    if item not in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType"]:
+                        break
+                    else:
+                        expected -= 1
+                    break
         if expected > got:
             context.new_error("TOO_FEW_TAB", context.peek_token(0))
             return False, got

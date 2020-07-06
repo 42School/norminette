@@ -94,8 +94,8 @@ class IsVarDeclaration(PrimaryRule):
             elif parenthesis == 0 and brackets == 0 and braces == 0:
                 return False, 0
             i += 1
-        if identifier == False:
-            return False, pos
+        if identifier == False or braces > 0 or brackets > 0 or parenthesis > 0:
+            return False, 0
         if context.check_token(i, "SEMI_COLON") is True:
             if brackets == 0 and braces == 0 and parenthesis == 0:
                 return True, i
@@ -158,7 +158,8 @@ class IsVarDeclaration(PrimaryRule):
         if ret is False:
             return False, 0
         while ret:
-            ret, i = self.var_declaration(context, i)
+            if context.check_token(i, "SEMI_COLON") is False:
+                ret, i = self.var_declaration(context, i)
             if context.check_token(i, "SEMI_COLON") is True:
                 i += 1
                 i = context.eol(i)

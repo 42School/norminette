@@ -30,7 +30,18 @@ class IsBlockStart(PrimaryRule):
         if context.check_token(i, "LBRACE") is False:
             return False, 0
         i += 1
-        context.scope.multiline = True
+        hist = context.history
+        for item in hist[::-1]:
+            if item == "IsEmptyLine" or item == "IsComment" or item == "IsPreprocessorStatement":
+                continue
+            if item not in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType"]:
+                context.sub = context.scope.inner(ControlStructure)
+                context.sub.multiline = True
+                break
+            else:
+                context.scope.multiline = True
+            break
+
         tmp = i
         #while context.peek_token(tmp) and (context.check_token(tmp, ["NEWLINE"])) is False:
         #    tmp += 1

@@ -167,10 +167,7 @@ class Lexer:
         pos = self.line_pos()
         tkn_value = ""
         bucket = ".0123456789aAbBcCdDeEfFlLuUxX-+"
-        while self.peek_char() and \
-                (
-                    self.peek_char() in bucket
-                    or self.peek_char() == "\\\n"):
+        while self.peek_char() and (self.peek_char() in bucket or self.peek_char() == "\\\n"):
             if self.peek_char() in "xX":
                 if tkn_value.startswith("0") is False or len(tkn_value) > 1:
                     raise TokenError(pos)
