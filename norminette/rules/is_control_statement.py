@@ -59,7 +59,10 @@ class IsControlStatement(PrimaryRule):
             if context.check_token(i, ["IF"]) is True:
                 pass
             elif context.check_token(i, ["LBRACE", "COMMENT", "MULT_COMMENT"]) is False:
-                raise CParsingError(f"{context.filename}: Error parsing line {context.peek_token(0).pos[0]}")
+                context.sub = context.scope.inner(ControlStructure)
+                context.sub.multiline = False
+                i = context.eol(i)
+                return True, i
             else:
                 context.sub = context.scope.inner(ControlStructure)
                 context.sub.multiline = False

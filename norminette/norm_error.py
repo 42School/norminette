@@ -84,6 +84,7 @@ digits or '_'",
     "WRONG_SCOPE": "Statement is in incorrect scope",
     "INCORRECT_DEFINE": "Incorrect values in define",
     "BRACE_NEWLINE": "Expected newline before brace",
+    "EXP_NEWLINE": "Expected newline after control structure"
 }
 
 

@@ -201,6 +201,7 @@ class Context:
         if len(self.history) > 0 and (self.history[-1] == "IsEmptyLine" or self.history[-1] == "IsComment" or self.history[-1] == "IsPreprocessorStatement"):
             return
         if self.sub is not None:
+            print (self.sub)
             self.scope = self.sub
             self.sub = None
         if type(self.scope) is ControlStructure and self.scope.multiline is False and self.scope.lines > 0:
