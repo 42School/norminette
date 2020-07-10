@@ -1,0 +1,563 @@
+[36mtest_file_0907_3.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=argc> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <IDENTIFIER=argv> <LBRACKET> <RBRACKET> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=cc> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <STRUCT> <SPACE> <IDENTIFIER=termios> <SPACE> <TAB> <IDENTIFIER=rtt> <COMMA> <SPACE> <IDENTIFIER=stt> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <STRUCT> <SPACE> <IDENTIFIER=winsize> <TAB> <IDENTIFIER=win> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <STRUCT> <SPACE> <IDENTIFIER=timeval> <TAB> <IDENTIFIER=tv> <COMMA> <SPACE> <MULT> <IDENTIFIER=tvp> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <IDENTIFIER=time_t> <TAB> <TAB> <TAB> <IDENTIFIER=tvec> <COMMA> <SPACE> <IDENTIFIER=start> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <CHAR> <TAB> <TAB> <TAB> <IDENTIFIER=obuf> <LBRACKET> <IDENTIFIER=BUFSIZ> <RBRACKET> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 9":
+		<TAB> <CHAR> <TAB> <TAB> <TAB> <IDENTIFIER=ibuf> <LBRACKET> <IDENTIFIER=BUFSIZ> <RBRACKET> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <IDENTIFIER=fd_set> <TAB> <TAB> <TAB> <IDENTIFIER=rfd> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=aflg> <COMMA> <SPACE> <IDENTIFIER=Fflg> <COMMA> <SPACE> <IDENTIFIER=kflg> <COMMA> <SPACE> <IDENTIFIER=pflg> <COMMA> <SPACE> <IDENTIFIER=ch> <COMMA> <SPACE> <IDENTIFIER=k> <COMMA> <SPACE> <IDENTIFIER=n> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=flushtime> <COMMA> <SPACE> <IDENTIFIER=readstdin> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 13":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=fm_fd> <COMMA> <SPACE> <IDENTIFIER=fm_log> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 14":
+		<NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 15":
+		<TAB> <IDENTIFIER=aflg> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=Fflg> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=kflg> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=pflg> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 16":
+		<TAB> <IDENTIFIER=usesleep> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 17":
+		<TAB> <IDENTIFIER=rawout> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 18":
+		<TAB> <IDENTIFIER=flushtime> <SPACE> <ASSIGN> <SPACE> <CONSTANT=30> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 19":
+		<TAB> <IDENTIFIER=fm_fd> <SPACE> <ASSIGN> <SPACE> <MINUS> <CONSTANT=1> <SEMI_COLON> <TAB> 
+[36mtest_file_0907_3.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 19":
+		<MULT_COMMENT=/* Shut up stupid "may be used uninitialized" GCC
+				warning. (not needed w/clang) */> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 21":
+		<TAB> <IDENTIFIER=showexit> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 22":
+		<NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 23":
+		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=ch> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=getopt> <LPARENTHESIS> <IDENTIFIER=argc> <COMMA> <SPACE> <IDENTIFIER=argv> <COMMA> <SPACE> <STRING="adFkpqrt:"> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <NOT_EQUAL> <SPACE> <MINUS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 24":
+		<TAB> <TAB> <SWITCH> <LPARENTHESIS> <IDENTIFIER=ch> <RPARENTHESIS> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 24":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 25":
+		<TAB> <TAB> <TAB> <CASE> <SPACE> <CHAR_CONST='a'> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 26":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=aflg> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 27":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 28":
+		<TAB> <TAB> <TAB> <CASE> <SPACE> <CHAR_CONST='d'> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 29":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=usesleep> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 30":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 31":
+		<TAB> <TAB> <TAB> <CASE> <SPACE> <CHAR_CONST='F'> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 32":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=Fflg> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 33":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 34":
+		<TAB> <TAB> <TAB> <CASE> <SPACE> <CHAR_CONST='k'> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 35":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=kflg> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 36":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 37":
+		<TAB> <TAB> <TAB> <CASE> <SPACE> <CHAR_CONST='p'> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 38":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=pflg> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 39":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 40":
+		<TAB> <TAB> <TAB> <CASE> <SPACE> <CHAR_CONST='q'> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 41":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=qflg> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 42":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 43":
+		<TAB> <TAB> <TAB> <CASE> <SPACE> <CHAR_CONST='r'> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 44":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=rawout> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 45":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 46":
+		<TAB> <TAB> <TAB> <CASE> <SPACE> <CHAR_CONST='t'> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 47":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=flushtime> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=ft_atoi> <LPARENTHESIS> <IDENTIFIER=optarg> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 48":
+		<TAB> <TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=flushtime> <SPACE> <LESS_THAN> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 49":
+		<TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=ft_err> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="invalid flush time"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 50":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 51":
+		<TAB> <TAB> <TAB> <CASE> <SPACE> <CHAR_CONST='?'> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 52":
+		<TAB> <TAB> <TAB> <DEFAULT> <COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 53":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=usage> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 54":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 55":
+		<TAB> <IDENTIFIER=argc> <SPACE> <SUB_ASSIGN> <SPACE> <IDENTIFIER=optind> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 56":
+		<TAB> <IDENTIFIER=argv> <SPACE> <ADD_ASSIGN> <SPACE> <IDENTIFIER=optind> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 57":
+		<NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 58":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=argc> <SPACE> <MORE_THAN> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 59":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 60":
+		<TAB> <TAB> <IDENTIFIER=fname> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=argv> <LBRACKET> <CONSTANT=0> <RBRACKET> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 61":
+		<TAB> <TAB> <IDENTIFIER=argv> <INC> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 62":
+		<TAB> <TAB> <IDENTIFIER=argc> <DEC> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 63":
+		<TAB> <RBRACE> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 63":
+		<ELSE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 64":
+		<TAB> <TAB> <IDENTIFIER=fname> <SPACE> <ASSIGN> <SPACE> <STRING="typescript"> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 65":
+		<TAB> <INT> <TAB> <TAB> <IDENTIFIER=flopen> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=pflg> <SPACE> <TERN_CONDITION> <SPACE> <IDENTIFIER=O_RDONLY> <SPACE> <COLON> <SPACE> <IDENTIFIER=aflg> <SPACE> <TERN_CONDITION> <SPACE> <IDENTIFIER=O_CREAT> <BWISE_OR> <IDENTIFIER=O_RDWR> <BWISE_OR> <IDENTIFIER=O_APPEND> <SPACE> <COLON> <SPACE> <IDENTIFIER=O_CREAT> <BWISE_OR> <IDENTIFIER=O_RDWR> <BWISE_OR> <IDENTIFIER=O_TRUNC> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 66":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=fdscript> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=open> <LPARENTHESIS> <IDENTIFIER=fname> <COMMA> <SPACE> <IDENTIFIER=flopen> <COMMA> <SPACE> <IDENTIFIER=OPEN_MODE> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <MINUS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 67":
+		<TAB> <TAB> <IDENTIFIER=ft_err> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <IDENTIFIER=fname> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 68":
+		<NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 69":
+		<TAB> <MULT_COMMENT=/*if (pflg)
+		playback(fscript);*/> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 71":
+		<NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 72":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=ttyflg> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=pty_isatty> <LPARENTHESIS> <IDENTIFIER=STDIN_FILENO> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <NOT_EQUAL> <SPACE> <CONSTANT=0> <RPARENTHESIS> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 72":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 73":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=ioctl> <LPARENTHESIS> <IDENTIFIER=STDIN_FILENO> <COMMA> <SPACE> <IDENTIFIER=TIOCGETA> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=tt> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <MINUS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 74":
+		<TAB> <TAB> <TAB> <IDENTIFIER=ft_err> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="tcgetattr"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 75":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=ioctl> <LPARENTHESIS> <IDENTIFIER=STDIN_FILENO> <COMMA> <SPACE> <IDENTIFIER=TIOCGWINSZ> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=win> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <MINUS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 76":
+		<TAB> <TAB> <TAB> <IDENTIFIER=ft_err> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="ioctl"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 77":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=pty_open> <LPARENTHESIS> <BWISE_AND> <IDENTIFIER=master> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=slave> <COMMA> <SPACE> <NULL> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=tt> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=win> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <MINUS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 78":
+		<TAB> <TAB> <TAB> <IDENTIFIER=ft_err> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="openpty"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 79":
+		<TAB> <RBRACE> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 79":
+		<ELSE> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 79":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 80":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=pty_open> <LPARENTHESIS> <BWISE_AND> <IDENTIFIER=master> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=slave> <COMMA> <SPACE> <NULL> <COMMA> <SPACE> <NULL> <COMMA> <SPACE> <NULL> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <MINUS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 81":
+		<TAB> <TAB> <TAB> <IDENTIFIER=ft_err> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="openpty"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 82":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 83":
+		<NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 84":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=rawout> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 85":
+		<TAB> <TAB> <IDENTIFIER=record> <LPARENTHESIS> <IDENTIFIER=fdscript> <COMMA> <SPACE> <NULL> <COMMA> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <CHAR_CONST='s'> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 86":
+		<NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 87":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <NOT> <IDENTIFIER=qflg> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 88":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 89":
+		<TAB> <TAB> <IDENTIFIER=tvec> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=time> <LPARENTHESIS> <NULL> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 90":
+		<TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ft_putstr> <LPARENTHESIS> <STRING="Script started, output file is "> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 91":
+		<TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ft_putendl> <LPARENTHESIS> <IDENTIFIER=fname> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsComment[0m In "ControlStructure" from "Function" line 92":
+		<TAB> <TAB> <COMMENT=// (void)printf("Script started, output file is %s\n", fname);> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 93":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <NOT> <IDENTIFIER=rawout> <RPARENTHESIS> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 93":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 94":
+		<TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ft_putstr_fd> <LPARENTHESIS> <STRING="Script started on "> <COMMA> <SPACE> <IDENTIFIER=fdscript> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 95":
+		<TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ft_putstr_fd> <LPARENTHESIS> <IDENTIFIER=ctime> <LPARENTHESIS> <BWISE_AND> <IDENTIFIER=tvec> <RPARENTHESIS> <COMMA> <SPACE> <IDENTIFIER=fdscript> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsComment[0m In "ControlStructure" from "ControlStructure" line 96":
+		<TAB> <TAB> <TAB> <COMMENT=// (void)fprintf(fscript, "Script started on %s", ctime(&tvec));> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 97":
+		<TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=argv> <LBRACKET> <CONSTANT=0> <RBRACKET> <RPARENTHESIS> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 97":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 98":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=showexit> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 99":
+		<TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ft_putstr_fd> <LPARENTHESIS> <STRING="Command:"> <COMMA> <SPACE> <IDENTIFIER=fdscript> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 100":
+		<TAB> <TAB> <TAB> <TAB> <FOR> <SPACE> <LPARENTHESIS> <IDENTIFIER=k> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SPACE> <SEMI_COLON> <SPACE> <IDENTIFIER=argv> <LBRACKET> <IDENTIFIER=k> <RBRACKET> <SPACE> <SEMI_COLON> <SPACE> <INC> <IDENTIFIER=k> <RPARENTHESIS> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 100":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 101":
+		<TAB> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ft_putstr_fd> <LPARENTHESIS> <STRING=" "> <COMMA> <SPACE> <IDENTIFIER=fdscript> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 102":
+		<TAB> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ft_putstr_fd> <LPARENTHESIS> <IDENTIFIER=argv> <LBRACKET> <IDENTIFIER=k> <RBRACKET> <COMMA> <SPACE> <IDENTIFIER=fdscript> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 103":
+		<TAB> <TAB> <TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 104":
+		<TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ft_putstr_fd> <LPARENTHESIS> <STRING="\n"> <COMMA> <SPACE> <IDENTIFIER=fdscript> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 105":
+		<TAB> <TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 106":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 107":
+		<TAB> <TAB> <IDENTIFIER=fsync> <LPARENTHESIS> <IDENTIFIER=fdscript> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 108":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 109":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=ttyflg> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 110":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 111":
+		<TAB> <TAB> <IDENTIFIER=rtt> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=tt> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 112":
+		<TAB> <TAB> <IDENTIFIER=pty_cfmakeraw> <LPARENTHESIS> <BWISE_AND> <IDENTIFIER=rtt> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 113":
+		<TAB> <TAB> <IDENTIFIER=rtt> <DOT> <IDENTIFIER=c_lflag> <SPACE> <AND_ASSIGN> <SPACE> <BWISE_NOT> <IDENTIFIER=ECHO> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 114":
+		<TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ioctl> <LPARENTHESIS> <IDENTIFIER=STDIN_FILENO> <COMMA> <SPACE> <IDENTIFIER=TIOCSETAF> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=rtt> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 115":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 116":
+		<NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 117":
+		<TAB> <IDENTIFIER=child> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=fork> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 118":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=child> <SPACE> <LESS_THAN> <SPACE> <CONSTANT=0> <RPARENTHESIS> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 118":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 119":
+		<TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=ft_putstr_fd> <LPARENTHESIS> <STRING="fork"> <COMMA> <SPACE> <IDENTIFIER=STDERR_FILENO> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 120":
+		<TAB> <TAB> <IDENTIFIER=done> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 121":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 122":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=child> <SPACE> <EQUALS> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 123":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 124":
+		<TAB> <TAB> <IDENTIFIER=doshell> <LPARENTHESIS> <IDENTIFIER=argv> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 125":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 126":
+		<TAB> <IDENTIFIER=close> <LPARENTHESIS> <IDENTIFIER=slave> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 127":
+		<NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 128":
+		<TAB> <IDENTIFIER=start> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=tvec> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=time> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 129":
+		<TAB> <IDENTIFIER=readstdin> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 130":
+		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <CONSTANT=42> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 131":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 132":
+		<TAB> <TAB> <IDENTIFIER=FD_ZERO> <LPARENTHESIS> <BWISE_AND> <IDENTIFIER=rfd> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 133":
+		<TAB> <TAB> <IDENTIFIER=FD_SET> <LPARENTHESIS> <IDENTIFIER=master> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=rfd> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 134":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=readstdin> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 135":
+		<TAB> <TAB> <TAB> <IDENTIFIER=FD_SET> <LPARENTHESIS> <IDENTIFIER=STDIN_FILENO> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=rfd> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 136":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <NOT> <IDENTIFIER=readstdin> <SPACE> <AND> <SPACE> <IDENTIFIER=ttyflg> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 137":
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 138":
+		<TAB> <TAB> <TAB> <IDENTIFIER=tv> <DOT> <IDENTIFIER=tv_sec> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 139":
+		<TAB> <TAB> <TAB> <IDENTIFIER=tv> <DOT> <IDENTIFIER=tv_usec> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 140":
+		<TAB> <TAB> <TAB> <IDENTIFIER=tvp> <SPACE> <ASSIGN> <SPACE> <BWISE_AND> <IDENTIFIER=tv> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 141":
+		<TAB> <TAB> <TAB> <IDENTIFIER=readstdin> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 142":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 143":
+		<TAB> <TAB> <ELSE> <SPACE> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=flushtime> <SPACE> <MORE_THAN> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 144":
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 145":
+		<TAB> <TAB> <TAB> <IDENTIFIER=tv> <DOT> <IDENTIFIER=tv_sec> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=flushtime> <SPACE> <MINUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=tvec> <SPACE> <MINUS> <SPACE> <IDENTIFIER=start> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 146":
+		<TAB> <TAB> <TAB> <IDENTIFIER=tv> <DOT> <IDENTIFIER=tv_usec> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 147":
+		<TAB> <TAB> <TAB> <IDENTIFIER=tvp> <SPACE> <ASSIGN> <SPACE> <BWISE_AND> <IDENTIFIER=tv> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 148":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 149":
+		<TAB> <TAB> <ELSE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 150":
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 151":
+		<TAB> <TAB> <TAB> <IDENTIFIER=tvp> <SPACE> <ASSIGN> <SPACE> <NULL> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 152":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 153":
+		<TAB> <TAB> <IDENTIFIER=n> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=select> <LPARENTHESIS> <IDENTIFIER=master> <SPACE> <PLUS> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=rfd> <COMMA> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=tvp> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 154":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=n> <SPACE> <LESS_THAN> <SPACE> <CONSTANT=0> <SPACE> <AND> <SPACE> <IDENTIFIER=errno> <SPACE> <NOT_EQUAL> <SPACE> <IDENTIFIER=EINTR> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 155":
+		<TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 156":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=n> <SPACE> <MORE_THAN> <SPACE> <CONSTANT=0> <SPACE> <AND> <SPACE> <IDENTIFIER=FD_ISSET> <LPARENTHESIS> <IDENTIFIER=STDIN_FILENO> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=rfd> <RPARENTHESIS> <RPARENTHESIS> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 156":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 157":
+		<TAB> <TAB> <TAB> <IDENTIFIER=cc> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=read> <LPARENTHESIS> <IDENTIFIER=STDIN_FILENO> <COMMA> <SPACE> <IDENTIFIER=ibuf> <COMMA> <SPACE> <IDENTIFIER=BUFSIZ> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 158":
+		<TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=cc> <SPACE> <LESS_THAN> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 159":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 160":
+		<TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=cc> <SPACE> <EQUALS> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 161":
+		<TAB> <TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 162":
+		<TAB> <TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=ioctl> <LPARENTHESIS> <IDENTIFIER=STDIN_FILENO> <COMMA> <SPACE> <IDENTIFIER=TIOCGETA> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=stt> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <CONSTANT=0> <SPACE> <AND> <SPACE> <LPARENTHESIS> <IDENTIFIER=stt> <DOT> <IDENTIFIER=c_lflag> <SPACE> <BWISE_AND> <SPACE> <IDENTIFIER=ICANON> <RPARENTHESIS> <SPACE> <NOT_EQUAL> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 163":
+		<TAB> <TAB> <TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 164":
+		<TAB> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=write> <LPARENTHESIS> <IDENTIFIER=master> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=stt> <DOT> <IDENTIFIER=c_cc> <LBRACKET> <IDENTIFIER=VEOF> <RBRACKET> <COMMA> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 165":
+		<TAB> <TAB> <TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 166":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=readstdin> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 167":
+		<TAB> <TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 168":
+		<TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=cc> <SPACE> <MORE_THAN> <SPACE> <CONSTANT=0> <RPARENTHESIS> <SPACE> 
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 168":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 169":
+		<TAB> <TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=rawout> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 170":
+		<TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=record> <LPARENTHESIS> <IDENTIFIER=fdscript> <COMMA> <SPACE> <IDENTIFIER=ibuf> <COMMA> <SPACE> <IDENTIFIER=cc> <COMMA> <SPACE> <CHAR_CONST='i'> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 171":
+		<TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=write> <LPARENTHESIS> <IDENTIFIER=master> <COMMA> <SPACE> <IDENTIFIER=ibuf> <COMMA> <SPACE> <IDENTIFIER=cc> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 172":
+		<TAB> <TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=kflg> <SPACE> <AND> <SPACE> <IDENTIFIER=ioctl> <LPARENTHESIS> <IDENTIFIER=STDIN_FILENO> <COMMA> <SPACE> <IDENTIFIER=TIOCGETA> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=stt> <RPARENTHESIS> <SPACE> <GREATER_OR_EQUAL> <SPACE> <CONSTANT=0> <SPACE> <AND> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=stt> <DOT> <IDENTIFIER=c_lflag> <SPACE> <BWISE_AND> <SPACE> <IDENTIFIER=ECHO> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <CONSTANT=0> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 173":
+		<TAB> <TAB> <TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 174":
+		<TAB> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=write> <LPARENTHESIS> <IDENTIFIER=fdscript> <COMMA> <SPACE> <IDENTIFIER=ibuf> <COMMA> <SPACE> <IDENTIFIER=cc> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 175":
+		<TAB> <TAB> <TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 176":
+		<TAB> <TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 177":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 178":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=n> <SPACE> <MORE_THAN> <SPACE> <CONSTANT=0> <SPACE> <AND> <SPACE> <IDENTIFIER=FD_ISSET> <LPARENTHESIS> <IDENTIFIER=master> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=rfd> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 179":
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 180":
+		<TAB> <TAB> <TAB> <IDENTIFIER=cc> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=read> <LPARENTHESIS> <IDENTIFIER=master> <COMMA> <SPACE> <IDENTIFIER=obuf> <COMMA> <SPACE> <SIZEOF> <SPACE> <LPARENTHESIS> <IDENTIFIER=obuf> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 181":
+		<TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=cc> <SPACE> <LESS_OR_EQUAL> <SPACE> <CONSTANT=0> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 182":
+		<TAB> <TAB> <TAB> <TAB> <BREAK> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 183":
+		<TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=write> <LPARENTHESIS> <IDENTIFIER=STDOUT_FILENO> <COMMA> <SPACE> <IDENTIFIER=obuf> <COMMA> <SPACE> <IDENTIFIER=cc> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 184":
+		<TAB> <TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=rawout> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 185":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=record> <LPARENTHESIS> <IDENTIFIER=fdscript> <COMMA> <SPACE> <IDENTIFIER=obuf> <COMMA> <SPACE> <IDENTIFIER=cc> <COMMA> <SPACE> <CHAR_CONST='o'> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 186":
+		<TAB> <TAB> <TAB> <ELSE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 187":
+		<TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=write> <LPARENTHESIS> <IDENTIFIER=fdscript> <COMMA> <SPACE> <IDENTIFIER=obuf> <COMMA> <SPACE> <IDENTIFIER=cc> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 188":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 189":
+		<TAB> <TAB> <IDENTIFIER=tvec> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=time> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 190":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=tvec> <SPACE> <MINUS> <SPACE> <IDENTIFIER=start> <SPACE> <GREATER_OR_EQUAL> <SPACE> <IDENTIFIER=flushtime> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 191":
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 192":
+		<TAB> <TAB> <TAB> <IDENTIFIER=fsync> <LPARENTHESIS> <IDENTIFIER=fdscript> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "ControlStructure" line 193":
+		<TAB> <TAB> <TAB> <IDENTIFIER=start> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=tvec> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 194":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 195":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=Fflg> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 196":
+		<TAB> <TAB> <TAB> <IDENTIFIER=fsync> <LPARENTHESIS> <IDENTIFIER=fdscript> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 197":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 198":
+		<TAB> <IDENTIFIER=finish> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 199":
+		<TAB> <IDENTIFIER=done> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 200":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 201":
+		<RBRACE> 
+test_file_0907_3.c: KO!
+	TOO_MANY_TABS_FUNC (line: 1, col: 5):	extra tabs before function name
+	SPACE_REPLACE_TAB (line: 4, col: 19):	Found space when expecting tab
+	MULT_DECL_LINE (line: 4, col: 24):	Multiple declarations on a single line
+	MULT_DECL_LINE (line: 6, col: 23):	Multiple declarations on a single line
+	MULT_DECL_LINE (line: 7, col: 25):	Multiple declarations on a single line
+	MULT_DECL_LINE (line: 11, col: 25):	Multiple declarations on a single line
+	FORBIDDEN_CHAR_NAME (line: 11, col: 27):	user defined identifiers should contain only lowercase characters, digits or '_'
+	MULT_DECL_LINE (line: 11, col: 31):	Multiple declarations on a single line
+	MULT_DECL_LINE (line: 11, col: 37):	Multiple declarations on a single line
+	MULT_DECL_LINE (line: 11, col: 43):	Multiple declarations on a single line
+	MULT_DECL_LINE (line: 11, col: 47):	Multiple declarations on a single line
+	MULT_DECL_LINE (line: 11, col: 50):	Multiple declarations on a single line
+	MULT_DECL_LINE (line: 12, col: 30):	Multiple declarations on a single line
+	MULT_DECL_LINE (line: 13, col: 26):	Multiple declarations on a single line
+	FORBIDDEN_CHAR_NAME (line: 15, col: 12):	user defined identifiers should contain only lowercase characters, digits or '_'
+	MULT_ASSIGN_LINE (line: 15, col: 17):	Multiple assignations on a single line
+	MULT_ASSIGN_LINE (line: 15, col: 24):	Multiple assignations on a single line
+	MULT_ASSIGN_LINE (line: 15, col: 31):	Multiple assignations on a single line
+	TAB_INSTEAD_SPC (line: 19, col: 16):	Found tab when expecting space
+	WRONG_SCOPE_COMMENT (line: 19, col: 17):	Comment is invalid in this scope
+	EMPTY_LINE_FUNCTION (line: 22, col: 1):	Empty line in function
+	ASSIGN_IN_CONTROL (line: 23, col: 16):	Assignment in control structure
+	FORBIDDEN_CS (line: 24, col: 9):	Forbidden control structure
+	SPACE_AFTER_KW (line: 24, col: 9):	Missing space after keyword
+	SPC_BFR_PAR (line: 24, col: 15):	Missing space before parenthesis (brace/bracket)
+	NO_SPC_AFR_PAR (line: 24, col: 18):	Extra space after parenthesis (brace/bracket)
+	MULT_IN_SINGLE_INSTR (line: 24, col: 20):	Multiple instructions in single line control structure
+	TOO_FEW_TAB (line: 24, col: 20):	Missing tabs for indent level
+	FORBIDDEN_CS (line: 25, col: 13):	Forbidden control structure
+	SPC_BFR_OPERATOR (line: 25, col: 21):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 25, col: 21):	missing space after operator
+	TOO_MANY_TAB (line: 27, col: 1):	Extra tabs for indent level
+	SPACE_AFTER_KW (line: 27, col: 17):	Missing space after keyword
+	FORBIDDEN_CS (line: 28, col: 13):	Forbidden control structure
+	SPC_BFR_OPERATOR (line: 28, col: 21):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 28, col: 21):	missing space after operator
+	TOO_MANY_TAB (line: 30, col: 1):	Extra tabs for indent level
+	SPACE_AFTER_KW (line: 30, col: 17):	Missing space after keyword
+	FORBIDDEN_CS (line: 31, col: 13):	Forbidden control structure
+	SPC_BFR_OPERATOR (line: 31, col: 21):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 31, col: 21):	missing space after operator
+	FORBIDDEN_CHAR_NAME (line: 32, col: 17):	user defined identifiers should contain only lowercase characters, digits or '_'
+	TOO_MANY_TAB (line: 33, col: 1):	Extra tabs for indent level
+	SPACE_AFTER_KW (line: 33, col: 17):	Missing space after keyword
+	FORBIDDEN_CS (line: 34, col: 13):	Forbidden control structure
+	SPC_BFR_OPERATOR (line: 34, col: 21):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 34, col: 21):	missing space after operator
+	TOO_MANY_TAB (line: 36, col: 1):	Extra tabs for indent level
+	SPACE_AFTER_KW (line: 36, col: 17):	Missing space after keyword
+	FORBIDDEN_CS (line: 37, col: 13):	Forbidden control structure
+	SPC_BFR_OPERATOR (line: 37, col: 21):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 37, col: 21):	missing space after operator
+	TOO_MANY_TAB (line: 39, col: 1):	Extra tabs for indent level
+	SPACE_AFTER_KW (line: 39, col: 17):	Missing space after keyword
+	FORBIDDEN_CS (line: 40, col: 13):	Forbidden control structure
+	SPC_BFR_OPERATOR (line: 40, col: 21):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 40, col: 21):	missing space after operator
+	TOO_MANY_TAB (line: 42, col: 1):	Extra tabs for indent level
+	SPACE_AFTER_KW (line: 42, col: 17):	Missing space after keyword
+	FORBIDDEN_CS (line: 43, col: 13):	Forbidden control structure
+	SPC_BFR_OPERATOR (line: 43, col: 21):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 43, col: 21):	missing space after operator
+	TOO_MANY_TAB (line: 45, col: 1):	Extra tabs for indent level
+	SPACE_AFTER_KW (line: 45, col: 17):	Missing space after keyword
+	FORBIDDEN_CS (line: 46, col: 13):	Forbidden control structure
+	SPC_BFR_OPERATOR (line: 46, col: 21):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 46, col: 21):	missing space after operator
+	TOO_MANY_TAB (line: 48, col: 1):	Extra tabs for indent level
+	TOO_MANY_TAB (line: 49, col: 1):	Extra tabs for indent level
+	TOO_MANY_TAB (line: 50, col: 1):	Extra tabs for indent level
+	SPACE_AFTER_KW (line: 50, col: 17):	Missing space after keyword
+	FORBIDDEN_CS (line: 51, col: 13):	Forbidden control structure
+	SPC_BFR_OPERATOR (line: 51, col: 21):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 51, col: 21):	missing space after operator
+	TOO_FEW_TAB (line: 52, col: 1):	Missing tabs for indent level
+	SPACE_AFTER_KW (line: 52, col: 13):	Missing space after keyword
+	SPC_BFR_OPERATOR (line: 52, col: 20):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 52, col: 20):	missing space after operator
+	TOO_FEW_TAB (line: 53, col: 1):	Missing tabs for indent level
+	EMPTY_LINE_FUNCTION (line: 57, col: 1):	Empty line in function
+	BRACE_SHOULD_EOL (line: 63, col: 6):	Expected newline after brace
+	TOO_MANY_INSTR (line: 63, col: 7):	Too many instructions on a single line
+	TOO_FEW_TAB (line: 63, col: 7):	Missing tabs for indent level
+	VAR_DECL_START_FUNC (line: 65, col: 1):	Variable declaration not at start of function
+	MISALIGNED_VAR_DECL (line: 65, col: 13):	Misaligned variable declaration
+	DECL_ASSIGN_LINE (line: 65, col: 20):	Declaration and assignation on a single line
+	SPC_BFR_OPERATOR (line: 65, col: 54):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 65, col: 54):	missing space after operator
+	SPC_BFR_OPERATOR (line: 65, col: 61):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 65, col: 61):	missing space after operator
+	SPC_BFR_OPERATOR (line: 65, col: 80):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 65, col: 80):	missing space after operator
+	SPC_BFR_OPERATOR (line: 65, col: 87):	missing space before operator
+	SPC_AFTER_OPERATOR (line: 65, col: 87):	missing space after operator
+	LINE_TOO_LONG (line: 65, col: 96):	line too long
+	ASSIGN_IN_CONTROL (line: 66, col: 19):	Assignment in control structure
+	EMPTY_LINE_FUNCTION (line: 68, col: 1):	Empty line in function
+	WRONG_SCOPE_COMMENT (line: 69, col: 5):	Comment is invalid in this scope
+	EMPTY_LINE_FUNCTION (line: 71, col: 1):	Empty line in function
+	ASSIGN_IN_CONTROL (line: 72, col: 17):	Assignment in control structure
+	NO_SPC_AFR_PAR (line: 72, col: 49):	Extra space after parenthesis (brace/bracket)
+	TOO_FEW_TAB (line: 72, col: 51):	Missing tabs for indent level
+	BRACE_SHOULD_EOL (line: 79, col: 6):	Expected newline after brace
+	TOO_MANY_INSTR (line: 79, col: 7):	Too many instructions on a single line
+	TOO_FEW_TAB (line: 79, col: 7):	Missing tabs for indent level
+	TOO_FEW_TAB (line: 79, col: 12):	Missing tabs for indent level
+	EMPTY_LINE_FUNCTION (line: 83, col: 1):	Empty line in function
+	EMPTY_LINE_FUNCTION (line: 86, col: 1):	Empty line in function
+	WRONG_SCOPE_COMMENT (line: 92, col: 9):	Comment is invalid in this scope
+	NO_SPC_AFR_PAR (line: 93, col: 20):	Extra space after parenthesis (brace/bracket)
+	TOO_FEW_TAB (line: 93, col: 22):	Missing tabs for indent level
+	WRONG_SCOPE_COMMENT (line: 96, col: 13):	Comment is invalid in this scope
+	NO_SPC_AFR_PAR (line: 97, col: 24):	Extra space after parenthesis (brace/bracket)
+	TOO_FEW_TAB (line: 97, col: 26):	Missing tabs for indent level
+	FORBIDDEN_CS (line: 100, col: 17):	Forbidden control structure
+	NO_SPC_BFR_OPR (line: 100, col: 28):	extra space before operator
+	NO_SPC_AFR_PAR (line: 100, col: 36):	Extra space after parenthesis (brace/bracket)
+	NO_SPC_BFR_OPR (line: 100, col: 38):	extra space before operator
+	NO_SPC_AFR_PAR (line: 100, col: 43):	Extra space after parenthesis (brace/bracket)
+	TOO_FEW_TAB (line: 100, col: 45):	Missing tabs for indent level
+	SPC_AFTER_OPERATOR (line: 113, col: 24):	missing space after operator
+	EMPTY_LINE_FUNCTION (line: 116, col: 1):	Empty line in function
+	NO_SPC_AFR_PAR (line: 118, col: 18):	Extra space after parenthesis (brace/bracket)
+	TOO_FEW_TAB (line: 118, col: 20):	Missing tabs for indent level
+	EMPTY_LINE_FUNCTION (line: 127, col: 1):	Empty line in function
+	MULT_ASSIGN_LINE (line: 128, col: 18):	Multiple assignations on a single line
+	SPACE_AFTER_KW (line: 155, col: 13):	Missing space after keyword
+	NO_SPC_AFR_PAR (line: 156, col: 50):	Extra space after parenthesis (brace/bracket)
+	TOO_FEW_TAB (line: 156, col: 52):	Missing tabs for indent level
+	SPACE_AFTER_KW (line: 159, col: 17):	Missing space after keyword
+	LINE_TOO_LONG (line: 162, col: 93):	line too long
+	NO_SPC_AFR_PAR (line: 168, col: 23):	Extra space after parenthesis (brace/bracket)
+	TOO_FEW_TAB (line: 168, col: 25):	Missing tabs for indent level
+	LINE_TOO_LONG (line: 172, col: 101):	line too long
+	SPACE_AFTER_KW (line: 182, col: 17):	Missing space after keyword
+	FORBIDDEN_CHAR_NAME (line: 195, col: 13):	user defined identifiers should contain only lowercase characters, digits or '_'
+	BRACE_SHOULD_EOL (line: 201, col: 1):	Expected newline after brace
+	TOO_MANY_LINES (line: 201, col: 1):	Function has more than 25 lines

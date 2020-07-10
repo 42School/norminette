@@ -3,5 +3,5 @@
 # define FOO
 # ifndef BAR
 #  define BAR
-#endif
+# endif
 #endif

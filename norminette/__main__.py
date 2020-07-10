@@ -79,7 +79,7 @@ def main():
                     proc.start()
                 if content == None:
                     with open(target) as f:
-                        print ("Running on", target)
+                        #print ("Running on", target)
                         source = f.read()
                 else:
                     source = content

@@ -56,11 +56,18 @@ class IsUserDefinedType(PrimaryRule):
             i += 1
         if context.peek_token(i) is None:
             return False, 0
-        while context.check_token(i, ["NEWLINE", "SEMI_COLON"]) is False:
+        p = 0
+        while context.peek_token(i):
+            if context.check_token(i, "LPARENTHESIS") is True:
+                p += 1
+            if context.check_token(i, "RPARENTHESIS") is True:
+                p -= 1
             if context.check_token(i, "ENUM") is True:
                 enum = True
+            if context.check_token(i, ["NEWLINE", "SEMI_COLON"]) is True and p == 0:
+                break
             i += 1
-        if context.check_token(i, "NEWLINE") is True:
+        if context.check_token(i, "NEWLINE") is True and p <= 0:
             if enum == True:
                 context.sub = context.scope.inner(UserDefinedEnum)
             else:

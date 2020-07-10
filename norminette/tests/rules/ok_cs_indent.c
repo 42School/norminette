@@ -1,4 +1,4 @@
-int	main(*void)
+int	main(void)
 {
 	a *= a;
 	while (i, 2)

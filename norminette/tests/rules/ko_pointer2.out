@@ -107,7 +107,7 @@ ko_pointer2.c: KO!
 	TOO_FEW_TAB (line: 8, col: 21):	Missing tabs for indent level
 	TAB_INSTEAD_SPC (line: 8, col: 24):	Found tab when expecting space
 	TAB_INSTEAD_SPC (line: 10, col: 13):	Found tab when expecting space
-	NEWLINE_IN_DECL (line: 11, col: 10):	Newline in function declaration
+	NEWLINE_IN_DECL (line: 11, col: 10):	Newline in declaration
 	BRACE_NEWLINE (line: 16, col: 16):	Expected newline before brace
 	SPC_AFTER_POINTER (line: 17, col: 11):	space after pointer
 	SPC_AFTER_POINTER (line: 17, col: 13):	space after pointer

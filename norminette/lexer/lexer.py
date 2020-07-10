@@ -113,7 +113,7 @@ class Lexer:
             self.pop_char()
         tkn_value += self.peek_char()
         self.pop_char()
-        while self.peek_char() not in ["\n", None]:
+        while self.peek_char() not in [None]:
             tkn_value += self.peek_char()
             if self.peek_char() == '\"':
                 break

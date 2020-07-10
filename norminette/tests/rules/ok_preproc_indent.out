@@ -9,7 +9,7 @@
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
 		<DEFINE=#  define BAR> <NEWLINE>
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
-		<ENDIF=#endif> <NEWLINE>
+		<ENDIF=# endif> <NEWLINE>
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 7":
 		<ENDIF=#endif> <NEWLINE>
 ok_preproc_indent.c: OK!

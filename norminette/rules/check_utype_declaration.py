@@ -45,12 +45,18 @@ class CheckUtypeDeclaration(Rule):
         i = context.skip_ws(i)
         tkns = context.tokens
         is_td = False
+        on_newline = False
         utype = None
         contain_full_def = False
         ids = []
         while context.check_token(i, ['SEMI_COLON']) is False and i < len(context.tokens):
+
             if context.check_token(i, ['SPACE', 'TAB']):
                 pass
+            if context.check_token(i, "LPARENTHESIS") is True:
+                val, tmp = context.parenthesis_contain(i)
+                if val == None:
+                    i = tmp
             if context.check_token(i, utypes) is True:
                 utype = context.peek_token(i)
             if context.check_token(i, "TYPEDEF") is True:
@@ -110,7 +116,7 @@ class CheckUtypeDeclaration(Rule):
                     while context.check_token(tmp, "LBRACE") is False and tmp > 0:
                         tmp -= 1
                     continue
-                if context.check_token(tmp, "TAB") is True:
+                if context.check_token(tmp, "TAB") is True and on_newline == False:
                     context.new_error("TAB_REPLACE_SPACE", context.peek_token(tmp))
                 tmp -= 1
         if contain_full_def == False:

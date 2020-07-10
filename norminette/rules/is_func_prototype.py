@@ -78,7 +78,6 @@ class IsFuncPrototype(PrimaryRule):
             elif context.peek_token(i) is None:
                 return False, 0
             i += 1
-        print ('a')
         return True, i
 
     def check_func_identifier(self, context, pos):
@@ -122,7 +121,7 @@ class IsFuncPrototype(PrimaryRule):
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE"] + preproc) is True:
+            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE", "RBRACE"] + preproc) is True:
                 return False, 0
             elif context.check_token(i, "IDENTIFIER") is True:
                 if identifier is not None:
@@ -155,7 +154,6 @@ class IsFuncPrototype(PrimaryRule):
                     break
             else:
                 i += 1
-        #print (type_id, args, identifier)
         if len(type_id) > 0 and args == True and identifier != None:
             i = identifier[1]
             while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
@@ -185,7 +183,6 @@ class IsFuncPrototype(PrimaryRule):
         """
         if type(context.scope) is not GlobalScope and type(context.scope) is not UserDefinedType:
             return False, 0
-
         ret, read = self.check_func_format(context)
         if ret is False:
             return False, 0

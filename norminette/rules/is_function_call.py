@@ -80,10 +80,12 @@ class IsFunctionCall(PrimaryRule):
                 #i += 1
                 if len(types) > 1:
                     i = context.skip_ws(i, nl=False)
-                    if context.check_token(i, "SEMI_COLON"):
+                    if context.check_token(i, "SEMI_COLON") is True:
                         i += 1
-                    i = context.eol(i)
-                    return True, i
+                        i = context.eol(i)
+                        return True, i
+                    else:
+                        return False, 0
             elif typ == "function" or typ == "cast" or typ == "pointer":
                 i += 1
                 i = context.skip_ws(i)

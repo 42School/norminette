@@ -1,5 +1,5 @@
 [36mok_cs_indent.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
-		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <MULT> <VOID> <RPARENTHESIS> <NEWLINE>
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
 [36mok_cs_indent.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
 		<LBRACE> <NEWLINE>
 [36mok_cs_indent.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 3":

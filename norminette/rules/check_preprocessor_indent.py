@@ -1,7 +1,7 @@
 from rules import Rule
 
 ALLOWED_PREPROC = ["DEFINE", "IFNDEF", "IFDEF", "#IF", "ELIF", "#ELSE", "ENDIF", "INCLUDE"]
-MORE_INDENT = ["DEFINE"]
+TOO_MUCH_INDENT = ["IFNDEF", "IFDEF", "ELIF",  "#IF", "#ELSE"]
 
 
 class CheckPreprocessorIndent(Rule):
@@ -34,9 +34,8 @@ class CheckPreprocessorIndent(Rule):
         tken = context.peek_token(i)
         if context.check_token(i, ALLOWED_PREPROC) is False:
             context.new_error("PREPROC_UKN_STATEMENT", context.peek_token(i))
-        if context.check_token(i, MORE_INDENT) is False:
+        if context.check_token(i, TOO_MUCH_INDENT) is True:
             current_indent -= 1
-
         if current_indent < 0:
             current_indent = 0
         fmt = ''

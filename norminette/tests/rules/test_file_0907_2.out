@@ -1,0 +1,233 @@
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<IFNDEF=#ifndef TEST_FILE_0907_2_H> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<DEFINE=# define TEST_FILE_0907_2_H> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
+		<INCLUDE=# include "structs/structs.h"> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
+		<INCLUDE=# include "settings.h"> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
+		<INCLUDE=# include "frontend.h"> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 8":
+		<DEFINE=# define T_BUFF_SIZE		8> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 9":
+		<DEFINE=# define S_BUFF_SIZE		1> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 10":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 11":
+		<IFDEF=# ifdef OS_UBUNTU> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
+		<WARNING=#  warning "UBUNTU"> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 14":
+		<IFNDEF=#  ifndef QWERTY> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
+		<DEFINE=#   define FORWARD_KEY		122> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 16":
+		<DEFINE=#   define BACKWARD_KEY		115> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 17":
+		<DEFINE=#   define LEFT_KEY			113> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 18":
+		<DEFINE=#   define RIGHT_KEY			100> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 19":
+		<DEFINE=#   define CTRL_KEY			65507> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 20":
+		<DEFINE=#   define ALT_KEY			65513> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 21":
+		<DEFINE=#   define C_KEY				99> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 22":
+		<ENDIF=#  endif> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 23":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 24":
+		<IFDEF=#  ifdef QWERTY> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 25":
+		<DEFINE=#   define FORWARD_KEY		119> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 26":
+		<DEFINE=#   define BACKWARD_KEY		115> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 27":
+		<DEFINE=#   define LEFT_KEY			97> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 28":
+		<DEFINE=#   define RIGHT_KEY		100> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 29":
+		<DEFINE=#   define CTRL_KEY			65507> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 30":
+		<DEFINE=#   define ALT_KEY			65506> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 31":
+		<DEFINE=#   define C_KEY			99> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 32":
+		<ENDIF=#  endif> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 33":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 34":
+		<ENDIF=# endif> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 35":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 36":
+		<IFDEF=# ifdef OS_OSX> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 37":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 38":
+		<WARNING=#  warning "OSX"> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 39":
+		<DEFINE=#  define FORWARD_KEY		13> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 40":
+		<DEFINE=#  define BACKWARD_KEY		1> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 41":
+		<DEFINE=#  define LEFT_KEY			0> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 42":
+		<DEFINE=#  define RIGHT_KEY			2> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 43":
+		<DEFINE=#  define CTRL_KEY			256> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 44":
+		<DEFINE=#  define ALT_KEY			258> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 45":
+		<DEFINE=#  define C_KEY				8> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 46":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 47":
+		<ENDIF=# endif> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 48":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 49":
+		<MULT_COMMENT=/*
+** BACKEND
+*/> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 52":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 53":
+		<IDENTIFIER=t_keys> <TAB> <MULT> <IDENTIFIER=key_chr> <LPARENTHESIS> <IDENTIFIER=t_keys> <SPACE> <MULT> <IDENTIFIER=arr> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=keycode> <COMMA> <SPACE> <IDENTIFIER=size_t> <SPACE> <IDENTIFIER=size> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 54":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 55":
+		<MULT_COMMENT=/*
+** EVENT HANDLERS
+*/> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 58":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 59":
+		<INT> <TAB> <TAB> <IDENTIFIER=keyboard_handler> <LPARENTHESIS> <IDENTIFIER=t_vars> <SPACE> <MULT> <IDENTIFIER=vars> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 60":
+		<VOID> <TAB> <IDENTIFIER=hooks> <LPARENTHESIS> <IDENTIFIER=t_vars> <SPACE> <MULT> <IDENTIFIER=vars> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 61":
+		<INT> <TAB> <TAB> <IDENTIFIER=loop_handler> <LPARENTHESIS> <IDENTIFIER=t_vars> <SPACE> <MULT> <IDENTIFIER=vars> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 62":
+		<INT> <TAB> <TAB> <IDENTIFIER=key_handler> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=keycode> <COMMA> <SPACE> <IDENTIFIER=t_vars> <SPACE> <MULT> <IDENTIFIER=vars> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 63":
+		<INT> <TAB> <TAB> <IDENTIFIER=mouse_handler> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=button> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=x> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=y> <COMMA> <SPACE> <IDENTIFIER=t_vars> <SPACE> <MULT> <IDENTIFIER=vars> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 64":
+		<INT> <TAB> <TAB> <IDENTIFIER=move_handler> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 65":
+		<INT> <TAB> <TAB> <IDENTIFIER=resize_handler> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 66":
+		<INT> <TAB> <TAB> <IDENTIFIER=enter_handler> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 67":
+		<INT> <TAB> <TAB> <IDENTIFIER=leave_handler> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 68":
+		<INT> <TAB> <TAB> <IDENTIFIER=release_handler> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=keycode> <COMMA> <SPACE> <IDENTIFIER=t_vars> <SPACE> <MULT> <IDENTIFIER=vars> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 69":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 70":
+		<MULT_COMMENT=/*
+** EVENT DEFINITION
+*/> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 73":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 74":
+		<DEFINE=# define NOEVENT_MASK			    0L> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 75":
+		<DEFINE=# define KEYPRESS_MASK			    1L> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 76":
+		<DEFINE=# define KEYRELEASE_MASK			2L> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 77":
+		<DEFINE=# define BUTTONPRESS_MASK			4L> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 78":
+		<DEFINE=# define BUTTONRELEASE_MASK		    8L> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 79":
+		<DEFINE=# define ENTERWINDOW_MASK			16L> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 80":
+		<DEFINE=# define LEAVEWINDOW_MASK			32L> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 81":
+		<DEFINE=# define POINTERMOTION_MASK		    64L> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 82":
+		<DEFINE=# define POINTERMOTIONHINT_MASK	    128L> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 83":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 84":
+		<MULT_COMMENT=/*
+** # define Button1MotionMask		(1L<<8)
+** # define Button2MotionMask		(1L<<9)
+** # define Button3MotionMask		(1L<<10)
+** # define Button4MotionMask		(1L<<11)
+** # define Button5MotionMask		(1L<<12)
+** # define ButtonMotionMask		(1L<<13)
+** # define KeymapStateMask			(1L<<14)
+** # define ExposureMask			(1L<<15)
+** # define VisibilityChangeMask	(1L<<16)
+** # define StructureNotifyMask		(1L<<17)
+** # define ResizeRedirectMask		(1L<<18)
+** # define SubstructureNotifyMask	(1L<<19)
+** # define SubstructureRedirectMask	(1L<<20)
+** # define FocusChangeMask			(1L<<21)
+** # define PropertyChangeMask		(1L<<22)
+** # define ColormapChangeMask		(1L<<23)
+** # define OwnerGrabButtonMask		(1L<<24)
+*/> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 103":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 104":
+		<DEFINE=# define KEY_PRESS		    2> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 105":
+		<DEFINE=# define KEY_RELEASE		3> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 106":
+		<DEFINE=# define BUTTON_PRESS		4> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 107":
+		<DEFINE=# define BUTTON_RELEASE	    5> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 108":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 109":
+		<MULT_COMMENT=/*
+** # define MotionNotify	    6
+** # define EnterNotify		    7
+** # define LeaveNotify		    8
+** # define FocusIn			    9
+** # define FocusOut		    10
+** # define KeymapNotify	    11
+** # define Expose			    12
+** # define GraphicsExpose	    13
+** # define NoExpose		    14
+** # define VisibilityNotify    15
+** # define CreateNotify		16
+** # define DestroyNotify		17
+** # define UnmapNotify		    18
+** # define MapNotify		    19
+** # define MapRequest		    20
+** # define ReparentNotify		21
+** # define ConfigureNotify		22
+** # define ConfigureRequest	23
+** # define GravityNotify		24
+** # define ResizeRequest		25
+** # define CirculateNotify		26
+** # define CirculateRequest	27
+** # define PropertyNotify		28
+** # define SelectionClear		29
+** # define SelectionRequest	30
+** # define SelectionNotify		31
+** # define ColormapNotify		32
+** # define ClientMessage		33
+** # define MappingNotify		34
+** # define GenericEvent		35
+** # define LASTEvent		    36
+*/> <NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 142":
+		<NEWLINE>
+[36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 143":
+		<ENDIF=#endif> <NEWLINE>
+test_file_0907_2.h: KO!
+	PREPROC_UKN_STATEMENT (line: 13, col: 1):	Unrecognized preprocessor statement
+	PREPROC_UKN_STATEMENT (line: 38, col: 1):	Unrecognized preprocessor statement

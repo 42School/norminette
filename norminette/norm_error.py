@@ -74,7 +74,7 @@ digits or '_'",
     "HEADER_PROT_NAME": "Wrong header protection name",
     "TERNARY_FBIDDEN": "Ternaries are forbidden",
     "TOO_MANY_VALS": "Too many values on define",
-    "NEWLINE_IN_DECL": "Newline in function declaration",
+    "NEWLINE_IN_DECL": "Newline in declaration",
     "MULT_IN_SINGLE_INSTR": "Multiple instructions in single line control structure",
     "NEWLINE_DEFINE": "Newline in define",
     "MISSING_TYPEDEF_ID": "Missing identifier in typedef declaration",
@@ -84,7 +84,8 @@ digits or '_'",
     "WRONG_SCOPE": "Statement is in incorrect scope",
     "INCORRECT_DEFINE": "Incorrect values in define",
     "BRACE_NEWLINE": "Expected newline before brace",
-    "EXP_NEWLINE": "Expected newline after control structure"
+    "EXP_NEWLINE": "Expected newline after control structure",
+    "ARG_TYPE_UKN": "Unrecognized variable type"
 }
 
 
