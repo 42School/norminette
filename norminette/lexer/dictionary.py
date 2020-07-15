@@ -51,7 +51,8 @@ preproc_keywords = {
     'include': "INCLUDE",
     'pragma': "PRAGMA",
     'undef': "UNDEF",
-    'warning': 'WARNING'
+    'warning': 'WARNING',
+    'import': 'IMPORT'
 }
 
 """

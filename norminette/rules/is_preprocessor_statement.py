@@ -14,7 +14,9 @@ pp_keywords = [
                 "IFNDEF",
                 "ENDIF",
                 "ERROR",
-                "WARNING"]
+                "WARNING",
+                "IMPORT"]
+
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
 
 
