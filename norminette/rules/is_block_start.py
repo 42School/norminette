@@ -31,11 +31,13 @@ class IsBlockStart(PrimaryRule):
             return False, 0
         i += 1
         hist = context.history
+        lines = context.scope.lines
         for item in hist[::-1]:
             if item == "IsEmptyLine" or item == "IsComment" or item == "IsPreprocessorStatement":
+                lines -= 1
                 continue
             if item not in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType"] or \
-            (item in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType"] and context.scope.lines >= 1):
+            (item in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType"] and lines >= 1):
                 context.sub = context.scope.inner(ControlStructure)
                 context.sub.multiline = True
                 break
