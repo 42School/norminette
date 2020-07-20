@@ -18,11 +18,13 @@ class IsControlStatement(PrimaryRule):
             Includes the condition, even if over multiple lines
         """
         is_id = False
+        id_instead_cs = False
         i = context.skip_ws(0, nl=False)
         if context.check_token(i, cs_keywords) is False:
             return False, 0
         if context.check_token(i, "IDENTIFIER") is True:
             is_id = True
+            id_instead_cs = True
         if context.check_token(i, ["SWITCH", "CASE", "DEFAULT"]) is True:
             i += 1
             i = context.skip_ws(i, nl=False)
@@ -69,6 +71,8 @@ class IsControlStatement(PrimaryRule):
                 i = context.eol(i)
                 return True, i
         i += 1
+        if id_instead_cs == True:
+            return False, 0
         i = context.skip_ws(i, nl=False)
         if context.check_token(i, "LPARENTHESIS") is False:
             return False, 0

@@ -2,6 +2,31 @@ from rules import PrimaryRule
 from context import GlobalScope, VariableAssignation
 from exceptions import CParsingError
 
+condition_ops = [
+    "LESS_OR_EQUAL",
+    "GREATER_OR_EQUAL",
+    "EQUALS",
+    "NOT_EQUAL",
+    "INC",
+    "DEC",
+    "AND",
+    "OR",
+    "BWISE_XOR",
+    "BWISE_OR",
+    "BWISE_NOT",
+    "BWISE_AND",
+    "RIGHT_SHIFT",
+    "LEFT_SHIFT",
+    "DOT",
+    "NOT",
+    "MINUS",
+    "PLUS",
+    "MULT",
+    "DIV",
+    "MODULO",
+    "LESS_THAN",
+    "MORE_THAN",
+]
 
 assign_ops = [
     "RIGHT_ASSIGN",
