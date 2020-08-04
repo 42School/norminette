@@ -29,7 +29,7 @@ class CheckPreprocessorInclude(Rule):
         if i < len(tkns) and tkns[i].type == "LESS_THAN":
             while i < len(tkns) and tkns[i].type != "DOT" and tkns[i].type != "MORE_THAN":
                 i += 1
-            if i < len(tkns) and tkns[i].type == "DOT":
+            if i < len(tkns) - 1 and tkns[i].type == "DOT":
                 i += 1
                 filetype = tkns[i].value
         elif i < len(tkns) and tkns[i].type == "STRING":

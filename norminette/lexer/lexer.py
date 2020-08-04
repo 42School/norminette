@@ -253,15 +253,15 @@ class Lexer:
         self.pop_char(), self.pop_char()
         tkn_value = "/*"
         while self.peek_char():
+            if self.src[self.__pos:].startswith("*/"):
+                tkn_value += "*/"
+                self.pop_char(), self.pop_char()
+                break
             tkn_value += self.peek_char()
             if self.peek_char() == '\n':
                 self.__line += 1
                 self.__line_pos = 1
             self.pop_char()
-            if self.src[self.__pos:].startswith("*/"):
-                tkn_value += "*/"
-                self.pop_char(), self.pop_char()
-                break
         if tkn_value.endswith("*/"):
             self.tokens.append(Token("MULT_COMMENT", pos, tkn_value))
         else:
@@ -375,6 +375,8 @@ class Lexer:
         if tkn_key not in preproc_keywords and tkn_key[:len('include')] != 'include':
             raise TokenError(self.line_pos())
         else:
+            if tkn_key not in preproc_keywords and tkn_key[:len('include')] == 'include':
+                tkn_key = 'include'
             self.tokens.append(Token(
                         preproc_keywords.get(tkn_key),
                         pos,
