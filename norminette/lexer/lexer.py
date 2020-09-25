@@ -297,7 +297,6 @@ class Lexer:
                 continue
             tkn_value += self.peek_char()
             self.pop_char()
-
         if tkn_value in keywords:
             self.tokens.append(Token(keywords[tkn_value], pos))
 
@@ -391,7 +390,7 @@ class Lexer:
             if self.is_string():
                 self.string()
 
-            elif self.peek_char().isalpha() or self.peek_char() == '_':
+            elif (self.peek_char().isalpha() and self.peek_char().isascii())or self.peek_char() == '_':
                 self.identifier()
 
             elif self.is_constant():

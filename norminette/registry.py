@@ -27,6 +27,7 @@ class Registry:
         #if rule.name.startswith("Is"):
             #print (rule.name, ret)
         if ret is True:
+            context.scope.instructions += 1
             if rule.name.startswith("Is"):
                 #print ("Line", context.tokens[0].pos[0], rule.name)
                 context.tkn_scope = read

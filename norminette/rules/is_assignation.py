@@ -96,6 +96,11 @@ class IsAssignation(PrimaryRule):
             #i += 1
             #context.sub = context.scope.inner(VariableAssignation)
             #return True, i
+        if context.scope.name == "UserDefinedEnum":
+            while context.peek_token(i) and (context.check_token(i, ['COMMA', 'SEMI_COLON', 'NEWLINE'])) is False:
+                i += 1
+            i = context.eol(i)
+            return True, i
         while context.check_token(i, ["SEMI_COLON"]) is False:
             i += 1
             if context.peek_token(i) is None:

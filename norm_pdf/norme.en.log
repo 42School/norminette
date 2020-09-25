@@ -1,0 +1,32 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2020.9.9)  17 SEP 2020 14:29
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/home/noich/42_work/norminette/norm_pdf/norme.en.tex
+(/home/noich/42_work/norminette/norm_pdf/norme.en.tex
+LaTeX2e <2018-12-01>
+
+! LaTeX Error: File `42-en.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+/home/noich/42_work/norminette/norm_pdf/norme.en.tex:2: Emergency stop.
+<read *> 
+         
+l.2 \newcommand
+               \qdsh{\texttt{42sh}}^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 11 strings out of 492615
+ 353 string characters out of 6131391
+ 56959 words of memory out of 5000000
+ 4021 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 10i,0n,8p,101b,8s stack positions out of 5000i,500n,10000p,200000b,80000s
+/home/noich/42_work/norminette/norm_pdf/norme.en.tex:2:  ==> Fatal error occurred, no output PDF file produced!

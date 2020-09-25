@@ -1,0 +1,37 @@
+[36mtest_file_0924.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<VOID> <SPACE> <IDENTIFIER=ft_hexdump> <LPARENTHESIS> <CHAR> <SPACE> <MULT> <MULT> <IDENTIFIER=files> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=argc> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=i> <RPARENTHESIS> 
+[36mtest_file_0924.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 1":
+		<LBRACE> <NEWLINE>
+[36mtest_file_0924.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 2":
+		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <IDENTIFIER=i> <SPACE> <LESS_THAN> <SPACE> <IDENTIFIER=argc> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0924.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 3":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_file_0924.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 4":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=argc> <SPACE> <MORE_THAN> <SPACE> <CONSTANT=2> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0924.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 5":
+		<TAB> <TAB> <TAB> <LBRACE> 
+[36mtest_file_0924.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 5":
+		<IF> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=fd> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=open> <LPARENTHESIS> <IDENTIFIER=files> <LBRACKET> <IDENTIFIER=i> <RBRACKET> <COMMA> <SPACE> <IDENTIFIER=O_RDONLY> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <MINUS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_0924.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 6":
+		<TAB> <TAB> <TAB> <RETURN> <SPACE> <SEMI_COLON> 
+[36mtest_file_0924.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 6":
+		<RBRACE> <NEWLINE>
+[36mtest_file_0924.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 7":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_0924.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 8":
+		<RBRACE> <NEWLINE>
+[36mtest_file_0924.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
+		<NEWLINE>
+test_file_0924.c: KO!
+	SPACE_BEFORE_FUNC (line: 1, col: 5):	space before function name
+	BRACE_NEWLINE (line: 1, col: 47):	Expected newline before brace
+	TOO_MANY_TAB (line: 5, col: 1):	Extra tabs for indent level
+	BRACE_SHOULD_EOL (line: 5, col: 13):	Expected newline after brace
+	TOO_MANY_INSTR (line: 5, col: 14):	Too many instructions on a single line
+	TOO_FEW_TAB (line: 5, col: 14):	Missing tabs for indent level
+	ASSIGN_IN_CONTROL (line: 5, col: 22):	Assignment in control structure
+	TOO_FEW_TAB (line: 6, col: 1):	Missing tabs for indent level
+	NO_SPC_BFR_OPR (line: 6, col: 20):	extra space before operator
+	TOO_MANY_INSTR (line: 6, col: 21):	Too many instructions on a single line
+	TOO_FEW_TAB (line: 6, col: 21):	Missing tabs for indent level
+	EMPTY_LINE_EOF (line: 9, col: 1):	Empty line at end of file

@@ -203,7 +203,7 @@ class Context:
         if self.sub is not None:
             self.scope = self.sub
             self.sub = None
-        if type(self.scope) is ControlStructure and self.scope.multiline is False and self.scope.lines > 0:
+        if type(self.scope) is ControlStructure and self.scope.multiline is False and self.scope.instructions > 0:
             self.scope = self.scope.outer()
             self.sub = None
             self.update()

@@ -9,6 +9,7 @@ class Scope:
         self.lvl = (parent.lvl + 1) if parent is not None else 0
         self.indent = (parent.indent + 1) if parent is not None else 0
         self.lines = 0
+        self.instructions = 0
         # ########################################################## #
         self.vdeclarations_allowed = False
         self.vars = 0
@@ -32,6 +33,7 @@ class Scope:
         """
         if self.parent is not None:
             self.parent.lines += self.lines
+        #print (f"{self.name} -> {self.parent.name}")
         return self.parent
 
     def get_outer(self):
