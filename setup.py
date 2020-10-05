@@ -7,7 +7,7 @@ import subprocess
 subprocess.call("pip install -r requirements.txt", shell=True)
 exec(open("norminette/version.py").read())
 setup(
-    name="new-norminette",
+    name="norminette",
     version=__version__,
     author="42",
     author_email="pedago@42.fr",
@@ -16,7 +16,7 @@ setup(
     packages=find_namespace_packages(),
     entry_points={
         'console_scripts': [
-            'new-norminette = norminette.__main__:main',
+            'norminette = norminette.__main__:main',
         ],
     },
 )
