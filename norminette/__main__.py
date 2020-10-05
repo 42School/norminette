@@ -5,8 +5,6 @@ file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 import argparse
 import pkg_resources
-__version__ = pkg_resources.get_distribution('norminette').version
-#__version__ = "2.0.3"
 from lexer import Lexer, TokenError
 from exceptions import CParsingError
 from registry import Registry
@@ -18,6 +16,7 @@ from multiprocessing import Process, Queue
 import time
 import sentry_sdk
 from sentry_sdk import configure_scope
+exec(open("norminette/version.py").read())
 
 
 has_err = False
@@ -33,7 +32,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("file", help="File(s) or folder(s) you wanna run the parser on. If no file provided, runs on current folder.", default=[], action='append', nargs='*')
     parser.add_argument("-d", "--debug", action="count", help="Debug output (multiple values available)", default=0)
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__)
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + str(__version__))
     parser.add_argument('-s', '--sentry', action='store_true', default=False)
     parser.add_argument('--cfile', action='store', help="Store C file content directly instead of filename")
     parser.add_argument('--hfile', action='store', help="Store header file content directly instead of filename")
