@@ -32,6 +32,8 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+(void/* fkdslkdjfdsjl */) argc;
+
 int	main(void)
 {
 	int	a;

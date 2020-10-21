@@ -36,7 +36,6 @@ class CheckPreprocessorProtection(Rule):
                             break
                 context.scope.header_protection = 0
             elif len(tkns) < 1 or (tkns[0].value != protection and context.scope.header_protection == -1):
-                print (protection)
                 context.new_error("HEADER_PROT_NAME", context.peek_token(0))
         elif context.check_token(i, "ENDIF") is True:
             if context.scope.header_protection == 1 and context.preproc_scope_indent == 0:

@@ -121,9 +121,9 @@
 		<TAB> <LBRACE> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 60":
 		<TAB> <TAB> <IDENTIFIER=fname> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=argv> <LBRACKET> <CONSTANT=0> <RBRACKET> <SEMI_COLON> <NEWLINE>
-[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 61":
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 61":
 		<TAB> <TAB> <IDENTIFIER=argv> <INC> <SEMI_COLON> <NEWLINE>
-[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 62":
+[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 62":
 		<TAB> <TAB> <IDENTIFIER=argc> <DEC> <SEMI_COLON> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 63":
 		<TAB> <RBRACE> <SPACE> 
@@ -442,7 +442,6 @@ test_file_0907_3.c: KO!
 	MULT_ASSIGN_LINE (line: 15, col: 24):	Multiple assignations on a single line
 	MULT_ASSIGN_LINE (line: 15, col: 31):	Multiple assignations on a single line
 	TAB_INSTEAD_SPC (line: 19, col: 16):	Found tab when expecting space
-	WRONG_SCOPE_COMMENT (line: 19, col: 17):	Comment is invalid in this scope
 	EMPTY_LINE_FUNCTION (line: 22, col: 1):	Empty line in function
 	ASSIGN_IN_CONTROL (line: 23, col: 16):	Assignment in control structure
 	FORBIDDEN_CS (line: 24, col: 9):	Forbidden control structure
@@ -520,7 +519,6 @@ test_file_0907_3.c: KO!
 	LINE_TOO_LONG (line: 65, col: 96):	line too long
 	ASSIGN_IN_CONTROL (line: 66, col: 19):	Assignment in control structure
 	EMPTY_LINE_FUNCTION (line: 68, col: 1):	Empty line in function
-	WRONG_SCOPE_COMMENT (line: 69, col: 5):	Comment is invalid in this scope
 	EMPTY_LINE_FUNCTION (line: 71, col: 1):	Empty line in function
 	ASSIGN_IN_CONTROL (line: 72, col: 17):	Assignment in control structure
 	NO_SPC_AFR_PAR (line: 72, col: 49):	Extra space after parenthesis (brace/bracket)
@@ -531,10 +529,8 @@ test_file_0907_3.c: KO!
 	TOO_FEW_TAB (line: 79, col: 12):	Missing tabs for indent level
 	EMPTY_LINE_FUNCTION (line: 83, col: 1):	Empty line in function
 	EMPTY_LINE_FUNCTION (line: 86, col: 1):	Empty line in function
-	WRONG_SCOPE_COMMENT (line: 92, col: 9):	Comment is invalid in this scope
 	NO_SPC_AFR_PAR (line: 93, col: 20):	Extra space after parenthesis (brace/bracket)
 	TOO_FEW_TAB (line: 93, col: 22):	Missing tabs for indent level
-	WRONG_SCOPE_COMMENT (line: 96, col: 13):	Comment is invalid in this scope
 	NO_SPC_AFR_PAR (line: 97, col: 24):	Extra space after parenthesis (brace/bracket)
 	TOO_FEW_TAB (line: 97, col: 26):	Missing tabs for indent level
 	FORBIDDEN_CS (line: 100, col: 17):	Forbidden control structure

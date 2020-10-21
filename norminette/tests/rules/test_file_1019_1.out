@@ -1,0 +1,31 @@
+[36mtest_file_1019_1.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<IFNDEF=#ifndef TEST_H> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<DEFINE=# define TEST_H> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 4":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_lst> <TAB> <IDENTIFIER=t_lst> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 5":
+		<STRUCT> <TAB> <TAB> <IDENTIFIER=s_lst> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 6":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 7":
+		<TAB> <VOID> <TAB> <MULT> <IDENTIFIER=data> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 8":
+		<TAB> <IDENTIFIER=t_lst> <TAB> <MULT> <IDENTIFIER=next> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 9":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 10":
+		<NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 11":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 12":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 13":
+		<TAB> <IDENTIFIER=write> <SPACE> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="test\n"> <COMMA> <SPACE> <CONSTANT=5> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 14":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1019_1.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
+		<RBRACE> <NEWLINE>
+test_file_1019_1.c: OK!

@@ -12,9 +12,9 @@
 		<TAB> <TAB> <BREAK> <SPACE> <SEMI_COLON> <NEWLINE>
 [36mok_cs_indent.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 7":
 		<TAB> <RBRACE> <NEWLINE>
-[36mok_cs_indent.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 8":
+[36mok_cs_indent.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 8":
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <MULT> <IDENTIFIER=toto> <COMMA> <SPACE> <STRING="abvc,edwd"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mok_cs_indent.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 9":
+[36mok_cs_indent.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 9":
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=2> <SPACE> <PLUS> <SPACE> <MULT> <IDENTIFIER=tptp> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mok_cs_indent.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 10":
 		<RBRACE> <NEWLINE>

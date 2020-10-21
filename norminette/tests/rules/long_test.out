@@ -42,7 +42,7 @@
 		<INT> <TAB> <MULT> <IDENTIFIER=truc> <LPARENTHESIS> <RPARENTHESIS> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 19":
 		<LBRACE> <NEWLINE>
-[36mlong_test.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 20":
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 20":
 		<TAB> <RETURN> <SPACE> <IDENTIFIER=malloc> <LPARENTHESIS> <SIZEOF> <LPARENTHESIS> <INT> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 21":
 		<RBRACE> <NEWLINE>
@@ -52,7 +52,7 @@
 		<INT> <SPACE> <LPARENTHESIS> <MULT> <IDENTIFIER=f2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> 
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 23":
 		<LBRACE> <NEWLINE>
-[36mlong_test.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 24":
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 24":
 		<TAB> <RETURN> <SPACE> <IDENTIFIER=foo> <SEMI_COLON> <SPACE> 
 [36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 24":
 		<RBRACE> <NEWLINE>
@@ -62,7 +62,7 @@
 		<INT> <TAB> <LPARENTHESIS> <LPARENTHESIS> <MULT> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=bar> <RPARENTHESIS> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 27":
 		<LBRACE> <NEWLINE>
-[36mlong_test.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 28":
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 28":
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=foo> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 29":
 		<RBRACE> <NEWLINE>
@@ -72,7 +72,7 @@
 		<INT> <TAB> <LPARENTHESIS> <MULT> <LPARENTHESIS> <IDENTIFIER=f> <RPARENTHESIS> <LPARENTHESIS> <CHAR> <SPACE> <IDENTIFIER=a> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=t> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=b> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> 
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 31":
 		<LBRACE> <SPACE> 
-[36mlong_test.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 31":
+[36mlong_test.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 31":
 		<RETURN> <SPACE> <IDENTIFIER=foo> <SEMI_COLON> 
 [36mlong_test.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 31":
 		<RBRACE> <NEWLINE>
@@ -153,15 +153,17 @@ long_test.c: KO!
 	BRACE_SHOULD_EOL (line: 10, col: 16):	Expected newline after brace
 	TOO_MANY_INSTR (line: 10, col: 17):	Too many instructions on a single line
 	TOO_FEW_TAB (line: 10, col: 17):	Missing tabs for indent level
-	RETURN_PARENTHESIS (line: 10, col: 25):	Return value must be in parenthesis
+	RETURN_PARENTHESIS (line: 10, col: 24):	Return value must be in parenthesis
 	TOO_MANY_INSTR (line: 10, col: 27):	Too many instructions on a single line
 	SPACE_BEFORE_FUNC (line: 12, col: 4):	space before function name
-	RETURN_PARENTHESIS (line: 14, col: 13):	Return value must be in parenthesis
+	RETURN_PARENTHESIS (line: 14, col: 12):	Return value must be in parenthesis
 	INCLUDE_START_FILE (line: 17, col: 1):	Include must be at the start of file
 	NO_ARGS_VOID (line: 18, col: 11):	Empty function argument requires void
+	RETURN_PARENTHESIS (line: 20, col: 12):	Return value must be in parenthesis
 	SPACE_BEFORE_FUNC (line: 23, col: 4):	space before function name
 	MISSING_IDENTIFIER (line: 23, col: 17):	missing type qualifier or identifier in function arguments
 	BRACE_NEWLINE (line: 23, col: 22):	Expected newline before brace
+	RETURN_PARENTHESIS (line: 24, col: 12):	Return value must be in parenthesis
 	TOO_MANY_INSTR (line: 24, col: 17):	Too many instructions on a single line
 	TOO_MANY_FUNCS (line: 26, col: 1):	Too many functions in file
 	MISSING_IDENTIFIER (line: 26, col: 29):	missing type qualifier or identifier in function arguments
@@ -169,7 +171,9 @@ long_test.c: KO!
 	MISSING_IDENTIFIER (line: 31, col: 34):	missing type qualifier or identifier in function arguments
 	BRACE_NEWLINE (line: 31, col: 39):	Expected newline before brace
 	BRACE_SHOULD_EOL (line: 31, col: 40):	Expected newline after brace
+	TOO_MANY_INSTR (line: 31, col: 41):	Too many instructions on a single line
 	TOO_FEW_TAB (line: 31, col: 41):	Missing tabs for indent level
+	RETURN_PARENTHESIS (line: 31, col: 48):	Return value must be in parenthesis
 	TOO_MANY_INSTR (line: 31, col: 52):	Too many instructions on a single line
 	GLOBAL_VAR_NAMING (line: 33, col: 7):	Global variable must start with g_
 	GLOBAL_VAR_NAMING (line: 34, col: 9):	Global variable must start with g_
