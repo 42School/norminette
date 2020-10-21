@@ -11,16 +11,16 @@
 [36mko_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
 		<SPACE> <DEFINE=#define TOTo TATa> 
 ko_preproc_define.c: KO!
-	MACRO_NAME_CAPITAL (line: 1, col: 2):	Macro name must be capitalized
-	PREPROC_CONSTANT (line: 1, col: 7):	Preprocessor statement must only contain constant defines
-	PREPROC_CONSTANT (line: 1, col: 8):	Preprocessor statement must only contain constant defines
-	TOO_MANY_VALS (line: 1, col: 9):	Too many values on define
-	TOO_MANY_VALS (line: 2, col: 8):	Too many values on define
-	PREPROC_CONSTANT (line: 3, col: 11):	Preprocessor statement must only contain constant defines
-	PREPROC_CONSTANT (line: 3, col: 17):	Preprocessor statement must only contain constant defines
-	PREPROC_CONSTANT (line: 4, col: 12):	Preprocessor statement must only contain constant defines
-	TOO_MANY_VALS (line: 5, col: 16):	Too many values on define
-	PREPROC_START_LINE (line: 6, col: 1):	Preprocessor statement not at the beginning of the line
-	SPACE_REPLACE_TAB (line: 6, col: 2):	Found space when expecting tab
-	MACRO_NAME_CAPITAL (line: 6, col: 7):	Macro name must be capitalized
-	PREPROC_CONSTANT (line: 6, col: 12):	Preprocessor statement must only contain constant defines
+	MACRO_NAME_CAPITAL     (line: 1, col: 2):	Macro name must be capitalized
+	PREPROC_CONSTANT       (line: 1, col: 7):	Preprocessor statement must only contain constant defines
+	PREPROC_CONSTANT       (line: 1, col: 8):	Preprocessor statement must only contain constant defines
+	TOO_MANY_VALS          (line: 1, col: 9):	Too many values on define
+	TOO_MANY_VALS          (line: 2, col: 8):	Too many values on define
+	PREPROC_CONSTANT      (line: 3, col: 11):	Preprocessor statement must only contain constant defines
+	PREPROC_CONSTANT      (line: 3, col: 17):	Preprocessor statement must only contain constant defines
+	PREPROC_CONSTANT      (line: 4, col: 12):	Preprocessor statement must only contain constant defines
+	TOO_MANY_VALS         (line: 5, col: 16):	Too many values on define
+	PREPROC_START_LINE     (line: 6, col: 1):	Preprocessor statement not at the beginning of the line
+	SPACE_REPLACE_TAB      (line: 6, col: 2):	Found space when expecting tab
+	MACRO_NAME_CAPITAL     (line: 6, col: 7):	Macro name must be capitalized
+	PREPROC_CONSTANT      (line: 6, col: 12):	Preprocessor statement must only contain constant defines

@@ -5,6 +5,6 @@
 [36mko_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
 		<INCLUDE=#include <main.c>> <NEWLINE>
 ko_include.c: KO!
-	INCLUDE_HEADER_ONLY (line: 1, col: 1):	.c file includes are forbidden
-	MACRO_NAME_CAPITAL (line: 2, col: 3):	Macro name must be capitalized
-	INCLUDE_START_FILE (line: 3, col: 1):	Include must be at the start of file
+	INCLUDE_HEADER_ONLY    (line: 1, col: 1):	.c file includes are forbidden
+	MACRO_NAME_CAPITAL     (line: 2, col: 3):	Macro name must be capitalized
+	INCLUDE_START_FILE     (line: 3, col: 1):	Include must be at the start of file

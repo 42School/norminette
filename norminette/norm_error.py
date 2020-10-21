@@ -88,8 +88,6 @@ digits or '_'",
     "ARG_TYPE_UKN": "Unrecognized variable type",
     "COMMENT_ON_INSTR": "Comment must be on its own line"
 }
-
-
 class NormError:
     def __init__(self, errno, line, col=None):
         self.errno = errno
@@ -99,24 +97,8 @@ class NormError:
             self.error_pos = f"(line: {self.line}, col: {self.col}):\t"
         else:
             self.error_pos = f"(line: {self.line}):\t "
-        self.prefix = f"\t{self.errno} " + self.error_pos
+        self.prefix = f"\t{self.errno:<20} {self.error_pos:>21}"
         self.error_msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
 
     def __str__(self):
         return self.prefix + self.error_msg
-
-
-#class NormError:
-    #def __init__(self, errno, line, col=None):
-        #self.errno = errno
-        #self.line = line
-        #self.col = col
-        #if col is not None:
-            #self.error_pos = f"(line: {self.line}, col: {self.col}):\t"
-        #else:
-            #self.error_pos = f"(line: {self.line}):\t "
-        #self.prefix = f"\t{self.errno:<20} {self.error_pos:>21}"
-        #self.error_msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
-#
-    #def __str__(self):
-        #return self.prefix + self.error_msg

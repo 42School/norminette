@@ -1,4 +1,4 @@
 [36mtest_file_0907.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <IDENTIFIER=room_indexcmp> <LPARENTHESIS> <IDENTIFIER=t_room> <SPACE> <MULT> <IDENTIFIER=room1> <COMMA> <SPACE> <UNSIGNED> <SPACE> <MULT> <IDENTIFIER=index2> <RPARENTHESIS> <SEMI_COLON> 
 test_file_0907.c: KO!
-	ARG_TYPE_UKN (line: 1, col: 1):	Unrecognized variable type
+	ARG_TYPE_UKN           (line: 1, col: 1):	Unrecognized variable type

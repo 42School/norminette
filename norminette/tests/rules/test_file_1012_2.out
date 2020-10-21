@@ -154,8 +154,8 @@
 [36mtest_file_1012_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 82":
 		<RBRACE> <NEWLINE>
 test_file_1012_2.c: KO!
-	FORBIDDEN_CHAR_NAME (line: 30, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
-	FORBIDDEN_CHAR_NAME (line: 32, col: 12):	user defined identifiers should contain only lowercase characters, digits or '_'
-	FORBIDDEN_CHAR_NAME (line: 35, col: 22):	user defined identifiers should contain only lowercase characters, digits or '_'
-	FORBIDDEN_CHAR_NAME (line: 37, col: 42):	user defined identifiers should contain only lowercase characters, digits or '_'
-	FORBIDDEN_CHAR_NAME (line: 38, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME   (line: 30, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME  (line: 32, col: 12):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME  (line: 35, col: 22):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME  (line: 37, col: 42):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME   (line: 38, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
