@@ -419,7 +419,7 @@ class Lexer:
                 self.tokens.append(Token("TAB", self.line_pos()))
                 self.pop_char()
 
-            elif self.peek_char() == '\n':
+            elif self.peek_char() == '\n':# or ord(self.peek_char()) == 8203:
                 self.tokens.append(Token("NEWLINE", self.line_pos()))
                 self.pop_char()
                 self.__line_pos = 1

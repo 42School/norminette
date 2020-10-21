@@ -189,8 +189,8 @@ long_test.c: KO!
 	MISALIGNED_FUNC_DECL (line: 50, col: 9):	Misaligned function declaration
 	MISALIGNED_FUNC_DECL (line: 51, col: 9):	Misaligned function declaration
 	MISALIGNED_FUNC_DECL (line: 52, col: 17):	Misaligned function declaration
-	MISSING_IDENTIFIER (line: 53, col: 19):	missing type qualifier or identifier in function arguments
-	MISSING_IDENTIFIER (line: 54, col: 19):	missing type qualifier or identifier in function arguments
+	MISSING_IDENTIFIER (line: 53, col: 30):	missing type qualifier or identifier in function arguments
+	MISSING_IDENTIFIER (line: 54, col: 26):	missing type qualifier or identifier in function arguments
 	CONSECUTIVE_SPC (line: 57, col: 43):	Two or more consecutives spaces
 	SPC_AFTER_OPERATOR (line: 58, col: 38):	missing space after operator
 	SPC_AFTER_POINTER (line: 60, col: 44):	space after pointer

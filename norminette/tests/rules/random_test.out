@@ -1,8 +1,1 @@
-[36mrandom_test.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<DEFINE=#define TOTO "undefind"> <NEWLINE>
-[36mrandom_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
-		<NEWLINE>
-[36mrandom_test.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
-		<DEFINE=# define TOTO "Undefined"> <NEWLINE>
-random_test.c: KO!
-	PREPROC_BAD_INDENT (line: 3, col: 1):	Bad preprocessor indentation
+random_test.c: OK!

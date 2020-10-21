@@ -265,7 +265,7 @@ In \"{self.scope.name}\" from \
         i = pos - 1
         while self.peek_token(i) is not None:
             if self.check_token(i, lbrackets) is True:
-                i = self.skip_nest(i)
+                i = self.skip_nest_reverse(i)
                 if i == -1:
                     return -1
             elif self.check_token(i, rbrackets) is True:
@@ -355,7 +355,7 @@ In \"{self.scope.name}\" from \
                 return False, 0
             if self.check_token(i, "IDENTIFIER") is True:
                 i += 1
-                return True, i
+                return True, i + 1
             while self.check_token(i, types + whitespaces + ["MULT", "BWISE_AND"]) is True:
                 i += 1
             i = self.skip_misc_specifier(i, nl=nl)
@@ -428,9 +428,14 @@ In \"{self.scope.name}\" from \
         while pos > 0:
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
                 pos = self.skip_nest_reverse(pos) - 1
-            if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF"]) is True:
+                skip = 1
+            if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF", "ASSIGN"]) is True:
+                if self.check_token(pos, "IDENTIFIER") is True and self.check_token(pos + 1, "TAB") is True:
+                    return False
                 return True
-            elif self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND"] + operators + types):
+            if self.check_token(pos, ["COMMA"] + operators) is True and skip == 1:
+                return True
+            if self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND", "COMMA"] + operators + types):
                 return False
             pos -= 1
         return False

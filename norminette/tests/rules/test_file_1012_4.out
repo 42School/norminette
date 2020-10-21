@@ -1,0 +1,5 @@
+[36mtest_file_1012_4.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 1":
+		<IDENTIFIER=t_montype> <TAB> <IDENTIFIER=g_globale> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_4.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 2":
+		<IDENTIFIER=t_montype> <TAB> <IDENTIFIER=g_glob> <SEMI_COLON> 
+test_file_1012_4.c: OK!

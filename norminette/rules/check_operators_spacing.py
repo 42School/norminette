@@ -262,9 +262,6 @@ class CheckOperatorsSpacing(Rule):
         lsign = operators + ["LBRACKET"]
         i = 0
         if context.peek_token(pos).type == "MULT":
-            tmp = 0
-            while context.check_token(tmp, ["IDENTIFIER", "SEMI_COLON", "NEWLINE"]) is False:
-                tmp += 1
             if context.check_token(pos - 1, lpointer) == False and context.is_glued_operator(pos - 1) is True:
                 context.new_error("SPC_BFR_POINTER", context.peek_token(pos))
             if context.check_token(pos + 1, ["SPACE", "TAB"]):

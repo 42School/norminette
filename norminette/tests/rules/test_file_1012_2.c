@@ -9,13 +9,13 @@
 /*   Updated: 2018/04/28 22:34:56 by vgauther         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-​
+
 #include "../includes/rt.h"
-​
+
 void	bloc_camera(t_env *e, t_sdl *s)
 {
 	t_rect	r1;
-​
+
 	r1 = init_rect(WIN_X / 100, SIZE_Y / 3, COL4 - (WIN_X / 50) - 10,
 			SIZE_Y / 3);
 	empty_rect(r1, e, 1, CONTRAST);
@@ -24,11 +24,11 @@ void	bloc_camera(t_env *e, t_sdl *s)
 	print_rect(r1, e, 1, COLOR_BACK);
 	(void)s;
 }
-​
+
 void	bloc_logo(t_sdl *s)
 {
 	SDL_Surface	*surf;
-​
+
 	surf = SDL_LoadBMP("./img_srcs/rtl.bmp");
 	s->hud1.logo.rect = init_sdl_rect(2, 0, COL4 - (WIN_X / 100),
 			SIZE_Y / 4);
@@ -37,12 +37,12 @@ void	bloc_logo(t_sdl *s)
 		ft_sdl_error("Texture error : ", SDL_GetError());
 	SDL_FreeSurface(surf);
 }
-​
+
 void	bloc_credits(t_env *e, t_sdl *s)
 {
 	t_vec	p1;
 	t_vec	p2;
-​
+
 	print_text(ft_strdup("Credits"), s->font.color[4], s,
 	&s->hud1.credits.title);
 	s->hud1.credits.title.rect = init_sdl_rect(COL4 / 2 - 40,
@@ -58,13 +58,13 @@ void	bloc_credits(t_env *e, t_sdl *s)
 	vertical_trait(p1, p2, CONTRAST, e);
 	ornement(s->hud1.credits.title.rect, CONTRAST, 20, e);
 }
-​
+
 void	bloc_save(t_env *e, t_sdl *s)
 {
 	t_vec		p1;
 	t_vec		p2;
 	t_rect		r1;
-​
+
 	p1 = init_point_2_coord(COL + SIZE_X, 0);
 	p2 = init_point_2_coord(COL + SIZE_X, SIZE_Y / 8);
 	vertical_trait(p1, p2, CONTRAST, e);

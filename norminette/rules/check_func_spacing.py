@@ -14,6 +14,7 @@ type_specifiers = [
     "INT",
     "UNION",
     "VOID",
+    "SHORT"
 ]
 
 misc_specifiers = [

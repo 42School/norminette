@@ -1,0 +1,161 @@
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 1":
+		<MULT_COMMENT=/* ************************************************************************** */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 2":
+		<MULT_COMMENT=/*                                                                            */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 3":
+		<MULT_COMMENT=/*                                                        :::      ::::::::   */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 4":
+		<MULT_COMMENT=/*   hud_bloc_credits_save_logo_cam.c                   :+:      :+:    :+:   */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 5":
+		<MULT_COMMENT=/*                                                    +:+ +:+         +:+     */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 6":
+		<MULT_COMMENT=/*   By: vgauther <vgauther@student.42.fr>          +#+  +:+       +#+        */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 7":
+		<MULT_COMMENT=/*                                                +#+#+#+#+#+   +#+           */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 8":
+		<MULT_COMMENT=/*   Created: 2018/04/23 19:10:36 by vgauther          #+#    #+#             */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 9":
+		<MULT_COMMENT=/*   Updated: 2018/04/28 22:34:56 by vgauther         ###   ########.fr       */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 10":
+		<MULT_COMMENT=/*                                                                            */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 11":
+		<MULT_COMMENT=/* ************************************************************************** */> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
+		<NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
+		<INCLUDE=#include "../includes/rt.h"> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 14":
+		<NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 15":
+		<VOID> <TAB> <IDENTIFIER=bloc_camera> <LPARENTHESIS> <IDENTIFIER=t_env> <SPACE> <MULT> <IDENTIFIER=e> <COMMA> <SPACE> <IDENTIFIER=t_sdl> <SPACE> <MULT> <IDENTIFIER=s> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 16":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 17":
+		<TAB> <IDENTIFIER=t_rect> <TAB> <IDENTIFIER=r1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 18":
+		<NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 19":
+		<TAB> <IDENTIFIER=r1> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_rect> <LPARENTHESIS> <IDENTIFIER=WIN_X> <SPACE> <DIV> <SPACE> <CONSTANT=100> <COMMA> <SPACE> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=3> <COMMA> <SPACE> <IDENTIFIER=COL4> <SPACE> <MINUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=WIN_X> <SPACE> <DIV> <SPACE> <CONSTANT=50> <RPARENTHESIS> <SPACE> <MINUS> <SPACE> <CONSTANT=10> <COMMA> <NEWLINE>
+		<TAB> <TAB> <TAB> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=3> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 21":
+		<TAB> <IDENTIFIER=empty_rect> <LPARENTHESIS> <IDENTIFIER=r1> <COMMA> <SPACE> <IDENTIFIER=e> <COMMA> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <IDENTIFIER=CONTRAST> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 22":
+		<TAB> <IDENTIFIER=r1> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_rect> <LPARENTHESIS> <IDENTIFIER=WIN_X> <SPACE> <DIV> <SPACE> <CONSTANT=100> <SPACE> <PLUS> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=COL4> <SPACE> <MINUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=WIN_X> <SPACE> <DIV> <SPACE> <CONSTANT=50> <RPARENTHESIS> <SPACE> <MINUS> <SPACE> <CONSTANT=10> <RPARENTHESIS> <SPACE> <DIV> <SPACE> <CONSTANT=8> <RPARENTHESIS> <COMMA> <NEWLINE>
+		<TAB> <TAB> <TAB> <LPARENTHESIS> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=3> <RPARENTHESIS> <SPACE> <MINUS> <SPACE> <CONSTANT=2> <COMMA> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=SIZE_X> <SPACE> <DIV> <SPACE> <CONSTANT=4> <SPACE> <MINUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=WIN_X> <SPACE> <DIV> <SPACE> <CONSTANT=50> <RPARENTHESIS> <SPACE> <MINUS> <SPACE> <CONSTANT=10> <RPARENTHESIS> <SPACE> <DIV> <SPACE> <CONSTANT=8> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=6> <COMMA> <SPACE> <CONSTANT=4> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 24":
+		<TAB> <IDENTIFIER=print_rect> <LPARENTHESIS> <IDENTIFIER=r1> <COMMA> <SPACE> <IDENTIFIER=e> <COMMA> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <IDENTIFIER=COLOR_BACK> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsCast[0m In "Function" from "GlobalScope" line 25":
+		<TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=s> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 26":
+		<RBRACE> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 27":
+		<NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 28":
+		<VOID> <TAB> <IDENTIFIER=bloc_logo> <LPARENTHESIS> <IDENTIFIER=t_sdl> <SPACE> <MULT> <IDENTIFIER=s> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 29":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 30":
+		<TAB> <IDENTIFIER=SDL_Surface> <TAB> <MULT> <IDENTIFIER=surf> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 31":
+		<NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 32":
+		<TAB> <IDENTIFIER=surf> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=SDL_LoadBMP> <LPARENTHESIS> <STRING="./img_srcs/rtl.bmp"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 33":
+		<TAB> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=logo> <DOT> <IDENTIFIER=rect> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_sdl_rect> <LPARENTHESIS> <CONSTANT=2> <COMMA> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=COL4> <SPACE> <MINUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=WIN_X> <SPACE> <DIV> <SPACE> <CONSTANT=100> <RPARENTHESIS> <COMMA> <NEWLINE>
+		<TAB> <TAB> <TAB> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=4> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 35":
+		<TAB> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=logo> <DOT> <IDENTIFIER=tex> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=SDL_CreateTextureFromSurface> <LPARENTHESIS> <IDENTIFIER=s> <PTR> <IDENTIFIER=renderer> <COMMA> <SPACE> <IDENTIFIER=surf> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 36":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=logo> <DOT> <IDENTIFIER=tex> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <NULL> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 37":
+		<TAB> <TAB> <IDENTIFIER=ft_sdl_error> <LPARENTHESIS> <STRING="Texture error : "> <COMMA> <SPACE> <IDENTIFIER=SDL_GetError> <LPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 38":
+		<TAB> <IDENTIFIER=SDL_FreeSurface> <LPARENTHESIS> <IDENTIFIER=surf> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 39":
+		<RBRACE> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 40":
+		<NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 41":
+		<VOID> <TAB> <IDENTIFIER=bloc_credits> <LPARENTHESIS> <IDENTIFIER=t_env> <SPACE> <MULT> <IDENTIFIER=e> <COMMA> <SPACE> <IDENTIFIER=t_sdl> <SPACE> <MULT> <IDENTIFIER=s> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 42":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 43":
+		<TAB> <IDENTIFIER=t_vec> <TAB> <IDENTIFIER=p1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 44":
+		<TAB> <IDENTIFIER=t_vec> <TAB> <IDENTIFIER=p2> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 45":
+		<NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 46":
+		<TAB> <IDENTIFIER=print_text> <LPARENTHESIS> <IDENTIFIER=ft_strdup> <LPARENTHESIS> <STRING="Credits"> <RPARENTHESIS> <COMMA> <SPACE> <IDENTIFIER=s> <PTR> <IDENTIFIER=font> <DOT> <IDENTIFIER=color> <LBRACKET> <CONSTANT=4> <RBRACKET> <COMMA> <SPACE> <IDENTIFIER=s> <COMMA> <NEWLINE>
+		<TAB> <BWISE_AND> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=credits> <DOT> <IDENTIFIER=title> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 48":
+		<TAB> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=credits> <DOT> <IDENTIFIER=title> <DOT> <IDENTIFIER=rect> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_sdl_rect> <LPARENTHESIS> <IDENTIFIER=COL4> <SPACE> <DIV> <SPACE> <CONSTANT=2> <SPACE> <MINUS> <SPACE> <CONSTANT=40> <COMMA> <NEWLINE>
+		<TAB> <TAB> <TAB> <IDENTIFIER=SIZE_Y> <SPACE> <PLUS> <SPACE> <IDENTIFIER=LINE> <SPACE> <MINUS> <SPACE> <CONSTANT=5> <COMMA> <SPACE> <CONSTANT=50> <COMMA> <SPACE> <CONSTANT=20> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 50":
+		<TAB> <IDENTIFIER=print_text> <LPARENTHESIS> <IDENTIFIER=ft_strdup> <LPARENTHESIS> <STRING="ebertin/fde-souz/ppetit/vgauther"> <RPARENTHESIS> <COMMA> <SPACE> <IDENTIFIER=s> <PTR> <IDENTIFIER=font> <DOT> <IDENTIFIER=color> <LBRACKET> <CONSTANT=4> <RBRACKET> <COMMA> <NEWLINE>
+		<TAB> <IDENTIFIER=s> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=credits> <DOT> <IDENTIFIER=names> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 52":
+		<TAB> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=credits> <DOT> <IDENTIFIER=names> <DOT> <IDENTIFIER=rect> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_sdl_rect> <LPARENTHESIS> <CONSTANT=7> <COMMA> <SPACE> <IDENTIFIER=SIZE_Y> <SPACE> <PLUS> <SPACE> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=6> <COMMA> <SPACE> <CONSTANT=230> <COMMA> <SPACE> <CONSTANT=18> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 53":
+		<TAB> <IDENTIFIER=p1> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_point_2_coord> <LPARENTHESIS> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=WIN_Y> <SPACE> <DIV> <SPACE> <CONSTANT=8> <SPACE> <MULT> <SPACE> <CONSTANT=7> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 54":
+		<TAB> <IDENTIFIER=p2> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_point_2_coord> <LPARENTHESIS> <IDENTIFIER=COL4> <COMMA> <SPACE> <IDENTIFIER=WIN_Y> <SPACE> <DIV> <SPACE> <CONSTANT=8> <SPACE> <MULT> <SPACE> <CONSTANT=7> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 55":
+		<TAB> <IDENTIFIER=horizontal_trait> <LPARENTHESIS> <IDENTIFIER=p1> <COMMA> <SPACE> <IDENTIFIER=p2> <COMMA> <SPACE> <IDENTIFIER=CONTRAST> <COMMA> <SPACE> <IDENTIFIER=e> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 56":
+		<TAB> <IDENTIFIER=p1> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_point_2_coord> <LPARENTHESIS> <IDENTIFIER=COL4> <SPACE> <MINUS> <SPACE> <CONSTANT=10> <COMMA> <SPACE> <IDENTIFIER=SIZE_Y> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 57":
+		<TAB> <IDENTIFIER=p2> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_point_2_coord> <LPARENTHESIS> <IDENTIFIER=COL4> <SPACE> <MINUS> <SPACE> <CONSTANT=10> <COMMA> <SPACE> <IDENTIFIER=WIN_Y> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 58":
+		<TAB> <IDENTIFIER=vertical_trait> <LPARENTHESIS> <IDENTIFIER=p1> <COMMA> <SPACE> <IDENTIFIER=p2> <COMMA> <SPACE> <IDENTIFIER=CONTRAST> <COMMA> <SPACE> <IDENTIFIER=e> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 59":
+		<TAB> <IDENTIFIER=ornement> <LPARENTHESIS> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=credits> <DOT> <IDENTIFIER=title> <DOT> <IDENTIFIER=rect> <COMMA> <SPACE> <IDENTIFIER=CONTRAST> <COMMA> <SPACE> <CONSTANT=20> <COMMA> <SPACE> <IDENTIFIER=e> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 60":
+		<RBRACE> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 61":
+		<NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 62":
+		<VOID> <TAB> <IDENTIFIER=bloc_save> <LPARENTHESIS> <IDENTIFIER=t_env> <SPACE> <MULT> <IDENTIFIER=e> <COMMA> <SPACE> <IDENTIFIER=t_sdl> <SPACE> <MULT> <IDENTIFIER=s> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 63":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 64":
+		<TAB> <IDENTIFIER=t_vec> <TAB> <TAB> <IDENTIFIER=p1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 65":
+		<TAB> <IDENTIFIER=t_vec> <TAB> <TAB> <IDENTIFIER=p2> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 66":
+		<TAB> <IDENTIFIER=t_rect> <TAB> <TAB> <IDENTIFIER=r1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 67":
+		<NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 68":
+		<TAB> <IDENTIFIER=p1> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_point_2_coord> <LPARENTHESIS> <IDENTIFIER=COL> <SPACE> <PLUS> <SPACE> <IDENTIFIER=SIZE_X> <COMMA> <SPACE> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 69":
+		<TAB> <IDENTIFIER=p2> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_point_2_coord> <LPARENTHESIS> <IDENTIFIER=COL> <SPACE> <PLUS> <SPACE> <IDENTIFIER=SIZE_X> <COMMA> <SPACE> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=8> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 70":
+		<TAB> <IDENTIFIER=vertical_trait> <LPARENTHESIS> <IDENTIFIER=p1> <COMMA> <SPACE> <IDENTIFIER=p2> <COMMA> <SPACE> <IDENTIFIER=CONTRAST> <COMMA> <SPACE> <IDENTIFIER=e> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 71":
+		<TAB> <IDENTIFIER=p1> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_point_2_coord> <LPARENTHESIS> <IDENTIFIER=COL4> <SPACE> <PLUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=SIZE_X> <SPACE> <DIV> <SPACE> <CONSTANT=6> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=5> <SPACE> <MINUS> <SPACE> <CONSTANT=5> <COMMA> <SPACE> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 72":
+		<TAB> <IDENTIFIER=p2> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_point_2_coord> <LPARENTHESIS> <IDENTIFIER=COL4> <SPACE> <PLUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=SIZE_X> <SPACE> <DIV> <SPACE> <CONSTANT=6> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=5> <SPACE> <MINUS> <SPACE> <CONSTANT=5> <COMMA> <SPACE> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=8> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 73":
+		<TAB> <IDENTIFIER=vertical_trait> <LPARENTHESIS> <IDENTIFIER=p1> <COMMA> <SPACE> <IDENTIFIER=p2> <COMMA> <SPACE> <IDENTIFIER=CONTRAST> <COMMA> <SPACE> <IDENTIFIER=e> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 74":
+		<TAB> <IDENTIFIER=r1> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_rect> <LPARENTHESIS> <IDENTIFIER=COL4> <SPACE> <PLUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=SIZE_X> <SPACE> <DIV> <SPACE> <CONSTANT=6> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=5> <SPACE> <PLUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=SIZE_X> <SPACE> <DIV> <SPACE> <CONSTANT=6> <SPACE> <PLUS> <SPACE> <CONSTANT=10> <RPARENTHESIS> <SPACE> <DIV> <SPACE> <CONSTANT=6> <COMMA> <NEWLINE>
+		<TAB> <TAB> <TAB> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=17> <COMMA> <SPACE> <LPARENTHESIS> <IDENTIFIER=SIZE_X> <SPACE> <DIV> <SPACE> <CONSTANT=6> <SPACE> <PLUS> <SPACE> <CONSTANT=10> <RPARENTHESIS> <SPACE> <DIV> <SPACE> <CONSTANT=3> <SPACE> <MULT> <SPACE> <CONSTANT=2> <COMMA> <SPACE> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=50> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 76":
+		<TAB> <IDENTIFIER=print_rect> <LPARENTHESIS> <IDENTIFIER=r1> <COMMA> <SPACE> <IDENTIFIER=e> <COMMA> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <IDENTIFIER=CONTRAST> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 77":
+		<TAB> <IDENTIFIER=print_text> <LPARENTHESIS> <IDENTIFIER=ft_strdup> <LPARENTHESIS> <STRING="Save"> <RPARENTHESIS> <COMMA> <SPACE> <IDENTIFIER=s> <PTR> <IDENTIFIER=font> <DOT> <IDENTIFIER=color> <LBRACKET> <CONSTANT=4> <RBRACKET> <COMMA> <SPACE> <IDENTIFIER=s> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=save> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 78":
+		<TAB> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=save> <DOT> <IDENTIFIER=rect> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=init_sdl_rect> <LPARENTHESIS> <IDENTIFIER=COL4> <SPACE> <PLUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=SIZE_X> <SPACE> <DIV> <SPACE> <CONSTANT=6> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=5> <NEWLINE>
+		<TAB> <TAB> <TAB> <PLUS> <SPACE> <LPARENTHESIS> <IDENTIFIER=SIZE_X> <SPACE> <DIV> <SPACE> <CONSTANT=6> <SPACE> <PLUS> <SPACE> <CONSTANT=10> <RPARENTHESIS> <SPACE> <DIV> <SPACE> <CONSTANT=8> <COMMA> <SPACE> <IDENTIFIER=SIZE_Y> <SPACE> <DIV> <SPACE> <CONSTANT=80> <COMMA> <NEWLINE>
+		<TAB> <TAB> <TAB> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=SIZE_X> <SPACE> <DIV> <SPACE> <CONSTANT=6> <SPACE> <PLUS> <SPACE> <CONSTANT=10> <RPARENTHESIS> <SPACE> <DIV> <SPACE> <CONSTANT=4> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=3> <COMMA> <SPACE> <CONSTANT=15> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 81":
+		<TAB> <IDENTIFIER=ornement> <LPARENTHESIS> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=save> <DOT> <IDENTIFIER=rect> <COMMA> <SPACE> <IDENTIFIER=CONTRAST> <COMMA> <SPACE> <CONSTANT=15> <COMMA> <SPACE> <IDENTIFIER=e> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 82":
+		<RBRACE> <NEWLINE>
+test_file_1012_2.c: KO!
+	FORBIDDEN_CHAR_NAME (line: 30, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME (line: 32, col: 12):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME (line: 35, col: 22):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME (line: 37, col: 42):	user defined identifiers should contain only lowercase characters, digits or '_'
+	FORBIDDEN_CHAR_NAME (line: 38, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'

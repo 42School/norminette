@@ -16,8 +16,7 @@ from multiprocessing import Process, Queue
 import time
 import sentry_sdk
 from sentry_sdk import configure_scope
-exec(open("norminette/version.py").read())
-
+from version import __version__
 
 has_err = False
 

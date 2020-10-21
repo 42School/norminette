@@ -9,37 +9,37 @@
 /*   Updated: 2020/10/07 13:51:00 by abaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-​
-#ifndef ENVVAR_H
-# define ENVVAR_H
-​
+
+#ifndef TEST_FILE_1012_3_H
+# define TEST_FILE_1012_3_H
+
 # include "../dynarray/dynarray.h"
-​
+
 t_dynarray	g_envarray;
-​
+
 /*
 ** Duplicates the provided array to initialize the environnement.
 ** @param char** environ	An array of strings that will be used as environnem
 ** ent variables. These are not checked for invalid syntax.
 ** @param char**	The resulting environnement, or NULL in case of error.
 */
-​
+
 char		**envvarinit(char **environ);
-​
+
 /*
 ** Frees all the internal pointers of the environnement.
 */
-​
+
 void		envvardeinit(void);
-​
+
 /*
 ** Fetches the value of an environnement variable.
 ** @param const char* name	The name of the variable.
 ** @return char*	An allocated copy of the variable's value.
 */
-​
+
 char		*get_env_var(const char *name);
-​
+
 /*
 ** Sets an environnement variable.
 ** @param char* value 	A string formated as "name=value".
@@ -50,9 +50,9 @@ char		*get_env_var(const char *name);
 ** 	true 	OK;
 ** 	false 	Error;
 */
-​
+
 short		set_env_var_raw(char *value);
-​
+
 /*
 ** Sets an environnement variable.
 ** @param const char* name	The name of the variable to set.
@@ -62,9 +62,9 @@ short		set_env_var_raw(char *value);
 ** 	true 	OK
 ** 	false	Error
 */
-​
+
 short		set_env_var(const char *name, const char *value);
-​
+
 /*
 ** Checks the validity of an environnement variable's name.
 ** The special name '?' is considered valid.
@@ -72,7 +72,7 @@ short		set_env_var(const char *name, const char *value);
 ** @return char*	A pointer to the first invalid character, else a pointer to
 **  the null terminator.
 */
-​
+
 char		*validate_var_name(const char *name);
-​
+
 #endif

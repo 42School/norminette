@@ -39,7 +39,6 @@ misc_identifier = [
     "RESTRICT",
     "SIGNED",
     "UNSIGNED",
-    "SHORT",
     "TYPEDEF",
     "STRUCT",
     "ENUM",

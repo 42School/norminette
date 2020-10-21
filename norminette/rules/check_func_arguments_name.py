@@ -8,7 +8,8 @@ type_specifiers = [
     "FLOAT",
     "INT",
     "UNION",
-    "VOID"
+    "VOID",
+    "SHORT"
 ]
 
 misc_specifiers = [
