@@ -5,3 +5,4 @@ venv/
 **/a.out
 **/__sandbox/
 launch_norminette.py
+*.egg-info

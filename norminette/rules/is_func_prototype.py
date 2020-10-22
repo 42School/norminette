@@ -122,6 +122,8 @@ class IsFuncPrototype(PrimaryRule):
                 type_id.append(context.peek_token(i))
             if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE", "RBRACE"] + preproc) is True:
                 return False, 0
+            if context.check_token(i, "SEMI_COLON") is True:
+                break
             elif context.check_token(i, "IDENTIFIER") is True:
                 if identifier is not None:
                     type_id.append(identifier[0])

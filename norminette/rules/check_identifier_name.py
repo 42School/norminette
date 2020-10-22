@@ -23,10 +23,10 @@ class CheckIdentifierName(Rule):
         legal_cap_characters = string.ascii_uppercase + string.digits + '_'
         if context.history[-1] == "IsFuncDeclaration" or context.history[-1] == "IsFuncPrototype":
             sc = context.scope
-            if type(sc) is not GlobalScope:
+            if type(sc) is not GlobalScope and type(sc) is not UserDefinedType:
                 context.new_error("WRONG_SCOPE_FCT", context.peek_token(0))
-                while type(sc) != GlobalScope:
-                    sc = sc.outer()
+            while type(sc) != GlobalScope:
+                sc = sc.outer()
             for c in sc.fnames[-1]:
                 if c not in legal_characters:
                     context.new_error(
