@@ -32,16 +32,20 @@
 		<INCLUDE=# include "../dynarray/dynarray.h"> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 17":
 		<NEWLINE>
-[36mtest_file_1012_3.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 18":
+[36mtest_file_1012_3.h[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 18":
 		<IDENTIFIER=t_dynarray> <TAB> <IDENTIFIER=g_envarray> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 19":
 		<NEWLINE>
+[36mtest_file_1012_3.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 20":
 		<MULT_COMMENT=/*
 ** Duplicates the provided array to initialize the environnement.
 ** @param char** environ	An array of strings that will be used as environnem
 ** ent variables. These are not checked for invalid syntax.
 ** @param char**	The resulting environnement, or NULL in case of error.
 */> <NEWLINE>
+[36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 26":
 		<NEWLINE>
+[36mtest_file_1012_3.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 27":
 		<CHAR> <TAB> <TAB> <MULT> <MULT> <IDENTIFIER=envvarinit> <LPARENTHESIS> <CHAR> <SPACE> <MULT> <MULT> <IDENTIFIER=environ> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 28":
 		<NEWLINE>

@@ -1,0 +1,29 @@
+[36mtest_file_1022.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<STRUCT> <TAB> <IDENTIFIER=s_pftag> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 3":
+		<TAB> <CONST> <SPACE> <CHAR> <TAB> <TAB> <MULT> <IDENTIFIER=src> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 4":
+		<TAB> <IDENTIFIER=t_buffer> <TAB> <TAB> <MULT> <IDENTIFIER=buffer> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsFuncPrototype[0m In "UserDefinedType" from "GlobalScope" line 5":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=printer> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=t_buffer> <SPACE> <MULT> <IDENTIFIER=buffer> <COMMA> <SPACE> <CHAR> <SPACE> <IDENTIFIER=c> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 6":
+		<TAB> <CHAR> <TAB> <TAB> <TAB> <IDENTIFIER=type> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 7":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
+		<NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsDeclaration[0m In "GlobalScope" from "None" line 9":
+		<INT> <SPACE> <IDENTIFIER=ft_printf> <LPARENTHESIS> <CONST> <SPACE> <CHAR> <SPACE> <MULT> <IDENTIFIER=format> <COMMA> <SPACE> <ELLIPSIS> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=format> <LPARENTHESIS> <IDENTIFIER=printf> <COMMA> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <CONSTANT=2> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 10":
+		<NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 11":
+		<STRUCT> <TAB> <IDENTIFIER=s_pftag> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 12":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 13":
+		<TAB> <IDENTIFIER=t_buffer> <TAB> <TAB> <MULT> <IDENTIFIER=buffer> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1022.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 14":
+		<RBRACE> <SEMI_COLON> 
+test_file_1022.c: OK!

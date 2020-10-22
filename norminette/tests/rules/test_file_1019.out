@@ -66,7 +66,7 @@
 		<RBRACE> <NEWLINE>
 [36mtest_file_1019.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 34":
 		<NEWLINE>
-[36mtest_file_1019.c[0m - [32mIsDeclaration[0m In "GlobalScope" from "None" line 35":
+[36mtest_file_1019.c[0m - [32mIsCast[0m In "GlobalScope" from "None" line 35":
 		<LPARENTHESIS> <VOID> <MULT_COMMENT=/* fkdslkdjfdsjl */> <RPARENTHESIS> <SPACE> <IDENTIFIER=argc> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1019.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 36":
 		<NEWLINE>
@@ -78,9 +78,9 @@
 		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1019.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 40":
 		<NEWLINE>
-[36mtest_file_1019.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 41":
+[36mtest_file_1019.c[0m - [32mIsCast[0m In "Function" from "GlobalScope" line 41":
 		<TAB> <LPARENTHESIS> <VOID> <MULT_COMMENT=/* fkdslkdjfdsjl */> <RPARENTHESIS> <SPACE> <IDENTIFIER=argc> <SEMI_COLON> <NEWLINE>
-[36mtest_file_1019.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 42":
+[36mtest_file_1019.c[0m - [32mIsCast[0m In "Function" from "GlobalScope" line 42":
 		<TAB> <LPARENTHESIS> <VOID> <MULT_COMMENT=/* fkdslkdjfdsjl */> <RPARENTHESIS> <SPACE> <IDENTIFIER=argv> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1019.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 43":
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
