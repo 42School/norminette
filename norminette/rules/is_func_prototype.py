@@ -111,6 +111,8 @@ class IsFuncPrototype(PrimaryRule):
         i = context.skip_ws(0, nl=False)
         type_id = []
         misc_id = []
+        arg_start = 0
+        arg_end = 0
         args = False
         identifier = None
         if context.check_token(i, "NEWLINE") is True:
@@ -187,6 +189,11 @@ class IsFuncPrototype(PrimaryRule):
         ret, read = self.check_func_format(context)
         if ret is False:
             return False, 0
+        if context.check_token(read, "IDENTIFIER") is True:
+            if context.peek_token(read).value == "__attribute__":
+                read += 1
+                read = context.skip_ws(read)
+                read = context.skip_nest(read) + 1
         while context.check_token(read, ["COMMENT", "MULT_COMMENT"]) is True:
             read += 1
         read = context.skip_ws(read, nl=False)

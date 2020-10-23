@@ -18,14 +18,14 @@ class CheckComment(Rule):
             Comments are only allowed in GlobalScope.
         """
         i = context.skip_ws(0)
-        other_than_comment = False
         has_comment = False
         while context.peek_token(i) is not None and context.check_token(i, "NEWLINE") is False:
             if context.check_token(i, allowed_on_comment) is False:
                 if has_comment == True:
                     context.new_error("COMMENT_ON_INSTR", context.peek_token(i))
                     return True, i
-                other_than_comment = True
+            elif context.check_token(i, ['COMMENT', 'MULT_COMMENT']) is True:
+                has_comment = True
             i += 1
         i = context.skip_ws(0)
         return False, 0
