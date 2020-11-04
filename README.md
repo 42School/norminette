@@ -7,6 +7,9 @@ requires python3.7
 `pip3 install -r requirements.txt`
 
 
+To install, simply run `python3 setup.py install`
+
+
 Usage:
 
 norminette
@@ -30,4 +33,4 @@ If you encounter an error or an incorrect output, you can:
 
 Please try to include as much information as possible (the file on which it crashed, etc)
 
-Feel free to do pull requests if you want to help as well
+Feel free to do pull requests if you want to help as well. Make sure that run_test.sh properly runs after your modifications.
