@@ -1,17 +1,23 @@
 norminette for 42 schools
 
 Install:
+
 requires python3.7
+
 pip3 install -r requirements.txt
 
+
 Usage:
+
 norminette
 - Runs on the current folder and any subfolder
+
 norminette filename.[c/h]
 - Runs on the given filename(s)
 
 norminette -d 
 - Prevents stopping on various blocking errors
+
 norminette -dd
 - Outputs all the debug logging
 
