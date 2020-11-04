@@ -1,0 +1,3 @@
+[submodule "resources"]
+	path = resources
+	url = git@42born2git.42.fr:pedago_world/common/resources.git
