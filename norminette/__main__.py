@@ -86,7 +86,7 @@ def main():
                 context = Context(target, tokens, debug)
                 registry.run(context, source)
                 event[-1].set()
-                if context.errors is not []:
+                if context.errors:
                     has_err = True
             # except (TokenError, CParsingError) as e:
             except TokenError as e:
