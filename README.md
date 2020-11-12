@@ -37,6 +37,14 @@ norminette -dd
 ```
 Outputs all the debug logging
 
+## Docker usage
+
+```shell
+docker build -t norminette .
+cd ~/42/ft_printf
+docker run -v $PWD:/code norminette /code
+```
+
 If you encounter an error or an incorrect output, you can:
  - Open an issue on github 
  - Post a message on the dedicated slack channel (#norminette-v3-beta)
