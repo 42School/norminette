@@ -38,10 +38,8 @@ norminette -dd
 Outputs all the debug logging
 
 If you encounter an error or an incorrect output, you can:
-
-    - Open an issue on github
-    
-    - Post a message on the dedicated slack channel (#norminette-v3-beta)
+ - Open an issue on github 
+ - Post a message on the dedicated slack channel (#norminette-v3-beta)
     
 
 Please try to include as much information as possible (the file on which it crashed, etc)
