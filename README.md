@@ -39,7 +39,7 @@ Outputs all the debug logging
 
 ## Docker usage
 
-```shell
+```
 docker build -t norminette .
 cd ~/42/ft_printf
 docker run -v $PWD:/code norminette /code
