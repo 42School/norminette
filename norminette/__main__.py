@@ -14,7 +14,8 @@ import _thread
 from threading import Thread, Event
 from multiprocessing import Process, Queue
 import time
-from sentry_sdk import configure_scope
+#import sentry_sdk
+#from sentry_sdk import configure_scope
 from version import __version__
 
 has_err = False
@@ -66,8 +67,8 @@ def main():
         if target[-2:] not in [".c", ".h"]:
             print(f"{arg} is not valid C or C header file")
         else:
-            with configure_scope() as scope:
-                scope.set_extra("File", target)
+            #with configure_scope() as scope:
+            #    scope.set_extra("File", target)
             try:
                 event.append(Event())
                 #if args.sentry == True:
