@@ -14,7 +14,6 @@ import _thread
 from threading import Thread, Event
 from multiprocessing import Process, Queue
 import time
-import sentry_sdk
 from sentry_sdk import configure_scope
 from version import __version__
 
