@@ -545,8 +545,6 @@ test_file_0907_3.c: KO!
 	TOO_FEW_TAB          (line: 118, col: 20):	Missing tabs for indent level
 	EMPTY_LINE_FUNCTION  (line: 127, col: 1):	Empty line in function
 	MULT_ASSIGN_LINE     (line: 128, col: 18):	Multiple assignations on a single line
-	SPC_AFTER_OPERATOR   (line: 140, col: 19):	missing space after operator
-	SPC_AFTER_OPERATOR   (line: 147, col: 19):	missing space after operator
 	SPACE_AFTER_KW       (line: 155, col: 13):	Missing space after keyword
 	NO_SPC_AFR_PAR       (line: 156, col: 50):	Extra space after parenthesis (brace/bracket)
 	TOO_FEW_TAB          (line: 156, col: 52):	Missing tabs for indent level

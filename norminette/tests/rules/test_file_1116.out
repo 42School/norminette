@@ -1,0 +1,15 @@
+[36mtest_file_1116.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<IDENTIFIER=t_queue> <TAB> <MULT> <IDENTIFIER=dequeue> <LPARENTHESIS> <IDENTIFIER=t_queue> <SPACE> <MULT> <MULT> <IDENTIFIER=head> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1116.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1116.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <IDENTIFIER=t_queue> <TAB> <MULT> <IDENTIFIER=first> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1116.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 4":
+		<NEWLINE>
+[36mtest_file_1116.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=tvp> <SPACE> <ASSIGN> <SPACE> <BWISE_AND> <IDENTIFIER=tv> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1116.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <IDENTIFIER=first> <SPACE> <ASSIGN> <SPACE> <MULT> <IDENTIFIER=head> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1116.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 7":
+		<RBRACE> <NEWLINE>
+test_file_1116.c: OK!

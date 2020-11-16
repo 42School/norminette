@@ -388,9 +388,6 @@ In \"{self.scope.name}\" from \
             Returns True if operator (among +-) at given pos is glued to identifier, number 
             or constant
         """
-        not_glued = [
-            'IDENTIFIER'
-        ]
         glued = [
             'LPARENTHESIS',
             'LBRACKET',
@@ -429,7 +426,7 @@ In \"{self.scope.name}\" from \
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
                 pos = self.skip_nest_reverse(pos) - 1
                 skip = 1
-            if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF", "ASSIGN"]) is True:
+            if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF"]) is True:
                 if self.check_token(pos, "IDENTIFIER") is True and self.check_token(pos + 1, "TAB") is True:
                     return False
                 return True
