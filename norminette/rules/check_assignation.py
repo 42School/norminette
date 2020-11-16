@@ -21,17 +21,19 @@ class CheckAssignation(Rule):
         self.depends_on = ["IsAssignation"]
 
     def check_assign_right(self, context, i):
-        typ = None
         tmp_typ = None
+        start = 0
         while context.check_token(i, "SEMI_COLON") is False:
+            typ = None
             if context.check_token(i, "LPARENTHESIS") is True:
+                start = i
                 tmp_typ, i = context.parenthesis_contain(i)
                 if tmp_typ != None:
                     typ = tmp_typ
                 if tmp_typ is None:
-                    tmp = i + 1
+                    tmp = start + 1
                     while context.peek_token(tmp) and context.check_token(tmp, "RPARENTHESIS") is False:
-                        if context.check_token(tmp, "COMMA") is True and typ != "function" and typ is not None:
+                        if context.check_token(tmp, "COMMA") is True and typ is not None:
                             context.new_error("TOO_MANY_INSTR", context.peek_token(tmp))
                         tmp += 1
             if context.check_token(i, assigns) is True:

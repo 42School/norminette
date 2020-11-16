@@ -1,0 +1,11 @@
+[36mtest_file_1116_3.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1116_3.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1116_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <IDENTIFIER=nbr> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <INT> <RPARENTHESIS> <IDENTIFIER=ft_ternary> <LPARENTHESIS> <IDENTIFIER=sign> <COMMA> <SPACE> <IDENTIFIER=n> <COMMA> <SPACE> <IDENTIFIER=va> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1116_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <IDENTIFIER=size> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=ft_size> <LPARENTHESIS> <IDENTIFIER=nb> <COMMA> <SPACE> <IDENTIFIER=val> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1116_3.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 5":
+		<RBRACE> <NEWLINE>
+test_file_1116_3.c: OK!
