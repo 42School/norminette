@@ -1,0 +1,21 @@
+[36mtest_file_1116_2.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<ENUM> <TAB> <IDENTIFIER=e_bitmask_enum> <NEWLINE>
+[36mtest_file_1116_2.c[0m - [32mIsBlockStart[0m In "UserDefinedEnum" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1116_2.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 3":
+		<TAB> <IDENTIFIER=first_enum_with_value_zero> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <COMMA> <NEWLINE>
+[36mtest_file_1116_2.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 4":
+		<TAB> <IDENTIFIER=second_enum> <COMMA> <NEWLINE>
+[36mtest_file_1116_2.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=third_enum> <COMMA> <NEWLINE>
+[36mtest_file_1116_2.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 6":
+		<TAB> <IDENTIFIER=fourth_enum_with_value_based_on_other_enums> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=first_enum_with_value_zero> <SPACE> <BWISE_OR> <NEWLINE>
+		<TAB> <IDENTIFIER=second_enum> <SPACE> <BWISE_OR> <SPACE> <IDENTIFIER=third_enum> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1116_2.c[0m - [32mIsBlockEnd[0m In "UserDefinedEnum" from "GlobalScope" line 8":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1116_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
+		<NEWLINE>
+[36mtest_file_1116_2.c[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 10":
+		<IDENTIFIER=fourth_enum_with_value_based_on_other_enums> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=first_enum_with_value_zero> <NEWLINE>
+		<TAB> <TAB> <BWISE_OR> <SPACE> <IDENTIFIER=second_enum> <SPACE> <BWISE_OR> <SPACE> <IDENTIFIER=third_enum> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+test_file_1116_2.c: OK!

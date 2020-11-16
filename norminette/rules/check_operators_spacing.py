@@ -224,7 +224,7 @@ class CheckOperatorsSpacing(Rule):
                 if context.check_token(pos + tmp, "NEWLINE") is True:
                     return False, 0
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
-        if pos + 1 < len(context.tokens[:context.tkn_scope]) and context.check_token(pos + 1, ["SPACE", "LPARENTHESIS", "LBRACKET", "LBRACE"]) is False:
+        if pos + 1 < len(context.tokens[:context.tkn_scope]) and context.check_token(pos + 1, ["SPACE", "LPARENTHESIS", "LBRACKET", "LBRACE", "NEWLINE"]) is False:
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_prefix_and_suffix(self, context, pos):
