@@ -1,0 +1,15 @@
+[36mtest_file_1116_1.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<ENUM> <SPACE> <IDENTIFIER=e_random_enum> <NEWLINE>
+[36mtest_file_1116_1.c[0m - [32mIsBlockStart[0m In "UserDefinedEnum" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1116_1.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 3":
+		<TAB> <IDENTIFIER=first_enum> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <COMMA> <NEWLINE>
+[36mtest_file_1116_1.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 4":
+		<TAB> <IDENTIFIER=second_enum> <COMMA> <NEWLINE>
+[36mtest_file_1116_1.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=third_enum> <COMMA> <NEWLINE>
+[36mtest_file_1116_1.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 6":
+		<TAB> <IDENTIFIER=fourth_enum> <SPACE> <ASSIGN> <SPACE> <CONSTANT=42> <NEWLINE>
+[36mtest_file_1116_1.c[0m - [32mIsBlockEnd[0m In "UserDefinedEnum" from "GlobalScope" line 7":
+		<RBRACE> <SEMI_COLON> 
+test_file_1116_1.c: OK!

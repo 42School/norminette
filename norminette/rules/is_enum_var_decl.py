@@ -1,7 +1,7 @@
 from lexer import Token
 from rules import PrimaryRule
 from scope import *
-from context import GlobalScope, UserDefinedType, ControlStructure, Function
+from context import GlobalScope, UserDefinedType, ControlStructure, Function, UserDefinedEnum
 
 
 lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
@@ -15,7 +15,7 @@ class IsEnumVarDecl(PrimaryRule):
         self.scope = [UserDefinedEnum]
 
     def assignment_right_side(self, context, pos):
-        sep = ["COMMA", "ASSIGN"]
+        sep = ["COMMA", "ASSIGN", "NEWLINE"]
         i = context.skip_ws(pos, nl=True)
         while context.peek_token(i) and context.check_token(i, sep) is False:
             if context.check_token(i, lbrackets) is True:
@@ -74,8 +74,11 @@ class IsEnumVarDecl(PrimaryRule):
             return False, 0
         while ret:
             ret, i = self.var_declaration(context, i)
-            if context.check_token(i,["COMMA", "NEWLINE"]) is True:
+            if context.check_token(i, ["COMMA"]) is True:
                 i += 1
+                i = context.eol(i)
+                return True, i
+            elif context.check_token(i, ["NEWLINE"]) is True:
                 i = context.eol(i)
                 return True, i
         return False, 0
