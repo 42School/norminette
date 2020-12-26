@@ -68,7 +68,7 @@ class CheckPrototypeIndent(Rule):
                 else:
                     id_length = context.peek_token(i).length
                 current_indent += math.floor((id_length + buffer_len) / 4)
-                buffer_len = 0
+                buffer_len = (id_length + buffer_len) % 4
             elif context.check_token(i, "SPACE") is True and type_identifier_nb > 0:
                 buffer_len += 1
             elif context.check_token(i, "SPACE") is True and type_identifier_nb == 0:
@@ -77,6 +77,7 @@ class CheckPrototypeIndent(Rule):
             elif context.check_token(i, "TAB") is True and type_identifier_nb == 0:
                 has_tab += 1
                 current_indent += 1
+                buffer_len = 0
             elif context.check_token(i, "IDENTIFIER") is True and type_identifier_nb == 0:
                 if context.scope.func_alignment == 0:
                     context.scope.func_alignment = current_indent
