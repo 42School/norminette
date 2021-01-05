@@ -539,7 +539,6 @@ test_file_0907_3.c: KO!
 	NO_SPC_BFR_OPR       (line: 100, col: 38):	extra space before operator
 	NO_SPC_AFR_PAR       (line: 100, col: 43):	Extra space after parenthesis (brace/bracket)
 	TOO_FEW_TAB          (line: 100, col: 45):	Missing tabs for indent level
-	SPC_AFTER_OPERATOR   (line: 113, col: 24):	missing space after operator
 	EMPTY_LINE_FUNCTION  (line: 116, col: 1):	Empty line in function
 	NO_SPC_AFR_PAR       (line: 118, col: 18):	Extra space after parenthesis (brace/bracket)
 	TOO_FEW_TAB          (line: 118, col: 20):	Missing tabs for indent level

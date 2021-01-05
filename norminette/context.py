@@ -395,7 +395,7 @@ In \"{self.scope.name}\" from \
         ]
         glued = glued + glued_operators
         start = pos
-        if self.check_token(pos, ['PLUS', 'MINUS']) is False:
+        if self.check_token(pos, ['PLUS', 'MINUS', 'BWISE_OR', 'BWISE_AND', 'BWISE_NOT', 'BWISE_XOR']) is False:
             return False
         pos += 1
         pos = self.skip_ws(pos, nl=False)
@@ -418,9 +418,9 @@ In \"{self.scope.name}\" from \
         pos -= 1
         if self.history[-1] == "IsFuncPrototype" or self.history[-1] == "IsFuncDeclaration":
             return False
-        start = self.skip_ws(start, nl=False)
-        if self.check_token(start, "RPARENTHESIS") is True:
+        if self.check_token(start, ["RPARENTHESIS", "MULT"]) is True:
             return False
+        start = self.skip_ws(start, nl=False)
         skip = 0
         while pos > 0:
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:

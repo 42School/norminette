@@ -1,0 +1,51 @@
+[36mtestfile_210104_2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 4":
+		<NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <COMMENT=// issue 13, 16, 17> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <BWISE_NOT> <IDENTIFIER=a> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 8":
+		<RBRACE> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
+		<NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 10":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 11":
+		<LBRACE> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <CONST> <SPACE> <INT> <TAB> <IDENTIFIER=len> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 13":
+		<NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 14":
+		<TAB> <IDENTIFIER=len> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=ft_len> <LPARENTHESIS> <IDENTIFIER=n> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 15":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 16":
+		<RBRACE> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 17":
+		<NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 18":
+		<TYPEDEF> <SPACE> <CHAR> <TAB> <IDENTIFIER=t_my_type> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 19":
+		<NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 20":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=argc> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <MULT> <IDENTIFIER=argv> <RPARENTHESIS> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 21":
+		<LBRACE> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 22":
+		<TAB> <IDENTIFIER=size_t> <TAB> <IDENTIFIER=size> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 23":
+		<NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 24":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 25":
+		<RBRACE> <NEWLINE>
+testfile_210104_2.c: OK!

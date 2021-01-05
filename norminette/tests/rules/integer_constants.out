@@ -1,0 +1,79 @@
+[36minteger_constants.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=dec_int> <SPACE> <ASSIGN> <SPACE> <CONSTANT=28> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <UNSIGNED> <SPACE> <INT> <TAB> <TAB> <IDENTIFIER=dec_uint> <SPACE> <ASSIGN> <SPACE> <CONSTANT=4000000024u> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <LONG> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=dec_long> <SPACE> <ASSIGN> <SPACE> <CONSTANT=2000000022l> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <UNSIGNED> <SPACE> <LONG> <TAB> <TAB> <IDENTIFIER=dec_ulong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=4000000000ul> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <LONG> <SPACE> <LONG> <TAB> <TAB> <TAB> <IDENTIFIER=dec_llong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=9000000000LL> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <UNSIGNED> <SPACE> <LONG> <SPACE> <LONG> <TAB> <IDENTIFIER=dec_ullong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=900000000001ull> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 9":
+		<TAB> <IDENTIFIER=__int64> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=dec_i64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=9000000000002> <IDENTIFIER=I64> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=dec_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=90000000000004u> <IDENTIFIER=i64> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=oct_int> <SPACE> <ASSIGN> <SPACE> <CONSTANT=024> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <UNSIGNED> <SPACE> <INT> <TAB> <TAB> <IDENTIFIER=oct_uint> <SPACE> <ASSIGN> <SPACE> <CONSTANT=04000000024u> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 13":
+		<TAB> <LONG> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=oct_long> <SPACE> <ASSIGN> <SPACE> <CONSTANT=02000000022l> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 14":
+		<TAB> <UNSIGNED> <SPACE> <LONG> <TAB> <TAB> <IDENTIFIER=oct_ulong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=04000000000UL> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 15":
+		<TAB> <LONG> <SPACE> <LONG> <TAB> <TAB> <TAB> <IDENTIFIER=oct_llong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=044000000000000ll> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 16":
+		<TAB> <UNSIGNED> <SPACE> <LONG> <SPACE> <LONG> <TAB> <IDENTIFIER=oct_ullong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=044400000000000001Ull> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 17":
+		<TAB> <IDENTIFIER=__int64> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=oct_i64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=04444000000000000002> <IDENTIFIER=i64> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 18":
+		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=oct_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=04444000000000000004u> <IDENTIFIER=I64> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 19":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=hex_int> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x2a> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 20":
+		<TAB> <UNSIGNED> <SPACE> <INT> <TAB> <TAB> <IDENTIFIER=hex_uint> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0XA0000024u> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 21":
+		<TAB> <LONG> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=hex_long> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x20000022l> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 22":
+		<TAB> <UNSIGNED> <SPACE> <LONG> <TAB> <TAB> <IDENTIFIER=hex_ulong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0XA0000021uL> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 23":
+		<TAB> <LONG> <SPACE> <LONG> <TAB> <TAB> <TAB> <IDENTIFIER=hex_llong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x8a000000000000ll> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 24":
+		<TAB> <UNSIGNED> <SPACE> <LONG> <SPACE> <LONG> <TAB> <IDENTIFIER=hex_ullong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x8A40000000000010uLL> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 25":
+		<TAB> <IDENTIFIER=__int64> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=hex_i64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x4a44000000000020> <IDENTIFIER=I64> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 26":
+		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=hex_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x8a44000000000040U> <IDENTIFIER=i64> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 27":
+		<RBRACE> <NEWLINE>
+integer_constants.c: KO!
+	DECL_ASSIGN_LINE      (line: 3, col: 33):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE      (line: 4, col: 34):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE      (line: 5, col: 34):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE      (line: 6, col: 35):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE      (line: 7, col: 35):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE      (line: 8, col: 36):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE      (line: 9, col: 33):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 10, col: 34):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 11, col: 33):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 12, col: 34):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 13, col: 34):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 14, col: 35):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 15, col: 35):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 16, col: 36):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 17, col: 33):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 18, col: 34):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 19, col: 33):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 20, col: 34):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 21, col: 34):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 22, col: 35):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 23, col: 35):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 24, col: 36):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 25, col: 33):	Declaration and assignation on a single line
+	DECL_ASSIGN_LINE     (line: 26, col: 34):	Declaration and assignation on a single line

@@ -58,10 +58,6 @@ assign_operators = [
 ]
 
 gps_operators = [
-    "BWISE_XOR",  # ^
-    "BWISE_OR",  # |
-    "BWISE_NOT",  # !
-    "BWISE_AND",  # &
 ]
 
 ps_operators = [
@@ -113,6 +109,10 @@ c_operators = [
     # operators that could be "glued" with another token ("x + *y", "5 + -5")
     "PLUS",
     "MINUS",
+    "BWISE_XOR",  # ^
+    "BWISE_OR",  # |
+    "BWISE_AND",  # &
+    "BWISE_NOT", # ~
 ]
 
 rnests = [

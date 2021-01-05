@@ -34,7 +34,7 @@ keywords = [
     "VOID",
     "VOLATILE",
     "WHILE", 
-    "IDENTIFIER"
+    "IDENTIFIER",
 ]
 eol = [
     "SEMI_COLON",
@@ -53,7 +53,7 @@ class CheckPrototypeIndent(Rule):
         i = 0
         type_identifier_nb = -1
         current_indent = 0
-        has_tab = False
+        id_length = 0
         buffer_len = 0
         while context.check_token(i, eol) is False:
             if context.check_token(i, keywords) is True:
@@ -64,18 +64,18 @@ class CheckPrototypeIndent(Rule):
             if context.check_token(i, keywords) is True and type_identifier_nb > 0:
                 type_identifier_nb -= 1
                 if context.peek_token(i).length == 0:
-                    id_length = len(str(context.peek_token(i))) - 2
+                    id_length += len(str(context.peek_token(i))) - 2
                 else:
-                    id_length = context.peek_token(i).length
-                current_indent += math.floor((id_length + buffer_len) / 4)
-                buffer_len = 0
+                    id_length += context.peek_token(i).length
             elif context.check_token(i, "SPACE") is True and type_identifier_nb > 0:
                 buffer_len += 1
             elif context.check_token(i, "SPACE") is True and type_identifier_nb == 0:
                 context.new_error("SPACE_REPLACE_TAB", context.peek_token(i))
                 return True, i
             elif context.check_token(i, "TAB") is True and type_identifier_nb == 0:
-                has_tab += 1
+                if current_indent == 0:
+                    current_indent = math.floor((id_length + buffer_len) / 4)
+                    buffer_len = 0
                 current_indent += 1
             elif context.check_token(i, "IDENTIFIER") is True and type_identifier_nb == 0:
                 if context.scope.func_alignment == 0:
