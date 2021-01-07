@@ -1,0 +1,49 @@
+[36mtestfile_210104_3.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 1":
+		<COMMENT=//issue 13> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
+		<NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 3":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 4":
+		<LBRACE> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <CHAR> <TAB> <MULT> <IDENTIFIER=p> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <INT> <TAB> <TAB> <IDENTIFIER=n> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 7":
+		<NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <IDENTIFIER=n> <SPACE> <ASSIGN> <SPACE> <CONSTANT=2> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 9":
+		<TAB> <IDENTIFIER=p> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=malloc> <LPARENTHESIS> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <SIZEOF> <LPARENTHESIS> <MULT> <IDENTIFIER=p> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <IDENTIFIER=p> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=malloc> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=n> <SPACE> <PLUS> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <SIZEOF> <LPARENTHESIS> <MULT> <IDENTIFIER=p> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 12":
+		<RBRACE> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 13":
+		<NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 14":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 15":
+		<LBRACE> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 16":
+		<TAB> <CHAR> <TAB> <MULT> <IDENTIFIER=p> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 17":
+		<TAB> <INT> <TAB> <TAB> <IDENTIFIER=n> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 18":
+		<NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 19":
+		<TAB> <IDENTIFIER=n> <SPACE> <ASSIGN> <SPACE> <CONSTANT=2> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 20":
+		<TAB> <IDENTIFIER=p> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=malloc> <LPARENTHESIS> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SPACE> <MULT> <SIZEOF> <LPARENTHESIS> <MULT> <IDENTIFIER=p> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 21":
+		<TAB> <IDENTIFIER=p> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=malloc> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=n> <SPACE> <PLUS> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SPACE> <MULT> <SIZEOF> <LPARENTHESIS> <MULT> <IDENTIFIER=p> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 22":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_3.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 23":
+		<RBRACE> <NEWLINE>
+testfile_210104_3.c: KO!
+	SPC_AFTER_OPERATOR   (line: 20, col: 20):	missing space after operator
+	SPC_AFTER_OPERATOR   (line: 21, col: 24):	missing space after operator

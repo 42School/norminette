@@ -93,6 +93,7 @@ ko_pointer3.c: KO!
 	BRACE_NEWLINE        (line: 19, col: 16):	Expected newline before brace
 	TAB_REPLACE_SPACE     (line: 20, col: 8):	Found tab when expecting space
 	SPACE_REPLACE_TAB    (line: 20, col: 13):	Found space when expecting tab
+	SPC_AFTER_POINTER     (line: 21, col: 5):	space after pointer
 	SPC_AFTER_POINTER    (line: 21, col: 10):	space after pointer
 	SPC_AFTER_POINTER    (line: 21, col: 12):	space after pointer
 	SPC_AFTER_POINTER    (line: 21, col: 14):	space after pointer

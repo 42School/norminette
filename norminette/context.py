@@ -421,6 +421,19 @@ In \"{self.scope.name}\" from \
         if self.check_token(start, ["RPARENTHESIS", "MULT"]) is True:
             return False
         start = self.skip_ws(start, nl=False)
+        if self.check_token(start, ["SIZEOF"]) is True:
+            return True
+        if self.history[-1] == 'IsVarDeclaration':
+            tmp = pos
+            right_side = False
+            while tmp > 0:
+                if self.check_token(tmp, ["RBRACKET", "RPARENTHESIS"]) is True:
+                    tmp = self.skip_nest_reverse(tmp) - 1
+                if self.check_token(tmp, ["ASSIGN"]) is True:
+                    right_side = True
+                tmp -= 1
+            if right_side == False:
+                return False
         skip = 0
         while pos > 0:
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:

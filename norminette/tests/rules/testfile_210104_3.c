@@ -1,3 +1,5 @@
+//issue 13
+
 int	main(void)
 {
 	char	*p;
@@ -8,7 +10,7 @@ int	main(void)
 	p = malloc((n + 1) * sizeof(*p));
 	return (0);
 }
-> cat test2.c
+
 int	main(void)
 {
 	char	*p;
@@ -19,5 +21,3 @@ int	main(void)
 	p = malloc((n + 1) *sizeof(*p));
 	return (0);
 }
-
-//issue 14
