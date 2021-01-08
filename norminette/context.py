@@ -438,6 +438,8 @@ In \"{self.scope.name}\" from \
         while pos > 0:
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
                 pos = self.skip_nest_reverse(pos) - 1
+                if self.parenthesis_contain(pos + 1)[0] == 'cast':
+                    return False
                 skip = 1
             if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF"]) is True:
                 if self.check_token(pos, "IDENTIFIER") is True and self.check_token(pos + 1, "TAB") is True:
@@ -474,9 +476,15 @@ In \"{self.scope.name}\" from \
             elif self.check_token(i, ws):
                 pass
             elif self.check_token(i, types):
+                tmp = start - 1
+                while self.check_token(tmp, ["SPACE", "TAB"]) == True:
+                    tmp -= 1
+                if self.check_token(tmp, "SIZEOF") == True:
+                    return None, self.skip_nest(start)
                 return "cast", self.skip_nest(start)
             elif self.check_token(i, "IDENTIFIER"):
                 tmp = i + 1
+                identifier = True
                 tmp = self.skip_ws(tmp)
                 if pointer == True:
                     if self.check_token(tmp, "LBRACKET"):
@@ -488,11 +496,16 @@ In \"{self.scope.name}\" from \
                     tmp = self.skip_ws(tmp)
                     if self.check_token(tmp, "LPARENTHESIS"):
                         return "pointer", self.skip_nest(start)
-                return None, self.skip_nest(start)
-            elif self.check_token(i, "MULT"):
+                    return None, self.skip_nest(start)
+            elif self.check_token(i, ["MULT", "BWISE_AND"]):
                 tmp = i + 1
                 pointer = True
                 if identifier != None:
+                    tmp = start - 1
+                    while self.check_token(tmp, ["SPACE", "TAB"]) == True:
+                        tmp -= 1
+                    if self.check_token(tmp, "SIZEOF") == True:
+                        return None, self.skip_nest(start)
                     return "cast", self.skip_nest(start)
             i += 1
         return None, self.skip_nest(start)
