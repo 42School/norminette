@@ -1,0 +1,31 @@
+[36mtestfile_210108.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<IFNDEF=#ifndef TESTFILE_210108_H> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<DEFINE=# define TESTFILE_210108_H> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 4":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_mystruct> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 5":
+		<LBRACE> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 6":
+		<TAB> <INT> <TAB> <IDENTIFIER=x> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 7":
+		<TAB> <INT> <TAB> <IDENTIFIER=y> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsUserDefinedType[0m In "UserDefinedType" from "GlobalScope" line 8":
+		<TAB> <STRUCT> <SPACE> <IDENTIFIER=s_embeded> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsBlockStart[0m In "UserDefinedType" from "UserDefinedType" line 9":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "UserDefinedType" line 10":
+		<TAB> <TAB> <INT> <TAB> <IDENTIFIER=height> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "UserDefinedType" line 11":
+		<TAB> <TAB> <INT> <TAB> <IDENTIFIER=width> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "UserDefinedType" line 12":
+		<TAB> <RBRACE> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 13":
+		<RBRACE> <TAB> <IDENTIFIER=t_mystruct> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 14":
+		<NEWLINE>
+[36mtestfile_210108.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
+		<ENDIF=#endif> 
+testfile_210108.h: OK!
