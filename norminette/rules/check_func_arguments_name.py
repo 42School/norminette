@@ -60,9 +60,9 @@ class CheckFuncArgumentsName(Rule):
         if context.check_token(i, ["COMMENT", "MULT_COMMENT"]):
             context.new_error("WRONG_SCOPE_COMMENT", context.peek_token(i))
             i += 1
-        if context.check_token(i, "NEWLINE"):
-            context.new_error("NEWLINE_IN_DECL", context.peek_token(i))
-            i += 1
+        #if context.check_token(i, "NEWLINE"):
+            #context.new_error("NEWLINE_IN_DECL", context.peek_token(i))
+            #i += 1
         if context.check_token(i, "ELLIPSIS"):
             i += 1
             if context.peek_token(i).type in stop:

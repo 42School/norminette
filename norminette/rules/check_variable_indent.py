@@ -81,11 +81,15 @@ class CheckVariableIndent(Rule):
         while context.check_token(i, assigns_or_eol) is False:
             if context.check_token(i, "LBRACKET") is True:
                 while context.check_token(i, "RBRACKET") is False:
-                    if context.check_token(i, "IDENTIFIER") is True:
+                    if context.check_token(i, "SIZEOF") is True:
+                        i += 1
+                        i = context.skip_nest(i)
+                        continue
+                    elif context.check_token(i, "IDENTIFIER") is True:
                         for c in context.peek_token(i).value:
                             if c in string.ascii_lowercase:
                                 context.new_error("VLA_FORBIDDEN", context.peek_token(i))
-                                continue
+                                break
                         return True, i
                     i += 1
             if context.check_token(i, keywords) is True and type_identifier_nb > 0:

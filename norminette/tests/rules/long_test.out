@@ -184,7 +184,6 @@ long_test.c: KO!
 	SPACE_REPLACE_TAB     (line: 39, col: 4):	Found space when expecting tab
 	EXP_PARENTHESIS      (line: 39, col: 10):	Expected parenthesis
 	ENUM_TYPE_NAMING      (line: 40, col: 6):	Enum name must start with e_
-	FORBIDDEN_CHAR_NAME   (line: 40, col: 6):	user defined identifiers should contain only lowercase characters, digits or '_'
 	MISALIGNED_FUNC_DECL (line: 46, col: 21):	Misaligned function declaration
 	MISALIGNED_FUNC_DECL (line: 47, col: 21):	Misaligned function declaration
 	MISALIGNED_FUNC_DECL (line: 48, col: 21):	Misaligned function declaration

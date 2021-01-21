@@ -429,7 +429,6 @@ test_file_0907_3.c: KO!
 	MULT_DECL_LINE        (line: 6, col: 23):	Multiple declarations on a single line
 	MULT_DECL_LINE        (line: 7, col: 25):	Multiple declarations on a single line
 	MULT_DECL_LINE       (line: 11, col: 25):	Multiple declarations on a single line
-	FORBIDDEN_CHAR_NAME  (line: 11, col: 27):	user defined identifiers should contain only lowercase characters, digits or '_'
 	MULT_DECL_LINE       (line: 11, col: 31):	Multiple declarations on a single line
 	MULT_DECL_LINE       (line: 11, col: 37):	Multiple declarations on a single line
 	MULT_DECL_LINE       (line: 11, col: 43):	Multiple declarations on a single line
@@ -437,7 +436,6 @@ test_file_0907_3.c: KO!
 	MULT_DECL_LINE       (line: 11, col: 50):	Multiple declarations on a single line
 	MULT_DECL_LINE       (line: 12, col: 30):	Multiple declarations on a single line
 	MULT_DECL_LINE       (line: 13, col: 26):	Multiple declarations on a single line
-	FORBIDDEN_CHAR_NAME  (line: 15, col: 12):	user defined identifiers should contain only lowercase characters, digits or '_'
 	MULT_ASSIGN_LINE     (line: 15, col: 17):	Multiple assignations on a single line
 	MULT_ASSIGN_LINE     (line: 15, col: 24):	Multiple assignations on a single line
 	MULT_ASSIGN_LINE     (line: 15, col: 31):	Multiple assignations on a single line
@@ -463,7 +461,6 @@ test_file_0907_3.c: KO!
 	FORBIDDEN_CS         (line: 31, col: 13):	Forbidden control structure
 	SPC_BFR_OPERATOR     (line: 31, col: 21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line: 31, col: 21):	missing space after operator
-	FORBIDDEN_CHAR_NAME  (line: 32, col: 17):	user defined identifiers should contain only lowercase characters, digits or '_'
 	TOO_MANY_TAB          (line: 33, col: 1):	Extra tabs for indent level
 	SPACE_AFTER_KW       (line: 33, col: 17):	Missing space after keyword
 	FORBIDDEN_CS         (line: 34, col: 13):	Forbidden control structure
@@ -553,6 +550,5 @@ test_file_0907_3.c: KO!
 	TOO_FEW_TAB          (line: 168, col: 25):	Missing tabs for indent level
 	LINE_TOO_LONG        (line: 172, col: 101):	line too long
 	SPACE_AFTER_KW       (line: 182, col: 17):	Missing space after keyword
-	FORBIDDEN_CHAR_NAME  (line: 195, col: 13):	user defined identifiers should contain only lowercase characters, digits or '_'
 	BRACE_SHOULD_EOL     (line: 201, col: 1):	Expected newline after brace
 	TOO_MANY_LINES       (line: 201, col: 1):	Function has more than 25 lines

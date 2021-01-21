@@ -5,7 +5,5 @@
 ko_var_name.c: KO!
 	SPACE_REPLACE_TAB      (line: 1, col: 4):	Found space when expecting tab
 	GLOBAL_VAR_NAMING      (line: 1, col: 5):	Global variable must start with g_
-	FORBIDDEN_CHAR_NAME    (line: 1, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
 	SPACE_REPLACE_TAB      (line: 2, col: 4):	Found space when expecting tab
 	GLOBAL_VAR_NAMING      (line: 2, col: 5):	Global variable must start with g_
-	FORBIDDEN_CHAR_NAME    (line: 2, col: 5):	user defined identifiers should contain only lowercase characters, digits or '_'
