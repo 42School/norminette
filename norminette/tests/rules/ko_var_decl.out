@@ -37,4 +37,4 @@
 [36mko_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 19":
 		<RBRACE> <NEWLINE>
 ko_var_decl.c: KO!
-	MULT_IN_SINGLE_INSTR   (line: 9, col: 1):	Multiple instructions in single line control structure
+	MULT_IN_SINGLE_INSTR (line:   9, col:   1):	Multiple instructions in single line control structure

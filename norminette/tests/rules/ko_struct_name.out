@@ -29,11 +29,11 @@
 [36mko_struct_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
 		<RBRACE> <NEWLINE>
 ko_struct_name.c: KO!
-	STRUCT_TYPE_NAMING    (line: 1, col: 16):	Structure name must start with s_
-	USER_DEFINED_TYPEDEF  (line: 1, col: 25):	User defined typedef must start with t_
-	GLOBAL_VAR_NAMING     (line: 2, col: 25):	Global variable must start with g_
-	GLOBAL_VAR_NAMING     (line: 3, col: 25):	Global variable must start with g_
-	STRUCT_TYPE_NAMING    (line: 5, col: 16):	Structure name must start with s_
-	UNION_TYPE_NAMING     (line: 8, col: 19):	Union name must start with u_
-	USER_DEFINED_TYPEDEF  (line: 8, col: 25):	User defined typedef must start with t_
-	USER_DEFINED_TYPEDEF  (line: 10, col: 5):	User defined typedef must start with t_
+	STRUCT_TYPE_NAMING   (line:   1, col:  16):	Structure name must start with s_
+	USER_DEFINED_TYPEDEF (line:   1, col:  25):	User defined typedef must start with t_
+	GLOBAL_VAR_NAMING    (line:   2, col:  25):	Global variable must start with g_
+	GLOBAL_VAR_NAMING    (line:   3, col:  25):	Global variable must start with g_
+	STRUCT_TYPE_NAMING   (line:   5, col:  16):	Structure name must start with s_
+	UNION_TYPE_NAMING    (line:   8, col:  19):	Union name must start with u_
+	USER_DEFINED_TYPEDEF (line:   8, col:  25):	User defined typedef must start with t_
+	USER_DEFINED_TYPEDEF (line:  10, col:   5):	User defined typedef must start with t_

@@ -9,5 +9,5 @@
 [36mtest_file_0907_4.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 5":
 		<RBRACE> 
 test_file_0907_4.c: KO!
-	EMPTY_LINE_FILE_START   (line: 1, col: 1):	Empty line at start of file
-	BRACE_SHOULD_EOL       (line: 5, col: 1):	Expected newline after brace
+	EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+	BRACE_SHOULD_EOL     (line:   5, col:   1):	Expected newline after brace

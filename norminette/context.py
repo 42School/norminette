@@ -258,7 +258,10 @@ In \"{self.scope.name}\" from \
         """
         rbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
         lbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
-        c = self.peek_token(pos).type
+        try:
+            c = self.peek_token(pos).type
+        except:
+            raise CParsingError(f"Unexpected EOF line {pos}")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]
@@ -284,7 +287,10 @@ In \"{self.scope.name}\" from \
         """
         lbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
         rbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
-        c = self.peek_token(pos).type
+        try:
+            c = self.peek_token(pos).type
+        except:
+            raise CParsingError(f"Unexpected EOF line {pos}")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]

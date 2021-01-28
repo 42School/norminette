@@ -58,43 +58,43 @@
 [36mko_pointer3.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 23":
 		<RBRACE> 
 ko_pointer3.c: KO!
-	BRACE_NEWLINE         (line: 1, col: 16):	Expected newline before brace
-	SPC_AFTER_POINTER     (line: 2, col: 11):	space after pointer
-	SPC_AFTER_POINTER     (line: 2, col: 13):	space after pointer
-	TOO_MANY_INSTR        (line: 3, col: 21):	Too many instructions on a single line
-	NL_AFTER_VAR_DECL     (line: 3, col: 21):	Variable declarations must be followed by a newline
-	TOO_FEW_TAB           (line: 3, col: 21):	Missing tabs for indent level
-	TAB_INSTEAD_SPC       (line: 3, col: 24):	Found tab when expecting space
-	SPC_AFTER_POINTER     (line: 3, col: 56):	space after pointer
-	SPC_AFTER_POINTER     (line: 3, col: 57):	space after pointer
-	TAB_INSTEAD_SPC       (line: 4, col: 13):	Found tab when expecting space
-	BRACE_NEWLINE         (line: 7, col: 16):	Expected newline before brace
-	SPC_AFTER_POINTER     (line: 8, col: 11):	space after pointer
-	SPC_AFTER_POINTER     (line: 8, col: 13):	space after pointer
-	TOO_MANY_INSTR        (line: 9, col: 21):	Too many instructions on a single line
-	NL_AFTER_VAR_DECL     (line: 9, col: 21):	Variable declarations must be followed by a newline
-	TOO_FEW_TAB           (line: 9, col: 21):	Missing tabs for indent level
-	TAB_INSTEAD_SPC       (line: 9, col: 24):	Found tab when expecting space
-	TAB_INSTEAD_SPC      (line: 10, col: 13):	Found tab when expecting space
-	BRACE_NEWLINE        (line: 13, col: 16):	Expected newline before brace
-	SPC_AFTER_POINTER    (line: 14, col: 11):	space after pointer
-	SPC_AFTER_POINTER    (line: 14, col: 13):	space after pointer
-	TOO_MANY_INSTR       (line: 15, col: 21):	Too many instructions on a single line
-	NL_AFTER_VAR_DECL    (line: 15, col: 21):	Variable declarations must be followed by a newline
-	TOO_FEW_TAB          (line: 15, col: 21):	Missing tabs for indent level
-	NO_SPC_AFR_PAR       (line: 15, col: 38):	Extra space after parenthesis (brace/bracket)
-	NO_SPC_AFR_PAR       (line: 15, col: 40):	Extra space after parenthesis (brace/bracket)
-	NO_SPC_BFR_PAR       (line: 15, col: 40):	Extra space before parenthesis (brace/bracket)
-	NO_SPC_AFR_PAR       (line: 15, col: 42):	Extra space after parenthesis (brace/bracket)
-	NO_SPC_BFR_PAR       (line: 15, col: 42):	Extra space before parenthesis (brace/bracket)
-	NO_SPC_BFR_PAR       (line: 15, col: 44):	Extra space before parenthesis (brace/bracket)
-	TAB_INSTEAD_SPC       (line: 16, col: 9):	Found tab when expecting space
-	NO_SPC_BFR_PAR       (line: 16, col: 33):	Extra space before parenthesis (brace/bracket)
-	BRACE_NEWLINE        (line: 19, col: 16):	Expected newline before brace
-	TAB_REPLACE_SPACE     (line: 20, col: 8):	Found tab when expecting space
-	SPACE_REPLACE_TAB    (line: 20, col: 13):	Found space when expecting tab
-	SPC_AFTER_POINTER     (line: 21, col: 5):	space after pointer
-	SPC_AFTER_POINTER    (line: 21, col: 10):	space after pointer
-	SPC_AFTER_POINTER    (line: 21, col: 12):	space after pointer
-	SPC_AFTER_POINTER    (line: 21, col: 14):	space after pointer
-	BRACE_SHOULD_EOL      (line: 23, col: 1):	Expected newline after brace
+	BRACE_NEWLINE        (line:   1, col:  16):	Expected newline before brace
+	SPC_AFTER_POINTER    (line:   2, col:  11):	space after pointer
+	SPC_AFTER_POINTER    (line:   2, col:  13):	space after pointer
+	TOO_MANY_INSTR       (line:   3, col:  21):	Too many instructions on a single line
+	NL_AFTER_VAR_DECL    (line:   3, col:  21):	Variable declarations must be followed by a newline
+	TOO_FEW_TAB          (line:   3, col:  21):	Missing tabs for indent level
+	TAB_INSTEAD_SPC      (line:   3, col:  24):	Found tab when expecting space
+	SPC_AFTER_POINTER    (line:   3, col:  56):	space after pointer
+	SPC_AFTER_POINTER    (line:   3, col:  57):	space after pointer
+	TAB_INSTEAD_SPC      (line:   4, col:  13):	Found tab when expecting space
+	BRACE_NEWLINE        (line:   7, col:  16):	Expected newline before brace
+	SPC_AFTER_POINTER    (line:   8, col:  11):	space after pointer
+	SPC_AFTER_POINTER    (line:   8, col:  13):	space after pointer
+	TOO_MANY_INSTR       (line:   9, col:  21):	Too many instructions on a single line
+	NL_AFTER_VAR_DECL    (line:   9, col:  21):	Variable declarations must be followed by a newline
+	TOO_FEW_TAB          (line:   9, col:  21):	Missing tabs for indent level
+	TAB_INSTEAD_SPC      (line:   9, col:  24):	Found tab when expecting space
+	TAB_INSTEAD_SPC      (line:  10, col:  13):	Found tab when expecting space
+	BRACE_NEWLINE        (line:  13, col:  16):	Expected newline before brace
+	SPC_AFTER_POINTER    (line:  14, col:  11):	space after pointer
+	SPC_AFTER_POINTER    (line:  14, col:  13):	space after pointer
+	TOO_MANY_INSTR       (line:  15, col:  21):	Too many instructions on a single line
+	NL_AFTER_VAR_DECL    (line:  15, col:  21):	Variable declarations must be followed by a newline
+	TOO_FEW_TAB          (line:  15, col:  21):	Missing tabs for indent level
+	NO_SPC_AFR_PAR       (line:  15, col:  38):	Extra space after parenthesis (brace/bracket)
+	NO_SPC_AFR_PAR       (line:  15, col:  40):	Extra space after parenthesis (brace/bracket)
+	NO_SPC_BFR_PAR       (line:  15, col:  40):	Extra space before parenthesis (brace/bracket)
+	NO_SPC_AFR_PAR       (line:  15, col:  42):	Extra space after parenthesis (brace/bracket)
+	NO_SPC_BFR_PAR       (line:  15, col:  42):	Extra space before parenthesis (brace/bracket)
+	NO_SPC_BFR_PAR       (line:  15, col:  44):	Extra space before parenthesis (brace/bracket)
+	TAB_INSTEAD_SPC      (line:  16, col:   9):	Found tab when expecting space
+	NO_SPC_BFR_PAR       (line:  16, col:  33):	Extra space before parenthesis (brace/bracket)
+	BRACE_NEWLINE        (line:  19, col:  16):	Expected newline before brace
+	TAB_REPLACE_SPACE    (line:  20, col:   8):	Found tab when expecting space
+	SPACE_REPLACE_TAB    (line:  20, col:  13):	Found space when expecting tab
+	SPC_AFTER_POINTER    (line:  21, col:   5):	space after pointer
+	SPC_AFTER_POINTER    (line:  21, col:  10):	space after pointer
+	SPC_AFTER_POINTER    (line:  21, col:  12):	space after pointer
+	SPC_AFTER_POINTER    (line:  21, col:  14):	space after pointer
+	BRACE_SHOULD_EOL     (line:  23, col:   1):	Expected newline after brace
