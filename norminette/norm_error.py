@@ -94,9 +94,9 @@ class NormError:
         self.line = line
         self.col = col
         if col is not None:
-            self.error_pos = f"(line: {self.line}, col: {self.col}):\t"
+            self.error_pos = f"(line: {(str(self.line)).rjust(3)}, col: {(str(self.col)).rjust(3)}):\t"
         else:
-            self.error_pos = f"(line: {self.line}):\t "
+            self.error_pos = f"(line: {(str(self.line)).rjust(3)}):\t "
         self.prefix = f"\t{self.errno:<20} {self.error_pos:>21}"
         self.error_msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
 
