@@ -15,6 +15,11 @@ To install, simply run
 python3 setup.py install
 ```
 
+Alternatively, you can use pip. For now it is on the testing part but will be integrated later to the main repository.
+```shell
+pip install -i https://test.pypi.org/simple/ norminette
+```
+
 ## Usage
 
 ```
