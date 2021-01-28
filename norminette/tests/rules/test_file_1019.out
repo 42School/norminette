@@ -163,12 +163,16 @@
 test_file_1019.c: KO!
 	RETURN_PARENTHESIS    (line: 8, col: 12):	Return value must be in parenthesis
 	COMMENT_ON_INSTR     (line: 35, col: 25):	Comment must be on its own line
+	WRONG_SCOPE_COMMENT  (line: 41, col: 10):	Comment is invalid in this scope
 	COMMENT_ON_INSTR     (line: 41, col: 29):	Comment must be on its own line
+	WRONG_SCOPE_COMMENT  (line: 42, col: 10):	Comment is invalid in this scope
 	COMMENT_ON_INSTR     (line: 42, col: 29):	Comment must be on its own line
 	TOO_MANY_FUNCS        (line: 46, col: 1):	Too many functions in file
 	TOO_MANY_FUNCS        (line: 56, col: 1):	Too many functions in file
+	WRONG_SCOPE_COMMENT  (line: 62, col: 27):	Comment is invalid in this scope
 	COMMENT_ON_INSTR     (line: 62, col: 47):	Comment must be on its own line
 	TOO_MANY_FUNCS        (line: 66, col: 1):	Too many functions in file
+	WRONG_SCOPE_COMMENT  (line: 70, col: 14):	Comment is invalid in this scope
 	COMMENT_ON_INSTR     (line: 70, col: 32):	Comment must be on its own line
 	TOO_MANY_FUNCS        (line: 73, col: 1):	Too many functions in file
 	TOO_MANY_FUNCS        (line: 78, col: 1):	Too many functions in file

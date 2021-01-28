@@ -1,0 +1,50 @@
+[36mtest_file_210128.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=i> <MULT_COMMENT=/*comment in function parameters*/> <NEWLINE>
+		<TAB> <TAB> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=x> <RPARENTHESIS> <COMMENT=// comment after function declaration> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 3":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <INT> <TAB> <IDENTIFIER=num1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <INT> <TAB> <IDENTIFIER=num2> <SEMI_COLON> 
+[36mtest_file_210128.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 5":
+		<MULT_COMMENT=/* comment in function body not at end of line */> 
+[36mtest_file_210128.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 5":
+		<COMMENT=// comment in fun> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <MULT_COMMENT=/*
+		Multi line comment in function body
+
+	*/> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <IDENTIFIER=num1> <SPACE> <ASSIGN> <SPACE> <CONSTANT=25> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <IDENTIFIER=num2> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <IDENTIFIER=num2> <SPACE> <NOT_EQUAL> <SPACE> <CONSTANT=25> <SPACE> <AND> <SPACE> <IDENTIFIER=num2> <SPACE> <NOT_EQUAL> <SPACE> <CONSTANT=25> <MULT_COMMENT=/* comment in while */> <NEWLINE>
+		<TAB> <TAB> <AND> <SPACE> <IDENTIFIER=num1> <SPACE> <LESS_THAN> <SPACE> <CONSTANT=60> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 14":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 15":
+		<TAB> <TAB> <IDENTIFIER=num2> <SPACE> <ADD_ASSIGN> <SPACE> <CONSTANT=2> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 16":
+		<TAB> <TAB> <IDENTIFIER=num1> <INC> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 17":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 18":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <SPACE> 
+[36mtest_file_210128.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 18":
+		<COMMENT=// single line comment> <NEWLINE>
+[36mtest_file_210128.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 19":
+		<RBRACE> <NEWLINE>
+test_file_210128.c: KO!
+	WRONG_SCOPE_COMMENT   (line: 1, col: 15):	Comment is invalid in this scope
+	WRONG_SCOPE_COMMENT   (line: 5, col: 14):	Comment is invalid in this scope
+	WRONG_SCOPE_COMMENT   (line: 5, col: 14):	Comment is invalid in this scope
+	WRONG_SCOPE_COMMENT   (line: 5, col: 63):	Comment is invalid in this scope
+	WRONG_SCOPE_COMMENT   (line: 5, col: 63):	Comment is invalid in this scope
+	WRONG_SCOPE_COMMENT   (line: 5, col: 63):	Comment is invalid in this scope
+	WRONG_SCOPE_COMMENT    (line: 6, col: 5):	Comment is invalid in this scope
+	WRONG_SCOPE_COMMENT  (line: 12, col: 36):	Comment is invalid in this scope
+	WRONG_SCOPE_COMMENT  (line: 18, col: 17):	Comment is invalid in this scope
+	WRONG_SCOPE_COMMENT  (line: 18, col: 17):	Comment is invalid in this scope
