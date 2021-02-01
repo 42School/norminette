@@ -86,7 +86,8 @@ digits or '_'",
     "BRACE_NEWLINE": "Expected newline before brace",
     "EXP_NEWLINE": "Expected newline after control structure",
     "ARG_TYPE_UKN": "Unrecognized variable type",
-    "COMMENT_ON_INSTR": "Comment must be on its own line"
+    "COMMENT_ON_INSTR": "Comment must be on its own line",
+    "COMMA_START_LINE": "Comma at line start"
 }
 class NormError:
     def __init__(self, errno, line, col=None):

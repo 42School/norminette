@@ -42,7 +42,7 @@ nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]
 class CheckAssignationIndent(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsAssignation"]
+        self.depends_on = ["IsAssignation", "IsFuncPrototype"]
 
     def run(self, context):
         """
@@ -50,11 +50,19 @@ class CheckAssignationIndent(Rule):
         """
         i = 0
         expected = context.scope.indent
-        nest = expected + 1
-        while context.check_token(i, "SEMI_COLON") is False:
+        if context.history[-1] == "IsAssignation":
+            nest = expected + 1
+        elif context.history[-1] == "IsFuncPrototype":
+            nest = context.func_alignment
+        else:
+            nest = expected
+        while context.check_token(i, ["SEMI_COLON"]) is False:
             if context.check_token(i, "NEWLINE") is True:
                 if context.check_token(i - 1, operators) is True:
                     context.new_error("EOL_OPERATOR", context.peek_token(i))
+                tmp = context.skip_ws(i + 1)
+                if context.check_token(tmp, 'COMMA'):
+                    context.new_error("COMMA_START_LINE", context.peek_token(i))
                 got = 0
                 i += 1
                 while context.check_token(i + got, "TAB") is True:

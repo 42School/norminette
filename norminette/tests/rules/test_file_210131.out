@@ -1,0 +1,15 @@
+[36mtest_file_210131.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
+		<CONST> <SPACE> <INT> <TAB> <MULT> <IDENTIFIER=get_draw_info> <LPARENTHESIS> <IDENTIFIER=t_draw> <SPACE> <MULT> <IDENTIFIER=draw> <COMMA> <SPACE> <DOUBLE> <SPACE> <IDENTIFIER=perpwalldist> <COMMA> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=t_texture> <SPACE> <IDENTIFIER=texture> <LBRACKET> <CONSTANT=4> <RBRACKET> <COMMA> <SPACE> <IDENTIFIER=t_mov> <SPACE> <IDENTIFIER=mov> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210131.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mtest_file_210131.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 4":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210131.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 5":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210131.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <IDENTIFIER=fct> <LPARENTHESIS> <IDENTIFIER=aaa> <COMMA> <SPACE> <IDENTIFIER=a> <COMMA> <NEWLINE>
+		<TAB> <TAB> <IDENTIFIER=b> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210131.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 8":
+		<RBRACE> <NEWLINE>
+test_file_210131.c: OK!

@@ -165,6 +165,11 @@ class IsFuncPrototype(PrimaryRule):
             while type(sc) != GlobalScope:
                 sc = sc.outer()
             sc.fnames.append(context.peek_token(i).value)
+            if context.func_alignment == 0:
+                tmp = i
+                while context.check_token(tmp - 1, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
+                    tmp -= 1
+                context.func_alignment = int(context.peek_token(tmp).pos[1] / 4)
             context.fname_pos = i
             context.arg_pos = [arg_start, arg_end]
             i = arg_end

@@ -157,6 +157,7 @@ class Context:
 
         # Scope informations
         self.scope = GlobalScope()
+        self.func_alignment = 0
         self.sub = None
         self.fname_pos = 0
         self.arg_pos = [0, 0]

@@ -94,7 +94,7 @@ class CheckFuncArgumentsName(Rule):
                         p -= 1
                     else:
                         break
-                if context.peek_token(i).type == "LPARENTHESIS":
+                if context.check_token(i, 'LPARENTHESIS'):
                     i = context.skip_nest(i)
                 i += 1
             i += 1
@@ -127,13 +127,16 @@ class CheckFuncArgumentsName(Rule):
         if ret is True:
             return False, 0
         while i < context.arg_pos[1]:
-            if context.peek_token(i).type == "LPARENTHESIS":
+            if context.check_token(i, 'NEWLINE'):
+                i += 1
+                continue
+            if context.check_token(i, 'LPARENTHESIS'):
                 p = 1
                 while p:
                     if context.peek_token(i) is not None:
-                        if context.peek_token(i).type == "LPARENTHESIS":
+                        if context.check_token(i, 'LPARENTHESIS'):
                             p += 1
-                        elif context.peek_token(i).type == "RPARENTHESIS":
+                        elif context.check_token(i, 'RPARENTHESIS'):
                             p -= 1
                     else:
                         break
