@@ -61,11 +61,9 @@ class CheckExpressionStatement(Rule):
                         context.new_error("RETURN_PARENTHESIS", context.peek_token(tmp))
                         return False, 0
                 else:
-                    parenthesis = True
-                while context.check_token(tmp, "SEMI_COLON") is False:
-                    tmp += 1
-                if context.check_token(tmp, "SEMI_COLON") is True and parenthesis == False:
-                    if context.check_token(tmp - 1, "SPACE") is False and context.check_token(tmp - 2, "RETURN") is False:
+                    tmp = context.skip_nest(tmp) + 1
+                    print (context.peek_token(tmp))
+                    if context.check_token(tmp, "SEMI_COLON") is False:
                         context.new_error("RETURN_PARENTHESIS", context.peek_token(tmp))
                     return False, 0
             i += 1
