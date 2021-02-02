@@ -6,3 +6,5 @@ venv/
 **/__sandbox/
 launch_norminette.py
 *.egg-info
+dist/*
+build/*
