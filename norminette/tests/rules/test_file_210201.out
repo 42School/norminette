@@ -1,0 +1,32 @@
+[36mtest_file_210201.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <VOID> <SPACE> <MULT> <RPARENTHESIS> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> <IDENTIFIER=var_name> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=var1> <RPARENTHESIS> <SPACE> <PLUS> <SPACE> <IDENTIFIER=var2> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <VOID> <SPACE> <MULT> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=var_name> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> <IDENTIFIER=var1> <SPACE> <PLUS> <SPACE> <CONSTANT=2> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <VOID> <SPACE> <MULT> <RPARENTHESIS> <SPACE> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 9":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> <IDENTIFIER=var_name> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=var1> <RPARENTHESIS> <SPACE> <PLUS> <SPACE> <IDENTIFIER=var2> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <VOID> <SPACE> <MULT> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=var_name> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> <IDENTIFIER=var1> <SPACE> <PLUS> <SPACE> <CONSTANT=2> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210201.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 13":
+		<RBRACE> <NEWLINE>
+test_file_210201.c: KO!
+	RETURN_PARENTHESIS   (line:   3, col:  20):	Return value must be in parenthesis
+	RETURN_PARENTHESIS   (line:   4, col:  17):	Return value must be in parenthesis
+	RETURN_PARENTHESIS   (line:   5, col:  18):	Return value must be in parenthesis
+	RETURN_PARENTHESIS   (line:   6, col:  20):	Return value must be in parenthesis
+	RETURN_PARENTHESIS   (line:   7, col:  17):	Return value must be in parenthesis

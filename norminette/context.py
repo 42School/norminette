@@ -459,7 +459,7 @@ In \"{self.scope.name}\" from \
             pos -= 1
         return False
 
-    def parenthesis_contain(self, i):
+    def parenthesis_contain(self, i, ret_store=None):
         """
             Explore parenthesis to return its content
             Function, pointer, cast, or other
@@ -469,6 +469,7 @@ In \"{self.scope.name}\" from \
         ws = ["SPACE", "TAB", "NEWLINE"]
         i += 1
         deep = 1
+        nested_id = False
         identifier = None
         pointer = None
         while (deep > 0):
@@ -478,6 +479,8 @@ In \"{self.scope.name}\" from \
                 deep += 1
                 if identifier is not None and deep >= 0:
                     return "pointer", self.skip_nest(start)
+            elif self.check_token(i, "COMMA") and nested_id == True:
+                return "function", self.skip_nest(start)
             elif self.check_token(i, "COMMA"):
                 return None, self.skip_nest(start)
             elif self.check_token(i, ws):
@@ -491,6 +494,8 @@ In \"{self.scope.name}\" from \
                 return "cast", self.skip_nest(start)
             elif self.check_token(i, "IDENTIFIER"):
                 tmp = i + 1
+                if (identifier is not True and pointer == True) or ret_store is not None:
+                    nested_id = True
                 identifier = True
                 tmp = self.skip_ws(tmp)
                 if pointer == True:
@@ -503,7 +508,8 @@ In \"{self.scope.name}\" from \
                     tmp = self.skip_ws(tmp)
                     if self.check_token(tmp, "LPARENTHESIS"):
                         return "pointer", self.skip_nest(start)
-                    return None, self.skip_nest(start)
+                    elif self.check_token(tmp, "RPARENTHESIS"):
+                        return None, self.skip_nest(start)
             elif self.check_token(i, ["MULT", "BWISE_AND"]):
                 tmp = i + 1
                 pointer = True
@@ -513,6 +519,8 @@ In \"{self.scope.name}\" from \
                         tmp -= 1
                     if self.check_token(tmp, "SIZEOF") == True:
                         return None, self.skip_nest(start)
-                    return "cast", self.skip_nest(start)
+                    tmp = self.skip_ws(i + 1)
+                    if self.check_token(tmp, "RPARENTHESIS") is True:
+                        return "cast", self.skip_nest(start)
             i += 1
         return None, self.skip_nest(start)

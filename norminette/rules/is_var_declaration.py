@@ -54,6 +54,7 @@ class IsVarDeclaration(PrimaryRule):
         parenthesis = 0
         braces = 0
         i = pos
+        ret_store = None
         while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "SEMI_COLON"]) is False:
             if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
                 identifier = True
@@ -69,8 +70,9 @@ class IsVarDeclaration(PrimaryRule):
                 if context.check_token(i, "LBRACKET") is True:
                     brackets += 1
                 if context.check_token(i, "LPARENTHESIS") is True:
-                    ret, tmp = context.parenthesis_contain(i)
+                    ret, tmp = context.parenthesis_contain(i, ret_store)
                     if ret == 'function' or ret == 'pointer':
+                        ret_store = ret
                         identifier = True
                         i = tmp
                     else:

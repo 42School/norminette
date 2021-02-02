@@ -123,12 +123,18 @@ class CheckVariableIndent(Rule):
         """
         i = 0
         identifier = None
+        ident = [0,0]
+        ret = None
         self.check_tabs(context)
         while context.peek_token(i) and context.check_token(i, ["SEMI_COLON", "COMMA", "ASSIGN"]) is False:
             if context.check_token(i, ["LBRACKET", "LBRACE"]) is True:
                 i = context.skip_nest(i)
+            if context.check_token(i, "LPARENTHESIS") is True:
+                ret, _ = context.parenthesis_contain(i)
             if context.check_token(i, "IDENTIFIER") is True:
                 ident = (context.peek_token(i), i)
+                if ret == "pointer":
+                    break
             i += 1
         i = ident[1]
         identifier = ident[0]
