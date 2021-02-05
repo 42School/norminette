@@ -8,3 +8,7 @@ launch_norminette.py
 *.egg-info
 dist/*
 build/*
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
