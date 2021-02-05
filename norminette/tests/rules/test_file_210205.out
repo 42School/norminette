@@ -1,0 +1,13 @@
+[36mtest_file_210205.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
+		<CONST> <SPACE> <CHAR> <TAB> <MULT> <LPARENTHESIS> <MULT> <IDENTIFIER=func> <RPARENTHESIS> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210205.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
+		<NEWLINE>
+[36mtest_file_210205.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 3":
+		<INT> <TAB> <IDENTIFIER=render_map> <LPARENTHESIS> <VOID> <SPACE> <MULT> <IDENTIFIER=param> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210205.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 4":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210205.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=g> <PTR> <IDENTIFIER=spritedist> <LBRACKET> <IDENTIFIER=i> <RBRACKET> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=g> <PTR> <IDENTIFIER=posx> <SPACE> <MINUS> <SPACE> <IDENTIFIER=sprite> <DOT> <IDENTIFIER=x> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <LPARENTHESIS> <IDENTIFIER=g> <PTR> <IDENTIFIER=posx> <SPACE> <MINUS> <SPACE> <IDENTIFIER=sprite> <DOT> <IDENTIFIER=x> <RPARENTHESIS> <SPACE> <PLUS> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210205.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 6":
+		<RBRACE> <NEWLINE>
+test_file_210205.c: OK!

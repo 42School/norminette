@@ -55,7 +55,13 @@ class CheckPrototypeIndent(Rule):
         current_indent = 0
         id_length = 0
         buffer_len = 0
-        while context.check_token(i, eol) is False:
+        while context.check_token(i, ["SEMI_COLON"]) is False:
+            if context.check_token(i, "LPARENTHESIS") is True:
+                if context.parenthesis_contain(i)[0] == 'pointer':
+                    i += 1
+                    continue
+                else:
+                    break
             if context.check_token(i, keywords) is True:
                 type_identifier_nb += 1
             i += 1
