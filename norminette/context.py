@@ -177,7 +177,7 @@ class Context:
         tkn = self.peek_token(pos)
 
         if tkn is None:
-            return False
+            return None
 
         if isinstance(value, list):
             if tkn.type in value:
