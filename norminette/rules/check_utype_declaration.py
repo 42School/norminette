@@ -54,6 +54,7 @@ class CheckUtypeDeclaration(Rule):
                 pass
             if context.check_token(i, ["LPARENTHESIS"]) is True:
                 val, tmp = context.parenthesis_contain(i)
+                print (val)
                 if val == None:
                     i = tmp
             if context.check_token(i, utypes) is True:
@@ -75,6 +76,7 @@ class CheckUtypeDeclaration(Rule):
                 i = context.skip_nest(i)
             i += 1
         check = -1
+        print (is_td, ids, utype)
         if is_td == True and len(ids) < 2 and utype != None:
             context.new_error("MISSING_TYPEDEF_ID", context.peek_token(0))
             return False, 0

@@ -491,6 +491,10 @@ In \"{self.scope.name}\" from \
                     tmp -= 1
                 if self.check_token(tmp, "SIZEOF") == True:
                     return None, self.skip_nest(start)
+                tmp = start + 1
+                while self.check_token(tmp, "RPARENTHESIS") is False:
+                    if self.check_token(tmp, ["LPARENTHESIS", "IDENTIFIER"]) is True:
+                        return None, self.skip_nest(start)
                 if deep == 1:
                     return "cast", self.skip_nest(start)
             elif self.check_token(i, "IDENTIFIER"):
