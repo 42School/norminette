@@ -1,0 +1,16 @@
+[36mtest_file_210218_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<IFNDEF=#ifndef FT_EXAMPLE_H> <NEWLINE>
+[36mtest_file_210218_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<DEFINE=# define FT_EXAMPLE_H> <NEWLINE>
+[36mtest_file_210218_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mtest_file_210218_2.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 4":
+		<VOID> <TAB> <IDENTIFIER=ft_foobar> <LPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <TAB> <CHAR> <SPACE> <IDENTIFIER=really_long_variable_name_for_the_purposes_of_this_example> <COMMA> <NEWLINE>
+		<TAB> <TAB> <TAB> <CHAR> <SPACE> <IDENTIFIER=the_second_one_wouldent_fit_on_the_same_line> <NEWLINE>
+		<TAB> <TAB> <TAB> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210218_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
+		<NEWLINE>
+[36mtest_file_210218_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 9":
+		<ENDIF=#endif> 
+test_file_210218_2.c: OK!
