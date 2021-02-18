@@ -1,1 +1,0 @@
-typedef void	(*t_func_definiton)(toto arg);
