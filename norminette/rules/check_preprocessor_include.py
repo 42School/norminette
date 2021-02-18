@@ -27,11 +27,13 @@ class CheckPreprocessorInclude(Rule):
         while i < len(tkns) and tkns[i].type in ["TAB", "SPACE"]:
             i += 1
         if i < len(tkns) and tkns[i].type == "LESS_THAN":
-            while i < len(tkns) and tkns[i].type != "DOT" and tkns[i].type != "MORE_THAN":
-                i += 1
-            if i < len(tkns) - 1 and tkns[i].type == "DOT":
-                i += 1
-                filetype = tkns[i].value
+            i = len(tkns)
+            while i > 0 and context.check_token(i, "DOT") is False:
+                if i < len(tkns) - 1 and tkns[i].type == "DOT":
+                    i += 1
+                    filetype = tkns[i].value
+                    break
+                i -= 1
         elif i < len(tkns) and tkns[i].type == "STRING":
             try:
                 filetype = tkns[i].value.split('.')[-1][0]

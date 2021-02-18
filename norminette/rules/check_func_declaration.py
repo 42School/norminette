@@ -45,7 +45,11 @@ class CheckFuncDeclaration(Rule):
                 arg += 1
             i += 1
         if context.check_token(i - 1, ["SPACE", "TAB"]) is True:
-            context.new_error("NO_SPC_BFR_PAR", context.peek_token(i))
+            tmp = i - 1
+            while context.check_token(tmp, ['SPACE', 'TAB']) is True:
+                tmp -= 1
+            if context.check_token(tmp, 'NEWLINE') is False:
+                context.new_error("NO_SPC_BFR_PAR", context.peek_token(i))
         if arg > 4:
             context.new_error("TOO_MANY_ARGS", context.peek_token(i))
         arg = []
