@@ -491,7 +491,8 @@ In \"{self.scope.name}\" from \
                     tmp -= 1
                 if self.check_token(tmp, "SIZEOF") == True:
                     return None, self.skip_nest(start)
-                return "cast", self.skip_nest(start)
+                if deep == 1:
+                    return "cast", self.skip_nest(start)
             elif self.check_token(i, "IDENTIFIER"):
                 tmp = i + 1
                 if (identifier is not True and pointer == True) or ret_store is not None:
