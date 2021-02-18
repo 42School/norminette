@@ -52,7 +52,7 @@ class CheckUtypeDeclaration(Rule):
         while context.check_token(i, ['SEMI_COLON']) is False and i < len(context.tokens):
             if context.check_token(i, ['SPACE', 'TAB']):
                 pass
-            if context.check_token(i, "LPARENTHESIS") is True:
+            if context.check_token(i, ["LPARENTHESIS"]) is True:
                 val, tmp = context.parenthesis_contain(i)
                 if val == None:
                     i = tmp
@@ -60,6 +60,8 @@ class CheckUtypeDeclaration(Rule):
                 utype = context.peek_token(i)
             if context.check_token(i, "TYPEDEF") is True:
                 is_td = True
+            if context.check_token(i, "LBRACKET") is True:
+                i = context.skip_nest(i)
             if context.check_token(i, "IDENTIFIER") is True:
                 if context.check_token(i - 1, ["MULT", "BWISE_AND"]) is True:
                     tmp = i - 1

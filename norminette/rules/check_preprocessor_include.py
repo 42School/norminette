@@ -27,8 +27,8 @@ class CheckPreprocessorInclude(Rule):
         while i < len(tkns) and tkns[i].type in ["TAB", "SPACE"]:
             i += 1
         if i < len(tkns) and tkns[i].type == "LESS_THAN":
-            i = len(tkns)
-            while i > 0 and context.check_token(i, "DOT") is False:
+            i = len(tkns) - 1
+            while i > 0:
                 if i < len(tkns) - 1 and tkns[i].type == "DOT":
                     i += 1
                     filetype = tkns[i].value
