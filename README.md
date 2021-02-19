@@ -19,6 +19,13 @@ Alternatively, you can use pip. For now it is on the testing part but will be in
 ```shell
 pip install -i https://test.pypi.org/simple/ norminette
 ```
+### AUR package (for Arch Linux or Arch-based GNU/Linux distros)
+```shell
+git clone https://aur.archlinux.org/python-norminette.git
+cd python-norminette
+makepkg -sir
+```
+https://aur.archlinux.org/packages/python-norminette-git
 
 ## Usage
 
