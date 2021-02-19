@@ -19,6 +19,10 @@ Alternatively, you can use pip. For now it is on the testing part but will be in
 ```shell
 pip install -i https://test.pypi.org/simple/ norminette
 ```
+To upgrade an existing install, use
+```shell
+pip install --upgrade -i https://test.pypi.org/simple/ norminette
+```
 
 ## Usage
 

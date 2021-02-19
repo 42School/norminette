@@ -495,6 +495,7 @@ In \"{self.scope.name}\" from \
                 while self.check_token(tmp, "RPARENTHESIS") is False:
                     if self.check_token(tmp, ["LPARENTHESIS", "IDENTIFIER"]) is True:
                         return None, self.skip_nest(start)
+                    tmp += 1
                 if deep == 1:
                     return "cast", self.skip_nest(start)
             elif self.check_token(i, "IDENTIFIER"):

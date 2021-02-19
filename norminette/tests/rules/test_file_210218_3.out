@@ -4,4 +4,8 @@
 		<TYPEDEF> <SPACE> <CHAR> <TAB> <IDENTIFIER=t_word> <LBRACKET> <CONSTANT=8> <RBRACKET> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210218_3.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 3":
 		<TYPEDEF> <SPACE> <CHAR> <TAB> <IDENTIFIER=t_word> <LBRACKET> <IDENTIFIER=LENGTH> <RBRACKET> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210218_3.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
+		<NEWLINE>
+[36mtest_file_210218_3.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 5":
+		<TYPEDEF> <SPACE> <VOID> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=t_func_definiton> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=toto> <SPACE> <IDENTIFIER=arg> <RPARENTHESIS> <SEMI_COLON> 
 test_file_210218_3.c: OK!
