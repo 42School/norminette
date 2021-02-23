@@ -11,4 +11,16 @@
 	*dies in philosopher*\n"> <COMMA> <SPACE> <IDENTIFIER=this> <PTR> <IDENTIFIER=uid> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210223.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 8":
 		<RBRACE> <NEWLINE>
+[36mtest_file_210223.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
+		<NEWLINE>
+[36mtest_file_210223.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 10":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210223.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 11":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210223.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <MINUS> <LPARENTHESIS> <IDENTIFIER=cy> <PTR> <IDENTIFIER=height> <SPACE> <MULT> <SPACE> <CONSTANT=0.5> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <LESS_THAN> <SPACE> <IDENTIFIER=z> <LBRACKET> <CONSTANT=0> <RBRACKET> <SPACE> <AND> <SPACE> <IDENTIFIER=z> <LBRACKET> <CONSTANT=0> <RBRACKET> <SPACE> <LESS_THAN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=cy> <PTR> <IDENTIFIER=height> <SPACE> <MULT> <SPACE> <CONSTANT=0.5> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210223.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 13":
+		<TAB> <TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210223.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 14":
+		<RBRACE> <NEWLINE>
 test_file_210223.c: OK!

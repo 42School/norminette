@@ -183,7 +183,7 @@ class CheckOperatorsSpacing(Rule):
             if context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "IDENTIFIER", "SIZEOF"]) is True and tmp != pos - 1:
                 if context.check_token(tmp, ["MULT", "BWISE_AND"]) is True and context.is_operator == False:
                     context.new_error("NO_SPC_BFR_PAR", context.peek_token(pos))
-            elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "BWISE_OR", "BWISE_XOR", "BWISE_NOT", "IDENTIFIER", "SIZEOF", "NOT"]) is False and tmp == pos - 1:
+            elif context.check_token(tmp, lnests + rnests + ["SEMI_COLON", "PTR", "DOT", "INC", "DEC", "MULT", "BWISE_AND", "BWISE_OR", "BWISE_XOR", "BWISE_NOT", "IDENTIFIER", "SIZEOF", "NOT", "MINUS", "PLUS"]) is False and tmp == pos - 1:
                 context.new_error("SPC_BFR_PAR", context.peek_token(pos))
         return False
 
@@ -228,7 +228,7 @@ class CheckOperatorsSpacing(Rule):
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_prefix_and_suffix(self, context, pos):
-        if pos > 0 and context.peek_token(pos - 1).type != "SPACE":
+        if pos > 0 and context.check_token(pos - 1, ['SPACE', 'LPARENTHESIS', 'RPARENTHESIS', "LBRACKET", 'RBRACKET']) is False:
             if context.check_token(pos - 1, "TAB") is True:
                 tmp = -1
                 while context.check_token(pos + tmp, "TAB") is True:
@@ -237,7 +237,7 @@ class CheckOperatorsSpacing(Rule):
                     return False, 0
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
         if pos + 1 < len(context.tokens[:context.tkn_scope]) \
-                and context.peek_token(pos + 1).type != "SPACE":
+                and context.check_token(pos + 1, ['SPACE', 'LPARENTHESIS', 'RPARENTHESIS', "LBRACKET", 'RBRACKET']) is False:
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_glued_operator(self, context, pos):
