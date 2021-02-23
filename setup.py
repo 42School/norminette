@@ -3,9 +3,9 @@ from setuptools import setup, find_namespace_packages
 import os
 import setuptools
 import subprocess
-
+from norminette.version import __version__
 subprocess.call("pip install -r requirements.txt", shell=True)
-exec(open("norminette/version.py").read())
+
 setup(
     name="norminette",
     version=__version__,

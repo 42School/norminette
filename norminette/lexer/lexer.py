@@ -115,7 +115,7 @@ class Lexer:
         self.pop_char()
         while self.peek_char() not in [None]:
             tkn_value += self.peek_char()
-            if self.peek_char() == '\n':
+            if self.peek_sub_string(2) == "\\\n":
                 self.__line += 1
                 self.__line_pos = 1
             if self.peek_char() == '\"':

@@ -21,7 +21,7 @@ class CheckGeneralSpacing(Rule):
             if context.check_token(i, "TAB") is True:
                 context.new_error("TAB_INSTEAD_SPC", context.peek_token(i))
                 break
-            if context.check_token(i, "NEWLINE") is True:
-                i = context.skip_ws(i, nl=True)
+            if context.check_token(i, ["NEWLINE","ESCAPED_NEWLINE"]) is True:
+                i = context.skip_ws(i + 1, nl=True)
             i += 1
         return False, 0

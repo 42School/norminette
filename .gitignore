@@ -12,3 +12,4 @@ build/*
 *.fdb_latexmk
 *.fls
 *.log
+.eggs
