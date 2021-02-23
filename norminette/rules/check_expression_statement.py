@@ -39,7 +39,7 @@ kw = [
 class CheckExpressionStatement(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsExpressionStatement", "IsControlStatement"]
+        self.depends_on = ["IsExpressionStatement", "IsControlStatement", "IsFunctionCall", "IsAssignation"]
 
     def run(self, context):
         """

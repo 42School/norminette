@@ -319,13 +319,13 @@ class Lexer:
                 self.tokens.append(Token(
                             operators[self.peek_sub_string(3)],
                             pos))
-                self.__pos += 3
+                self.pop_char(), self.pop_char(), self.pop_char()
 
             elif self.peek_sub_string(2) in [">>", "<<", "->"]:
                 self.tokens.append(Token(
                             operators[self.peek_sub_string(2)],
                             pos))
-                self.__pos += 2
+                self.pop_char(), self.pop_char()
 
             elif self.peek_sub_string(2) == self.peek_char() + "=":
                 self.tokens.append(Token(
