@@ -4,7 +4,9 @@ WORKDIR /usr/src/norminette
 
 COPY . .
 
-RUN pip3 install -r requirements.txt
-RUN python3 setup.py install
+RUN pip3 install -r requirements.txt \
+	&& python3 setup.py install
+
+WORKDIR /code
 
 ENTRYPOINT ["norminette"]
