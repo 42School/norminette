@@ -27,7 +27,7 @@
 [36mtest_file_210201_2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 14":
 		<NEWLINE>
 [36mtest_file_210201_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 15":
-		<TAB> <INT> <SPACE> <LPARENTHESIS> <MULT> <IDENTIFIER=f> <RPARENTHESIS> <LPARENTHESIS> <CONST> <SPACE> <IDENTIFIER=t_module> <SPACE> <MULT> <SPACE> <IDENTIFIER=m> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <MULT> <MULT> <IDENTIFIER=p_options> <NEWLINE>
+		<TAB> <INT> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=f> <RPARENTHESIS> <LPARENTHESIS> <CONST> <SPACE> <IDENTIFIER=t_module> <SPACE> <MULT> <SPACE> <IDENTIFIER=m> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <MULT> <MULT> <IDENTIFIER=p_options> <NEWLINE>
 		<TAB> <TAB> <COMMA> <SPACE> <INT> <SPACE> <MULT> <IDENTIFIER=has_options> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210201_2.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 17":
 		<TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>

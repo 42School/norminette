@@ -74,7 +74,7 @@ class CheckVariableIndent(Rule):
         while context.check_token(i, assigns_or_eol) is False:
             if context.check_token(i, keywords) is True:
                 type_identifier_nb += 1
-            if context.check_token(i, ["LPARENTHESIS", "LBRACE", "LBRACKET"]):
+            if context.check_token(i, ["LPARENTHESIS", "LBRACE", "LBRACKET"]) and type_identifier_nb > 0:
                 i = context.skip_nest(i)
             i += 1
         i = 0
@@ -103,8 +103,7 @@ class CheckVariableIndent(Rule):
                 buffer_len = 0
             elif context.check_token(i, "SPACE") is True and type_identifier_nb > 0:
                 buffer_len += 1
-
-            elif context.check_token(i, "SPACE") is True and type_identifier_nb == 0:
+            elif context.check_token(i, "TAB") is False and type_identifier_nb == 0:
                 context.new_error("SPACE_REPLACE_TAB", context.peek_token(i))
                 return True, i
             elif context.check_token(i, "TAB") is True and type_identifier_nb == 0:
