@@ -23,11 +23,11 @@ class CheckVariableDeclaration(Rule):
     def run(self, context):
         """
             Variables can be declared as global or in the scope of a function
-            Only static and global variables can be assigned on their assignation line
+            Only static variables, global variables, and constants can be initialised at declaration.
             Each variable must be declared on a separate line
         """
         i = 0
-        static = False
+        static_or_const = False
         passed_assign = False
         if context.scope.name == "Function":
             if context.history[-2] != "IsBlockStart" and context.history[-2] != "IsVarDeclaration":
@@ -45,9 +45,9 @@ class CheckVariableDeclaration(Rule):
                 i = context.skip_nest(i)
             if context.check_token(i, "ASSIGN") is True:
                 passed_assign = True
-            if context.check_token(i, "STATIC") is True:
-                static = True
-            if context.check_token(i, assigns) is True and static == False:
+            if context.check_token(i, ["STATIC", "CONST"]) is True:
+                static_or_const = True
+            if context.check_token(i, assigns) is True and static_or_const == False:
                 if context.scope.name == "GlobalScope":
                     i += 1
                     continue
