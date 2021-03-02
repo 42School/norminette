@@ -65,7 +65,7 @@ def main():
     event = []
     for target in targets:
         if target[-2:] not in [".c", ".h"]:
-            print(f"{arg} is not valid C or C header file")
+            print(f"{target} is not valid C or C header file")
         else:
             #with configure_scope() as scope:
             #    scope.set_extra("File", target)
