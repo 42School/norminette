@@ -77,6 +77,9 @@ class CheckFuncArgumentsName(Rule):
                 p += 1
             if context.check_token(i, "RPARENTHESIS") is True:
                 p -= 1
+            if context.check_token(i, "MULT") is True:
+                if context.check_token(i + 1, "CONST") is True:
+                    i += 1
             i += 1
 
         if ret is True:
