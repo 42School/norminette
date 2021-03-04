@@ -5,7 +5,6 @@ import string
 class CheckTernary(Rule):
     def __init__(self):
         super().__init__()
-        self.priority = 35
         self.depends_on = ['IsTernary']
 
     def run(self, context):
