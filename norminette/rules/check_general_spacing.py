@@ -16,6 +16,8 @@ class CheckGeneralSpacing(Rule):
         """
             Checks for tab/space consistency
         """
+        if context.scope.name == "UserDefinedType":
+            return False, 0
         i = context.skip_ws(0)
         while i < context.tkn_scope:
             if context.check_token(i, "TAB") is True:

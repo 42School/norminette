@@ -42,7 +42,7 @@ nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]
 class CheckAssignationIndent(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsAssignation", "IsFuncPrototype"]
+        self.depends_on = ["IsAssignation", "IsFuncPrototype", "IsFunctionCall"]
 
     def run(self, context):
         """

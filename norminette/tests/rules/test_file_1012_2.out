@@ -153,4 +153,6 @@
 		<TAB> <IDENTIFIER=ornement> <LPARENTHESIS> <IDENTIFIER=s> <PTR> <IDENTIFIER=hud1> <DOT> <IDENTIFIER=save> <DOT> <IDENTIFIER=rect> <COMMA> <SPACE> <IDENTIFIER=CONTRAST> <COMMA> <SPACE> <CONSTANT=15> <COMMA> <SPACE> <IDENTIFIER=e> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1012_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 82":
 		<RBRACE> <NEWLINE>
-test_file_1012_2.c: OK!
+test_file_1012_2.c: KO!
+	TOO_FEW_TAB          (line:  47, col:   1):	Missing tabs for indent level
+	TOO_FEW_TAB          (line:  51, col:   1):	Missing tabs for indent level
