@@ -2,26 +2,15 @@
 
 ## Install:
 
-requires python3.7
+requires python3.7+ (3.7, 3.8, 3.9)
 
+Install using pip.
 ```shell
-pip3 install -r requirements.txt
-```
-
-
-To install, simply run
-
-```shell
-python3 setup.py install
-```
-
-Alternatively, you can use pip. For now it is on the testing part but will be integrated later to the main repository.
-```shell
-pip install -i https://test.pypi.org/simple/ norminette
+pip install norminette
 ```
 To upgrade an existing install, use
 ```shell
-pip install --upgrade -i https://test.pypi.org/simple/ norminette
+pip install --upgrade norminette
 ```
 
 ## Usage

@@ -29,3 +29,10 @@ jobs:
       run: |
         python setup.py sdist
         twine upload dist/*
+    - name: Build and publish to test_pypi
+      env:
+        TWINE_USERNAME: ${{ secrets.PYPI_TEST_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_TEST_PASSWORD }}
+      run: |
+        python setup.py sdist
+        twine upload --repository testpypi dist/*
