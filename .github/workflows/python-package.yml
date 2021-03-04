@@ -30,4 +30,4 @@ jobs:
         python setup.py develop
     - name: Tester
       run: |
-        cd norminette && sh run_tests.sh
+        cd norminette && sh run_test.sh
