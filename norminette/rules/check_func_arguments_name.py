@@ -72,14 +72,11 @@ class CheckFuncArgumentsName(Rule):
         if ret == False:
             context.new_error("ARG_TYPE_UKN", context.peek_token(i))
             return -1
-        while context.peek_token(i) is not None and context.check_token(i, ["MULT", "LPARENTHESIS"] + whitespaces):
+        while context.peek_token(i) is not None and context.check_token(i, ["LPARENTHESIS"] + whitespaces):
             if context.check_token(i, "LPARENTHESIS") is True:
                 p += 1
             if context.check_token(i, "RPARENTHESIS") is True:
                 p -= 1
-            # if context.check_token(i, "MULT") is True:
-            #     if context.check_token(i + 1, "CONST") is True:
-            #         i += 1
             i += 1
 
         if ret is True:
