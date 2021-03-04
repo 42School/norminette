@@ -5,7 +5,7 @@ from exceptions import CParsingError
 class IsDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 3
+        self.priority = 10
         self.scope = []
 
     def run(self, context):

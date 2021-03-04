@@ -11,7 +11,7 @@ from context import (
 class IsBlockStart(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 35
         self.scope = [
                         Function,
                         UserDefinedType,

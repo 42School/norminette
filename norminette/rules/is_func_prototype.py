@@ -58,7 +58,7 @@ type_identifier = [
 class IsFuncPrototype(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 20
+        self.priority = 80
         self.scope = [GlobalScope, UserDefinedType]
 
     def check_args(self, context, pos):

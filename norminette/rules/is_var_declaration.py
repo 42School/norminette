@@ -36,7 +36,7 @@ type_specifiers = [
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 19
+        self.priority = 75
         self.scope = [GlobalScope, UserDefinedType, Function, ControlStructure]
 
     def assignment_right_side(self, context, pos):

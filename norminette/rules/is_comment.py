@@ -6,7 +6,7 @@ from context import GlobalScope, UserDefinedType, ControlStructure, Function
 class IsComment(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 25
+        self.priority = 90
         self.scope = []
 
     def run(self, context):

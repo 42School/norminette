@@ -60,7 +60,7 @@ class IsAssignation(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.primary = True
-        self.priority = 4
+        self.priority = 20
         self.scope = []
 
     def skip_ptr(self, context, pos):

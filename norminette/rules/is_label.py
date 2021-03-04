@@ -3,7 +3,7 @@ from rules import PrimaryRule
 class IsLabel(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 1
+        self.priority = 5
 
     def run(self, context):
         """

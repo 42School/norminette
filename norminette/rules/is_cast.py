@@ -43,7 +43,7 @@ class IsCast(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.primary = True
-        self.priority = 3
+        self.priority = 15
         self.scope = []
 
     def run(self, context):

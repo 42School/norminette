@@ -11,7 +11,7 @@ rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
 class IsEnumVarDecl(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 9
+        self.priority = 30
         self.scope = [UserDefinedEnum]
 
     def assignment_right_side(self, context, pos):
