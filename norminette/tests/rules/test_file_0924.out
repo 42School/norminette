@@ -27,11 +27,11 @@ test_file_0924.c: KO!
 	BRACE_NEWLINE        (line:   1, col:  47):	Expected newline before brace
 	TOO_MANY_TAB         (line:   5, col:   1):	Extra tabs for indent level
 	BRACE_SHOULD_EOL     (line:   5, col:  13):	Expected newline after brace
-	TOO_MANY_INSTR       (line:   5, col:  14):	Too many instructions on a single line
 	TOO_FEW_TAB          (line:   5, col:  14):	Missing tabs for indent level
+	TOO_MANY_INSTR       (line:   5, col:  14):	Too many instructions on a single line
 	ASSIGN_IN_CONTROL    (line:   5, col:  22):	Assignment in control structure
 	TOO_FEW_TAB          (line:   6, col:   1):	Missing tabs for indent level
 	NO_SPC_BFR_OPR       (line:   6, col:  20):	extra space before operator
-	TOO_MANY_INSTR       (line:   6, col:  21):	Too many instructions on a single line
 	TOO_FEW_TAB          (line:   6, col:  21):	Missing tabs for indent level
+	TOO_MANY_INSTR       (line:   6, col:  21):	Too many instructions on a single line
 	EMPTY_LINE_EOF       (line:   9, col:   1):	Empty line at end of file

@@ -451,70 +451,70 @@ test_file_0907_3.c: KO!
 	MULT_IN_SINGLE_INSTR (line:  24, col:  20):	Multiple instructions in single line control structure
 	TOO_FEW_TAB          (line:  24, col:  20):	Missing tabs for indent level
 	FORBIDDEN_CS         (line:  25, col:  13):	Forbidden control structure
-	SPC_BFR_OPERATOR     (line:  25, col:  21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  25, col:  21):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  25, col:  21):	missing space before operator
 	TOO_MANY_TAB         (line:  27, col:   1):	Extra tabs for indent level
 	SPACE_AFTER_KW       (line:  27, col:  17):	Missing space after keyword
 	FORBIDDEN_CS         (line:  28, col:  13):	Forbidden control structure
-	SPC_BFR_OPERATOR     (line:  28, col:  21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  28, col:  21):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  28, col:  21):	missing space before operator
 	TOO_MANY_TAB         (line:  30, col:   1):	Extra tabs for indent level
 	SPACE_AFTER_KW       (line:  30, col:  17):	Missing space after keyword
 	FORBIDDEN_CS         (line:  31, col:  13):	Forbidden control structure
-	SPC_BFR_OPERATOR     (line:  31, col:  21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  31, col:  21):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  31, col:  21):	missing space before operator
 	TOO_MANY_TAB         (line:  33, col:   1):	Extra tabs for indent level
 	SPACE_AFTER_KW       (line:  33, col:  17):	Missing space after keyword
 	FORBIDDEN_CS         (line:  34, col:  13):	Forbidden control structure
-	SPC_BFR_OPERATOR     (line:  34, col:  21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  34, col:  21):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  34, col:  21):	missing space before operator
 	TOO_MANY_TAB         (line:  36, col:   1):	Extra tabs for indent level
 	SPACE_AFTER_KW       (line:  36, col:  17):	Missing space after keyword
 	FORBIDDEN_CS         (line:  37, col:  13):	Forbidden control structure
-	SPC_BFR_OPERATOR     (line:  37, col:  21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  37, col:  21):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  37, col:  21):	missing space before operator
 	TOO_MANY_TAB         (line:  39, col:   1):	Extra tabs for indent level
 	SPACE_AFTER_KW       (line:  39, col:  17):	Missing space after keyword
 	FORBIDDEN_CS         (line:  40, col:  13):	Forbidden control structure
-	SPC_BFR_OPERATOR     (line:  40, col:  21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  40, col:  21):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  40, col:  21):	missing space before operator
 	TOO_MANY_TAB         (line:  42, col:   1):	Extra tabs for indent level
 	SPACE_AFTER_KW       (line:  42, col:  17):	Missing space after keyword
 	FORBIDDEN_CS         (line:  43, col:  13):	Forbidden control structure
-	SPC_BFR_OPERATOR     (line:  43, col:  21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  43, col:  21):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  43, col:  21):	missing space before operator
 	TOO_MANY_TAB         (line:  45, col:   1):	Extra tabs for indent level
 	SPACE_AFTER_KW       (line:  45, col:  17):	Missing space after keyword
 	FORBIDDEN_CS         (line:  46, col:  13):	Forbidden control structure
-	SPC_BFR_OPERATOR     (line:  46, col:  21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  46, col:  21):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  46, col:  21):	missing space before operator
 	TOO_MANY_TAB         (line:  48, col:   1):	Extra tabs for indent level
 	TOO_MANY_TAB         (line:  49, col:   1):	Extra tabs for indent level
 	TOO_MANY_TAB         (line:  50, col:   1):	Extra tabs for indent level
 	SPACE_AFTER_KW       (line:  50, col:  17):	Missing space after keyword
 	FORBIDDEN_CS         (line:  51, col:  13):	Forbidden control structure
-	SPC_BFR_OPERATOR     (line:  51, col:  21):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  51, col:  21):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  51, col:  21):	missing space before operator
 	TOO_FEW_TAB          (line:  52, col:   1):	Missing tabs for indent level
 	SPACE_AFTER_KW       (line:  52, col:  13):	Missing space after keyword
-	SPC_BFR_OPERATOR     (line:  52, col:  20):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  52, col:  20):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  52, col:  20):	missing space before operator
 	TOO_FEW_TAB          (line:  53, col:   1):	Missing tabs for indent level
 	EMPTY_LINE_FUNCTION  (line:  57, col:   1):	Empty line in function
 	BRACE_SHOULD_EOL     (line:  63, col:   6):	Expected newline after brace
-	TOO_MANY_INSTR       (line:  63, col:   7):	Too many instructions on a single line
 	TOO_FEW_TAB          (line:  63, col:   7):	Missing tabs for indent level
+	TOO_MANY_INSTR       (line:  63, col:   7):	Too many instructions on a single line
 	VAR_DECL_START_FUNC  (line:  65, col:   1):	Variable declaration not at start of function
 	MISALIGNED_VAR_DECL  (line:  65, col:  13):	Misaligned variable declaration
 	DECL_ASSIGN_LINE     (line:  65, col:  20):	Declaration and assignation on a single line
-	SPC_BFR_OPERATOR     (line:  65, col:  54):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  65, col:  54):	missing space after operator
-	SPC_BFR_OPERATOR     (line:  65, col:  61):	missing space before operator
+	SPC_BFR_OPERATOR     (line:  65, col:  54):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  65, col:  61):	missing space after operator
-	SPC_BFR_OPERATOR     (line:  65, col:  80):	missing space before operator
+	SPC_BFR_OPERATOR     (line:  65, col:  61):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  65, col:  80):	missing space after operator
-	SPC_BFR_OPERATOR     (line:  65, col:  87):	missing space before operator
+	SPC_BFR_OPERATOR     (line:  65, col:  80):	missing space before operator
 	SPC_AFTER_OPERATOR   (line:  65, col:  87):	missing space after operator
+	SPC_BFR_OPERATOR     (line:  65, col:  87):	missing space before operator
 	LINE_TOO_LONG        (line:  65, col:  96):	line too long
 	ASSIGN_IN_CONTROL    (line:  66, col:  19):	Assignment in control structure
 	EMPTY_LINE_FUNCTION  (line:  68, col:   1):	Empty line in function
@@ -524,8 +524,8 @@ test_file_0907_3.c: KO!
 	NO_SPC_AFR_PAR       (line:  72, col:  49):	Extra space after parenthesis (brace/bracket)
 	TOO_FEW_TAB          (line:  72, col:  51):	Missing tabs for indent level
 	BRACE_SHOULD_EOL     (line:  79, col:   6):	Expected newline after brace
-	TOO_MANY_INSTR       (line:  79, col:   7):	Too many instructions on a single line
 	TOO_FEW_TAB          (line:  79, col:   7):	Missing tabs for indent level
+	TOO_MANY_INSTR       (line:  79, col:   7):	Too many instructions on a single line
 	TOO_FEW_TAB          (line:  79, col:  12):	Missing tabs for indent level
 	EMPTY_LINE_FUNCTION  (line:  83, col:   1):	Empty line in function
 	EMPTY_LINE_FUNCTION  (line:  86, col:   1):	Empty line in function

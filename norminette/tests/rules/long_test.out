@@ -144,15 +144,15 @@
 		<MULT> <MULT> <MULT> <IDENTIFIER=func4> <LPARENTHESIS> <IDENTIFIER=udidf> <SPACE> <IDENTIFIER=fdfd> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 long_test.c: KO!
 	TOO_MANY_TAB         (line:   4, col:   1):	Extra tabs for indent level
-	SPACE_EMPTY_LINE     (line:   5, col:   1):	Space on empty line
 	EMPTY_LINE_FUNCTION  (line:   5, col:   1):	Empty line in function
+	SPACE_EMPTY_LINE     (line:   5, col:   1):	Space on empty line
 	TOO_FEW_TAB          (line:   6, col:   1):	Missing tabs for indent level
 	SPACE_BEFORE_FUNC    (line:  10, col:  10):	space before function name
 	NO_ARGS_VOID         (line:  10, col:  13):	Empty function argument requires void
 	BRACE_NEWLINE        (line:  10, col:  15):	Expected newline before brace
 	BRACE_SHOULD_EOL     (line:  10, col:  16):	Expected newline after brace
-	TOO_MANY_INSTR       (line:  10, col:  17):	Too many instructions on a single line
 	TOO_FEW_TAB          (line:  10, col:  17):	Missing tabs for indent level
+	TOO_MANY_INSTR       (line:  10, col:  17):	Too many instructions on a single line
 	RETURN_PARENTHESIS   (line:  10, col:  24):	Return value must be in parenthesis
 	TOO_MANY_INSTR       (line:  10, col:  27):	Too many instructions on a single line
 	SPACE_BEFORE_FUNC    (line:  12, col:   4):	space before function name
@@ -171,8 +171,8 @@ long_test.c: KO!
 	MISSING_IDENTIFIER   (line:  31, col:  34):	missing type qualifier or identifier in function arguments
 	BRACE_NEWLINE        (line:  31, col:  39):	Expected newline before brace
 	BRACE_SHOULD_EOL     (line:  31, col:  40):	Expected newline after brace
-	TOO_MANY_INSTR       (line:  31, col:  41):	Too many instructions on a single line
 	TOO_FEW_TAB          (line:  31, col:  41):	Missing tabs for indent level
+	TOO_MANY_INSTR       (line:  31, col:  41):	Too many instructions on a single line
 	RETURN_PARENTHESIS   (line:  31, col:  48):	Return value must be in parenthesis
 	TOO_MANY_INSTR       (line:  31, col:  52):	Too many instructions on a single line
 	GLOBAL_VAR_NAMING    (line:  33, col:   7):	Global variable must start with g_

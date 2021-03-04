@@ -4,7 +4,9 @@ from functools import cmp_to_key
 from exceptions import CParsingError
 
 def sort_errs(a, b):
-    return a.errno > b.errno if a.col == b.col and a.line == b.line else a.col - b.col if a.line == b.line else a.line - b.line
+    if a.col == b.col and a.line == b.line:
+        return 1 if a.errno > b.errno else -1
+    return a.col - b.col if a.line == b.line else a.line - b.line
 
 class Registry:
     global has_err

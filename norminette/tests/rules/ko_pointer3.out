@@ -61,9 +61,9 @@ ko_pointer3.c: KO!
 	BRACE_NEWLINE        (line:   1, col:  16):	Expected newline before brace
 	SPC_AFTER_POINTER    (line:   2, col:  11):	space after pointer
 	SPC_AFTER_POINTER    (line:   2, col:  13):	space after pointer
-	TOO_MANY_INSTR       (line:   3, col:  21):	Too many instructions on a single line
 	NL_AFTER_VAR_DECL    (line:   3, col:  21):	Variable declarations must be followed by a newline
 	TOO_FEW_TAB          (line:   3, col:  21):	Missing tabs for indent level
+	TOO_MANY_INSTR       (line:   3, col:  21):	Too many instructions on a single line
 	TAB_INSTEAD_SPC      (line:   3, col:  24):	Found tab when expecting space
 	SPC_AFTER_POINTER    (line:   3, col:  56):	space after pointer
 	SPC_AFTER_POINTER    (line:   3, col:  57):	space after pointer
@@ -71,17 +71,17 @@ ko_pointer3.c: KO!
 	BRACE_NEWLINE        (line:   7, col:  16):	Expected newline before brace
 	SPC_AFTER_POINTER    (line:   8, col:  11):	space after pointer
 	SPC_AFTER_POINTER    (line:   8, col:  13):	space after pointer
-	TOO_MANY_INSTR       (line:   9, col:  21):	Too many instructions on a single line
 	NL_AFTER_VAR_DECL    (line:   9, col:  21):	Variable declarations must be followed by a newline
 	TOO_FEW_TAB          (line:   9, col:  21):	Missing tabs for indent level
+	TOO_MANY_INSTR       (line:   9, col:  21):	Too many instructions on a single line
 	TAB_INSTEAD_SPC      (line:   9, col:  24):	Found tab when expecting space
 	TAB_INSTEAD_SPC      (line:  10, col:  13):	Found tab when expecting space
 	BRACE_NEWLINE        (line:  13, col:  16):	Expected newline before brace
 	SPC_AFTER_POINTER    (line:  14, col:  11):	space after pointer
 	SPC_AFTER_POINTER    (line:  14, col:  13):	space after pointer
-	TOO_MANY_INSTR       (line:  15, col:  21):	Too many instructions on a single line
 	NL_AFTER_VAR_DECL    (line:  15, col:  21):	Variable declarations must be followed by a newline
 	TOO_FEW_TAB          (line:  15, col:  21):	Missing tabs for indent level
+	TOO_MANY_INSTR       (line:  15, col:  21):	Too many instructions on a single line
 	NO_SPC_AFR_PAR       (line:  15, col:  38):	Extra space after parenthesis (brace/bracket)
 	NO_SPC_AFR_PAR       (line:  15, col:  40):	Extra space after parenthesis (brace/bracket)
 	NO_SPC_BFR_PAR       (line:  15, col:  40):	Extra space before parenthesis (brace/bracket)
