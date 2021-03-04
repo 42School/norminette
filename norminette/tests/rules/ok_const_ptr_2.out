@@ -1,0 +1,53 @@
+[36mok_const_ptr_02.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<IFNDEF=#ifndef OK_CONST_PTR_H> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<DEFINE=# define OK_CONST_PTR_H> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 4":
+		<INT> <TAB> <IDENTIFIER=execute_cmds> <LPARENTHESIS> <INT> <SPACE> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <IDENTIFIER=cmds> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <IDENTIFIER=envp> <LBRACKET> <RBRACKET> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 5":
+		<INT> <TAB> <IDENTIFIER=execute_cmds> <LPARENTHESIS> <IDENTIFIER=t_cmd> <SPACE> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <IDENTIFIER=cmds> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <IDENTIFIER=envp> <LBRACKET> <RBRACKET> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 6":
+		<NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 7":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <INT> <SPACE> <CONST> <SPACE> <MULT> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 8":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <CONST> <SPACE> <INT> <SPACE> <MULT> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 9":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <INT> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 10":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <INT> <SPACE> <MULT> <MULT> <CONST> <SPACE> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 11":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <INT> <SPACE> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <MULT> <CONST> <SPACE> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
+		<NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 13":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <IDENTIFIER=t_obj> <SPACE> <CONST> <SPACE> <MULT> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 14":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <CONST> <SPACE> <IDENTIFIER=t_obj> <SPACE> <MULT> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 15":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <IDENTIFIER=t_obj> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 16":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <IDENTIFIER=t_obj> <SPACE> <MULT> <MULT> <CONST> <SPACE> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 17":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <IDENTIFIER=t_obj> <SPACE> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <MULT> <CONST> <SPACE> <IDENTIFIER=var> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 18":
+		<NEWLINE>
+[36mok_const_ptr_02.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 19":
+		<ENDIF=#endif> <NEWLINE>
+ok_const_ptr_02.h: KO!
+	HEADER_PROT_NAME     (line:   1, col:   1):	Wrong header protection name
+	HEADER_PROT_ALL      (line:   2, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:   4, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:   5, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:   7, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:   8, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:   9, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:  10, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:  11, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:  13, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:  14, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:  15, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:  16, col:   1):	Header protection must include all the instructions
+	HEADER_PROT_ALL      (line:  17, col:   1):	Header protection must include all the instructions
