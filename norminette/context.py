@@ -377,9 +377,11 @@ In \"{self.scope.name}\" from \
         p = 0
         i = self.skip_misc_specifier(i, nl=nl)
         while self.check_token(i, whitespaces + ["MULT", "LPARENTHESIS"]) is True:
-            i += 1
             if self.check_token(i, "LPARENTHESIS"):
                 p += 1
+            if self.check_token(i, "MULT") and self.check_token(i+1, "CONST"):
+                i += 1
+            i += 1
 
         i = self.skip_misc_specifier(i, nl=nl)
         if self.check_token(i, "IDENTIFIER"):

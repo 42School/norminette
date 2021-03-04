@@ -1,0 +1,27 @@
+[36mok_const_ptr_1.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <SPACE> <CONST> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <MULT> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <CONST> <SPACE> <INT> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <MULT> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=t_obj> <SPACE> <CONST> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <MULT> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <INT> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <TAB> <TAB> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <INT> <SPACE> <MULT> <MULT> <CONST> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <INT> <SPACE> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <MULT> <CONST> <TAB> <TAB> <TAB> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 9":
+		<TAB> <CONST> <SPACE> <IDENTIFIER=t_obj> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <MULT> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <IDENTIFIER=t_obj> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <CONST> <TAB> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <IDENTIFIER=t_obj> <SPACE> <MULT> <MULT> <CONST> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <IDENTIFIER=t_obj> <SPACE> <CONST> <SPACE> <MULT> <CONST> <SPACE> <MULT> <MULT> <CONST> <TAB> <TAB> <TAB> <IDENTIFIER=var> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mok_const_ptr_1.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 13":
+		<RBRACE> <NEWLINE>
+ok_const_ptr_1.c: OK!
