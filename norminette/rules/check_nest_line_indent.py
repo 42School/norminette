@@ -48,9 +48,8 @@ class CheckNestLineIndent(Rule):
         expected = context.scope.indent + nest
         while context.peek_token(i) is not None:
             if context.check_token(i, "LPARENTHESIS") is True:
-                nest += 1
                 i += 1
-                i = self.find_nest_content(context, nest, i)
+                i = self.find_nest_content(context, nest + 1, i)
             elif context.check_token(i, "NEWLINE") is True:
                 if context.check_token(i - 1, operators):
                     context.new_error("EOL_OPERATOR", context.peek_token(i - 1))
@@ -60,9 +59,9 @@ class CheckNestLineIndent(Rule):
                     indent += 1
                     i += 1
                 if indent > expected:
-                    context.new_error("TOO_MANY_TAB", context.peek_token(0))
+                    context.new_error("TOO_MANY_TAB", context.peek_token(i))
                 elif indent < expected:
-                    context.new_error("TOO_FEW_TAB", context.peek_token(0))
+                    context.new_error("TOO_FEW_TAB", context.peek_token(i))
             elif context.check_token(i, "RPARENTHESIS"):
                 return i
             i += 1
