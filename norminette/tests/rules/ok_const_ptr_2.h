@@ -1,5 +1,5 @@
-#ifndef OK_CONST_PTR_H
-# define OK_CONST_PTR_H
+#ifndef OK_CONST_PTR_2_H
+# define OK_CONST_PTR_2_H
 
 int	execute_cmds(int const *const *cmds, char *envp[]);
 int	execute_cmds(t_cmd const *const *cmds, char *envp[]);
