@@ -1,0 +1,41 @@
+[36mtest_file_210304.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=__packed__> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <IDENTIFIER=s_bmpfileheader> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=test> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 4":
+		<RBRACE> <TAB> <IDENTIFIER=t_bmpfileheader> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 6":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_bmpfileheader> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 7":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 8":
+		<TAB> <IDENTIFIER=uint8_t> <TAB> <TAB> <IDENTIFIER=signature> <LBRACKET> <CONSTANT=2> <RBRACKET> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 9":
+		<TAB> <IDENTIFIER=uint32_t> <TAB> <IDENTIFIER=filesize> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 10":
+		<TAB> <IDENTIFIER=uint32_t> <TAB> <IDENTIFIER=reserved> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 11":
+		<TAB> <IDENTIFIER=uint32_t> <TAB> <IDENTIFIER=fileoffset_to_pixelarray> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsDeclaration[0m In "UserDefinedType" from "GlobalScope" line 12":
+		<RBRACE> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=__packed__> <RPARENTHESIS> <RPARENTHESIS> <TAB> <IDENTIFIER=t_bmpfileheader> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 13":
+		<NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 14":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=__packed__> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <IDENTIFIER=s_bmpfileheader> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 15":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 16":
+		<TAB> <IDENTIFIER=uint8_t> <TAB> <TAB> <IDENTIFIER=signature> <LBRACKET> <CONSTANT=2> <RBRACKET> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 17":
+		<TAB> <IDENTIFIER=uint32_t> <TAB> <IDENTIFIER=filesize> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 18":
+		<TAB> <IDENTIFIER=uint32_t> <TAB> <IDENTIFIER=reserved> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 19":
+		<TAB> <IDENTIFIER=uint32_t> <TAB> <IDENTIFIER=fileoffset_to_pixelarray> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210304.c[0m - [32mIsDeclaration[0m In "UserDefinedType" from "GlobalScope" line 20":
+		<RBRACE> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=__packed__> <RPARENTHESIS> <RPARENTHESIS> <TAB> <IDENTIFIER=t_bmpfileheader> <SEMI_COLON> 
+test_file_210304.c: OK!

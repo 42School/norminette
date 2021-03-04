@@ -63,6 +63,11 @@ class CheckUtypeDeclaration(Rule):
             if context.check_token(i, "LBRACKET") is True:
                 i = context.skip_nest(i)
             if context.check_token(i, "IDENTIFIER") is True:
+                if context.peek_token(i).value == "__attribute__":
+                    i += 1
+                    i = context.skip_ws(i)
+                    i = context.skip_nest(i)
+                    continue
                 if context.check_token(i - 1, ["MULT", "BWISE_AND"]) is True:
                     tmp = i - 1
                     while context.check_token(tmp, ["MULT", "BWISE_AND"]) is True and context.is_operator(tmp) == False:
