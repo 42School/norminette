@@ -1,6 +1,6 @@
-from lexer import Token
-from rules import PrimaryRule
-from context import GlobalScope, Function, UserDefinedType
+from norminette.context import GlobalScope
+from norminette.scope import UserDefinedType
+from norminette.rules import PrimaryRule
 
 whitespaces = ["SPACE", "TAB"]
 preproc = [
@@ -14,7 +14,7 @@ preproc = [
     "#ELSE",
     "INCLUDE",
     "PRAGMA",
-    "UNDEF"
+    "UNDEF",
 ]
 assigns = [
     "RIGHT_ASSIGN",
@@ -42,7 +42,7 @@ misc_identifier = [
     "TYPEDEF",
     "STRUCT",
     "ENUM",
-    "UNION"
+    "UNION",
 ]
 type_identifier = [
     "CHAR",
@@ -55,6 +55,8 @@ type_identifier = [
     "LONG",
     "SHORT",
 ]
+
+
 class IsFuncPrototype(PrimaryRule):
     def __init__(self):
         super().__init__()
@@ -117,12 +119,17 @@ class IsFuncPrototype(PrimaryRule):
         identifier = None
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
-        while context.peek_token(i):# and context.check_token(i, "NEWLINE") is False:
+        while context.peek_token(i):  # and context.check_token(i, "NEWLINE") is False:
             if context.check_token(i, misc_identifier) is True:
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE", "RBRACE"] + preproc) is True:
+            if (
+                context.check_token(
+                    i, assigns + ["TYPEDEF", "COMMA", "LBRACE", "RBRACE"] + preproc
+                )
+                is True
+            ):
                 return False, 0
             if context.check_token(i, "SEMI_COLON") is True:
                 break
@@ -167,7 +174,9 @@ class IsFuncPrototype(PrimaryRule):
             sc.fnames.append(context.peek_token(i).value)
             if context.func_alignment == 0:
                 tmp = i
-                while context.check_token(tmp - 1, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
+                while context.check_token(
+                    tmp - 1, ["LPARENTHESIS", "MULT", "BWISE_AND"]
+                ):
                     tmp -= 1
                 context.func_alignment = int(context.peek_token(tmp).pos[1] / 4)
             context.fname_pos = i
@@ -184,12 +193,15 @@ class IsFuncPrototype(PrimaryRule):
 
     def run(self, context):
         """
-            Catches function prototypes
-            Allows newline inside it
-            End condition is SEMI_COLON token, otherwise line will be considered as
-            function declaration
+        Catches function prototypes
+        Allows newline inside it
+        End condition is SEMI_COLON token, otherwise line will be considered as
+        function declaration
         """
-        if type(context.scope) is not GlobalScope and type(context.scope) is not UserDefinedType:
+        if (
+            type(context.scope) is not GlobalScope
+            and type(context.scope) is not UserDefinedType
+        ):
             return False, 0
         ret, read = self.check_func_format(context)
         if ret is False:

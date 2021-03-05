@@ -1,6 +1,4 @@
-from rules import PrimaryRule
-from context import GlobalScope, VariableAssignation
-from exceptions import CParsingError
+from norminette.rules import PrimaryRule
 
 types = [
     "CHAR",
@@ -20,7 +18,7 @@ types = [
     "CONST",
     "REGISTER",
     "STATIC",
-    "VOLATILE"
+    "VOLATILE",
 ]
 
 op = [
@@ -33,7 +31,7 @@ op = [
     "PLUS",
     "DIV",
     "PTR",
-    "DOT"
+    "DOT",
 ]
 
 ws = ["SPACE", "TAB", "NEWLINE"]
@@ -48,14 +46,17 @@ class IsCast(PrimaryRule):
 
     def run(self, context):
         """
-            Catches all casts instructions
+        Catches all casts instructions
         """
         i = 0
         i = context.skip_ws(i, nl=False)
         if context.check_token(i, "LPARENTHESIS") is True:
             ret, i = context.parenthesis_contain(i)
             if ret == "cast":
-                while context.peek_token(i) and context.check_token(i, "SEMI_COLON") is False:
+                while (
+                    context.peek_token(i)
+                    and context.check_token(i, "SEMI_COLON") is False
+                ):
                     i += 1
                 i += 1
                 i = context.skip_ws(i, nl=False)

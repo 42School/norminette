@@ -1,6 +1,4 @@
-from rules import PrimaryRule
-from context import GlobalScope, VariableAssignation
-from exceptions import CParsingError
+from norminette.rules import PrimaryRule
 
 
 assign_ops = [
@@ -16,7 +14,7 @@ assign_ops = [
     "OR_ASSIGN",
     "ASSIGN",
     "INC",
-    "DEC"
+    "DEC",
 ]
 
 types = [
@@ -37,7 +35,7 @@ types = [
     "CONST",
     "REGISTER",
     "STATIC",
-    "VOLATILE"
+    "VOLATILE",
 ]
 
 op = [
@@ -50,7 +48,7 @@ op = [
     "PLUS",
     "DIV",
     "PTR",
-    "DOT"
+    "DOT",
 ]
 
 ws = ["SPACE", "TAB", "NEWLINE"]
@@ -73,17 +71,17 @@ class IsAssignation(PrimaryRule):
         i = pos
         while context.check_token(i, types + ws + op + ["IDENTIFIER", "CONSTANT"]):
             if context.check_token(i, "LBRACKET"):
-                    i = context.skip_nest(i)
+                i = context.skip_nest(i)
             i += 1
-        if "IDENTIFIER" in [t.type for t in context.tokens[:i + 1]]:
+        if "IDENTIFIER" in [t.type for t in context.tokens[: i + 1]]:
             return True, i
         else:
             return False, 0
 
     def run(self, context):
         """
-            Catches all assignation instructions
-            Requires assign token
+        Catches all assignation instructions
+        Requires assign token
         """
         ret, i = self.check_identifier(context, 0)
         if ret is False:
@@ -92,12 +90,16 @@ class IsAssignation(PrimaryRule):
             return False, 0
         i += 1
         i = context.skip_ws(i)
-        #if context.check_token(i, "LBRACE") is True:
-            #i += 1
-            #context.sub = context.scope.inner(VariableAssignation)
-            #return True, i
+        # if context.check_token(i, "LBRACE") is True:
+        # i += 1
+        # context.sub = context.scope.inner(VariableAssignation)
+        # return True, i
         if context.scope.name == "UserDefinedEnum":
-            while context.peek_token(i) and (context.check_token(i, ['COMMA', 'SEMI_COLON', 'NEWLINE'])) is False:
+            while (
+                context.peek_token(i)
+                and (context.check_token(i, ["COMMA", "SEMI_COLON", "NEWLINE"]))
+                is False
+            ):
                 i += 1
             i = context.eol(i)
             return True, i

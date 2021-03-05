@@ -1,5 +1,5 @@
-from rules import Rule
-from scope import *
+from norminette.rules import Rule
+
 assigns = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -32,8 +32,14 @@ class CheckAssignation(Rule):
                     typ = tmp_typ
                 if tmp_typ is None:
                     tmp = start + 1
-                    while context.peek_token(tmp) and context.check_token(tmp, "RPARENTHESIS") is False:
-                        if context.check_token(tmp, "COMMA") is True and typ is not None:
+                    while (
+                        context.peek_token(tmp)
+                        and context.check_token(tmp, "RPARENTHESIS") is False
+                    ):
+                        if (
+                            context.check_token(tmp, "COMMA") is True
+                            and typ is not None
+                        ):
                             context.new_error("TOO_MANY_INSTR", context.peek_token(tmp))
                         tmp += 1
             if context.check_token(i, assigns) is True:
@@ -43,8 +49,8 @@ class CheckAssignation(Rule):
 
     def run(self, context):
         """
-            Only one assignation at a time
-            Unless the variable is static (or global), you cannot assign its value when you declare it.
+        Only one assignation at a time
+        Unless the variable is static (or global), you cannot assign its value when you declare it.
         """
         i = 0
         assign_present = False

@@ -1,13 +1,9 @@
-from rules import PrimaryRule
-from context import Function, ControlStructure
-from exceptions import CParsingError
+from norminette.context import ControlStructure
+from norminette.scope import Function
+from norminette.exceptions import CParsingError
+from norminette.rules import PrimaryRule
 
-keywords = [
-    "BREAK",
-    "CONTINUE",
-    "GOTO",
-    "RETURN"
-]
+keywords = ["BREAK", "CONTINUE", "GOTO", "RETURN"]
 
 operators = [
     "MULT",
@@ -16,10 +12,11 @@ operators = [
     "LBRACKET",
     "RBRACKET",
     "PTR",
-    "DOT"
+    "DOT",
 ]
 
-ws = ["SPACE", "TAB","NEWLINE"]
+ws = ["SPACE", "TAB", "NEWLINE"]
+
 
 class IsExpressionStatement(PrimaryRule):
     def __init__(self):
@@ -39,11 +36,14 @@ class IsExpressionStatement(PrimaryRule):
         elif context.check_token(pos, "GOTO"):
             i = pos + 1
             i = context.skip_ws(i)
-            while context.check_token(i, ["MULT", "BWISE_AND"]) is True and context.is_operator(i) is False:
+            while (
+                context.check_token(i, ["MULT", "BWISE_AND"]) is True
+                and context.is_operator(i) is False
+            ):
                 i += 1
             if context.check_token(i, "IDENTIFIER") is False:
                 if context.check_token(i, "LPARENTHESIS") is True:
-                    #parse label value here
+                    # parse label value here
                     i = context.skip_nest(i)
                 elif context.debug == 0:
                     raise CParsingError("Goto statement should be followed by a label")
@@ -134,7 +134,7 @@ class IsExpressionStatement(PrimaryRule):
 
     def run(self, context):
         """
-            Catches expression statement by elimination
+        Catches expression statement by elimination
         """
         i = context.skip_ws(0)
         ret, i = self.check_instruction(context, i)

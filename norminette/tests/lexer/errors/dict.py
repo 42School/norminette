@@ -1,9 +1,9 @@
 failed_tokens_tests = {
     #   String to test as key: error position as value
     "\tdouble f=45e++ai": [1, 14],
-    "\tchar *b = \"e42\n\n":  [1, 15],
+    '\tchar *b = "e42\n\n': [1, 15],
     "int\t\t\tn\t= 0x1uLl;": [1, 19],
-    "char\t\t\t*yo\t\t\t= \"": [1, 31],
+    'char\t\t\t*yo\t\t\t= "': [1, 31],
     "{return 1;}\\\\\\n": [1, 12],
     "int a = a+++++a;\ndouble b = .0e4x;": [2, 12],
     "int a = 1;\nint b = 10ul;\nint c = 10lul;\n": [3, 9],
@@ -30,5 +30,5 @@ failed_tokens_tests = {
     "float number=105e4d": [1, 14],
     "float number=105flu": [1, 14],
     "float number=105fu": [1, 14],
-    "float number=105eu": [1, 14]
+    "float number=105eu": [1, 14],
 }

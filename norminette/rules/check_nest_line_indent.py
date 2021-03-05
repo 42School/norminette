@@ -1,5 +1,5 @@
-from rules import Rule
-from scope import *
+from norminette.rules import Rule
+
 
 operators = [
     "RIGHT_ASSIGN",
@@ -39,6 +39,7 @@ operators = [
 ]
 nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]
 
+
 class CheckNestLineIndent(Rule):
     def __init__(self):
         super().__init__()
@@ -69,14 +70,17 @@ class CheckNestLineIndent(Rule):
 
     def run(self, context):
         """
-            Each nest (parenthesis, brackets, braces) adds a tab to the general indentation
+        Each nest (parenthesis, brackets, braces) adds a tab to the general indentation
         """
         i = 0
         expected = context.scope.indent
         nest = 0
         if context.history[-1] == "IsEmptyLine":
             return False, 0
-        while context.peek_token(i) and context.check_token(i, ["LPARENTHESIS", "NEWLINE"]) is False:
+        while (
+            context.peek_token(i)
+            and context.check_token(i, ["LPARENTHESIS", "NEWLINE"]) is False
+        ):
             i += 1
         if context.check_token(i, "NEWLINE") is True:
             return False, 0

@@ -1,6 +1,5 @@
-from rules import Rule
-from scope import *
-
+from norminette.rules import Rule
+from norminette.scope import GlobalScope
 
 
 class CheckLineIndent(Rule):
@@ -10,12 +9,20 @@ class CheckLineIndent(Rule):
 
     def run(self, context):
         """
-            Each new scope (function, control structure, struct/enum type declaration) adds a tab to the general indentation
+        Each new scope (function, control structure, struct/enum type declaration) adds a tab to the general indentation
         """
         expected = context.scope.indent
-        if context.history[-1] == "IsEmptyLine" or context.history[-1] == "IsComment" or context.history[-1] == "IsPreprocessorStatement":
+        if (
+            context.history[-1] == "IsEmptyLine"
+            or context.history[-1] == "IsComment"
+            or context.history[-1] == "IsPreprocessorStatement"
+        ):
             return False, 0
-        if context.history[-1] != "IsPreprocessorStatement" and type(context.scope) is GlobalScope and context.scope.include_allowed == True:
+        if (
+            context.history[-1] != "IsPreprocessorStatement"
+            and type(context.scope) is GlobalScope
+            and context.scope.include_allowed == True
+        ):
             context.scope.include_allowed = False
         got = 0
         while context.check_token(got, "TAB"):
@@ -24,11 +31,19 @@ class CheckLineIndent(Rule):
             if context.check_token(got, "RBRACE") is True:
                 expected -= 1
             else:
-                hist = context.history[:len(context.history) - 1]
+                hist = context.history[: len(context.history) - 1]
                 for item in hist[::-1]:
-                    if item == "IsEmptyLine" or item == "IsComment" or item == "IsPreprocessorStatement":
+                    if (
+                        item == "IsEmptyLine"
+                        or item == "IsComment"
+                        or item == "IsPreprocessorStatement"
+                    ):
                         continue
-                    if item not in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType"]:
+                    if item not in [
+                        "IsControlStatement",
+                        "IsFuncDeclaration",
+                        "IsUserDefinedType",
+                    ]:
                         break
                     else:
                         expected -= 1

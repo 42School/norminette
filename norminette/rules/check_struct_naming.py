@@ -1,11 +1,11 @@
-from rules import Rule
-from lexer import Lexer, TokenError
+from norminette.rules import Rule
 
 types = [
     "STRUCT",
     "ENUM",
     "UNION",
 ]
+
 
 class CheckStructNaming(Rule):
     def __init__(self):
@@ -15,7 +15,7 @@ class CheckStructNaming(Rule):
 
     def run(self, context):
         """
-            Rewritten elsewhere
+        Rewritten elsewhere
         """
         return False, 0
         self.__i += 1
@@ -28,13 +28,13 @@ class CheckStructNaming(Rule):
         def_type = context.peek_token(i).type
         i += 1
         i = context.skip_ws(i)
-        if def_type ==  "STRUCT":
+        if def_type == "STRUCT":
             if context.peek_token(i).value.startswith("s_") is False:
                 context.new_error("STRUCT_TYPE_NAMING", context.peek_token(i))
-        elif def_type ==  "ENUM":
+        elif def_type == "ENUM":
             if context.peek_token(i).value.startswith("e_") is False:
                 context.new_error("ENUM_TYPE_NAMING", context.peek_token(i))
-        elif def_type ==  "UNION":
+        elif def_type == "UNION":
             if context.peek_token(i).value.startswith("u_") is False:
                 context.new_error("UNION_TYPE_NAMING", context.peek_token(i))
         return False, i

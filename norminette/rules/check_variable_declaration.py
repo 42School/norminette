@@ -1,5 +1,4 @@
-from rules import Rule
-from scope import *
+from norminette.rules import Rule
 
 assigns = [
     "RIGHT_ASSIGN",
@@ -15,6 +14,7 @@ assigns = [
     "ASSIGN",
 ]
 
+
 class CheckVariableDeclaration(Rule):
     def __init__(self):
         super().__init__()
@@ -22,21 +22,27 @@ class CheckVariableDeclaration(Rule):
 
     def run(self, context):
         """
-            Variables can be declared as global or in the scope of a function
-            Only static variables, global variables, and constants can be initialised at declaration.
-            Each variable must be declared on a separate line
+        Variables can be declared as global or in the scope of a function
+        Only static variables, global variables, and constants can be initialised at declaration.
+        Each variable must be declared on a separate line
         """
         i = 0
         static_or_const = False
         passed_assign = False
         if context.scope.name == "Function":
-            if context.history[-2] != "IsBlockStart" and context.history[-2] != "IsVarDeclaration":
+            if (
+                context.history[-2] != "IsBlockStart"
+                and context.history[-2] != "IsVarDeclaration"
+            ):
                 context.new_error("VAR_DECL_START_FUNC", context.peek_token(i))
             elif context.scope.vdeclarations_allowed == False:
                 context.new_error("VAR_DECL_START_FUNC", context.peek_token(i))
             elif context.scope.vdeclarations_allowed == None:
                 context.scope.vdeclarations_allowed = True
-        elif context.scope.name == "GlobalScope" or context.scope.name == "UserDefinedType":
+        elif (
+            context.scope.name == "GlobalScope"
+            or context.scope.name == "UserDefinedType"
+        ):
             pass
         else:
             context.new_error("WRONG_SCOPE_VAR", context.peek_token(i))

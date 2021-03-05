@@ -1,8 +1,6 @@
-from lexer import Token
-from rules import PrimaryRule
-from context import GlobalScope, UserDefinedType
-from exceptions import CParsingError
-from scope import *
+from norminette.rules import PrimaryRule
+from norminette.scope import UserDefinedType, GlobalScope, UserDefinedEnum
+
 
 utypes = ["TYPEDEF", "UNION", "STRUCT", "ENUM"]
 
@@ -12,7 +10,6 @@ class IsUserDefinedType(PrimaryRule):
         super().__init__()
         self.priority = 45
         self.scope = [GlobalScope, UserDefinedType]
-
 
     def typedef(self, context, pos):
         i = context.skip_ws(pos)
@@ -37,9 +34,9 @@ class IsUserDefinedType(PrimaryRule):
 
     def run(self, context):
         """
-            Catches user type definitions
-            Can include the whole type definition in case it's a structure
-            Variable declarations aren't included
+        Catches user type definitions
+        Can include the whole type definition in case it's a structure
+        Variable declarations aren't included
         """
         i = context.skip_ws(0, nl=False)
         enum = False
@@ -51,7 +48,7 @@ class IsUserDefinedType(PrimaryRule):
                 p += 1
             if context.check_token(i, "RPARENTHESIS") is True:
                 p -= 1
-            if context.check_token(i, ['NEWLINE', 'SEMI_COLON']) is True:
+            if context.check_token(i, ["NEWLINE", "SEMI_COLON"]) is True:
                 return False, 0
             i += 1
         if context.peek_token(i) is None:

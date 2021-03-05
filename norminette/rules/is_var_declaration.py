@@ -1,6 +1,8 @@
-from lexer import Token
-from rules import PrimaryRule
-from context import GlobalScope, UserDefinedType, ControlStructure, Function
+from norminette.context import ControlStructure
+from norminette.scope import Function
+from norminette.context import GlobalScope
+from norminette.scope import UserDefinedType
+from norminette.rules import PrimaryRule
 
 
 lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
@@ -13,8 +15,7 @@ misc_specifiers = [
     "VOLATILE",
     "EXTERN",
     "INLINE",
-    "RESTRICT"
-    "SIGNED",
+    "RESTRICT" "SIGNED",
     "UNSIGNED",
 ]
 
@@ -30,8 +31,9 @@ type_specifiers = [
     "SHORT",
     "STRUCT",
     "ENUM",
-    "UNION"
+    "UNION",
 ]
+
 
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
@@ -55,13 +57,24 @@ class IsVarDeclaration(PrimaryRule):
         braces = 0
         i = pos
         ret_store = None
-        while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "SEMI_COLON"]) is False:
-            if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
+        while (
+            context.peek_token(i) is not None
+            and context.check_token(i, ["COMMA", "SEMI_COLON"]) is False
+        ):
+            if (
+                context.check_token(i, "IDENTIFIER") is True
+                and braces == 0
+                and brackets == 0
+                and parenthesis == 0
+            ):
                 identifier = True
             elif context.check_token(i, ["COMMENT", "MULT_COMMENT"]) is True:
                 i += 1
                 continue
-            elif context.check_token(i, ["COLON", "CONSTANT"]) is True and identifier == True:
+            elif (
+                context.check_token(i, ["COLON", "CONSTANT"]) is True
+                and identifier == True
+            ):
                 i += 1
                 continue
             elif context.check_token(i, lbrackets) is True:
@@ -71,7 +84,7 @@ class IsVarDeclaration(PrimaryRule):
                     brackets += 1
                 if context.check_token(i, "LPARENTHESIS") is True:
                     ret, tmp = context.parenthesis_contain(i, ret_store)
-                    if ret == 'function' or ret == 'pointer':
+                    if ret == "function" or ret == "pointer":
                         ret_store = ret
                         identifier = True
                         i = tmp
@@ -91,7 +104,12 @@ class IsVarDeclaration(PrimaryRule):
                 i -= 1
                 if ret is False:
                     return False, pos
-            elif context.check_token(i, ['SPACE', "TAB", "MULT", "BWISE_AND", "NEWLINE"] + misc_specifiers + type_specifiers):
+            elif context.check_token(
+                i,
+                ["SPACE", "TAB", "MULT", "BWISE_AND", "NEWLINE"]
+                + misc_specifiers
+                + type_specifiers,
+            ):
                 pass
             elif parenthesis == 0 and brackets == 0 and braces == 0:
                 return False, 0
@@ -110,13 +128,13 @@ class IsVarDeclaration(PrimaryRule):
 
     def is_func_pointer(self, context, pos):
         i = context.skip_ws(pos)
-        ws = ['SPACE', "TAB", "NEWLINE"]
+        ws = ["SPACE", "TAB", "NEWLINE"]
         if context.check_token(i, "LPARENTHESIS") is False:
             return False, pos
         identifier = False
         i += 1
         p = 1
-        plvl= 0 # nesting level of the first pointer operator encountered
+        plvl = 0  # nesting level of the first pointer operator encountered
 
         while p and context.check_token(i, ["MULT", "LPARENTHESIS"] + ws):
             if context.check_token(i, "MULT") and not plvl:
@@ -146,7 +164,7 @@ class IsVarDeclaration(PrimaryRule):
 
     def run(self, context):
         """
-            Catches all kinds of variable declarations
+        Catches all kinds of variable declarations
         """
         ret, i = context.check_type_specifier(0)
         if ret is False:
@@ -154,7 +172,10 @@ class IsVarDeclaration(PrimaryRule):
         tmp = i - 1
         while context.check_token(tmp, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
             tmp -= 1
-        if context.check_token(tmp, ['SPACE', 'TAB']) is False and context.check_token(tmp - 1, ['SPACE', 'TAB']) is False:
+        if (
+            context.check_token(tmp, ["SPACE", "TAB"]) is False
+            and context.check_token(tmp - 1, ["SPACE", "TAB"]) is False
+        ):
             return False, 0
         ret, i = self.var_declaration(context, i)
         if ret is False:

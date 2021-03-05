@@ -1,5 +1,4 @@
-from rules import Rule
-from scope import *
+from norminette.rules import Rule
 
 
 class CheckLabel(Rule):
@@ -9,7 +8,7 @@ class CheckLabel(Rule):
 
     def run(self, context):
         """
-            Goto and labels are forbidden
+        Goto and labels are forbidden
         """
         context.new_error("LABEL_FBIDDEN", context.peek_token(0))
         return False, 0

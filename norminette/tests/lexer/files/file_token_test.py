@@ -1,8 +1,9 @@
-import sys
-import glob
 import difflib
-from lexer import Lexer
-from lexer import TokenError
+import glob
+import sys
+
+from norminette.lexer import Lexer
+from norminette.lexer import TokenError
 
 
 def read_file(filename):
@@ -10,8 +11,7 @@ def read_file(filename):
         return f.read()
 
 
-class norminetteFileTester():
-
+class norminetteFileTester:
     def __init__(self):
         self.__tests = 0
         self.__failed = 0
@@ -26,11 +26,12 @@ class norminetteFileTester():
         else:
             print("KO")
             self.__failed += 1
-            diff = difflib.ndiff(first.splitlines(keepends=True),
-                                 second.splitlines(keepends=True))
+            diff = difflib.ndiff(
+                first.splitlines(keepends=True), second.splitlines(keepends=True)
+            )
             diff = list(diff)
             self.result.append("✗ ")
-            print(''.join(diff))
+            print("".join(diff))
 
     def assertRaises(self, test, ref):
         try:
@@ -47,18 +48,17 @@ class norminetteFileTester():
             else:
                 self.__failed += 1
                 print("KO")
-                diff = difflib.ndiff(e.msg.splitlines(),
-                                     ref.splitlines())
+                diff = difflib.ndiff(e.msg.splitlines(), ref.splitlines())
                 diff = list(diff)
                 self.result.append("✗ ")
-                print(''.join(diff))
+                print("".join(diff))
 
     def test_files(self):
         files = glob.glob("tests/lexer/files/*.c")
         files.sort()
         for f in files:
             self.__tests += 1
-            print(f.split('/')[-1], end=": ")
+            print(f.split("/")[-1], end=": ")
 
             try:
                 output = Lexer(read_file(f)).check_tokens()
@@ -80,5 +80,5 @@ class norminetteFileTester():
         sys.exit(0 if self.__failed == 0 else 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     norminetteFileTester().test_files()

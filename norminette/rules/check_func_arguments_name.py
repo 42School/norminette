@@ -1,45 +1,17 @@
-from lexer import Token
-from rules import Rule
+from norminette.lexer import Token
+from norminette.rules import Rule
 
-type_specifiers = [
-    "CHAR",
-    "DOUBLE",
-    "ENUM",
-    "FLOAT",
-    "INT",
-    "UNION",
-    "VOID",
-    "SHORT"
-]
+type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID", "SHORT"]
 
-misc_specifiers = [
-    "CONST",
-    "REGISTER",
-    "STATIC",
-    "STRUCT",
-    "VOLATILE"
-]
+misc_specifiers = ["CONST", "REGISTER", "STATIC", "STRUCT", "VOLATILE"]
 
-size_specifiers = [
-    "LONG",
-    "SHORT"
-]
+size_specifiers = ["LONG", "SHORT"]
 
-sign_specifiers = [
-    "SIGNED",
-    "UNSIGNED"
-]
+sign_specifiers = ["SIGNED", "UNSIGNED"]
 
-whitespaces = [
-    "SPACE",
-    "TAB",
-    "NEWLINE"
-]
+whitespaces = ["SPACE", "TAB", "NEWLINE"]
 
-arg_separator = [
-    "COMMA",
-    "CLOSING_PARENTHESIS"
-]
+arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
 
 class CheckFuncArgumentsName(Rule):
@@ -60,9 +32,9 @@ class CheckFuncArgumentsName(Rule):
         if context.check_token(i, ["COMMENT", "MULT_COMMENT"]):
             context.new_error("WRONG_SCOPE_COMMENT", context.peek_token(i))
             i += 1
-        #if context.check_token(i, "NEWLINE"):
-            #context.new_error("NEWLINE_IN_DECL", context.peek_token(i))
-            #i += 1
+        # if context.check_token(i, "NEWLINE"):
+        # context.new_error("NEWLINE_IN_DECL", context.peek_token(i))
+        # i += 1
         if context.check_token(i, "ELLIPSIS"):
             i += 1
             if context.peek_token(i).type in stop:
@@ -72,7 +44,9 @@ class CheckFuncArgumentsName(Rule):
         if ret == False:
             context.new_error("ARG_TYPE_UKN", context.peek_token(i))
             return -1
-        while context.peek_token(i) is not None and context.check_token(i, ["LPARENTHESIS"] + whitespaces):
+        while context.peek_token(i) is not None and context.check_token(
+            i, ["LPARENTHESIS"] + whitespaces
+        ):
             if context.check_token(i, "LPARENTHESIS") is True:
                 p += 1
             if context.check_token(i, "RPARENTHESIS") is True:
@@ -94,14 +68,16 @@ class CheckFuncArgumentsName(Rule):
                         p -= 1
                     else:
                         break
-                if context.check_token(i, 'LPARENTHESIS'):
+                if context.check_token(i, "LPARENTHESIS"):
                     i = context.skip_nest(i)
                 i += 1
             i += 1
 
         else:
-            while context.peek_token(i) is not None \
-                    and context.peek_token(i).type not in stop:
+            while (
+                context.peek_token(i) is not None
+                and context.peek_token(i).type not in stop
+            ):
                 i += 1
             i += 1
         return i
@@ -120,23 +96,23 @@ class CheckFuncArgumentsName(Rule):
 
     def run(self, context):
         """
-            Empty functions arguments must use void
+        Empty functions arguments must use void
         """
         i = context.arg_pos[0] + 1
         ret = self.no_arg_func(context, i)
         if ret is True:
             return False, 0
         while i < context.arg_pos[1]:
-            if context.check_token(i, 'NEWLINE'):
+            if context.check_token(i, "NEWLINE"):
                 i += 1
                 continue
-            if context.check_token(i, 'LPARENTHESIS'):
+            if context.check_token(i, "LPARENTHESIS"):
                 p = 1
                 while p:
                     if context.peek_token(i) is not None:
-                        if context.check_token(i, 'LPARENTHESIS'):
+                        if context.check_token(i, "LPARENTHESIS"):
                             p += 1
-                        elif context.check_token(i, 'RPARENTHESIS'):
+                        elif context.check_token(i, "RPARENTHESIS"):
                             p -= 1
                     else:
                         break

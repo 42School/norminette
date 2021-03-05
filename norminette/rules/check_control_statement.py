@@ -1,12 +1,7 @@
-from rules import Rule
-from scope import *
+from norminette.rules import Rule
 
-forbidden_cs = [
-    "FOR",
-    "SWITCH",
-    "CASE",
-    "GOTO"
-]
+
+forbidden_cs = ["FOR", "SWITCH", "CASE", "GOTO"]
 assigns = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -20,6 +15,7 @@ assigns = [
     "OR_ASSIGN",
     "ASSIGN",
 ]
+
 
 class CheckControlStatement(Rule):
     def __init__(self):
@@ -38,11 +34,11 @@ class CheckControlStatement(Rule):
 
     def run(self, context):
         """
-            Forbidden control structures:
-                - For
-                - Switch case
-                - Goto
-            Assignations must be done outside of control structures
+        Forbidden control structures:
+            - For
+            - Switch case
+            - Goto
+        Assignations must be done outside of control structures
         """
         i = 0
         if context.scope.name == "GlobalScope":
