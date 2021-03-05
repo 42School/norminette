@@ -6,11 +6,11 @@ requires python3.7+ (3.7, 3.8, 3.9)
 
 Install using pip.
 ```shell
-pip install norminette
+pip3 install norminette
 ```
 To upgrade an existing install, use
 ```shell
-pip install --upgrade norminette
+pip3 install --upgrade norminette
 ```
 
 ## Usage
