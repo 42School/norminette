@@ -447,7 +447,7 @@ In \"{self.scope.name}\" from \
         while pos > 0:
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
                 pos = self.skip_nest_reverse(pos) - 1
-                if self.parenthesis_contain(pos + 1)[0] == 'cast':
+                if self.check_token(pos, "RPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == 'cast':
                     return False
                 skip = 1
             if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF"]) is True:
