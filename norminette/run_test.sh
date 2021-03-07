@@ -1,5 +1,6 @@
 #!/bin/env sh
 
+python3 --version
 set -ex
 
 echo "Running lexer unit test:"
