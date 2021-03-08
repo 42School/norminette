@@ -1,0 +1,12 @@
+[36mtest_file_210308_2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210308_2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210308_2.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <NOT> <LPARENTHESIS> <LPARENTHESIS> <MULT> <IDENTIFIER=array> <RPARENTHESIS> <LBRACKET> <IDENTIFIER=i> <RBRACKET> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=test> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=test> <SPACE> <PLUS> <SPACE> <CONSTANT=1> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210308_2.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 4":
+		<TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <NULL> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210308_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 5":
+		<RBRACE> <NEWLINE>
+test_file_210308_2.c: KO!
+	ASSIGN_IN_CONTROL    (line:   3, col:  23):	Assignment in control structure

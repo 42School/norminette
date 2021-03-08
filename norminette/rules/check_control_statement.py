@@ -23,7 +23,13 @@ class CheckControlStatement(Rule):
         self.depends_on = ["IsControlStatement"]
 
     def check_nest(self, context, i):
-        while context.check_token(i, "RPARENTHESIS") is False:
+        depth = 1
+        i += 1
+        while context.check_token(i, "NEWLINE") is False and depth > 0:
+            if context.check_token(i, "LPARENTHESIS") is True:
+                depth += 1
+            if context.check_token(i, "RPARENTHESIS") is True:
+                depth -= 1
             if context.check_token(i, assigns) is True:
                 context.new_error("ASSIGN_IN_CONTROL", context.peek_token(i))
                 return -1
