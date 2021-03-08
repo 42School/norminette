@@ -15,6 +15,7 @@ class CheckFuncDeclaration(Rule):
         """
         i = 0
         tmp = 0
+        start = 0
         arg = 1
         while context.check_token(tmp, ["SEMI_COLON", "NEWLINE"]) is False:
             if context.check_token(tmp, "LBRACE") is True:
@@ -24,14 +25,15 @@ class CheckFuncDeclaration(Rule):
         # context.new_error("NEWLINE_IN_DECL", context.peek_token(tmp))
         # this is a func declaration
         if context.check_token(tmp, "SEMI_COLON") is False:
-            if (
-                len(context.history) > 1
-                and context.history[-2] != "IsEmptyLine"
-                and context.history[-2] != "IsPreprocessorStatement"
-                and context.history[-2] != "IsComment"
-                and context.history[-1] == "IsFuncDeclaration"
+            i = 2
+            length = len(context.history)
+            while length - i >= 0 and (context.history[-i] == "IsPreprocessorStatement"
+                or context.history[-i] == "IsComment"
             ):
-                context.new_error("NEWLINE_PRECEDES_FUNC", context.peek_token(i))
+                i += 1
+            if length - i > 0 and context.history[-i] != "IsEmptyLine":
+                print (context.peek_token(tmp))
+                context.new_error("NEWLINE_PRECEDES_FUNC", context.peek_token(start))
         # this is a func prototype
         i = context.fname_pos + 1
         while (context.check_token(i, ["RPARENTHESIS", "SPACE", "TAB"])) is True:
