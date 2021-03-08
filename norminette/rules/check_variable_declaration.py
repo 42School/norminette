@@ -30,6 +30,9 @@ class CheckVariableDeclaration(Rule):
         static_or_const = False
         passed_assign = False
         if context.scope.name == "Function":
+            context.scope.vars += 1
+            if context.scope.vars > 5:
+                context.new_error("TOO_MANY_VARS_FUNC", context.peek_token(i))
             if context.history[-2] != "IsBlockStart" and context.history[-2] != "IsVarDeclaration":
                 context.new_error("VAR_DECL_START_FUNC", context.peek_token(i))
             elif context.scope.vdeclarations_allowed == False:
