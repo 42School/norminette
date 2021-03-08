@@ -1,0 +1,19 @@
+[36mok_sign_specifier.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<VOID> <TAB> <IDENTIFIER=func> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <SIGNED> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <UNSIGNED> <TAB> <TAB> <TAB> <IDENTIFIER=j> <SEMI_COLON> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <SIGNED> <SPACE> <CHAR> <TAB> <TAB> <TAB> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <UNSIGNED> <SPACE> <CHAR> <TAB> <TAB> <IDENTIFIER=l> <SEMI_COLON> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 7":
+		<NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <IDENTIFIER=f> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 9":
+		<RBRACE> <NEWLINE>
+ok_sign_specifier.c: OK!
