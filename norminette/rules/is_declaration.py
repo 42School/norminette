@@ -12,10 +12,7 @@ class IsDeclaration(PrimaryRule):
         i = context.skip_ws(0, nl=False)
         p = 0
         ident = None
-        while (
-            context.peek_token(i) is not None
-            and context.check_token(i, "SEMI_COLON") is False
-        ):
+        while context.peek_token(i) is not None and context.check_token(i, "SEMI_COLON") is False:
             if context.check_token(i, "LPARENTHESIS"):
                 p += 1
             if context.check_token(i, "RPARENTHESIS"):

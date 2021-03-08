@@ -20,14 +20,8 @@ class CheckBrace(Rule):
             return False, 0
         i += 1
         i = context.skip_ws(i, nl=False)
-        if (
-            context.check_token(i, "NEWLINE") is False
-            or context.check_token(i, "NEWLINE") is None
-        ):
-            if (
-                context.scope.name == "UserDefinedType"
-                or context.scope.name == "UserDefinedEnum"
-            ):
+        if context.check_token(i, "NEWLINE") is False or context.check_token(i, "NEWLINE") is None:
+            if context.scope.name == "UserDefinedType" or context.scope.name == "UserDefinedEnum":
                 i = context.skip_ws(i, nl=False)
                 if context.check_token(i, "SEMI_COLON") is True:
                     return False, 0

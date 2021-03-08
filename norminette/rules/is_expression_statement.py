@@ -36,10 +36,7 @@ class IsExpressionStatement(PrimaryRule):
         elif context.check_token(pos, "GOTO"):
             i = pos + 1
             i = context.skip_ws(i)
-            while (
-                context.check_token(i, ["MULT", "BWISE_AND"]) is True
-                and context.is_operator(i) is False
-            ):
+            while context.check_token(i, ["MULT", "BWISE_AND"]) is True and context.is_operator(i) is False:
                 i += 1
             if context.check_token(i, "IDENTIFIER") is False:
                 if context.check_token(i, "LPARENTHESIS") is True:

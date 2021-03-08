@@ -33,11 +33,7 @@ class CheckLineIndent(Rule):
             else:
                 hist = context.history[: len(context.history) - 1]
                 for item in hist[::-1]:
-                    if (
-                        item == "IsEmptyLine"
-                        or item == "IsComment"
-                        or item == "IsPreprocessorStatement"
-                    ):
+                    if item == "IsEmptyLine" or item == "IsComment" or item == "IsPreprocessorStatement":
                         continue
                     if item not in [
                         "IsControlStatement",

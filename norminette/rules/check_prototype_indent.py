@@ -83,9 +83,7 @@ class CheckPrototypeIndent(Rule):
                     current_indent = math.floor((id_length + buffer_len) / 4)
                     buffer_len = 0
                 current_indent += 1
-            elif (
-                context.check_token(i, "IDENTIFIER") is True and type_identifier_nb == 0
-            ):
+            elif context.check_token(i, "IDENTIFIER") is True and type_identifier_nb == 0:
                 if context.scope.func_alignment == 0:
                     context.scope.func_alignment = current_indent
                 elif current_indent != context.scope.func_alignment:

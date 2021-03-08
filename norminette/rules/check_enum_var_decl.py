@@ -14,10 +14,7 @@ class CheckEnumVarDecl(Rule):
         while context.peek_token(i) and context.check_token(i, "COMMA") is False:
             if context.check_token(i, "NEWLINE") is True:
                 i += 1
-                while (
-                    context.peek_token(i) is not None
-                    and context.check_token(i, "NEWLINE") is False
-                ):
+                while context.peek_token(i) is not None and context.check_token(i, "NEWLINE") is False:
                     if context.check_token(i, "LBRACE") is True:
                         return False, 0
                     i += 1

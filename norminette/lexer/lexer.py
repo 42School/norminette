@@ -56,9 +56,7 @@ class Lexer:
             # this calculates the 'visual offset' of a tab based on it's
             # position on the line, if there's an easier way to calculate this
             # you're welcome
-            self.__line_pos = int(
-                (self.__line_pos + 4 - (self.__line_pos - 1) % 4) * 5 / 5
-            )
+            self.__line_pos = int((self.__line_pos + 4 - (self.__line_pos - 1) % 4) * 5 / 5)
         else:
             self.__line_pos += 1
         if self.__pos < self.len and self.src[self.__pos] == "\\":
@@ -166,9 +164,7 @@ class Lexer:
         pos = self.line_pos()
         tkn_value = ""
         bucket = ".0123456789aAbBcCdDeEfFlLuUxX-+"
-        while self.peek_char() and (
-            self.peek_char() in bucket or self.peek_char() == "\\\n"
-        ):
+        while self.peek_char() and (self.peek_char() in bucket or self.peek_char() == "\\\n"):
             if self.peek_char() in "xX":
                 if tkn_value.startswith("0") is False or len(tkn_value) > 1:
                     raise TokenError(pos)
@@ -177,11 +173,7 @@ class Lexer:
                         raise TokenError(pos)
 
             elif self.peek_char() in "bB":
-                if (
-                    tkn_value != "0"
-                    and tkn_value.startswith("0x") is False
-                    and tkn_value.startswith("0X") is False
-                ):
+                if tkn_value != "0" and tkn_value.startswith("0x") is False and tkn_value.startswith("0X") is False:
                     raise TokenError(pos)
 
             elif self.peek_char() in "+-":
@@ -192,11 +184,7 @@ class Lexer:
                 ):
                     break
 
-            elif (
-                self.peek_char() in "eE"
-                and "0x" not in tkn_value
-                and "0X" not in tkn_value
-            ):
+            elif self.peek_char() in "eE" and "0x" not in tkn_value and "0X" not in tkn_value:
                 if (
                     "e" in tkn_value
                     or "E" in tkn_value
@@ -219,12 +207,7 @@ class Lexer:
                     and "0X" not in tkn_value
                 ):
                     raise TokenError(pos)
-                elif (
-                    self.peek_char() == "l"
-                    and "L" in tkn_value
-                    or self.peek_char() == "L"
-                    and "l" in tkn_value
-                ):
+                elif self.peek_char() == "l" and "L" in tkn_value or self.peek_char() == "L" and "l" in tkn_value:
                     raise TokenError(pos)
 
             elif self.peek_char() in "uU":
@@ -232,12 +215,7 @@ class Lexer:
                     "u" in tkn_value
                     or "U" in tkn_value
                     or (
-                        (
-                            "e" in tkn_value
-                            or "E" in tkn_value
-                            or "f" in tkn_value
-                            or "F" in tkn_value
-                        )
+                        ("e" in tkn_value or "E" in tkn_value or "f" in tkn_value or "F" in tkn_value)
                         and ("0x" not in tkn_value and "0X" not in tkn_value)
                     )
                 ):
@@ -280,11 +258,7 @@ class Lexer:
 
             tkn_value += self.peek_char()
             self.pop_char()
-        if (
-            tkn_value[-1] in "eE"
-            and tkn_value.startswith("0x") is False
-            or tkn_value[-1] in "xX"
-        ):
+        if tkn_value[-1] in "eE" and tkn_value.startswith("0x") is False or tkn_value[-1] in "xX":
             raise TokenError(pos)
         else:
             self.tokens.append(Token("CONSTANT", pos, tkn_value))
@@ -330,8 +304,7 @@ class Lexer:
         pos = self.line_pos()
         tkn_value = ""
         while self.peek_char() and (
-            self.peek_char() in string.ascii_letters + "0123456789_"
-            or self.peek_char() == "\\\n"
+            self.peek_char() in string.ascii_letters + "0123456789_" or self.peek_char() == "\\\n"
         ):
             if self.peek_char() == "\\\n":
                 self.pop_char()
@@ -401,10 +374,7 @@ class Lexer:
         if tkn_key not in preproc_keywords and tkn_key[: len("include")] != "include":
             raise TokenError(self.line_pos())
         else:
-            if (
-                tkn_key not in preproc_keywords
-                and tkn_key[: len("include")] == "include"
-            ):
+            if tkn_key not in preproc_keywords and tkn_key[: len("include")] == "include":
                 tkn_key = "include"
             self.tokens.append(Token(preproc_keywords.get(tkn_key), pos, tkn_value))
 
@@ -417,9 +387,7 @@ class Lexer:
             if self.is_string():
                 self.string()
 
-            elif (
-                self.peek_char().isalpha() and self.peek_char().isascii()
-            ) or self.peek_char() == "_":
+            elif (self.peek_char().isalpha() and self.peek_char().isascii()) or self.peek_char() == "_":
                 self.identifier()
 
             elif self.is_constant():

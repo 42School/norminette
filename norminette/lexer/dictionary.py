@@ -115,9 +115,4 @@ brackets = {
     "]": "RBRACKET",
 }
 
-__all__ = [
-    "brackets",
-    "operators",
-    "preproc_keywords",
-    "keywords"
-]
+__all__ = ["brackets", "operators", "preproc_keywords", "keywords"]

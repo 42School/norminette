@@ -121,23 +121,13 @@ class IsFuncDeclaration(PrimaryRule):
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
         while context.peek_token(i):
-            if (
-                context.check_token(i, "NEWLINE") is True
-                and identifier == False
-                and misc_id == []
-                and type_id == []
-            ):
+            if context.check_token(i, "NEWLINE") is True and identifier == False and misc_id == [] and type_id == []:
                 return False, 0
             if context.check_token(i, misc_identifier) is True:
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if (
-                context.check_token(
-                    i, assigns + ["TYPEDEF", "COMMA", "LBRACE"] + preproc
-                )
-                is True
-            ):
+            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE"] + preproc) is True:
                 return False, 0
             if context.check_token(i, "SEMI_COLON") is True:
                 return False, 0

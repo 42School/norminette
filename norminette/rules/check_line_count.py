@@ -17,10 +17,7 @@ class CheckLineCount(Rule):
 
         if type(context.scope) is GlobalScope:
 
-            if (
-                context.get_parent_rule() == "CheckFuncDeclarations"
-                and context.scope.lines > 25
-            ):
+            if context.get_parent_rule() == "CheckFuncDeclarations" and context.scope.lines > 25:
                 context.new_error("TOO_MANY_LINES", context.tokens[context.tkn_scope])
             return False, 0
 

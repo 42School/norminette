@@ -53,10 +53,7 @@ class IsCast(PrimaryRule):
         if context.check_token(i, "LPARENTHESIS") is True:
             ret, i = context.parenthesis_contain(i)
             if ret == "cast":
-                while (
-                    context.peek_token(i)
-                    and context.check_token(i, "SEMI_COLON") is False
-                ):
+                while context.peek_token(i) and context.check_token(i, "SEMI_COLON") is False:
                     i += 1
                 i += 1
                 i = context.skip_ws(i, nl=False)

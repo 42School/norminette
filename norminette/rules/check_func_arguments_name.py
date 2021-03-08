@@ -44,9 +44,7 @@ class CheckFuncArgumentsName(Rule):
         if ret == False:
             context.new_error("ARG_TYPE_UKN", context.peek_token(i))
             return -1
-        while context.peek_token(i) is not None and context.check_token(
-            i, ["LPARENTHESIS"] + whitespaces
-        ):
+        while context.peek_token(i) is not None and context.check_token(i, ["LPARENTHESIS"] + whitespaces):
             if context.check_token(i, "LPARENTHESIS") is True:
                 p += 1
             if context.check_token(i, "RPARENTHESIS") is True:
@@ -74,10 +72,7 @@ class CheckFuncArgumentsName(Rule):
             i += 1
 
         else:
-            while (
-                context.peek_token(i) is not None
-                and context.peek_token(i).type not in stop
-            ):
+            while context.peek_token(i) is not None and context.peek_token(i).type not in stop:
                 i += 1
             i += 1
         return i

@@ -41,9 +41,7 @@ def main():
         help="Debug output (multiple values available)",
         default=0,
     )
-    parser.add_argument(
-        "-v", "--version", action="version", version="norminette " + str(__version__)
-    )
+    parser.add_argument("-v", "--version", action="version", version="norminette " + str(__version__))
     parser.add_argument(
         "--cfile",
         action="store",

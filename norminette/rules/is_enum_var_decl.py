@@ -28,16 +28,8 @@ class IsEnumVarDecl(PrimaryRule):
         braces = 0
         i = pos
         identifier = False
-        while (
-            context.peek_token(i) is not None
-            and context.check_token(i, ["COMMA", "RBRACE", "NEWLINE"]) is False
-        ):
-            if (
-                context.check_token(i, "IDENTIFIER") is True
-                and braces == 0
-                and brackets == 0
-                and parenthesis == 0
-            ):
+        while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "RBRACE", "NEWLINE"]) is False:
+            if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
                 identifier = True
             elif context.check_token(i, lbrackets) is True:
                 if context.check_token(i, "LBRACE") is True:
@@ -60,9 +52,7 @@ class IsEnumVarDecl(PrimaryRule):
                 i -= 1
                 if ret is False:
                     return False, pos
-            elif context.check_token(
-                i, ["SPACE", "TAB", "MULT", "BWISE_AND", "NEWLINE"]
-            ):
+            elif context.check_token(i, ["SPACE", "TAB", "MULT", "BWISE_AND", "NEWLINE"]):
                 pass
             elif parenthesis == 0 and brackets == 0 and braces == 0:
                 return False, 0
