@@ -7,3 +7,13 @@ void	func(void)
 
 	f();
 }
+
+void	f(signed i, unsigned j)
+{
+	f();
+}
+
+void	f(signed char i, unsigned char j)
+{
+	f();
+}

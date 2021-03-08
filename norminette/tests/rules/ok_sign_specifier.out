@@ -16,4 +16,24 @@
 		<TAB> <IDENTIFIER=f> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mok_sign_specifier.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 9":
 		<RBRACE> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 10":
+		<NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 11":
+		<VOID> <TAB> <IDENTIFIER=f> <LPARENTHESIS> <SIGNED> <SPACE> <IDENTIFIER=i> <COMMA> <SPACE> <UNSIGNED> <SPACE> <IDENTIFIER=j> <RPARENTHESIS> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 12":
+		<LBRACE> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 13":
+		<TAB> <IDENTIFIER=f> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 14":
+		<RBRACE> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 15":
+		<NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 16":
+		<VOID> <TAB> <IDENTIFIER=f> <LPARENTHESIS> <SIGNED> <SPACE> <CHAR> <SPACE> <IDENTIFIER=i> <COMMA> <SPACE> <UNSIGNED> <SPACE> <CHAR> <SPACE> <IDENTIFIER=j> <RPARENTHESIS> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 17":
+		<LBRACE> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 18":
+		<TAB> <IDENTIFIER=f> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_sign_specifier.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 19":
+		<RBRACE> <NEWLINE>
 ok_sign_specifier.c: OK!
