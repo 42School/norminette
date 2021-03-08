@@ -1,0 +1,17 @@
+[36mtest_file_210308_3.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<IFNDEF=#ifndef BUFFER_SIZE> <NEWLINE>
+[36mtest_file_210308_3.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<WARNING=# warning no BUFFER_SIZE specified, defaulting to 32> <NEWLINE>
+[36mtest_file_210308_3.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<DEFINE=# define BUFFER_SIZE 32> <NEWLINE>
+[36mtest_file_210308_3.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
+		<ELIF=#elif BUFFER_SIZE <= 0> <NEWLINE>
+[36mtest_file_210308_3.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
+		<WARNING=# warning BUFFER_SIZE <= 0, defaulting to 32> <NEWLINE>
+[36mtest_file_210308_3.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
+		<UNDEF=# undef BUFFER_SIZE> <NEWLINE>
+[36mtest_file_210308_3.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 7":
+		<DEFINE=# define BUFFER_SIZE 32> <NEWLINE>
+[36mtest_file_210308_3.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 8":
+		<ENDIF=#endif> 
+test_file_210308_3.c: OK!

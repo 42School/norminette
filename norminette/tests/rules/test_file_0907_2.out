@@ -228,6 +228,4 @@
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 143":
 		<ENDIF=#endif> <NEWLINE>
-test_file_0907_2.h: KO!
-	PREPROC_UKN_STATEMENT (line:  13, col:   1):	Unrecognized preprocessor statement
-	PREPROC_UKN_STATEMENT (line:  38, col:   1):	Unrecognized preprocessor statement
+test_file_0907_2.h: OK!
