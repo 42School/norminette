@@ -42,4 +42,28 @@
 		<LBRACE> <NEWLINE>
 [36mtest_file_210308.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 25":
 		<RBRACE> <NEWLINE>
-test_file_210308.c: OK!
+[36mtest_file_210308.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 26":
+		<MULT_COMMENT=/**
+ * test
+ */> <NEWLINE>
+<NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 29":
+		<VOID> <TAB> <IDENTIFIER=test2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 30":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 31":
+		<RBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 32":
+		<DEFINE=#define TOTO 2> <NEWLINE>
+<NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 33":
+		<VOID> <TAB> <IDENTIFIER=test2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 34":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 35":
+		<RBRACE> 
+test_file_210308.c: KO!
+	NEWLINE_PRECEDES_FUNC (line:  29, col:   1):	Functions must be separated by a newline
+	NEWLINE_PRECEDES_FUNC (line:  33, col:   1):	Functions must be separated by a newline
+	TOO_MANY_FUNCS       (line:  33, col:   1):	Too many functions in file
+	BRACE_SHOULD_EOL     (line:  35, col:   1):	Expected newline after brace
