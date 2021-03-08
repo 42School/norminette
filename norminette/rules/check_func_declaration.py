@@ -29,6 +29,7 @@ class CheckFuncDeclaration(Rule):
             length = len(context.history)
             while length - i >= 0 and (context.history[-i] == "IsPreprocessorStatement"
                 or context.history[-i] == "IsComment"
+                or context.history[-i] == "IsFuncDeclaration"
             ):
                 i += 1
             if length - i > 0 and context.history[-i] != "IsEmptyLine":
