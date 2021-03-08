@@ -28,6 +28,7 @@ class CheckFuncDeclaration(Rule):
                 len(context.history) > 1
                 and context.history[-2] != "IsEmptyLine"
                 and context.history[-2] != "IsPreprocessorStatement"
+                and context.history[-2] != "IsComment"
                 and context.history[-1] == "IsFuncDeclaration"
             ):
                 context.new_error("NEWLINE_PRECEDES_FUNC", context.peek_token(i))

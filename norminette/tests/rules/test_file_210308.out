@@ -1,0 +1,45 @@
+[36mtest_file_210308.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<VOID> <TAB> <IDENTIFIER=test1> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 3":
+		<RBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 4":
+		<MULT_COMMENT=/**
+ * test
+ */> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 8":
+		<VOID> <TAB> <IDENTIFIER=test2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 9":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 10":
+		<RBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 11":
+		<NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 12":
+		<MULT_COMMENT=/**
+ * test
+ */> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 15":
+		<NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 16":
+		<VOID> <TAB> <IDENTIFIER=test2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 17":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 18":
+		<RBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 19":
+		<NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 20":
+		<MULT_COMMENT=/**
+ * test
+ */> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 23":
+		<VOID> <TAB> <IDENTIFIER=test2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 24":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210308.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 25":
+		<RBRACE> <NEWLINE>
+test_file_210308.c: OK!
