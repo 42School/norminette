@@ -1,6 +1,4 @@
-from rules import Rule
-from scope import *
-
+from norminette.rules import Rule
 
 
 class CheckEmptyLine(Rule):
@@ -10,11 +8,11 @@ class CheckEmptyLine(Rule):
 
     def run(self, context):
         """
-            Empty line must not contains tabs or spaces
-            You cannot have 2 empty lines in a row
-            Your variable declarations must be followed by an empty line
-            No other empty lines are allowed in functions
-            You must have an empty between two functions
+        Empty line must not contains tabs or spaces
+        You cannot have 2 empty lines in a row
+        Your variable declarations must be followed by an empty line
+        No other empty lines are allowed in functions
+        You must have an empty between two functions
         """
         i = 0
         if len(context.history) == 1 and context.history[-1] == "IsEmptyLine":

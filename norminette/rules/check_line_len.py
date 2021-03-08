@@ -1,4 +1,4 @@
-from rules import Rule
+from norminette.rules import Rule
 
 
 class CheckLineLen(Rule):
@@ -8,9 +8,9 @@ class CheckLineLen(Rule):
 
     def run(self, context):
         """
-            Lines must not be over 80 characters long
+        Lines must not be over 80 characters long
         """
-        for tkn in context.tokens[:context.tkn_scope]:
+        for tkn in context.tokens[: context.tkn_scope]:
             if tkn.type == "NEWLINE" and tkn.pos[1] > 81:
                 context.new_error("LINE_TOO_LONG", tkn)
         return False, 0

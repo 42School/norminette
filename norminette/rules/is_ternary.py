@@ -1,6 +1,5 @@
-from lexer import Token
-from rules import Rule
-import string
+from norminette.rules import Rule
+
 
 class IsTernary(Rule):
     def __init__(self):
@@ -10,7 +9,7 @@ class IsTernary(Rule):
 
     def run(self, context):
         """
-            Catches ternaries and raises an error
+        Catches ternaries and raises an error
         """
         i = 0
         while context.peek_token(i) is not None and context.check_token(i, "SEMI_COLON") is False:

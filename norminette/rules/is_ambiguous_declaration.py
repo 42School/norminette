@@ -1,6 +1,4 @@
-from rules import PrimaryRule
-from context import ControlStructure, Function, GlobalScope
-from exceptions import CParsingError
+from norminette.rules import PrimaryRule
 
 cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH", "CASE", "DEFAULT"]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
@@ -14,7 +12,7 @@ class IsAmbiguousDeclaration(PrimaryRule):
 
     def run(self, context):
         """
-            Catches missing semi-colon or other various missing stuff. Dev feature
+        Catches missing semi-colon or other various missing stuff. Dev feature
         """
         i = context.skip_ws(0, nl=False)
         while context.peek_token(i) and context.check_token(i, "NEWLINE") is False:

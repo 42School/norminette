@@ -29,12 +29,12 @@ def colors(text, *argv):
         "light_magenta": 95,
         "light_cyan": 96,
         "white": 97,
-        "reset_all": 0
+        "reset_all": 0,
     }
     reset = "\u001b[0m"
     tmp = []
     for arg in argv:
         tmp.append(str(options.get(arg, 0)))
-    sep = ';'
+    sep = ";"
     res = f"\u001b[{sep.join(tmp)}m{text}{reset}"
-    return (res)
+    return res

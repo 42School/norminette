@@ -1,7 +1,16 @@
-from rules import Rule
+from norminette.rules import Rule
 
-ALLOWED_PREPROC = ["DEFINE", "IFNDEF", "IFDEF", "#IF", "ELIF", "#ELSE", "ENDIF", "INCLUDE"]
-TOO_MUCH_INDENT = ["IFNDEF", "IFDEF", "ELIF",  "#IF", "#ELSE"]
+ALLOWED_PREPROC = [
+    "DEFINE",
+    "IFNDEF",
+    "IFDEF",
+    "#IF",
+    "ELIF",
+    "#ELSE",
+    "ENDIF",
+    "INCLUDE",
+]
+TOO_MUCH_INDENT = ["IFNDEF", "IFDEF", "ELIF", "#IF", "#ELSE"]
 
 
 class CheckPreprocessorIndent(Rule):
@@ -13,17 +22,17 @@ class CheckPreprocessorIndent(Rule):
         val = val[1:]
         spaces = 0
         for i in val:
-            if i == ' ':
+            if i == " ":
                 spaces += 1
             else:
                 return spaces
 
     def run(self, context):
         """
-            Preprocessor statements must be indented by an additionnal space for each #ifdef/#ifndef/#if 
-            statement.
-            Structure is `#{indentation}preproc_statement`
-            Preprocessor must always be at the start of the line
+        Preprocessor statements must be indented by an additionnal space for each #ifdef/#ifndef/#if
+        statement.
+        Structure is `#{indentation}preproc_statement`
+        Preprocessor must always be at the start of the line
         """
         i = 0
         i = context.skip_ws(i)
@@ -38,7 +47,7 @@ class CheckPreprocessorIndent(Rule):
             current_indent -= 1
         if current_indent < 0:
             current_indent = 0
-        fmt = ''
+        fmt = ""
         val = tken.value[1:] if tken.value else tken.type
         spaces = self.get_space_number(tken.value if tken.value else tken.type)
         if current_indent != spaces:

@@ -1,11 +1,8 @@
-from lexer import Token
-from rules import PrimaryRule
-from context import (
-                    Function,
-                    UserDefinedType,
-                    VariableAssignation,
-                    ControlStructure,
-                    UserDefinedEnum)
+from norminette.context import ControlStructure
+from norminette.scope import UserDefinedEnum
+from norminette.scope import UserDefinedType
+from norminette.scope import VariableAssignation
+from norminette.rules import PrimaryRule
 
 
 class IsBlockEnd(PrimaryRule):
@@ -28,9 +25,9 @@ class IsBlockEnd(PrimaryRule):
 
     def run(self, context):
         """
-            Catches RBRACE tokens.
-            Handles scope related stuff: Exiting a scope is done here and in registry.py
-            Scope is calculated AFTER the rules have run for this primary rule
+        Catches RBRACE tokens.
+        Handles scope related stuff: Exiting a scope is done here and in registry.py
+        Scope is calculated AFTER the rules have run for this primary rule
         """
         i = context.skip_ws(0)
         if context.check_token(i, "RBRACE") is False:
@@ -47,7 +44,7 @@ class IsBlockEnd(PrimaryRule):
                 ret, i = self.check_udef_typedef(context, i)
                 i = context.eol(i)
                 return ret, i
-            elif context.check_token(i, 'SEMI_COLON') is True:
+            elif context.check_token(i, "SEMI_COLON") is True:
                 i += 1
                 i = context.eol(i)
                 return True, i
@@ -59,7 +56,7 @@ class IsBlockEnd(PrimaryRule):
         if type(context.scope) is VariableAssignation:
             i = context.skip_ws(i)
             if context.check_token(i, "SEMI_COLON"):
-                #Fatal err?
+                # Fatal err?
                 return False, 0
             i += 1
             i = context.eol(i)

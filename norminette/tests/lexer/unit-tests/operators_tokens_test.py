@@ -1,10 +1,10 @@
-import unittest
 import sys
+import unittest
+
 from lexer.lexer import Lexer
 
 
 class TokensOperatorsTest(unittest.TestCase):
-
     def test_op_right_assign(self):
         self.assertEqual(Lexer(">>=").get_next_token().type, "RIGHT_ASSIGN")
 
@@ -125,5 +125,5 @@ class TokensOperatorsTest(unittest.TestCase):
     def test_op_tern_condition(self):
         self.assertEqual(Lexer("?").get_next_token().type, "TERN_CONDITION")
 
-    if __name__ == '__main__':
+    if __name__ == "__main__":
         unittest.main()

@@ -1,8 +1,8 @@
-from norm_error import NormError
-from lexer.dictionary import operators, brackets
-from tools.colors import colors
-from scope import *
-from exceptions import CParsingError
+from norminette.exceptions import CParsingError
+from norminette.lexer.dictionary import operators
+from norminette.norm_error import NormError
+from norminette.scope import GlobalScope, ControlStructure
+from norminette.tools.colors import colors
 
 types = [
     "CHAR",
@@ -15,14 +15,10 @@ types = [
     "LONG",
     "SHORT",
     "SIGNED",
-    "UNSIGNED"
+    "UNSIGNED",
 ]
 
-utypes = [
-    "STRUCT",
-    "ENUM",
-    "UNION"
-]
+utypes = ["STRUCT", "ENUM", "UNION"]
 
 glued_operators = [
     "MINUS",
@@ -105,7 +101,7 @@ operators = [
     "GOTO",
     "LABEL",
     "SWITCH",
-    "CASE"
+    "CASE",
 ]
 misc_specifiers = [
     "CONST",
@@ -114,39 +110,24 @@ misc_specifiers = [
     "VOLATILE",
     "EXTERN",
     "INLINE",
-    "RESTRICT"
-    "SIGNED",
+    "RESTRICT" "SIGNED",
     "UNSIGNED",
 ]
 
-size_specifiers = [
-    "LONG",
-    "SHORT"
-]
+size_specifiers = ["LONG", "SHORT"]
 
-sign_specifiers = [
-    "SIGNED",
-    "UNSIGNED"
-]
+sign_specifiers = ["SIGNED", "UNSIGNED"]
 
-whitespaces = [
-    "SPACE",
-    "TAB",
-    "ESCAPED_NEWLINE",
-    "NEWLINE"
-]
+whitespaces = ["SPACE", "TAB", "ESCAPED_NEWLINE", "NEWLINE"]
 
-arg_separator = [
-    "COMMA",
-    "CLOSING_PARENTHESIS"
-]
+arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
 
 class Context:
     def __init__(self, filename, tokens, debug=0):
         # File relative informations
-        self.filename = filename.split('/')[-1]
-        self.filetype = filename.split('.')[-1]  # ?
+        self.filename = filename.split("/")[-1]
+        self.filetype = filename.split(".")[-1]  # ?
         self.tokens = tokens
         self.debug = int(debug)
 
@@ -172,8 +153,7 @@ class Context:
         self.tokens = self.tokens[stop:]
 
     def check_token(self, pos, value):
-        """Compares the token at 'pos' against a value or list of values
-        """
+        """Compares the token at 'pos' against a value or list of values"""
         tkn = self.peek_token(pos)
 
         if tkn is None:
@@ -196,10 +176,14 @@ class Context:
 
     def update(self):
         """Updates informations about the context and  the scope if needed
-            after a primary rule has succeeded.
-            Do nothing on empty lines since they can be anywhere
+        after a primary rule has succeeded.
+        Do nothing on empty lines since they can be anywhere
         """
-        if len(self.history) > 0 and (self.history[-1] == "IsEmptyLine" or self.history[-1] == "IsComment" or self.history[-1] == "IsPreprocessorStatement"):
+        if len(self.history) > 0 and (
+            self.history[-1] == "IsEmptyLine"
+            or self.history[-1] == "IsComment"
+            or self.history[-1] == "IsPreprocessorStatement"
+        ):
             return
         if self.sub is not None:
             self.scope = self.sub
@@ -212,13 +196,15 @@ class Context:
 
     def dprint(self, rule, pos):
         """Debug printing, shows the primary rules that succeed in matching
-            tokens and print the matching tokens
+        tokens and print the matching tokens
         """
         if self.debug < 2:
             return
-        print(f"{colors(self.filename, 'cyan')} - {colors(rule, 'green')} \
+        print(
+            f"{colors(self.filename, 'cyan')} - {colors(rule, 'green')} \
 In \"{self.scope.name}\" from \
-\"{self.scope.parent.name if self.scope.parent is not  None else None}\" line {self.tokens[0].pos[0]}\":")
+\"{self.scope.parent.name if self.scope.parent is not  None else None}\" line {self.tokens[0].pos[0]}\":"
+        )
         i = 0
         for t in self.tokens[:pos]:
             if i == 0:
@@ -234,7 +220,7 @@ In \"{self.scope.name}\" from \
 
     def eol(self, pos):
         """Skips white space characters (tab, space) until end of line
-            (included) or any other token (excluded)
+        (included) or any other token (excluded)
         """
         while self.check_token(pos, ["TAB", "SPACE", "NEWLINE"]) is True:
             if self.check_token(pos, "NEWLINE"):
@@ -251,11 +237,10 @@ In \"{self.scope.name}\" from \
             pos += 1
         return pos
 
-
     def skip_nest_reverse(self, pos):
         """Skips anything between two brackets, parentheses or braces starting
-            at 'pos', if the brackets, parentheses or braces are not closed or
-            are closed in the wrong order an error shall be raised
+        at 'pos', if the brackets, parentheses or braces are not closed or
+        are closed in the wrong order an error shall be raised
         """
         rbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
         lbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
@@ -276,15 +261,17 @@ In \"{self.scope.name}\" from \
                 if c == self.peek_token(i).type:
                     return i
             i -= 1
-        raise CParsingError("Nested parentheses, braces or brackets\
- are not correctly closed")
+        raise CParsingError(
+            "Nested parentheses, braces or brackets\
+ are not correctly closed"
+        )
 
         return -1
 
     def skip_nest(self, pos):
         """Skips anything between two brackets, parentheses or braces starting
-            at 'pos', if the brackets, parentheses or braces are not closed or
-            are closed in the wrong order an error shall be raised
+        at 'pos', if the brackets, parentheses or braces are not closed or
+        are closed in the wrong order an error shall be raised
         """
         lbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
         rbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
@@ -305,8 +292,10 @@ In \"{self.scope.name}\" from \
                 if c == self.peek_token(i).type:
                     return i
             i += 1
-        raise CParsingError("Nested parentheses, braces or brackets\
- are not correctly closed")
+        raise CParsingError(
+            "Nested parentheses, braces or brackets\
+ are not correctly closed"
+        )
 
         return -1
 
@@ -326,12 +315,12 @@ In \"{self.scope.name}\" from \
 
     def check_type_specifier(self, pos, user_def_type=False, nl=False):
         """Returns (True, pos + n) if the tokens from 'pos' to 'n' could match
-            a valid type specifier. Valid type specifiers consist of:
-                -an optionnal 'misc' specifier (const, register, volatile ...)
-                -an optionnal size specifier (long or short)
-                -a type specifier (int, char, double, etc...)
-                    OR an IDENTIFIER
-                    OR a user type specifier (struct, union, enum) + IDENTIFIER
+        a valid type specifier. Valid type specifiers consist of:
+            -an optionnal 'misc' specifier (const, register, volatile ...)
+            -an optionnal size specifier (long or short)
+            -a type specifier (int, char, double, etc...)
+                OR an IDENTIFIER
+                OR a user type specifier (struct, union, enum) + IDENTIFIER
         """
         i = self.skip_misc_specifier(pos, nl=nl)
         i = self.skip_ws(i, nl=nl)
@@ -342,7 +331,7 @@ In \"{self.scope.name}\" from \
                 if self.check_token(i, "IDENTIFIER") is True:
                     i += 1
                     return True, i
-                #Raise CParsingError?
+                # Raise CParsingError?
             if self.check_token(i, types + ["IDENTIFIER", "TYPEDEF"]) is False:
                 return False, 0
             if self.check_token(i, "IDENTIFIER") is True:
@@ -370,8 +359,8 @@ In \"{self.scope.name}\" from \
 
     def check_identifier(self, pos, nl=False):
         """
-            Determines the function return value or the variable type and returns
-            an iterator to the next token
+        Determines the function return value or the variable type and returns
+        an iterator to the next token
         """
         i = pos
         p = 0
@@ -379,7 +368,7 @@ In \"{self.scope.name}\" from \
         while self.check_token(i, whitespaces + ["MULT", "LPARENTHESIS"]) is True:
             if self.check_token(i, "LPARENTHESIS"):
                 p += 1
-            if self.check_token(i, "MULT") and self.check_token(i+1, "CONST"):
+            if self.check_token(i, "MULT") and self.check_token(i + 1, "CONST"):
                 i += 1
             i += 1
 
@@ -394,21 +383,27 @@ In \"{self.scope.name}\" from \
 
     def is_glued_operator(self, pos):
         """
-            Returns True if operator (among +-) at given pos is glued to identifier, number 
-            or constant
+        Returns True if operator (among +-) at given pos is glued to identifier, number
+        or constant
         """
         glued = [
-            'LPARENTHESIS',
-            'LBRACKET',
-            'LBRACE',
+            "LPARENTHESIS",
+            "LBRACKET",
+            "LBRACE",
         ]
         glued = glued + glued_operators
         start = pos
-        if self.check_token(pos, ['PLUS', 'MINUS', 'BWISE_OR', 'BWISE_AND', 'BWISE_NOT', 'BWISE_XOR']) is False:
+        if (
+            self.check_token(
+                pos,
+                ["PLUS", "MINUS", "BWISE_OR", "BWISE_AND", "BWISE_NOT", "BWISE_XOR"],
+            )
+            is False
+        ):
             return False
         pos += 1
         pos = self.skip_ws(pos, nl=False)
-        if self.check_token(pos, ['IDENTIFIER', 'CONSTANT']) is False:
+        if self.check_token(pos, ["IDENTIFIER", "CONSTANT"]) is False:
             return False
         pos = start - 1
         while (self.check_token(pos, ["SPACE", "TAB"])) is True:
@@ -419,8 +414,8 @@ In \"{self.scope.name}\" from \
 
     def is_operator(self, pos):
         """
-            Returns True if the given operator (among '*&') is an actual operator,
-            and returns False if said operator is a pointer/adress indicator
+        Returns True if the given operator (among '*&') is an actual operator,
+        and returns False if said operator is a pointer/adress indicator
         """
         i = 0
         start = pos + 1
@@ -432,7 +427,7 @@ In \"{self.scope.name}\" from \
         start = self.skip_ws(start, nl=False)
         if self.check_token(start, ["SIZEOF"]) is True:
             return True
-        if self.history[-1] == 'IsVarDeclaration':
+        if self.history[-1] == "IsVarDeclaration":
             tmp = pos
             right_side = False
             while tmp > 0:
@@ -447,7 +442,7 @@ In \"{self.scope.name}\" from \
         while pos > 0:
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
                 pos = self.skip_nest_reverse(pos) - 1
-                if self.check_token(pos, "RPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == 'cast':
+                if self.check_token(pos, "RPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == "cast":
                     return False
                 skip = 1
             if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF"]) is True:
@@ -456,16 +451,19 @@ In \"{self.scope.name}\" from \
                 return True
             if self.check_token(pos, ["COMMA", "LPARENTHESIS"] + operators) is True and skip == 1:
                 return True
-            if self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND", "COMMA"] + operators + types):
+            if self.check_token(
+                pos,
+                ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND", "COMMA"] + operators + types,
+            ):
                 return False
             pos -= 1
         return False
 
     def parenthesis_contain(self, i, ret_store=None):
         """
-            Explore parenthesis to return its content
-            Function, pointer, cast, or other
-            Uses basic string as return value and skips to the end of the parenthesis nest
+        Explore parenthesis to return its content
+        Function, pointer, cast, or other
+        Uses basic string as return value and skips to the end of the parenthesis nest
         """
         start = i
         ws = ["SPACE", "TAB", "NEWLINE"]
@@ -474,7 +472,7 @@ In \"{self.scope.name}\" from \
         nested_id = False
         identifier = None
         pointer = None
-        while (deep > 0):
+        while deep > 0:
             if self.check_token(i, "RPARENTHESIS"):
                 deep -= 1
             elif self.check_token(i, "LPARENTHESIS"):
@@ -512,7 +510,7 @@ In \"{self.scope.name}\" from \
                         tmp += 1
                     while self.check_token(tmp, "RPARENTHESIS"):
                         tmp += 1
-                        #start = tmp
+                        # start = tmp
                     tmp = self.skip_ws(tmp)
                     if self.check_token(tmp, "LPARENTHESIS"):
                         return "pointer", self.skip_nest(start)

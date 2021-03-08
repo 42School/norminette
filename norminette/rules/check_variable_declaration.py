@@ -1,5 +1,4 @@
-from rules import Rule
-from scope import *
+from norminette.rules import Rule
 
 assigns = [
     "RIGHT_ASSIGN",
@@ -15,6 +14,7 @@ assigns = [
     "ASSIGN",
 ]
 
+
 class CheckVariableDeclaration(Rule):
     def __init__(self):
         super().__init__()
@@ -22,9 +22,9 @@ class CheckVariableDeclaration(Rule):
 
     def run(self, context):
         """
-            Variables can be declared as global or in the scope of a function
-            Only static variables, global variables, and constants can be initialised at declaration.
-            Each variable must be declared on a separate line
+        Variables can be declared as global or in the scope of a function
+        Only static variables, global variables, and constants can be initialised at declaration.
+        Each variable must be declared on a separate line
         """
         i = 0
         static_or_const = False
