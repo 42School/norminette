@@ -1,6 +1,6 @@
-from rules import Rule
-from lexer import Lexer, TokenError
-from scope import *
+from norminette.lexer import Lexer
+from norminette.rules import Rule
+from norminette.scope import GlobalScope
 
 
 class CheckPreprocessorInclude(Rule):
@@ -10,11 +10,11 @@ class CheckPreprocessorInclude(Rule):
 
     def run(self, context):
         """
-            Includes must be at the start of the file
-            You cannot include anything that isn't an header file
+        Includes must be at the start of the file
+        You cannot include anything that isn't an header file
         """
         i = 0
-        filetype = ''
+        filetype = ""
         if context.check_token(i, "INCLUDE") is False:
             return False, 0
         if type(context.scope) is not GlobalScope or context.scope.include_allowed == False:
@@ -36,9 +36,9 @@ class CheckPreprocessorInclude(Rule):
                 i -= 1
         elif i < len(tkns) and tkns[i].type == "STRING":
             try:
-                filetype = tkns[i].value.split('.')[-1][0]
+                filetype = tkns[i].value.split(".")[-1][0]
             except:
-                filetype = ''
-        if filetype and filetype != 'h':
+                filetype = ""
+        if filetype and filetype != "h":
             context.new_error("INCLUDE_HEADER_ONLY", context.peek_token(0))
         return False, 0

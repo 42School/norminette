@@ -1,5 +1,7 @@
-from rules import Rule
 import math
+
+from norminette.rules import Rule
+
 keywords = [
     # C reserved keywords #
     "AUTO",
@@ -33,13 +35,11 @@ keywords = [
     "UNSIGNED",
     "VOID",
     "VOLATILE",
-    "WHILE", 
+    "WHILE",
     "IDENTIFIER",
 ]
-eol = [
-    "SEMI_COLON",
-    "LPARENTHESIS"
-]
+eol = ["SEMI_COLON", "LPARENTHESIS"]
+
 
 class CheckPrototypeIndent(Rule):
     def __init__(self):
@@ -48,7 +48,7 @@ class CheckPrototypeIndent(Rule):
 
     def run(self, context):
         """
-            All function prototypes names must be aligned on the same indentation
+        All function prototypes names must be aligned on the same indentation
         """
         i = 0
         type_identifier_nb = -1
@@ -57,7 +57,7 @@ class CheckPrototypeIndent(Rule):
         buffer_len = 0
         while context.check_token(i, ["SEMI_COLON"]) is False:
             if context.check_token(i, "LPARENTHESIS") is True:
-                if context.parenthesis_contain(i)[0] == 'pointer':
+                if context.parenthesis_contain(i)[0] == "pointer":
                     i += 1
                     continue
                 else:

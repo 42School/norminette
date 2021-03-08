@@ -1,5 +1,6 @@
-import unittest
 import sys
+import unittest
+
 from lexer.lexer import Lexer
 
 
@@ -12,7 +13,6 @@ def eat_tokens(line):
 
 
 class TokensKeywordsTest(unittest.TestCase):
-
     def test_auto_keyword(self):
         self.assertEqual(eat_tokens("auto"), "<AUTO>")
 
@@ -128,5 +128,5 @@ class TokensKeywordsTest(unittest.TestCase):
         self.assertEqual(eat_tokens("#undef"), "<UNDEF=#undef>")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

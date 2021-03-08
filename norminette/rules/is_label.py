@@ -1,4 +1,5 @@
-from rules import PrimaryRule
+from norminette.rules import PrimaryRule
+
 
 class IsLabel(PrimaryRule):
     def __init__(self):
@@ -7,7 +8,7 @@ class IsLabel(PrimaryRule):
 
     def run(self, context):
         """
-            Catches label and raises norm error whenever
+        Catches label and raises norm error whenever
         """
         i = context.skip_ws(0)
         if context.check_token(i, "IDENTIFIER") is False:

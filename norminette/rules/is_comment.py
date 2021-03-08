@@ -1,6 +1,4 @@
-from lexer import Token
-from rules import PrimaryRule
-from context import GlobalScope, UserDefinedType, ControlStructure, Function
+from norminette.rules import PrimaryRule
 
 
 class IsComment(PrimaryRule):
@@ -11,7 +9,7 @@ class IsComment(PrimaryRule):
 
     def run(self, context):
         """
-            Catches comments tokens
+        Catches comments tokens
         """
         i = context.skip_ws(0)
         if context.check_token(i, ["MULT_COMMENT", "COMMENT"]) is True:

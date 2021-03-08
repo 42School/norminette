@@ -1,4 +1,7 @@
-from lexer.dictionary import operators, brackets, keywords, preproc_keywords
+from norminette.lexer.dictionary import brackets
+from norminette.lexer.dictionary import keywords
+from norminette.lexer.dictionary import operators
+from norminette.lexer.dictionary import preproc_keywords
 
 
 class Token:
@@ -17,7 +20,7 @@ class Token:
         Token representation for debugging, using the format <TYPE=value>
         or simply <TYPE> when value is None
         """
-        r = f'<{self.type}={self.value}>' if self.value else f'<{self.type}>'
+        r = f"<{self.type}={self.value}>" if self.value else f"<{self.type}>"
         return r
 
     def test(self):

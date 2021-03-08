@@ -1,5 +1,5 @@
-from rules import Rule
-from scope import *
+from norminette.rules import Rule
+
 assigns = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -43,8 +43,8 @@ class CheckAssignation(Rule):
 
     def run(self, context):
         """
-            Only one assignation at a time
-            Unless the variable is static (or global), you cannot assign its value when you declare it.
+        Only one assignation at a time
+        Unless the variable is static (or global), you cannot assign its value when you declare it.
         """
         i = 0
         assign_present = False
