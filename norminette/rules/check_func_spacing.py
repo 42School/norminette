@@ -1,44 +1,16 @@
-from rules import Rule
+from norminette.rules import Rule
 
-whitespaces = [
-    "SPACE",
-    "TAB",
-    "NEWLINE"
-]
+whitespaces = ["SPACE", "TAB", "NEWLINE"]
 
-type_specifiers = [
-    "CHAR",
-    "DOUBLE",
-    "ENUM",
-    "FLOAT",
-    "INT",
-    "UNION",
-    "VOID",
-    "SHORT"
-]
+type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID", "SHORT"]
 
-misc_specifiers = [
-    "CONST",
-    "REGISTER",
-    "STATIC",
-    "STRUCT",
-    "VOLATILE"
-]
+misc_specifiers = ["CONST", "REGISTER", "STATIC", "STRUCT", "VOLATILE"]
 
-size_specifiers = [
-    "LONG",
-    "SHORT"
-]
+size_specifiers = ["LONG", "SHORT"]
 
-sign_specifiers = [
-    "SIGNED",
-    "UNSIGNED"
-]
+sign_specifiers = ["SIGNED", "UNSIGNED"]
 
-arg_separator = [
-    "COMMA",
-    "CLOSING_PARENTHESIS"
-]
+arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
 
 class CheckFuncSpacing(Rule):
@@ -48,7 +20,7 @@ class CheckFuncSpacing(Rule):
 
     def run(self, context):
         """
-            Function return type and function name must be separated by a tab
+        Function return type and function name must be separated by a tab
         """
         i = context.fname_pos - 1
         while context.check_token(i, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:

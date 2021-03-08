@@ -1,6 +1,4 @@
-from rules import PrimaryRule
-from context import GlobalScope, VariableAssignation
-from exceptions import CParsingError
+from norminette.rules import PrimaryRule
 
 condition_ops = [
     "LESS_OR_EQUAL",
@@ -39,7 +37,7 @@ assign_ops = [
     "AND_ASSIGN",
     "XOR_ASSIGN",
     "OR_ASSIGN",
-    "ASSIGN"
+    "ASSIGN",
 ]
 
 types = [
@@ -60,7 +58,7 @@ types = [
     "CONST",
     "REGISTER",
     "STATIC",
-    "VOLATILE"
+    "VOLATILE",
 ]
 
 op = [
@@ -75,7 +73,7 @@ op = [
     "INC",
     "DEC",
     "PTR",
-    "DOT"
+    "DOT",
 ]
 
 ws = ["SPACE", "TAB", "NEWLINE"]
@@ -90,7 +88,7 @@ class IsFunctionCall(PrimaryRule):
 
     def run(self, context):
         """
-            Catches function calls when it's in an assignation
+        Catches function calls when it's in an assignation
         """
         i = context.skip_ws(0, nl=False)
         types = []
@@ -102,7 +100,7 @@ class IsFunctionCall(PrimaryRule):
                 i = context.skip_ws(i + 1)
                 if context.peek_token(i) is None or context.check_token(i, "NEWLINE") is True:
                     return False, 0
-                #i += 1
+                # i += 1
                 if len(types) > 1:
                     i = context.skip_ws(i, nl=False)
                     if context.check_token(i, "SEMI_COLON") is True:

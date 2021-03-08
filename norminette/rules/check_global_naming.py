@@ -1,5 +1,4 @@
-from rules import Rule
-from lexer import Lexer, TokenError
+from norminette.rules import Rule
 
 types = [
     "INT",
@@ -19,8 +18,9 @@ types = [
     "VOLATILE",
     "EXTERN",
     "SPACE",
-    "TAB"
+    "TAB",
 ]
+
 
 class CheckGlobalNaming(Rule):
     def __init__(self):
@@ -29,7 +29,7 @@ class CheckGlobalNaming(Rule):
 
     def run(self, context):
         """
-            Global variable names must be preceded by g_
+        Global variable names must be preceded by g_
         """
         i = 0
         last_id = ""
@@ -40,5 +40,5 @@ class CheckGlobalNaming(Rule):
         while context.check_token(i, "IDENTIFIER") is False:
             i += 1
         if context.peek_token(i).value.startswith("g_") is False:
-                context.new_error("GLOBAL_VAR_NAMING", context.peek_token(i))
+            context.new_error("GLOBAL_VAR_NAMING", context.peek_token(i))
         return False, i

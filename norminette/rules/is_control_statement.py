@@ -1,8 +1,19 @@
-from rules import PrimaryRule
-from context import ControlStructure, Function, GlobalScope
-from exceptions import CParsingError
+from norminette.context import ControlStructure
+from norminette.scope import Function
+from norminette.context import GlobalScope
+from norminette.rules import PrimaryRule
 
-cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH", "CASE", "DEFAULT", "IDENTIFIER"]
+cs_keywords = [
+    "DO",
+    "WHILE",
+    "FOR",
+    "IF",
+    "ELSE",
+    "SWITCH",
+    "CASE",
+    "DEFAULT",
+    "IDENTIFIER",
+]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
 
 
@@ -14,8 +25,8 @@ class IsControlStatement(PrimaryRule):
 
     def run(self, context):
         """
-            Catches control statements, including for/switch
-            Includes the condition, even if over multiple lines
+        Catches control statements, including for/switch
+        Includes the condition, even if over multiple lines
         """
         is_id = False
         id_instead_cs = False

@@ -1,6 +1,4 @@
-from lexer import Token
-from rules import Rule
-import string
+from norminette.rules import Rule
 
 
 class CheckFunctionsCount(Rule):
@@ -10,7 +8,7 @@ class CheckFunctionsCount(Rule):
 
     def run(self, context):
         """
-            Each file cannot contain more than 5 function
+        Each file cannot contain more than 5 function
         """
         if context.scope != None and context.scope.name == "GlobalScope":
             if context.scope.functions > 5:

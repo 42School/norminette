@@ -1,6 +1,7 @@
-from lexer import Token
-from rules import PrimaryRule
-from context import GlobalScope, Function, UserDefinedType
+from norminette.scope import Function
+from norminette.context import GlobalScope
+from norminette.rules import PrimaryRule
+
 
 whitespaces = ["SPACE", "TAB"]
 preproc = [
@@ -14,7 +15,7 @@ preproc = [
     "#ELSE",
     "INCLUDE",
     "PRAGMA",
-    "UNDEF"
+    "UNDEF",
 ]
 assigns = [
     "RIGHT_ASSIGN",
@@ -42,7 +43,7 @@ misc_identifier = [
     "TYPEDEF",
     "STRUCT",
     "ENUM",
-    "UNION"
+    "UNION",
 ]
 type_identifier = [
     "CHAR",
@@ -55,6 +56,8 @@ type_identifier = [
     "LONG",
     "SHORT",
 ]
+
+
 class IsFuncDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
@@ -164,7 +167,7 @@ class IsFuncDeclaration(PrimaryRule):
                     i += 1
             else:
                 i += 1
-        #print (type_id, args, identifier)
+        # print (type_id, args, identifier)
         if len(type_id) > 0 and args == True and identifier != None:
             i = identifier[1]
             i = context.skip_ws(i, nl=True)
@@ -190,9 +193,9 @@ class IsFuncDeclaration(PrimaryRule):
 
     def run(self, context):
         """
-            Catches function declaration
-            Allows newline inside it
-            Creates context variable for function name, arg_start, arg_end
+        Catches function declaration
+        Allows newline inside it
+        Creates context variable for function name, arg_start, arg_end
         """
         if type(context.scope) is not GlobalScope:
             return False, 0

@@ -1,8 +1,6 @@
-from rules import Rule
-from lexer import Lexer, TokenError
-from scope import *
-import math
-from exceptions import CParsingError
+from norminette.exceptions import CParsingError
+from norminette.rules import Rule
+
 
 types = [
     "STRUCT",
@@ -19,14 +17,11 @@ types = [
     "STATIC",
     "IDENTIFIER",
     "SPACE",
-    "TAB"
+    "TAB",
 ]
 
-utypes = [
-    "STRUCT",
-    "ENUM",
-    "UNION"
-]
+utypes = ["STRUCT", "ENUM", "UNION"]
+
 
 class CheckUtypeDeclaration(Rule):
     def __init__(self):
@@ -35,11 +30,11 @@ class CheckUtypeDeclaration(Rule):
 
     def run(self, context):
         """
-            User defined types must respect the following rules:
-                - Struct names start with s_
-                - Enum names start with e_
-                - Union names start with u_
-                - Typedef names start with t_
+        User defined types must respect the following rules:
+            - Struct names start with s_
+            - Enum names start with e_
+            - Union names start with u_
+            - Typedef names start with t_
         """
         i = 0
         i = context.skip_ws(i)
@@ -49,8 +44,8 @@ class CheckUtypeDeclaration(Rule):
         utype = None
         contain_full_def = False
         ids = []
-        while context.check_token(i, ['SEMI_COLON']) is False and i < len(context.tokens):
-            if context.check_token(i, ['SPACE', 'TAB']):
+        while context.check_token(i, ["SEMI_COLON"]) is False and i < len(context.tokens):
+            if context.check_token(i, ["SPACE", "TAB"]):
                 pass
             if context.check_token(i, ["LPARENTHESIS"]) is True:
                 val, tmp = context.parenthesis_contain(i)
@@ -75,7 +70,7 @@ class CheckUtypeDeclaration(Rule):
                     ids.append((context.peek_token(i), tmp))
                 else:
                     ids.append((context.peek_token(i), i))
-            if context.check_token(i, 'LBRACE') is True:
+            if context.check_token(i, "LBRACE") is True:
                 contain_full_def = True
                 i = context.skip_nest(i)
             i += 1
@@ -92,7 +87,7 @@ class CheckUtypeDeclaration(Rule):
         name = ids[0][0]
         loc = ids[check][1]
         if is_td == True:
-            if ids[check][0].value.startswith('t_') is False:
+            if ids[check][0].value.startswith("t_") is False:
                 context.new_error("USER_DEFINED_TYPEDEF", context.peek_token(loc))
             if utype is not None:
                 if len(ids) > 1:
@@ -101,15 +96,17 @@ class CheckUtypeDeclaration(Rule):
                     if context.debug >= 1:
                         pass
                     elif context.debug == 0:
-                        raise CParsingError(f"{context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}")
+                        raise CParsingError(
+                            f"{context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}"
+                        )
             loc = ids[0][1]
         else:
             loc = ids[0][1]
-        if utype is not None and utype.type == "STRUCT" and name.value.startswith('s_') is False:
+        if utype is not None and utype.type == "STRUCT" and name.value.startswith("s_") is False:
             context.new_error("STRUCT_TYPE_NAMING", context.peek_token(loc))
-        if utype is not None and utype.type == "UNION" and name.value.startswith('u_') is False:
+        if utype is not None and utype.type == "UNION" and name.value.startswith("u_") is False:
             context.new_error("UNION_TYPE_NAMING", context.peek_token(loc))
-        if utype is not None and utype.type == "ENUM" and name.value.startswith('e_') is False:
+        if utype is not None and utype.type == "ENUM" and name.value.startswith("e_") is False:
             context.new_error("ENUM_TYPE_NAMING", context.peek_token(loc))
         if is_td or (is_td == False and contain_full_def == False):
             tmp = ids[-1][1] - 1
@@ -129,8 +126,10 @@ class CheckUtypeDeclaration(Rule):
             i = ids[-1][1]
             if context.check_token(i - 1, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:
                 i -= 1
-                while context.check_token(i, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True \
-                and context.is_operator(i) is False:
+                while (
+                    context.check_token(i, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True
+                    and context.is_operator(i) is False
+                ):
                     i -= 1
             current_indent = context.peek_token(i).pos[1]
             if context.scope.vars_alignment == 0:
