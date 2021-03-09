@@ -49,7 +49,7 @@
 		<TAB> <LBRACE> <NEWLINE>
 [36mko_pointer2.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 20":
 		<TAB> <TAB> <IDENTIFIER=b> <SPACE> <ASSIGN> <SPACE> <TAB> <TAB> <SPACE> <TAB> <CONSTANT=12> <SEMI_COLON> <NEWLINE>
-[36mko_pointer2.c[0m - [32mIsDeclaration[0m In "ControlStructure" from "Function" line 21":
+[36mko_pointer2.c[0m - [32mIsVarDeclaration[0m In "ControlStructure" from "Function" line 21":
 		<TAB> <TAB> <IDENTIFIER=b> <NEWLINE>
 		<TAB> <TAB> <TAB> <MULT> <MULT> <MULT> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
 [36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 23":
@@ -115,6 +115,7 @@ ko_pointer2.c: KO!
 	TOO_MANY_INSTR       (line:  18, col:  21):	Too many instructions on a single line
 	TAB_INSTEAD_SPC      (line:  18, col:  24):	Found tab when expecting space
 	TAB_INSTEAD_SPC      (line:  20, col:  13):	Found tab when expecting space
+	WRONG_SCOPE_VAR      (line:  21, col:   1):	Variable declared in incorrect scope
 	BRACE_NEWLINE        (line:  26, col:  16):	Expected newline before brace
 	SPC_AFTER_POINTER    (line:  27, col:  11):	space after pointer
 	SPC_AFTER_POINTER    (line:  27, col:  13):	space after pointer

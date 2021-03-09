@@ -47,7 +47,7 @@
 		<TAB> <INT> <TAB> <IDENTIFIER=x> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210201_2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 25":
 		<NEWLINE>
-[36mtest_file_210201_2.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 26":
+[36mtest_file_210201_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 26":
 		<TAB> <INT> <SPACE> <LPARENTHESIS> <MULT> <IDENTIFIER=f> <RPARENTHESIS> <LPARENTHESIS> <CONST> <SPACE> <INT> <SPACE> <MULT> <IDENTIFIER=m> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <MULT> <MULT> <IDENTIFIER=p_options> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210201_2.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 27":
 		<TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
@@ -58,3 +58,5 @@
 test_file_210201_2.c: KO!
 	VAR_DECL_START_FUNC  (line:  15, col:   1):	Variable declaration not at start of function
 	SPC_AFTER_POINTER    (line:  15, col:  29):	space after pointer
+	VAR_DECL_START_FUNC  (line:  26, col:   1):	Variable declaration not at start of function
+	SPACE_REPLACE_TAB    (line:  26, col:   8):	Found space when expecting tab

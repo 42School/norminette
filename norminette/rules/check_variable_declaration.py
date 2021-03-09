@@ -43,6 +43,17 @@ class CheckVariableDeclaration(Rule):
             pass
         else:
             context.new_error("WRONG_SCOPE_VAR", context.peek_token(i))
+        tmp = 0
+        ret, tmp = context.check_type_specifier(tmp)
+        tmp -= 1
+        identifier = False
+        while context.check_token(tmp, ["SEMI_COLON"] + assigns) is False:
+            if context.check_token(tmp, "IDENTIFIER"):
+                identifier = True
+            tmp += 1
+        if identifier == False:
+            context.new_error("IMPLICIT_VAR_TYPE", context.peek_token(0))
+            return False
         while context.peek_token(i) and context.check_token(i, "SEMI_COLON") is False:
             if context.check_token(i, "LPARENTHESIS") is True:
                 i = context.skip_nest(i)
