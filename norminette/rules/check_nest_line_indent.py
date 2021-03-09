@@ -17,7 +17,6 @@ operators = [
     "EQUALS",
     "NOT_EQUAL",
     "ASSIGN",
-    "SEMI_COLON",
     "DOT",
     "NOT",
     "MINUS",
@@ -50,10 +49,14 @@ class CheckNestLineIndent(Rule):
         while context.peek_token(i) is not None:
             if context.check_token(i, "LPARENTHESIS") is True:
                 i += 1
-                i = self.find_nest_content(context, nest + 1, i)
+                i = self.find_nest_content(context, nest + 1, i) + 1
+            if context.check_token(i, "RPARENTHESIS"):
+                return i
             elif context.check_token(i, "NEWLINE") is True:
                 if context.check_token(i - 1, operators):
                     context.new_error("EOL_OPERATOR", context.peek_token(i - 1))
+                if context.check_token(i, "SEMI_COLON") is True:
+                    return i
                 indent = 0
                 i += 1
                 while context.check_token(i, "TAB") is True:
@@ -63,9 +66,8 @@ class CheckNestLineIndent(Rule):
                     context.new_error("TOO_MANY_TAB", context.peek_token(i))
                 elif indent < expected:
                     context.new_error("TOO_FEW_TAB", context.peek_token(i))
-            elif context.check_token(i, "RPARENTHESIS"):
-                return i
-            i += 1
+            else:
+                i += 1
         return i
 
     def run(self, context):
