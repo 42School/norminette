@@ -13,5 +13,6 @@ build/*
 *.fls
 *.log
 .eggs
+bundle/
 pdf/*.out
 pdf/*.toc
