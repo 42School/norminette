@@ -100,7 +100,7 @@
 		<TAB> <GOTO> <SPACE> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1019.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 51":
 		<TAB> <IDENTIFIER=printf> <LPARENTHESIS> <STRING="meh"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mtest_file_1019.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 52":
+[36mtest_file_1019.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 52":
 		<TAB> <IDENTIFIER=a> <SPACE> <COLON> <SPACE> <IDENTIFIER=printf> <LPARENTHESIS> <STRING=":ah:"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1019.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 53":
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
@@ -168,6 +168,7 @@ test_file_1019.c: KO!
 	WRONG_SCOPE_COMMENT  (line:  42, col:  10):	Comment is invalid in this scope
 	COMMENT_ON_INSTR     (line:  42, col:  29):	Comment must be on its own line
 	TOO_MANY_FUNCS       (line:  46, col:   1):	Too many functions in file
+	LABEL_FBIDDEN        (line:  52, col:   1):	Label statements are forbidden
 	TOO_MANY_FUNCS       (line:  56, col:   1):	Too many functions in file
 	WRONG_SCOPE_COMMENT  (line:  62, col:  27):	Comment is invalid in this scope
 	COMMENT_ON_INSTR     (line:  62, col:  47):	Comment must be on its own line

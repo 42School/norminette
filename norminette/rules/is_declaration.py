@@ -4,7 +4,7 @@ from norminette.rules import PrimaryRule
 class IsDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 10
+        self.priority = 5
         self.scope = []
 
     def run(self, context):

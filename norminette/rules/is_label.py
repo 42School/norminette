@@ -4,7 +4,7 @@ from norminette.rules import PrimaryRule
 class IsLabel(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 5
+        self.priority = 10
 
     def run(self, context):
         """
