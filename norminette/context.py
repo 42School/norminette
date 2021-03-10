@@ -449,7 +449,7 @@ In \"{self.scope.name}\" from \
                 if self.check_token(pos, "IDENTIFIER") is True and self.check_token(pos + 1, "TAB") is True:
                     return False
                 return True
-            if self.check_token(pos, ["COMMA", "LPARENTHESIS"] + operators) is True and skip == 1:
+            if self.check_token(pos, ["COMMA", "LPARENTHESIS"] + operators) is True and skip == 1 and self.parenthesis_contain(pos + 1)[0] != "cast":
                 return True
             if self.check_token(
                 pos,
