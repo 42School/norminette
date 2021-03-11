@@ -1,5 +1,5 @@
 # List the pdf's to build. foo.tex will produce foo.pdf
-TARGETS = en.norm.pdf
+TARGETS = en.norm.pdf fr.norme.pdf
 
 # List the files included in the slides
 # DEPS = somePicture.png someSound.flac someOtherPicture.png
