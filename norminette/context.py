@@ -114,6 +114,20 @@ misc_specifiers = [
     "UNSIGNED",
 ]
 
+assigns = [
+    "RIGHT_ASSIGN",
+    "LEFT_ASSIGN",
+    "ADD_ASSIGN",
+    "SUB_ASSIGN",
+    "MUL_ASSIGN",
+    "DIV_ASSIGN",
+    "MOD_ASSIGN",
+    "AND_ASSIGN",
+    "XOR_ASSIGN",
+    "OR_ASSIGN",
+    "ASSIGN",
+]
+
 size_specifiers = ["LONG", "SHORT"]
 
 sign_specifiers = ["SIGNED", "UNSIGNED"]
@@ -442,7 +456,7 @@ In \"{self.scope.name}\" from \
         while pos > 0:
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
                 pos = self.skip_nest_reverse(pos) - 1
-                if self.check_token(pos, "RPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == "cast":
+                if self.check_token(pos, "LPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == "cast":
                     return False
                 skip = 1
             if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF"]) is True:
@@ -451,10 +465,7 @@ In \"{self.scope.name}\" from \
                 return True
             if self.check_token(pos, ["COMMA", "LPARENTHESIS"] + operators) is True and skip == 1 and self.parenthesis_contain(pos + 1)[0] != "cast":
                 return True
-            if self.check_token(
-                pos,
-                ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND", "COMMA"] + operators + types,
-            ):
+            if self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND", "COMMA"] + operators + types):
                 return False
             pos -= 1
         return False
@@ -472,6 +483,7 @@ In \"{self.scope.name}\" from \
         nested_id = False
         identifier = None
         pointer = None
+        i = self.skip_ws(i)
         while deep > 0:
             if self.check_token(i, "RPARENTHESIS"):
                 deep -= 1
