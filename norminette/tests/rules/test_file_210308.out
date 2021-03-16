@@ -46,7 +46,6 @@
 		<MULT_COMMENT=/**
  * test
  */> <NEWLINE>
-<NEWLINE>
 [36mtest_file_210308.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 29":
 		<VOID> <TAB> <IDENTIFIER=test2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
 [36mtest_file_210308.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 30":
@@ -55,7 +54,6 @@
 		<RBRACE> <NEWLINE>
 [36mtest_file_210308.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 32":
 		<DEFINE=#define TOTO 2> <NEWLINE>
-<NEWLINE>
 [36mtest_file_210308.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 33":
 		<VOID> <TAB> <IDENTIFIER=test2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
 [36mtest_file_210308.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 34":

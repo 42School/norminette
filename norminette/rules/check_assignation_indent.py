@@ -69,7 +69,6 @@ class CheckAssignationIndent(Rule):
                 i += 1
                 while context.check_token(i + got, "TAB") is True:
                     got += 1
-                print (context.peek_token(i + got))
                 if context.check_token(i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
                     nest -= 1
                 if got > nest:
