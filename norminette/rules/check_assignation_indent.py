@@ -69,12 +69,17 @@ class CheckAssignationIndent(Rule):
                 i += 1
                 while context.check_token(i + got, "TAB") is True:
                     got += 1
+                print (context.peek_token(i + got))
+                if context.check_token(i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
+                    nest -= 1
                 if got > nest:
                     context.new_error("TOO_MANY_TAB", context.peek_token(i))
                     return True, i
                 elif got < nest:
                     context.new_error("TOO_FEW_TAB", context.peek_token(i))
                     return True, i
+                if context.check_token(i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
+                    nest += 1
             if context.check_token(i, "LPARENTHESIS") is True:
                 nest += 1
             if context.check_token(i, "RPARENTHESIS") is True:
