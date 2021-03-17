@@ -57,7 +57,7 @@ class CheckExpressionStatement(Rule):
         parenthesis = False
         while context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
             if context.check_token(i, kw) is True:
-                if context.check_token(i + 1, ["SPACE", "NEWLINE", "RPARENTHESIS"]) is False:
+                if context.check_token(i + 1, ["SPACE", "NEWLINE", "RPARENTHESIS", "COMMENT", "MULT_COMMENT"]) is False:
                     context.new_error("SPACE_AFTER_KW", context.peek_token(i))
             if context.check_token(i, ["MULT", "BWISE_AND"]) is True and i > 0:
                 if context.check_token(i - 1, "IDENTIFIER") is True:
