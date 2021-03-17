@@ -34,7 +34,7 @@ class IsPreprocessorStatement(PrimaryRule):
         if context.check_token(i, pp_keywords) is True:
             if context.peek_token(i).value is None or context.peek_token(i).value.startswith("#") is False:
                 return False, 0
-            if context.check_token(i, ["IFDEF", "IFNDEF"]):
+            if context.check_token(i, ["IFDEF", "IFNDEF", "#IF", "#ELIF"]):
                 context.preproc_scope_indent += 1
             elif context.check_token(i, "ENDIF") and context.preproc_scope_indent > 0:
                 context.preproc_scope_indent -= 1
