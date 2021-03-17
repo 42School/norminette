@@ -3,7 +3,6 @@ from norminette.lexer.dictionary import operators
 from norminette.norm_error import NormError
 from norminette.scope import GlobalScope, ControlStructure
 from norminette.tools.colors import colors
-
 types = [
     "CHAR",
     "DOUBLE",
@@ -476,6 +475,8 @@ In \"{self.scope.name}\" from \
         Function, pointer, cast, or other
         Uses basic string as return value and skips to the end of the parenthesis nest
         """
+        if self.check_token(i, "LPARENTHESIS") is False:
+            return None, i
         start = i
         ws = ["SPACE", "TAB", "NEWLINE"]
         i += 1
