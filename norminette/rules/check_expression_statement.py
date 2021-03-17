@@ -44,6 +44,7 @@ class CheckExpressionStatement(Rule):
             "IsControlStatement",
             "IsFunctionCall",
             "IsAssignation",
+            "IsCast"
         ]
 
     def run(self, context):
@@ -58,6 +59,9 @@ class CheckExpressionStatement(Rule):
             if context.check_token(i, kw) is True:
                 if context.check_token(i + 1, ["SPACE", "NEWLINE", "RPARENTHESIS"]) is False:
                     context.new_error("SPACE_AFTER_KW", context.peek_token(i))
+            if context.check_token(i, ["MULT", "BWISE_AND"]) is True and i > 0:
+                if context.check_token(i - 1, "IDENTIFIER") is True:
+                    context.new_error("SPACE_AFTER_KW", context.peek_token(i - 1))
             if context.check_token(i, "RETURN") is True:
                 tmp = i + 1
                 tmp = context.skip_ws(tmp)

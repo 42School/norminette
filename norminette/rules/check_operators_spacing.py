@@ -248,6 +248,8 @@ class CheckOperatorsSpacing(Rule):
                         "BWISE_AND",
                         "IDENTIFIER",
                         "COMMA",
+                        "STRING",
+                        "CONSTANT"
                     ],
                 )
                 is False
