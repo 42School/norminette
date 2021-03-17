@@ -52,6 +52,7 @@ def main():
         action="store",
         help="Store header file content directly instead of filename",
     )
+    parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
     registry = Registry()
     targets = []
