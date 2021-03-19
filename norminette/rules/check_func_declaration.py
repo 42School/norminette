@@ -42,7 +42,12 @@ class CheckFuncDeclaration(Rule):
         if context.check_token(i, "LPARENTHESIS") is False:
             context.new_error("EXP_PARENTHESIS", context.peek_token(i))
         i += 1
-        while context.check_token(i, "RPARENTHESIS") is False:
+        deep = 1
+        while deep > 0:
+            if context.check_token(i, "LPARENTHESIS"):
+                i = context.skip_nest(i) + 1
+            if context.check_token(i, "RPARENTHESIS"):
+                deep -= 1
             if context.check_token(i, "COMMA"):
                 arg += 1
             i += 1
