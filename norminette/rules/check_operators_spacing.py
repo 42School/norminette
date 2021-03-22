@@ -376,7 +376,7 @@ class CheckOperatorsSpacing(Rule):
 
     def run(self, context):
         """
-        Some operators must be followed by a space,
+        Some operators must be preceded by a space,
         some must be only followed by a space,
         and the rest must be preceded and followed by a space.
         """
