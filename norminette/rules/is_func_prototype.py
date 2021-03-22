@@ -61,7 +61,7 @@ class IsFuncPrototype(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.priority = 80
-        self.scope = [GlobalScope, UserDefinedType]
+        self.scope = [GlobalScope]
 
     def check_args(self, context, pos):
         i = context.skip_ws(pos)
