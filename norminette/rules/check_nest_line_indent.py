@@ -47,10 +47,10 @@ class CheckNestLineIndent(Rule):
     def find_nest_content(self, context, nest, i):
         expected = context.scope.indent + nest
         while context.peek_token(i) is not None:
-            if context.check_token(i, "LPARENTHESIS") is True:
+            if context.check_token(i, ["LPARENTHESIS", "LBRACE", "LBRACKET"]) is True:
                 i += 1
                 i = self.find_nest_content(context, nest + 1, i) + 1
-            if context.check_token(i, "RPARENTHESIS"):
+            if context.check_token(i, ["RBRACE", "RBRACKET", "RPARENTHESIS"]):
                 return i
             elif context.check_token(i, "NEWLINE") is True:
                 if context.check_token(i - 1, operators):
@@ -62,10 +62,14 @@ class CheckNestLineIndent(Rule):
                 while context.check_token(i, "TAB") is True:
                     indent += 1
                     i += 1
+                if context.check_token(i, ["RBRACE", "RBRACKET", "RPARENTHESIS"]):
+                    expected -= 1
                 if indent > expected:
                     context.new_error("TOO_MANY_TAB", context.peek_token(i))
                 elif indent < expected:
                     context.new_error("TOO_FEW_TAB", context.peek_token(i))
+                if context.check_token(i, ["RBRACE", "RBRACKET", "RPARENTHESIS"]):
+                    expected += 1
             else:
                 i += 1
         return i

@@ -1,0 +1,19 @@
+[36mtest_file_210322.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<IDENTIFIER=t_test_struct> <TAB> <IDENTIFIER=test> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210322.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210322.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <STATIC> <SPACE> <CONST> <SPACE> <IDENTIFIER=t_test_struct> <TAB> <IDENTIFIER=s> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=t_test_struct> <RPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+		<TAB> <TAB> <TAB> <DOT> <IDENTIFIER=value> <SPACE> <ASSIGN> <SPACE> <CONSTANT=42> <NEWLINE>
+		<TAB> <TAB> <RBRACE> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210322.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 7":
+		<NEWLINE>
+[36mtest_file_210322.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=t_test_struct> <RPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <LPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <TAB> <DOT> <IDENTIFIER=value> <SPACE> <ASSIGN> <SPACE> <CONSTANT=42> <NEWLINE>
+		<TAB> <TAB> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210322.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 12":
+		<RBRACE> <NEWLINE>
+test_file_210322.c: OK!
