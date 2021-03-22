@@ -4,7 +4,7 @@ from norminette.rules import Rule
 class IsTernary(Rule):
     def __init__(self):
         super().__init__()
-        self.priority = 50
+        self.priority = 54
         self.scope = []
 
     def run(self, context):

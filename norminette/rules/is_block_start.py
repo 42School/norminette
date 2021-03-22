@@ -6,7 +6,7 @@ from norminette.scope import GlobalScope, UserDefinedEnum, Function, UserDefined
 class IsBlockStart(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 35
+        self.priority = 55
         self.scope = [
             Function,
             UserDefinedType,

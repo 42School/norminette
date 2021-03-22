@@ -6,7 +6,7 @@
 		<TAB> <CONST> <SPACE> <CHAR> <TAB> <TAB> <MULT> <IDENTIFIER=src> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1022.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 4":
 		<TAB> <IDENTIFIER=t_buffer> <TAB> <TAB> <MULT> <IDENTIFIER=buffer> <SEMI_COLON> <NEWLINE>
-[36mtest_file_1022.c[0m - [32mIsFuncPrototype[0m In "UserDefinedType" from "GlobalScope" line 5":
+[36mtest_file_1022.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 5":
 		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=printer> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=t_buffer> <SPACE> <MULT> <IDENTIFIER=buffer> <COMMA> <SPACE> <CHAR> <SPACE> <IDENTIFIER=c> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1022.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 6":
 		<TAB> <CHAR> <TAB> <TAB> <TAB> <IDENTIFIER=type> <SEMI_COLON> <NEWLINE>
