@@ -144,7 +144,7 @@
 
                 \item One single variable declaration per line.
 
-                \item We cannot stick a declaration and an initialisation
+                \item Declaration and an initialisation cannot be
                   on the same line, except for global variables (when allowed),
                   static variables, and constants.
 
@@ -269,7 +269,7 @@ int func2(void)
 
             \item You cannot include a C file.
 
-            \item We'll protect headers from double inclusions. If the file is
+            \item Header files must be protected from double inclusions. If the file is
             \texttt{ft\_foo.h}, its bystander macro is \texttt{FT\_FOO\_H}.
 
             \item Unused header inclusions (.h) are forbidden.
@@ -401,8 +401,8 @@ struct s_struct;
                 \item If the makefile relinks, the project will be considered
                   non-functional.
 
-                  \item In the case of a multibinary project, on top of the
-                  rules we've seen, you must have a rule that compiles
+                \item In the case of a multibinary project, in addition to
+                  the above rules, you must have a rule that compiles
                   both binaries as well as a specific rule for each
                   binary compiled.
 
