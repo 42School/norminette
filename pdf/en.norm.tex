@@ -29,7 +29,7 @@
 
 %******************************************************************************%
 %                                                                              %
-%                                 Avant-propos                                 %
+%                                 Foreword                                     %
 %                                                                              %
 %******************************************************************************%
 \chapter{Foreword}
@@ -40,14 +40,14 @@
 
 %******************************************************************************%
 %                                                                              %
-%                                 Norme                                        %
+%                                The Norm                                      %
 %                                                                              %
 %******************************************************************************%
 \chapter{The Norm}
 
 
 %******************************************************************************%
-%                         Conventions de denomination                          %
+%                             Naming conventions                               %
 %******************************************************************************%
     \section{Denomination}
 
@@ -72,14 +72,14 @@
                 '\_' (Unix Case).
 
             \item Characters that aren't part of the standard
-                ascii table are forbidden.
+                ASCII table are forbidden.
 
             \item Variables, functions, and any other identifier must use
                 snake case. No capital letters, and each word separated by an 
                 underscore.
 
             \item All identifiers (functions, macros, types,
-                variables, etc) must be in English.
+                variables, etc.) must be in English.
 
             \item Objects (variables, functions, macros, types,
                 files or directories) must have the most
@@ -95,7 +95,7 @@
 \newpage
 
 %******************************************************************************%
-%                                  Formatage                                   %
+%                                 Formatting                                   %
 %******************************************************************************%
     \section{Formatting}
 
@@ -108,7 +108,7 @@
                   counting the function's own curly brackets.
 
                 \item Each line must be at most 80 columns wide, comments
-                  included. Warning : a tabulation doesn't count
+                  included. Warning: a tabulation doesn't count
                   as a column, but as the number of spaces it
                   represents.
 
@@ -148,8 +148,7 @@
                   on the same line, except for global variables (when allowed),
                   static variables, and constants.
 
-                \item Declarations must be at the beginning of a function,
-                  and must be separated by an empty line.
+                \item Declarations must be at the beginning of a function.
 
                 \item In a function, you must place an empty line between 
                     variable declarations and the remaining of the function.
@@ -190,7 +189,7 @@ int     main(void)
             \newpage
 
 %******************************************************************************%
-%                            Parametres de fonction                            %
+%                              Function parameters                             %
 %******************************************************************************%
     \section{Functions}
 
@@ -199,7 +198,7 @@ int     main(void)
             \item A function can take 4 named parameters maximum.
 
             \item A function that doesn't take arguments must be
-                explicitely prototyped with the word "void" as
+                explicitely prototyped with the word "void" as the
                 argument.
 
             \item Parameters in functions' prototypes must be named.
@@ -231,7 +230,7 @@ int func2(void)
 
 
 %******************************************************************************%
-%                        Typedef, struct, enum et union                        %
+%                        Typedef, struct, enum and union                       %
 %******************************************************************************%
     \section{Typedef, struct, enum and union}
 
@@ -246,7 +245,7 @@ int func2(void)
                 all indentation rules apply. You must align the typedef's name
                 with the struct/union/enum's name.
 
-            \item You must indent all structures names on the same column for their scope.
+            \item You must indent all structures' names on the same column for their scope.
 
             \item You cannot declare a structure in a .c file.
 
@@ -261,7 +260,7 @@ int func2(void)
 
         \begin{itemize}
 
-            \item The things allowed in header files are :
+            \item The things allowed in header files are:
                 header inclusions (system or not), declarations, defines,
                 prototypes and macros.
 
@@ -294,21 +293,21 @@ struct s_struct;
         \newpage
 
 %******************************************************************************%
-%                           Macros et pre-processeur                           %
+%                           Macros and Pre-processors                          %
 %******************************************************************************%
     \section{Macros and Pre-processors}
 
         \begin{itemize}
 
             \item Preprocessor constants (or \#define) you create must be used
-                only for associate literal and constant values.
+                only for literal and constant values.
             \item All \#define created to bypass the norm and/or obfuscate
-                code are forbidden. This point must be checked by a human.
+                code are forbidden. This part must be checked by a human.
             \item You can use macros available in standard libraries, only
                 if those ones are allowed in the scope of the given project.
             \item Multiline macros are forbidden.
-            \item Only macros names are uppercase.
-            \item You must indent characters following \#if , \#ifdef
+            \item Macro names must be all uppercase.
+            \item You must indent characters following \#if, \#ifdef
                 or \#ifndef.
 
         \end{itemize}
@@ -316,13 +315,13 @@ struct s_struct;
 
 
 %******************************************************************************%
-%                             Choses interdites !                              %
+%                              Forbidden stuff!                                %
 %******************************************************************************%
-    \section{Forbidden stuff !}
+    \section{Forbidden stuff!}
 
         \begin{itemize}
 
-            \item You're not allowed to use :
+            \item You're not allowed to use:
 
                 \begin{itemize}
 
@@ -334,7 +333,7 @@ struct s_struct;
 
                 \end{itemize}
 
-            \item ternary operators such as `?'.
+            \item Ternary operators such as `?'.
 
             \item VLAs - Variable Length Arrays.
 
@@ -353,7 +352,7 @@ struct s_struct;
         \newpage
 
 %******************************************************************************%
-%                                 Commentaires                                 %
+%                                   Comments                                   %
 %******************************************************************************%
     \section{Comments}
 
@@ -372,7 +371,7 @@ struct s_struct;
 
 
 %******************************************************************************%
-%                                 Les fichiers                                 %
+%                                    Files                                     %
 %******************************************************************************%
     \section{Files}
 
@@ -391,7 +390,7 @@ struct s_struct;
 %******************************************************************************%
     \section{Makefile}
 
-            Makefile aren't checked by the Norm, and must be checked during evaluation by 
+            Makefiles aren't checked by the Norm, and must be checked during evaluation by 
             the student.
             \begin{itemize}
 
