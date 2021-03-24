@@ -85,10 +85,9 @@
                 files or directories) must have the most
                 explicit or most mnemonic names as possible.
 
-            \item Global variables are forbidden, expect where it's
-                mandatory to use them (Signal handling for one). Using 
-                a global variable in a project where it's not explicitly 
-                allowed is a norm error.
+            \item Using a global variable in a project where it's not
+                explicitly allowed is a norm error, except where it's
+                mandatory (signal handling for example).
 
             \item The file must compile. A file that doesn't compile isn't expected
                 to pass the Norm.
@@ -103,8 +102,7 @@
             \begin{itemize}
 
                 \item You must indent your code with 4-space
-                  tabulations. This is not the same as 4 average
-                  spaces, we're talking about real tabulations here.
+                  tabulations. Indentation must be aligned with tab stops.
 
                 \item Each function must be maximum 25 lines, not
                   counting the function's own curly brackets.
@@ -123,7 +121,7 @@
 
                 \item A line can never end with spaces or tabulations.
 
-                \item You can never have two consecutive spaces.
+                \item You can never have two consecutive spaces outside of tabulations.
 
                 \item You need to start a new line after each curly bracket
                   or end of control structure.
@@ -408,7 +406,7 @@ struct s_struct;
                   both binaries as well as a specific rule for each
                   binary compiled.
 
-                  \item In the case of a project that calls a functions library
+                  \item In the case of a project that calls a function from a non-system library
                   (e.g.: \texttt{libft}), your makefile must compile
                   this library automatically.
 
