@@ -297,7 +297,7 @@ class CheckOperatorsSpacing(Rule):
                 tmp = -1
                 while context.check_token(pos + tmp, "TAB") is True:
                     tmp -= 1
-                if context.check_token(pos + tmp, "NEWLINE") is True:
+                if context.check_token(pos + tmp, ["NEWLINE", "ESCAPED_NEWLINE"]) is True:
                     return False, 0
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
         if (
@@ -319,7 +319,7 @@ class CheckOperatorsSpacing(Rule):
                 tmp = -1
                 while context.check_token(pos + tmp, "TAB") is True:
                     tmp -= 1
-                if context.check_token(pos + tmp, "NEWLINE") is True:
+                if context.check_token(pos + tmp, ["NEWLINE", "ESCAPED_NEWLINE"]) is True:
                     return False, 0
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
         if (
