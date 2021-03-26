@@ -11,6 +11,7 @@ ALLOWED_PREPROC = [
     "INCLUDE",
     "WARNING",
     "UNDEF",
+    "ERROR"
 ]
 TOO_MUCH_INDENT = ["IFNDEF", "IFDEF", "ELIF", "#IF", "#ELSE"]
 
