@@ -458,7 +458,7 @@ In \"{self.scope.name}\" from \
                 if self.check_token(pos + 1, "LPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == "cast":
                     return False
                 skip = 1
-            if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF"]) is True:
+            if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "SIZEOF", "CHAR_CONST"]) is True:
                 if self.check_token(pos, "IDENTIFIER") is True and self.check_token(pos + 1, "TAB") is True:
                     return False
                 return True
