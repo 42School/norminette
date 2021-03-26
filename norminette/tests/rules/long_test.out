@@ -142,7 +142,7 @@
 		<IDENTIFIER=trololo> <TAB> <IDENTIFIER=trololol> <TAB> <IDENTIFIER=func4> <LPARENTHESIS> <IDENTIFIER=uopi> <SPACE> <IDENTIFIER=sks> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mlong_test.c[0m - [32mIsFunctionCall[0m In "GlobalScope" from "None" line 63":
 		<MULT> <MULT> <MULT> <IDENTIFIER=func4> <LPARENTHESIS> <IDENTIFIER=udidf> <SPACE> <IDENTIFIER=fdfd> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-long_test.c: KO!
+long_test.c: Error!
 	TOO_MANY_TAB         (line:   4, col:   1):	Extra tabs for indent level
 	EMPTY_LINE_FUNCTION  (line:   5, col:   1):	Empty line in function
 	SPACE_EMPTY_LINE     (line:   5, col:   1):	Space on empty line

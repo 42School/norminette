@@ -92,7 +92,7 @@
 		<TAB> <TAB> <IDENTIFIER=b> <SPACE> <ASSIGN> <SPACE> <TAB> <TAB> <SPACE> <TAB> <CONSTANT=12> <SEMI_COLON> <NEWLINE>
 [36mko_pointer2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 37":
 		<RBRACE> <NEWLINE>
-ko_pointer2.c: KO!
+ko_pointer2.c: Error!
 	BRACE_NEWLINE        (line:   1, col:  16):	Expected newline before brace
 	SPC_AFTER_POINTER    (line:   2, col:  11):	space after pointer
 	SPC_AFTER_POINTER    (line:   2, col:  13):	space after pointer

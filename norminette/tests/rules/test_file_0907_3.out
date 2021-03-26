@@ -422,7 +422,7 @@
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 201":
 		<RBRACE> 
-test_file_0907_3.c: KO!
+test_file_0907_3.c: Error!
 	TOO_MANY_TABS_FUNC   (line:   1, col:   5):	extra tabs before function name
 	SPACE_REPLACE_TAB    (line:   4, col:  19):	Found space when expecting tab
 	MULT_DECL_LINE       (line:   4, col:  24):	Multiple declarations on a single line

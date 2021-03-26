@@ -98,11 +98,11 @@ def main():
                     has_err = True
             except TokenError as e:
                 has_err = True
-                print(target + f": KO!\n\t{colors(e.msg, 'red')}")
+                print(target + f": Error!\n\t{colors(e.msg, 'red')}")
                 event[-1].set()
             except CParsingError as e:
                 has_err = True
-                print(target + f": KO!\n\t{colors(e.msg, 'red')}")
+                print(target + f": Error!\n\t{colors(e.msg, 'red')}")
                 event[-1].set()
             except KeyboardInterrupt as e:
                 event[-1].set()

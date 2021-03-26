@@ -26,5 +26,5 @@
 		<TAB> <IDENTIFIER=t_buffer> <TAB> <TAB> <MULT> <IDENTIFIER=buffer> <SEMI_COLON> <NEWLINE>
 [36mtest_file_1022.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 14":
 		<RBRACE> <SEMI_COLON> 
-test_file_1022.c: KO!
+test_file_1022.c: Error!
 	SPACE_REPLACE_TAB    (line:   9, col:   4):	Found space when expecting tab

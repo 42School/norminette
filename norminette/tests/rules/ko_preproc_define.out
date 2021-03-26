@@ -10,7 +10,7 @@
 		<DEFINE=#define TOTO TATA 12> <NEWLINE>
 [36mko_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
 		<SPACE> <DEFINE=#define TOTo TATa> 
-ko_preproc_define.c: KO!
+ko_preproc_define.c: Error!
 	MACRO_NAME_CAPITAL   (line:   1, col:   2):	Macro name must be capitalized
 	PREPROC_CONSTANT     (line:   1, col:   7):	Preprocessor statement must only contain constant defines
 	PREPROC_CONSTANT     (line:   1, col:   8):	Preprocessor statement must only contain constant defines

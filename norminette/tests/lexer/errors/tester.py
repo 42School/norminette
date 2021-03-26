@@ -23,7 +23,7 @@ class norminetteTester:
         try:
             diff = "".join(test())
             self.__failed += 1
-            print(test_line + "KO")
+            print(test_line + "Error")
             print(diff, end="")
             self.result.append("✗ ")
         except TokenError as e:
@@ -32,7 +32,7 @@ class norminetteTester:
                 self.result.append("✓ ")
             else:
                 self.__failed += 1
-                print(test_line + "KO")
+                print(test_line + "Error")
                 diff = difflib.ndiff(e.msg.splitlines(), ref.splitlines())
                 diff = list(diff)
                 self.result.append("✗ ")
@@ -52,7 +52,7 @@ class norminetteTester:
         print(f"Total {self.__tests}")
         print("".join(self.result))
         print(f"Success {self.__success}, Failed {self.__failed}: ", end="")
-        print("✅ OK!" if self.__failed == 0 else "❌ KO!")
+        print("✅ OK!" if self.__failed == 0 else "❌ Error!")
 
         sys.exit(0 if self.__failed == 0 else 1)
 

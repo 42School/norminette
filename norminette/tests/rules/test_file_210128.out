@@ -37,7 +37,7 @@
 		<COMMENT=// single line comment> <NEWLINE>
 [36mtest_file_210128.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 19":
 		<RBRACE> <NEWLINE>
-test_file_210128.c: KO!
+test_file_210128.c: Error!
 	WRONG_SCOPE_COMMENT  (line:   1, col:  15):	Comment is invalid in this scope
 	WRONG_SCOPE_COMMENT  (line:   5, col:  14):	Comment is invalid in this scope
 	WRONG_SCOPE_COMMENT  (line:   5, col:  14):	Comment is invalid in this scope

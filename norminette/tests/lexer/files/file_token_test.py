@@ -24,7 +24,7 @@ class norminetteFileTester:
             print("OK")
             self.result.append("✓ ")
         else:
-            print("KO")
+            print("Error")
             self.__failed += 1
             diff = difflib.ndiff(first.splitlines(keepends=True), second.splitlines(keepends=True))
             diff = list(diff)
@@ -35,7 +35,7 @@ class norminetteFileTester:
         try:
             diff = "".join(test())
             self.__failed += 1
-            print("KO")
+            print("Error")
             print(diff, end="")
             self.result.append("✗ ")
         except TokenError as e:
@@ -45,7 +45,7 @@ class norminetteFileTester:
                 self.result.append("✓ ")
             else:
                 self.__failed += 1
-                print("KO")
+                print("Error")
                 diff = difflib.ndiff(e.msg.splitlines(), ref.splitlines())
                 diff = list(diff)
                 self.result.append("✗ ")
@@ -62,7 +62,7 @@ class norminetteFileTester:
                 output = Lexer(read_file(f)).check_tokens()
             except TokenError as t:
                 self.__failed += 1
-                print("KO")
+                print("Error")
                 print(t)
                 self.result.append("✗ ")
                 continue
@@ -73,7 +73,7 @@ class norminetteFileTester:
         print(f"Total {self.__tests}")
         print("".join(self.result))
         print(f"Success {self.__success}, Failed {self.__failed}: ", end="")
-        print("✅ OK!" if self.__failed == 0 else "❌ KO!")
+        print("✅ OK!" if self.__failed == 0 else "❌ Error!")
 
         sys.exit(0 if self.__failed == 0 else 1)
 

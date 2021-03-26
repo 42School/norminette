@@ -52,7 +52,7 @@
 		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=hex_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x8a44000000000040U> <IDENTIFIER=i64> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 27":
 		<RBRACE> <NEWLINE>
-integer_constants.c: KO!
+integer_constants.c: Error!
 	DECL_ASSIGN_LINE     (line:   3, col:  33):	Declaration and assignation on a single line
 	DECL_ASSIGN_LINE     (line:   4, col:  34):	Declaration and assignation on a single line
 	DECL_ASSIGN_LINE     (line:   5, col:  34):	Declaration and assignation on a single line

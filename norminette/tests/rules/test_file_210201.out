@@ -24,7 +24,7 @@
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <SPACE> <IDENTIFIER=var1> <SPACE> <PLUS> <SPACE> <CONSTANT=2> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210201.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 13":
 		<RBRACE> <NEWLINE>
-test_file_210201.c: KO!
+test_file_210201.c: Error!
 	RETURN_PARENTHESIS   (line:   3, col:  20):	Return value must be in parenthesis
 	RETURN_PARENTHESIS   (line:   4, col:  17):	Return value must be in parenthesis
 	RETURN_PARENTHESIS   (line:   5, col:  18):	Return value must be in parenthesis

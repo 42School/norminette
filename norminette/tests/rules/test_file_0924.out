@@ -22,7 +22,7 @@
 		<RBRACE> <NEWLINE>
 [36mtest_file_0924.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
 		<NEWLINE>
-test_file_0924.c: KO!
+test_file_0924.c: Error!
 	SPACE_BEFORE_FUNC    (line:   1, col:   5):	space before function name
 	BRACE_NEWLINE        (line:   1, col:  47):	Expected newline before brace
 	TOO_MANY_TAB         (line:   5, col:   1):	Extra tabs for indent level

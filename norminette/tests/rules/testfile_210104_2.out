@@ -48,5 +48,5 @@
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtestfile_210104_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 25":
 		<RBRACE> <NEWLINE>
-testfile_210104_2.c: KO!
+testfile_210104_2.c: Error!
 	WRONG_SCOPE_COMMENT  (line:   5, col:   5):	Comment is invalid in this scope

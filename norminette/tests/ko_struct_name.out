@@ -1,4 +1,4 @@
-tests/rules/ko_struct_name.c: KO!
+tests/rules/ko_struct_name.c: Error!
         ESTRUCT_TYPE_NAMING (line: 1, col: 16): Structure name must start with s_
         EUSER_DEFINED_TYPEDEF (line: 1, col: 23):       User defined typedef must start with t_
         EGLOBAL_VAR_NAMING (line: 2, col: 19):  Global variable must start with g_

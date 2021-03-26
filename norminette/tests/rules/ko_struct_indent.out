@@ -28,7 +28,7 @@
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mko_struct_indent.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
 		<RBRACE> <NEWLINE>
-ko_struct_indent.c: KO!
+ko_struct_indent.c: Error!
 	GLOBAL_VAR_NAMING    (line:   2, col:  29):	Global variable must start with g_
 	MISALIGNED_VAR_DECL  (line:   2, col:  29):	Misaligned variable declaration
 	MISALIGNED_VAR_DECL  (line:   3, col:  29):	Misaligned variable declaration
