@@ -45,7 +45,7 @@ class CheckFuncDeclaration(Rule):
         deep = 1
         while deep > 0:
             if context.check_token(i, "LPARENTHESIS"):
-                i = context.skip_nest(i) + 1
+                i = context.skip_nest(i)
             if context.check_token(i, "RPARENTHESIS"):
                 deep -= 1
             if context.check_token(i, "COMMA"):
