@@ -45,5 +45,5 @@
 [36mtestfile_210104_3.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 23":
 		<RBRACE> <NEWLINE>
 testfile_210104_3.c: Error!
-	SPC_AFTER_OPERATOR   (line:  20, col:  20):	missing space after operator
-	SPC_AFTER_OPERATOR   (line:  21, col:  24):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  20, col:  20):	missing space after operator
+Error: SPC_AFTER_OPERATOR   (line:  21, col:  24):	missing space after operator

@@ -212,6 +212,9 @@ class CheckOperatorsSpacing(Rule):
                         "NOT",
                         "MINUS",
                         "PLUS",
+                        "CONSTANT",
+                        "CHAR_CONSTANT",
+                        "STRING"
                     ],
                 )
                 is False

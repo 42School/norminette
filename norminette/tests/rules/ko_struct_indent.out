@@ -29,10 +29,10 @@
 [36mko_struct_indent.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
 		<RBRACE> <NEWLINE>
 ko_struct_indent.c: Error!
-	GLOBAL_VAR_NAMING    (line:   2, col:  29):	Global variable must start with g_
-	MISALIGNED_VAR_DECL  (line:   2, col:  29):	Misaligned variable declaration
-	MISALIGNED_VAR_DECL  (line:   3, col:  29):	Misaligned variable declaration
-	MULT_DECL_LINE       (line:   3, col:  34):	Multiple declarations on a single line
-	MISALIGNED_VAR_DECL  (line:   7, col:  29):	Misaligned variable declaration
-	MISALIGNED_VAR_DECL  (line:   8, col:   1):	Misaligned variable declaration
-	MISALIGNED_VAR_DECL  (line:   9, col:  29):	Misaligned variable declaration
+Error: GLOBAL_VAR_NAMING    (line:   2, col:  29):	Global variable must start with g_
+Error: MISALIGNED_VAR_DECL  (line:   2, col:  29):	Misaligned variable declaration
+Error: MISALIGNED_VAR_DECL  (line:   3, col:  29):	Misaligned variable declaration
+Error: MULT_DECL_LINE       (line:   3, col:  34):	Multiple declarations on a single line
+Error: MISALIGNED_VAR_DECL  (line:   7, col:  29):	Misaligned variable declaration
+Error: MISALIGNED_VAR_DECL  (line:   8, col:   1):	Misaligned variable declaration
+Error: MISALIGNED_VAR_DECL  (line:   9, col:  29):	Misaligned variable declaration

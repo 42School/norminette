@@ -56,7 +56,7 @@
 [36mtest_file_210201_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 29":
 		<RBRACE> <NEWLINE>
 test_file_210201_2.c: Error!
-	VAR_DECL_START_FUNC  (line:  15, col:   1):	Variable declaration not at start of function
-	SPC_AFTER_POINTER    (line:  15, col:  29):	space after pointer
-	VAR_DECL_START_FUNC  (line:  26, col:   1):	Variable declaration not at start of function
-	SPACE_REPLACE_TAB    (line:  26, col:   8):	Found space when expecting tab
+Error: VAR_DECL_START_FUNC  (line:  15, col:   1):	Variable declaration not at start of function
+Error: SPC_AFTER_POINTER    (line:  15, col:  29):	space after pointer
+Error: VAR_DECL_START_FUNC  (line:  26, col:   1):	Variable declaration not at start of function
+Error: SPACE_REPLACE_TAB    (line:  26, col:   8):	Found space when expecting tab

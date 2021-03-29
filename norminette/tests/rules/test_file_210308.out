@@ -61,6 +61,6 @@
 [36mtest_file_210308.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 35":
 		<RBRACE> <NEWLINE>
 test_file_210308.c: Error!
-	NEWLINE_PRECEDES_FUNC (line:  29, col:   1):	Functions must be separated by a newline
-	NEWLINE_PRECEDES_FUNC (line:  33, col:   1):	Functions must be separated by a newline
-	TOO_MANY_FUNCS       (line:  33, col:   1):	Too many functions in file
+Error: NEWLINE_PRECEDES_FUNC (line:  29, col:   1):	Functions must be separated by a newline
+Error: NEWLINE_PRECEDES_FUNC (line:  33, col:   1):	Functions must be separated by a newline
+Error: TOO_MANY_FUNCS       (line:  33, col:   1):	Too many functions in file

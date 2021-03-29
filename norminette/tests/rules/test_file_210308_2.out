@@ -9,4 +9,4 @@
 [36mtest_file_210308_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 5":
 		<RBRACE> <NEWLINE>
 test_file_210308_2.c: Error!
-	ASSIGN_IN_CONTROL    (line:   3, col:  23):	Assignment in control structure
+Error: ASSIGN_IN_CONTROL    (line:   3, col:  23):	Assignment in control structure
