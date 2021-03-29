@@ -139,7 +139,7 @@ arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 class Context:
     def __init__(self, filename, tokens, debug=0):
         # File relative informations
-        self.filename = filename.split("/")[-1]
+        self.filename = filename
         self.filetype = filename.split(".")[-1]  # ?
         self.tokens = tokens
         self.debug = int(debug)

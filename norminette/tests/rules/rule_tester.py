@@ -41,7 +41,7 @@ class norminetteRuleTester:
         stdout = sys.stdout
         sys.stdout = buff = StringIO()
         lexer = Lexer(read_file(filename))
-        context = Context(filename, lexer.get_tokens(), debug=2)
+        context = Context(filename.split("/")[-1], lexer.get_tokens(), debug=2)
         registry.run(context, read_file(filename))
         reference_output = read_file(filename.split(".")[0] + ".out")
         sys.stdout = stdout

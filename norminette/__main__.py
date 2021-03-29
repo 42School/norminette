@@ -41,6 +41,13 @@ def main():
         help="Debug output (multiple values available)",
         default=0,
     )
+    parser.add_argument(
+        "-o",
+        "--only-filename",
+        action="store_true",
+        help="By default norminette displays the full path to the file, this allows to show only filename",
+        default=False,
+    )
     parser.add_argument("-v", "--version", action="version", version="norminette " + str(__version__))
     parser.add_argument(
         "--cfile",
@@ -91,6 +98,8 @@ def main():
                     source = content
                 lexer = Lexer(source)
                 tokens = lexer.get_tokens()
+                if args.only_filename == True:
+                    target = target.split("/")[-1]
                 context = Context(target, tokens, debug)
                 registry.run(context, source)
                 event[-1].set()
