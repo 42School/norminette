@@ -61,7 +61,6 @@ def main():
     )
     parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
-    print (args)
     registry = Registry()
     targets = []
     has_err = None
@@ -88,7 +87,7 @@ def main():
     event = []
     for target in targets:
         if target[-2:] not in [".c", ".h"]:
-            print(f"{target} is not valid C or C header file")
+            print(f"Error: {target} is not valid C or C header file")
         else:
             try:
                 event.append(Event())

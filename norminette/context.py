@@ -485,6 +485,9 @@ In \"{self.scope.name}\" from \
         nested_id = False
         identifier = None
         pointer = None
+        sizeof = False
+        if self.check_token(start - 1, "SIZEOF") is True:
+            sizeof = True
         i = self.skip_ws(i)
         while deep > 0:
             if self.check_token(i, "RPARENTHESIS"):
@@ -516,6 +519,8 @@ In \"{self.scope.name}\" from \
                 tmp = i + 1
                 if (identifier is not True and pointer == True) or ret_store is not None:
                     nested_id = True
+                if identifier is not True and self.check_token(tmp, "RPARENTHESIS") and self.scope.name == "Function" and deep == 1 and pointer == None and sizeof == False:
+                    return "cast", self.skip_nest(start)
                 identifier = True
                 tmp = self.skip_ws(tmp)
                 if pointer == True:

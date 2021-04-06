@@ -247,6 +247,7 @@ class CheckOperatorsSpacing(Rule):
                         "DOT",
                         "INC",
                         "DEC",
+                        "MINUS",
                         "MULT",
                         "BWISE_AND",
                         "IDENTIFIER",
@@ -333,7 +334,13 @@ class CheckOperatorsSpacing(Rule):
             )
             is False
         ):
-            context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
+            tmp = pos - 1
+            while context.check_token(tmp, ['SPACE', 'TAB']):
+                tmp -= 1
+            if context.check_token(tmp, "RPARENTHESIS"):
+                tmp = context.skip_nest_reverse(tmp)
+                if context.parenthesis_contain(tmp)[0] != "cast":
+                    context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_glued_operator(self, context, pos):
         glued = [
