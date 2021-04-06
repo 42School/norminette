@@ -85,9 +85,8 @@
                 files or directories) must have the most
                 explicit or most mnemonic names as possible.
 
-            \item Using a global variable in a project where it's not
-                explicitly allowed is a norm error, except where it's
-                mandatory (signal handling for example).
+            \item Using global variables that are not marked const and static is 
+            forbidden and is considered a norm error, unless the project explicitly allows them.
 
             \item The file must compile. A file that doesn't compile isn't expected
                 to pass the Norm.
