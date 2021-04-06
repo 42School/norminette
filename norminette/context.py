@@ -137,7 +137,7 @@ arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
 
 class Context:
-    def __init__(self, filename, tokens, debug=0):
+    def __init__(self, filename, tokens, debug=0, added_value=[]):
         # File relative informations
         self.filename = filename
         self.filetype = filename.split(".")[-1]  # ?
@@ -158,6 +158,7 @@ class Context:
 
         # Preprocessor handling
         self.preproc_scope_indent = 0
+        self.skip_define_error = True if added_value is not None and "CheckDefine" in added_value else False
 
     def peek_token(self, pos):
         return self.tokens[pos] if pos < len(self.tokens) else None

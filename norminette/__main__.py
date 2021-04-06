@@ -61,6 +61,7 @@ def main():
     )
     parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
+    print (args)
     registry = Registry()
     targets = []
     has_err = None
@@ -100,7 +101,7 @@ def main():
                 tokens = lexer.get_tokens()
                 if args.only_filename == True:
                     target = target.split("/")[-1]
-                context = Context(target, tokens, debug)
+                context = Context(target, tokens, debug, args.R)
                 registry.run(context, source)
                 event[-1].set()
                 if context.errors:
