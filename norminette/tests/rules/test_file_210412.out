@@ -1,0 +1,25 @@
+[36mtest_file_210412.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<STATIC> <SPACE> <IDENTIFIER=t_crd> <TAB> <IDENTIFIER=get_first_basis> <LPARENTHESIS> <IDENTIFIER=t_crd> <SPACE> <MULT> <IDENTIFIER=normal> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <LPARENTHESIS> <IDENTIFIER=pvec_module> <LPARENTHESIS> <IDENTIFIER=normal> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <IDENTIFIER=pvec_module> <LPARENTHESIS> <BWISE_AND> <IDENTIFIER=basis_vec> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 4":
+		<RBRACE> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 6":
+		<INT> <TAB> <IDENTIFIER=v> <LPARENTHESIS> <INT> <SPACE> <MULT> <RESTRICT> <SPACE> <IDENTIFIER=t> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 7":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <CONST> <SPACE> <CHAR> <TAB> <MULT> <RESTRICT> <SPACE> <IDENTIFIER=s> <SPACE> <ASSIGN> <SPACE> <STRING="Hello World"> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 9":
+		<NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <IDENTIFIER=printf> <LPARENTHESIS> <STRING="%s\n"> <COMMA> <SPACE> <IDENTIFIER=s> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 12":
+		<RBRACE> <NEWLINE>
+test_file_210412.c: OK!
