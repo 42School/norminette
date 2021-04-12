@@ -104,6 +104,7 @@ operators = [
 ]
 misc_specifiers = [
     "CONST",
+    "RESTRICT",
     "REGISTER",
     "STATIC",
     "VOLATILE",
@@ -385,7 +386,6 @@ In \"{self.scope.name}\" from \
             if self.check_token(i, "MULT") and self.check_token(i + 1, "CONST"):
                 i += 1
             i += 1
-
         i = self.skip_misc_specifier(i, nl=nl)
         if self.check_token(i, "IDENTIFIER"):
             while p and self.check_token(i, whitespaces + ["RPARENTHESIS"]) is True:
