@@ -10,3 +10,9 @@ int	v(int *restrict t)
 	printf("%s\n", s);
 	return (0);
 }
+
+int error_std(
+	t_shell_context *context,
+	int return_code,
+	...
+)

@@ -22,4 +22,12 @@
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210412.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 12":
 		<RBRACE> <NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 13":
+		<NEWLINE>
+[36mtest_file_210412.c[0m - [32mIsDeclaration[0m In "GlobalScope" from "None" line 14":
+		<INT> <SPACE> <IDENTIFIER=error_std> <LPARENTHESIS> <NEWLINE>
+		<TAB> <IDENTIFIER=t_shell_context> <SPACE> <MULT> <IDENTIFIER=context> <COMMA> <NEWLINE>
+		<TAB> <INT> <SPACE> <IDENTIFIER=return_code> <COMMA> <NEWLINE>
+		<TAB> <ELLIPSIS> <NEWLINE>
+		<RPARENTHESIS> <NEWLINE>
 test_file_210412.c: OK!

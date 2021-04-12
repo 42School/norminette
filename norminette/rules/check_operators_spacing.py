@@ -147,7 +147,7 @@ class CheckOperatorsSpacing(Rule):
     def check_prefix(self, context, pos):
         tmp = -1
 
-        if pos > 0 and context.peek_token(pos - 1).type != "SPACE":
+        if pos > 0 and context.check_token(pos, ["TAB", "SPACE"]):
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
         if pos + 1 < len(context.tokens[: context.tkn_scope]) and context.peek_token(pos + 1).type == "SPACE":
             context.new_error("NO_SPC_AFR_OPR", context.peek_token(pos))
