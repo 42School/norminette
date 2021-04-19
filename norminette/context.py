@@ -453,8 +453,10 @@ In \"{self.scope.name}\" from \
             if right_side == False:
                 return False
         skip = 0
+        value_before = False
         while pos > 0:
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
+                value_before = True
                 pos = self.skip_nest_reverse(pos) - 1
                 if self.check_token(pos + 1, "LPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == "cast":
                     return False
@@ -468,7 +470,10 @@ In \"{self.scope.name}\" from \
             if self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND", "COMMA"] + operators + types):
                 return False
             pos -= 1
-        return False
+        if value_before == True:
+            return True
+        else:
+            return False
 
     def parenthesis_contain(self, i, ret_store=None):
         """

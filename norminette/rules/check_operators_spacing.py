@@ -315,7 +315,7 @@ class CheckOperatorsSpacing(Rule):
             pos > 0
             and context.check_token(
                 pos - 1,
-                ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET"],
+                ["SPACE", "LPARENTHESIS", "LBRACKET"],
             )
             is False
         ):
