@@ -13,7 +13,7 @@ rules = {}
 primary_rules = {}
 
 for f in files:
-    mod_name = f.split("/")[-1].split(".")[0]
+    mod_name = f.split(os.path.sep)[-1].split(".")[0]
     class_name = "".join([s.capitalize() for s in mod_name.split("_")])
     module = importlib.import_module("norminette.rules." + mod_name)
     rule = getattr(module, class_name)
@@ -23,7 +23,7 @@ for f in files:
 files = glob(path + "/is_*.py")
 
 for f in files:
-    mod_name = f.split("/")[-1].split(".")[0]
+    mod_name = f.split(os.path.sep)[-1].split(".")[0]
     class_name = "".join([s.capitalize() for s in mod_name.split("_")])
     module = importlib.import_module("norminette.rules." + mod_name)
     rule = getattr(module, class_name)
