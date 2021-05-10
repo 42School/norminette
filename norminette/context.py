@@ -451,7 +451,11 @@ In \"{self.scope.name}\" from \
                 if self.check_token(tmp, ["ASSIGN"]) is True:
                     right_side = True
                 if self.check_token(tmp, "LBRACKET") is True:
+<<<<<<< HEAD
                     bracketed = True
+=======
+                    return True
+>>>>>>> 3e80e27 (Close #141, close #143)
                 tmp -= 1
             if right_side == False and bracketed == False:
                 return False
