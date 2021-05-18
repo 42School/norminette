@@ -8,7 +8,7 @@ from norminette.rules import PrimaryRule
 class IsBlockEnd(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 40
+        self.priority = 54
         self.scope = []
 
     def check_udef_typedef(self, context, pos):
