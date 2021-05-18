@@ -507,8 +507,8 @@ Error: DECL_ASSIGN_LINE     (line:  65, col:  20):	Declaration and assignation o
 Error: SPC_BFR_OPERATOR     (line:  65, col:  54):	missing space before operator
 Error: SPC_BFR_OPERATOR     (line:  65, col:  61):	missing space before operator
 Error: SPC_BFR_OPERATOR     (line:  65, col:  80):	missing space before operator
+Error: LINE_TOO_LONG        (line:  65, col:  87):	line too long
 Error: SPC_BFR_OPERATOR     (line:  65, col:  87):	missing space before operator
-Error: LINE_TOO_LONG        (line:  65, col:  96):	line too long
 Error: ASSIGN_IN_CONTROL    (line:  66, col:  19):	Assignment in control structure
 Error: EMPTY_LINE_FUNCTION  (line:  68, col:   1):	Empty line in function
 Error: WRONG_SCOPE_COMMENT  (line:  69, col:   5):	Comment is invalid in this scope
@@ -543,10 +543,10 @@ Error: SPACE_AFTER_KW       (line: 155, col:  13):	Missing space after keyword
 Error: NO_SPC_AFR_PAR       (line: 156, col:  50):	Extra space after parenthesis (brace/bracket)
 Error: TOO_FEW_TAB          (line: 156, col:  52):	Missing tabs for indent level
 Error: SPACE_AFTER_KW       (line: 159, col:  17):	Missing space after keyword
-Error: LINE_TOO_LONG        (line: 162, col:  93):	line too long
+Error: LINE_TOO_LONG        (line: 162, col:  86):	line too long
 Error: NO_SPC_AFR_PAR       (line: 168, col:  23):	Extra space after parenthesis (brace/bracket)
 Error: TOO_FEW_TAB          (line: 168, col:  25):	Missing tabs for indent level
-Error: LINE_TOO_LONG        (line: 172, col: 101):	line too long
+Error: LINE_TOO_LONG        (line: 172, col:  86):	line too long
 Error: SPACE_AFTER_KW       (line: 182, col:  17):	Missing space after keyword
 Error: BRACE_SHOULD_EOL     (line: 201, col:   1):	Expected newline after brace
 Error: TOO_MANY_LINES       (line: 201, col:   1):	Function has more than 25 lines
