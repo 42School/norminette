@@ -16,3 +16,6 @@ int error_std(
 	int return_code,
 	...
 )
+{
+	return ;
+}

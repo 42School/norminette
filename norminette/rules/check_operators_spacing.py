@@ -76,7 +76,6 @@ ps_operators = [
     "EQUALS",  # ==
     "NOT_EQUAL",  # !=
     "ASSIGN",  # =
-    "COLON",  # :
     "DIV",  # /
     "MULT",  # *
     "MODULO",  # %
@@ -96,7 +95,10 @@ p_operators = [
 
 s_operators = [
     # operators that should only be suffixed by a space
-    "COMMA"  # ,
+    "COMMA",  # ,
+    #Where do i put that shit
+    #"COLON",  # :
+
 ]
 
 son_operators = [
@@ -330,7 +332,7 @@ class CheckOperatorsSpacing(Rule):
             pos + 1 < len(context.tokens[: context.tkn_scope])
             and context.check_token(
                 pos + 1,
-                ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET"],
+                ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET", "NEWLINE", "COMMA"],
             )
             is False
         ):
@@ -341,6 +343,8 @@ class CheckOperatorsSpacing(Rule):
                 tmp = context.skip_nest_reverse(tmp)
                 if context.parenthesis_contain(tmp)[0] != "cast":
                     context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
+            else:
+                context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_glued_operator(self, context, pos):
         glued = [
