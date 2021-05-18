@@ -442,6 +442,7 @@ In \"{self.scope.name}\" from \
         if self.check_token(start, ["SIZEOF"]) is True:
             return True
         if self.history[-1] == "IsVarDeclaration":
+            bracketed = False
             tmp = pos
             right_side = False
             while tmp > 0:
@@ -449,8 +450,10 @@ In \"{self.scope.name}\" from \
                     tmp = self.skip_nest_reverse(tmp) - 1
                 if self.check_token(tmp, ["ASSIGN"]) is True:
                     right_side = True
+                if self.check_token(tmp, "LBRACKET") is True:
+                    bracketed = True
                 tmp -= 1
-            if right_side == False:
+            if right_side == False and bracketed == False:
                 return False
         skip = 0
         value_before = False
