@@ -102,12 +102,13 @@ class CheckUtypeDeclaration(Rule):
             loc = ids[0][1]
         else:
             loc = ids[0][1]
-        if utype is not None and utype.type == "STRUCT" and name.value.startswith("s_") is False:
-            context.new_error("STRUCT_TYPE_NAMING", context.peek_token(loc))
-        if utype is not None and utype.type == "UNION" and name.value.startswith("u_") is False:
-            context.new_error("UNION_TYPE_NAMING", context.peek_token(loc))
-        if utype is not None and utype.type == "ENUM" and name.value.startswith("e_") is False:
-            context.new_error("ENUM_TYPE_NAMING", context.peek_token(loc))
+        if is_td == False:
+            if utype is not None and utype.type == "STRUCT" and name.value.startswith("s_") is False:
+                context.new_error("STRUCT_TYPE_NAMING", context.peek_token(loc))
+            if utype is not None and utype.type == "UNION" and name.value.startswith("u_") is False:
+                context.new_error("UNION_TYPE_NAMING", context.peek_token(loc))
+            if utype is not None and utype.type == "ENUM" and name.value.startswith("e_") is False:
+                context.new_error("ENUM_TYPE_NAMING", context.peek_token(loc))
         if is_td or (is_td == False and contain_full_def == False):
             tmp = ids[-1][1] - 1
             while (context.check_token(tmp, "TAB")) is True and tmp > 0:
