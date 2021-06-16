@@ -97,7 +97,7 @@ class CheckUtypeDeclaration(Rule):
                         pass
                     elif context.debug == 0:
                         raise CParsingError(
-                            f"{context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}"
+                            f"Error: {context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}"
                         )
             loc = ids[0][1]
         else:
@@ -111,8 +111,12 @@ class CheckUtypeDeclaration(Rule):
                 context.new_error("ENUM_TYPE_NAMING", context.peek_token(loc))
         if is_td or (is_td == False and contain_full_def == False):
             tmp = ids[-1][1] - 1
+            tabs = 0
             while (context.check_token(tmp, "TAB")) is True and tmp > 0:
+                tabs += 1
                 tmp -= 1
+            #if tabs > 1:
+                #context.new_error("TOO_MANY_TABS_TD", context.peek_token(tmp))
             if context.check_token(tmp, "SPACE") is True:
                 context.new_error("SPACE_REPLACE_TAB", context.peek_token(tmp))
             while tmp > 0:

@@ -1,1 +1,0 @@
-typedef struct dirent	t_dirent;

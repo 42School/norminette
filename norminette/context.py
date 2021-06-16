@@ -262,7 +262,7 @@ In \"{self.scope.name}\" from \
         try:
             c = self.peek_token(pos).type
         except:
-            raise CParsingError(f"Unexpected EOF line {pos}")
+            raise CParsingError(f"Error: Unexpected EOF line {pos}")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]
@@ -277,7 +277,7 @@ In \"{self.scope.name}\" from \
                     return i
             i -= 1
         raise CParsingError(
-            "Nested parentheses, braces or brackets\
+            "Error: Nested parentheses, braces or brackets\
  are not correctly closed"
         )
 
@@ -293,7 +293,7 @@ In \"{self.scope.name}\" from \
         try:
             c = self.peek_token(pos).type
         except:
-            raise CParsingError(f"Unexpected EOF line {pos}")
+            raise CParsingError(f"Error: Code ended unexpectedly.")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]
@@ -308,7 +308,7 @@ In \"{self.scope.name}\" from \
                     return i
             i += 1
         raise CParsingError(
-            "Nested parentheses, braces or brackets\
+            "Error: Nested parentheses, braces or brackets\
  are not correctly closed"
         )
 
@@ -451,11 +451,7 @@ In \"{self.scope.name}\" from \
                 if self.check_token(tmp, ["ASSIGN"]) is True:
                     right_side = True
                 if self.check_token(tmp, "LBRACKET") is True:
-<<<<<<< HEAD
                     bracketed = True
-=======
-                    return True
->>>>>>> 3e80e27 (Close #141, close #143)
                 tmp -= 1
             if right_side == False and bracketed == False:
                 return False

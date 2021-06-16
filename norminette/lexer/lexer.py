@@ -14,7 +14,7 @@ def read_file(filename):
 
 class TokenError(Exception):
     def __init__(self, pos):
-        self.msg = f"Unrecognized token line {pos[0]}, col {pos[1]}"
+        self.msg = f"Error: Unrecognized token line {pos[0]}, col {pos[1]}"
 
     def __repr__(self):
         return self.msg

@@ -43,7 +43,7 @@ class IsExpressionStatement(PrimaryRule):
                     # parse label value here
                     i = context.skip_nest(i)
                 elif context.debug == 0:
-                    raise CParsingError("Goto statement should be followed by a label")
+                    raise CParsingError("Error: Goto statement should be followed by a label")
             i += 1
             i = context.skip_ws(i)
             i += 1

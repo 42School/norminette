@@ -65,7 +65,7 @@ class Registry:
                     if unrecognized_tkns != []:
                         if context.debug == 0:
                             raise CParsingError(
-                                f"Unrecognized line {unrecognized_tkns[0].pos} while parsing line {unrecognized_tkns}"
+                                f"Error: Unrecognized line {unrecognized_tkns[0].pos} while parsing line {unrecognized_tkns}"
                             )
                         print("uncaught -> ", context.filename)
                         print("uncaught -> ", unrecognized_tkns)
