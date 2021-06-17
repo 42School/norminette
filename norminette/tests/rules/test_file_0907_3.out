@@ -424,6 +424,7 @@
 		<RBRACE> 
 test_file_0907_3.c: Error!
 Error: TOO_MANY_TABS_FUNC   (line:   1, col:   5):	extra tabs before function name
+Error: MIXED_SPACE_TAB      (line:   4, col:  19):	Mixed spaces and tabs
 Error: SPACE_REPLACE_TAB    (line:   4, col:  19):	Found space when expecting tab
 Error: MULT_DECL_LINE       (line:   4, col:  24):	Multiple declarations on a single line
 Error: MULT_DECL_LINE       (line:   6, col:  23):	Multiple declarations on a single line

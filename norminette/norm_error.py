@@ -91,6 +91,7 @@ digits or '_'",
     "ARG_TYPE_UKN": "Unrecognized variable type",
     "COMMENT_ON_INSTR": "Comment must be on its own line",
     "COMMA_START_LINE": "Comma at line start",
+    "MIXED_SPACE_TAB": "Mixed spaces and tabs",
 }
 
 

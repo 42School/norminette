@@ -176,4 +176,6 @@ Error: TOO_MANY_FUNCS       (line:  66, col:   1):	Too many functions in file
 Error: WRONG_SCOPE_COMMENT  (line:  70, col:  14):	Comment is invalid in this scope
 Error: COMMENT_ON_INSTR     (line:  70, col:  32):	Comment must be on its own line
 Error: TOO_MANY_FUNCS       (line:  73, col:   1):	Too many functions in file
+Error: SPC_BEFORE_NL        (line:  73, col:  17):	Space before newline
 Error: TOO_MANY_FUNCS       (line:  78, col:   1):	Too many functions in file
+Error: SPC_BEFORE_NL        (line:  78, col:  17):	Space before newline

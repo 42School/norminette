@@ -119,12 +119,15 @@ class CheckUtypeDeclaration(Rule):
                 #context.new_error("TOO_MANY_TABS_TD", context.peek_token(tmp))
             if context.check_token(tmp, "SPACE") is True:
                 context.new_error("SPACE_REPLACE_TAB", context.peek_token(tmp))
+            tab_error = False
             while tmp > 0:
                 if context.check_token(tmp, "RBRACE") is True:
                     tmp = context.skip_nest_reverse(tmp)
                 if context.check_token(tmp, "TAB") is True and on_newline == False:
-                    context.new_error("TAB_REPLACE_SPACE", context.peek_token(tmp))
+                    tab_error = True
                 tmp -= 1
+            if tab_error:
+                context.new_error("TAB_REPLACE_SPACE", context.peek_token(tmp))
         if contain_full_def == False:
             i = 0
             identifier = ids[-1][0]
