@@ -295,6 +295,9 @@ class Lexer:
                 return
             tkn_value += self.peek_char()
             self.pop_char()
+        if (self.__pos == self.len):
+            self.tokens.append(Token("COMMENT", pos, tkn_value))
+            return
         raise TokenError(pos)
 
     def identifier(self):
