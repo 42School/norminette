@@ -498,12 +498,15 @@ In \"{self.scope.name}\" from \
             sizeof = True
         i = self.skip_ws(i)
         while deep > 0:
+            #print (self.peek_token(i), deep, identifier, self.check_token(i, "NULL"))
             if self.check_token(i, "RPARENTHESIS"):
                 deep -= 1
             elif self.check_token(i, "LPARENTHESIS"):
                 deep += 1
-                if identifier is not None and deep >= 0:
-                    return "pointer", self.skip_nest(start)
+                #if identifier is not None and deep >= 0:
+                    #return "pointer", self.skip_nest(start)
+            elif deep > 1 and identifier == True and self.check_token(i, ["NULL", "IDENTIFIER"]):
+                return "fct_call", self.skip_nest(start)
             elif self.check_token(i, "COMMA") and nested_id == True:
                 return "function", self.skip_nest(start)
             elif self.check_token(i, "COMMA"):
