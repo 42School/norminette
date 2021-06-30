@@ -85,9 +85,9 @@
                 arquivos ou diretórios) devem ter os
                 nomes mais explícitos ou mais mnemônicos possíveis.
 
-            \item Usando uma variável global em um projeto onde não é
-                explicitamente permitido é um erro de norma, exceto onde é
-                obrigatório (manuseio de sinais, por exemplo).
+            \item Usar uma variável global que não está marcada como const ou static é 
+			proibido e considerado um erro de norma, a menos que seja explicitamente 
+			permitido no projeto.
 
             \item O arquivo deve compilar. Um arquivo que não compila não é esperado
                 que passe na norma.
@@ -244,8 +244,9 @@ int func2(void)
                 adicione um único espaço no tipo.
 
             \item Ao declarar um struct, union ou enum com um typedef,
-                todas as regras de indentação aplicam-se. Você deve alinhar nome
-                do typedef ao nome do struct/union/enum.
+                todas as regras de indentação aplicam-se.
+			
+			\item O nome de um typedef deve ser precedido por uma tabulação.
 
             \item Você deve recuar todos os nomes de estruturas na mesma coluna
                 para o escopo deles.
