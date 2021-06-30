@@ -2,8 +2,8 @@
 		<INT> <SPACE> <IDENTIFIER=notValid> <SEMI_COLON> <NEWLINE>
 [36mko_var_name.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 2":
 		<INT> <SPACE> <IDENTIFIER=NotValidEither> <SEMI_COLON> <NEWLINE>
-ko_var_name.c: KO!
-	SPACE_REPLACE_TAB    (line:   1, col:   4):	Found space when expecting tab
-	GLOBAL_VAR_NAMING    (line:   1, col:   5):	Global variable must start with g_
-	SPACE_REPLACE_TAB    (line:   2, col:   4):	Found space when expecting tab
-	GLOBAL_VAR_NAMING    (line:   2, col:   5):	Global variable must start with g_
+ko_var_name.c: Error!
+Error: SPACE_REPLACE_TAB    (line:   1, col:   4):	Found space when expecting tab
+Error: GLOBAL_VAR_NAMING    (line:   1, col:   5):	Global variable must start with g_
+Error: SPACE_REPLACE_TAB    (line:   2, col:   4):	Found space when expecting tab
+Error: GLOBAL_VAR_NAMING    (line:   2, col:   5):	Global variable must start with g_

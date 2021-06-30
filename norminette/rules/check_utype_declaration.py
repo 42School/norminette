@@ -49,7 +49,7 @@ class CheckUtypeDeclaration(Rule):
                 pass
             if context.check_token(i, ["LPARENTHESIS"]) is True:
                 val, tmp = context.parenthesis_contain(i)
-                if val == None:
+                if val == None or val == "cast":
                     i = tmp
             if context.check_token(i, utypes) is True:
                 utype = context.peek_token(i)
@@ -75,6 +75,7 @@ class CheckUtypeDeclaration(Rule):
                 i = context.skip_nest(i)
             i += 1
         check = -1
+        #print (ids, utype, contain_full_def)
         if is_td == True and len(ids) < 2 and utype != None:
             context.new_error("MISSING_TYPEDEF_ID", context.peek_token(0))
             return False, 0
@@ -97,29 +98,37 @@ class CheckUtypeDeclaration(Rule):
                         pass
                     elif context.debug == 0:
                         raise CParsingError(
-                            f"{context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}"
+                            f"Error: {context.filename}: Could not parse structure line {context.peek_token(0).pos[0]}"
                         )
             loc = ids[0][1]
         else:
             loc = ids[0][1]
-        if utype is not None and utype.type == "STRUCT" and name.value.startswith("s_") is False:
-            context.new_error("STRUCT_TYPE_NAMING", context.peek_token(loc))
-        if utype is not None and utype.type == "UNION" and name.value.startswith("u_") is False:
-            context.new_error("UNION_TYPE_NAMING", context.peek_token(loc))
-        if utype is not None and utype.type == "ENUM" and name.value.startswith("e_") is False:
-            context.new_error("ENUM_TYPE_NAMING", context.peek_token(loc))
+        if is_td == False:
+            if utype is not None and utype.type == "STRUCT" and name.value.startswith("s_") is False:
+                context.new_error("STRUCT_TYPE_NAMING", context.peek_token(loc))
+            if utype is not None and utype.type == "UNION" and name.value.startswith("u_") is False:
+                context.new_error("UNION_TYPE_NAMING", context.peek_token(loc))
+            if utype is not None and utype.type == "ENUM" and name.value.startswith("e_") is False:
+                context.new_error("ENUM_TYPE_NAMING", context.peek_token(loc))
         if is_td or (is_td == False and contain_full_def == False):
             tmp = ids[-1][1] - 1
+            tabs = 0
             while (context.check_token(tmp, "TAB")) is True and tmp > 0:
+                tabs += 1
                 tmp -= 1
+            #if tabs > 1:
+                #context.new_error("TOO_MANY_TABS_TD", context.peek_token(tmp))
             if context.check_token(tmp, "SPACE") is True:
                 context.new_error("SPACE_REPLACE_TAB", context.peek_token(tmp))
+            tab_error = False
             while tmp > 0:
                 if context.check_token(tmp, "RBRACE") is True:
                     tmp = context.skip_nest_reverse(tmp)
                 if context.check_token(tmp, "TAB") is True and on_newline == False:
-                    context.new_error("TAB_REPLACE_SPACE", context.peek_token(tmp))
+                    tab_error = True
                 tmp -= 1
+            if tab_error:
+                context.new_error("TAB_REPLACE_SPACE", context.peek_token(tmp))
         if contain_full_def == False:
             i = 0
             identifier = ids[-1][0]

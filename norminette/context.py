@@ -104,6 +104,7 @@ operators = [
 ]
 misc_specifiers = [
     "CONST",
+    "RESTRICT",
     "REGISTER",
     "STATIC",
     "VOLATILE",
@@ -137,9 +138,9 @@ arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
 
 class Context:
-    def __init__(self, filename, tokens, debug=0):
+    def __init__(self, filename, tokens, debug=0, added_value=[]):
         # File relative informations
-        self.filename = filename.split("/")[-1]
+        self.filename = filename
         self.filetype = filename.split(".")[-1]  # ?
         self.tokens = tokens
         self.debug = int(debug)
@@ -158,6 +159,7 @@ class Context:
 
         # Preprocessor handling
         self.preproc_scope_indent = 0
+        self.skip_define_error = True if added_value is not None and "CheckDefine" in added_value else False
 
     def peek_token(self, pos):
         return self.tokens[pos] if pos < len(self.tokens) else None
@@ -260,7 +262,7 @@ In \"{self.scope.name}\" from \
         try:
             c = self.peek_token(pos).type
         except:
-            raise CParsingError(f"Unexpected EOF line {pos}")
+            raise CParsingError(f"Error: Unexpected EOF line {pos}")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]
@@ -275,7 +277,7 @@ In \"{self.scope.name}\" from \
                     return i
             i -= 1
         raise CParsingError(
-            "Nested parentheses, braces or brackets\
+            "Error: Nested parentheses, braces or brackets\
  are not correctly closed"
         )
 
@@ -291,7 +293,7 @@ In \"{self.scope.name}\" from \
         try:
             c = self.peek_token(pos).type
         except:
-            raise CParsingError(f"Unexpected EOF line {pos}")
+            raise CParsingError(f"Error: Code ended unexpectedly.")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]
@@ -306,7 +308,7 @@ In \"{self.scope.name}\" from \
                     return i
             i += 1
         raise CParsingError(
-            "Nested parentheses, braces or brackets\
+            "Error: Nested parentheses, braces or brackets\
  are not correctly closed"
         )
 
@@ -384,7 +386,6 @@ In \"{self.scope.name}\" from \
             if self.check_token(i, "MULT") and self.check_token(i + 1, "CONST"):
                 i += 1
             i += 1
-
         i = self.skip_misc_specifier(i, nl=nl)
         if self.check_token(i, "IDENTIFIER"):
             while p and self.check_token(i, whitespaces + ["RPARENTHESIS"]) is True:
@@ -441,6 +442,7 @@ In \"{self.scope.name}\" from \
         if self.check_token(start, ["SIZEOF"]) is True:
             return True
         if self.history[-1] == "IsVarDeclaration":
+            bracketed = False
             tmp = pos
             right_side = False
             while tmp > 0:
@@ -448,12 +450,16 @@ In \"{self.scope.name}\" from \
                     tmp = self.skip_nest_reverse(tmp) - 1
                 if self.check_token(tmp, ["ASSIGN"]) is True:
                     right_side = True
+                if self.check_token(tmp, "LBRACKET") is True:
+                    bracketed = True
                 tmp -= 1
-            if right_side == False:
+            if right_side == False and bracketed == False:
                 return False
         skip = 0
+        value_before = False
         while pos > 0:
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
+                value_before = True
                 pos = self.skip_nest_reverse(pos) - 1
                 if self.check_token(pos + 1, "LPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == "cast":
                     return False
@@ -467,7 +473,10 @@ In \"{self.scope.name}\" from \
             if self.check_token(pos, ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND", "COMMA"] + operators + types):
                 return False
             pos -= 1
-        return False
+        if value_before == True:
+            return True
+        else:
+            return False
 
     def parenthesis_contain(self, i, ret_store=None):
         """
@@ -484,14 +493,20 @@ In \"{self.scope.name}\" from \
         nested_id = False
         identifier = None
         pointer = None
+        sizeof = False
+        if self.check_token(start - 1, "SIZEOF") is True:
+            sizeof = True
         i = self.skip_ws(i)
         while deep > 0:
+            #print (self.peek_token(i), deep, identifier, self.check_token(i, "NULL"))
             if self.check_token(i, "RPARENTHESIS"):
                 deep -= 1
             elif self.check_token(i, "LPARENTHESIS"):
                 deep += 1
-                if identifier is not None and deep >= 0:
-                    return "pointer", self.skip_nest(start)
+                #if identifier is not None and deep >= 0:
+                    #return "pointer", self.skip_nest(start)
+            elif deep > 1 and identifier == True and self.check_token(i, ["NULL", "IDENTIFIER"]):
+                return "fct_call", self.skip_nest(start)
             elif self.check_token(i, "COMMA") and nested_id == True:
                 return "function", self.skip_nest(start)
             elif self.check_token(i, "COMMA"):
@@ -515,6 +530,12 @@ In \"{self.scope.name}\" from \
                 tmp = i + 1
                 if (identifier is not True and pointer == True) or ret_store is not None:
                     nested_id = True
+                if identifier is not True and self.check_token(tmp, "RPARENTHESIS") and self.scope.name == "Function" and deep == 1 and pointer == None and sizeof == False:
+                    tmp = self.skip_nest(start) + 1
+                    tmp = self.skip_ws(tmp)
+                    if self.check_token(tmp, "IDENTIFIER") is False:
+                        return None, self.skip_nest(start)
+                    return "cast", self.skip_nest(start)
                 identifier = True
                 tmp = self.skip_ws(tmp)
                 if pointer == True:

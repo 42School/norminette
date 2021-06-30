@@ -31,7 +31,7 @@ class norminetteRuleTester:
             self.result.append("✓ ")
         else:
             self.__failed += 1
-            print("KO")
+            print("Error")
             diff = difflib.ndiff(test.splitlines(keepends=True), ref.splitlines(keepends=True))
             diff = list(diff)
             self.result.append("✗ ")
@@ -41,7 +41,7 @@ class norminetteRuleTester:
         stdout = sys.stdout
         sys.stdout = buff = StringIO()
         lexer = Lexer(read_file(filename))
-        context = Context(filename, lexer.get_tokens(), debug=2)
+        context = Context(filename.split("/")[-1], lexer.get_tokens(), debug=2)
         registry.run(context, read_file(filename))
         reference_output = read_file(filename.split(".")[0] + ".out")
         sys.stdout = stdout
@@ -57,7 +57,7 @@ class norminetteRuleTester:
                 self.test_file(f)
             except Exception as e:
                 self.__failed += 1
-                print("KO")
+                print("Error")
                 print(e)
                 self.result.append("✗ ")
                 continue
@@ -65,7 +65,7 @@ class norminetteRuleTester:
         print(f"Total {self.__tests}")
         print("".join(self.result))
         print(f"Success {self.__success}, Failed {self.__failed}: ", end="")
-        print("✅ OK!" if self.__failed == 0 else "❌ KO!")
+        print("✅ OK!" if self.__failed == 0 else "❌ Error!")
 
         sys.exit(0 if self.__failed == 0 else 1)
 

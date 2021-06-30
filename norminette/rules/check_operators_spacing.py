@@ -76,7 +76,6 @@ ps_operators = [
     "EQUALS",  # ==
     "NOT_EQUAL",  # !=
     "ASSIGN",  # =
-    "COLON",  # :
     "DIV",  # /
     "MULT",  # *
     "MODULO",  # %
@@ -96,7 +95,10 @@ p_operators = [
 
 s_operators = [
     # operators that should only be suffixed by a space
-    "COMMA"  # ,
+    "COMMA",  # ,
+    #Where do i put that shit
+    #"COLON",  # :
+
 ]
 
 son_operators = [
@@ -147,7 +149,7 @@ class CheckOperatorsSpacing(Rule):
     def check_prefix(self, context, pos):
         tmp = -1
 
-        if pos > 0 and context.peek_token(pos - 1).type != "SPACE":
+        if pos > 0 and context.check_token(pos, ["TAB", "SPACE"]):
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
         if pos + 1 < len(context.tokens[: context.tkn_scope]) and context.peek_token(pos + 1).type == "SPACE":
             context.new_error("NO_SPC_AFR_OPR", context.peek_token(pos))
@@ -212,6 +214,9 @@ class CheckOperatorsSpacing(Rule):
                         "NOT",
                         "MINUS",
                         "PLUS",
+                        "CONSTANT",
+                        "CHAR_CONSTANT",
+                        "STRING"
                     ],
                 )
                 is False
@@ -244,6 +249,7 @@ class CheckOperatorsSpacing(Rule):
                         "DOT",
                         "INC",
                         "DEC",
+                        "MINUS",
                         "MULT",
                         "BWISE_AND",
                         "IDENTIFIER",
@@ -311,7 +317,7 @@ class CheckOperatorsSpacing(Rule):
             pos > 0
             and context.check_token(
                 pos - 1,
-                ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET"],
+                ["SPACE", "LPARENTHESIS", "LBRACKET"],
             )
             is False
         ):
@@ -326,11 +332,19 @@ class CheckOperatorsSpacing(Rule):
             pos + 1 < len(context.tokens[: context.tkn_scope])
             and context.check_token(
                 pos + 1,
-                ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET"],
+                ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET", "NEWLINE", "COMMA"],
             )
             is False
         ):
-            context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
+            tmp = pos - 1
+            while context.check_token(tmp, ['SPACE', 'TAB']):
+                tmp -= 1
+            if context.check_token(tmp, "RPARENTHESIS"):
+                tmp = context.skip_nest_reverse(tmp)
+                if context.parenthesis_contain(tmp)[0] != "cast":
+                    context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
+            else:
+                context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_glued_operator(self, context, pos):
         glued = [

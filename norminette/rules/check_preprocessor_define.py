@@ -87,6 +87,8 @@ class CheckPreprocessorDefine(Rule):
                     context.scope.include_allowed = False
 
             elif tkn.type in ["IDENTIFIER", "STRING", "CONSTANT"]:
+                if context.skip_define_error == True:
+                    continue
                 if len(identifiers) == 1:
                     if tkn.type == "IDENTIFIER" and tkn.value.isupper() is False:
                         context.new_error("PREPROC_CONSTANT", tkn)
@@ -96,6 +98,8 @@ class CheckPreprocessorDefine(Rule):
                 else:
                     context.new_error("TOO_MANY_VALS", tkn)
             elif tkn.type == "LPARENTHESIS":
+                if context.skip_define_error == True:
+                    continue
                 if len(identifiers) == 0:
                     continue
                 elif len(identifiers) == 1 and tkns[i - 1].type in ["SPACE", "TAB"]:
@@ -103,6 +107,8 @@ class CheckPreprocessorDefine(Rule):
                 else:
                     context.new_error("PREPROC_CONSTANT", tkn)
             elif tkn.type in ["LBRACKET", "LBRACE"]:
+                if context.skip_define_error == True:
+                    continue
                 context.new_error("PREPROC_CONSTANT", tkn)
 
             i += 1

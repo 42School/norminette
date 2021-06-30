@@ -49,20 +49,20 @@
 [36mtest_file_210316.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 34":
 		<STATIC> <SPACE> <CONST> <SPACE> <IDENTIFIER=t_quaternion> <TAB> <IDENTIFIER=g_quat> <SPACE> <ASSIGN> <SPACE> <LBRACE> <DOT> <IDENTIFIER=r> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <DOT> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <DOT> <IDENTIFIER=j> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <DOT> <IDENTIFIER=k> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <RBRACE> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210316.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 35":
-		<STATIC> <SPACE> <CONST> <SPACE> <IDENTIFIER=t_quaternion> <TAB> <IDENTIFIER=g_quat> <SPACE> <ASSIGN> <SPACE> <LBRACE> <IDENTIFIER=r> <SPACE> <COLON> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <IDENTIFIER=i> <SPACE> <COLON> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=j> <SPACE> <COLON> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=k> <SPACE> <COLON> <SPACE> <CONSTANT=0> <SPACE> <RBRACE> <SEMI_COLON> <NEWLINE>
+		<STATIC> <SPACE> <CONST> <SPACE> <IDENTIFIER=t_quaternion> <TAB> <IDENTIFIER=g_quat> <SPACE> <ASSIGN> <SPACE> <LBRACE> <IDENTIFIER=r> <SPACE> <COLON> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <IDENTIFIER=i> <SPACE> <COLON> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=j> <COLON> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=k> <SPACE> <COLON> <SPACE> <CONSTANT=0> <SPACE> <RBRACE> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210316.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 36":
 		<STATIC> <SPACE> <CONST> <SPACE> <IDENTIFIER=t_quaternion> <TAB> <IDENTIFIER=g_quats> <LBRACKET> <CONSTANT=4> <RBRACKET> <SPACE> <ASSIGN> <SPACE> <LBRACE> <LBRACKET> <CONSTANT=0> <RBRACKET> <DOT> <IDENTIFIER=r> <SPACE> <ASSIGN> <SPACE> <CONSTANT=3> <COMMA> <SPACE> <LBRACKET> <CONSTANT=1> <RBRACKET> <DOT> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <CONSTANT=5> <SPACE> <RBRACE> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210316.c[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 37":
 		<MULT> <IDENTIFIER=result> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=t_quaternion> <RPARENTHESIS> <LBRACE> <CONSTANT=1> <COMMA> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <CONSTANT=0> <RBRACE> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210316.c[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 38":
 		<MULT> <IDENTIFIER=result> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=t_quaternion> <RPARENTHESIS> <LBRACE> <IDENTIFIER=r> <SPACE> <COLON> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <IDENTIFIER=i> <SPACE> <COLON> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=j> <SPACE> <COLON> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=k> <SPACE> <COLON> <SPACE> <CONSTANT=0> <SPACE> <RBRACE> <SEMI_COLON> 
-test_file_210316.c: KO!
-	SPACE_AFTER_KW       (line:   3, col:  20):	Missing space after keyword
-	SPACE_AFTER_KW       (line:   3, col:  50):	Missing space after keyword
-	SPACE_AFTER_KW       (line:   4, col:  28):	Missing space after keyword
-	SPACE_AFTER_KW       (line:   4, col:  57):	Missing space after keyword
-	DECL_ASSIGN_LINE     (line:  13, col:  28):	Declaration and assignation on a single line
-	DECL_ASSIGN_LINE     (line:  14, col:  12):	Declaration and assignation on a single line
-	DECL_ASSIGN_LINE     (line:  15, col:  12):	Declaration and assignation on a single line
-	DECL_ASSIGN_LINE     (line:  16, col:  12):	Declaration and assignation on a single line
-	DECL_ASSIGN_LINE     (line:  17, col:  12):	Declaration and assignation on a single line
+test_file_210316.c: Error!
+Error: SPACE_AFTER_KW       (line:   3, col:  20):	Missing space after keyword
+Error: SPACE_AFTER_KW       (line:   3, col:  50):	Missing space after keyword
+Error: SPACE_AFTER_KW       (line:   4, col:  28):	Missing space after keyword
+Error: SPACE_AFTER_KW       (line:   4, col:  57):	Missing space after keyword
+Error: DECL_ASSIGN_LINE     (line:  13, col:  28):	Declaration and assignation on a single line
+Error: DECL_ASSIGN_LINE     (line:  14, col:  12):	Declaration and assignation on a single line
+Error: DECL_ASSIGN_LINE     (line:  15, col:  12):	Declaration and assignation on a single line
+Error: DECL_ASSIGN_LINE     (line:  16, col:  12):	Declaration and assignation on a single line
+Error: DECL_ASSIGN_LINE     (line:  17, col:  12):	Declaration and assignation on a single line

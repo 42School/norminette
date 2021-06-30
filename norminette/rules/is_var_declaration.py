@@ -34,7 +34,6 @@ type_specifiers = [
     "UNION",
 ]
 
-
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()

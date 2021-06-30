@@ -41,6 +41,13 @@ def main():
         help="Debug output (multiple values available)",
         default=0,
     )
+    parser.add_argument(
+        "-o",
+        "--only-filename",
+        action="store_true",
+        help="By default norminette displays the full path to the file, this allows to show only filename",
+        default=False,
+    )
     parser.add_argument("-v", "--version", action="version", version="norminette " + str(__version__))
     parser.add_argument(
         "--cfile",
@@ -80,7 +87,7 @@ def main():
     event = []
     for target in targets:
         if target[-2:] not in [".c", ".h"]:
-            print(f"{target} is not valid C or C header file")
+            print(f"Error: {target} is not valid C or C header file")
         else:
             try:
                 event.append(Event())
@@ -91,18 +98,20 @@ def main():
                     source = content
                 lexer = Lexer(source)
                 tokens = lexer.get_tokens()
-                context = Context(target, tokens, debug)
+                if args.only_filename == True:
+                    target = target.split("/")[-1]
+                context = Context(target, tokens, debug, args.R)
                 registry.run(context, source)
                 event[-1].set()
                 if context.errors:
                     has_err = True
             except TokenError as e:
                 has_err = True
-                print(target + f": KO!\n\t{colors(e.msg, 'red')}")
+                print(target + f": Error!\n\t{colors(e.msg, 'red')}")
                 event[-1].set()
             except CParsingError as e:
                 has_err = True
-                print(target + f": KO!\n\t{colors(e.msg, 'red')}")
+                print(target + f": Error!\n\t{colors(e.msg, 'red')}")
                 event[-1].set()
             except KeyboardInterrupt as e:
                 event[-1].set()

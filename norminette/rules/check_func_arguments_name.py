@@ -98,6 +98,7 @@ class CheckFuncArgumentsName(Rule):
         if ret is True:
             return False, 0
         while i < context.arg_pos[1]:
+            i = context.skip_ws(i)
             if context.check_token(i, "NEWLINE"):
                 i += 1
                 continue
@@ -112,7 +113,7 @@ class CheckFuncArgumentsName(Rule):
                     else:
                         break
                     i += 1
-            else:
+            elif context.check_token(i, "RPARENTHESIS") is not True:
                 i = self.check_arg_format(context, i)
                 if i == -1:
                     return False, 0

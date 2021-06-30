@@ -32,5 +32,5 @@
 		<NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 17":
 		<COMMENT=// issue 11, 12 (partly)> <NEWLINE>
-testfile_210104.h: KO!
-	TOO_MANY_VALS        (line:  12, col:  24):	Too many values on define
+testfile_210104.h: Error!
+Error: TOO_MANY_VALS        (line:  12, col:  24):	Too many values on define

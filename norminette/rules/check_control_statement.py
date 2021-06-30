@@ -25,7 +25,7 @@ class CheckControlStatement(Rule):
     def check_nest(self, context, i):
         depth = 1
         i += 1
-        while context.check_token(i, "NEWLINE") is False and depth > 0:
+        while depth > 0:
             if context.check_token(i, "LPARENTHESIS") is True:
                 depth += 1
             if context.check_token(i, "RPARENTHESIS") is True:
@@ -35,6 +35,8 @@ class CheckControlStatement(Rule):
                 return -1
             if context.check_token(i, forbidden_cs) is True:
                 context.new_error("FORBIDDEN_CS", context.peek_token(i))
+            if context.check_token(i, "NEWLINE") is True and depth < 1:
+                return
             i += 1
         return
 

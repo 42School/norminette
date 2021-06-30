@@ -85,9 +85,8 @@
                 files or directories) must have the most
                 explicit or most mnemonic names as possible.
 
-            \item Using a global variable in a project where it's not
-                explicitly allowed is a norm error, except where it's
-                mandatory (signal handling for example).
+            \item Using global variables that are not marked const and static is 
+            forbidden and is considered a norm error, unless the project explicitly allows them.
 
             \item The file must compile. A file that doesn't compile isn't expected
                 to pass the Norm.
@@ -159,7 +158,7 @@
 
                 \item You may add a new line after an instruction or
                   control structure, but you'll have to add an
-                  indentation with brackets or affectation operator.
+                  indentation with brackets or assignment operator.
                   Operators must be at the beginning of a line.
 
                 \item Control structures (if, while..) must have braces, unless they contain a single 
@@ -199,7 +198,7 @@ int     main(void)
             \item A function can take 4 named parameters maximum.
 
             \item A function that doesn't take arguments must be
-                explicitely prototyped with the word "void" as the
+                explicitly prototyped with the word "void" as the
                 argument.
 
             \item Parameters in functions' prototypes must be named.
@@ -243,8 +242,9 @@ int func2(void)
                 add a single space in the type.
 
             \item When declaring a struct, union or enum with a typedef,
-                all indentation rules apply. You must align the typedef's name
-                with the struct/union/enum's name.
+                all indentation rules apply.
+
+            \item Typedef name must be preceded by a tab.
 
             \item You must indent all structures' names on the same column for their scope.
 
@@ -286,8 +286,8 @@ int func2(void)
 # include <stdio.h>
 # define FOO "bar"
 
-int g_variable;
-struct s_struct;
+int		g_variable;
+struct	s_struct;
 
 #endif
         \end{42ccode}
@@ -362,7 +362,7 @@ struct s_struct;
             \item Comments cannot be inside functions' bodies.
                 Comments must be at the end of a line, or on their own line
 
-            \item You comments must be in English. And they must be
+            \item Your comments must be in English. And they must be
                 useful.
 
             \item A comment cannot justify a "bastard" function.

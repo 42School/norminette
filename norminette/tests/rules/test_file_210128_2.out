@@ -4,7 +4,7 @@
 		<LBRACE> 
 [36mtest_file_210128_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 1":
 		<RBRACE> <NEWLINE>
-test_file_210128_2.c: KO!
-	BRACE_NEWLINE        (line:   1, col:  48):	Expected newline before brace
-	BRACE_SHOULD_EOL     (line:   1, col:  48):	Expected newline after brace
-	TOO_MANY_INSTR       (line:   1, col:  49):	Too many instructions on a single line
+test_file_210128_2.c: Error!
+Error: BRACE_NEWLINE        (line:   1, col:  48):	Expected newline before brace
+Error: BRACE_SHOULD_EOL     (line:   1, col:  48):	Expected newline after brace
+Error: TOO_MANY_INSTR       (line:   1, col:  49):	Too many instructions on a single line

@@ -8,6 +8,6 @@
 		<TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <LPARENTHESIS> <MULT> <IDENTIFIER=size_nbr> <RPARENTHESIS> <DEC> <SEMI_COLON> <NEWLINE>
 [36mtest_file_0907_4.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 5":
 		<RBRACE> 
-test_file_0907_4.c: KO!
-	EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
-	BRACE_SHOULD_EOL     (line:   5, col:   1):	Expected newline after brace
+test_file_0907_4.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: BRACE_SHOULD_EOL     (line:   5, col:   1):	Expected newline after brace

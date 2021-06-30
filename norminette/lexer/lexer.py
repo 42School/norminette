@@ -14,7 +14,7 @@ def read_file(filename):
 
 class TokenError(Exception):
     def __init__(self, pos):
-        self.msg = f"Unrecognized token line {pos[0]}, col {pos[1]}"
+        self.msg = f"Error: Unrecognized token line {pos[0]}, col {pos[1]}"
 
     def __repr__(self):
         return self.msg
@@ -295,6 +295,9 @@ class Lexer:
                 return
             tkn_value += self.peek_char()
             self.pop_char()
+        if (self.__pos == self.len):
+            self.tokens.append(Token("COMMENT", pos, tkn_value))
+            return
         raise TokenError(pos)
 
     def identifier(self):
