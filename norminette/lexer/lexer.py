@@ -137,6 +137,9 @@ class Lexer:
                 self.tokens.append(Token("TKN_ERROR", pos))
                 return
             if self.peek_char() == "'":
+                for i in tkn_value:
+                    if i == '\\':
+                        self.__line_pos += 1
                 self.pop_char()
                 self.tokens.append(Token("CHAR_CONST", pos, tkn_value))
                 return
