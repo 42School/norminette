@@ -373,11 +373,13 @@ class CheckOperatorsSpacing(Rule):
             "RPARENTHESIS",
             "RBRACKET",
             "RBRACE",
+            "MINUS",
+            "PLUS"
         ]
         lsign = operators + ["LBRACKET"]
         i = 0
         if context.peek_token(pos).type == "MULT":
-            if context.check_token(pos - 1, lpointer) == False and context.is_glued_operator(pos - 1) is True:
+            if context.check_token(pos - 1, lpointer) == False and (context.is_glued_operator(pos - 1) is True):# or context.check_token(pos - 1, c_operators) is False):
                 context.new_error("SPC_BFR_POINTER", context.peek_token(pos))
             if context.check_token(pos + 1, ["SPACE", "TAB"]):
                 context.new_error("SPC_AFTER_POINTER", context.peek_token(pos))

@@ -417,7 +417,7 @@ In \"{self.scope.name}\" from \
             return False
         pos += 1
         pos = self.skip_ws(pos, nl=False)
-        if self.check_token(pos, ["IDENTIFIER", "CONSTANT"]) is False:
+        if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "MULT", "BWISE_AND"]) is False:
             return False
         pos = start - 1
         while (self.check_token(pos, ["SPACE", "TAB"])) is True:
