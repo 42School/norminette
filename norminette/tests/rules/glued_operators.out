@@ -1,0 +1,43 @@
+[36mglued_operators.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <INT> <TAB> <MULT> <IDENTIFIER=j> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <INT> <TAB> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 6":
+		<NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <IDENTIFIER=k> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <IDENTIFIER=j> <SPACE> <ASSIGN> <SPACE> <BWISE_AND> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 9":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <MINUS> <NOT> <IDENTIFIER=j> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <MINUS> <NOT> <MULT> <IDENTIFIER=j> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <MINUS> <NOT> <NOT> <IDENTIFIER=j> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <BWISE_NOT> <MULT> <IDENTIFIER=j> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 13":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <BWISE_NOT> <NOT> <IDENTIFIER=j> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 14":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <BWISE_NOT> <NOT> <IDENTIFIER=j> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 15":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <MINUS> <BWISE_NOT> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 16":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <NOT> <MINUS> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 17":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <NOT> <PLUS> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 18":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <NOT> <BWISE_NOT> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 19":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <BWISE_NOT> <NOT> <BWISE_NOT> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 20":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <BWISE_NOT> <BWISE_NOT> <BWISE_NOT> <BWISE_NOT> <BWISE_NOT> <BWISE_NOT> <BWISE_NOT> <BWISE_NOT> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36mglued_operators.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 21":
+		<RBRACE> <NEWLINE>
+glued_operators.c: OK!
