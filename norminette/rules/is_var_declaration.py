@@ -72,7 +72,7 @@ class IsVarDeclaration(PrimaryRule):
                     brackets += 1
                 if context.check_token(i, "LPARENTHESIS") is True:
                     ret, tmp = context.parenthesis_contain(i, ret_store)
-                    if ret == "function" or ret == "pointer":
+                    if ret == "function" or ret == "pointer" or ret == "var":
                         ret_store = ret
                         identifier = True
                         i = tmp

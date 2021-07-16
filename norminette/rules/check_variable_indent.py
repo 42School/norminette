@@ -74,7 +74,7 @@ class CheckVariableIndent(Rule):
         while context.check_token(i, assigns_or_eol) is False:
             if context.check_token(i, keywords) is True:
                 type_identifier_nb += 1
-            if context.check_token(i, ["LPARENTHESIS", "LBRACE", "LBRACKET"]) and type_identifier_nb > 0:
+            if context.check_token(i, ["LPARENTHESIS", "LBRACE", "LBRACKET"]) and type_identifier_nb > 0 and context.parenthesis_contain(i)[0] != "var":
                 i = context.skip_nest(i)
             i += 1
         i = 0

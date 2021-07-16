@@ -563,4 +563,6 @@ In \"{self.scope.name}\" from \
                     if self.check_token(tmp, "RPARENTHESIS") is True:
                         return "cast", self.skip_nest(start)
             i += 1
+        if identifier == True:
+            return "var", self.skip_nest(start)
         return None, self.skip_nest(start)
