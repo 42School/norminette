@@ -5,7 +5,7 @@
 
 %******************************************************************************%
 %                                                                              %
-%                               프롤로그                                       %
+%                                   프롤로그                                   %
 %                                                                              %
 %******************************************************************************%
 
@@ -15,9 +15,10 @@
 
 \summary
 {
-    이 문서는 42에서 적용 가능한 표준(Norm)을 설명합니다. 프로그래밍 표준은 
-    코드를 작성할 때 따르는 규칙 집합을 정의합니다. Norm은 기본적으로 이너 써클 
-    내의 모든 C 프로젝트와 지정된 모든 프로젝트에 적용됩니다.
+    본 문서는 42에서 적용 가능한 표준(Norm)을 설명합니다.
+    프로그래밍 표준은 코드를 작성할 때에 따라야하는 규칙들을 정의합니다.
+    Norm은 기본적으로 이너 써클 내의 모든 C 프로젝트와
+    지정된 모든 프로젝트에 적용됩니다.
 }
 
 \maketitle
@@ -28,61 +29,60 @@
 
 %******************************************************************************%
 %                                                                              %
-%                                 머리말                                       %
+%                                     머리말                                   %
 %                                                                              %
 %******************************************************************************%
 \chapter{머리말}
 
-    Norm은 파이썬으로 작성되었으며, 오픈 소스입니다. \\
-    이 저장소는 https://github.com/42School/norminette 에서 이용할 수 있습니다.\\
-    풀 리퀘스트, 제안 그리고 이슈는 환영합니다!
+    Norm은 파이썬으로 작성되었으며 오픈 소스입니다.
+    레포지트리는 다음 주소에서 확인 할 수 있습니다.
+    https://github.com/42School/norminette
+    풀 리퀘스트, 제안과 이슈를 환영합니다!
 
 %******************************************************************************%
 %                                                                              %
-%                                The Norm                                      %
+%                                    The Norm                                  %
 %                                                                              %
 %******************************************************************************%
 \chapter{The Norm}
 
 
 %******************************************************************************%
-%                             명명 규칙                                        %
+%                                   명명 규칙                                  %
 %******************************************************************************%
-    \section{명칭}
+    \section{명명}
 
         \begin{itemize}
 
-            \item 구조체의 이름은
-                \texttt{s\_} 로 시작해야 합니다.
+            \item 구조체의 이름은 \texttt{s\_} 로 시작해야만 합니다.
 
-            \item typedef된 자료형의 이름은
-                \texttt{t\_} 로 시작해야 합니다.
+            \item typedef의 이름은 \texttt{t\_} 로 시작해야만 합니다.
 
-            \item 공용체의 이름은 \texttt{u\_} 로 시작해야 합니다.
+            \item 공용체(union)의 이름은 \texttt{u\_} 로 시작해야만 합니다.
 
-            \item enum의 이름은 \texttt{e\_} 로 시작해야 합니다.
+            \item 열거형(enum)의 이름은 \texttt{e\_} 로 시작해야만 합니다.
 
-            \item 전역변수의 이름은 \texttt{g\_} 로 시작해야 합니다.
+            \item 전역 변수의 이름은 \texttt{g\_} 로 시작해야만 합니다.
 
-            \item 변수와 함수의 이름에는 소문자, 숫자 및 '\_' (Unix Case)만
-                포함될 수 있습니다.
+            \item 변수와 함수의 이름에는 소문자, 숫자 및
+            '\_' (Unix Case)만이 포함될 수 있습니다.
 
-            \item 파일 및 디렉터리의 이름에는 소문자, 숫자 및 '\_' (Unix Case)만 
-                포함될 수 있습니다.
+            \item 파일 및 디렉터리의 이름에는 소문자, 숫자 및
+            '\_' (Unix Case)만이 포함될 수 있습니다.
 
-            \item 표준 아스키코드가 아닌 문자는 사용할 수 없습니다.
+            \item 표준 ASCII 코드표에 없는 문자는 금지 됩니다.
 
             \item 변수, 함수 및 기타 식별자는 스네이크 케이스를 사용해야 합니다.
-                대문자는 없고, 각 단어는 밑줄로 구분됩니다.
+                대문자는 없고 각 단어는 밑줄 문자로 구분됩니다.
 
-            \item 모든 식별자들(함수, 매크로, 자료형, 변수 등)은 
-                영어로 되어 있어야 합니다.
+            \item 모든 식별자들(함수, 매크로, 자료형, 변수 등)은 영어여만 합니다.
 
-            \item 객체(변수, 함수, 매크로, 자료형, 파일 또는 디렉터리)는 
+            \item 객체(변수, 함수, 매크로, 자료형, 파일 또는 디렉터리)는
                 가능한 가장 명시적이거나 가장 연상되는 이름을 가져야 합니다.
 
-            \item 프로젝트에서 명시적으로 허용하지 않는 한, 상수가 아니거나 
-                정적이지 않은 전역변수의 사용은 금지되어 있으며 Norm 오류로 간주됩니다.
+            \item 프로젝트에서 명시적으로 허용하지 않는 한
+                상수(const) 및 정적(static)이 아닌 전역 변수 사용은 금지 되며
+                Norm 오류로 간주됩니다.
 
             \item 파일은 컴파일이 가능해야 합니다. 컴파일이 되지 않는 파일은
                 Norm을 통과할 수 없을 것입니다.
@@ -90,75 +90,70 @@
 \newpage
 
 %******************************************************************************%
-%                                 서식                                         %
+%                                     서식                                     %
 %******************************************************************************%
     \section{서식}
 
             \begin{itemize}
 
                 \item 들여쓰기는 네 칸 크기의 탭으로 이루어져야 합니다.
-                    일반적인 공백 네 칸이 아니라, 진짜 탭을 말합니다.
+                  일반적인 공백 네 칸이 아니라 진짜 탭을 말합니다.
 
-                \item 각 함수는 함수 자체의 중괄호를 제외하고 
-                    최대 25줄이어야 합니다.
+                \item 각 함수는 함수 자체의 중괄호를 제외하고
+                  최대 25줄이어야 합니다.
 
-                \item Each line must be at most 80 columns wide, comments
-                  included. Warning: a tabulation doesn't count
-                  as a column, but as the number of spaces it
-                  represents.
+                \item 각 줄은 주석을 포함해 최대 80자의 열 너비를 가집니다.
+                  주의: 탭 들여쓰기는 한 열로 계산하지 않으며,
+                  탭이 해당되는 공백의 수 만큼으로 계산됩니다.
 
-                \item Each function must be separated by a newline. Any comment or preprocessor instruction
-                    can be right above the function. The newline is after the previous function.
+                \item 각 함수는 줄 바꿈으로 구분해야 합니다.
+                  모든 주석과 전처리기 명령은 함수 바로 위에 있을 수 있습니다.
+                  줄 바꿈은 이전 함수 다음에 와야합니다.
 
-                \item One instruction per line.
+                \item 한 줄에 한 명령만이 존재 할 수 있습니다.
 
-                \item An empty line must be empty: no spaces or tabulations.
+                \item 빈 줄은 공백이나 탭 들여쓰기 없이 비어 있어야 합니다.
 
-                \item A line can never end with spaces or tabulations.
+                \item 줄은 공백이나 탭 들여쓰기로 끝날 수 없습니다.
 
-                \item You can never have two consecutive spaces.
+                \item 두 개의 연속된 공백이 있을 수 없습니다.
 
-                \item You need to start a new line after each curly bracket
-                  or end of control structure.
+                \item 모든 중괄호나 제어 구조 뒤는 줄바꿈으로 시작 되야합니다.
 
-                \item Unless it's the end of a line, each comma or semi-colon
-                  must be followed by a space.
+                \item 줄의 끝이 아니라면 모든 콤마와 세미콜론 뒤에는 공백 문자가
+                  따라 와야합니다.
 
-                \item Each operator or operand must be separated by one
-                 - and only one - space.
+                \item 모든 연산자나 피연산자는 하나의 공백으로 구분해야 합니다.
 
-                \item Each C keyword must be followed by a space, except for
-                  keywords for types (such as int, char, float, etc.),
-                  as well as sizeof.
+                \item 각 C 키워드 뒤에는 공백이 있어야만 합니다.
+                  자료형 키워드(int, char, float, 등)와 sizeof는 제외됩니다.
 
-                \item Each variable declaration must be indented on the same
-                  column for its scope.
+                \item 각 변수 선언은 해당 스코프와 같은 열로 들여쓰기 되어야만 합니다.
 
-                \item The asterisks that go with pointers must be stuck to
-                  variable names.
+                \item 포인터와 함께 쓰이는 별표는 변수 이름에 붙어있어야만 합니다.
 
-                \item One single variable declaration per line.
+                \item 한 줄에 한 개의 변수 선언만이 가능합니다.
 
-                \item Declaration and an initialisation cannot be
-                  on the same line, except for global variables (when allowed),
-                  static variables, and constants.
+                \item 선언과 초기화는 같은 줄에서 작성 될 수 없습니다.
+                  다음 경우에는 제외 됩니다.
+                  전역 변수(허용 될때에), 정적 변수, 그리고 상수.
 
-                \item Declarations must be at the beginning of a function.
+                \item 선언문은 함수의 처음에 존재 해야합니다.
 
-                \item In a function, you must place an empty line between 
-                    variable declarations and the remaining of the function.
-                    No other empty lines are allowed in a function.
+                \item 함수 내의 변수 선언문과 이후 함수 사이에는 빈 줄이
+                  존재해야만 합니다. 다른 빈 줄은 함수 내에서 허용되지 않습니다.
 
-                \item Multiple assignments are strictly forbidden.
+                \item 다중 대입은 엄격하게 금지 됩니다.
 
-                \item You may add a new line after an instruction or
-                  control structure, but you'll have to add an
-                  indentation with brackets or assignment operator.
-                  Operators must be at the beginning of a line.
+                \item 명령문이나 제어 구조 다음에 새 줄을 추가 할 수도 있습니다.
+                  그러기 위해서는 들여쓰기와 함께 중괄호나 대입 연산자를
+                  추가해야 합니다. 연산자는 줄의 시작에 있어야만 합니다.
 
-                \item Control structures (if, while..) must have braces, unless they contain a single 
-                    line or a single condition.
+                \item 한 줄인 경우를 제외 하고 조건문(if, while..)에는
+                  중괄호가 존재 해야합니다
 
+                \item 함수, 선언문, 제어 구조 다음에 오는 중괄호 앞 뒤에는
+                  줄바꿈이 있어야만 합니다.
             \end{itemize}
 
             \newpage
@@ -184,29 +179,27 @@ int     main(void)
             \newpage
 
 %******************************************************************************%
-%                              함수 매개변수                                    %
+%                                 함수 매개변수                                %
 %******************************************************************************%
     \section{함수}
 
         \begin{itemize}
 
-            \item A function can take 4 named parameters maximum.
+            \item 한 함수에는 최대 4개의 명명된 매개변수를 가질 수 있습니다.
 
-            \item A function that doesn't take arguments must be
-                explicitly prototyped with the word "void" as the
-                argument.
+            \item 인자를 받지 않는 함수는 "void"라는 단어를 인자로
+                명시적으로 프로토 타입 되야합니다.
 
-            \item Parameters in functions' prototypes must be named.
+            \item 함수 프로토타입 안의 매개 변수는 명명되어야만 합니다.
 
-            \item Each function must be separated from the next by
-                an empty line.
+            \item 각 함수는 빈 줄로 다음 함수와 구분되어야 합니다.
 
-            \item You can't declare more than 5 variables per function.
+            \item 각 함수에서 5개를 초과하여 변수를 선언 할 수 없습니다.
 
-            \item Return of a function has to be between parenthesis. 
+            \item 함수의 리턴은 괄호 사이에 있어야 합니다.
 
-            \item Each function must have a single tabulation between its
-                return type and its name.
+            \item 각 함수의 리턴 자료형과 함수 이름 사이에는
+                한 번의 탭 들여쓰기가 있어야 합니다.
 
             \begin{42ccode}
 int my_func(int arg1, char arg2, char *arg3)
@@ -225,51 +218,52 @@ int func2(void)
 
 
 %******************************************************************************%
-%              자료형, 구조체(struct), 열거형(enum)과 공용체(union)              %
+%                  자료형, 구조체, 열거형(enum)과 공용체(union)                %
 %******************************************************************************%
-    \section{Typedef, struct, enum and union}
+    \section{자료형, 구조체, 열거형(enum)과 공용체(union)}
 
         \begin{itemize}
 
-            \item Add a tabulation when declaring a struct, enum or union.
+            \item 구조체, 열거형, 공용체를 선언 할 때는 탭 들여쓰기를 넣습니다.
 
-            \item When declaring a variable of type struct, enum or union,
-                add a single space in the type.
+            \item 구조체, 열거형, 공용체의 변수를 선언 할 때에는
+                자료형 안에 공백 문자 하나를 넣습니다.
 
-            \item When declaring a struct, union or enum with a typedef,
-                all indentation rules apply. You must align the typedef's name
-                with the struct/union/enum's name.
+            \item 구조체, 열거형, 공용체를 typedef와 함께 선언 할 때에는
+                모든 들여쓰기 규칙이 적용됩니다.
 
-            \item You must indent all structures' names on the same column for their scope.
+            \item typedef 이름은 탭이 앞에 있어야만 합니다.
 
-            \item You cannot declare a structure in a .c file.
+            \item 모든 구조체의 이름은 해당 스코프의 같은 열에 들여 쓰기해야만 합니다.
+
+            \item .c 파일 내에서 구조체를 선언할 수 없습니다.
 
         \end{itemize}
         \newpage
 
 
 %******************************************************************************%
-%                                   Headers                                    %
+%                                      헤더                                    %
 %******************************************************************************%
-    \section{Headers}
+    \section{헤더}
 
         \begin{itemize}
 
-            \item The things allowed in header files are:
-                header inclusions (system or not), declarations, defines,
-                prototypes and macros.
+            \item 헤더파일에서 허용되는 것들:
+                헤더 인클루드(시스템 헤더 또는 유저 헤더),
+                선언문, defines, 프로토타입과 매크로.
 
-            \item All includes must be at the beginning of the file.
+            \item 모든 인클루드는 파일의 시작에 작성되야 합니다.
 
-            \item You cannot include a C file.
+            \item C 파일을 포함 할 수 없습니다.
 
-            \item Header files must be protected from double inclusions. If the file is
-            \texttt{ft\_foo.h}, its bystander macro is \texttt{FT\_FOO\_H}.
+            \item 헤더 파일은 중복 인클루드를 방지 해야만 합니다.
+                만약 파일 이름이 ft\_foo.h라면 인클루드 가드 매크로 이름은
+                FT\_FOO_H 가 되어야합니다.
 
-            \item Unused header inclusions (.h) are forbidden.
+            \item 사용하지않은 헤더의 인클루드는 금지 됩니다.
 
-            \item All header inclusions must be justified in a .c file
-                as well as in a .h file.
+            \item .c / .h 파일의 모든 헤더 인클루드는 정당한 이유가 있어야만 합니다.
 
         \end{itemize}
 
@@ -288,29 +282,28 @@ struct	s_struct;
         \newpage
 
 %******************************************************************************%
-%                           Macros and Pre-processors                          %
+%                              매크로와 전처리기                               %
 %******************************************************************************%
-    \section{Macros and Pre-processors}
+    \section{매크로와 전처리기}
 
         \begin{itemize}
 
-            \item Preprocessor constants (or \#define) you create must be used
-                only for literal and constant values.
-            \item All \#define created to bypass the norm and/or obfuscate
-                code are forbidden. This part must be checked by a human.
-            \item You can use macros available in standard libraries, only
-                if those ones are allowed in the scope of the given project.
-            \item Multiline macros are forbidden.
-            \item Macro names must be all uppercase.
-            \item You must indent characters following \#if, \#ifdef
-                or \#ifndef.
+            \item 매크로 상수(또는 \#define)는 리터럴이나
+                상수 값에만 사용 가능합니다.
+            \item Norm을 우회하거나 코드 가독성을 낮추는 모든 \#define은 금지됩니다.
+                이 부분은 사람에 의해 검사되어야 합니다.
+            \item 표준 라이브러리의 매크로는 프로젝트에서
+                사용이 허가되었을 경우에만 사용 가능합니다.
+            \item 여러 줄에 걸친 매크로는 금지됩니다.
+            \item 매크로 이름은 모두 대문자여야만 합니다.
+            \item \#if, \#ifdef, \#ifndef 다음 문자들은 들여쓰기해야만 합니다.
 
         \end{itemize}
         \newpage
 
 
 %******************************************************************************%
-%                              금지 사항!                                %
+%                                  금지 사항!                                  %
 %******************************************************************************%
     \section{금지 사항!}
 
@@ -328,20 +321,20 @@ struct	s_struct;
 
                 \end{itemize}
 
-            \item Ternary operators such as `?'.
+            \item 다음과 같은 삼항 연산자 `?'.
 
-            \item VLAs - Variable Length Arrays.
+            \item VLA - 가변 길이 배열.
 
-            \item Implicit type in variable declarations
+            \item 자료형을 명시하지 않은 변수 선언
 
         \end{itemize}
         \begin{42ccode}
     int main(int argc, char **argv)
     {
         int     i;
-        char    string[argc]; // This is a VLA
+        char    string[argc]; // 가변 길이 배열
 
-        i = argc > 5 ? 0 : 1 // Ternary
+        i = argc > 5 ? 0 : 1 // 삼항 연산자
     }
         \end{42ccode}
         \newpage
@@ -354,9 +347,9 @@ struct	s_struct;
         \begin{itemize}
 
             \item 주석은 함수 내부에 있을 수 없습니다. 
-				주석은 줄 끝에 있거나 별개의 줄에 있어야 합니다.
+                주석은 줄 끝에 있거나 별개의 줄에 있어야만 합니다.
 
-            \item 주석은 영어여야 합니다. 그리고 유용해야 합니다.
+            \item 주석은 영어여야만 합니다. 그리고 유용해야만 합니다.
 
             \item 주석은 "쓰레기같은" 함수를 정당화할 수 없습니다.
 
@@ -371,9 +364,9 @@ struct	s_struct;
 
         \begin{itemize}
 
-            \item .c 파일을 인쿨루드할 수 없습니다.
+            \item .c 파일을 인클루드할 수 없습니다.
 
-            \item 하나의 .c 파일에 5개보다 많은 함수 정의를 포함할 수 없습니다.
+            \item 하나의 .c 파일에 5개보다 많이 함수 정의를 할 수 없습니다.
 
         \end{itemize}
         \newpage
@@ -384,27 +377,26 @@ struct	s_struct;
 %******************************************************************************%
     \section{Makefile}
 
-            Makefiles aren't checked by the Norm, and must be checked during evaluation by 
-            the student.
+            Makefile은 Norm에서 확인하지 않으며, 반드시
+              학생이 평가 중에 확인해야만 합니다.
             \begin{itemize}
 
-                \item The \$(NAME), clean, fclean, re and all
-                  rules are mandatory.
+                \item 다음 규칙은 필수적입니다.
+                  \$(NAME), clean, fclean, re and all
 
-                \item If the makefile relinks, the project will be considered
-                  non-functional.
+                \item Makefile이 리링크(relink)되면, 프로젝트는
+                  작동하지 않는 것으로 간주됩니다.
 
-                \item In the case of a multibinary project, in addition to
-                  the above rules, you must have a rule that compiles
-                  both binaries as well as a specific rule for each
-                  binary compiled.
+                \item 실행 파일이 여러 개인 프로젝트의 경우, 위의 규칙 이외에도
+                  컴파일된 각각의 실행 파일에 대한 특정 규칙 뿐만 아니라
+                  실행 파일들을 모두 컴파일하는 규칙이 있어야만 합니다.
 
-                  \item In the case of a project that calls a function from a non-system library
-                  (e.g.: \texttt{libft}), your makefile must compile
-                  this library automatically.
+                  \item 비-시스템 라이브러리(예: \texttt{libft})에서
+                    함수를 호출하는 프로젝트의 경우 Makefile은
+                    반드시 이 라이브러리를 자동으로 컴파일해야만 합니다.
 
-                  \item All source files you need to compile your project must
-                    be explicitly named in your Makefile.
+                  \item 프로젝트를 컴파일하기 위해 필요한 모든 소스파일들은 
+                    Makefile에 반드시 명시해야만 합니다.
 
             \end{itemize}
 
