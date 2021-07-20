@@ -49,7 +49,7 @@ class CheckUtypeDeclaration(Rule):
                 pass
             if context.check_token(i, ["LPARENTHESIS"]) is True:
                 val, tmp = context.parenthesis_contain(i)
-                if val == None or val == "cast":
+                if val == None or val == "cast" or val == "var":
                     i = tmp
             if context.check_token(i, utypes) is True:
                 utype = context.peek_token(i)
@@ -67,6 +67,10 @@ class CheckUtypeDeclaration(Rule):
                     tmp = i - 1
                     while context.check_token(tmp, ["MULT", "BWISE_AND"]) is True and context.is_operator(tmp) == False:
                         tmp -= 1
+                    # if context.check_token(tmp, "LPARENTHESIS") is True:
+                    #     tmp = tmp - 1
+                    #     while context.check_token(tmp, ["LPARENTHESIS"]) is True and context.is_operator(tmp) == False:
+                    #         tmp -= 1
                     ids.append((context.peek_token(i), tmp))
                 else:
                     ids.append((context.peek_token(i), i))

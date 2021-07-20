@@ -136,6 +136,7 @@ whitespaces = ["SPACE", "TAB", "ESCAPED_NEWLINE", "NEWLINE"]
 
 arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
+import pdb
 
 class Context:
     def __init__(self, filename, tokens, debug=0, added_value=[]):
@@ -366,6 +367,7 @@ In \"{self.scope.name}\" from \
                 return False, 0
             if self.check_token(i, "IDENTIFIER") is True:
                 i += 1
+                #i = self.skip_ws(i)
                 return True, i + 1
             while self.check_token(i, types + whitespaces + ["MULT", "BWISE_AND"]) is True:
                 i += 1
@@ -494,6 +496,7 @@ In \"{self.scope.name}\" from \
         identifier = None
         pointer = None
         sizeof = False
+        id_only = True
         if self.check_token(start - 1, "SIZEOF") is True:
             sizeof = True
         i = self.skip_ws(i)
@@ -563,6 +566,6 @@ In \"{self.scope.name}\" from \
                     if self.check_token(tmp, "RPARENTHESIS") is True:
                         return "cast", self.skip_nest(start)
             i += 1
-        if identifier == True:
+        if identifier == True and id_only == True:
             return "var", self.skip_nest(start)
         return None, self.skip_nest(start)

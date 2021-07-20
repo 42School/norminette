@@ -3,7 +3,7 @@ from norminette.scope import Function
 from norminette.context import GlobalScope
 from norminette.scope import UserDefinedType
 from norminette.rules import PrimaryRule
-
+import pdb
 
 lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
 rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]

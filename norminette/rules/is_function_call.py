@@ -83,7 +83,7 @@ class IsFunctionCall(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.primary = True
-        self.priority = 50
+        self.priority = 80
         self.scope = []
 
     def run(self, context):
