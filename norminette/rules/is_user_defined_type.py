@@ -1,6 +1,6 @@
 from norminette.rules import PrimaryRule
 from norminette.scope import UserDefinedType, GlobalScope, UserDefinedEnum
-
+import pdb
 
 utypes = ["TYPEDEF", "UNION", "STRUCT", "ENUM"]
 

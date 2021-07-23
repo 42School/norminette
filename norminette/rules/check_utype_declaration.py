@@ -79,7 +79,7 @@ class CheckUtypeDeclaration(Rule):
                 i = context.skip_nest(i)
             i += 1
         check = -1
-        #print (ids, utype, contain_full_def)
+#        print (ids, utype, contain_full_def)
         if is_td == True and len(ids) < 2 and utype != None:
             context.new_error("MISSING_TYPEDEF_ID", context.peek_token(0))
             return False, 0
@@ -125,11 +125,16 @@ class CheckUtypeDeclaration(Rule):
             if context.check_token(tmp, "SPACE") is True:
                 context.new_error("SPACE_REPLACE_TAB", context.peek_token(tmp))
             tab_error = False
+            can_nl_error = False
             while tmp > 0:
                 if context.check_token(tmp, "RBRACE") is True:
+                    can_nl_error = True
                     tmp = context.skip_nest_reverse(tmp)
                 if context.check_token(tmp, "TAB") is True and on_newline == False:
                     tab_error = True
+                if context.check_token(tmp, "NEWLINE") is True and can_nl_error == False:
+                    context.new_error("NEWLINE_IN_DECL", context.peek_token(ids[-1][1]))
+                    can_nl_error = True
                 tmp -= 1
             if tab_error:
                 context.new_error("TAB_REPLACE_SPACE", context.peek_token(tmp))
