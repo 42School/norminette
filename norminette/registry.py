@@ -30,7 +30,7 @@ class Registry:
             rule.run(context)
         # print(context.history, context.tokens[:5], rule)
         # if rule.name.startswith("Is"):
-        # print (rule.name, ret)
+        #     print (rule.name, ret)
         if ret is True:
             context.scope.instructions += 1
             if rule.name.startswith("Is"):

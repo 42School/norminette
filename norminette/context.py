@@ -500,7 +500,7 @@ In \"{self.scope.name}\" from \
         if self.check_token(start - 1, "SIZEOF") is True:
             sizeof = True
         i = self.skip_ws(i)
-        while deep > 0:
+        while deep > 0 and self.peek_token(i) is not None:
             #print (self.peek_token(i), deep, identifier, self.check_token(i, "NULL"))
             if self.check_token(i, "RPARENTHESIS"):
                 deep -= 1

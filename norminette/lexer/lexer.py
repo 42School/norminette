@@ -1,4 +1,5 @@
 import string
+import pdb
 
 from norminette.lexer.dictionary import brackets
 from norminette.lexer.dictionary import keywords
@@ -437,7 +438,6 @@ class Lexer:
             elif self.peek_char() in brackets:
                 self.tokens.append(Token(brackets[self.peek_char()], self.line_pos()))
                 self.pop_char()
-
             else:
                 raise TokenError(self.line_pos())
 
