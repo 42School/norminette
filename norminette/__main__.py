@@ -101,7 +101,11 @@ def main():
                 event.append(Event())
                 if content == None:
                     with open(target) as f:
-                        source = f.read()
+                        try:
+                            source = f.read()
+                        except Exception as e:
+                            print ("Error: File could not be read: ", e)
+                            sys.exit(0)
                 else:
                     source = content
                 lexer = Lexer(source)
