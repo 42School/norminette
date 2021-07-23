@@ -59,6 +59,11 @@ def main():
         action="store",
         help="Store header file content directly instead of filename",
     )
+    parser.add_argument(
+        "--filename",
+        action="store",
+        help="Stores filename if --cfile or --hfile is passed",
+    )
     parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
     registry = Registry()
@@ -68,7 +73,10 @@ def main():
 
     debug = args.debug
     if args.cfile != None or args.hfile != None:
-        targets = ["file.c"] if args.cfile else ["file.h"]
+        if args.filename:
+            targets = [ args.filename ]
+        else:
+            targets = [ "file.c" ] if args.cfile else ["file.h"]
         content = args.cfile if args.cfile else args.hfile
     else:
         args.file = args.file[0]
