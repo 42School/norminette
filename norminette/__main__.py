@@ -108,8 +108,12 @@ def main():
                             sys.exit(0)
                 else:
                     source = content
-                lexer = Lexer(source)
-                tokens = lexer.get_tokens()
+                try:
+                    lexer = Lexer(source)
+                    tokens = lexer.get_tokens()
+                except KeyError as e:
+                    print ("Error while parsing file:", e)
+                    sys.exit(0)
                 if args.only_filename == True:
                     target = target.split("/")[-1]
                 context = Context(target, tokens, debug, args.R)
