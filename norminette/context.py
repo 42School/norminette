@@ -140,6 +140,10 @@ import pdb
 
 class Context:
     def __init__(self, filename, tokens, debug=0, added_value=[]):
+        #Header relative informations
+        self.header_started = False
+        self.header_parsed = False
+        self.header = ""
         # File relative informations
         self.filename = filename
         self.filetype = filename.split(".")[-1]  # ?

@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mok_struct_name.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
 		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_toto> <NEWLINE>
 [36mok_struct_name.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 2":

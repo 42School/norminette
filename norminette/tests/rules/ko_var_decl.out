@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mko_var_decl.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
 		<VOID> <TAB> <IDENTIFIER=tata> <LPARENTHESIS> <CONST> <SPACE> <CHAR> <SPACE> <IDENTIFIER=xc> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mko_var_decl.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 2":

@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_1022.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
 		<STRUCT> <TAB> <IDENTIFIER=s_pftag> <NEWLINE>
 [36mtest_file_1022.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 2":

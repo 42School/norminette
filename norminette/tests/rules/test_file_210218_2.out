@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_210218_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
 		<IFNDEF=#ifndef FT_EXAMPLE_H> <NEWLINE>
 [36mtest_file_210218_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":

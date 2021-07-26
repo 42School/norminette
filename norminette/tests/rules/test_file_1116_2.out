@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_1116_2.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
 		<ENUM> <TAB> <IDENTIFIER=e_bitmask_enum> <NEWLINE>
 [36mtest_file_1116_2.c[0m - [32mIsBlockStart[0m In "UserDefinedEnum" from "GlobalScope" line 2":

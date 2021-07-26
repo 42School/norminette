@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_210131.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
 		<CONST> <SPACE> <INT> <TAB> <MULT> <IDENTIFIER=get_draw_info> <LPARENTHESIS> <IDENTIFIER=t_draw> <SPACE> <MULT> <IDENTIFIER=draw> <COMMA> <SPACE> <DOUBLE> <SPACE> <IDENTIFIER=perpwalldist> <COMMA> <NEWLINE>
 		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=t_texture> <SPACE> <IDENTIFIER=texture> <LBRACKET> <CONSTANT=4> <RBRACKET> <COMMA> <SPACE> <IDENTIFIER=t_mov> <SPACE> <IDENTIFIER=mov> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>

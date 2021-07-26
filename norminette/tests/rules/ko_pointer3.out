@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mko_pointer3.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> 
 [36mko_pointer3.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 1":

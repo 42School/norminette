@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtestfile_210104_4.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <LPARENTHESIS> <LPARENTHESIS> <MULT> <IDENTIFIER=g_conv> <LBRACKET> <CONSTANT=13> <RBRACKET> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=t_syntax> <SPACE> <IDENTIFIER=syntax> <COMMA> <SPACE> <IDENTIFIER=t_buffer> <SPACE> <MULT> <IDENTIFIER=buffer> <COMMA> <SPACE> <IDENTIFIER=va_list> <SPACE> <IDENTIFIER=va> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 testfile_210104_4.c: OK!

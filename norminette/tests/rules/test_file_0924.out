@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_0924.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<VOID> <SPACE> <IDENTIFIER=ft_hexdump> <LPARENTHESIS> <CHAR> <SPACE> <MULT> <MULT> <IDENTIFIER=files> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=argc> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=i> <RPARENTHESIS> 
 [36mtest_file_0924.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 1":

@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mok_function_pointer.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
 		<VOID> <TAB> <MULT> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <SPACE> <MULT> <IDENTIFIER=i> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mok_function_pointer.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 2":
