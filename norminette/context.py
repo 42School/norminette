@@ -233,6 +233,8 @@ In \"{self.scope.name}\" from \
                 i += 1
         if pos - 1 < len(self.tokens) and self.tokens[pos - 1].type != "NEWLINE":
             print("")
+        elif len(self.tokens) == 1 and self.tokens[-1].type != "NEWLINE":
+            print ("")
 
     def eol(self, pos):
         """Skips white space characters (tab, space) until end of line

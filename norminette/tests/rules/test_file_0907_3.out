@@ -121,9 +121,9 @@
 		<TAB> <LBRACE> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 60":
 		<TAB> <TAB> <IDENTIFIER=fname> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=argv> <LBRACKET> <CONSTANT=0> <RBRACKET> <SEMI_COLON> <NEWLINE>
-[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 61":
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 61":
 		<TAB> <TAB> <IDENTIFIER=argv> <INC> <SEMI_COLON> <NEWLINE>
-[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 62":
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 62":
 		<TAB> <TAB> <IDENTIFIER=argc> <DEC> <SEMI_COLON> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 63":
 		<TAB> <RBRACE> <SPACE> 

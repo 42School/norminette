@@ -1,5 +1,5 @@
 from norminette.rules import PrimaryRule
-
+import pdb
 
 assign_ops = [
     "RIGHT_ASSIGN",
@@ -69,7 +69,7 @@ class IsAssignation(PrimaryRule):
 
     def check_identifier(self, context, pos):
         i = pos
-        while context.check_token(i, types + ws + op + ["IDENTIFIER", "CONSTANT"]):
+        while context.check_token(i, types + ws + op + ["IDENTIFIER", "CONSTANT", "INC", "DEC"]):
             if context.check_token(i, "LBRACKET"):
                 i = context.skip_nest(i)
             i += 1
@@ -86,9 +86,13 @@ class IsAssignation(PrimaryRule):
         ret, i = self.check_identifier(context, 0)
         if ret is False:
             return False, 0
-        if context.check_token(i, assign_ops) is False:
+        tmp = 0
+        while context.check_token(tmp, assign_ops) is False and tmp <= i:
+            tmp += 1
+        if context.check_token(tmp, assign_ops) is False:
             return False, 0
-        i += 1
+        i = tmp + 1
+        #i += 1
         i = context.skip_ws(i)
         # if context.check_token(i, "LBRACE") is True:
         # i += 1

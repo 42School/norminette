@@ -2,7 +2,7 @@ from norminette.context import ControlStructure
 from norminette.scope import Function
 from norminette.exceptions import CParsingError
 from norminette.rules import PrimaryRule
-
+import pdb
 keywords = ["BREAK", "CONTINUE", "GOTO", "RETURN"]
 
 operators = [
@@ -79,6 +79,7 @@ class IsExpressionStatement(PrimaryRule):
     def check_inc_dec(self, context, pos):
         i = pos
         ret = False
+        pdb.set_trace()
         if context.check_token(i, ["INC", "DEC"]) is True:
             ret = True
             i += 1
@@ -137,11 +138,11 @@ class IsExpressionStatement(PrimaryRule):
         ret, i = self.check_instruction(context, i)
         if ret is False:
             ret, i = self.check_reserved_keywords(context, i)
+            #if ret is False:
+            #    ret, i = self.check_inc_dec(context, i)
             if ret is False:
-                ret, i = self.check_inc_dec(context, i)
+                ret, i = self.void_identifier(context, i)
                 if ret is False:
-                    ret, i = self.void_identifier(context, i)
-                    if ret is False:
-                        return False, 0
+                    return False, 0
         i = context.eol(i)
         return True, i
