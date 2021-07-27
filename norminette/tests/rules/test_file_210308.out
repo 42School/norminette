@@ -64,4 +64,5 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 test_file_210308.c: Error!
 Error: NEWLINE_PRECEDES_FUNC (line:  29, col:   1):	Functions must be separated by a newline
 Error: NEWLINE_PRECEDES_FUNC (line:  33, col:   1):	Functions must be separated by a newline
+Error: NL_AFTER_PREPROC     (line:  33, col:   1):	Preprocessor statement must be followed by a newline
 Error: TOO_MANY_FUNCS       (line:  33, col:   1):	Too many functions in file

@@ -15,4 +15,7 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mok_ifdef.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 8":
 		<RBRACE> <NEWLINE>
-ok_ifdef.c: OK!
+ok_ifdef.c: Error!
+Error: NL_AFTER_PREPROC     (line:   2, col:   1):	Preprocessor statement must be followed by a newline
+Error: NL_AFTER_PREPROC     (line:   4, col:   1):	Preprocessor statement must be followed by a newline
+Error: NL_AFTER_PREPROC     (line:   6, col:   1):	Preprocessor statement must be followed by a newline

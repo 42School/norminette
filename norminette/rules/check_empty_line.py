@@ -27,6 +27,8 @@ class CheckEmptyLine(Rule):
                     else:
                         context.new_error("NL_AFTER_VAR_DECL", context.peek_token(i))
                         return True, i
+        if len(context.history) > 1 and context.history[-2] == "IsPreprocessorStatement" and context.history[-1] != "IsPreprocessorStatement" and context.history[-1] != "IsEmptyLine":
+            context.new_error("NL_AFTER_PREPROC", context.peek_token(i))
         if context.history[-1] != "IsEmptyLine":
             return False, 0
         if context.check_token(i, "NEWLINE") is False:
