@@ -41,6 +41,7 @@ class IsUserDefinedType(PrimaryRule):
         i = context.skip_ws(0, nl=False)
         enum = False
         p = 0
+        ids = []
         while context.peek_token(i) is not None:
             if context.check_token(i, utypes) is True and p <= 0:
                 break
@@ -63,6 +64,8 @@ class IsUserDefinedType(PrimaryRule):
                 enum = True
             if context.check_token(i, ["NEWLINE", "SEMI_COLON"]) is True and p == 0:
                 break
+            if context.check_token(i, "IDENTIFIER"):
+                ids.append(context.peek_token(i))
             i += 1
         if context.check_token(i, "NEWLINE") is True and p <= 0:
             if enum == True:
@@ -73,5 +76,6 @@ class IsUserDefinedType(PrimaryRule):
             return True, i
         elif context.check_token(i, "SEMI_COLON") is True:
             i += 1
+            context.scope.vars_name.append(ids[-1])
             i = context.eol(i)
             return True, i

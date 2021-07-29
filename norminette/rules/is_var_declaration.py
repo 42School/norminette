@@ -56,9 +56,11 @@ class IsVarDeclaration(PrimaryRule):
         braces = 0
         i = pos
         ret_store = None
+        ids = []
         while context.peek_token(i) is not None and context.check_token(i, ["SEMI_COLON"]) is False:
             if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
                 identifier = True
+                ids.append(context.peek_token(i))
             elif context.check_token(i, ["COMMENT", "MULT_COMMENT"]) is True:
                 i += 1
                 continue
@@ -75,6 +77,16 @@ class IsVarDeclaration(PrimaryRule):
                     if ret == "function" or ret == "pointer" or ret == "var":
                         ret_store = ret
                         identifier = True
+                        tmp2 = tmp - 1
+                        deep = 1
+                        while tmp2 > 0 and deep > 0:
+                            if context.check_token(tmp2, "IDENTIFIER"):
+                                ids.append(context.peek_token(tmp2))
+                            if context.check_token(tmp2, "RPARENTHESIS"):
+                                deep += 1
+                            if context.check_token(tmp2, "LPARENTHESIS"):
+                                deep -= 1
+                            tmp2 -= 1
                         i = tmp
                     else:
                         parenthesis += 1
@@ -101,6 +113,7 @@ class IsVarDeclaration(PrimaryRule):
             i += 1
         if identifier == False or braces > 0 or brackets > 0 or parenthesis > 0:
             return False, 0
+        context.scope.vars_name.append(ids[-1])
         if context.check_token(i, "SEMI_COLON") is True:
             if brackets == 0 and braces == 0 and parenthesis == 0:
                 return True, i

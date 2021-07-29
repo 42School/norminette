@@ -11,4 +11,40 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mok_func_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 6":
 		<RBRACE> <NEWLINE>
-ok_func_name.c: OK!
+[36mok_func_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mok_func_name.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 8":
+		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_sTRuct> <TAB> <IDENTIFIER=t_Struct> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 9":
+		<STRUCT> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=s_sTRuct> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 10":
+		<NEWLINE>
+[36mok_func_name.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 11":
+		<INT> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=g_glOb> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
+		<NEWLINE>
+[36mok_func_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 13":
+		<INT> <TAB> <IDENTIFIER=Main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 14":
+		<LBRACE> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 15":
+		<TAB> <CHAR> <TAB> <TAB> <MULT> <IDENTIFIER=sTr> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 16":
+		<TAB> <INT> <TAB> <TAB> <TAB> <IDENTIFIER=TAB> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 17":
+		<TAB> <IDENTIFIER=size_T> <TAB> <TAB> <IDENTIFIER=val> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 18":
+		<TAB> <IDENTIFIER=t_Struct> <TAB> <IDENTIFIER=val> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 19":
+		<NEWLINE>
+[36mok_func_name.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 20":
+		<TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mok_func_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 21":
+		<RBRACE> <NEWLINE>
+ok_func_name.c: Error!
+Error: FORBIDDEN_CHAR_NAME  (line:   8, col:  25):	user defined identifiers should contain only lowercase characters, digits or '_'
+Error: FORBIDDEN_CHAR_NAME  (line:   9, col:  25):	user defined identifiers should contain only lowercase characters, digits or '_'
+Error: FORBIDDEN_CHAR_NAME  (line:  11, col:  25):	user defined identifiers should contain only lowercase characters, digits or '_'
+Error: FORBIDDEN_CHAR_NAME  (line:  13, col:   5):	user defined identifiers should contain only lowercase characters, digits or '_'
+Error: FORBIDDEN_CHAR_NAME  (line:  15, col:  18):	user defined identifiers should contain only lowercase characters, digits or '_'
+Error: FORBIDDEN_CHAR_NAME  (line:  16, col:  17):	user defined identifiers should contain only lowercase characters, digits or '_'
