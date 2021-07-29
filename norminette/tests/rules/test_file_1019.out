@@ -163,6 +163,7 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<RBRACE> <TAB> <NEWLINE>
 test_file_1019.c: Error!
 Error: RETURN_PARENTHESIS   (line:   8, col:  12):	Return value must be in parenthesis
+Error: FORBIDDEN_CHAR_NAME  (line:  28, col:   9):	user defined identifiers should contain only lowercase characters, digits or '_'
 Error: COMMENT_ON_INSTR     (line:  35, col:  25):	Comment must be on its own line
 Error: WRONG_SCOPE_COMMENT  (line:  41, col:  10):	Comment is invalid in this scope
 Error: COMMENT_ON_INSTR     (line:  41, col:  29):	Comment must be on its own line

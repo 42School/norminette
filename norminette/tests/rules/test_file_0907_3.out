@@ -435,6 +435,7 @@ Error: TOO_MANY_VARS_FUNC   (line:   9, col:   1):	Too many variables declaratio
 Error: TOO_MANY_VARS_FUNC   (line:  10, col:   1):	Too many variables declarations in a function
 Error: TOO_MANY_VARS_FUNC   (line:  11, col:   1):	Too many variables declarations in a function
 Error: MULT_DECL_LINE       (line:  11, col:  25):	Multiple declarations on a single line
+Error: FORBIDDEN_CHAR_NAME  (line:  11, col:  27):	user defined identifiers should contain only lowercase characters, digits or '_'
 Error: MULT_DECL_LINE       (line:  11, col:  31):	Multiple declarations on a single line
 Error: MULT_DECL_LINE       (line:  11, col:  37):	Multiple declarations on a single line
 Error: MULT_DECL_LINE       (line:  11, col:  43):	Multiple declarations on a single line
