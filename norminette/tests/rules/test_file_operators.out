@@ -1,0 +1,20 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
+[36mtest_file_operators.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_operators.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_operators.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mtest_file_operators.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <UNSIGNED> <SPACE> <INT> <TAB> <IDENTIFIER=b> <LBRACKET> <CONSTANT=1> <RBRACKET> <SEMI_COLON> <NEWLINE>
+[36mtest_file_operators.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 5":
+		<NEWLINE>
+[36mtest_file_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <MINUS> <CONSTANT=10> <SEMI_COLON> <NEWLINE>
+[36mtest_file_operators.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <MULT> <IDENTIFIER=b> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <UNSIGNED> <SPACE> <INT> <RPARENTHESIS> <MINUS> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mtest_file_operators.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_operators.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 9":
+		<RBRACE> <NEWLINE>
+test_file_operators.c: OK!

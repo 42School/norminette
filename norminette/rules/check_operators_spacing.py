@@ -1,5 +1,5 @@
 from norminette.rules import Rule
-
+import pdb
 operators = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -159,7 +159,7 @@ class CheckOperatorsSpacing(Rule):
         tmp = -1
 
         if pos > 0 and context.check_token(pos, ["TAB", "SPACE"]):
-            context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
+            context.new_error("", context.peek_token(pos))
         if pos + 1 < len(context.tokens[: context.tkn_scope]) and context.peek_token(pos + 1).type == "SPACE":
             context.new_error("NO_SPC_AFR_OPR", context.peek_token(pos))
 
@@ -322,21 +322,15 @@ class CheckOperatorsSpacing(Rule):
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_prefix_and_suffix(self, context, pos):
-        if (
-            pos > 0
-            and context.check_token(
-                pos - 1,
-                ["SPACE", "LPARENTHESIS", "LBRACKET"]
-                + glued_operators
-            )
-            is False
-        ):
+        if pos > 0 and context.check_token(pos - 1, ["SPACE", "LPARENTHESIS", "LBRACKET"] + glued_operators) is False:
             if context.check_token(pos - 1, "TAB") is True:
                 tmp = -1
                 while context.check_token(pos + tmp, "TAB") is True:
                     tmp -= 1
                 if context.check_token(pos + tmp, ["NEWLINE", "ESCAPED_NEWLINE"]) is True:
                     return False, 0
+            if context.check_token(pos - 1, "RPARENTHESIS") and context.parenthesis_contain(context.skip_nest_reverse(pos - 1))[0] == "cast":
+                return False, 0
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
         if (
             pos + 1 < len(context.tokens[: context.tkn_scope])
