@@ -20,6 +20,7 @@
 		<MULT_COMMENT=/*                                                                            */> <NEWLINE>
 [36mtest_file_1012_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 11":
 		<MULT_COMMENT=/* ************************************************************************** */> <NEWLINE>
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_1012_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
 		<NEWLINE>
 [36mtest_file_1012_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
