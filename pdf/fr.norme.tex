@@ -84,8 +84,8 @@
             \item Les objets (variables, fonctions, macros, types, fichiers ou répertoires) 
                 doivent avoir les noms les plus explicites ou mnémoniques possibles.
             
-            \item Les variables globales sont interdites, sauf quand vous êtes obligé d'en utiliser ( signal handling ). L’utilisation d'une variable globale 
-                dans un projet où ce n’est pas explicitement autorisé est une erreur de Norme.
+            \item L'utilisation de variables globales qui ne sont pas \texttt{const} et \texttt{static} est interdite 
+                dans un projet où ce n’est pas explicitement autorisé.
 
             \item Le fichier doit être compilable. Un fichier qui ne compile pas n'est 
                 pas censé passer La Norme.
@@ -149,9 +149,13 @@
                 \item Vous pouvez retourner à la ligne lors d’une même instruction ou structure de
                     contrôle, mais vous devez rajouter une indentation par accolade ou opérateur
                     d’affectation. Les opérateurs doivent être en début de ligne.
-            \end{itemize}
 
-            \newpage
+                \item Les structures de contrôle (\texttt{if}, \texttt{while}...) doivent avoir des accolades, à moins qu'elles
+                    ne contiennent une seule ligne.
+                
+                \item Les accolades qui suivent les fonctions, les déclarateurs ou les structures de contrôle doivent être précédées et suivies d'une nouvelle ligne.
+
+            \end{itemize}
 
             Exemple:
             \begin{42ccode}
@@ -225,8 +229,9 @@ int func2(void)
                 vous nemettrez qu’un espace dans le type.
 
             \item Lorsque vous déclarez une \texttt{struct}, \texttt{union} ou \texttt{enum} avec un \texttt{typedef},
-                toutes les règles s’appliquent et vous devez aligner le nom du \texttt{typedef} 
-                avec le nom de la \texttt{struct}, \texttt{union} ou \texttt{enum}.
+                toutes les règles s’appliquent.
+            
+            \item Les noms de \texttt{typedef} doivent être précédé d'une tabulation.
 
             \item Vous devez indenter tous les noms de structures sur la même colonne.
 

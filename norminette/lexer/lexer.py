@@ -1,4 +1,5 @@
 import string
+import pdb
 
 from norminette.lexer.dictionary import brackets
 from norminette.lexer.dictionary import keywords
@@ -14,7 +15,7 @@ def read_file(filename):
 
 class TokenError(Exception):
     def __init__(self, pos):
-        self.msg = f"Unrecognized token line {pos[0]}, col {pos[1]}"
+        self.msg = f"Error: Unrecognized token line {pos[0]}, col {pos[1]}"
 
     def __repr__(self):
         return self.msg
@@ -137,6 +138,9 @@ class Lexer:
                 self.tokens.append(Token("TKN_ERROR", pos))
                 return
             if self.peek_char() == "'":
+                for i in tkn_value:
+                    if i == '\\':
+                        self.__line_pos += 1
                 self.pop_char()
                 self.tokens.append(Token("CHAR_CONST", pos, tkn_value))
                 return
@@ -295,6 +299,9 @@ class Lexer:
                 return
             tkn_value += self.peek_char()
             self.pop_char()
+        if (self.__pos == self.len):
+            self.tokens.append(Token("COMMENT", pos, tkn_value))
+            return
         raise TokenError(pos)
 
     def identifier(self):
@@ -431,7 +438,6 @@ class Lexer:
             elif self.peek_char() in brackets:
                 self.tokens.append(Token(brackets[self.peek_char()], self.line_pos()))
                 self.pop_char()
-
             else:
                 raise TokenError(self.line_pos())
 

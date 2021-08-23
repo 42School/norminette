@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mko_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
 		<INCLUDE=#include <main.c>> <NEWLINE>
 [36mko_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":

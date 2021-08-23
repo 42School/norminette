@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <LPARENTHESIS> <IDENTIFIER=foo> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
@@ -158,6 +159,7 @@ Error: TOO_MANY_INSTR       (line:  10, col:  27):	Too many instructions on a si
 Error: SPACE_BEFORE_FUNC    (line:  12, col:   4):	space before function name
 Error: RETURN_PARENTHESIS   (line:  14, col:  12):	Return value must be in parenthesis
 Error: INCLUDE_START_FILE   (line:  17, col:   1):	Include must be at the start of file
+Error: NL_AFTER_PREPROC     (line:  18, col:   1):	Preprocessor statement must be followed by a newline
 Error: NO_ARGS_VOID         (line:  18, col:  11):	Empty function argument requires void
 Error: RETURN_PARENTHESIS   (line:  20, col:  12):	Return value must be in parenthesis
 Error: SPACE_BEFORE_FUNC    (line:  23, col:   4):	space before function name

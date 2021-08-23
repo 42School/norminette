@@ -1,17 +1,20 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
 		<IFNDEF=#ifndef OK_PROTECTION_H> <NEWLINE>
 [36mok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
 		<DEFINE=# define OK_PROTECTION_H> <NEWLINE>
 [36mok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
 		<DEFINE=# define TOTO "tata"> <NEWLINE>
-[36mok_protection.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 4":
-		<VOID> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mok_protection.h[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 5":
-		<INT> <TAB> <IDENTIFIER=g_toto> <SEMI_COLON> <NEWLINE>
-[36mok_protection.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 6":
+[36mok_protection.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
 		<NEWLINE>
-[36mok_protection.h[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 7":
+[36mok_protection.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 5":
+		<VOID> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mok_protection.h[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 6":
+		<INT> <TAB> <IDENTIFIER=g_toto> <SEMI_COLON> <NEWLINE>
+[36mok_protection.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mok_protection.h[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 8":
 		<IDENTIFIER=v> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
-[36mok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 8":
+[36mok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 9":
 		<ENDIF=#endif> <NEWLINE>
 ok_protection.h: OK!

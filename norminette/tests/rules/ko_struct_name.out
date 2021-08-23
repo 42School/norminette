@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mko_struct_name.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
 		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=t_toto> <TAB> <IDENTIFIER=s_toto> <SEMI_COLON> <NEWLINE>
 [36mko_struct_name.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 2":
@@ -29,11 +30,8 @@
 [36mko_struct_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
 		<RBRACE> <NEWLINE>
 ko_struct_name.c: Error!
-Error: STRUCT_TYPE_NAMING   (line:   1, col:  16):	Structure name must start with s_
 Error: USER_DEFINED_TYPEDEF (line:   1, col:  25):	User defined typedef must start with t_
 Error: GLOBAL_VAR_NAMING    (line:   2, col:  25):	Global variable must start with g_
 Error: GLOBAL_VAR_NAMING    (line:   3, col:  25):	Global variable must start with g_
-Error: STRUCT_TYPE_NAMING   (line:   5, col:  16):	Structure name must start with s_
-Error: UNION_TYPE_NAMING    (line:   8, col:  19):	Union name must start with u_
 Error: USER_DEFINED_TYPEDEF (line:   8, col:  25):	User defined typedef must start with t_
 Error: USER_DEFINED_TYPEDEF (line:  10, col:   5):	User defined typedef must start with t_

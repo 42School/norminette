@@ -35,9 +35,8 @@ class CheckFuncDeclaration(Rule):
                 i += 1
             if length - i > 0 and context.history[-i] != "IsEmptyLine":
                 context.new_error("NEWLINE_PRECEDES_FUNC", context.peek_token(start))
-        # this is a func prototype
         i = context.fname_pos + 1
-        while (context.check_token(i, ["RPARENTHESIS", "SPACE", "TAB"])) is True:
+        while (context.check_token(i, ["RPARENTHESIS"])) is True: #, "SPACE", "TAB"])) is True:
             i += 1
         if context.check_token(i, "LPARENTHESIS") is False:
             context.new_error("EXP_PARENTHESIS", context.peek_token(i))
@@ -60,4 +59,8 @@ class CheckFuncDeclaration(Rule):
         if arg > 4:
             context.new_error("TOO_MANY_ARGS", context.peek_token(i))
         arg = []
+        while context.check_token(i, ["NEWLINE", "SEMI_COLON"]) is False:
+            i += 1
+        if context.check_token(i - 1, ["TAB", "SPACE"]):
+            context.new_error("SPC_BEFORE_NL", context.peek_token(i))
         return False, 0

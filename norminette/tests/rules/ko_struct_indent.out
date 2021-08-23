@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mko_struct_indent.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
 		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=s_toto> <TAB> <IDENTIFIER=t_toto> <SEMI_COLON> <NEWLINE>
 [36mko_struct_indent.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 2":

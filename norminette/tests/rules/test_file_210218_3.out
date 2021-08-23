@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_210218_3.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
 		<DEFINE=#define LENGTH 8> <NEWLINE>
 [36mtest_file_210218_3.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 2":
@@ -8,4 +9,6 @@
 		<NEWLINE>
 [36mtest_file_210218_3.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 5":
 		<TYPEDEF> <SPACE> <VOID> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=t_func_definiton> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=toto> <SPACE> <IDENTIFIER=arg> <RPARENTHESIS> <SEMI_COLON> 
-test_file_210218_3.c: OK!
+test_file_210218_3.c: Error!
+Error: NL_AFTER_PREPROC     (line:   2, col:   1):	Preprocessor statement must be followed by a newline
+Error: FORBIDDEN_CHAR_NAME  (line:   3, col:  24):	user defined identifiers should contain only lowercase characters, digits or '_'

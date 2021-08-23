@@ -1,4 +1,5 @@
 from norminette.rules import Rule
+from norminette.exceptions import CParsingError
 
 
 operators = [
@@ -69,6 +70,8 @@ class CheckAssignationIndent(Rule):
                 i += 1
                 while context.check_token(i + got, "TAB") is True:
                     got += 1
+                if context.peek_token(i + got) is None:
+                    raise CParsingError(f"Error: Unexpected EOF l.{context.peek_token(i - 1).pos[0]}")
                 if context.check_token(i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
                     nest -= 1
                 if got > nest:

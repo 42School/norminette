@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mok_enum.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
 		<TYPEDEF> <SPACE> <ENUM> <SPACE> <IDENTIFIER=e_toto> <NEWLINE>
 [36mok_enum.c[0m - [32mIsBlockStart[0m In "UserDefinedEnum" from "GlobalScope" line 2":

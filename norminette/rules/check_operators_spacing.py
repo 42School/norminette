@@ -1,5 +1,5 @@
 from norminette.rules import Rule
-
+import pdb
 operators = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -116,6 +116,15 @@ c_operators = [
     "BWISE_NOT",  # ~
 ]
 
+glued_operators = [
+    "MULT",
+    "PLUS",
+    "MINUS",
+    "DIV",
+    "NOT",
+    "BWISE_NOT"
+]
+
 rnests = ["RPARENTHESIS", "RBRACE", "RBRACKET"]
 
 lnests = [
@@ -150,7 +159,7 @@ class CheckOperatorsSpacing(Rule):
         tmp = -1
 
         if pos > 0 and context.check_token(pos, ["TAB", "SPACE"]):
-            context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
+            context.new_error("", context.peek_token(pos))
         if pos + 1 < len(context.tokens[: context.tkn_scope]) and context.peek_token(pos + 1).type == "SPACE":
             context.new_error("NO_SPC_AFR_OPR", context.peek_token(pos))
 
@@ -291,7 +300,7 @@ class CheckOperatorsSpacing(Rule):
 
     def check_suffix(self, context, pos):
         if pos + 1 < len(context.tokens[: context.tkn_scope]) and not context.check_token(
-            pos + 1, ["SPACE", "NEWLINE", "TAB"]
+            pos + 1, ["SPACE", "NEWLINE", "TAB"] + glued_operators
         ):
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
         if pos > 0 and context.peek_token(pos - 1).type == "SPACE":
@@ -303,37 +312,31 @@ class CheckOperatorsSpacing(Rule):
                 tmp = -1
                 while context.check_token(pos + tmp, "TAB") is True:
                     tmp -= 1
-                if context.check_token(pos + tmp, ["NEWLINE", "ESCAPED_NEWLINE"]) is True:
+                if context.check_token(pos + tmp, ["NEWLINE", "ESCAPED_NEWLINE"] + glued_operators) is True:
                     return False, 0
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
         if (
             pos + 1 < len(context.tokens[: context.tkn_scope])
-            and context.check_token(pos + 1, ["SPACE", "LPARENTHESIS", "LBRACKET", "LBRACE", "NEWLINE"]) is False
+            and context.check_token(pos + 1, ["SPACE", "LPARENTHESIS", "LBRACKET", "LBRACE", "NEWLINE"] + glued_operators) is False
         ):
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_prefix_and_suffix(self, context, pos):
-        if (
-            pos > 0
-            and context.check_token(
-                pos - 1,
-                ["SPACE", "LPARENTHESIS", "LBRACKET"],
-            )
-            is False
-        ):
+        if pos > 0 and context.check_token(pos - 1, ["SPACE", "LPARENTHESIS", "LBRACKET"] + glued_operators) is False:
             if context.check_token(pos - 1, "TAB") is True:
                 tmp = -1
                 while context.check_token(pos + tmp, "TAB") is True:
                     tmp -= 1
                 if context.check_token(pos + tmp, ["NEWLINE", "ESCAPED_NEWLINE"]) is True:
                     return False, 0
+            if context.check_token(pos - 1, "RPARENTHESIS") and context.parenthesis_contain(context.skip_nest_reverse(pos - 1))[0] == "cast":
+                return False, 0
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
         if (
             pos + 1 < len(context.tokens[: context.tkn_scope])
             and context.check_token(
                 pos + 1,
-                ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET", "NEWLINE", "COMMA"],
-            )
+                ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET", "NEWLINE", "COMMA"] + glued_operators)
             is False
         ):
             tmp = pos - 1
@@ -343,7 +346,7 @@ class CheckOperatorsSpacing(Rule):
                 tmp = context.skip_nest_reverse(tmp)
                 if context.parenthesis_contain(tmp)[0] != "cast":
                     context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
-            else:
+            elif context.check_token(tmp, glued_operators) is False:
                 context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_glued_operator(self, context, pos):
@@ -355,7 +358,7 @@ class CheckOperatorsSpacing(Rule):
         if context.check_token(pos + 1, ["SPACE", "TAB"]) is True:
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
         pos -= 1
-        if context.check_token(pos, glued + ["SPACE", "TAB"]) is False:
+        if context.check_token(pos, glued + ["SPACE", "TAB"] + glued_operators) is False:
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
         while pos >= 0 and context.check_token(pos, ["SPACE", "TAB"]) is True:
             pos -= 1
@@ -373,11 +376,17 @@ class CheckOperatorsSpacing(Rule):
             "RPARENTHESIS",
             "RBRACKET",
             "RBRACE",
+            "MINUS",
+            "PLUS",
+            "BWISE_NOT",
+            "BWISE_OR",
+            "BWISE_AND",
+           "BWISE_XOR",
         ]
         lsign = operators + ["LBRACKET"]
         i = 0
         if context.peek_token(pos).type == "MULT":
-            if context.check_token(pos - 1, lpointer) == False and context.is_glued_operator(pos - 1) is True:
+            if context.check_token(pos - 1, lpointer) == False and (context.is_glued_operator(pos - 1) is True):# or context.check_token(pos - 1, c_operators) is False):
                 context.new_error("SPC_BFR_POINTER", context.peek_token(pos))
             if context.check_token(pos + 1, ["SPACE", "TAB"]):
                 context.new_error("SPC_AFTER_POINTER", context.peek_token(pos))

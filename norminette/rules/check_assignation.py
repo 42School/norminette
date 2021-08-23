@@ -1,4 +1,5 @@
 from norminette.rules import Rule
+import pdb
 
 assigns = [
     "RIGHT_ASSIGN",
@@ -14,6 +15,11 @@ assigns = [
     "ASSIGN",
 ]
 
+special_assigns = [
+    "INC",
+    "DEC"
+]
+
 
 class CheckAssignation(Rule):
     def __init__(self):
@@ -27,9 +33,10 @@ class CheckAssignation(Rule):
             i += 1
         return True, i
 
-    def check_assign_right(self, context, i):
+    def check_assign_right(self, context, i, mini_assign=False):
         tmp_typ = None
         start = 0
+        full_assign = False
         while context.check_token(i, "SEMI_COLON") is False:
             typ = None
             if context.check_token(i, "LBRACE"):
@@ -49,7 +56,13 @@ class CheckAssignation(Rule):
                             context.new_error("TOO_MANY_INSTR", context.peek_token(tmp))
                         tmp += 1
             if context.check_token(i, assigns) is True:
-                context.new_error("MULT_ASSIGN_LINE", context.peek_token(i))
+                if mini_assign == True:
+                    mini_assign = False
+                else:
+                    context.new_error("MULT_ASSIGN_LINE", context.peek_token(i))
+            if context.check_token(i, special_assigns) is True:
+                if mini_assign == True:
+                    context.new_error("MULT_ASSIGN_LINE", context.peek_token(i))
             i += 1
         return False, 0
 
@@ -60,9 +73,12 @@ class CheckAssignation(Rule):
         """
         i = 0
         assign_present = False
+        mini_assign = False
         while context.check_token(i, "SEMI_COLON") is False:
-            if context.check_token(i, assigns) is True and assign_present == False:
+            if context.check_token(i, assigns + special_assigns) is True and assign_present == False:
                 assign_present = True
-                return self.check_assign_right(context, i + 1)
+                if context.check_token(i, special_assigns):
+                    mini_assign = True
+                return self.check_assign_right(context, i + 1, mini_assign)
             i += 1
         return False, 0

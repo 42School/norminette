@@ -59,6 +59,11 @@ def main():
         action="store",
         help="Store header file content directly instead of filename",
     )
+    parser.add_argument(
+        "--filename",
+        action="store",
+        help="Stores filename if --cfile or --hfile is passed",
+    )
     parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
     registry = Registry()
@@ -68,7 +73,10 @@ def main():
 
     debug = args.debug
     if args.cfile != None or args.hfile != None:
-        targets = ["file.c"] if args.cfile else ["file.h"]
+        if args.filename:
+            targets = [ args.filename ]
+        else:
+            targets = [ "file.c" ] if args.cfile else ["file.h"]
         content = args.cfile if args.cfile else args.hfile
     else:
         args.file = args.file[0]
@@ -93,11 +101,19 @@ def main():
                 event.append(Event())
                 if content == None:
                     with open(target) as f:
-                        source = f.read()
+                        try:
+                            source = f.read()
+                        except Exception as e:
+                            print ("Error: File could not be read: ", e)
+                            sys.exit(0)
                 else:
                     source = content
-                lexer = Lexer(source)
-                tokens = lexer.get_tokens()
+                try:
+                    lexer = Lexer(source)
+                    tokens = lexer.get_tokens()
+                except KeyError as e:
+                    print ("Error while parsing file:", e)
+                    sys.exit(0)
                 if args.only_filename == True:
                     target = target.split("/")[-1]
                 context = Context(target, tokens, debug, args.R)

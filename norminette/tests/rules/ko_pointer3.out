@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mko_pointer3.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> 
 [36mko_pointer3.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 1":
@@ -64,9 +65,11 @@ Error: SPC_AFTER_POINTER    (line:   2, col:  13):	space after pointer
 Error: NL_AFTER_VAR_DECL    (line:   3, col:  21):	Variable declarations must be followed by a newline
 Error: TOO_FEW_TAB          (line:   3, col:  21):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:   3, col:  21):	Too many instructions on a single line
+Error: MIXED_SPACE_TAB      (line:   3, col:  23):	Mixed spaces and tabs
 Error: TAB_INSTEAD_SPC      (line:   3, col:  24):	Found tab when expecting space
 Error: SPC_AFTER_POINTER    (line:   3, col:  56):	space after pointer
 Error: SPC_AFTER_POINTER    (line:   3, col:  57):	space after pointer
+Error: MIXED_SPACE_TAB      (line:   4, col:  12):	Mixed spaces and tabs
 Error: TAB_INSTEAD_SPC      (line:   4, col:  13):	Found tab when expecting space
 Error: BRACE_NEWLINE        (line:   7, col:  16):	Expected newline before brace
 Error: SPC_AFTER_POINTER    (line:   8, col:  11):	space after pointer
@@ -74,7 +77,9 @@ Error: SPC_AFTER_POINTER    (line:   8, col:  13):	space after pointer
 Error: NL_AFTER_VAR_DECL    (line:   9, col:  21):	Variable declarations must be followed by a newline
 Error: TOO_FEW_TAB          (line:   9, col:  21):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:   9, col:  21):	Too many instructions on a single line
+Error: MIXED_SPACE_TAB      (line:   9, col:  23):	Mixed spaces and tabs
 Error: TAB_INSTEAD_SPC      (line:   9, col:  24):	Found tab when expecting space
+Error: MIXED_SPACE_TAB      (line:  10, col:  12):	Mixed spaces and tabs
 Error: TAB_INSTEAD_SPC      (line:  10, col:  13):	Found tab when expecting space
 Error: BRACE_NEWLINE        (line:  13, col:  16):	Expected newline before brace
 Error: SPC_AFTER_POINTER    (line:  14, col:  11):	space after pointer
@@ -88,6 +93,7 @@ Error: NO_SPC_BFR_PAR       (line:  15, col:  40):	Extra space before parenthesi
 Error: NO_SPC_AFR_PAR       (line:  15, col:  42):	Extra space after parenthesis (brace/bracket)
 Error: NO_SPC_BFR_PAR       (line:  15, col:  42):	Extra space before parenthesis (brace/bracket)
 Error: NO_SPC_BFR_PAR       (line:  15, col:  44):	Extra space before parenthesis (brace/bracket)
+Error: MIXED_SPACE_TAB      (line:  16, col:   8):	Mixed spaces and tabs
 Error: TAB_INSTEAD_SPC      (line:  16, col:   9):	Found tab when expecting space
 Error: NO_SPC_BFR_PAR       (line:  16, col:  33):	Extra space before parenthesis (brace/bracket)
 Error: BRACE_NEWLINE        (line:  19, col:  16):	Expected newline before brace

@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_0907_3.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=argc> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <IDENTIFIER=argv> <LBRACKET> <RBRACKET> <RPARENTHESIS> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
@@ -121,9 +122,9 @@
 		<TAB> <LBRACE> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 60":
 		<TAB> <TAB> <IDENTIFIER=fname> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=argv> <LBRACKET> <CONSTANT=0> <RBRACKET> <SEMI_COLON> <NEWLINE>
-[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 61":
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 61":
 		<TAB> <TAB> <IDENTIFIER=argv> <INC> <SEMI_COLON> <NEWLINE>
-[36mtest_file_0907_3.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 62":
+[36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 62":
 		<TAB> <TAB> <IDENTIFIER=argc> <DEC> <SEMI_COLON> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 63":
 		<TAB> <RBRACE> <SPACE> 
@@ -424,6 +425,7 @@
 		<RBRACE> 
 test_file_0907_3.c: Error!
 Error: TOO_MANY_TABS_FUNC   (line:   1, col:   5):	extra tabs before function name
+Error: MIXED_SPACE_TAB      (line:   4, col:  19):	Mixed spaces and tabs
 Error: SPACE_REPLACE_TAB    (line:   4, col:  19):	Found space when expecting tab
 Error: MULT_DECL_LINE       (line:   4, col:  24):	Multiple declarations on a single line
 Error: MULT_DECL_LINE       (line:   6, col:  23):	Multiple declarations on a single line
@@ -433,6 +435,7 @@ Error: TOO_MANY_VARS_FUNC   (line:   9, col:   1):	Too many variables declaratio
 Error: TOO_MANY_VARS_FUNC   (line:  10, col:   1):	Too many variables declarations in a function
 Error: TOO_MANY_VARS_FUNC   (line:  11, col:   1):	Too many variables declarations in a function
 Error: MULT_DECL_LINE       (line:  11, col:  25):	Multiple declarations on a single line
+Error: FORBIDDEN_CHAR_NAME  (line:  11, col:  27):	user defined identifiers should contain only lowercase characters, digits or '_'
 Error: MULT_DECL_LINE       (line:  11, col:  31):	Multiple declarations on a single line
 Error: MULT_DECL_LINE       (line:  11, col:  37):	Multiple declarations on a single line
 Error: MULT_DECL_LINE       (line:  11, col:  43):	Multiple declarations on a single line
@@ -494,6 +497,8 @@ Error: TOO_MANY_VARS_FUNC   (line:  65, col:   1):	Too many variables declaratio
 Error: VAR_DECL_START_FUNC  (line:  65, col:   1):	Variable declaration not at start of function
 Error: MISALIGNED_VAR_DECL  (line:  65, col:  13):	Misaligned variable declaration
 Error: DECL_ASSIGN_LINE     (line:  65, col:  20):	Declaration and assignation on a single line
+Error: TERNARY_FBIDDEN      (line:  65, col:  27):	Ternaries are forbidden
+Error: TERNARY_FBIDDEN      (line:  65, col:  45):	Ternaries are forbidden
 Error: SPC_AFTER_OPERATOR   (line:  65, col:  54):	missing space after operator
 Error: SPC_BFR_OPERATOR     (line:  65, col:  54):	missing space before operator
 Error: SPC_AFTER_OPERATOR   (line:  65, col:  61):	missing space after operator

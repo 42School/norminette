@@ -30,7 +30,7 @@ class Registry:
             rule.run(context)
         # print(context.history, context.tokens[:5], rule)
         # if rule.name.startswith("Is"):
-        # print (rule.name, ret)
+        #     print (rule.name, ret)
         if ret is True:
             context.scope.instructions += 1
             if rule.name.startswith("Is"):
@@ -65,7 +65,7 @@ class Registry:
                     if unrecognized_tkns != []:
                         if context.debug == 0:
                             raise CParsingError(
-                                f"Unrecognized line {unrecognized_tkns[0].pos} while parsing line {unrecognized_tkns}"
+                                f"Error: Unrecognized line {unrecognized_tkns[0].pos} while parsing line {unrecognized_tkns}"
                             )
                         print("uncaught -> ", context.filename)
                         print("uncaught -> ", unrecognized_tkns)

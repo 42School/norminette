@@ -14,6 +14,7 @@ class Scope:
         # ########################################################## #
         self.vdeclarations_allowed = False
         self.vars = 0
+        self.vars_name = []
         self.vars_alignment = 0
         self.func_alignment = 0
         # ########################################################## #

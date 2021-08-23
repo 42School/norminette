@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_1019.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <IDENTIFIER=a> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <NEWLINE>
 [36mtest_file_1019.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
@@ -162,6 +163,7 @@
 		<RBRACE> <TAB> <NEWLINE>
 test_file_1019.c: Error!
 Error: RETURN_PARENTHESIS   (line:   8, col:  12):	Return value must be in parenthesis
+Error: FORBIDDEN_CHAR_NAME  (line:  28, col:   9):	user defined identifiers should contain only lowercase characters, digits or '_'
 Error: COMMENT_ON_INSTR     (line:  35, col:  25):	Comment must be on its own line
 Error: WRONG_SCOPE_COMMENT  (line:  41, col:  10):	Comment is invalid in this scope
 Error: COMMENT_ON_INSTR     (line:  41, col:  29):	Comment must be on its own line
@@ -176,4 +178,6 @@ Error: TOO_MANY_FUNCS       (line:  66, col:   1):	Too many functions in file
 Error: WRONG_SCOPE_COMMENT  (line:  70, col:  14):	Comment is invalid in this scope
 Error: COMMENT_ON_INSTR     (line:  70, col:  32):	Comment must be on its own line
 Error: TOO_MANY_FUNCS       (line:  73, col:   1):	Too many functions in file
+Error: SPC_BEFORE_NL        (line:  73, col:  17):	Space before newline
 Error: TOO_MANY_FUNCS       (line:  78, col:   1):	Too many functions in file
+Error: SPC_BEFORE_NL        (line:  78, col:  17):	Space before newline

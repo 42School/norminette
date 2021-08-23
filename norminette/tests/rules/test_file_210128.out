@@ -1,3 +1,4 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_210128.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=i> <MULT_COMMENT=/*comment in function parameters*/> <NEWLINE>
 		<TAB> <TAB> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=x> <RPARENTHESIS> <COMMENT=// comment after function declaration> <NEWLINE>
@@ -27,7 +28,7 @@
 		<TAB> <LBRACE> <NEWLINE>
 [36mtest_file_210128.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 15":
 		<TAB> <TAB> <IDENTIFIER=num2> <SPACE> <ADD_ASSIGN> <SPACE> <CONSTANT=2> <SEMI_COLON> <NEWLINE>
-[36mtest_file_210128.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 16":
+[36mtest_file_210128.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 16":
 		<TAB> <TAB> <IDENTIFIER=num1> <INC> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210128.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 17":
 		<TAB> <RBRACE> <NEWLINE>

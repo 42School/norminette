@@ -14,6 +14,7 @@ errors = {
     "SPC_BFR_POINTER": "bad spacing before pointer",
     "SPACE_BEFORE_FUNC": "space before function name",
     "TOO_MANY_TABS_FUNC": "extra tabs before function name",
+    "TOO_MANY_TABS_TD": "extra tabs before typedef name",
     "MISSING_TAB_FUNC": "missing tab before function name",
     "MISSING_TAB_VAR": "missing tab before variable name",
     "TOO_MANY_TAB_VAR": "extra tab before variable name",
@@ -54,6 +55,7 @@ digits or '_'",
     "CONSECUTIVE_NEWLINES": "Consecutive newlines",
     "NEWLINE_PRECEDES_FUNC": "Functions must be separated by a newline",
     "NL_AFTER_VAR_DECL": "Variable declarations must be followed by a newline",
+    "NL_AFTER_PREPROC": "Preprocessor statement must be followed by a newline",
     "MULT_ASSIGN_LINE": "Multiple assignations on a single line",
     "MULT_DECL_LINE": "Multiple declarations on a single line",
     "DECL_ASSIGN_LINE": "Declaration and assignation on a single line",
@@ -90,6 +92,7 @@ digits or '_'",
     "ARG_TYPE_UKN": "Unrecognized variable type",
     "COMMENT_ON_INSTR": "Comment must be on its own line",
     "COMMA_START_LINE": "Comma at line start",
+    "MIXED_SPACE_TAB": "Mixed spaces and tabs",
 }
 
 

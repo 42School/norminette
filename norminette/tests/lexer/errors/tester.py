@@ -43,7 +43,7 @@ class norminetteTester:
         i = 1
         for key, val in test_dict.items():
             self.__tests += 1
-            ref_output = f"Unrecognized token line {val[0]}, col {val[1]}"
+            ref_output = f"Error: Unrecognized token line {val[0]}, col {val[1]}"
             func = Lexer(key).check_tokens
             self.assertRaises(func, ref_output, f"Test {i}: " + repr(str(key)))
             i += 1

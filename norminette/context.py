@@ -136,9 +136,14 @@ whitespaces = ["SPACE", "TAB", "ESCAPED_NEWLINE", "NEWLINE"]
 
 arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
+import pdb
 
 class Context:
     def __init__(self, filename, tokens, debug=0, added_value=[]):
+        #Header relative informations
+        self.header_started = False
+        self.header_parsed = False
+        self.header = ""
         # File relative informations
         self.filename = filename
         self.filetype = filename.split(".")[-1]  # ?
@@ -232,6 +237,8 @@ In \"{self.scope.name}\" from \
                 i += 1
         if pos - 1 < len(self.tokens) and self.tokens[pos - 1].type != "NEWLINE":
             print("")
+        elif len(self.tokens) == 1 and self.tokens[-1].type != "NEWLINE":
+            print ("")
 
     def eol(self, pos):
         """Skips white space characters (tab, space) until end of line
@@ -262,7 +269,7 @@ In \"{self.scope.name}\" from \
         try:
             c = self.peek_token(pos).type
         except:
-            raise CParsingError(f"Unexpected EOF line {pos}")
+            raise CParsingError(f"Error: Unexpected EOF line {pos}")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]
@@ -277,7 +284,7 @@ In \"{self.scope.name}\" from \
                     return i
             i -= 1
         raise CParsingError(
-            "Nested parentheses, braces or brackets\
+            "Error: Nested parentheses, braces or brackets\
  are not correctly closed"
         )
 
@@ -293,7 +300,7 @@ In \"{self.scope.name}\" from \
         try:
             c = self.peek_token(pos).type
         except:
-            raise CParsingError(f"Unexpected EOF line {pos}")
+            raise CParsingError(f"Error: Code ended unexpectedly.")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]
@@ -308,7 +315,7 @@ In \"{self.scope.name}\" from \
                     return i
             i += 1
         raise CParsingError(
-            "Nested parentheses, braces or brackets\
+            "Error: Nested parentheses, braces or brackets\
  are not correctly closed"
         )
 
@@ -366,6 +373,7 @@ In \"{self.scope.name}\" from \
                 return False, 0
             if self.check_token(i, "IDENTIFIER") is True:
                 i += 1
+                #i = self.skip_ws(i)
                 return True, i + 1
             while self.check_token(i, types + whitespaces + ["MULT", "BWISE_AND"]) is True:
                 i += 1
@@ -417,7 +425,7 @@ In \"{self.scope.name}\" from \
             return False
         pos += 1
         pos = self.skip_ws(pos, nl=False)
-        if self.check_token(pos, ["IDENTIFIER", "CONSTANT"]) is False:
+        if self.check_token(pos, ["IDENTIFIER", "CONSTANT", "MULT", "BWISE_AND"]) is False:
             return False
         pos = start - 1
         while (self.check_token(pos, ["SPACE", "TAB"])) is True:
@@ -442,6 +450,7 @@ In \"{self.scope.name}\" from \
         if self.check_token(start, ["SIZEOF"]) is True:
             return True
         if self.history[-1] == "IsVarDeclaration":
+            bracketed = False
             tmp = pos
             right_side = False
             while tmp > 0:
@@ -449,8 +458,10 @@ In \"{self.scope.name}\" from \
                     tmp = self.skip_nest_reverse(tmp) - 1
                 if self.check_token(tmp, ["ASSIGN"]) is True:
                     right_side = True
+                if self.check_token(tmp, "LBRACKET") is True:
+                    bracketed = True
                 tmp -= 1
-            if right_side == False:
+            if right_side == False and bracketed == False:
                 return False
         skip = 0
         value_before = False
@@ -491,16 +502,20 @@ In \"{self.scope.name}\" from \
         identifier = None
         pointer = None
         sizeof = False
+        id_only = True
         if self.check_token(start - 1, "SIZEOF") is True:
             sizeof = True
         i = self.skip_ws(i)
-        while deep > 0:
+        while deep > 0 and self.peek_token(i) is not None:
+            #print (self.peek_token(i), deep, identifier, self.check_token(i, "NULL"))
             if self.check_token(i, "RPARENTHESIS"):
                 deep -= 1
             elif self.check_token(i, "LPARENTHESIS"):
                 deep += 1
-                if identifier is not None and deep >= 0:
-                    return "pointer", self.skip_nest(start)
+                #if identifier is not None and deep >= 0:
+                    #return "pointer", self.skip_nest(start)
+            elif deep > 1 and identifier == True and self.check_token(i, ["NULL", "IDENTIFIER"]):
+                return "fct_call", self.skip_nest(start)
             elif self.check_token(i, "COMMA") and nested_id == True:
                 return "function", self.skip_nest(start)
             elif self.check_token(i, "COMMA"):
@@ -557,4 +572,6 @@ In \"{self.scope.name}\" from \
                     if self.check_token(tmp, "RPARENTHESIS") is True:
                         return "cast", self.skip_nest(start)
             i += 1
+        if identifier == True and id_only == True:
+            return "var", self.skip_nest(start)
         return None, self.skip_nest(start)
