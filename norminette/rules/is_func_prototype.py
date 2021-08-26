@@ -120,6 +120,10 @@ class IsFuncPrototype(PrimaryRule):
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
         while context.peek_token(i):  # and context.check_token(i, "NEWLINE") is False:
+            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+                i += 1
+                i = context.skip_ws(i)
+                i = context.skip_nest(i) + 1
             if context.check_token(i, misc_identifier) is True:
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:

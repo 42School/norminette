@@ -56,6 +56,10 @@ class CheckPrototypeIndent(Rule):
         id_length = 0
         buffer_len = 0
         while context.check_token(i, ["SEMI_COLON"]) is False:
+            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+                i += 1
+                i = context.skip_ws(i)
+                i = context.skip_nest(i) + 1
             if context.check_token(i, "LPARENTHESIS") is True:
                 if context.parenthesis_contain(i)[0] == "pointer":
                     i += 1
@@ -67,7 +71,11 @@ class CheckPrototypeIndent(Rule):
             i += 1
         i = 0
         while context.check_token(i, eol) is False:
-            if context.check_token(i, keywords) is True and type_identifier_nb > 0:
+            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+                i += 1
+                i = context.skip_ws(i)
+                i = context.skip_nest(i) + 1
+            elif context.check_token(i, keywords) is True and type_identifier_nb > 0:
                 type_identifier_nb -= 1
                 if context.peek_token(i).length == 0:
                     id_length += len(str(context.peek_token(i))) - 2
