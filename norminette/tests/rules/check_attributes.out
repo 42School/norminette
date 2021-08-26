@@ -1,11 +1,31 @@
 Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
-[36mtests/rules/check_attributes.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
-		<FLOAT> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=overloadable> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <IDENTIFIER=len> <LPARENTHESIS> <IDENTIFIER=t_float2> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mtests/rules/check_attributes.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 2":
+[36mcheck_attributes.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
 		<VOID> <TAB> <TAB> <IDENTIFIER=fatal> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=noreturn> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mtests/rules/check_attributes.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+[36mcheck_attributes.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
 		<NEWLINE>
-[36mtests/rules/check_attributes.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 4":
+[36mcheck_attributes.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 3":
 		<EXTERN> <SPACE> <INT> <TAB> <IDENTIFIER=ft_printf> <LPARENTHESIS> <VOID> <SPACE> <MULT> <IDENTIFIER=obj> <COMMA> <SPACE> <CONST> <SPACE> <CHAR> <SPACE> <MULT> <IDENTIFIER=format> <COMMA> <SPACE> <ELLIPSIS> <RPARENTHESIS> <NEWLINE>
-		<TAB> <TAB> <IDENTIFIER=__attribute__> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=format> <SPACE> <LPARENTHESIS> <IDENTIFIER=printf> <COMMA> <SPACE> <CONSTANT=2> <COMMA> <SPACE> <CONSTANT=3> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> 
-tests/rules/check_attributes.c: OK!
+		<TAB> <TAB> <TAB> <IDENTIFIER=__attribute__> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=format> <SPACE> <LPARENTHESIS> <IDENTIFIER=printf> <COMMA> <SPACE> <CONSTANT=2> <COMMA> <SPACE> <CONSTANT=3> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 6":
+		<FLOAT> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=overloadable> <RPARENTHESIS> <RPARENTHESIS> <TAB> <IDENTIFIER=len> <LPARENTHESIS> <IDENTIFIER=t_float2> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 8":
+		<FLOAT> <TAB> <IDENTIFIER=len> <LPARENTHESIS> <IDENTIFIER=t_float2> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=overloadable> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 9":
+		<LBRACE> <NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <IDENTIFIER=t_float2> <TAB> <IDENTIFIER=v> <SEMI_COLON> <NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 11":
+		<NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 12":
+		<TAB> <IDENTIFIER=v> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 13":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=sqrt> <LPARENTHESIS> <IDENTIFIER=a> <DOT> <IDENTIFIER=x> <SPACE> <MULT> <SPACE> <IDENTIFIER=a> <DOT> <IDENTIFIER=x> <SPACE> <PLUS> <SPACE> <IDENTIFIER=a> <DOT> <IDENTIFIER=y> <SPACE> <MULT> <SPACE> <IDENTIFIER=a> <DOT> <IDENTIFIER=y> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mcheck_attributes.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 14":
+		<RBRACE> <NEWLINE>
+check_attributes.c: Error!
+Error: ATTR_EOL             (line:   6, col:   7):	Function attribute must be at the end of line
+Error: MISALIGNED_FUNC_DECL (line:   6, col:  37):	Misaligned function declaration
