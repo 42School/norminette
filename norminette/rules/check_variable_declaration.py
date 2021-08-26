@@ -45,6 +45,7 @@ class CheckVariableDeclaration(Rule):
             context.new_error("WRONG_SCOPE_VAR", context.peek_token(i))
         tmp = 0
         ret, tmp = context.check_type_specifier(tmp)
+        tmp = context.skip_ws(tmp)
         tmp -= 1
         identifier = False
         while context.check_token(tmp, ["SEMI_COLON"] + assigns) is False:

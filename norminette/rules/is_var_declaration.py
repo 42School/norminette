@@ -165,6 +165,7 @@ class IsVarDeclaration(PrimaryRule):
         Catches all kinds of variable declarations
         """
         ret, i = context.check_type_specifier(0)
+        i = context.skip_ws(i)
         if ret is False:
             return False, 0
         tmp = i - 1

@@ -1,6 +1,8 @@
 from norminette.lexer import Token
 from norminette.rules import Rule
 
+import pdb
+
 type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID", "SHORT"]
 
 misc_specifiers = ["CONST", "REGISTER", "STATIC", "STRUCT", "VOLATILE"]
@@ -41,6 +43,13 @@ class CheckFuncArgumentsName(Rule):
                 i += 1
             return i
         ret, i = context.check_type_specifier(i)
+        has_tab = False
+        while context.check_token(i, ["SPACE", "TAB"]):
+            if context.check_token(i, "TAB") is True and has_tab == False:
+                context.new_error("TAB_INSTEAD_SPC", context.peek_token(i))
+                has_tab = True
+            i += 1
+
         if ret == False:
             context.new_error("ARG_TYPE_UKN", context.peek_token(i))
             return -1

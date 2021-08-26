@@ -37,6 +37,7 @@ class CheckGlobalNaming(Rule):
             return False, 0
         i = context.skip_ws(i)
         _, i = context.check_type_specifier(i)
+        i = context.skip_ws(i)
         while context.check_token(i, "IDENTIFIER") is False:
             i += 1
         if context.peek_token(i).value.startswith("g_") is False and context.peek_token(i).value != "environ":
