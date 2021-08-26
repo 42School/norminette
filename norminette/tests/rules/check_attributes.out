@@ -1,0 +1,11 @@
+Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
+[36mtests/rules/check_attributes.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 1":
+		<FLOAT> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=overloadable> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <IDENTIFIER=len> <LPARENTHESIS> <IDENTIFIER=t_float2> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtests/rules/check_attributes.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 2":
+		<VOID> <TAB> <TAB> <IDENTIFIER=fatal> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=noreturn> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtests/rules/check_attributes.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mtests/rules/check_attributes.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 4":
+		<EXTERN> <SPACE> <INT> <TAB> <IDENTIFIER=ft_printf> <LPARENTHESIS> <VOID> <SPACE> <MULT> <IDENTIFIER=obj> <COMMA> <SPACE> <CONST> <SPACE> <CHAR> <SPACE> <MULT> <IDENTIFIER=format> <COMMA> <SPACE> <ELLIPSIS> <RPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <IDENTIFIER=__attribute__> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=format> <SPACE> <LPARENTHESIS> <IDENTIFIER=printf> <COMMA> <SPACE> <CONSTANT=2> <COMMA> <SPACE> <CONSTANT=3> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> 
+tests/rules/check_attributes.c: OK!
