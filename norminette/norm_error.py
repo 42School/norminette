@@ -11,6 +11,7 @@ errors = {
     "NO_SPC_AFR_PAR": "Extra space after parenthesis (brace/bracket)",
     "NO_SPC_BFR_PAR": "Extra space before parenthesis (brace/bracket)",
     "SPC_AFTER_POINTER": "space after pointer",
+    "SPC_LINE_START": "Unexpected space/tab at line start",
     "SPC_BFR_POINTER": "bad spacing before pointer",
     "SPACE_BEFORE_FUNC": "space before function name",
     "TOO_MANY_TABS_FUNC": "extra tabs before function name",

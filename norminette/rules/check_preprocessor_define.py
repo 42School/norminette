@@ -2,6 +2,7 @@ from norminette.lexer import Lexer
 from norminette.rules import Rule
 from norminette.scope import GlobalScope, Function
 
+import pdb
 
 class CheckPreprocessorDefine(Rule):
     def __init__(self):
@@ -53,6 +54,8 @@ class CheckPreprocessorDefine(Rule):
             if tkn.type == "ESCAPED_NEWLINE":
                 context.new_error("NEWLINE_DEFINE", tkn)
             elif tkn.type in ["TAB", "SPACE"]:
+                if tkn.type == "TAB" and len(identifiers) == 0:
+                    context.new_error("TAB_INSTEAD_SPC", tkn)
                 i += 1
                 continue
             elif tkn.type == "IDENTIFIER" and len(identifiers) == 0:
@@ -65,6 +68,8 @@ class CheckPreprocessorDefine(Rule):
                     "TAB",
                     "IDENTIFIER",
                 ]:
+                    if tkn.type == "TAB":
+                        context.new_error("TAB_INSTEAD_SPC", tkn)
                     tmp += 1
                 if tmp == (len(tkns) - 1) and context.filetype == "h":
                     if context.scope.header_protection == 0:
@@ -85,7 +90,6 @@ class CheckPreprocessorDefine(Rule):
                     )
                 ):
                     context.scope.include_allowed = False
-
             elif tkn.type in ["IDENTIFIER", "STRING", "CONSTANT"]:
                 if context.skip_define_error == True:
                     continue
@@ -103,6 +107,8 @@ class CheckPreprocessorDefine(Rule):
                 if len(identifiers) == 0:
                     continue
                 elif len(identifiers) == 1 and tkns[i - 1].type in ["SPACE", "TAB"]:
+                    if tkn.type == "TAB":
+                        context.new_error("TAB_INSTEAD_SPC", tkn)
                     continue
                 else:
                     context.new_error("PREPROC_CONSTANT", tkn)
