@@ -18,7 +18,9 @@ class CheckHeader(Rule):
         val_no_check_nl = r"\/\* \*{74} \*\/.\/\*.*\*\/.\/\*.*\*\/.\/\*.{3}([^ ]*).*\*\/.\/\*.*\*\/.\/\*   By: ([^ ]*).*\*\/.\/\*.*\*\/.\/\*   Created: ([^ ]* [^ ]*) by ([^ ]*).*\*\/.\/\*   Updated: ([^ ]* [^ ]*) by ([^ ]*).*\*\/.\/\*.*\*\/.\/\* \*{74} \*\/."
 
         #correct_header = re.match(val, context.header)
-        correct_header_no_nl = re.match(val_no_check_nl, context.header)
+        regex = re.compile(val_no_check_nl, re.DOTALL)
+        #correct_header_no_nl = re.match(val_no_check_nl, context.header)
+        correct_header_no_nl = regex.search(context.header)
         if correct_header_no_nl is None:
             print ("Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.")
             #context.new_error("INVALID_HEADER", context.peek_token(0))
