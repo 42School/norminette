@@ -110,7 +110,8 @@ misc_specifiers = [
     "VOLATILE",
     "EXTERN",
     "INLINE",
-    "RESTRICT" "SIGNED",
+    "RESTRICT",
+    "SIGNED",
     "UNSIGNED",
 ]
 
@@ -375,14 +376,13 @@ In \"{self.scope.name}\" from \
                 i += 1
                 #i = self.skip_ws(i)
                 return True, i + 1
-            tmp = i
-            while self.check_token(tmp, types + whitespaces + ["MULT", "BWISE_AND"]) is True:
-                tmp += 1
-            tmp2 = self.skip_misc_specifier(tmp, nl=nl)
-            if tmp2 == tmp:
-                return True, i + 1
+            while self.check_token(i, types + whitespaces + ["MULT", "BWISE_AND"]) is True:
+                i += 1
+            tmp = self.skip_misc_specifier(i, nl=nl)
+            if tmp == i:
+                return True, i - 1
             else:
-                return True, tmp2
+                return True, tmp
 
     def check_identifier(self, pos, nl=False):
         """

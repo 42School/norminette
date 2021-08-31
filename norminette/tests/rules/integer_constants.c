@@ -25,3 +25,16 @@ int	main(void)
 	__int64				hex_i64 = 0x4a44000000000020I64;
 	unsigned __int64	hex_ui64 = 0x8a44000000000040Ui64;
 }
+
+int	main(long long i, long long int j, long int k, short short l, short short int m, short int n, long o, short p)
+{
+	long long		i;
+	long long int	j;
+	long int		k;
+	short short		l;
+	short short int	m;
+	short int		n;
+	long			o;
+	short			p;
+}
+

@@ -53,6 +53,32 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=hex_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x8a44000000000040U> <IDENTIFIER=i64> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 27":
 		<RBRACE> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 28":
+		<NEWLINE>
+[36minteger_constants.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 29":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <LONG> <SPACE> <LONG> <SPACE> <IDENTIFIER=i> <COMMA> <SPACE> <LONG> <SPACE> <LONG> <SPACE> <INT> <SPACE> <IDENTIFIER=j> <COMMA> <SPACE> <LONG> <SPACE> <INT> <SPACE> <IDENTIFIER=k> <COMMA> <SPACE> <SHORT> <SPACE> <SHORT> <SPACE> <IDENTIFIER=l> <COMMA> <SPACE> <SHORT> <SPACE> <SHORT> <SPACE> <INT> <SPACE> <IDENTIFIER=m> <COMMA> <SPACE> <SHORT> <SPACE> <INT> <SPACE> <IDENTIFIER=n> <COMMA> <SPACE> <LONG> <SPACE> <IDENTIFIER=o> <COMMA> <SPACE> <SHORT> <SPACE> <IDENTIFIER=p> <RPARENTHESIS> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 30":
+		<LBRACE> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 31":
+		<TAB> <LONG> <SPACE> <LONG> <TAB> <TAB> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 32":
+		<TAB> <LONG> <SPACE> <LONG> <SPACE> <INT> <TAB> <IDENTIFIER=j> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 33":
+		<TAB> <LONG> <SPACE> <INT> <TAB> <TAB> <IDENTIFIER=k> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 34":
+		<TAB> <SHORT> <SPACE> <SHORT> <TAB> <TAB> <IDENTIFIER=l> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 35":
+		<TAB> <SHORT> <SPACE> <SHORT> <SPACE> <INT> <TAB> <IDENTIFIER=m> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 36":
+		<TAB> <SHORT> <SPACE> <INT> <TAB> <TAB> <IDENTIFIER=n> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 37":
+		<TAB> <LONG> <TAB> <TAB> <TAB> <IDENTIFIER=o> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 38":
+		<TAB> <SHORT> <TAB> <TAB> <TAB> <IDENTIFIER=p> <SEMI_COLON> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 39":
+		<RBRACE> <NEWLINE>
+[36minteger_constants.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 40":
+		<NEWLINE>
 integer_constants.c: Error!
 Error: DECL_ASSIGN_LINE     (line:   3, col:  33):	Declaration and assignation on a single line
 Error: DECL_ASSIGN_LINE     (line:   4, col:  34):	Declaration and assignation on a single line
@@ -97,3 +123,9 @@ Error: TOO_MANY_VARS_FUNC   (line:  25, col:   1):	Too many variables declaratio
 Error: DECL_ASSIGN_LINE     (line:  25, col:  33):	Declaration and assignation on a single line
 Error: TOO_MANY_VARS_FUNC   (line:  26, col:   1):	Too many variables declarations in a function
 Error: DECL_ASSIGN_LINE     (line:  26, col:  34):	Declaration and assignation on a single line
+Error: LINE_TOO_LONG        (line:  29, col:  82):	line too long
+Error: TOO_MANY_ARGS        (line:  29, col: 115):	Function has more than 4 arguments
+Error: TOO_MANY_VARS_FUNC   (line:  36, col:   1):	Too many variables declarations in a function
+Error: TOO_MANY_VARS_FUNC   (line:  37, col:   1):	Too many variables declarations in a function
+Error: TOO_MANY_VARS_FUNC   (line:  38, col:   1):	Too many variables declarations in a function
+Error: EMPTY_LINE_EOF       (line:  40, col:   1):	Empty line at end of file
