@@ -1,0 +1,438 @@
+% vim: set ts=4 sw=4 tw=80 noexpandtab:
+\documentclass{42-en}
+\newcommand\qdsh{\texttt{42sh}}
+
+%******************************************************************************%
+%                                                                              %
+%                               Prologue                                       %
+%                                                                              %
+%******************************************************************************%
+
+\begin{document}
+\title{Norm}
+\subtitle{Sürüm3}
+
+\summary
+{
+    Özet: Bu belge 42’de uygulanabilecek standardı (Norm) tanımlamaktadır.
+    Bir programlama standardı, kod yazarken uyulması gereken kurallar bütününü
+    tanımlar. Norm, aksi kararlaştırılmadıkça Inner Circle kapsamındaki
+    tüm C projelerine, özel olarak belirtildiği takdirde de diğer her türlü
+    projeye uygulanır.
+}
+
+\maketitle
+
+\tableofcontents
+
+
+
+%******************************************************************************%
+%                                                                              %
+%                                 Foreword                                     %
+%                                                                              %
+%******************************************************************************%
+\chapter{Önsöz}
+
+    Norm, Python’da yazılmıştır ve açık kaynaklı bir projedir(?).
+    Veri havuzuna https://github.com/42School/norminette üzerinden erişilebilir.
+    Pull request, öneri ve sorunlara ilişkin iletişime geçmekten çekinmeyin!
+
+%******************************************************************************%
+%                                                                              %
+%                                The Norm                                      %
+%                                                                              %
+%******************************************************************************%
+\chapter{Norm}
+
+
+%******************************************************************************%
+%                             Naming conventions                               %
+%******************************************************************************%
+    \section{İsimlendirme}
+
+        \begin{itemize}
+
+            \item Bir struct’ın ismi mutlaka \texttt{s\_} ile başlamalıdır.
+
+            \item Bir typedef’in ismi mutlaka \texttt{t\_} ile başlamalıdır
+
+            \item Bir union’ın ismi mutlaka \texttt{u\_} ile başlamalıdır.
+
+            \item Bir enum’ın ismi mutlaka \texttt{e\_} ile başlamalıdır.
+
+            \item Bir global’ın ismi mutlaka \texttt{g\_} ile başlamalıdır.
+
+            \item Değişkenler ile fonksiyonların isimleri yalnızca küçük harfler, rakamlar ve '\_' (Unix Case) içerebilir.
+
+            \item Dosyalar ile dizinlerin isimleri yalnızca küçük harfler, rakamlar ve '\_' (Unix Case) içerebilir.
+
+            \item Standart ASCII tablosunda yer almayan karakterlerin kullanımı yasaktır.
+
+            \item Değişkenler, fonksiyonlar ve diğer tüm belirleyicilerde snake case kullanılmalıdır. Büyük harf kullanılmamalı ve her bir kelime alt çizgi ile ayrılmalıdır.
+
+            \item Tüm belirleyiciler (fonksiyonlar, makrolar, tipler, değişkenler vs.) İngilizce olmalıdır.
+
+            \item Nesneler (değişkenler, fonksiyonlar, makrolar, tipler, dosyalar veya dizinler) mümkün olan en açık ve
+akılda kalıcı şekilde isimlendirilmelidir.
+
+            \item Const ve static olarak işaretlenmemiş global değişlenlerin kullanılması yasaktır ve bu durum, projenin
+bunlara açıkça izin vermediği hallerde norm hatası olarak değerlendirilir
+
+            \item Bir dosya mutlaka derlenebilmelidir. Derlenemeyen bir dosyanın Norm’a uymasısöz konusu olmayacaktır.
+
+        \end{itemize}
+\newpage
+
+%******************************************************************************%
+%                                 Formatting                                   %
+%******************************************************************************%
+    \section{Format}
+
+            \begin{itemize}
+
+                \item Kodunuzu mutlaka 4 boşluk ile indentlemelisiniz. Burada bahsedilen boşluk 4 ortalama boşluk anlamına
+gelmemekte olup, gerçek anlamda tab tuşuna basılmasını ifade etmektedir.
+
+                \item Her fonksiyon, fonksiyonun kendi kıvrımlı ayraçları (curly bracket) hariç, maksimum 25 satırdan oluşmalıdır.
+
+                \item Her satır, yorumlarla birlikte, maksimum 80 sütun genişliğinde olmalıdır. Uyarı: bir kez tablanmış olma bir
+sütun olarak sayılmamakta, karşılık geldiği boşluk sayısı kadar dikkate alınmaktadır.
+
+                \item Her fonksiyon yeni bir satır başı ile ayrılmalıdır. Herhangi bir yorum veya ön işlemci, fonksiyonun hemen
+üzerinde yer alabilir. Satır başı bir önceki fonksiyondan sonra gelir.
+
+                \item Her satırda tek bir talimat yer almalıdır.
+
+                \item Boş bir satır mutlaka boş olmalıdır: herhangi bir boşluk veya tab olmamalıdır.
+
+                \item Bir satır asla boşluk veya tab ile bitemez.
+
+                \item Hiçbir zaman peş peşe iki boşluk bırakamazsınız.
+
+                \item Her bir kıvrımlı ayraçtan (curly bracket) sonra veya kontrol yapısının sonunda yeni bir satıra geçmelisiniz.
+
+                \item Bir satırın sonu olmadığı takdirde, her virgül ve noktalı virgülden sonra bir boşluk bırakılmalıdır.
+
+                \item Her bir operatör veya operand yalnızca ve yalnızca tek bir boşluk ile ayrılmalıdır.
+
+                \item Tipler (int, char, float vs. gibi) için olanlar hariç her bir C sözcüğünden (keyword) ve sizeof’tan sonra bir
+boşluk bırakılmalıdır.
+
+                \item Her bir değişken declarationı kendi kapsamına göre ilgili sütunda indentlenmiş olmalıdır
+
+                \item Pointer’larla birlikte kullanılan asteriskler değişken isimlerine bağlı olmalıdır
+
+                \item Her satırda tek bir değişken declarationı yer almalıdır.
+
+                \item Global değişkenler (izin verilmesi halinde), statik değişkenler ve sabitler dışında, declarationlar ve initializationlar aynı satırda yer alamaz.
+
+                \item Declarationlar fonksiyonların başında yer almalıdır.
+
+                \item Bir fonksiyonda, değişken declarationları ile fonksiyonun geri kalanı arasında boş bir satır bırakmalısınız.
+Fonksiyonda başka herhangi bir boş satıra izin verilmez.
+
+                \item Çoklu atamalar kesinlikle yasaktır.
+
+                \item Bir talimat ya da structuredan sonra yeni bir satır ekleyebilirsiniz, ancak bu durumda ayraçlar (brackets)
+veya atama operatörü ile bir girinti (indentation) eklemeniz gerekecektir. Operatörler satırın başında olmalıdır.
+
+                \item Kontrol yapılarında (if, while..), tek bir çizgi ya da tek bir koşul içerdikleri haller dışında, ayraç (brace)
+bulunmalıdır.
+
+            \end{itemize}
+
+            \newpage
+
+            General example:
+            \begin{42ccode}
+int             g_global;
+typedef struct  s_struct
+{
+    char    *my_string;
+    int     i;
+}               t_struct;
+struct          s_other_struct;
+
+int     main(void)
+{
+    int     i;
+    char    c;
+
+    return (i);
+}
+            \end{42ccode}
+            \newpage
+
+%******************************************************************************%
+%                              Function parameters                             %
+%******************************************************************************%
+    \section{Fonksiyonlar}
+
+        \begin{itemize}
+
+            \item Bir fonksiyon maksimum 4 isimlendirilmiş parametre alabilir.
+
+            \item Herhangi bir parametre almamış fonksiyonlar mutlaka parametre kısmına açıkça ‘void ’yazılarak prototiplendirilmelidir.
+
+            \item Fonksiyonların prototiplerindeki parametreler mutlaka isimlendirilmelidir.
+
+            \item Her fonksiyon bir sonrakinden mutlaka boş bir satır ile ayrılmalıdır.
+
+            \item Fonksiyon başına 5 değişkenden fazlasını declare edemezsiniz.
+
+            \item Bir fonksiyonun geri dönüşü (return) parantez içinde olmalıdır. 
+
+            \item Her fonksiyonun geri dönüş (return) tipi ve ismi arasında tek bir tab bulunmalıdır.
+
+            \begin{42ccode}
+int my_func(int arg1, char arg2, char *arg3)
+{
+    return (my_val);
+}
+
+int func2(void)
+{
+    return ;
+}
+            \end{42ccode}
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                        Typedef, struct, enum and union                       %
+%******************************************************************************%
+    \section{Typedef, struct, enum ve union}
+
+        \begin{itemize}
+
+            \item Bir struct, enum veya union declare edilirken bir tab ekleyin.
+
+            \item Bir tip struct, enum veya unionının değişkenini declare ederken tipe tek bir boşluk ekleyin.
+
+            \item Typedef ile bir struct, union veya enum declare ederken, tüm indentleme kuralları uygulanır. Typedef’in adı
+ile struct/union/enum’ın adını hizalamalısınız.
+
+            \item Tüm structureların isimlerini kendi kapsamına göre ilgili sütunda indentlemelisiniz.
+
+            \item Bir structureı bir .c dosyasının içinde declare edemezsiniz.
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                                   Headers                                    %
+%******************************************************************************%
+    \section{Header Dosyaları}
+
+        \begin{itemize}
+
+            \item Başlık dosyalarında izin verilenler: başlık inclusionları (sistem veya değil), declarationlar, prototipler ve
+makrolar.
+
+            \item Tüm includelar dosyanın başlangıcında olmalıdır
+
+            \item Bir C dosyası include edemezsiniz.
+
+            \item Başlık dosyaları çift inclusiondan korunmalıdır. Eğer dosya \texttt{ft\_foo.h} ise, onun makro karşılığı \texttt{FT\_FOO\_H}
+şeklindedir.
+
+            \item Kullanılmayan başlık inclusionları (.h) yasaktır
+
+            \item Tüm başlık inclusionları hem .c dosyasında hem de .h dosyasında doğrulanmalıdır.
+
+        \end{itemize}
+
+        \begin{42ccode}
+#ifndef FT_HEADER_H
+# define FT_HEADER_H
+# include <stdlib.h>
+# include <stdio.h>
+# define FOO "bar"
+
+int		g_variable;
+struct	s_struct;
+
+#endif
+        \end{42ccode}
+        \newpage
+
+%******************************************************************************%
+%                           Macros and Pre-processors                          %
+%******************************************************************************%
+    \section{Makrolar ve Ön İşlemciler}
+
+        \begin{itemize}
+
+            \item Yarattığınız ön işlemci sabitleri (veya \#define) yalnızca gerçek ve sabit değerler için kullanılmalıdır.
+
+            \item Normu bypass etmek ve/veya kod karıştırmak için yaratılan tüm \#define yasaktır. Bu kısım bir insan tarafından kontrol edilmelidir.
+
+            \item Standart kütüphanelerdeki makroları, yalnızca verilen projelerin kapsamında bunlara izin verilmesi halinde
+kullanabilirsiniz.
+
+            \item Multiline makrolar yasaktır.
+
+            \item Makro isimlerinin tamamı büyük harf olmalıdır.
+
+            \item \#if, \#ifdef veya \#ifndefden sonra gelen karakterleri indentlemelisiniz.
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                              Forbidden stuff!                                %
+%******************************************************************************%
+    \section{Yasaklar!}
+
+        \begin{itemize}
+
+            \item Aşağıdakileri kullanma izniniz bulunmamaktadır:
+
+                \begin{itemize}
+
+                    \item for
+                    \item do...while
+                    \item switch
+                    \item case
+                    \item goto
+
+                \end{itemize}
+
+            \item ‘? ’gibi ternary operatörleri.
+
+            \item VLAlar - Variable Length Arrays (Değişken Uzunluklu Dizi)
+
+            \item Değişlen declarationlarında implicit tip.
+
+        \end{itemize}
+        \begin{42ccode}
+    int main(int argc, char **argv)
+    {
+        int     i;
+        char    string[argc]; // This is a VLA
+
+        i = argc > 5 ? 0 : 1 // Ternary
+    }
+        \end{42ccode}
+        \newpage
+
+%******************************************************************************%
+%                                   Comments                                   %
+%******************************************************************************%
+    \section{Yorumlar}
+
+        \begin{itemize}
+
+            \item Yorumlar fonksiyon gövdelerinin içinde olamaz. Yorumlar bir satırın veya kendi satırlarının sonunda olmalıdır.
+
+            \item Yorumlarınız İngilizce ve kullanışlı olmalıdır.
+
+            \item Bir yorum ‘nahoş’ bir fonksiyonu doğrulayamaz.
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                                    Files                                     %
+%******************************************************************************%
+    \section{Dosyalar}
+
+        \begin{itemize}
+
+            \item Bir .c dosyasını include edemezsiniz.
+
+            \item Bir .c dosyasında 5 taneden fazla fonksiyon tanımına yer veremezsiniz.
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                                   Makefile                                   %
+%******************************************************************************%
+    \section{Makefile}
+
+            Makefilelar Norm tarafından kontrol edilmez, öğrenci tarafından gelişim süresince kontrol edilmelidir.
+
+            \begin{itemize}
+
+                \item \$(NAME), clean, fclean, re ve tüm kurallar bağlayıcıdır.
+
+                \item Makefile relink ederse, proje işlevsiz kabul edilecektir
+
+                \item Çoklu ikili bir proje söz konusu ise, yukarıdaki kurallara ek olarak, her iki ikiliyi de compile eden bir kural
+ile compile edilen her bir ikiliye özgü ayrı bir kurala sahip olmalısınız.
+
+                \item Sistem dışı bir kütüphaneden (libft vs.) fonksiyon çağıran bir proje söz konusu ise, makefileınız bu kütüphane
+ile otomatik olarak compile etmelidir.
+
+                \item Projenizi compile etmeniz gereken tüm kaynak dosyalar Makefile’ınızda açıkça isimlendirilmiş olmalıdır.
+
+            \end{itemize}
+
+   \newpage
+%******************************************************************************%
+%                                   Pedago explanations                        %
+%******************************************************************************%
+    \section{Neden?}
+
+    Norm, pek çok pedagojik ihtiyacı karşılamak amacıyla titizlikle hazırlanmıştır. Yukarıdaki tüm seçenekler için
+en önemli nedenler şu şekildedir:
+
+    \begin{itemize}
+
+    \item Sıralama: Kodlama büyük ve karmaşık bir görevin uzun bir dizi basit
+        talimatlara bölünmesini sağlar. Tüm bu talimatlar, biri diğerini izleyecek
+        şekilde, sırayla yerine getirilir. Yazılım yaratmaya yeni başlayan bir kişi,
+        projesi için, tüm bireysel talimatlara ve gerçekleştirileceklerin doğru
+        sıralanmasına yönelik tam bir anlayış ile birlikte basit ve yalın bir mimariye
+        gereksinim duyar. Aynı anda birden fazla talimatı yerine getiren kriptik dildeki
+        dizilimler kafa karıştırıcıyken, tek bir kod paydasında karışık bir şekilde yer
+        alan birden fazla göreve işaret eden fonksiyonlar ise hatalara kaynak teşkil eder.
+        Norm sizden, her bir parçanın kendine özgü görevinin açıkça anlaşılabilir ve
+        doğrulanabilir olduğu ve tüm talimatların uygulanmasına ilişkin sıralamanın
+        şüpheye mahal vermeyecek nitelik arz ettiği basit kod paydaları oluşturmanızı
+        talep eder. Fonksiyonlarda maksimum 25 satıra yer verilmesini talep etmemizin ve for,
+        do…while veya ternary kullanımlarının yasak olmasının sebebi de budur.
+
+    \item Görünüm ve Tavır: Arkadaşlarınızla bilgi alışverişi esnasında veya sizinle
+        aynı pozisyondaki iş arkadaşlarınızla birlikte öğrenme ve ayrıca birbirinizi
+        değerlendirme süreçlerinizde, onların kodlarını deşifre etmekle vakit kaybetmek
+        istemez, doğrudan kodlarının arkasında yatan mantığa dair sohbet etmek istersiniz.
+        Norm sizden, fonksiyon ve değişkenlerin isimlendirilmesi, indent edilmesi, ayraç
+        (brace) kuralları, pek çok yerde kullanılan tab ve boşluklara vs. ilişkin kendinize
+        özgü bir görünüm ve tavır kullanmanızı talep eder. Bu size, başkalarının sizinkilere
+        benzer görünümdeki kodlarını, kodları anlamadan önce okumaya vakit harcamaya gerek
+        kalmaksızın, kolaylıkla incelemeniz imkanını sunar. Norm aynı zamanda bir marka değeri
+        taşımaktadır. 42 topluluğunun bir parçası olarak, iş pazarına girdiğinizde, diğer 42
+        öğrenci veya mezunları tarafından yazılmış kodları da tanıyor olma imkanına sahip
+        olacaksınız.
+
+    \item Uzun vadeli vizyon: Anlaşılabilir bir kod yazmak için gerekli çabayı sarf etmek,
+        onun sürdürülebilirliğini sağlamanın en iyi yoludur. Siz dahil herhangi bir kişinin,
+        herhangi bir bugı onarmaya veya yeni bir özellik eklemeye ihtiyaç duyduğu her an,
+        bir önceki kişi işini doğru şekilde yapmış ise, kıymetli vaktinizi kaybetmenizin
+        önüne geçilmiş olacaktır. Bu da kodların zaman kaybı nedeniyle sürdürülebilirliğini
+        yitirmesinin engellenmesini sağlayacak ve pazarda başarılı bir ürüne sahip olmaktan
+        bahsederken fark yaratacaktır. Bunu yapmayı ne kadar erken öğrenirseniz, sizin için o
+        kadar iyi olur.
+
+    \item Norm’da yer alan kuralların bir kısmının veya tamamının tartışmaya açık olduğunu
+        düşünebilirsiniz, ancak biz ne yapılması ve nasıl yapılması gerektiğine ilişkin çok
+        fazla düşündük ve araştırma yaptık. Sizi fonksiyonların neden kısa olması ve tek bir
+        şey yapmaya yönelik olması gerektiğine, değişkenlerin isimlerinin neden bir anlam
+        ifade etmesi gerektiğine, satırların neden 80 sütun genişliğinden daha uzun olmaması
+        gerektiğine, bir fonksiyonun neden birden fazla parametre almaması gerektiğine,
+        yorumların neden faydalı olması gerektiğine vs. vs. ilişkin bir Google araması
+        yapmaya teşvik etmek isteriz.
+
+    \end{itemize}
+
+\end{document}
+%******************************************************************************%

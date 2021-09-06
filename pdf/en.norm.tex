@@ -1,5 +1,4 @@
 \documentclass{42-en}
-\newcommand\qdsh{\texttt{42sh}}
 
 
 
@@ -17,7 +16,7 @@
 {
     This document describes the applicable standard (Norm) at 42. A
     programming standard defines a set of rules to follow when writing code.
-    The Norm applies to all C projects within the Inner Circle by default, and
+    The Norm applies to all C projects within the Common Core by default, and
     to any project where it's specified.
 }
 
@@ -34,9 +33,65 @@
 %******************************************************************************%
 \chapter{Foreword}
 
-    The Norm is in python and open source. \\
+    The \texttt{norminette} is in python and open source. \\
     Its repository is available at https://github.com/42School/norminette.\\
     Pull requests, suggestions and issues are welcome!
+
+   \newpage
+
+
+%******************************************************************************%
+%
+%                                   Pedago explanations                        %
+%
+%******************************************************************************%
+    \chapter{Why ?}
+
+    The Norm has been carefully crafted to fulfill many pedagogical needs. Here
+    are the most important reasons for all the choices below:
+    \begin{itemize}
+
+    \item Sequencing: coding implies splitting a big and complex task into a long series
+      of elementary instructions. All these instructions will be executed in sequence:
+      one after another. A beginner that starts creating software needs a simple and clear
+      architecture for their project, with a full understanding of all individual instructions
+      and the precise order of execution. Cryptic language syntaxes that do multiple
+      instructions apparently at the same time are confusing, functions that try to address
+      multiple tasks mixed in the same portion of code are source of errors.\\
+      The Norm asks you to create simple pieces of code, where the unique task of each piece
+      can be clearly understood and verified, and where the sequence of all the executed
+      instructions leaves no doubt. That's why we ask for 25 lines maximum in functions, also why
+      \texttt{for}, \texttt{do .. while}, or ternaries are forbidden.
+
+    \item Look and Feel: while exchanging with your friends and workmates during the
+      normal peer-learning process, and also during the peer-evaluations, you do not
+      want to spend time to decrypt their code, but directly talk about the
+      logic of the piece of code.\\
+      The Norm asks you to use a specific look and feel, providing instructions for the naming
+      of the functions and variables, indentation, brace rules, tab and spaces at many places... .
+      This will allow you to smoothly have a look at other's codes that will look familiar,
+      and get directly to the point instead of spending time to read the code before understanding it.
+      The Norm also comes as a trademark. As part of the 42 community, you will be able to
+      recognize code written by another 42 student or alumni when you'll be in the labor market.
+    
+    \item Long-term vision: making the effort to write understandable code is the
+      best way to maintain it. Each time that someone else, including you, has to fix a bug
+      or add a new feature they won't have to lose their precious time trying to figure out
+      what it does if previously you did things in the right way. This will avoid situations
+      where pieces of code stop being maintained just because it is time-consuming, and that
+      can make the difference when we talk about having a successful product in the market.
+      The sooner you learn to do so, the better.
+
+    \item References: you may think that some, or all, the rules included on the Norm are
+      arbitrary, but we actually thought and read about what to do and how to do it. We highly
+      encourage you to Google why the functions should be short and just do one thing, why the
+      name of the variables should make sense, why lines shouldn't be longer than 80 columns wide,
+      why a function should not take many parameters, why comments should be useful, etc, etc, etc...
+
+    \end{itemize}
+
+
+\newpage
 
 %******************************************************************************%
 %                                                                              %
@@ -163,9 +218,9 @@
 
                 \item Control structures (if, while..) must have braces, unless they contain a single 
                     line.
-                
+
                 \item Braces following functions, declarators or control structures must be preceded and followed by a newline.
-                
+
             \end{itemize}
 
             \newpage
@@ -259,7 +314,7 @@ int func2(void)
 %******************************************************************************%
 %                                   Headers                                    %
 %******************************************************************************%
-    \section{Headers}
+    \section{Headers - a.k.a include files}
 
         \begin{itemize}
 
@@ -295,6 +350,30 @@ struct	s_struct;
         \end{42ccode}
         \newpage
 
+
+%******************************************************************************%
+%                                 The 42 header                                %
+%******************************************************************************%
+
+   \section{The 42 header - a.k.a start a file with style}
+
+        \begin{itemize}
+
+        \item Every .c and .h file must immediately begin with the standard 42 header :
+          a multi-line comment with a special format including useful informations. The
+          standard header is naturally available on computers in clusters for various
+          text editors (emacs : using \texttt{C-c C-h}, vim using \texttt{:Stdheader} or
+          \texttt{F1}, etc...).
+
+        \item The 42 header must contain several informations up-to-date, including the
+          creator with login and email, the date of creation, the login and date of the
+          last update. Each time the file is saved on disk, the information should be
+          automatically updated.
+
+        \end{itemize}
+        \newpage
+        
+                
 %******************************************************************************%
 %                           Macros and Pre-processors                          %
 %******************************************************************************%
@@ -416,7 +495,6 @@ struct	s_struct;
                     be explicitly named in your Makefile.
 
             \end{itemize}
-
 
 
 \end{document}
