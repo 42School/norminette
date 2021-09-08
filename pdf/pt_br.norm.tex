@@ -38,6 +38,78 @@
     Seu repositório está disponível em https://github.com/42school/norminette. \\
     Pull requests, sugestões e indicação de bugs são bem-vindos!
 
+
+%******************************************************************************%
+%                                                                              %
+%                                   Explicações Pedago                         %
+%                                                                              %
+%******************************************************************************%
+    \chapter{Por quê ?}
+
+    A Norma foi cuidadosamente elaborada para suprir diversas necessidades
+    pedagógicas. Aqui estão alguns dos motivos mais importantes por trás das
+    escolhas abaixo:
+    \begin{itemize}
+
+	\item Sequenciamento: programar implica dividir uma tarefa grande e
+	  complexa em uma série de instruções elementares. Todas essas instruções
+	  vão ser executadas em sequência: uma após a outra. Um iniciante, ao
+      começar a criar software, precisa de uma arquitetura simples e
+	  clara para seu projeto, tendo o entendimento completo de todas as
+      instruções individuais e da exata ordem de execução. Sintaxes de
+      linguagens crípticas que aparentam executar múltiplas
+	  instruções ao mesmo tempo são confusas, funções que buscam abordar
+      múltiplas tarefas misturadas na mesma porção de código são fontes
+      de erros. \\
+	  A Norma pede que você escreva trechos simples de código cujas tarefas
+	  possam ser entendidas e verificadas facilmente, em que a sequência de
+      execução das instruções não deixa dúvidas. Por este motivo que há o
+      limite máximo de 25 linhas por função, e o porquê de \texttt{for},
+      \texttt{do .. while}, ou ternários serem proibidos.
+
+
+    \item Estética: enquanto se relaciona com seus colegas durante o processo
+      natural de aprendizado entre pares, e também durante as avaliações
+      entre pares, você não quer gastar tempo decifrando o código deles,
+      mas falar diretamente sobre a lógica daquele trecho de código.\\ A
+      Norma pede por uma estética específica, provendo instruções para
+      nomear funções e variáveis, indentação, utilização das chaves,
+      tabulações e espaços em diversos lugares... . Isso vai permitir que
+      você olhe brevemente para o código de outros e o ache familiar, podendo
+      ir direto ao assunto, ao invés de gastar tempo lendo o código antes
+      de entendê-lo. A Norma também se caracteriza como uma marca
+      registrada. Como parte da comunidade 42, você vai poder reconhecer
+      código escrito por outro cadete ou alumni da 42 quando estiver no
+      mercado de trabalho.
+    
+
+    \item Visão de longo prazo: esforçar-se para escrever um código compreensível
+      é a melhor maneira de administrá-lo. Toda vez que alguém, incluindo
+      você, precisar consertar um bug ou adicionar uma nova
+      funcionalidade, não será necessário gastar tempo tentando entender
+      o funcionamento se você escreveu seu código da maneira correta. Isso
+      vai evitar situações em que trechos de código deixam de ser
+      atualizados apenas por tomarem tempo, o que vai fazer a diferença
+      ao falarmos sobre ter um produto bem sucedido no mercado. Quanto
+      mais cedo aprender, melhor.
+
+
+    \item Referências: você pode pensar que algumas, ou todas, as regras
+      inclusas na Norma são arbitrárias, mas nós pensamos cuidadosamente e
+      pesquisamos como elaborá-la. Nós encorajamos fortemente que você
+      pesquise o porquê de funções precisarem ser curtas e possuir apenas
+      uma tarefa, o porquê de nomes de variáveis precisarem ser
+      compreensíveis, o porquê de linhas não poderem extrapolar o limite
+      de 80 colunas de largura, o porquê de uma função não poder receber
+      vários parâmetros, o porquê de comentários serem úteis, etc, etc,
+      etc ...
+
+
+    \end{itemize}
+
+
+\newpage
+
 %******************************************************************************%
 %                                                                              %
 %                                  A norma                                     %
@@ -85,9 +157,9 @@
                 arquivos ou diretórios) devem ter os
                 nomes mais explícitos ou mais mnemônicos possíveis.
 
-            \item Usar uma variável global que não está marcada como const ou static é 
-			proibido e considerado um erro de norma, a menos que seja explicitamente 
-			permitido no projeto.
+            \item Usando uma variável global em um projeto onde não é
+                explicitamente permitido é um erro de norma, exceto onde é
+                obrigatório (manuseio de sinais, por exemplo).
 
             \item O arquivo deve compilar. Um arquivo que não compila não é esperado
                 que passe na norma.
@@ -245,8 +317,8 @@ int func2(void)
 
             \item Ao declarar um struct, union ou enum com um typedef,
                 todas as regras de indentação aplicam-se.
-			
-			\item O nome de um typedef deve ser precedido por uma tabulação.
+
+            \item O nome de um typedef deve ser precedido por uma tabulação.
 
             \item Você deve recuar todos os nomes de estruturas na mesma coluna
                 para o escopo deles.
@@ -297,6 +369,28 @@ struct s_struct;
         \end{42ccode}
         \newpage
 
+%******************************************************************************%
+%                                 O Header da 42                               %
+%******************************************************************************%
+
+   \section{O Header da 42}
+
+        \begin{itemize}
+
+        \item Todo arquivo .c e .h deve, imediatamente, começar com o header da 42:
+          um comentário multilinha com um formato específico, incluindo informações
+          úteis. O header padrão se encontra naturalmente disponível nos computadores
+          dos clusters para diversos editores de texto (emacs: usando \texttt{C-c C-h},
+          vim: usando \texttt{:Stdheader} ou \texttt{F1}, etc...)
+
+        \item O header da 42 deve conter informações atualizadas, incluindo o
+          criador com login e email, a data de criação e a data da atualização
+          mais recente.
+
+        \end{itemize}
+        \newpage
+        
+                
 %******************************************************************************%
 %                           Macros e pré-processadores                         %
 %******************************************************************************%
