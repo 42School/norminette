@@ -25,8 +25,8 @@ class CheckPreprocessorInclude(Rule):
         tkns = content.get_tokens()
         i = 1
         while i < len(tkns) and tkns[i].type in ["TAB", "SPACE"]:
-            if tkn.type == "TAB":
-                context.new_error("TAB_INSTEAD_SPC", tkn)
+            if tkns[i].type == "TAB":
+                context.new_error("TAB_INSTEAD_SPC", tkns[i])
             i += 1
         if i < len(tkns) and tkns[i].type == "LESS_THAN":
             i = len(tkns) - 1
