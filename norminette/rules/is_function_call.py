@@ -26,6 +26,13 @@ condition_ops = [
     "MORE_THAN",
 ]
 
+SEPARATORS = [
+    "COMMA",
+    "AND",
+    "OR",
+    "SEMI_COLON"
+]
+
 assign_ops = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -103,7 +110,7 @@ class IsFunctionCall(PrimaryRule):
                 # i += 1
                 if len(types) > 1:
                     i = context.skip_ws(i, nl=False)
-                    if context.check_token(i, "SEMI_COLON") is True:
+                    if context.check_token(i, SEPARATORS) is True:
                         i += 1
                         i = context.eol(i)
                         return True, i
@@ -119,7 +126,7 @@ class IsFunctionCall(PrimaryRule):
             i = context.skip_ws(i)
             if context.check_token(i, "LPARENTHESIS") is True:
                 i = context.skip_nest(i)
-                while context.peek_token(i) is not None and context.check_token(i, "SEMI_COLON") is False:
+                while context.peek_token(i) is not None and context.check_token(i, SEPARATORS) is False:
                     i += 1
                 i += 1
                 i = context.eol(i)

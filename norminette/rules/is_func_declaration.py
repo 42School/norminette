@@ -5,6 +5,13 @@ from norminette.rules import PrimaryRule
 import pdb
 
 whitespaces = ["SPACE", "TAB"]
+
+SEPARATORS = [
+    "COMMA",
+    "AND",
+    "OR",
+    "SEMI_COLON"
+]
 preproc = [
     "DEFINE",
     "ERROR",
@@ -223,7 +230,7 @@ class IsFuncDeclaration(PrimaryRule):
             read = context.eol(read)
             return True, read
 
-        elif context.check_token(read, "SEMI_COLON"):
+        elif context.check_token(read, SEPARATORS):
             read += 1
             read = context.eol(read)
             return False, 0

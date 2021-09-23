@@ -17,6 +17,13 @@ assign_ops = [
     "DEC",
 ]
 
+SEPARATORS = [
+    "COMMA",
+    "AND",
+    "OR",
+    "SEMI_COLON"
+]
+
 types = [
     "CHAR",
     "DOUBLE",
@@ -78,6 +85,14 @@ class IsAssignation(PrimaryRule):
         else:
             return False, 0
 
+    def parse_assign_right_side(self, context, i):
+        while context.check_token(i, SEPARATORS) is False:
+            if context.check_token(i, ["LBRACE", "LPARENTHESIS", "LBRACKET"]):
+                i = context.skip_nest(i)
+            i += 1
+        return i
+
+
     def run(self, context):
         """
         Catches all assignation instructions
@@ -103,10 +118,11 @@ class IsAssignation(PrimaryRule):
                 i += 1
             i = context.eol(i)
             return True, i
-        while context.check_token(i, ["SEMI_COLON"]) is False:
-            i += 1
-            if context.peek_token(i) is None:
-                return False, 0
+        i = self.parse_assign_right_side(context, i)
+        # while context.check_token(i, SEPARATORS) is False:
+        #     i += 1
+        #     if context.peek_token(i) is None:
+        #         return False, 0
         i += 1
         i = context.eol(i)
         return True, i
