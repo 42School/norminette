@@ -522,6 +522,8 @@ In \"{self.scope.name}\" from \
                 return "fct_call", self.skip_nest(start)
             elif self.check_token(i, "COMMA") and nested_id == True:
                 return "function", self.skip_nest(start)
+            elif self.check_token(i, assigns) and deep == 1:
+                return "assign", self.skip_nest(start)
             elif self.check_token(i, "COMMA"):
                 return None, self.skip_nest(start)
             elif self.check_token(i, ws):

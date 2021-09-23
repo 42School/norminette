@@ -49,6 +49,8 @@ class CheckAssignation(Rule):
                 tmp_typ, i = context.parenthesis_contain(i)
                 if tmp_typ != None:
                     typ = tmp_typ
+                if tmp_typ == "assign":
+                    context.new_error("MULT_ASSIGN_LINE", context.peek_token(start))
                 if tmp_typ is None:
                     tmp = start + 1
                     while context.peek_token(tmp) and context.check_token(tmp, "RPARENTHESIS") is False:
