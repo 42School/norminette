@@ -548,7 +548,7 @@ In \"{self.scope.name}\" from \
                 if identifier is not True and self.check_token(tmp, "RPARENTHESIS") and self.scope.name == "Function" and deep == 1 and pointer == None and sizeof == False:
                     tmp = self.skip_nest(start) + 1
                     tmp = self.skip_ws(tmp)
-                    if self.check_token(tmp, "IDENTIFIER") is False:
+                    if self.check_token(tmp, ["IDENTIFIER", "CONSTANT", "MINUS", "PLUS"]) is False:
                         return None, self.skip_nest(start)
                     return "cast", self.skip_nest(start)
                 identifier = True

@@ -73,6 +73,30 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 33":
 		<RBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 34":
+		<NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 35":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 36":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 37":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=FLOAT> <RPARENTHESIS> <MINUS> <CONSTANT=0.5f> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 38":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=FLOAT> <RPARENTHESIS> <PLUS> <CONSTANT=0.5f> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 39":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=FLOAT> <RPARENTHESIS> <CONSTANT=0.5f> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 40":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <FLOAT> <RPARENTHESIS> <MINUS> <CONSTANT=0.5f> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 41":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <FLOAT> <RPARENTHESIS> <PLUS> <CONSTANT=0.5f> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 42":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <FLOAT> <RPARENTHESIS> <CONSTANT=0.5f> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 43":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=FLOAT> <RPARENTHESIS> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 44":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <FLOAT> <RPARENTHESIS> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 45":
+		<RBRACE> <NEWLINE>
 test_file_210923.c: Error!
 Error: MULT_ASSIGN_LINE     (line:   6, col:  16):	Multiple assignations on a single line
 Error: TOO_FEW_TAB          (line:   6, col:  16):	Missing tabs for indent level

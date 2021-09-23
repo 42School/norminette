@@ -264,7 +264,8 @@ class CheckOperatorsSpacing(Rule):
                         "IDENTIFIER",
                         "COMMA",
                         "STRING",
-                        "CONSTANT"
+                        "CONSTANT",
+                        "PLUS"
                     ],
                 )
                 is False

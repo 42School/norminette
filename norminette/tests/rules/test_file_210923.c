@@ -31,3 +31,15 @@ int	main(void)
 	a = 0, printf("%d\n", a);
 	return (0);
 }
+
+int	main(void)
+{
+	a = (FLOAT)-0.5f;
+	a = (FLOAT)+0.5f;
+	a = (FLOAT)0.5f;
+	a = (float)-0.5f;
+	a = (float)+0.5f;
+	a = (float)0.5f;
+	a = (FLOAT)a;
+	a = (float)a;
+}
