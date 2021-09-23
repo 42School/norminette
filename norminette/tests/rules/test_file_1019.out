@@ -170,6 +170,7 @@ Error: COMMENT_ON_INSTR     (line:  41, col:  29):	Comment must be on its own li
 Error: WRONG_SCOPE_COMMENT  (line:  42, col:  10):	Comment is invalid in this scope
 Error: COMMENT_ON_INSTR     (line:  42, col:  29):	Comment must be on its own line
 Error: TOO_MANY_FUNCS       (line:  46, col:   1):	Too many functions in file
+Error: LABEL_FBIDDEN        (line:  50, col:   1):	Label statements are forbidden
 Error: LABEL_FBIDDEN        (line:  52, col:   1):	Label statements are forbidden
 Error: TOO_MANY_FUNCS       (line:  56, col:   1):	Too many functions in file
 Error: WRONG_SCOPE_COMMENT  (line:  62, col:  27):	Comment is invalid in this scope

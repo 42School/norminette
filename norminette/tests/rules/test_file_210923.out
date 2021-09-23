@@ -110,7 +110,17 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 [36mtest_file_210923.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 51":
 		<NEWLINE>
 [36mtest_file_210923.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 52":
-		<VOID> <TAB> <MULT> <IDENTIFIER=xmalloc> <LPARENTHESIS> <IDENTIFIER=size_t> <SPACE> <IDENTIFIER=size> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=malloc> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=warn_unused_result> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> 
+		<VOID> <TAB> <MULT> <IDENTIFIER=xmalloc> <LPARENTHESIS> <IDENTIFIER=size_t> <SPACE> <IDENTIFIER=size> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=malloc> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=warn_unused_result> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 53":
+		<NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 54":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 55":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 56":
+		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <LBRACE> <CONSTANT=4> <SEMI_COLON> <RBRACE> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 57":
+		<RBRACE> <NEWLINE>
 test_file_210923.c: Error!
 Error: MULT_ASSIGN_LINE     (line:   6, col:  16):	Multiple assignations on a single line
 Error: TOO_FEW_TAB          (line:   6, col:  16):	Missing tabs for indent level
@@ -125,3 +135,4 @@ Error: TOO_MANY_INSTR       (line:  31, col:  12):	Too many instructions on a si
 Error: ATTR_EOL             (line:  47, col:   1):	Function attribute must be at the end of line
 Error: TOO_MANY_FUNCS       (line:  47, col:   1):	Too many functions in file
 Error: LINE_TOO_LONG        (line:  52, col:  88):	line too long
+Error: TOO_MANY_FUNCS       (line:  54, col:   1):	Too many functions in file

@@ -493,6 +493,7 @@ Error: EMPTY_LINE_FUNCTION  (line:  57, col:   1):	Empty line in function
 Error: BRACE_SHOULD_EOL     (line:  63, col:   6):	Expected newline after brace
 Error: TOO_FEW_TAB          (line:  63, col:   7):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  63, col:   7):	Too many instructions on a single line
+Error: LABEL_FBIDDEN        (line:  65, col:   1):	Label statements are forbidden
 Error: TOO_MANY_VARS_FUNC   (line:  65, col:   1):	Too many variables declarations in a function
 Error: VAR_DECL_START_FUNC  (line:  65, col:   1):	Variable declaration not at start of function
 Error: MISALIGNED_VAR_DECL  (line:  65, col:  13):	Misaligned variable declaration
