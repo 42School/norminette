@@ -135,6 +135,40 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <IDENTIFIER=draw_on_image> <LPARENTHESIS> <IDENTIFIER=env> <PTR> <IDENTIFIER=main_img> <COMMA> <SPACE> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=img> <COMMA> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=f_y> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=64> <RPARENTHESIS> <COMMA> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=f_x> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=64> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 64":
 		<RBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 65":
+		<NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 66":
+		<VOID> <TAB> <IDENTIFIER=draw_player> <LPARENTHESIS> <IDENTIFIER=t_env> <SPACE> <MULT> <IDENTIFIER=env> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 67":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 68":
+		<TAB> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=f_x> <SPACE> <ADD_ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=x> <SPACE> <MINUS> <SPACE> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=f_x> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=0.5> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 69":
+		<TAB> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=f_y> <SPACE> <ADD_ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=y> <SPACE> <MINUS> <SPACE> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=f_y> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=0.5> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 70":
+		<TAB> <IDENTIFIER=draw_on_image> <LPARENTHESIS> <IDENTIFIER=env> <PTR> <IDENTIFIER=main_img> <COMMA> <SPACE> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=img> <COMMA> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=f_y> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=64> <RPARENTHESIS> <COMMA> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=env> <PTR> <IDENTIFIER=p> <PTR> <IDENTIFIER=f_x> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <CONSTANT=64> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 71":
+		<RBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 72":
+		<NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 73":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 74":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 75":
+		<TAB> <IDENTIFIER=t_int> <SPACE> <MULT> <SPACE> <RESTRICT> <SPACE> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <NULL> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 76":
+		<TAB> <IDENTIFIER=t_int> <SPACE> <MULT> <SPACE> <RESTRICT> <SPACE> <IDENTIFIER=b> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 77":
+		<TAB> <IDENTIFIER=t_int> <SPACE> <MULT> <SPACE> <RESTRICT> <SPACE> <IDENTIFIER=c> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 78":
+		<TAB> <IDENTIFIER=t_int> <SPACE> <MULT> <SPACE> <RESTRICT> <SPACE> <IDENTIFIER=d> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 79":
+		<TAB> <IDENTIFIER=t_int> <SPACE> <MULT> <SPACE> <RESTRICT> <SPACE> <IDENTIFIER=e> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 80":
+		<TAB> <IDENTIFIER=t_int> <SPACE> <MULT> <SPACE> <RESTRICT> <SPACE> <IDENTIFIER=f> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 81":
+		<RBRACE> 
 test_file_210923.c: Error!
 Error: MULT_ASSIGN_LINE     (line:   6, col:  16):	Multiple assignations on a single line
 Error: TOO_FEW_TAB          (line:   6, col:  16):	Missing tabs for indent level
@@ -152,3 +186,26 @@ Error: LINE_TOO_LONG        (line:  52, col:  88):	line too long
 Error: TOO_MANY_FUNCS       (line:  54, col:   1):	Too many functions in file
 Error: TOO_MANY_FUNCS       (line:  59, col:   1):	Too many functions in file
 Error: LINE_TOO_LONG        (line:  63, col:  84):	line too long
+Error: TOO_MANY_FUNCS       (line:  66, col:   1):	Too many functions in file
+Error: LINE_TOO_LONG        (line:  70, col:  84):	line too long
+Error: TOO_MANY_FUNCS       (line:  73, col:   1):	Too many functions in file
+Error: SPACE_REPLACE_TAB    (line:  75, col:  10):	Found space when expecting tab
+Error: SPC_AFTER_POINTER    (line:  75, col:  11):	space after pointer
+Error: DECL_ASSIGN_LINE     (line:  75, col:  24):	Declaration and assignation on a single line
+Error: SPACE_REPLACE_TAB    (line:  76, col:  10):	Found space when expecting tab
+Error: SPC_AFTER_POINTER    (line:  76, col:  11):	space after pointer
+Error: DECL_ASSIGN_LINE     (line:  76, col:  24):	Declaration and assignation on a single line
+Error: SPACE_REPLACE_TAB    (line:  77, col:  10):	Found space when expecting tab
+Error: SPC_AFTER_POINTER    (line:  77, col:  11):	space after pointer
+Error: DECL_ASSIGN_LINE     (line:  77, col:  24):	Declaration and assignation on a single line
+Error: SPACE_REPLACE_TAB    (line:  78, col:  10):	Found space when expecting tab
+Error: SPC_AFTER_POINTER    (line:  78, col:  11):	space after pointer
+Error: DECL_ASSIGN_LINE     (line:  78, col:  24):	Declaration and assignation on a single line
+Error: SPACE_REPLACE_TAB    (line:  79, col:  10):	Found space when expecting tab
+Error: SPC_AFTER_POINTER    (line:  79, col:  11):	space after pointer
+Error: DECL_ASSIGN_LINE     (line:  79, col:  24):	Declaration and assignation on a single line
+Error: TOO_MANY_VARS_FUNC   (line:  80, col:   1):	Too many variables declarations in a function
+Error: SPACE_REPLACE_TAB    (line:  80, col:  10):	Found space when expecting tab
+Error: SPC_AFTER_POINTER    (line:  80, col:  11):	space after pointer
+Error: DECL_ASSIGN_LINE     (line:  80, col:  24):	Declaration and assignation on a single line
+Error: BRACE_SHOULD_EOL     (line:  81, col:   1):	Expected newline after brace

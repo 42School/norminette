@@ -15,7 +15,8 @@ misc_specifiers = [
     "VOLATILE",
     "EXTERN",
     "INLINE",
-    "RESTRICT" "SIGNED",
+    "RESTRICT",
+    "SIGNED",
     "UNSIGNED",
 ]
 
