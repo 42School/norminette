@@ -473,6 +473,8 @@ In \"{self.scope.name}\" from \
             if self.check_token(pos, ["RBRACKET", "RPARENTHESIS"]) is True:
                 value_before = True
                 pos = self.skip_nest_reverse(pos) - 1
+                if self.check_token(pos + 1, "LPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == "variable":
+                    return True
                 if self.check_token(pos + 1, "LPARENTHESIS") is True and self.parenthesis_contain(pos + 1)[0] == "cast":
                     return False
                 skip = 1
@@ -524,6 +526,8 @@ In \"{self.scope.name}\" from \
                 return "function", self.skip_nest(start)
             elif self.check_token(i, assigns) and deep == 1:
                 return "assign", self.skip_nest(start)
+            elif self.check_token(i, "PTR") and deep == 1:
+                return "variable", self.skip_nest(start)
             elif self.check_token(i, "COMMA"):
                 return None, self.skip_nest(start)
             elif self.check_token(i, ws):
