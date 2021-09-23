@@ -301,7 +301,7 @@ class CheckOperatorsSpacing(Rule):
 
     def check_suffix(self, context, pos):
         if pos + 1 < len(context.tokens[: context.tkn_scope]) and not context.check_token(
-            pos + 1, ["SPACE", "NEWLINE", "TAB"] + glued_operators
+            pos + 1, ["SPACE", "NEWLINE", "TAB"] + glued_operators + rnests
         ):
             context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
         if pos > 0 and context.peek_token(pos - 1).type == "SPACE":

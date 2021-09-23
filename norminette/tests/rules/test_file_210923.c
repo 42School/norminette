@@ -50,3 +50,8 @@ __attribute__((warn_unused_result)) int	main(int argc, char **argv)
 }
 
 void	*xmalloc(size_t size) __attribute__((malloc)) __attribute__((warn_unused_result));
+
+int	main(void)
+{
+	a = ({4;});
+}
