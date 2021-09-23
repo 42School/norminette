@@ -2,6 +2,8 @@ from norminette.context import GlobalScope
 from norminette.scope import UserDefinedType
 from norminette.rules import PrimaryRule
 
+import pdb
+
 whitespaces = ["SPACE", "TAB"]
 preproc = [
     "DEFINE",
@@ -120,10 +122,11 @@ class IsFuncPrototype(PrimaryRule):
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
         while context.peek_token(i):  # and context.check_token(i, "NEWLINE") is False:
-            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+            while context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
                 i += 1
                 i = context.skip_ws(i)
                 i = context.skip_nest(i) + 1
+                i = context.skip_ws(i)
             if context.check_token(i, misc_identifier) is True:
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
@@ -201,10 +204,11 @@ class IsFuncPrototype(PrimaryRule):
         if ret is False:
             return False, 0
         if context.check_token(read, "IDENTIFIER") is True:
-            if context.peek_token(read).value == "__attribute__":
+            while context.peek_token(read).value == "__attribute__":
                 read += 1
                 read = context.skip_ws(read)
                 read = context.skip_nest(read) + 1
+                read = context.skip_ws(read)
         while context.check_token(read, ["COMMENT", "MULT_COMMENT"]) is True:
             read += 1
         read = context.skip_ws(read, nl=False)

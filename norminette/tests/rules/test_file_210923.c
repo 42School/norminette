@@ -43,3 +43,10 @@ int	main(void)
 	a = (FLOAT)a;
 	a = (float)a;
 }
+
+__attribute__((warn_unused_result)) int	main(int argc, char **argv)
+{
+	printf("Hello, world!\n");
+}
+
+void	*xmalloc(size_t size) __attribute__((malloc)) __attribute__((warn_unused_result));

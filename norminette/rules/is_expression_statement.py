@@ -79,7 +79,6 @@ class IsExpressionStatement(PrimaryRule):
     def check_inc_dec(self, context, pos):
         i = pos
         ret = False
-        pdb.set_trace()
         if context.check_token(i, ["INC", "DEC"]) is True:
             ret = True
             i += 1

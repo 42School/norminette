@@ -97,6 +97,20 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <IDENTIFIER=a> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <FLOAT> <RPARENTHESIS> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 45":
 		<RBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 46":
+		<NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 47":
+		<IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=warn_unused_result> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=argc> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <MULT> <IDENTIFIER=argv> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 48":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 49":
+		<TAB> <IDENTIFIER=printf> <LPARENTHESIS> <STRING="Hello, world!\n"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 50":
+		<RBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 51":
+		<NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 52":
+		<VOID> <TAB> <MULT> <IDENTIFIER=xmalloc> <LPARENTHESIS> <IDENTIFIER=size_t> <SPACE> <IDENTIFIER=size> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=malloc> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <IDENTIFIER=__attribute__> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=warn_unused_result> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> 
 test_file_210923.c: Error!
 Error: MULT_ASSIGN_LINE     (line:   6, col:  16):	Multiple assignations on a single line
 Error: TOO_FEW_TAB          (line:   6, col:  16):	Missing tabs for indent level
@@ -108,3 +122,6 @@ Error: TOO_FEW_TAB          (line:  23, col:  23):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  23, col:  23):	Too many instructions on a single line
 Error: TOO_FEW_TAB          (line:  31, col:  12):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  31, col:  12):	Too many instructions on a single line
+Error: ATTR_EOL             (line:  47, col:   1):	Function attribute must be at the end of line
+Error: TOO_MANY_FUNCS       (line:  47, col:   1):	Too many functions in file
+Error: LINE_TOO_LONG        (line:  52, col:  88):	line too long
