@@ -100,6 +100,7 @@ Error: BRACE_NEWLINE        (line:  19, col:  16):	Expected newline before brace
 Error: TAB_REPLACE_SPACE    (line:  20, col:   8):	Found tab when expecting space
 Error: SPACE_REPLACE_TAB    (line:  20, col:  13):	Found space when expecting tab
 Error: SPC_AFTER_POINTER    (line:  21, col:   5):	space after pointer
+Error: MIXED_SPACE_TAB      (line:  21, col:   6):	Mixed spaces and tabs
 Error: SPC_AFTER_POINTER    (line:  21, col:  10):	space after pointer
 Error: SPC_AFTER_POINTER    (line:  21, col:  12):	space after pointer
 Error: SPC_AFTER_POINTER    (line:  21, col:  14):	space after pointer

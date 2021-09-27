@@ -153,6 +153,7 @@ Error: NO_ARGS_VOID         (line:  10, col:  13):	Empty function argument requi
 Error: BRACE_NEWLINE        (line:  10, col:  15):	Expected newline before brace
 Error: BRACE_SHOULD_EOL     (line:  10, col:  16):	Expected newline after brace
 Error: TOO_FEW_TAB          (line:  10, col:  17):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  10, col:  17):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  10, col:  17):	Too many instructions on a single line
 Error: RETURN_PARENTHESIS   (line:  10, col:  24):	Return value must be in parenthesis
 Error: TOO_MANY_INSTR       (line:  10, col:  27):	Too many instructions on a single line
@@ -173,6 +174,7 @@ Error: TOO_MANY_FUNCS       (line:  31, col:   1):	Too many functions in file
 Error: MISSING_IDENTIFIER   (line:  31, col:  33):	missing type qualifier or identifier in function arguments
 Error: BRACE_NEWLINE        (line:  31, col:  39):	Expected newline before brace
 Error: BRACE_SHOULD_EOL     (line:  31, col:  40):	Expected newline after brace
+Error: TOO_FEW_TAB          (line:  31, col:  41):	Missing tabs for indent level
 Error: TOO_FEW_TAB          (line:  31, col:  41):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  31, col:  41):	Too many instructions on a single line
 Error: RETURN_PARENTHESIS   (line:  31, col:  48):	Return value must be in parenthesis

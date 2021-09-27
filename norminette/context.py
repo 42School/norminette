@@ -187,6 +187,18 @@ class Context:
 
         return tkn.type == value
 
+    def find_in_scope(self, value, nested=True):
+        nests = 0
+        for i in range(0, self.tkn_scope):
+            tkn = self.peek_token(i)
+            if self.check_token(i, ["LBRACKET", "LPARENTHESIS", "LBRACE"]) is True:
+                nests += 1
+            if self.check_token(i, ["RBRACKET", "RPARENTHESIS", "RBRACE"]) is True:
+                nests -= 1
+            if tkn.type == value and (nested == True or (nests == 0 and nested == False)):
+                return i
+        return -1
+
     def new_error(self, errno, tkn):
         self.errors.append(NormError(errno, tkn.pos[0], tkn.pos[1]))
 

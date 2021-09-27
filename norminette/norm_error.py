@@ -95,6 +95,7 @@ digits or '_'",
     "COMMA_START_LINE": "Comma at line start",
     "MIXED_SPACE_TAB": "Mixed spaces and tabs",
     "ATTR_EOL": "Function attribute must be at the end of line",
+    "INVALID_HEADER": "Missing or invalid 42 header",
 }
 
 
