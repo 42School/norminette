@@ -1,4 +1,3 @@
-Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_0924.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<VOID> <SPACE> <IDENTIFIER=ft_hexdump> <LPARENTHESIS> <CHAR> <SPACE> <MULT> <MULT> <IDENTIFIER=files> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=argc> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=i> <RPARENTHESIS> 
 [36mtest_file_0924.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 1":
@@ -24,6 +23,7 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 [36mtest_file_0924.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
 		<NEWLINE>
 test_file_0924.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: SPACE_BEFORE_FUNC    (line:   1, col:   5):	space before function name
 Error: BRACE_NEWLINE        (line:   1, col:  47):	Expected newline before brace
 Error: TOO_MANY_TAB         (line:   5, col:   1):	Extra tabs for indent level

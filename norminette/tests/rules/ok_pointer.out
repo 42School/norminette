@@ -1,4 +1,3 @@
-Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mok_pointer.c[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 1":
 		<IDENTIFIER=result> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=result> <SPACE> <MULT> <SPACE> <CONSTANT=10> <SPACE> <PLUS> <SPACE> <MULT> <LPARENTHESIS> <MULT> <IDENTIFIER=str> <RPARENTHESIS> <INC> <SPACE> <MINUS> <SPACE> <CHAR_CONST='0'> <SEMI_COLON> <NEWLINE>
 [36mok_pointer.c[0m - [32mIsFunctionCall[0m In "GlobalScope" from "None" line 2":
@@ -13,4 +12,5 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
 [36mok_pointer.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 7":
 		<RBRACE> <NEWLINE>
-ok_pointer.c: OK!
+ok_pointer.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

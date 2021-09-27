@@ -1,4 +1,3 @@
-Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mok_comment.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
 		<DEFINE=#define TTOO 1> <NEWLINE>
 [36mok_comment.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
@@ -31,4 +30,5 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <RBRACE> <NEWLINE>
 [36mok_comment.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 16":
 		<RBRACE> <NEWLINE>
-ok_comment.c: OK!
+ok_comment.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

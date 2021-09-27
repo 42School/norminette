@@ -1,4 +1,3 @@
-Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <LPARENTHESIS> <IDENTIFIER=foo> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=a> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
@@ -144,6 +143,7 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 [36mlong_test.c[0m - [32mIsFunctionCall[0m In "GlobalScope" from "None" line 63":
 		<MULT> <MULT> <MULT> <IDENTIFIER=func4> <LPARENTHESIS> <IDENTIFIER=udidf> <SPACE> <IDENTIFIER=fdfd> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 long_test.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: TOO_MANY_TAB         (line:   4, col:   1):	Extra tabs for indent level
 Error: EMPTY_LINE_FUNCTION  (line:   5, col:   1):	Empty line in function
 Error: SPACE_EMPTY_LINE     (line:   5, col:   1):	Space on empty line

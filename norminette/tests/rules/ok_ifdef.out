@@ -1,4 +1,3 @@
-Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mok_ifdef.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
 		<IFDEF=#ifdef SF_DEBUG_MALLOC> <NEWLINE>
 [36mok_ifdef.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 2":
@@ -16,6 +15,7 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 [36mok_ifdef.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 8":
 		<RBRACE> <NEWLINE>
 ok_ifdef.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: NL_AFTER_PREPROC     (line:   2, col:   1):	Preprocessor statement must be followed by a newline
 Error: NL_AFTER_PREPROC     (line:   4, col:   1):	Preprocessor statement must be followed by a newline
 Error: NL_AFTER_PREPROC     (line:   6, col:   1):	Preprocessor statement must be followed by a newline

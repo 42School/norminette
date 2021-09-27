@@ -1,4 +1,3 @@
-Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mok_enum.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
 		<TYPEDEF> <SPACE> <ENUM> <SPACE> <IDENTIFIER=e_toto> <NEWLINE>
 [36mok_enum.c[0m - [32mIsBlockStart[0m In "UserDefinedEnum" from "GlobalScope" line 2":
@@ -11,4 +10,5 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <IDENTIFIER=TITI> <COMMA> <NEWLINE>
 [36mok_enum.c[0m - [32mIsBlockEnd[0m In "UserDefinedEnum" from "GlobalScope" line 6":
 		<RBRACE> <TAB> <IDENTIFIER=t_toto> <SEMI_COLON> <NEWLINE>
-ok_enum.c: OK!
+ok_enum.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

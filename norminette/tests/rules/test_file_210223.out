@@ -1,4 +1,3 @@
-Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_210223.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
 [36mtest_file_210223.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
@@ -24,4 +23,5 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 		<TAB> <TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210223.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 14":
 		<RBRACE> <NEWLINE>
-test_file_210223.c: OK!
+test_file_210223.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

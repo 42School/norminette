@@ -1,4 +1,3 @@
-Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mtest_file_210316.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
 [36mtest_file_210316.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
@@ -58,6 +57,7 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 [36mtest_file_210316.c[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 38":
 		<MULT> <IDENTIFIER=result> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <IDENTIFIER=t_quaternion> <RPARENTHESIS> <LBRACE> <IDENTIFIER=r> <SPACE> <COLON> <SPACE> <CONSTANT=1> <COMMA> <SPACE> <IDENTIFIER=i> <SPACE> <COLON> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=j> <SPACE> <COLON> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <IDENTIFIER=k> <SPACE> <COLON> <SPACE> <CONSTANT=0> <SPACE> <RBRACE> <SEMI_COLON> 
 test_file_210316.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: SPACE_AFTER_KW       (line:   3, col:  20):	Missing space after keyword
 Error: SPACE_AFTER_KW       (line:   3, col:  50):	Missing space after keyword
 Error: SPACE_AFTER_KW       (line:   4, col:  28):	Missing space after keyword

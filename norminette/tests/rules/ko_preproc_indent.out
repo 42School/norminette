@@ -1,4 +1,3 @@
-Missing or invalid header. Header are being reintroduced as a mandatory part of your files. This is not yet an error.
 [36mko_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
 		<DEFINE=# define STUFF 1> <NEWLINE>
 [36mko_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
@@ -10,6 +9,7 @@ Missing or invalid header. Header are being reintroduced as a mandatory part of 
 [36mko_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
 		<DEFINE=#   define BAR 3> <NEWLINE>
 ko_preproc_indent.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: PREPROC_BAD_INDENT   (line:   1, col:   1):	Bad preprocessor indentation
 Error: PREPROC_BAD_INDENT   (line:   3, col:   1):	Bad preprocessor indentation
 Error: PREPROC_BAD_INDENT   (line:   4, col:   1):	Bad preprocessor indentation
