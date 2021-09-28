@@ -336,9 +336,26 @@ In \"{self.scope.name}\" from \
 
     def skip_misc_specifier(self, pos, nl=False):
         i = self.skip_ws(pos, nl=nl)
+        if self.check_token(i, "IDENTIFIER"):
+            tmp = self.skip_misc_specifier(i + 1)
+            if tmp != i + 1:
+                tmp = i
+        if self.check_token(i, "MULT"):
+            tmp = i + 1
+            while self.check_token(tmp, "MULT"):
+                tmp += 1
+            tmp = self.skip_ws(tmp, nl=nl)
+            if self.check_token(tmp, misc_specifiers):
+                i = tmp
+                i = self.skip_ws(i, nl=nl)
         while self.check_token(i, misc_specifiers):
             i += 1
             i = self.skip_ws(i, nl=nl)
+            if self.check_token(i, "MULT"):
+                tmp = i + 1
+                tmp = self.skip_ws(i, nl=nl)
+                if self.check_token(tmp, misc_specifiers):
+                    i = tmp
         return i
 
     def skip_typedef(self, pos):
