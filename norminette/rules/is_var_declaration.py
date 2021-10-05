@@ -73,7 +73,7 @@ class IsVarDeclaration(PrimaryRule):
                     braces += 1
                 if context.check_token(i, "LBRACKET") is True:
                     brackets += 1
-                if context.check_token(i, "LPARENTHESIS") is True:
+                if context.check_token(i, "LPARENTHESIS") is True and brackets == 0 and braces == 0:
                     ret, tmp = context.parenthesis_contain(i, ret_store)
                     if ret == "function" or ret == "pointer" or ret == "var":
                         ret_store = ret
@@ -116,7 +116,7 @@ class IsVarDeclaration(PrimaryRule):
             return False, 0
         context.scope.vars_name.append(ids[-1])
         if context.check_token(i, "SEMI_COLON") is True:
-            if brackets == 0 and braces == 0 and parenthesis == 0:
+            if brackets <= 0 and braces <= 0 and parenthesis <= 0:
                 return True, i
             else:
                 return False, 0
