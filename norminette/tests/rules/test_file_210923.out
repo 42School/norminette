@@ -167,7 +167,58 @@
 [36mtest_file_210923.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 80":
 		<TAB> <IDENTIFIER=t_int> <SPACE> <MULT> <SPACE> <RESTRICT> <SPACE> <IDENTIFIER=f> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 81":
-		<RBRACE> 
+		<RBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 82":
+		<NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 83":
+		<INT> <TAB> <LPARENTHESIS> <MULT> <IDENTIFIER=open_pipe> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=nb_of_cmd> <RPARENTHESIS> <RPARENTHESIS> <LBRACKET> <CONSTANT=2> <RBRACKET> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 84":
+		<LBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 85":
+		<TAB> <INT> <TAB> <TAB> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 86":
+		<TAB> <IDENTIFIER=t_pipe> <TAB> <IDENTIFIER=pipe_fd> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 87":
+		<NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 88":
+		<TAB> <IDENTIFIER=pipe_fd> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=malloc> <LPARENTHESIS> <SIZEOF> <LPARENTHESIS> <INT> <SPACE> <LBRACKET> <CONSTANT=2> <RBRACKET> <RPARENTHESIS> <SPACE> <MULT> <SPACE> <LPARENTHESIS> <IDENTIFIER=nb_of_cmd> <SPACE> <MINUS> <SPACE> <CONSTANT=1> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 89":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=error_catch> <LPARENTHESIS> <IDENTIFIER=pipe_fd> <SPACE> <EQUALS> <SPACE> <CONSTANT=0> <COMMA> <SPACE> <STRING="system"> <COMMA> <SPACE> <STRING="fail to malloc pipe table"> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 90":
+		<TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <NULL> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 91":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 92":
+		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <IDENTIFIER=i> <SPACE> <LESS_THAN> <SPACE> <IDENTIFIER=nb_of_cmd> <SPACE> <MINUS> <SPACE> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 93":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 94":
+		<TAB> <TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=error_catch> <LPARENTHESIS> <IDENTIFIER=pipe> <LPARENTHESIS> <IDENTIFIER=pipe_fd> <LBRACKET> <IDENTIFIER=i> <INC> <RBRACKET> <RPARENTHESIS> <SPACE> <EQUALS> <SPACE> <MINUS> <CONSTANT=1> <COMMA> <SPACE> <STRING="system"> <COMMA> <NEWLINE>
+		<TAB> <TAB> <TAB> <TAB> <STRING="fail to open pipe"> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 96":
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "ControlStructure" line 97":
+		<TAB> <TAB> <TAB> <WHILE> <SPACE> <LPARENTHESIS> <DEC> <IDENTIFIER=i> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 98":
+		<TAB> <TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 99":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=close> <LPARENTHESIS> <IDENTIFIER=pipe_fd> <LBRACKET> <IDENTIFIER=i> <RBRACKET> <LBRACKET> <CONSTANT=0> <RBRACKET> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 100":
+		<TAB> <TAB> <TAB> <TAB> <IDENTIFIER=close> <LPARENTHESIS> <IDENTIFIER=pipe_fd> <LBRACKET> <IDENTIFIER=i> <RBRACKET> <LBRACKET> <CONSTANT=1> <RBRACKET> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 101":
+		<TAB> <TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 102":
+		<TAB> <TAB> <TAB> <IDENTIFIER=free> <LPARENTHESIS> <IDENTIFIER=pipe_fd> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 103":
+		<TAB> <TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <NULL> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 104":
+		<TAB> <TAB> <RBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 105":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 106":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=pipe_fd> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_210923.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 107":
+		<RBRACE> <NEWLINE>
 test_file_210923.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: MULT_ASSIGN_LINE     (line:   6, col:  16):	Multiple assignations on a single line
@@ -208,4 +259,4 @@ Error: TOO_MANY_VARS_FUNC   (line:  80, col:   1):	Too many variables declaratio
 Error: SPACE_REPLACE_TAB    (line:  80, col:  10):	Found space when expecting tab
 Error: SPC_AFTER_POINTER    (line:  80, col:  11):	space after pointer
 Error: DECL_ASSIGN_LINE     (line:  80, col:  24):	Declaration and assignation on a single line
-Error: BRACE_SHOULD_EOL     (line:  81, col:   1):	Expected newline after brace
+Error: TOO_MANY_FUNCS       (line:  83, col:   1):	Too many functions in file

@@ -79,3 +79,29 @@ int	main(void)
 	t_int * restrict e = 1;
 	t_int * restrict f = 1;
 }
+
+int	(*open_pipe(int nb_of_cmd))[2]
+{
+	int		i;
+	t_pipe	pipe_fd;
+
+	pipe_fd = malloc(sizeof(int [2]) * (nb_of_cmd - 1));
+	if (error_catch(pipe_fd == 0, "system", "fail to malloc pipe table"))
+		return (NULL);
+	i = 0;
+	while (i < nb_of_cmd - 1)
+	{
+		if (error_catch(pipe(pipe_fd[i++]) == -1, "system",
+				"fail to open pipe"))
+		{
+			while (--i)
+			{
+				close(pipe_fd[i][0]);
+				close(pipe_fd[i][1]);
+			}
+			free(pipe_fd);
+			return (NULL);
+		}
+	}
+	return (pipe_fd);
+}

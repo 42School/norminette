@@ -200,6 +200,10 @@ class IsFuncDeclaration(PrimaryRule):
                 i = context.skip_nest(i)
                 i += 1
             i = context.skip_ws(i, nl=True)
+            while context.check_token(i, "LBRACKET"):
+                i = context.skip_nest(i)
+                i += 1
+                i = context.skip_ws(i, nl=True)
             while context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
                 i += 1
                 i = context.skip_ws(i)
@@ -216,7 +220,6 @@ class IsFuncDeclaration(PrimaryRule):
         """
         if type(context.scope) is not GlobalScope:
             return False, 0
-
         ret, read = self.check_func_format(context)
         if ret is False:
             return False, 0
