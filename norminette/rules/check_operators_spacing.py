@@ -342,7 +342,7 @@ class CheckOperatorsSpacing(Rule):
                 if context.parenthesis_contain(tmp)[0] != "cast":
                     context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
             elif context.check_token(tmp, glued_operators) is False and not (context.check_token(pos, ["PLUS", "MINUS"]) and context.check_token(pos + 1, "CONSTANT")):
-                context.new_error("SPC_AFTER_OPERATORzz", context.peek_token(pos))
+                context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
 
     def check_glued_operator(self, context, pos):
         glued = [
