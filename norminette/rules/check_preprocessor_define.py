@@ -42,9 +42,12 @@ class CheckPreprocessorDefine(Rule):
                 pass
             else:
                 context.new_error("PREPROC_GLOBAL", context.peek_token(0))
-        if context.check_token(i, "DEFINE") is False:
+        if context.check_token(i, "DEFINE") is True:
+            val = context.peek_token(i).value.split("define", 1)[1]
+        elif context.check_token(i, "IFNDEF") is True:
+            val = context.peek_token(i).value.split("ifndef", 1)[1]
+        else:
             return False, 0
-        val = context.peek_token(i).value.split("define", 1)[1]
         content = Lexer(val, context.peek_token(i).pos[0])
         tkns = content.get_tokens()
         i = 0
