@@ -333,13 +333,7 @@ class CheckOperatorsSpacing(Rule):
             if context.check_token(pos - 1, "RPARENTHESIS") and context.parenthesis_contain(context.skip_nest_reverse(pos - 1))[0] == "cast":
                 return False, 0
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
-        if (
-            pos + 1 < len(context.tokens[: context.tkn_scope])
-            and context.check_token(
-                pos + 1,
-                ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET", "NEWLINE", "COMMA"] + glued_operators)
-            is False
-        ):
+        if (pos + 1 < len(context.tokens[: context.tkn_scope]) and context.check_token(pos + 1, ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET", "NEWLINE", "COMMA"] + glued_operators) is False):
             tmp = pos - 1
             while context.check_token(tmp, ['SPACE', 'TAB']):
                 tmp -= 1
@@ -347,8 +341,8 @@ class CheckOperatorsSpacing(Rule):
                 tmp = context.skip_nest_reverse(tmp)
                 if context.parenthesis_contain(tmp)[0] != "cast":
                     context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
-            elif context.check_token(tmp, glued_operators) is False:
-                context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
+            elif context.check_token(tmp, glued_operators) is False and not (context.check_token(pos, ["PLUS", "MINUS"]) and context.check_token(pos + 1, "CONSTANT")):
+                context.new_error("SPC_AFTER_OPERATORzz", context.peek_token(pos))
 
     def check_glued_operator(self, context, pos):
         glued = [
