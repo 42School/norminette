@@ -122,6 +122,10 @@ class CheckFuncArgumentsName(Rule):
                     else:
                         break
                     i += 1
+            elif context.check_token(i, "LBRACKET") is True:
+                i = context.skip_nest(i) + 1
+            elif context.check_token(i, "COMMA") is True:
+                i += 1
             elif context.check_token(i, "RPARENTHESIS") is not True:
                 i = self.check_arg_format(context, i)
                 if i == -1:
