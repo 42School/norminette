@@ -1,3 +1,5 @@
+import pdb
+
 from norminette.rules import Rule
 from norminette.exceptions import CParsingError
 
@@ -45,7 +47,7 @@ nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]
 class CheckAssignationIndent(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsAssignation", "IsFuncPrototype", "IsFunctionCall"]
+        self.depends_on = ["IsAssignation", "IsFuncPrototype", "IsFunctionCall", "IsVarDeclaration"]
 
     def run(self, context):
         """
@@ -53,7 +55,7 @@ class CheckAssignationIndent(Rule):
         """
         i = 0
         expected = context.scope.indent
-        if context.history[-1] == "IsAssignation":
+        if context.history[-1] in ["IsAssignation", "IsVarDeclaration"]:
             nest = expected + 1
         elif context.history[-1] == "IsFuncPrototype":
             nest = context.func_alignment
@@ -74,10 +76,10 @@ class CheckAssignationIndent(Rule):
                     raise CParsingError(f"Error: Unexpected EOF l.{context.peek_token(i - 1).pos[0]}")
                 if context.check_token(i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
                     nest -= 1
-                if got > nest or (got > nest + 1 and context.history[-1] == "IsAssignation"):
+                if got > nest or (got > nest + 1 and context.history[-1] == ["IsAssignation", "IsVarDeclaration"]):
                     context.new_error("TOO_MANY_TAB", context.peek_token(i))
                     return True, i
-                elif got < nest or (got < nest - 1 and context.history[-1] == "IsAssignation"):
+                elif got < nest or (got < nest - 1 and context.history[-1] in ["IsAssignation", "IsVarDeclaration"]):
                     context.new_error("TOO_FEW_TAB", context.peek_token(i))
                     return True, i
                 if context.check_token(i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
