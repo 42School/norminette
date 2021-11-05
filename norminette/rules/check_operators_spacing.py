@@ -125,6 +125,12 @@ glued_operators = [
     "BWISE_NOT"
 ]
 
+spec_operators = [
+    "NOT",
+    "BWISE_NOT", 
+    "DIV",
+]
+
 rnests = ["RPARENTHESIS", "RBRACE", "RBRACKET"]
 
 lnests = [
@@ -333,7 +339,7 @@ class CheckOperatorsSpacing(Rule):
             if context.check_token(pos - 1, "RPARENTHESIS") and context.parenthesis_contain(context.skip_nest_reverse(pos - 1))[0] == "cast":
                 return False, 0
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
-        if (pos + 1 < len(context.tokens[: context.tkn_scope]) and context.check_token(pos + 1, ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET", "NEWLINE", "COMMA"] + glued_operators) is False):
+        if (pos + 1 < len(context.tokens[: context.tkn_scope]) and context.check_token(pos + 1, ["SPACE", "LPARENTHESIS", "RPARENTHESIS", "LBRACKET", "RBRACKET", "NEWLINE", "COMMA"] + spec_operators) is False):
             tmp = pos - 1
             while context.check_token(tmp, ['SPACE', 'TAB']):
                 tmp -= 1

@@ -1,4 +1,25 @@
 [36mtestfile_210104_4.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 1":
 		<INT> <TAB> <LPARENTHESIS> <LPARENTHESIS> <MULT> <IDENTIFIER=g_conv> <LBRACKET> <CONSTANT=13> <RBRACKET> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=t_syntax> <SPACE> <IDENTIFIER=syntax> <COMMA> <SPACE> <IDENTIFIER=t_buffer> <SPACE> <MULT> <IDENTIFIER=buffer> <COMMA> <SPACE> <IDENTIFIER=va_list> <SPACE> <IDENTIFIER=va> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
+		<NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 3":
+		<VOID> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 4":
+		<LBRACE> <NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <CONSTANT=2> <SPACE> <PLUS> <MULT> <IDENTIFIER=y> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 6":
+		<RBRACE> <NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 8":
+		<VOID> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 9":
+		<LBRACE> <NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <CONSTANT=2> <SPACE> <PLUS> <SPACE> <MULT> <IDENTIFIER=y> <SEMI_COLON> <NEWLINE>
+[36mtestfile_210104_4.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 11":
+		<RBRACE> <NEWLINE>
 testfile_210104_4.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPC_AFTER_OPERATOR   (line:   5, col:   7):	missing space after operator
