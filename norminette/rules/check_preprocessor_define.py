@@ -54,8 +54,8 @@ class CheckPreprocessorDefine(Rule):
         tkns = content.get_tokens()
         i = 0
         identifiers = []
-        # protection = context.filename.upper().split("/")[-1].replace(".", "_")
-        protection = Path(context.filename).name.upper().replace(".", "_")
+        protection = context.filename.upper().split("/")[-1].replace(".", "_")
+        # protection = Path(context.filename).name.upper().replace(".", "_")
         for tkn in tkns:
             if tkn.type == "ESCAPED_NEWLINE":
                 context.new_error("NEWLINE_DEFINE", tkn)
