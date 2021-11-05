@@ -79,7 +79,7 @@ class CheckPreprocessorDefine(Rule):
                     tmp += 1
                 if tmp == (len(tkns) - 1) and context.filetype == "h":
                     if context.scope.header_protection == 0:
-                        print ("DEBUG -> ", identifiers[0].value, protection)
+                        print ("DEBUG -> ", identifiers[0].value, protection, identifiers[0].value.strip() == protection.strip())
                         if identifiers[0].value == protection:
                             context.scope.header_protection = 1
                         elif identifiers[0].value != protection:
