@@ -54,8 +54,8 @@ class CheckPreprocessorDefine(Rule):
         tkns = content.get_tokens()
         i = 0
         identifiers = []
-        # protection = context.filename.upper().split("/")[-1].replace(".", "_")
-        protection = Path(context.filename).name.upper().replace(".", "_")
+        protection = context.filename.upper().split("/")[-1].replace(".", "_")
+        # protection = Path(context.filename).name.upper().replace(".", "_")
         for tkn in tkns:
             if tkn.type == "ESCAPED_NEWLINE":
                 context.new_error("NEWLINE_DEFINE", tkn)
@@ -105,8 +105,8 @@ class CheckPreprocessorDefine(Rule):
                     identifiers.append(tkn)
                 elif len(identifiers) == 0:
                     context.new_error("INCORRECT_DEFINE", tkn)
-                else:
-                    context.new_error("TOO_MANY_VALS", tkn)
+                # else:
+                #     context.new_error("TOO_MANY_VALS", tkn)
             elif tkn.type == "LPARENTHESIS":
                 if context.skip_define_error == True:
                     continue
@@ -122,8 +122,7 @@ class CheckPreprocessorDefine(Rule):
                 if context.skip_define_error == True:
                     continue
                 context.new_error("PREPROC_CONSTANT", tkn)
-
             i += 1
         if context.filetype == "h" and context.scope.header_protection != 1:
-            context.new_error("HEADER_PROT_ALL", context.peek_token(0))
+            context.new_error("HEADER_PROT_ALL_2", context.peek_token(i))
         return False, 0

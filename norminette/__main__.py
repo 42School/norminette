@@ -115,8 +115,8 @@ def main():
                     print ("Error while parsing file:", e)
                     sys.exit(0)
                 if args.only_filename == True:
-                    # target = target.split("/")[-1]
-                    target = Path(target).name
+                    target = target.split("/")[-1]
+                    # target = Path(target).name
                 context = Context(target, tokens, debug, args.R)
                 registry.run(context, source)
                 event[-1].set()

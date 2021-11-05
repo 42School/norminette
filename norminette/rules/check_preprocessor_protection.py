@@ -25,8 +25,8 @@ class CheckPreprocessorProtection(Rule):
             return False, 0
         if context.check_token(i, ["IFNDEF", "ENDIF"]) is False or context.filetype != "h":
             return False, 0
-        # protection = context.filename.upper().split("/")[-1].replace(".", "_")
-        protection = Path(context.filename).name.upper().replace(".", "_")
+        protection = context.filename.upper().split("/")[-1].replace(".", "_")
+        # protection = Path(context.filename).name.upper().replace(".", "_")
         val = context.peek_token(i).value.split(" ")[-1]
         content = Lexer(val, context.peek_token(i).pos[0])
         tkns = content.get_tokens()

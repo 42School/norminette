@@ -19,6 +19,8 @@ class Registry:
         self.dependencies = {}
         for k, r in self.rules.items():
             r.register(self)
+        for k, v in self.dependencies.items():
+            self.dependencies[k] = sorted(self.dependencies[k], reverse=True)
 
     def run_rules(self, context, rule):
         if rule.name.startswith("Is"):
