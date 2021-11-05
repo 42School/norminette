@@ -40,7 +40,7 @@ class CheckPreprocessorProtection(Rule):
                 if len(context.history) > 1:
                     for i in range(len(context.history) - 2, 0, -1):
                         if context.history[i] != "IsEmptyLine" and context.history[i] != "IsComment":
-                            context.new_error("HEADER_PROT_ALL", context.peek_token(0))
+                            context.new_error("HEADER_PROT_ALL_3", context.peek_token(0))
                             break
                 context.scope.header_protection = 0
             elif len(tkns) < 1 or (tkns[0].value != protection and context.scope.header_protection == -1):

@@ -53,5 +53,5 @@ class CheckInHeader(Rule):
             context.new_error("FORBIDDEN_IN_HEADER", context.peek_token(0))
             return False, 0
         elif context.history[-1] in must_be_within_define and sc.header_protection != 1:
-            context.new_error("HEADER_PROT_ALL", context.peek_token(0))
+            context.new_error("HEADER_PROT_ALL_1", context.peek_token(0))
         return False, 0
