@@ -90,6 +90,9 @@ class Registry:
             print(context.filename + ": OK!")
         else:
             print(context.filename + ": Error!")
-            context.errors = sorted(context.errors, key=cmp_to_key(sort_errs))
+            context.errors = sorted(context.errors + context.warnings, key=cmp_to_key(sort_errs))
             for err in context.errors:
                 print(err)
+            # context.warnings = sorted(context.warnings, key=cmp_to_key(sort_errs))
+            # for warn in context.warnings:
+            #     print (warn)

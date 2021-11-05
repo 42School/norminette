@@ -24,3 +24,4 @@
 		<RBRACE> <NEWLINE>
 ok_func_ptr.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Notice: GLOBAL_VAR_DETECTED  (line:   2, col:   1):	Global variable present in file. Make sure it is a reasonable choice.

@@ -44,6 +44,7 @@ ok_func_name.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: FORBIDDEN_CHAR_NAME  (line:   8, col:  25):	user defined identifiers should contain only lowercase characters, digits or '_'
 Error: FORBIDDEN_CHAR_NAME  (line:   9, col:  25):	user defined identifiers should contain only lowercase characters, digits or '_'
+Notice: GLOBAL_VAR_DETECTED  (line:  11, col:   1):	Global variable present in file. Make sure it is a reasonable choice.
 Error: FORBIDDEN_CHAR_NAME  (line:  11, col:  25):	user defined identifiers should contain only lowercase characters, digits or '_'
 Error: FORBIDDEN_CHAR_NAME  (line:  13, col:   5):	user defined identifiers should contain only lowercase characters, digits or '_'
 Error: FORBIDDEN_CHAR_NAME  (line:  15, col:  18):	user defined identifiers should contain only lowercase characters, digits or '_'

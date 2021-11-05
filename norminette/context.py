@@ -1,6 +1,6 @@
 from norminette.exceptions import CParsingError
 from norminette.lexer.dictionary import operators
-from norminette.norm_error import NormError
+from norminette.norm_error import NormError, NormWarning
 from norminette.scope import GlobalScope, ControlStructure
 from norminette.tools.colors import colors
 types = [
@@ -154,6 +154,7 @@ class Context:
         # Rule relative informations
         self.history = []
         self.errors = []
+        self.warnings = []
         self.tkn_scope = len(tokens)
 
         # Scope informations
@@ -201,6 +202,9 @@ class Context:
 
     def new_error(self, errno, tkn):
         self.errors.append(NormError(errno, tkn.pos[0], tkn.pos[1]))
+
+    def new_warning(self, errno, tkn):
+        self.warnings.append(NormWarning(errno, tkn.pos[0], tkn.pos[1]))
 
     def get_parent_rule(self):
         if len(self.history) == 0:

@@ -42,6 +42,7 @@ digits or '_'",
     "ENUM_TYPE_NAMING": "Enum name must start with e_",
     "UNION_TYPE_NAMING": "Union name must start with u_",
     "GLOBAL_VAR_NAMING": "Global variable must start with g_",
+    "GLOBAL_VAR_DETECTED": "Global variable present in file. Make sure it is a reasonable choice.",
     "EOL_OPERATOR": "Logic operator at the end of line",
     "EMPTY_LINE_FUNCTION": "Empty line in function",
     "EMPTY_LINE_FILE_START": "Empty line at start of file",
@@ -110,6 +111,21 @@ class NormError:
             self.error_pos = f"(line: {(str(self.line)).rjust(3)}):\t "
         self.prefix = f"Error: {self.errno:<20} {self.error_pos:>21}"
         self.error_msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
+
+    def __str__(self):
+        return self.prefix + self.error_msg
+
+class NormWarning:
+    def __init__(self, errno, line, col=None):
+        self.errno = errno
+        self.line = line
+        self.col = col
+        if col is not None:
+            self.error_pos = f"(line: {(str(self.line)).rjust(3)}, col: {(str(self.col)).rjust(3)}):\t"
+        else:
+            self.error_pos = f"(line: {(str(self.line)).rjust(3)}):\t "
+        self.prefix = f"Notice: {self.errno:<20} {self.error_pos:>21}"
+        self.error_msg = f"{errors.get(self.errno, 'WARNING NOT FOUND')}"
 
     def __str__(self):
         return self.prefix + self.error_msg

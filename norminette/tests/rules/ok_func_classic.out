@@ -82,4 +82,5 @@
 [36mok_func_classic.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 50":
 		<RBRACE> <NEWLINE>
 ok_func_classic.c: Error!
+Notice: GLOBAL_VAR_DETECTED  (line:   1, col:   1):	Global variable present in file. Make sure it is a reasonable choice.
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

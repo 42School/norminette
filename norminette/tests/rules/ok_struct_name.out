@@ -36,3 +36,5 @@
 		<RBRACE> <NEWLINE>
 ok_struct_name.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Notice: GLOBAL_VAR_DETECTED  (line:  11, col:   1):	Global variable present in file. Make sure it is a reasonable choice.
+Notice: GLOBAL_VAR_DETECTED  (line:  12, col:   1):	Global variable present in file. Make sure it is a reasonable choice.
