@@ -25,7 +25,7 @@ class CheckFuncSpacing(Rule):
         i = 0
         while i < context.fname_pos:
             if context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
-                context.new_error("ATTR_EOL", context.peek_token(i))
+                # context.new_error("ATTR_EOL", context.peek_token(i))
                 break
             i += 1
         i = context.fname_pos - 1

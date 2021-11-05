@@ -231,7 +231,6 @@ Error: TOO_FEW_TAB          (line:  23, col:  23):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  23, col:  23):	Too many instructions on a single line
 Error: TOO_FEW_TAB          (line:  31, col:  12):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  31, col:  12):	Too many instructions on a single line
-Error: ATTR_EOL             (line:  47, col:   1):	Function attribute must be at the end of line
 Error: TOO_MANY_FUNCS       (line:  47, col:   1):	Too many functions in file
 Error: LINE_TOO_LONG        (line:  52, col:  88):	line too long
 Error: TOO_MANY_FUNCS       (line:  54, col:   1):	Too many functions in file
