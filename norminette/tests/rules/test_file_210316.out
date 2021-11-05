@@ -67,3 +67,6 @@ Error: DECL_ASSIGN_LINE     (line:  14, col:  12):	Declaration and assignation o
 Error: DECL_ASSIGN_LINE     (line:  15, col:  12):	Declaration and assignation on a single line
 Error: DECL_ASSIGN_LINE     (line:  16, col:  12):	Declaration and assignation on a single line
 Error: DECL_ASSIGN_LINE     (line:  17, col:  12):	Declaration and assignation on a single line
+Error: NO_SPC_BFR_PAR       (line:  35, col:  65):	Extra space before parenthesis (brace/bracket)
+Error: NO_SPC_BFR_PAR       (line:  36, col:  64):	Extra space before parenthesis (brace/bracket)
+Error: NO_SPC_BFR_PAR       (line:  38, col:  53):	Extra space before parenthesis (brace/bracket)

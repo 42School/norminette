@@ -297,6 +297,7 @@ class CheckOperatorsSpacing(Rule):
                         "MULT",
                         "BWISE_AND",
                         "IDENTIFIER",
+                        "CONSTANT",
                     ],
                 )
                 is True
