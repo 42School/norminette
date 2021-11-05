@@ -62,7 +62,7 @@ type_identifier = [
 class IsFuncPrototype(PrimaryRule):
     def __init__(self):
         super().__init__()
-        self.priority = 80
+        self.priority = 82
         self.scope = [GlobalScope]
 
     def check_args(self, context, pos):
@@ -208,7 +208,7 @@ class IsFuncPrototype(PrimaryRule):
                 read += 1
                 read = context.skip_ws(read)
                 read = context.skip_nest(read) + 1
-                read = context.skip_ws(read)
+                read = context.skip_ws(read, nl=True)
         while context.check_token(read, ["COMMENT", "MULT_COMMENT"]) is True:
             read += 1
         read = context.skip_ws(read, nl=False)
