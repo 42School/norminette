@@ -18,7 +18,6 @@ class CheckLineIndent(Rule):
             context.history[-1] == "IsEmptyLine"
             or context.history[-1] == "IsComment"
             or context.history[-1] == "IsPreprocessorStatement"
-            or context.history[-1] == "IsPreprocessorStatement"
         ):
             return False, 0
         if (
