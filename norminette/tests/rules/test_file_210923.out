@@ -222,12 +222,10 @@
 test_file_210923.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: MULT_ASSIGN_LINE     (line:   6, col:  16):	Multiple assignations on a single line
-Error: TOO_FEW_TAB          (line:   6, col:  16):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:   6, col:  16):	Too many instructions on a single line
 Error: INCLUDE_START_FILE   (line:   9, col:   1):	Include must be at the start of file
 Error: TOO_FEW_TAB          (line:  15, col:  13):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  15, col:  13):	Too many instructions on a single line
-Error: TOO_FEW_TAB          (line:  23, col:  23):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  23, col:  23):	Too many instructions on a single line
 Error: TOO_FEW_TAB          (line:  31, col:  12):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  31, col:  12):	Too many instructions on a single line
