@@ -100,7 +100,7 @@ def main():
                     targets.extend(glob.glob(arg + "**/*.[ch]", recursive=True))
                 elif os.path.isfile(arg):
                     targets.append(arg)
-    event = []
+    args.ignore = args.ignore[0]
     if args.ignore != [[]] and args.ignore != []:
         for ignore in args.ignore:
             if ignore in targets:
@@ -111,6 +111,7 @@ def main():
                 if line in targets:
                     targets.remove(line)
             ignoreFile.close()
+    event = []
     for target in targets:
         if target[-2:] not in [".c", ".h"]:
             print(f"Error: {target} is not valid C or C header file")
