@@ -100,8 +100,8 @@ def main():
                     targets.extend(glob.glob(arg + "**/*.[ch]", recursive=True))
                 elif os.path.isfile(arg):
                     targets.append(arg)
-    args.ignore = args.ignore[0]
-    if args.ignore != [[]] and args.ignore != []:
+    if len(args.ignore) > 0:
+        args.ignore = args.ignore[0]
         for ignore in args.ignore:
             if ignore in targets:
                 targets.remove(ignore)
