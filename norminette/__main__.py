@@ -72,6 +72,13 @@ def main():
         nargs='+',
         default=[],
     )
+    parser.add_argument(
+        "-g",
+        "--use-ignore-file",
+        action="store_true",
+        help="Make norminette ignore the files listed in \".norminetteignore\" file in the current directory.",
+        default=False,
+    )
     parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
     registry = Registry()
@@ -105,7 +112,7 @@ def main():
         for ignore in args.ignore:
             if ignore in targets:
                 targets.remove(ignore)
-    if os.path.isfile(".norminetteignore"):
+    if args.use_ignore_file and os.path.isfile(".norminetteignore"):
         with open(".norminetteignore") as ignoreFile:
             for line in ignoreFile.read().splitlines():
                 if line in targets:
