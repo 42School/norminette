@@ -64,6 +64,14 @@ def main():
         action="store",
         help="Stores filename if --cfile or --hfile is passed",
     )
+    parser.add_argument(
+        "-i",
+        "--ignore",
+        action="append",
+        help="Prevent the provided file(s) from being checked.",
+        nargs='+',
+        default=[],
+    )
     parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
     registry = Registry()
@@ -93,6 +101,16 @@ def main():
                 elif os.path.isfile(arg):
                     targets.append(arg)
     event = []
+    if args.ignore != [[]] and args.ignore != []:
+        for ignore in args.ignore:
+            if ignore in targets:
+                targets.remove(ignore)
+    if os.path.isfile(".norminetteignore"):
+        with open(".norminetteignore") as ignoreFile:
+            for line in ignoreFile.read().splitlines():
+                if line in targets:
+                    targets.remove(line)
+            ignoreFile.close()
     for target in targets:
         if target[-2:] not in [".c", ".h"]:
             print(f"Error: {target} is not valid C or C header file")
