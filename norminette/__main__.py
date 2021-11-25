@@ -65,7 +65,6 @@ def main():
         help="Stores filename if --cfile or --hfile is passed",
     )
     parser.add_argument(
-        "-i",
         "--ignore",
         action="append",
         help="Prevent the provided file(s) from being checked.",
@@ -73,7 +72,6 @@ def main():
         default=[],
     )
     parser.add_argument(
-        "-g",
         "--use-ignore-file",
         action="store_true",
         help="Make norminette ignore the files listed in \".norminetteignore\" file in the current directory.",
