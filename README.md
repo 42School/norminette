@@ -12,6 +12,11 @@ python3 -m pip install --upgrade pip setuptools
 python3 -m pip install norminette
 ```
 
+To install a specific version (here 3.3.50), use
+```shell
+python3 -m pip install norminette==3.3.50
+```
+
 To upgrade an existing install, use
 ```shell
 python3 -m pip install --upgrade norminette
