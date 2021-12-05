@@ -6,6 +6,7 @@ errors = {
     "SPC_AFTER_OPERATOR": "missing space after operator",
     "NO_SPC_BFR_OPR": "extra space before operator",
     "NO_SPC_AFR_OPR": "extra space after operator",
+    "NO_SPC_AFTER_SIGN": "Extra space after sign",
     "SPC_AFTER_PAR": "Missing space after parenthesis (brace/bracket)",
     "SPC_BFR_PAR": "Missing space before parenthesis (brace/bracket)",
     "NO_SPC_AFR_PAR": "Extra space after parenthesis (brace/bracket)",
