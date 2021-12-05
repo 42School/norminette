@@ -358,7 +358,7 @@ class CheckOperatorsSpacing(Rule):
             "LBRACE",
         ]
         if context.check_token(pos + 1, ["SPACE", "TAB"]) is True:
-            context.new_error("SPC_AFTER_OPERATOR", context.peek_token(pos))
+            context.new_error("NO_SPC_AFTER_SIGN", context.peek_token(pos))
         pos -= 1
         if context.check_token(pos, glued + ["SPACE", "TAB"] + glued_operators) is False:
             context.new_error("SPC_BFR_OPERATOR", context.peek_token(pos))
