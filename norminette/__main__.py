@@ -36,10 +36,17 @@ def main():
     )
     parser.add_argument(
         "-d",
-        "--debug",
         action="count",
         help="Debug output (multiple values available)",
         default=0,
+    )
+    parser.add_argument(
+        "--debug-level",
+        action="store",
+        help="Debug output (0: default, " +
+             "1: Prevents stopping on various blocking errors, " +
+             "2: Outputs all the debug logging",
+        default=None,
     )
     parser.add_argument(
         "-o",
@@ -71,7 +78,9 @@ def main():
     has_err = None
     content = None
 
-    debug = args.debug
+    debug = args.d
+    if args.debug_level != None:
+        debug = args.debug_level
     if args.cfile != None or args.hfile != None:
         if args.filename:
             targets = [ args.filename ]
