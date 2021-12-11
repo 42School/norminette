@@ -29,25 +29,29 @@ pip install norminette
 
 ## Usage
 
+- Runs on the current folder and any subfolder:
+
 ```
 norminette
 ```
-Runs on the current folder and any subfolder
+
+- Runs on the given filename(s):
 
 ```
 norminette filename.[c/h]
 ```
-Runs on the given filename(s)
+
+- Prevents stopping on various blocking errors:
 
 ```
 norminette -d
 ```
-Prevents stopping on various blocking errors
+
+- Outputs all the debug logging:
 
 ```
 norminette -dd
 ```
-Outputs all the debug logging
 
 ## Docker usage
 
