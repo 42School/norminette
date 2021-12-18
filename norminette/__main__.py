@@ -59,10 +59,14 @@ def main():
         action="store",
         help="Store header file content directly instead of filename",
     )
+    parser.add_argument("--stdin",
+            action="store_true",
+            help="Store stdin content directly instead of filename. Requires option --filename"
+    )
     parser.add_argument(
         "--filename",
         action="store",
-        help="Stores filename if --cfile or --hfile is passed",
+        help="Stores filename if --cfile, --hfile or --stdin is passed",
     )
     parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
@@ -72,7 +76,16 @@ def main():
     content = None
 
     debug = args.debug
-    if args.cfile != None or args.hfile != None:
+    if args.stdin:
+        if not args.filename:
+            print(f"Error: option --stdin requires option --filename")
+            return
+        targets = [args.filename]
+        try:
+            content = sys.stdin.read()
+        except Exception as e:
+            print(f"Error: Stdin could not be read: ", e)
+    elif args.cfile != None or args.hfile != None:
         if args.filename:
             targets = [ args.filename ]
         else:
