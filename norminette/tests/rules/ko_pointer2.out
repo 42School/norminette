@@ -98,6 +98,7 @@ Error: BRACE_NEWLINE        (line:   1, col:  16):	Expected newline before brace
 Error: SPC_AFTER_POINTER    (line:   2, col:  11):	space after pointer
 Error: SPC_AFTER_POINTER    (line:   2, col:  13):	space after pointer
 Error: NL_AFTER_VAR_DECL    (line:   3, col:  21):	Variable declarations must be followed by a newline
+Error: TOO_FEW_TAB          (line:   3, col:  21):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:   3, col:  21):	Too many instructions on a single line
 Error: BRACE_NEWLINE        (line:   6, col:  16):	Expected newline before brace
 Error: SPC_AFTER_POINTER    (line:   7, col:  11):	space after pointer
