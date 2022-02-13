@@ -87,9 +87,9 @@ class Registry:
             if context.debug > 0:
                 print("uncaught ->", unrecognized_tkns)
         if context.errors == []:
-            print(context.filename + ": OK!")
+            print("\033[92m[OK]\033[0m " + context.filename)
         else:
-            print(context.filename + ": Error!")
+            print("\033[91m[KO]\033[0m " + context.filename)
             context.errors = sorted(context.errors + context.warnings, key=cmp_to_key(sort_errs))
             for err in context.errors:
                 print(err)
