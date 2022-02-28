@@ -230,6 +230,7 @@ class Lexer:
                     tkn_value.startswith("0x") is False
                     and tkn_value.startswith("0X") is False
                     and ("." not in tkn_value or "f" in tkn_value or "F" in tkn_value)
+                    and "e" not in tkn_value
                     or "u" in tkn_value
                     or "U" in tkn_value
                     or "l" in tkn_value
