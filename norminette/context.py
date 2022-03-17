@@ -314,10 +314,10 @@ In \"{self.scope.name}\" from \
         """
         lbrackets = ["LBRACKET", "LBRACE", "LPARENTHESIS"]
         rbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
-        try:
-            c = self.peek_token(pos).type
-        except:
-            raise CParsingError(f"Error: Code ended unexpectedly.")
+        # try:
+        c = self.peek_token(pos).type
+        # except:
+            # raise CParsingError(f"Error: Code ended unexpectedly.")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]
