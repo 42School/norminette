@@ -19,8 +19,8 @@ assign_ops = [
 
 SEPARATORS = [
     "COMMA",
-    "AND",
-    "OR",
+    # "AND",
+    # "OR",
     "SEMI_COLON"
 ]
 
@@ -98,6 +98,7 @@ class IsAssignation(PrimaryRule):
         Catches all assignation instructions
         Requires assign token
         """
+        # pdb.set_trace()
         ret, i = self.check_identifier(context, 0)
         if ret is False:
             return False, 0
