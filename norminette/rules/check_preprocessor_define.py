@@ -64,8 +64,8 @@ class CheckPreprocessorDefine(Rule):
                     context.new_error("TAB_INSTEAD_SPC", tkn)
                 i += 1
                 continue
-            elif tkn.type == "IDENTIFIER" and len(identifiers) == 0:
-                if tkn.value.isupper() is False:
+            elif (tkn.type == "IDENTIFIER" or tkn.type == "NULL") and len(identifiers) == 0:
+                if tkn.type is not "NULL" and tkn.value.isupper() is False:
                     context.new_error("MACRO_NAME_CAPITAL", tkn)
                 identifiers.append(tkn)
                 tmp = i
