@@ -1,4 +1,5 @@
 from norminette.rules import Rule
+import pdb
 
 types = ["INT", "FLOAT", "CHAR", "DOUBLE", "LONG", "SHORT"]
 
@@ -13,6 +14,7 @@ class CheckFuncDeclaration(Rule):
         Maximum 4 arguments in a function
         Function declaration must be preceded by a newline
         """
+        # pdb.set_trace()
         i = 0
         tmp = 0
         start = 0
@@ -45,9 +47,9 @@ class CheckFuncDeclaration(Rule):
         while deep > 0:
             if context.check_token(i, "LPARENTHESIS"):
                 i = context.skip_nest(i)
-            if context.check_token(i, "RPARENTHESIS"):
+            elif context.check_token(i, "RPARENTHESIS"):
                 deep -= 1
-            if context.check_token(i, "COMMA"):
+            elif context.check_token(i, "COMMA"):
                 arg += 1
             i += 1
         if context.check_token(i - 1, ["SPACE", "TAB"]) is True:
