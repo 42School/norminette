@@ -1,4 +1,5 @@
 from norminette.rules import PrimaryRule
+import pdb
 
 condition_ops = [
     "LESS_OR_EQUAL",
@@ -124,8 +125,9 @@ class IsFunctionCall(PrimaryRule):
         if context.check_token(i, "IDENTIFIER") is True:
             i += 1
             i = context.skip_ws(i)
-            if context.check_token(i, "LPARENTHESIS") is True:
-                i = context.skip_nest(i)
+            if context.check_token(i, "LPARENTHESIS"):
+                while context.check_token(i, "LPARENTHESIS") is True:
+                    i = context.skip_nest(i) + 1
                 while context.peek_token(i) is not None and context.check_token(i, SEPARATORS) is False:
                     i += 1
                 i += 1
