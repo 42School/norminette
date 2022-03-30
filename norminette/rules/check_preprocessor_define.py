@@ -124,5 +124,5 @@ class CheckPreprocessorDefine(Rule):
                 context.new_error("PREPROC_CONSTANT", tkn)
             i += 1
         if context.filetype == "h" and context.scope.header_protection != 1:
-            context.new_error("HEADER_PROT_ALL", context.peek_token(i))
+            context.new_error("HEADER_PROT_ALL", context.peek_token(0))
         return False, 0

@@ -27,6 +27,7 @@ class CheckPreprocessorProtection(Rule):
             return False, 0
         # protection = context.filename.upper().split("/")[-1].replace(".", "_")
         protection = Path(context.filename).name.upper().replace(".", "_")
+        print (protection)
         val = context.peek_token(i).value.split(" ")[-1]
         content = Lexer(val, context.peek_token(i).pos[0])
         tkns = content.get_tokens()
