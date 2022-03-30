@@ -38,7 +38,7 @@ def main():
         "-d",
         "--debug",
         action="count",
-        help="Debug output (multiple values available)",
+        help="Debug output (-dd outputs the whole tokenization and such, used for developping)",
         default=0,
     )
     parser.add_argument(

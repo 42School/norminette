@@ -36,7 +36,7 @@ class CheckEmptyLine(Rule):
         if context.history[-2] == "IsEmptyLine":
             context.new_error("CONSECUTIVE_NEWLINES", context.peek_token(i))
         if context.history[-2] != "IsVarDeclaration" and context.scope.name != "GlobalScope":
-            context.new_error("EMPTY_LINE_FUNCTION", context.peek_token(i))
+            context.new_error("EMPTY_LINE_FUNCTION", context.peek_token(0))
         if context.peek_token(i + 1) is None:
             context.new_error("EMPTY_LINE_EOF", context.peek_token(i))
 
