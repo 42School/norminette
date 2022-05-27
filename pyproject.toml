@@ -28,9 +28,6 @@ packages = [
 	{ include = "tools", from = "norminette" },
 ]
 
-# zip_safe = True -> not implemented yet
-# include_package_data = True -> to be investigated
-
 [tool.poetry.dependencies]
 python = ">=3.7"
 click = "^8"
