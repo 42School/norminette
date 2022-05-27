@@ -12,12 +12,12 @@ Install using pip
 python3 -m pip install norminette
 ```
 
-To upgrade pip
+Upgrade pip if warnings are annoying
 ```shell
 python3 -m pip install --upgrade pip
 ```
 
-To upgrade an existing install
+Upgrade or install the latest norminette
 ```shell
 python3 -m pip install --upgrade norminette
 ```
@@ -54,7 +54,7 @@ docker build -t norminette .
 docker run --rm -v $PWD:/code norminette [%path/to/c_or_h_files%]
 ```
 
-You may refer to a [dockerised norminette](https://hub.docker.com/r/alexandregv/norminette) image if necessary.
+You may refer to a [dockerised norminette image](https://hub.docker.com/r/alexandregv/norminette) if necessary.
 
 
 ## Issues reporting
