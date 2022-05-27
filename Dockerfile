@@ -1,11 +1,18 @@
-FROM python:3.7-alpine
+FROM python:3.9-alpine
 
-WORKDIR /usr/src/norminette
+ARG USR=norme
+RUN adduser -S $USR
+USER $USR
 
-COPY . .
+ARG LOCDIR=/home/$USR/.local/bin
+ENV PATH="${LOCDIR}:${PATH}"
 
-RUN pip3 install -r requirements.txt \
-	&& python3 setup.py install
+WORKDIR /usr/local/bin/norminette
+
+COPY pyproject.toml LICENSE README.md ./
+COPY norminette/ ./norminette
+
+RUN pip3 --disable-pip-version-check install --user .
 
 WORKDIR /code
 
