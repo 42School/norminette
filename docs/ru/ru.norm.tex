@@ -1,0 +1,492 @@
+\documentclass{42-ru}
+
+
+
+%******************************************************************************%
+%                                                                              %
+%                               Prologue                                       %
+%                                                                              %
+%******************************************************************************%
+
+\begin{document}
+\title{Норма}
+\subtitle{Версия 3}
+
+\summary
+{
+    Данный документ описывает Норму (Norme) - действующий в школе 42 стандарт написания кода.
+    Норма по умолчанию применяется ко всем проектам на Си, а также к любому проекту где это указано.
+}
+
+\maketitle
+
+\tableofcontents
+
+
+
+%******************************************************************************%
+%                                                                              %
+%                                 Foreword                                     %
+%                                                                              %
+%******************************************************************************%
+\chapter{Предисловие}
+
+    \texttt{norminette} - проект с открытым исходным кодом (Python v3). \\
+    Репозиторий доступен по https://github.com/42School/norminette. \\
+    Предложения, изменения и любой положительный вклад в проект приветствуются!
+
+   \newpage
+
+
+%******************************************************************************%
+%
+%                                   Pedago explanations                        %
+%
+%******************************************************************************%
+    \chapter{Зачем ?}
+
+    The Norm has been carefully crafted to fulfill many pedagogical needs. Here
+    are the most important reasons for all the choices below:
+    \begin{itemize}
+
+    \item Sequencing: coding implies splitting a big and complex task into a long series
+      of elementary instructions. All these instructions will be executed in sequence:
+      one after another. A beginner that starts creating software needs a simple and clear
+      architecture for their project, with a full understanding of all individual instructions
+      and the precise order of execution. Cryptic language syntaxes that do multiple
+      instructions apparently at the same time are confusing, functions that try to address
+      multiple tasks mixed in the same portion of code are source of errors.\\
+      The Norm asks you to create simple pieces of code, where the unique task of each piece
+      can be clearly understood and verified, and where the sequence of all the executed
+      instructions leaves no doubt. That's why we ask for 25 lines maximum in functions, also why
+      \texttt{for}, \texttt{do .. while}, or ternaries are forbidden.
+
+    \item Look and Feel: while exchanging with your friends and workmates during the
+      normal peer-learning process, and also during the peer-evaluations, you do not
+      want to spend time to decrypt their code, but directly talk about the
+      logic of the piece of code.\\
+      The Norm asks you to use a specific look and feel, providing instructions for the naming
+      of the functions and variables, indentation, brace rules, tab and spaces at many places... .
+      This will allow you to smoothly have a look at other's codes that will look familiar,
+      and get directly to the point instead of spending time to read the code before understanding it.
+      The Norm also comes as a trademark. As part of the 42 community, you will be able to
+      recognize code written by another 42 student or alumni when you'll be in the labor market.
+    
+    \item Long-term vision: making the effort to write understandable code is the
+      best way to maintain it. Each time that someone else, including you, has to fix a bug
+      or add a new feature they won't have to lose their precious time trying to figure out
+      what it does if previously you did things in the right way. This will avoid situations
+      where pieces of code stop being maintained just because it is time-consuming, and that
+      can make the difference when we talk about having a successful product in the market.
+      The sooner you learn to do so, the better.
+
+    \item References: you may think that some, or all, the rules included on the Norm are
+      arbitrary, but we actually thought and read about what to do and how to do it. We highly
+      encourage you to Google why the functions should be short and just do one thing, why the
+      name of the variables should make sense, why lines shouldn't be longer than 80 columns wide,
+      why a function should not take many parameters, why comments should be useful, etc, etc, etc...
+
+    \end{itemize}
+
+
+\newpage
+
+%******************************************************************************%
+%                                                                              %
+%                                The Norm                                      %
+%                                                                              %
+%******************************************************************************%
+\chapter{Норма}
+
+
+%******************************************************************************%
+%                             Naming conventions                               %
+%******************************************************************************%
+    \section{Именование}
+
+        \begin{itemize}
+
+            \item Имя структуры (struct) должно начинаться с \texttt{s\_}.
+
+            \item Имя определяемого типа (typedef) должно начинаться с \texttt{t\_}.
+
+            \item Имя объединения (union) должно начинаться с \texttt{u\_}.
+
+            \item Имя перечисления (enum) должно начинаться с \texttt{e\_}.
+
+            \item Имя глобальной переменной должно начинаться с \texttt{g\_}.
+
+            \item Имена переменных и функций состоят только из букв нижнего регистра,
+                  цифр и знака нижнего подчёркивания '\_' (UNIX Case).
+
+            \item Имена файлов и директорий состоят только из букв нижнего регистра,
+                  цифр и знака нижнего подчёркивания '\_' (UNIX Case).
+
+            \item Символы, не являющиеся частью стандарта ASCII, запрещены.
+
+            \item Переменные, функции, идентификаторы должны быть в "змеином" регистре (snake case):
+                  никаких заглавных букв, слова разделены нижним подчёркиванием.
+
+            \item Все идентификаторы (функции, макросы, типы, переменные, и т.д.) должны быть на английском.
+
+            \item Объекты (переменные, функции, макросы, типы, файлы/директории) должны иметь осмысленные имена
+                насколько это возможно.
+
+            \item Объявление глобальных переменных не помеченных как const или static запрещено.
+            Это считается ошибкой Нормы, только если проект явно не позволяет обратное.
+
+            \item Файл должен компилироваться, иначе он считается не проходящим Норму.
+        \end{itemize}
+\newpage
+
+%******************************************************************************%
+%                                 Formatting                                   %
+%******************************************************************************%
+    \section{Formatting}
+
+            \begin{itemize}
+
+                \item You must indent your code with 4-space
+                  tabulations. This is not the same as 4 average
+                  spaces, we're talking about real tabulations here.
+
+                \item Each function must be maximum 25 lines, not
+                  counting the function's own curly brackets.
+
+                \item Each line must be at most 80 columns wide, comments
+                  included. Warning: a tabulation doesn't count
+                  as a column, but as the number of spaces it
+                  represents.
+
+                \item Each function must be separated by a newline. Any comment or preprocessor instruction
+                    can be right above the function. The newline is after the previous function.
+
+                \item One instruction per line.
+
+                \item An empty line must be empty: no spaces or tabulations.
+
+                \item A line can never end with spaces or tabulations.
+
+                \item You can never have two consecutive spaces.
+
+                \item You need to start a new line after each curly bracket
+                  or end of control structure.
+
+                \item Unless it's the end of a line, each comma or semi-colon
+                  must be followed by a space.
+
+                \item Each operator or operand must be separated by one
+                 - and only one - space.
+
+                \item Each C keyword must be followed by a space, except for
+                  keywords for types (such as int, char, float, etc.),
+                  as well as sizeof.
+
+                \item Each variable declaration must be indented on the same
+                  column for its scope.
+
+                \item The asterisks that go with pointers must be stuck to
+                  variable names.
+
+                \item One single variable declaration per line.
+
+                \item Declaration and an initialisation cannot be
+                  on the same line, except for global variables (when allowed),
+                  static variables, and constants.
+
+                \item Declarations must be at the beginning of a function.
+
+                \item In a function, you must place an empty line between 
+                    variable declarations and the remaining of the function.
+                    No other empty lines are allowed in a function.
+
+                \item Multiple assignments are strictly forbidden.
+
+                \item You may add a new line after an instruction or
+                  control structure, but you'll have to add an
+                  indentation with brackets or assignment operator.
+                  Operators must be at the beginning of a line.
+
+                \item Control structures (if, while..) must have braces, unless they contain a single 
+                    line.
+
+                \item Braces following functions, declarators or control structures must be preceded and followed by a newline.
+
+            \end{itemize}
+
+            \newpage
+
+            General example:
+            \begin{42ccode}
+int             g_global;
+typedef struct  s_struct
+{
+    char    *my_string;
+    int     i;
+}               t_struct;
+struct          s_other_struct;
+
+int     main(void)
+{
+    int     i;
+    char    c;
+
+    return (i);
+}
+            \end{42ccode}
+            \newpage
+
+%******************************************************************************%
+%                              Function parameters                             %
+%******************************************************************************%
+    \section{Functions}
+
+        \begin{itemize}
+
+            \item A function can take 4 named parameters maximum.
+
+            \item A function that doesn't take arguments must be
+                explicitly prototyped with the word "void" as the
+                argument.
+
+            \item Parameters in functions' prototypes must be named.
+
+            \item Each function must be separated from the next by
+                an empty line.
+
+            \item You can't declare more than 5 variables per function.
+
+            \item Return of a function has to be between parenthesis. 
+
+            \item Each function must have a single tabulation between its
+                return type and its name.
+
+            \begin{42ccode}
+int my_func(int arg1, char arg2, char *arg3)
+{
+    return (my_val);
+}
+
+int func2(void)
+{
+    return ;
+}
+            \end{42ccode}
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                        Typedef, struct, enum and union                       %
+%******************************************************************************%
+    \section{Typedef, struct, enum and union}
+
+        \begin{itemize}
+
+            \item Add a tabulation when declaring a struct, enum or union.
+
+            \item When declaring a variable of type struct, enum or union,
+                add a single space in the type.
+
+            \item When declaring a struct, union or enum with a typedef,
+                all indentation rules apply.
+
+            \item Typedef name must be preceded by a tab.
+
+            \item You must indent all structures' names on the same column for their scope.
+
+            \item You cannot declare a structure in a .c file.
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                                   Headers                                    %
+%******************************************************************************%
+    \section{Headers - a.k.a include files}
+
+        \begin{itemize}
+
+            \item The things allowed in header files are:
+                header inclusions (system or not), declarations, defines,
+                prototypes and macros.
+
+            \item All includes must be at the beginning of the file.
+
+            \item You cannot include a C file.
+
+            \item Header files must be protected from double inclusions. If the file is
+            \texttt{ft\_foo.h}, its bystander macro is \texttt{FT\_FOO\_H}.
+
+            \item Unused header inclusions (.h) are forbidden.
+
+            \item All header inclusions must be justified in a .c file
+                as well as in a .h file.
+
+        \end{itemize}
+
+        \begin{42ccode}
+#ifndef FT_HEADER_H
+# define FT_HEADER_H
+# include <stdlib.h>
+# include <stdio.h>
+# define FOO "bar"
+
+int		g_variable;
+struct	s_struct;
+
+#endif
+        \end{42ccode}
+        \newpage
+
+
+%******************************************************************************%
+%                                 The 42 header                                %
+%******************************************************************************%
+
+   \section{The 42 header - a.k.a start a file with style}
+
+        \begin{itemize}
+
+        \item Every .c and .h file must immediately begin with the standard 42 header :
+          a multi-line comment with a special format including useful informations. The
+          standard header is naturally available on computers in clusters for various
+          text editors (emacs : using \texttt{C-c C-h}, vim using \texttt{:Stdheader} or
+          \texttt{F1}, etc...).
+
+        \item The 42 header must contain several informations up-to-date, including the
+          creator with login and email, the date of creation, the login and date of the
+          last update. Each time the file is saved on disk, the information should be
+          automatically updated.
+
+        \end{itemize}
+        \newpage
+        
+                
+%******************************************************************************%
+%                           Macros and Pre-processors                          %
+%******************************************************************************%
+    \section{Macros and Pre-processors}
+
+        \begin{itemize}
+
+            \item Preprocessor constants (or \#define) you create must be used
+                only for literal and constant values.
+            \item All \#define created to bypass the norm and/or obfuscate
+                code are forbidden. This part must be checked by a human.
+            \item You can use macros available in standard libraries, only
+                if those ones are allowed in the scope of the given project.
+            \item Multiline macros are forbidden.
+            \item Macro names must be all uppercase.
+            \item You must indent characters following \#if, \#ifdef
+                or \#ifndef.
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                              Forbidden stuff!                                %
+%******************************************************************************%
+    \section{Forbidden stuff!}
+
+        \begin{itemize}
+
+            \item You're not allowed to use:
+
+                \begin{itemize}
+
+                    \item for
+                    \item do...while
+                    \item switch
+                    \item case
+                    \item goto
+
+                \end{itemize}
+
+            \item Ternary operators such as `?'.
+
+            \item VLAs - Variable Length Arrays.
+
+            \item Implicit type in variable declarations
+
+        \end{itemize}
+        \begin{42ccode}
+    int main(int argc, char **argv)
+    {
+        int     i;
+        char    string[argc]; // This is a VLA
+
+        i = argc > 5 ? 0 : 1 // Ternary
+    }
+        \end{42ccode}
+        \newpage
+
+%******************************************************************************%
+%                                   Comments                                   %
+%******************************************************************************%
+    \section{Comments}
+
+        \begin{itemize}
+
+            \item Comments cannot be inside functions' bodies.
+                Comments must be at the end of a line, or on their own line
+
+            \item Your comments must be in English. And they must be
+                useful.
+
+            \item A comment cannot justify a "bastard" function.
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                                    Files                                     %
+%******************************************************************************%
+    \section{Files}
+
+        \begin{itemize}
+
+            \item You cannot include a .c file.
+
+            \item You cannot have more than 5 function-definitions in a .c file.
+
+        \end{itemize}
+        \newpage
+
+
+%******************************************************************************%
+%                                   Makefile                                   %
+%******************************************************************************%
+    \section{Makefile}
+
+            Makefiles aren't checked by the Norm, and must be checked during evaluation by 
+            the student.
+            \begin{itemize}
+
+                \item The \$(NAME), clean, fclean, re and all
+                  rules are mandatory.
+
+                \item If the makefile relinks, the project will be considered
+                  non-functional.
+
+                \item In the case of a multibinary project, in addition to
+                  the above rules, you must have a rule that compiles
+                  both binaries as well as a specific rule for each
+                  binary compiled.
+
+                  \item In the case of a project that calls a function from a non-system library
+                  (e.g.: \texttt{libft}), your makefile must compile
+                  this library automatically.
+
+                  \item All source files you need to compile your project must
+                    be explicitly named in your Makefile.
+
+            \end{itemize}
+
+
+\end{document}
+%******************************************************************************%
