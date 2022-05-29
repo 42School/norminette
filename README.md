@@ -51,7 +51,7 @@ See [installing packages using pip and virtual environments](https://packaging.p
 
 ```shell
 docker build -t norminette .
-docker run --rm -v $PWD:/code norminette [%path/to/c_or_h_files%]
+docker run --rm -v $PWD:/code norminette %path%
 ```
 
 You may refer to a [dockerised norminette image](https://hub.docker.com/r/alexandregv/norminette) if necessary.
