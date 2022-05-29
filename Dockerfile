@@ -1,5 +1,12 @@
 FROM python:3.9-alpine
 
+LABEL name="norminette"
+LABEL description = "42 Norme C linter."
+LABEL license="MIT"
+LABEL authors="42 <pedago@42.fr>"
+LABEL homepage="https://pypi.org/project/norminette/"
+LABEL repository="https://github.com/42School/norminette"
+
 ARG USR=norme
 RUN adduser -S $USR
 USER $USR
