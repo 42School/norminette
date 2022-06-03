@@ -117,10 +117,10 @@
             \item Имя глобальной переменной должно начинаться с \texttt{g\_}.
 
             \item Имена переменных и функций состоят только из букв нижнего регистра,
-                  цифр и знака нижнего подчёркивания '\_' (UNIX Case).
+                  цифр и знаков нижнего подчёркивания '\_' (UNIX Case).
 
             \item Имена файлов и директорий состоят только из букв нижнего регистра,
-                  цифр и знака нижнего подчёркивания '\_' (UNIX Case).
+                  цифр и знаков нижнего подчёркивания '\_' (UNIX Case).
 
             \item Символы, не являющиеся частью стандарта ASCII, запрещены.
 
@@ -130,12 +130,12 @@
             \item Все идентификаторы (функции, макросы, типы, переменные, и т.д.) должны быть на английском.
 
             \item Объекты (переменные, функции, макросы, типы, файлы/директории) должны иметь осмысленные имена
-                насколько это возможно.
+                  насколько это возможно.
 
-            \item Объявление глобальных переменных не помеченных как const или static запрещено.
-            Это считается ошибкой Нормы, только если проект явно не позволяет обратное.
+            \item Объявления глобальных переменных, не помеченных как const или static, запрещены.
+                  Это считается ошибкой Нормы, только если проект явно не разрешает обратное.
 
-            \item Файл должен компилироваться, иначе он считается не проходящим Норму.
+            \item Файл должен компилироваться, иначе он не проходит Норму.
         \end{itemize}
 \newpage
 
@@ -146,78 +146,65 @@
 
             \begin{itemize}
 
-                \item Вы обязаны делать отступы (индентацию) табуляцией равной 4 (четырём) пробелам.
-                      Это не то же самое, что 4 обычных пробела.
-                  tabulations. This is not the same as 4 average
-                  spaces, we're talking about real tabulations here.
+                \item Вы обязаны делать отступы/индентацию табуляцией равной 4 (четырём) пробелам.
+                    Это не то же самое, что 4 (четыре) обычных пробела - мы говорим именно про табуляцию.
 
-                \item Each function must be maximum 25 lines, not
-                  counting the function's own curly brackets.
+                \item Каждая функция (её тело) не должна превышать 25 строк, не считая её фигурные скобки.
 
-                \item Each line must be at most 80 columns wide, comments
-                  included. Warning: a tabulation doesn't count
-                  as a column, but as the number of spaces it
-                  represents.
+                \item Каждая строка не превышает 80 (восьмидесяти) столбцов, включая комментарии.
+                    Внимание: табуляция не считается за столбец, но как число пробелов, которые она представляет.
 
-                \item Each function must be separated by a newline. Any comment or preprocessor instruction
-                    can be right above the function. The newline is after the previous function.
+                \item Каждая функция должна быть отделена новой строкой. Комментарий или директива препроцессора
+                    может располагаться прямо (вплотную) над функцией. The newline is after the previous function.
 
-                \item One instruction per line.
+                \item Одна инструкция на строку.
 
-                \item An empty line must be empty: no spaces or tabulations.
+                \item Пустая строка должна быть пустой: ни пробелов, ни табуляций.
 
-                \item A line can never end with spaces or tabulations.
+                \item Строка никогда не завершается пробелами или табуляцией.
 
-                \item You can never have two consecutive spaces.
+                \item Вы не можете допускать два (и более) последовательных пробела.
 
-                \item You need to start a new line after each curly bracket
-                  or end of control structure.
+                \item После каждой фигурной скобки или управляющей структуры (if, while, ...) должна идти новая строка.
 
-                \item Unless it's the end of a line, each comma or semi-colon
-                  must be followed by a space.
+                \item Если это не конец строки, каждая запятая или точка-с-запятой должна "следоваться" пробелом.
 
-                \item Each operator or operand must be separated by one
-                 - and only one - space.
+                \item Каждый оператор или операнд должен отделяться лишь одним пробелом.
 
-                \item Each C keyword must be followed by a space, except for
-                  keywords for types (such as int, char, float, etc.),
-                  as well as sizeof.
+                \item Каждое ключевое слово языка Си должно "следоваться" пробелом, за исключением:
+                    1) ключевых слов для типов (int, char, float, и т.д.); 2) оператора sizeof.
 
-                \item Each variable declaration must be indented on the same
-                  column for its scope.
+                \item Каждое объявление переменной должно "отступаться"/индентироваться согласно её области видимости.
 
-                \item The asterisks that go with pointers must be stuck to
-                  variable names.
+                \item Звёздочка, относящаяся к переменной-указателю, должна "склеиваться" с именем этой переменной.
 
-                \item One single variable declaration per line.
+                \item На одной строке может быть объявлена лишь одна переменная.
 
-                \item Declaration and an initialisation cannot be
-                  on the same line, except for global variables (when allowed),
-                  static variables, and constants.
+                \item Объявление и инициализация на одной строке невозможны, за исключением:
+                    1) глобальных переменных (когда позволены); 2) статических переменных; 3) постоянных (констант).
 
-                \item Declarations must be at the beginning of a function.
+                \item Объявления в функции должны располагаться в её начале.
 
-                \item In a function, you must place an empty line between 
-                    variable declarations and the remaining of the function.
-                    No other empty lines are allowed in a function.
+                \item В функции, объявления переменных отделяются пустой строкой от остальной части функции.
+                    Нигде более пустые строки в функции не допускаются.
 
-                \item Multiple assignments are strictly forbidden.
+                \item Множественные присваивания строго запрещены.
 
-                \item You may add a new line after an instruction or
+                \item Вы можете добавить новую строку после инструкции или управляющей структуры may add a new line after an instruction or
                   control structure, but you'll have to add an
                   indentation with brackets or assignment operator.
                   Operators must be at the beginning of a line.
 
-                \item Control structures (if, while..) must have braces, unless they contain a single 
-                    line.
+                \item Управляющие структуры должны иметь фигурные скобки, только если они не состоят из одной строки.
 
-                \item Braces following functions, declarators or control structures must be preceded and followed by a newline.
+                \item Фигурные скобки после функций, деклараторов или управляющих конструкций должны охватываться символами новой строки.
+                    ШТА??????????????????????????????????
 
             \end{itemize}
 
             \newpage
 
-            General example:
+            Общий пример:
             \begin{42ccode}
 int             g_global;
 typedef struct  s_struct
