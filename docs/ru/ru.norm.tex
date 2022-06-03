@@ -288,25 +288,23 @@ int func2(void)
 %******************************************************************************%
 %                                   Headers                                    %
 %******************************************************************************%
-    \section{Headers - a.k.a include files}
+    \section{Заголовочные файлы}
 
         \begin{itemize}
 
-            \item The things allowed in header files are:
-                header inclusions (system or not), declarations, defines,
-                prototypes and macros.
+            \item В заголовочных .h файлах разрешаются: включения (#include),
+                объявления, определения (#define), прототипы и макросы.
 
-            \item All includes must be at the beginning of the file.
+            \item Все включения должны быть в начале заголовочного файла.
 
-            \item You cannot include a C file.
+            \item Нельзя "подключать" С файлы.
 
-            \item Header files must be protected from double inclusions. If the file is
-            \texttt{ft\_foo.h}, its bystander macro is \texttt{FT\_FOO\_H}.
+            \item Заголовочные файлы должны быть защищены от двойных включений
+                Если файл называется \texttt{ft\_foo.h}, его защищающий макрос - \texttt{FT\_FOO\_H}.
 
-            \item Unused header inclusions (.h) are forbidden.
+            \item Неиспользуемые заголовочные включения(.h) возбраняются.
 
-            \item All header inclusions must be justified in a .c file
-                as well as in a .h file.
+            \item Все заголовочные включения в .c или .h файлах должны быть оправданными.
 
         \end{itemize}
 
