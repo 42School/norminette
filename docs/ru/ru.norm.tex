@@ -348,18 +348,22 @@ struct	s_struct;
 %******************************************************************************%
 %                           Macros and Pre-processors                          %
 %******************************************************************************%
-    \section{Macros and Pre-processors}
+    \section{Макросы и Препроцессинг}
 
         \begin{itemize}
 
-            \item Preprocessor constants (or \#define) you create must be used
-                only for literal and constant values.
-            \item All \#define created to bypass the norm and/or obfuscate
-                code are forbidden. This part must be checked by a human.
-            \item You can use macros available in standard libraries, only
-                if those ones are allowed in the scope of the given project.
-            \item Multiline macros are forbidden.
-            \item Macro names must be all uppercase.
+            \item Постоянные препроцессора (\#define) должны использоваться
+                только для постоянных (constant) и литеральных (literal) значений.
+
+            \item Все \#define определения, созданные для обхода или запутывания Нормы запрещены.
+                Эта часть должна проверяться людьми.
+
+            \item Вы можете пользоваться макросами из стандартной библиотеки только если они разрешены в проекте.
+
+            \item Многострочные макросы не допускаются.
+
+            \item Имена макросов записываются только в верхнем регистре.
+
             \item You must indent characters following \#if, \#ifdef
                 or \#ifndef.
 
