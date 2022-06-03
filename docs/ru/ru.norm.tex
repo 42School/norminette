@@ -445,29 +445,24 @@ struct	s_struct;
 %******************************************************************************%
 %                                   Makefile                                   %
 %******************************************************************************%
-    \section{Makefile}
+    \section{Make файлы}
 
-            Makefiles aren't checked by the Norm, and must be checked during evaluation by 
-            the student.
+            Make файлы проверяются не Нормой, а учащимися во время оценки проекта.
             \begin{itemize}
 
-                \item The \$(NAME), clean, fclean, re and all
-                  rules are mandatory.
+                \item Правила \$(NAME), clean, fclean, re и all обязательны.
 
-                \item If the makefile relinks, the project will be considered
-                  non-functional.
+                \item Если Make файл пересобирается (relinks), проект считается неработающим.
 
-                \item In the case of a multibinary project, in addition to
-                  the above rules, you must have a rule that compiles
-                  both binaries as well as a specific rule for each
-                  binary compiled.
+                \item В случае проекта с множеством бинарных файлов (бинарников),
+                    в дополнение к вышеуказанным правилам, необходимо определить правила,
+                    компилирующие бинарники как в отдельности, так и в совокупности.
 
-                  \item In the case of a project that calls a function from a non-system library
-                  (e.g.: \texttt{libft}), your makefile must compile
-                  this library automatically.
+                \item Если проект полагается на функцию из несистемной библиотеки, например, \texttt{libft},
+                    ваш Make файл должен компилировать библиотеку автоматически.
 
-                  \item All source files you need to compile your project must
-                    be explicitly named in your Makefile.
+                \item Все исходные файлы, требующиеся для компиляции проекта,
+                    должны быть явно обозначены в вашем Make файле.
 
             \end{itemize}
 
