@@ -1,0 +1,17 @@
+name: QA
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - run: echo "TRIGGER EVENT: ${{ github.event_name }}"
+      - run: echo "OS RUNNER: ${{ runner.os }}"
+      - run: echo "BRANCH NAME: ${{ github.ref }}"
+      - run: echo "REPOSITORY: ${{ github.repository }}"
+      - name: check out repository code
+        uses: actions/checkout@v3
+      - run: echo "The ${{ github.repository }} has been cloned"
+      - name: Listing files in the repository
+        run: |
+          ls ${{ github.workspace }}
+        - run: echo "JOB STATUS: ${{ job.status }}"
