@@ -1,11 +1,25 @@
-FROM python:3.7-alpine
+FROM python:3.9-alpine
 
-WORKDIR /usr/src/norminette
+LABEL name="norminette"
+LABEL description="42 Norme C linter."
+LABEL license="MIT"
+LABEL authors="42 <pedago@42.fr>"
+LABEL homepage="https://pypi.org/project/norminette/"
+LABEL repository="https://github.com/42School/norminette"
 
-COPY . .
+ARG USR=norme
+RUN adduser -S $USR
+USER $USR
 
-RUN pip3 install -r requirements.txt \
-	&& python3 setup.py install
+ARG LOCDIR=/home/$USR/.local/bin
+ENV PATH="${LOCDIR}:${PATH}"
+
+WORKDIR /usr/local/bin/norminette
+
+COPY pyproject.toml LICENSE README.md ./
+COPY norminette/ ./norminette
+
+RUN pip3 --disable-pip-version-check install --user .
 
 WORKDIR /code
 
