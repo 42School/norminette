@@ -1,4 +1,4 @@
-name: "Setup" norminette"
+name: "Setup norminette"
 on: [ push, pull_request ]
 jobs:
   setup:
