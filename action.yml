@@ -13,5 +13,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  entrypoint: 'sh'
   args:
-    - ${{ inputs.args }}
+    - '-c'
+    - "norminette ${{ inputs.args }}"
