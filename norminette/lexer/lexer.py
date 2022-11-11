@@ -32,7 +32,7 @@ class Lexer:
         self.tokens = []
 
     def peek_sub_string(self, size):
-        return self.src[self.__pos : self.__pos + size]
+        return self.src[self.__pos: self.__pos + size]
 
     def peek_char(self):
         """Return current character being checked,
@@ -42,7 +42,7 @@ class Lexer:
         """
         if self.__pos < self.len:
             if self.src[self.__pos] == "\\":
-                self.__char = self.src[self.__pos : self.__pos + 2]
+                self.__char = self.src[self.__pos: self.__pos + 2]
             else:
                 self.__char = self.src[self.__pos]
         else:
@@ -273,7 +273,7 @@ class Lexer:
         self.pop_char(), self.pop_char()
         tkn_value = "/*"
         while self.peek_char():
-            if self.src[self.__pos :].startswith("*/"):
+            if self.src[self.__pos:].startswith("*/"):
                 tkn_value += "*/"
                 self.pop_char(), self.pop_char()
                 break
@@ -319,6 +319,7 @@ class Lexer:
                 continue
             tkn_value += self.peek_char()
             self.pop_char()
+
         if tkn_value in keywords:
             self.tokens.append(Token(keywords[tkn_value], pos))
 
@@ -407,10 +408,10 @@ class Lexer:
             elif self.peek_char() == "#":
                 self.preprocessor()
 
-            elif self.src[self.__pos :].startswith("/*"):
+            elif self.src[self.__pos:].startswith("/*"):
                 self.mult_comment()
 
-            elif self.src[self.__pos :].startswith("//"):
+            elif self.src[self.__pos:].startswith("//"):
                 self.comment()
 
             elif self.peek_char() in "+-*/,<>^&|!=%;:.~?":

@@ -2,6 +2,7 @@ from norminette.rules import Rule
 
 types = [
     "INT",
+    "BOOL",
     "VOID",
     "CHAR",
     "LONG",

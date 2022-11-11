@@ -1,7 +1,7 @@
 from norminette.rules import Rule
 import pdb
 
-types = ["INT", "FLOAT", "CHAR", "DOUBLE", "LONG", "SHORT"]
+types = ["INT", "BOOL", "FLOAT", "CHAR", "DOUBLE", "LONG", "SHORT"]
 
 
 class CheckFuncDeclaration(Rule):
@@ -27,18 +27,18 @@ class CheckFuncDeclaration(Rule):
         # context.new_error("NEWLINE_IN_DECL", context.peek_token(tmp))
         # this is a func declaration
         if context.history[-1] == 'IsFuncDeclaration':
-#        if context.check_token(tmp, "SEMI_COLON") is False:
+            #        if context.check_token(tmp, "SEMI_COLON") is False:
             i = 2
             length = len(context.history)
             while length - i >= 0 and (context.history[-i] == "IsPreprocessorStatement"
-                or context.history[-i] == "IsComment"
-                or context.history[-i] == "IsFuncDeclaration"
-            ):
+                                       or context.history[-i] == "IsComment"
+                                       or context.history[-i] == "IsFuncDeclaration"
+                                       ):
                 i += 1
             if length - i > 0 and context.history[-i] != "IsEmptyLine":
                 context.new_error("NEWLINE_PRECEDES_FUNC", context.peek_token(start))
         i = context.fname_pos + 1
-        while (context.check_token(i, ["RPARENTHESIS"])) is True: #, "SPACE", "TAB"])) is True:
+        while (context.check_token(i, ["RPARENTHESIS"])) is True:  # , "SPACE", "TAB"])) is True:
             i += 1
         if context.check_token(i, "LPARENTHESIS") is False:
             context.new_error("EXP_PARENTHESIS", context.peek_token(i))

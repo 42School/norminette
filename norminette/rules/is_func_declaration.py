@@ -59,6 +59,7 @@ type_identifier = [
     "ENUM",
     "FLOAT",
     "INT",
+    "BOOL",
     "UNION",
     "VOID",
     "LONG",
@@ -180,13 +181,13 @@ class IsFuncDeclaration(PrimaryRule):
                     i += 1
             else:
                 i += 1
-        if len(type_id) > 0 and args == True and identifier != None:
+        if len(type_id) > 0 and args == True and identifier is not None:
             i = identifier[1]
             i = context.skip_ws(i, nl=True)
             while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
                 i += 1
             sc = context.scope
-            while type(sc) != GlobalScope:
+            while not isinstance(sc, GlobalScope):
                 sc = sc.outer()
             sc.fnames.append(context.peek_token(i).value)
             context.fname_pos = i
@@ -218,7 +219,7 @@ class IsFuncDeclaration(PrimaryRule):
         Allows newline inside it
         Creates context variable for function name, arg_start, arg_end
         """
-        if type(context.scope) is not GlobalScope:
+        if not isinstance(context.scope, GlobalScope):
             return False, 0
         ret, read = self.check_func_format(context)
         if ret is False:

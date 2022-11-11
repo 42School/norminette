@@ -21,6 +21,7 @@ keywords = [
     "GOTO",
     "IF",
     "INT",
+    "BOOL",
     "LONG",
     "REGISTER",
     "RETURN",

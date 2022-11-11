@@ -7,6 +7,7 @@ types = [
     "ENUM",
     "UNION",
     "INT",
+    "BOOL",
     "VOID",
     "CHAR",
     "UNSIGNED",
@@ -49,7 +50,7 @@ class CheckUtypeDeclaration(Rule):
                 pass
             if context.check_token(i, ["LPARENTHESIS"]) is True:
                 val, tmp = context.parenthesis_contain(i)
-                if val == None or val == "cast" or val == "var":
+                if val is None or val == "cast" or val == "var":
                     i = tmp
             if context.check_token(i, utypes) is True:
                 utype = context.peek_token(i)
@@ -80,7 +81,7 @@ class CheckUtypeDeclaration(Rule):
             i += 1
         check = -1
 #        print (ids, utype, contain_full_def)
-        if is_td == True and len(ids) < 2 and utype != None:
+        if is_td == True and len(ids) < 2 and utype is not None:
             context.new_error("MISSING_TYPEDEF_ID", context.peek_token(0))
             return False, 0
         if contain_full_def == False and is_td == False and len(ids) > 1:
@@ -120,7 +121,7 @@ class CheckUtypeDeclaration(Rule):
             while (context.check_token(tmp, "TAB")) is True and tmp > 0:
                 tabs += 1
                 tmp -= 1
-            #if tabs > 1:
+            # if tabs > 1:
                 #context.new_error("TOO_MANY_TABS_TD", context.peek_token(tmp))
             if context.check_token(tmp, "SPACE") is True:
                 context.new_error("SPACE_REPLACE_TAB", context.peek_token(tmp))
