@@ -32,7 +32,10 @@ class norminetteRuleTester:
         else:
             self.__failed += 1
             print("Error")
-            diff = difflib.ndiff(test.splitlines(keepends=True), ref.splitlines(keepends=True))
+            diff = difflib.ndiff(
+                test.splitlines(
+                    keepends=True), ref.splitlines(
+                    keepends=True))
             diff = list(diff)
             self.result.append("✗ ")
             print("".join(diff))

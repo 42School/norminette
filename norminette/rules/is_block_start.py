@@ -32,15 +32,8 @@ class IsBlockStart(PrimaryRule):
             if item == "IsEmptyLine" or item == "IsComment" or item == "IsPreprocessorStatement":
                 lines -= 1
                 continue
-            if (
-                item
-                not in [
-                    "IsControlStatement",
-                    "IsFuncDeclaration",
-                    "IsUserDefinedType",
-                ]
-                or (item in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType"] and lines >= 1)
-            ):
+            if (item not in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType", ] or (
+                    item in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType"] and lines >= 1)):
                 context.sub = context.scope.inner(ControlStructure)
                 context.sub.multiline = True
                 break

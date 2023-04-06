@@ -121,8 +121,10 @@ class IsFuncPrototype(PrimaryRule):
         identifier = None
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
-        while context.peek_token(i):  # and context.check_token(i, "NEWLINE") is False:
-            while context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+        # and context.check_token(i, "NEWLINE") is False:
+        while context.peek_token(i):
+            while context.check_token(i, "IDENTIFIER") is True and context.peek_token(
+                    i).value == "__attribute__":
                 i += 1
                 i = context.skip_ws(i)
                 i = context.skip_nest(i) + 1
@@ -131,7 +133,9 @@ class IsFuncPrototype(PrimaryRule):
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE", "RBRACE"] + preproc) is True:
+            if context.check_token(i, assigns +
+                                   ["TYPEDEF", "COMMA", "LBRACE", "RBRACE"] +
+                                   preproc) is True:
                 return False, 0
             if context.check_token(i, "SEMI_COLON") is True:
                 break
@@ -144,14 +148,16 @@ class IsFuncPrototype(PrimaryRule):
                 if par[0] == "function":
                     if identifier is not None:
                         type_id.append(identifier[0])
-                    while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
+                    while context.check_token(
+                            i, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
                         i += 1
                     identifier = (context.peek_token(i), i)
                     i = context.skip_nest(i)
                 elif par[0] == "pointer":
                     if identifier is not None:
                         type_id.append(identifier[0])
-                    while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
+                    while context.check_token(
+                            i, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
                         i += 1
                     identifier = (context.peek_token(i), i)
                     nxt = par[1] + 1
@@ -166,19 +172,22 @@ class IsFuncPrototype(PrimaryRule):
                     break
             else:
                 i += 1
-        if len(type_id) > 0 and args == True and identifier != None:
+        if len(type_id) > 0 and args == True and identifier is not None:
             i = identifier[1]
-            while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
+            while context.check_token(
+                    i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
                 i += 1
             sc = context.scope
-            while type(sc) != GlobalScope:
+            while not isinstance(sc, GlobalScope):
                 sc = sc.outer()
             sc.fnames.append(context.peek_token(i).value)
             if context.func_alignment == 0:
                 tmp = i
-                while context.check_token(tmp - 1, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
+                while context.check_token(
+                        tmp - 1, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
                     tmp -= 1
-                context.func_alignment = int(context.peek_token(tmp).pos[1] / 4)
+                context.func_alignment = int(
+                    context.peek_token(tmp).pos[1] / 4)
             context.fname_pos = i
             context.arg_pos = [arg_start, arg_end]
             i = arg_end
@@ -198,7 +207,9 @@ class IsFuncPrototype(PrimaryRule):
         End condition is SEMI_COLON token, otherwise line will be considered as
         function declaration
         """
-        if type(context.scope) is not GlobalScope and type(context.scope) is not UserDefinedType:
+        if not isinstance(
+                context.scope, GlobalScope) and not isinstance(
+                context.scope, UserDefinedType):
             return False, 0
         ret, read = self.check_func_format(context)
         if ret is False:

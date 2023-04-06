@@ -115,6 +115,7 @@ class NormError:
     def __str__(self):
         return self.prefix + self.error_msg
 
+
 class NormWarning:
     def __init__(self, errno, line, col=None):
         self.errno = errno

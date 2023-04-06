@@ -47,24 +47,30 @@ class CheckAssignation(Rule):
             if context.check_token(i, "LPARENTHESIS") is True:
                 start = i
                 tmp_typ, i = context.parenthesis_contain(i)
-                if tmp_typ != None:
+                if tmp_typ is not None:
                     typ = tmp_typ
                 if tmp_typ == "assign":
-                    context.new_error("MULT_ASSIGN_LINE", context.peek_token(start))
+                    context.new_error(
+                        "MULT_ASSIGN_LINE", context.peek_token(start))
                 if tmp_typ is None:
                     tmp = start + 1
-                    while context.peek_token(tmp) and context.check_token(tmp, "RPARENTHESIS") is False:
-                        if context.check_token(tmp, "COMMA") is True and typ is not None:
-                            context.new_error("TOO_MANY_INSTR", context.peek_token(tmp))
+                    while context.peek_token(tmp) and context.check_token(
+                            tmp, "RPARENTHESIS") is False:
+                        if context.check_token(
+                                tmp, "COMMA") is True and typ is not None:
+                            context.new_error(
+                                "TOO_MANY_INSTR", context.peek_token(tmp))
                         tmp += 1
             if context.check_token(i, assigns) is True:
                 if mini_assign == True:
                     mini_assign = False
                 else:
-                    context.new_error("MULT_ASSIGN_LINE", context.peek_token(i))
+                    context.new_error(
+                        "MULT_ASSIGN_LINE", context.peek_token(i))
             if context.check_token(i, special_assigns) is True:
                 if mini_assign == True:
-                    context.new_error("MULT_ASSIGN_LINE", context.peek_token(i))
+                    context.new_error(
+                        "MULT_ASSIGN_LINE", context.peek_token(i))
             i += 1
         return False, 0
 
@@ -77,7 +83,8 @@ class CheckAssignation(Rule):
         assign_present = False
         mini_assign = False
         while context.check_token(i, "SEMI_COLON") is False:
-            if context.check_token(i, assigns + special_assigns) is True and assign_present == False:
+            if context.check_token(
+                    i, assigns + special_assigns) is True and assign_present == False:
                 assign_present = True
                 if context.check_token(i, special_assigns):
                     mini_assign = True

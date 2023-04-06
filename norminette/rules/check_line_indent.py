@@ -13,12 +13,13 @@ class CheckLineIndent(Rule):
         """
         Each new scope (function, control structure, struct/enum type declaration) adds a tab to the general indentation
         """
-        expected = context.scope.indent 
-        if context.history[-1] in ["IsEmptyLine", 'IsComment', "IsPreprocessorStatement", "IsVariableDeclaration"]:
+        expected = context.scope.indent
+        if context.history[-1] in ["IsEmptyLine", 'IsComment',
+                                   "IsPreprocessorStatement", "IsVariableDeclaration"]:
             return False, 0
         if (
             context.history[-1] != "IsPreprocessorStatement"
-            and type(context.scope) is GlobalScope
+            and isinstance(context.scope, GlobalScope)
             and context.scope.include_allowed == True
         ):
             context.scope.include_allowed = False

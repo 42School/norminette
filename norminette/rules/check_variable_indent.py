@@ -75,7 +75,8 @@ class CheckVariableIndent(Rule):
         while context.check_token(i, assigns_or_eol) is False:
             if context.check_token(i, keywords) is True:
                 type_identifier_nb += 1
-            if context.check_token(i, ["LPARENTHESIS", "LBRACE", "LBRACKET"]) and type_identifier_nb > 0 and context.parenthesis_contain(i)[0] != "pointer":
+            if context.check_token(i, ["LPARENTHESIS", "LBRACE", "LBRACKET"]
+                                   ) and type_identifier_nb > 0 and context.parenthesis_contain(i)[0] != "pointer":
                 i = context.skip_nest(i)
             i += 1
         i = 0
@@ -89,11 +90,13 @@ class CheckVariableIndent(Rule):
                     elif context.check_token(i, "IDENTIFIER") is True:
                         for c in context.peek_token(i).value:
                             if c in string.ascii_lowercase:
-                                context.new_error("VLA_FORBIDDEN", context.peek_token(i))
+                                context.new_error(
+                                    "VLA_FORBIDDEN", context.peek_token(i))
                                 break
                         return True, i
                     i += 1
-            if context.check_token(i, keywords) is True and type_identifier_nb > 0:
+            if context.check_token(
+                    i, keywords) is True and type_identifier_nb > 0:
                 line_start = False
                 type_identifier_nb -= 1
                 if context.peek_token(i).length == 0:
@@ -125,7 +128,8 @@ class CheckVariableIndent(Rule):
         ident = [0, 0]
         ret = None
         self.check_tabs(context)
-        while context.peek_token(i) and context.check_token(i, ["SEMI_COLON", "COMMA", "ASSIGN"]) is False:
+        while context.peek_token(i) and context.check_token(
+                i, ["SEMI_COLON", "COMMA", "ASSIGN"]) is False:
             if context.check_token(i, ["LBRACKET", "LBRACE"]) is True:
                 i = context.skip_nest(i)
             if context.check_token(i, "LPARENTHESIS") is True:
@@ -137,7 +141,8 @@ class CheckVariableIndent(Rule):
             i += 1
         i = ident[1]
         identifier = ident[0]
-        if context.check_token(i - 1, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:
+        if context.check_token(
+                i - 1, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:
             i -= 1
             while (
                 context.check_token(i - 1, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True

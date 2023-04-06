@@ -32,7 +32,7 @@ class Lexer:
         self.tokens = []
 
     def peek_sub_string(self, size):
-        return self.src[self.__pos : self.__pos + size]
+        return self.src[self.__pos: self.__pos + size]
 
     def peek_char(self):
         """Return current character being checked,
@@ -42,7 +42,7 @@ class Lexer:
         """
         if self.__pos < self.len:
             if self.src[self.__pos] == "\\":
-                self.__char = self.src[self.__pos : self.__pos + 2]
+                self.__char = self.src[self.__pos: self.__pos + 2]
             else:
                 self.__char = self.src[self.__pos]
         else:
@@ -57,7 +57,8 @@ class Lexer:
             # this calculates the 'visual offset' of a tab based on it's
             # position on the line, if there's an easier way to calculate this
             # you're welcome
-            self.__line_pos = int((self.__line_pos + 4 - (self.__line_pos - 1) % 4) * 5 / 5)
+            self.__line_pos = int(
+                (self.__line_pos + 4 - (self.__line_pos - 1) % 4) * 5 / 5)
         else:
             self.__line_pos += 1
         if self.__pos < self.len and self.src[self.__pos] == "\\":
@@ -177,7 +178,8 @@ class Lexer:
                         raise TokenError(pos)
 
             elif self.peek_char() in "bB":
-                if tkn_value != "0" and tkn_value.startswith("0x") is False and tkn_value.startswith("0X") is False:
+                if tkn_value != "0" and tkn_value.startswith(
+                        "0x") is False and tkn_value.startswith("0X") is False:
                     raise TokenError(pos)
 
             elif self.peek_char() in "+-":
@@ -263,7 +265,8 @@ class Lexer:
 
             tkn_value += self.peek_char()
             self.pop_char()
-        if tkn_value[-1] in "eE" and tkn_value.startswith("0x") is False or tkn_value[-1] in "xX":
+        if tkn_value[-1] in "eE" and tkn_value.startswith(
+                "0x") is False or tkn_value[-1] in "xX":
             raise TokenError(pos)
         else:
             self.tokens.append(Token("CONSTANT", pos, tkn_value))
@@ -273,7 +276,7 @@ class Lexer:
         self.pop_char(), self.pop_char()
         tkn_value = "/*"
         while self.peek_char():
-            if self.src[self.__pos :].startswith("*/"):
+            if self.src[self.__pos:].startswith("*/"):
                 tkn_value += "*/"
                 self.pop_char(), self.pop_char()
                 break
@@ -312,8 +315,8 @@ class Lexer:
         pos = self.line_pos()
         tkn_value = ""
         while self.peek_char() and (
-            self.peek_char() in string.ascii_letters + "0123456789_" or self.peek_char() == "\\\n"
-        ):
+                self.peek_char() in string.ascii_letters +
+                "0123456789_" or self.peek_char() == "\\\n"):
             if self.peek_char() == "\\\n":
                 self.pop_char()
                 continue
@@ -335,20 +338,27 @@ class Lexer:
         if self.peek_char() in ".+-*/%<>^&|!=":
 
             if self.peek_sub_string(3) in [">>=", "<<=", "..."]:
-                self.tokens.append(Token(operators[self.peek_sub_string(3)], pos))
+                self.tokens.append(
+                    Token(operators[self.peek_sub_string(3)], pos))
                 self.pop_char(), self.pop_char(), self.pop_char()
 
             elif self.peek_sub_string(2) in [">>", "<<", "->"]:
-                self.tokens.append(Token(operators[self.peek_sub_string(2)], pos))
+                self.tokens.append(
+                    Token(operators[self.peek_sub_string(2)], pos))
                 self.pop_char(), self.pop_char()
 
             elif self.peek_sub_string(2) == self.peek_char() + "=":
-                self.tokens.append(Token(operators[self.peek_sub_string(2)], pos))
+                self.tokens.append(
+                    Token(operators[self.peek_sub_string(2)], pos))
                 self.pop_char(), self.pop_char()
 
             elif self.peek_char() in "+-<>=&|":
                 if self.peek_sub_string(2) == self.peek_char() * 2:
-                    self.tokens.append(Token(operators[self.peek_sub_string(2)], pos))
+                    self.tokens.append(
+                        Token(
+                            operators
+                            [self.peek_sub_string(2)],
+                            pos))
                     self.pop_char()
                     self.pop_char()
 
@@ -374,17 +384,24 @@ class Lexer:
                 self.__line_pos = 1
                 self.__line += 1
             #    raise TokenError(self.line_pos())
-            if self.peek_sub_string(2) in ["//", "/*"] or self.peek_char() == "\n":
+            if self.peek_sub_string(
+                    2) in ["//", "/*"] or self.peek_char() == "\n":
                 break
         if len(tkn_value) <= 1:
             raise TokenError(self.line_pos())
         tkn_key = tkn_value[1:].split()[0]
-        if tkn_key not in preproc_keywords and tkn_key[: len("include")] != "include":
+        if tkn_key not in preproc_keywords and tkn_key[: len(
+                "include")] != "include":
             raise TokenError(self.line_pos())
         else:
-            if tkn_key not in preproc_keywords and tkn_key[: len("include")] == "include":
+            if tkn_key not in preproc_keywords and tkn_key[: len(
+                    "include")] == "include":
                 tkn_key = "include"
-            self.tokens.append(Token(preproc_keywords.get(tkn_key), pos, tkn_value))
+            self.tokens.append(
+                Token(
+                    preproc_keywords.get(tkn_key),
+                    pos,
+                    tkn_value))
 
     def get_next_token(self):
         """Peeks one character and tries to match it to a token type,
@@ -407,10 +424,10 @@ class Lexer:
             elif self.peek_char() == "#":
                 self.preprocessor()
 
-            elif self.src[self.__pos :].startswith("/*"):
+            elif self.src[self.__pos:].startswith("/*"):
                 self.mult_comment()
 
-            elif self.src[self.__pos :].startswith("//"):
+            elif self.src[self.__pos:].startswith("//"):
                 self.comment()
 
             elif self.peek_char() in "+-*/,<>^&|!=%;:.~?":
@@ -437,7 +454,10 @@ class Lexer:
                 self.__line += 1
 
             elif self.peek_char() in brackets:
-                self.tokens.append(Token(brackets[self.peek_char()], self.line_pos()))
+                self.tokens.append(
+                    Token(
+                        brackets[self.peek_char()],
+                        self.line_pos()))
                 self.pop_char()
             else:
                 raise TokenError(self.line_pos())

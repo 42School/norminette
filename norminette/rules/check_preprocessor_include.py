@@ -19,7 +19,8 @@ class CheckPreprocessorInclude(Rule):
         filetype = ""
         if context.check_token(i, "INCLUDE") is False:
             return False, 0
-        if type(context.scope) is not GlobalScope or context.scope.include_allowed == False:
+        if not isinstance(
+                context.scope, GlobalScope) or context.scope.include_allowed == False:
             context.new_error("INCLUDE_START_FILE", context.peek_token(i))
             return True, i
         val = context.peek_token(i).value.split("include", 1)[1]
@@ -41,11 +42,12 @@ class CheckPreprocessorInclude(Rule):
         elif i < len(tkns) and tkns[i].type == "STRING":
             try:
                 filetype = tkns[i].value.split(".")[-1][0]
-            except:
+            except BaseException:
                 filetype = ""
         while tkns[i].type != "NEWLINE" and i < len(tkns) - 1:
             i += 1
-        if (tkns[i].type == "NEWLINE" and tkns[i - 1].type in ["SPACE", "TAB"]) or tkns[i].type in ["SPACE", "TAB"]:
+        if (tkns[i].type == "NEWLINE" and tkns[i - 1].type in ["SPACE",
+                                                               "TAB"]) or tkns[i].type in ["SPACE", "TAB"]:
             context.new_error("SPC_BEFORE_NL", context.peek_token(0))
         if filetype and filetype != "h":
             context.new_error("INCLUDE_HEADER_ONLY", context.peek_token(0))

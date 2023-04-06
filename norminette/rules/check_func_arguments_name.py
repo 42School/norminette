@@ -3,7 +3,15 @@ from norminette.rules import Rule
 
 import pdb
 
-type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID", "SHORT"]
+type_specifiers = [
+    "CHAR",
+    "DOUBLE",
+    "ENUM",
+    "FLOAT",
+    "INT",
+    "UNION",
+    "VOID",
+    "SHORT"]
 
 misc_specifiers = ["CONST", "REGISTER", "STATIC", "STRUCT", "VOLATILE"]
 
@@ -53,7 +61,8 @@ class CheckFuncArgumentsName(Rule):
         if ret == False:
             context.new_error("ARG_TYPE_UKN", context.peek_token(i))
             return -1
-        while context.peek_token(i) is not None and context.check_token(i, ["LPARENTHESIS"] + whitespaces):
+        while context.peek_token(i) is not None and context.check_token(i, [
+                "LPARENTHESIS"] + whitespaces):
             if context.check_token(i, "LPARENTHESIS") is True:
                 p += 1
             if context.check_token(i, "RPARENTHESIS") is True:
@@ -64,13 +73,17 @@ class CheckFuncArgumentsName(Rule):
             i = context.skip_misc_specifier(i)
             ret, i = context.check_identifier(i)
             if ret is False:
-                context.new_error("MISSING_IDENTIFIER", context.peek_token(i - 1))
+                context.new_error(
+                    "MISSING_IDENTIFIER",
+                    context.peek_token(
+                        i - 1))
             else:
                 i += 1
                 i = context.skip_ws(i)
             while context.peek_token(i) is not None and i < context.arg_pos[1]:
                 if context.check_token(i, stop) is True:
-                    if context.check_token(i, "RPARENTHESIS") is True and p > 0:
+                    if context.check_token(
+                            i, "RPARENTHESIS") is True and p > 0:
 
                         p -= 1
                     else:
@@ -81,7 +94,8 @@ class CheckFuncArgumentsName(Rule):
             i += 1
 
         else:
-            while context.peek_token(i) is not None and context.peek_token(i).type not in stop:
+            while context.peek_token(
+                    i) is not None and context.peek_token(i).type not in stop:
                 i += 1
             i += 1
         return i

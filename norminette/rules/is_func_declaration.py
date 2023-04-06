@@ -129,18 +129,21 @@ class IsFuncDeclaration(PrimaryRule):
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
         while context.peek_token(i):
-            while context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+            while context.check_token(i, "IDENTIFIER") is True and context.peek_token(
+                    i).value == "__attribute__":
                 i += 1
                 i = context.skip_ws(i)
                 i = context.skip_nest(i)
                 i = context.skip_ws(i)
-            if context.check_token(i, "NEWLINE") is True and identifier == False and misc_id == [] and type_id == []:
+            if context.check_token(
+                    i, "NEWLINE") is True and identifier == False and misc_id == [] and type_id == []:
                 return False, 0
             if context.check_token(i, misc_identifier) is True:
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE"] + preproc) is True:
+            if context.check_token(
+                    i, assigns + ["TYPEDEF", "COMMA", "LBRACE"] + preproc) is True:
                 return False, 0
             if context.check_token(i, "SEMI_COLON") is True:
                 return False, 0
@@ -159,7 +162,8 @@ class IsFuncDeclaration(PrimaryRule):
                 if par[0] == "function":
                     if identifier is not None:
                         type_id.append(identifier[0])
-                    while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
+                    while context.check_token(
+                            i, ["LPARENTHESIS", "MULT", "BWISE_AND"]):
                         i += 1
                     identifier = (context.peek_token(i), i)
                     i = context.skip_nest(i)
@@ -180,13 +184,14 @@ class IsFuncDeclaration(PrimaryRule):
                     i += 1
             else:
                 i += 1
-        if len(type_id) > 0 and args == True and identifier != None:
+        if len(type_id) > 0 and args == True and identifier is not None:
             i = identifier[1]
             i = context.skip_ws(i, nl=True)
-            while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
+            while context.check_token(
+                    i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
                 i += 1
             sc = context.scope
-            while type(sc) != GlobalScope:
+            while not isinstance(sc, GlobalScope):
                 sc = sc.outer()
             sc.fnames.append(context.peek_token(i).value)
             context.fname_pos = i
@@ -204,7 +209,8 @@ class IsFuncDeclaration(PrimaryRule):
                 i = context.skip_nest(i)
                 i += 1
                 i = context.skip_ws(i, nl=True)
-            while context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+            while context.check_token(i, "IDENTIFIER") is True and context.peek_token(
+                    i).value == "__attribute__":
                 i += 1
                 i = context.skip_ws(i)
                 i = context.skip_nest(i) + 1
@@ -218,7 +224,7 @@ class IsFuncDeclaration(PrimaryRule):
         Allows newline inside it
         Creates context variable for function name, arg_start, arg_end
         """
-        if type(context.scope) is not GlobalScope:
+        if not isinstance(context.scope, GlobalScope):
             return False, 0
         ret, read = self.check_func_format(context)
         if ret is False:

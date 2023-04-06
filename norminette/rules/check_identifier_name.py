@@ -22,13 +22,18 @@ class CheckIdentifierName(Rule):
         legal_cap_characters = string.ascii_uppercase + string.digits + "_"
         if context.history[-1] == "IsFuncDeclaration":
             sc = context.scope
-            if type(sc) is not GlobalScope and type(sc) is not UserDefinedType:
+            if not isinstance(
+                    sc, GlobalScope) and not isinstance(
+                    sc, UserDefinedType):
                 context.new_error("WRONG_SCOPE_FCT", context.peek_token(0))
-            while type(sc) != GlobalScope:
+            while not isinstance(sc, GlobalScope):
                 sc = sc.outer()
             for c in sc.fnames[-1]:
                 if c not in legal_characters:
-                    context.new_error("FORBIDDEN_CHAR_NAME", context.peek_token(context.fname_pos))
+                    context.new_error(
+                        "FORBIDDEN_CHAR_NAME",
+                        context.peek_token(
+                            context.fname_pos))
         if len(context.scope.vars_name) > 0:
             for val in context.scope.vars_name[::]:
                 for c in val.value:

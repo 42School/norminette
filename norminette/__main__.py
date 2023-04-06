@@ -48,7 +48,12 @@ def main():
         help="By default norminette displays the full path to the file, this allows to show only filename",
         default=False,
     )
-    parser.add_argument("-v", "--version", action="version", version="norminette " + str(__version__))
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version="norminette " +
+        str(__version__))
     parser.add_argument(
         "--cfile",
         action="store",
@@ -72,11 +77,11 @@ def main():
     content = None
 
     debug = args.debug
-    if args.cfile != None or args.hfile != None:
+    if args.cfile is not None or args.hfile is not None:
         if args.filename:
-            targets = [ args.filename ]
+            targets = [args.filename]
         else:
-            targets = [ "file.c" ] if args.cfile else ["file.h"]
+            targets = ["file.c"] if args.cfile else ["file.h"]
         content = args.cfile if args.cfile else args.hfile
     else:
         args.file = args.file[0]
@@ -89,7 +94,10 @@ def main():
                 elif os.path.isdir(arg):
                     if arg[-1] != "/":
                         arg = arg + "/"
-                    targets.extend(glob.glob(arg + "**/*.[ch]", recursive=True))
+                    targets.extend(
+                        glob.glob(
+                            arg + "**/*.[ch]",
+                            recursive=True))
                 elif os.path.isfile(arg):
                     targets.append(arg)
     event = []
@@ -99,12 +107,12 @@ def main():
         else:
             try:
                 event.append(Event())
-                if content == None:
+                if content is None:
                     with open(target) as f:
                         try:
                             source = f.read()
                         except Exception as e:
-                            print ("Error: File could not be read: ", e)
+                            print("Error: File could not be read: ", e)
                             sys.exit(0)
                 else:
                     source = content
@@ -112,7 +120,7 @@ def main():
                     lexer = Lexer(source)
                     tokens = lexer.get_tokens()
                 except KeyError as e:
-                    print ("Error while parsing file:", e)
+                    print("Error while parsing file:", e)
                     sys.exit(0)
                 if args.only_filename == True:
                     # target = target.split("/")[-1]

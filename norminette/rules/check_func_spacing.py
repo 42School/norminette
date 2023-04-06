@@ -2,7 +2,15 @@ from norminette.rules import Rule
 
 whitespaces = ["SPACE", "TAB", "NEWLINE"]
 
-type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID", "SHORT"]
+type_specifiers = [
+    "CHAR",
+    "DOUBLE",
+    "ENUM",
+    "FLOAT",
+    "INT",
+    "UNION",
+    "VOID",
+    "SHORT"]
 
 misc_specifiers = ["CONST", "REGISTER", "STATIC", "STRUCT", "VOLATILE"]
 
@@ -24,12 +32,14 @@ class CheckFuncSpacing(Rule):
         """
         i = 0
         while i < context.fname_pos:
-            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(
+                    i).value == "__attribute__":
                 # context.new_error("ATTR_EOL", context.peek_token(i))
                 break
             i += 1
         i = context.fname_pos - 1
-        while context.check_token(i, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:
+        while context.check_token(
+                i, ["MULT", "BWISE_AND", "LPARENTHESIS"]) is True:
             i -= 1
         if context.peek_token(i).type == "SPACE":
             context.new_error("SPACE_BEFORE_FUNC", context.peek_token(i))

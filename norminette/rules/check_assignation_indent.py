@@ -47,7 +47,11 @@ nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]
 class CheckAssignationIndent(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsAssignation", "IsFuncPrototype", "IsFunctionCall", "IsVarDeclaration"]
+        self.depends_on = [
+            "IsAssignation",
+            "IsFuncPrototype",
+            "IsFunctionCall",
+            "IsVarDeclaration"]
 
     def run(self, context):
         """
@@ -67,20 +71,26 @@ class CheckAssignationIndent(Rule):
                     context.new_error("EOL_OPERATOR", context.peek_token(i))
                 tmp = context.skip_ws(i + 1)
                 if context.check_token(tmp, "COMMA"):
-                    context.new_error("COMMA_START_LINE", context.peek_token(i))
+                    context.new_error(
+                        "COMMA_START_LINE", context.peek_token(i))
                 got = 0
                 i += 1
                 while context.check_token(i + got, "TAB") is True:
                     got += 1
                 if context.peek_token(i + got) is None:
-                    raise CParsingError(f"Error: Unexpected EOF l.{context.peek_token(i - 1).pos[0]}")
-                if context.check_token(i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
+                    raise CParsingError(
+                        f"Error: Unexpected EOF l.{context.peek_token(i - 1).pos[0]}")
+                if context.check_token(
+                        i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
                     nest -= 1
-                if got > nest or (got > nest + 1 and context.history[-1] in ["IsAssignation", "IsVarDeclaration"]):
+                if got > nest or (
+                        got > nest + 1 and context.history[-1]
+                        in ["IsAssignation", "IsVarDeclaration"]):
                     context.new_error("TOO_MANY_TAB", context.peek_token(i))
                 elif got < nest or (got < nest - 1 and context.history[-1] in ["IsAssignation", "IsVarDeclaration"]):
                     context.new_error("TOO_FEW_TAB", context.peek_token(i))
-                if context.check_token(i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
+                if context.check_token(
+                        i + got, ["LBRACKET", "RBRACKET", "LBRACE", "RBRACE"]):
                     nest += 1
             if context.check_token(i, "LPARENTHESIS") is True:
                 nest += 1

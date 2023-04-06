@@ -2,6 +2,7 @@ from norminette.rules import Rule
 
 import pdb
 
+
 class CheckSpacing(Rule):
     def __init__(self):
         super().__init__()
@@ -21,36 +22,55 @@ class CheckSpacing(Rule):
             if context.check_token(i, "SPACE"):
                 if context.check_token(i - 1 if i > 0 else 0, "TAB"):
                     if space_tab_error == False:
-                        context.new_error("MIXED_SPACE_TAB", context.peek_token(i - 1))
+                        context.new_error(
+                            "MIXED_SPACE_TAB",
+                            context.peek_token(
+                                i - 1))
                         space_tab_error = True
                 if context.peek_token(i).pos[1] == 1:
-                    while i < context.tkn_scope and context.check_token(i, "SPACE"):
+                    while i < context.tkn_scope and context.check_token(
+                            i, "SPACE"):
                         i += 1
                     if context.check_token(i + 1, "NEWLINE"):
-                        context.new_error("SPACE_EMPTY_LINE", context.peek_token(i))
+                        context.new_error(
+                            "SPACE_EMPTY_LINE", context.peek_token(i))
                         i += 1
                         continue
-                    context.new_error("SPACE_REPLACE_TAB", context.peek_token(i))
+                    context.new_error(
+                        "SPACE_REPLACE_TAB", context.peek_token(i))
                     continue
                 i += 1
                 if context.check_token(i, "SPACE"):
                     if space_error == False:
-                        context.new_error("CONSECUTIVE_SPC", context.peek_token(i - 1))
+                        context.new_error(
+                            "CONSECUTIVE_SPC",
+                            context.peek_token(
+                                i - 1))
                         space_error = True
-                    while i < context.tkn_scope and context.check_token(i, "SPACE"):
+                    while i < context.tkn_scope and context.check_token(
+                            i, "SPACE"):
                         i += 1
                 if context.check_token(i, "NEWLINE"):
-                    context.new_error("SPC_BEFORE_NL", context.peek_token(i - 1))
+                    context.new_error(
+                        "SPC_BEFORE_NL",
+                        context.peek_token(
+                            i - 1))
                 if context.check_token(i, "TAB"):
                     if space_tab_error == False:
-                        context.new_error("MIXED_SPACE_TAB", context.peek_token(i - 1))
+                        context.new_error(
+                            "MIXED_SPACE_TAB",
+                            context.peek_token(
+                                i - 1))
                         space_tab_error = True
             elif context.check_token(i, "TAB"):
                 if context.peek_token(i).pos[1] == 1:
                     while context.check_token(i, "TAB"):
                         i += 1
                     if context.check_token(i, "NEWLINE"):
-                        context.new_error("SPC_BEFORE_NL", context.peek_token(i - 1))
+                        context.new_error(
+                            "SPC_BEFORE_NL",
+                            context.peek_token(
+                                i - 1))
                 else:
                     i += 1
             else:

@@ -57,11 +57,17 @@ class CheckExpressionStatement(Rule):
         parenthesis = False
         while context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
             if context.check_token(i, kw) is True:
-                if context.check_token(i + 1, ["SPACE", "NEWLINE", "RPARENTHESIS", "COMMENT", "MULT_COMMENT"]) is False:
+                if context.check_token(
+                    i + 1,
+                    ["SPACE", "NEWLINE", "RPARENTHESIS", "COMMENT",
+                     "MULT_COMMENT"]) is False:
                     context.new_error("SPACE_AFTER_KW", context.peek_token(i))
             if context.check_token(i, ["MULT", "BWISE_AND"]) is True and i > 0:
                 if context.check_token(i - 1, "IDENTIFIER") is True:
-                    context.new_error("SPACE_AFTER_KW", context.peek_token(i - 1))
+                    context.new_error(
+                        "SPACE_AFTER_KW",
+                        context.peek_token(
+                            i - 1))
             if context.check_token(i, "RETURN") is True:
                 tmp = i + 1
                 tmp = context.skip_ws(tmp)
@@ -69,12 +75,15 @@ class CheckExpressionStatement(Rule):
                     context.check_token(tmp, "SEMI_COLON") is False
                     and context.check_token(tmp, "LPARENTHESIS") is False
                 ):
-                    context.new_error("RETURN_PARENTHESIS", context.peek_token(tmp))
+                    context.new_error(
+                        "RETURN_PARENTHESIS",
+                        context.peek_token(tmp))
                     return False, 0
                 elif context.check_token(tmp, "SEMI_COLON") is False:
                     tmp = context.skip_nest(tmp) + 1
                     if context.check_token(tmp, "SEMI_COLON") is False:
-                        context.new_error("RETURN_PARENTHESIS", context.peek_token(tmp))
+                        context.new_error(
+                            "RETURN_PARENTHESIS", context.peek_token(tmp))
                         return False, 0
             i += 1
         return False, 0

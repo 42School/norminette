@@ -23,7 +23,9 @@ class ConstantTokensTest(unittest.TestCase):
         self.assertEqual(Lexer("-42").check_tokens(), "<MINUS><CONSTANT=42>\n")
 
     def test_many_signs_constant(self):
-        self.assertEqual(Lexer("+-42").check_tokens(), "<PLUS><MINUS><CONSTANT=42>\n")
+        self.assertEqual(
+            Lexer("+-42").check_tokens(),
+            "<PLUS><MINUS><CONSTANT=42>\n")
 
     def test_decimal_constant(self):
         self.assertEqual(Lexer("4.2").check_tokens(), "<CONSTANT=4.2>\n")
@@ -44,7 +46,9 @@ class ConstantTokensTest(unittest.TestCase):
         self.assertEqual(Lexer("0x42").check_tokens(), "<CONSTANT=0x42>\n")
 
     def test_hex_with_sign_constant(self):
-        self.assertEqual(Lexer("-0x4e2").check_tokens(), "<MINUS><CONSTANT=0x4e2>\n")
+        self.assertEqual(
+            Lexer("-0x4e2").check_tokens(),
+            "<MINUS><CONSTANT=0x4e2>\n")
 
     def test_hex_with_many_signs_constant(self):
         self.assertEqual(
@@ -89,7 +93,9 @@ class ConstantTokensTest(unittest.TestCase):
         self.assertRaises(Lexer("42lul").check_tokens)
 
     def test_misplaced_e(self):
-        self.assertEqual(Lexer(".e42").check_tokens(), "<DOT><IDENTIFIER=e42>\n")
+        self.assertEqual(
+            Lexer(".e42").check_tokens(),
+            "<DOT><IDENTIFIER=e42>\n")
 
     def test_another_misplaced_e(self):
         self.assertRaises(Lexer(".42e").check_tokens)

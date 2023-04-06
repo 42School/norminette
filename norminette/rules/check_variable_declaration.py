@@ -37,7 +37,7 @@ class CheckVariableDeclaration(Rule):
                 context.new_error("VAR_DECL_START_FUNC", context.peek_token(i))
             elif context.scope.vdeclarations_allowed == False:
                 context.new_error("VAR_DECL_START_FUNC", context.peek_token(i))
-            elif context.scope.vdeclarations_allowed == None:
+            elif context.scope.vdeclarations_allowed is None:
                 context.scope.vdeclarations_allowed = True
         elif context.scope.name == "GlobalScope" or context.scope.name == "UserDefinedType":
             pass
@@ -55,19 +55,22 @@ class CheckVariableDeclaration(Rule):
         if identifier == False:
             context.new_error("IMPLICIT_VAR_TYPE", context.peek_token(0))
             return False
-        while context.peek_token(i) and context.check_token(i, "SEMI_COLON") is False:
+        while context.peek_token(i) and context.check_token(
+                i, "SEMI_COLON") is False:
             if context.check_token(i, "LPARENTHESIS") is True:
                 i = context.skip_nest(i)
             if context.check_token(i, "ASSIGN") is True:
                 passed_assign = True
             if context.check_token(i, ["STATIC", "CONST"]) is True:
                 static_or_const = True
-            if context.check_token(i, assigns) is True and static_or_const == False:
+            if context.check_token(
+                    i, assigns) is True and static_or_const == False:
                 if context.scope.name == "GlobalScope":
                     i += 1
                     continue
                 context.new_error("DECL_ASSIGN_LINE", context.peek_token(i))
-            if context.check_token(i, "COMMA") is True and passed_assign == False:
+            if context.check_token(
+                    i, "COMMA") is True and passed_assign == False:
                 context.new_error("MULT_DECL_LINE", context.peek_token(i))
             i += 1
         return False, 0

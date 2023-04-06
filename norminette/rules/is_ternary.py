@@ -12,9 +12,11 @@ class IsTernary(Rule):
         Catches ternaries and raises an error
         """
         i = 0
-        while context.peek_token(i) is not None and context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
+        while context.peek_token(i) is not None and context.check_token(
+                i, ["SEMI_COLON", "NEWLINE"]) is False:
             if context.check_token(i, "TERN_CONDITION") is True:
-                while context.peek_token(i) is not None and context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
+                while context.peek_token(i) is not None and context.check_token(
+                        i, ["SEMI_COLON", "NEWLINE"]) is False:
                     i += 1
                 i += 1
                 i = context.eol(i)

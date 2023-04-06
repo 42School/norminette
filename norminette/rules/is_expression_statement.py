@@ -36,14 +36,16 @@ class IsExpressionStatement(PrimaryRule):
         elif context.check_token(pos, "GOTO"):
             i = pos + 1
             i = context.skip_ws(i)
-            while context.check_token(i, ["MULT", "BWISE_AND"]) is True and context.is_operator(i) is False:
+            while context.check_token(
+                    i, ["MULT", "BWISE_AND"]) is True and context.is_operator(i) is False:
                 i += 1
             if context.check_token(i, "IDENTIFIER") is False:
                 if context.check_token(i, "LPARENTHESIS") is True:
                     # parse label value here
                     i = context.skip_nest(i)
                 elif context.debug == 0:
-                    raise CParsingError("Error: Goto statement should be followed by a label")
+                    raise CParsingError(
+                        "Error: Goto statement should be followed by a label")
             i += 1
             i = context.skip_ws(i)
             i += 1
@@ -137,7 +139,7 @@ class IsExpressionStatement(PrimaryRule):
         ret, i = self.check_instruction(context, i)
         if ret is False:
             ret, i = self.check_reserved_keywords(context, i)
-            #if ret is False:
+            # if ret is False:
             #    ret, i = self.check_inc_dec(context, i)
             if ret is False:
                 ret, i = self.void_identifier(context, i)

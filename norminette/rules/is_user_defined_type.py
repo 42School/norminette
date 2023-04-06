@@ -62,7 +62,8 @@ class IsUserDefinedType(PrimaryRule):
                 p -= 1
             if context.check_token(i, "ENUM") is True:
                 enum = True
-            if context.check_token(i, ["NEWLINE", "SEMI_COLON"]) is True and p == 0:
+            if context.check_token(
+                    i, ["NEWLINE", "SEMI_COLON"]) is True and p == 0:
                 break
             if context.check_token(i, "IDENTIFIER"):
                 ids.append(context.peek_token(i))

@@ -15,15 +15,17 @@ class CheckLineCount(Rule):
             if t.type == "NEWLINE" or t.type == "ESCAPED_NEWLINE":
                 context.scope.lines += 1
 
-        if type(context.scope) is GlobalScope:
+        if isinstance(context.scope, GlobalScope):
 
             if context.get_parent_rule() == "CheckFuncDeclarations" and context.scope.lines > 25:
-                context.new_error("TOO_MANY_LINES", context.tokens[context.tkn_scope])
+                context.new_error("TOO_MANY_LINES",
+                                  context.tokens[context.tkn_scope])
             return False, 0
 
         if context.get_parent_rule() == "CheckBrace":
-            if "LBRACE" in [t.type for t in context.tokens[: context.tkn_scope + 1]]:
-                if type(context.scope) is GlobalScope:
+            if "LBRACE" in [t.type
+                            for t in context.tokens[: context.tkn_scope + 1]]:
+                if isinstance(context.scope, GlobalScope):
                     return False, 0
             else:
                 if context.scope.lvl == 0:

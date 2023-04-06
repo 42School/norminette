@@ -26,7 +26,10 @@ class norminetteFileTester:
         else:
             print("Error")
             self.__failed += 1
-            diff = difflib.ndiff(first.splitlines(keepends=True), second.splitlines(keepends=True))
+            diff = difflib.ndiff(
+                first.splitlines(
+                    keepends=True), second.splitlines(
+                    keepends=True))
             diff = list(diff)
             self.result.append("✗ ")
             print("".join(diff))

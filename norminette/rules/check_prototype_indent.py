@@ -56,7 +56,8 @@ class CheckPrototypeIndent(Rule):
         id_length = 0
         buffer_len = 0
         while context.check_token(i, ["SEMI_COLON"]) is False:
-            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(
+                    i).value == "__attribute__":
                 i += 1
                 i = context.skip_ws(i)
                 i = context.skip_nest(i) + 1
@@ -72,7 +73,8 @@ class CheckPrototypeIndent(Rule):
             i += 1
         i = 0
         while context.check_token(i, eol) is False:
-            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+            if context.check_token(i, "IDENTIFIER") is True and context.peek_token(
+                    i).value == "__attribute__":
                 if type_identifier_nb > 0:
                     context.new_error("ATTR_EOL", context.peek_token(i))
                 i += 1
@@ -99,7 +101,9 @@ class CheckPrototypeIndent(Rule):
                 if context.scope.func_alignment == 0:
                     context.scope.func_alignment = current_indent
                 elif current_indent != context.scope.func_alignment:
-                    context.new_error("MISALIGNED_FUNC_DECL", context.peek_token(i))
+                    context.new_error(
+                        "MISALIGNED_FUNC_DECL",
+                        context.peek_token(i))
                     return True, i
                 return False, 0
             i += 1

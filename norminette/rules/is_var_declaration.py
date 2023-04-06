@@ -35,6 +35,7 @@ type_specifiers = [
     "UNION",
 ]
 
+
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
@@ -58,8 +59,10 @@ class IsVarDeclaration(PrimaryRule):
         i = pos
         ret_store = None
         ids = []
-        while context.peek_token(i) is not None and context.check_token(i, ["SEMI_COLON"]) is False:
-            if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
+        while context.peek_token(i) is not None and context.check_token(i, [
+                "SEMI_COLON"]) is False:
+            if context.check_token(
+                    i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
                 identifier = True
                 ids.append(context.peek_token(i))
             elif context.check_token(i, ["COMMENT", "MULT_COMMENT"]) is True:
@@ -73,7 +76,8 @@ class IsVarDeclaration(PrimaryRule):
                     braces += 1
                 if context.check_token(i, "LBRACKET") is True:
                     brackets += 1
-                if context.check_token(i, "LPARENTHESIS") is True and brackets == 0 and braces == 0:
+                if context.check_token(
+                        i, "LPARENTHESIS") is True and brackets == 0 and braces == 0:
                     ret, tmp = context.parenthesis_contain(i, ret_store)
                     if ret == "function" or ret == "pointer" or ret == "var":
                         ret_store = ret

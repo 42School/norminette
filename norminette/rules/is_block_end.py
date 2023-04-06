@@ -32,7 +32,7 @@ class IsBlockEnd(PrimaryRule):
         i = context.skip_ws(0)
         if context.check_token(i, "RBRACE") is False:
             return False, 0
-        if type(context.scope) != ControlStructure:
+        if not isinstance(context.scope, ControlStructure):
             context.sub = context.scope.outer()
         else:
             context.scope.multiline = False
@@ -53,7 +53,7 @@ class IsBlockEnd(PrimaryRule):
             i = context.eol(i)
             return ret, i
 
-        if type(context.scope) is VariableAssignation:
+        if isinstance(context.scope, VariableAssignation):
             i = context.skip_ws(i)
             if context.check_token(i, "SEMI_COLON"):
                 # Fatal err?
@@ -62,7 +62,7 @@ class IsBlockEnd(PrimaryRule):
             i = context.eol(i)
             return True, i
             pass
-        if type(context.scope) is ControlStructure:
+        if isinstance(context.scope, ControlStructure):
             pass
         i = context.eol(i)
         return True, i

@@ -6,6 +6,7 @@ from norminette.scope import GlobalScope, Function
 
 import pdb
 
+
 class CheckPreprocessorDefine(Rule):
     def __init__(self):
         super().__init__()
@@ -24,7 +25,8 @@ class CheckPreprocessorDefine(Rule):
 
     def check_function_declaration(self, context):
         i = context.skip_ws(0)
-        if context.check_token(i, ["#IF", "#ELSE", "IFDEF", "IFNDEF"]) is False:
+        if context.check_token(
+                i, ["#IF", "#ELSE", "IFDEF", "IFNDEF"]) is False:
             return
         context.tmp_scope = context.scope
         context.scope = context.scope.get_outer()
@@ -37,10 +39,12 @@ class CheckPreprocessorDefine(Rule):
         Define can only contain constant values, such as integers and strings
         """
         i = context.skip_ws(0)
-        if len(context.history) > 1 and context.history[-2] == "IsFuncDeclaration":
+        if len(
+                context.history) > 1 and context.history[-2] == "IsFuncDeclaration":
             self.check_function_declaration(context)
-        if type(context.scope) is not GlobalScope:
-            if type(context.scope) == Function and context.scope.multiline == False:
+        if not isinstance(context.scope, GlobalScope):
+            if isinstance(context.scope,
+                          Function) and context.scope.multiline == False:
                 pass
             else:
                 context.new_error("PREPROC_GLOBAL", context.peek_token(0))
