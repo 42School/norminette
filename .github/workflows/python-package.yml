@@ -5,13 +5,12 @@ name: Python package
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -32,6 +31,9 @@ jobs:
     - name: Setup package dependencies
       run: |
         poetry install
+    - name: Run linter
+        run: |
+          flake8 $(find norminette/ -d -name "*.py")
     - name: Run tests
       run: |
         poetry run pytest
