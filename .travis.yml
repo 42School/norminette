@@ -16,7 +16,8 @@ jobs:
     - stage: Linting
       script:
         - pip install -r requirements.txt
-        - pycodestyle $(find norminette/ -d -name "*.py")
+        - pip install flake8
+        - flake8 $(find norminette/ -d -name "*.py")
    - stage: Unit tests
      script:
        - cd norminette && python -m unittest discover tests/lexer/unit-tests "*.py"
