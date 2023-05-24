@@ -82,7 +82,7 @@ class IsControlStatement(PrimaryRule):
                 i = context.eol(i)
                 return True, i
         i += 1
-        if id_instead_cs == True:
+        if id_instead_cs is True:
             return False, 0
         i = context.skip_ws(i, nl=False)
         if context.check_token(i, "LPARENTHESIS") is False:
@@ -91,7 +91,7 @@ class IsControlStatement(PrimaryRule):
         i += 1
         tmp = context.skip_ws(i, nl=True)
         if context.check_token(tmp, "SEMI_COLON") is True:
-            if is_id == True:
+            if is_id is True:
                 return False, 0
             tmp += 1
             tmp = context.eol(tmp)

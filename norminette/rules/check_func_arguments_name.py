@@ -45,15 +45,17 @@ class CheckFuncArgumentsName(Rule):
         ret, i = context.check_type_specifier(i)
         has_tab = False
         while context.check_token(i, ["SPACE", "TAB"]):
-            if context.check_token(i, "TAB") is True and has_tab == False:
+            if context.check_token(i, "TAB") is True and has_tab is False:
                 context.new_error("TAB_INSTEAD_SPC", context.peek_token(i))
                 has_tab = True
             i += 1
 
-        if ret == False:
+        if ret is False:
             context.new_error("ARG_TYPE_UKN", context.peek_token(i))
             return -1
-        while context.peek_token(i) is not None and context.check_token(i, ["LPARENTHESIS"] + whitespaces):
+        while context.peek_token(i) is not None and context.check_token(
+            i, ["LPARENTHESIS"] + whitespaces
+        ):
             if context.check_token(i, "LPARENTHESIS") is True:
                 p += 1
             if context.check_token(i, "RPARENTHESIS") is True:
@@ -71,7 +73,6 @@ class CheckFuncArgumentsName(Rule):
             while context.peek_token(i) is not None and i < context.arg_pos[1]:
                 if context.check_token(i, stop) is True:
                     if context.check_token(i, "RPARENTHESIS") is True and p > 0:
-
                         p -= 1
                     else:
                         break
@@ -81,7 +82,10 @@ class CheckFuncArgumentsName(Rule):
             i += 1
 
         else:
-            while context.peek_token(i) is not None and context.peek_token(i).type not in stop:
+            while (
+                context.peek_token(i) is not None
+                and context.peek_token(i).type not in stop
+            ):
                 i += 1
             i += 1
         return i

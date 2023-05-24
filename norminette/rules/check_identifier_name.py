@@ -17,9 +17,7 @@ class CheckIdentifierName(Rule):
         Function can only be declared in the global scope
         User defined identifiers can only contain lowercase characters, '_' or digits
         """
-        i = 0
         legal_characters = string.ascii_lowercase + string.digits + "_"
-        legal_cap_characters = string.ascii_uppercase + string.digits + "_"
         if context.history[-1] == "IsFuncDeclaration":
             sc = context.scope
             if type(sc) is not GlobalScope and type(sc) is not UserDefinedType:
@@ -28,7 +26,9 @@ class CheckIdentifierName(Rule):
                 sc = sc.outer()
             for c in sc.fnames[-1]:
                 if c not in legal_characters:
-                    context.new_error("FORBIDDEN_CHAR_NAME", context.peek_token(context.fname_pos))
+                    context.new_error(
+                        "FORBIDDEN_CHAR_NAME", context.peek_token(context.fname_pos)
+                    )
         if len(context.scope.vars_name) > 0:
             for val in context.scope.vars_name[::]:
                 for c in val.value:

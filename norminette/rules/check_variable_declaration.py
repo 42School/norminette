@@ -33,13 +33,19 @@ class CheckVariableDeclaration(Rule):
             context.scope.vars += 1
             if context.scope.vars > 5:
                 context.new_error("TOO_MANY_VARS_FUNC", context.peek_token(i))
-            if context.history[-2] != "IsBlockStart" and context.history[-2] != "IsVarDeclaration":
+            if (
+                context.history[-2] != "IsBlockStart"
+                and context.history[-2] != "IsVarDeclaration"
+            ):
                 context.new_error("VAR_DECL_START_FUNC", context.peek_token(i))
-            elif context.scope.vdeclarations_allowed == False:
+            elif context.scope.vdeclarations_allowed is False:
                 context.new_error("VAR_DECL_START_FUNC", context.peek_token(i))
-            elif context.scope.vdeclarations_allowed == None:
+            elif context.scope.vdeclarations_allowed is None:
                 context.scope.vdeclarations_allowed = True
-        elif context.scope.name == "GlobalScope" or context.scope.name == "UserDefinedType":
+        elif (
+            context.scope.name == "GlobalScope"
+            or context.scope.name == "UserDefinedType"
+        ):
             pass
         else:
             context.new_error("WRONG_SCOPE_VAR", context.peek_token(i))
@@ -52,7 +58,7 @@ class CheckVariableDeclaration(Rule):
             if context.check_token(tmp, "IDENTIFIER"):
                 identifier = True
             tmp += 1
-        if identifier == False:
+        if identifier is False:
             context.new_error("IMPLICIT_VAR_TYPE", context.peek_token(0))
             return False
         while context.peek_token(i) and context.check_token(i, "SEMI_COLON") is False:
@@ -62,12 +68,12 @@ class CheckVariableDeclaration(Rule):
                 passed_assign = True
             if context.check_token(i, ["STATIC", "CONST"]) is True:
                 static_or_const = True
-            if context.check_token(i, assigns) is True and static_or_const == False:
+            if context.check_token(i, assigns) is True and static_or_const is False:
                 if context.scope.name == "GlobalScope":
                     i += 1
                     continue
                 context.new_error("DECL_ASSIGN_LINE", context.peek_token(i))
-            if context.check_token(i, "COMMA") is True and passed_assign == False:
+            if context.check_token(i, "COMMA") is True and passed_assign is False:
                 context.new_error("MULT_DECL_LINE", context.peek_token(i))
             i += 1
         return False, 0
