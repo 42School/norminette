@@ -2,7 +2,7 @@ from norminette.rules import Rule
 
 whitespaces = ["SPACE", "TAB", "NEWLINE"]
 
-type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID", "SHORT"]
+type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "BOOL", "UNION", "VOID", "SHORT"]
 
 misc_specifiers = ["CONST", "REGISTER", "STATIC", "STRUCT", "VOLATILE"]
 

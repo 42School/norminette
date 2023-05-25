@@ -6,6 +6,7 @@ types = [
     "ENUM",
     "FLOAT",
     "INT",
+    "BOOL",
     "UNION",
     "VOID",
     "LONG",

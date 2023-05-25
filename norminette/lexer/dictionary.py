@@ -3,6 +3,7 @@
 keywords = {
     # C reserved keywords #
     "auto": "AUTO",
+    "bool": "BOOL",
     "break": "BREAK",
     "case": "CASE",
     "char": "CHAR",

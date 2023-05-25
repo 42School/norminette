@@ -30,6 +30,7 @@ types = [
     "ENUM",
     "FLOAT",
     "INT",
+    "BOOL",
     "UNION",
     "VOID",
     "LONG",
@@ -91,7 +92,6 @@ class IsAssignation(PrimaryRule):
                 i = context.skip_nest(i)
             i += 1
         return i
-
 
     def run(self, context):
         """

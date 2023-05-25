@@ -54,6 +54,7 @@ types = [
     "ENUM",
     "FLOAT",
     "INT",
+    "BOOL",
     "UNION",
     "VOID",
     "LONG",
@@ -104,7 +105,7 @@ class IsFunctionCall(PrimaryRule):
             start = i
             typ, i = context.parenthesis_contain(i)
             types.append(typ)
-            if typ == None or typ == "pointer":
+            if typ is None or typ == "pointer":
                 i = context.skip_ws(i + 1)
                 if context.peek_token(i) is None or context.check_token(i, "NEWLINE") is True:
                     return False, 0

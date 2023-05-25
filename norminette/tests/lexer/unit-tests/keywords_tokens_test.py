@@ -16,6 +16,9 @@ class TokensKeywordsTest(unittest.TestCase):
     def test_auto_keyword(self):
         self.assertEqual(eat_tokens("auto"), "<AUTO>")
 
+    def test_bool_keyword(self):
+        self.assertEqual(eat_tokens("bool"), "<BOOL>")
+
     def test_break_keyword(self):
         self.assertEqual(eat_tokens("break"), "<BREAK>")
 

@@ -26,6 +26,7 @@ type_specifiers = [
     "ENUM",
     "FLOAT",
     "INT",
+    "BOOL",
     "UNION",
     "VOID",
     "LONG",
@@ -34,6 +35,7 @@ type_specifiers = [
     "ENUM",
     "UNION",
 ]
+
 
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):

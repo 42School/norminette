@@ -19,6 +19,7 @@ kw = [
     "GOTO",
     "IF",
     "INT",
+    "BOOL",
     "LONG",
     "REGISTER",
     "RETURN",

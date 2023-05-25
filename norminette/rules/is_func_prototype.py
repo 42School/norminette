@@ -52,6 +52,7 @@ type_identifier = [
     "ENUM",
     "FLOAT",
     "INT",
+    "BOOL",
     "UNION",
     "VOID",
     "LONG",
@@ -166,12 +167,12 @@ class IsFuncPrototype(PrimaryRule):
                     break
             else:
                 i += 1
-        if len(type_id) > 0 and args == True and identifier != None:
+        if len(type_id) > 0 and args == True and identifier is not None:
             i = identifier[1]
             while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
                 i += 1
             sc = context.scope
-            while type(sc) != GlobalScope:
+            while not isinstance(sc, GlobalScope):
                 sc = sc.outer()
             sc.fnames.append(context.peek_token(i).value)
             if context.func_alignment == 0:
@@ -198,7 +199,7 @@ class IsFuncPrototype(PrimaryRule):
         End condition is SEMI_COLON token, otherwise line will be considered as
         function declaration
         """
-        if type(context.scope) is not GlobalScope and type(context.scope) is not UserDefinedType:
+        if not isinstance(context.scope, GlobalScope) and not isinstance(context.scope, UserDefinedType):
             return False, 0
         ret, read = self.check_func_format(context)
         if ret is False:

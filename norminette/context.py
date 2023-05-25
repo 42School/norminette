@@ -1,3 +1,4 @@
+import pdb
 from norminette.exceptions import CParsingError
 from norminette.lexer.dictionary import operators
 from norminette.norm_error import NormError, NormWarning
@@ -9,6 +10,7 @@ types = [
     "ENUM",
     "FLOAT",
     "INT",
+    "BOOL",
     "UNION",
     "VOID",
     "LONG",
@@ -137,11 +139,10 @@ whitespaces = ["SPACE", "TAB", "ESCAPED_NEWLINE", "NEWLINE"]
 
 arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
-import pdb
 
 class Context:
     def __init__(self, filename, tokens, debug=0, added_value=[]):
-        #Header relative informations
+        # Header relative informations
         self.header_started = False
         self.header_parsed = False
         self.header = ""
@@ -255,7 +256,7 @@ In \"{self.scope.name}\" from \
         if pos - 1 < len(self.tokens) and self.tokens[pos - 1].type != "NEWLINE":
             print("")
         elif len(self.tokens) == 1 and self.tokens[-1].type != "NEWLINE":
-            print ("")
+            print("")
 
     def eol(self, pos):
         """Skips white space characters (tab, space) until end of line
@@ -285,7 +286,7 @@ In \"{self.scope.name}\" from \
         lbrackets = ["RBRACKET", "RBRACE", "RPARENTHESIS"]
         try:
             c = self.peek_token(pos).type
-        except:
+        except BaseException:
             raise CParsingError(f"Error: Unexpected EOF line {pos}")
         if c not in lbrackets:
             return pos
@@ -317,7 +318,7 @@ In \"{self.scope.name}\" from \
         # try:
         c = self.peek_token(pos).type
         # except:
-            # raise CParsingError(f"Error: Code ended unexpectedly.")
+        # raise CParsingError(f"Error: Code ended unexpectedly.")
         if c not in lbrackets:
             return pos
         c = rbrackets[lbrackets.index(c)]
@@ -551,8 +552,8 @@ In \"{self.scope.name}\" from \
                 deep -= 1
             elif self.check_token(i, "LPARENTHESIS"):
                 deep += 1
-                #if identifier is not None and deep >= 0:
-                    #return "pointer", self.skip_nest(start)
+                # if identifier is not None and deep >= 0:
+                # return "pointer", self.skip_nest(start)
             elif deep > 1 and identifier == True and self.check_token(i, ["NULL", "IDENTIFIER"]):
                 return "fct_call", self.skip_nest(start)
             elif self.check_token(i, "COMMA") and nested_id == True:
@@ -582,7 +583,7 @@ In \"{self.scope.name}\" from \
                 tmp = i + 1
                 if (identifier is not True and pointer == True) or ret_store is not None:
                     nested_id = True
-                if identifier is not True and self.check_token(tmp, "RPARENTHESIS") and self.scope.name == "Function" and deep == 1 and pointer == None and sizeof == False:
+                if identifier is not True and self.check_token(tmp, "RPARENTHESIS") and self.scope.name == "Function" and deep == 1 and pointer is None and sizeof == False:
                     tmp = self.skip_nest(start) + 1
                     tmp = self.skip_ws(tmp)
                     if self.check_token(tmp, ["IDENTIFIER", "CONSTANT", "MINUS", "PLUS"]) is False:
@@ -605,7 +606,7 @@ In \"{self.scope.name}\" from \
             elif self.check_token(i, ["MULT", "BWISE_AND"]):
                 tmp = i + 1
                 pointer = True
-                if identifier != None:
+                if identifier is not None:
                     tmp = start - 1
                     while self.check_token(tmp, ["SPACE", "TAB"]) == True:
                         tmp -= 1
