@@ -10,6 +10,8 @@ from norminette.registry import Registry
 from norminette.context import Context
 from norminette.tools.colors import colors
 
+from pathlib import Path
+
 import _thread
 from threading import Event
 import time
@@ -48,7 +50,12 @@ def main():
         help="By default norminette displays the full path to the file, this allows to show only filename",
         default=False,
     )
-    parser.add_argument("-v", "--version", action="version", version="norminette " + version("norminette"))
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version="norminette " + version("norminette"),
+    )
     parser.add_argument(
         "--cfile",
         action="store",
@@ -72,11 +79,11 @@ def main():
     content = None
 
     debug = args.debug
-    if args.cfile != None or args.hfile != None:
+    if args.cfile is not None or args.hfile is not None:
         if args.filename:
-            targets = [ args.filename ]
+            targets = [args.filename]
         else:
-            targets = [ "file.c" ] if args.cfile else ["file.h"]
+            targets = ["file.c"] if args.cfile else ["file.h"]
         content = args.cfile if args.cfile else args.hfile
     else:
         args.file = args.file[0]
@@ -99,12 +106,12 @@ def main():
         else:
             try:
                 event.append(Event())
-                if content == None:
+                if content is None:
                     with open(target) as f:
                         try:
                             source = f.read()
                         except Exception as e:
-                            print ("Error: File could not be read: ", e)
+                            print("Error: File could not be read: ", e)
                             sys.exit(0)
                 else:
                     source = content
@@ -112,9 +119,9 @@ def main():
                     lexer = Lexer(source)
                     tokens = lexer.get_tokens()
                 except KeyError as e:
-                    print ("Error while parsing file:", e)
+                    print("Error while parsing file:", e)
                     sys.exit(0)
-                if args.only_filename == True:
+                if args.only_filename is True:
                     # target = target.split("/")[-1]
                     target = Path(target).name
                 context = Context(target, tokens, debug, args.R)
@@ -130,7 +137,7 @@ def main():
                 has_err = True
                 print(target + f": Error!\n\t{colors(e.msg, 'red')}")
                 event[-1].set()
-            except KeyboardInterrupt as e:
+            except KeyboardInterrupt:
                 event[-1].set()
                 sys.exit(1)
     sys.exit(1 if has_err else 0)

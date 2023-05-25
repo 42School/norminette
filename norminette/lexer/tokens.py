@@ -1,9 +1,3 @@
-from norminette.lexer.dictionary import brackets
-from norminette.lexer.dictionary import keywords
-from norminette.lexer.dictionary import operators
-from norminette.lexer.dictionary import preproc_keywords
-
-
 class Token:
     def __init__(self, tkn_type, pos, tkn_value=None):
         self.type = str(tkn_type)

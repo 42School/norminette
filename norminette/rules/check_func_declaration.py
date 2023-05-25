@@ -1,5 +1,4 @@
 from norminette.rules import Rule
-import pdb
 
 types = ["INT", "FLOAT", "CHAR", "DOUBLE", "LONG", "SHORT"]
 

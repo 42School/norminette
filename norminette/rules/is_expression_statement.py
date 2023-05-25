@@ -2,7 +2,6 @@ from norminette.context import ControlStructure
 from norminette.scope import Function
 from norminette.exceptions import CParsingError
 from norminette.rules import PrimaryRule
-import pdb
 
 keywords = ["BREAK", "CONTINUE", "GOTO", "RETURN"]
 

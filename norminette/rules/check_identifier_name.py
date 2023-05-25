@@ -36,26 +36,4 @@ class CheckIdentifierName(Rule):
                         context.new_error("FORBIDDEN_CHAR_NAME", val)
                         break
                 context.scope.vars_name.remove(val)
-        # passed_assign = False
-        # err = None
-        # hist = context.history[-1]
-        # while i < context.tkn_scope and context.peek_token(i) is not None:
-        # if context.check_token(i, assigns) is True:
-        # passed_assign = True
-        #        if context.check_token(i, "IDENTIFIER") and hist in ['IsVarDeclaration']:
-        # for c in context.peek_token(i).value:
-        # if c not in legal_characters:
-        # err = ("FORBIDDEN_CHAR_NAME", context.peek_token(i))
-        # break
-        # if err is not None and hist not in ['IsFuncDeclaration', 'IsFuncPrototype'] or (hist == 'IsVariable' and passed_assign == True):
-        # for c in context.peek_token(i).value:
-        # if c not in legal_cap_characters:
-        # err = ("FORBIDDEN_CHAR_NAME", context.peek_token(i))
-        # break
-        # else:
-        # err = None
-        # if err is not None:
-        # context.new_error(err[0], err[1])
-        # break
-        # i += 1
         return False, 0

@@ -3,7 +3,6 @@ from norminette.scope import Function
 from norminette.context import GlobalScope
 from norminette.scope import UserDefinedType
 from norminette.rules import PrimaryRule
-import pdb
 
 lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
 rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
@@ -35,6 +34,7 @@ type_specifiers = [
     "UNION",
 ]
 
+
 class IsVarDeclaration(PrimaryRule):
     def __init__(self):
         super().__init__()
@@ -51,21 +51,31 @@ class IsVarDeclaration(PrimaryRule):
         return True, i
 
     def var_declaration(self, context, pos, identifier=False):
-        pclose = ["RPARENTHESIS", "NEWLINE", "SPACE", "TAB"]
         brackets = 0
         parenthesis = 0
         braces = 0
         i = pos
         ret_store = None
         ids = []
-        while context.peek_token(i) is not None and context.check_token(i, ["SEMI_COLON"]) is False:
-            if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
+        while (
+            context.peek_token(i) is not None
+            and context.check_token(i, ["SEMI_COLON"]) is False
+        ):
+            if (
+                context.check_token(i, "IDENTIFIER") is True
+                and braces == 0
+                and brackets == 0
+                and parenthesis == 0
+            ):
                 identifier = True
                 ids.append(context.peek_token(i))
             elif context.check_token(i, ["COMMENT", "MULT_COMMENT"]) is True:
                 i += 1
                 continue
-            elif context.check_token(i, ["COLON", "CONSTANT"]) is True and identifier == True:
+            elif (
+                context.check_token(i, ["COLON", "CONSTANT"]) is True
+                and identifier is True
+            ):
                 i += 1
                 continue
             elif context.check_token(i, lbrackets) is True:
@@ -73,7 +83,11 @@ class IsVarDeclaration(PrimaryRule):
                     braces += 1
                 if context.check_token(i, "LBRACKET") is True:
                     brackets += 1
-                if context.check_token(i, "LPARENTHESIS") is True and brackets == 0 and braces == 0:
+                if (
+                    context.check_token(i, "LPARENTHESIS") is True
+                    and brackets == 0
+                    and braces == 0
+                ):
                     ret, tmp = context.parenthesis_contain(i, ret_store)
                     if ret == "function" or ret == "pointer" or ret == "var":
                         ret_store = ret
@@ -99,20 +113,30 @@ class IsVarDeclaration(PrimaryRule):
                 if context.check_token(i, "RPARENTHESIS") is True:
                     parenthesis -= 1
             elif context.check_token(i, "ASSIGN") is True:
-                if identifier == False:
+                if identifier is False:
                     return False, pos
                 ret, i = self.assignment_right_side(context, i + 1)
                 i -= 1
                 if ret is False:
                     return False, pos
-            elif context.check_token(i, ["SPACE", "TAB", "MULT", "BWISE_AND", "NEWLINE"] + misc_specifiers + type_specifiers):
+            elif context.check_token(
+                i,
+                ["SPACE", "TAB", "MULT", "BWISE_AND", "NEWLINE"]
+                + misc_specifiers
+                + type_specifiers,
+            ):
                 pass
-            elif context.check_token(i, "COMMA") is True and parenthesis == 0 and brackets == 0 and braces == 0:
+            elif (
+                context.check_token(i, "COMMA") is True
+                and parenthesis == 0
+                and brackets == 0
+                and braces == 0
+            ):
                 break
             elif parenthesis == 0 and brackets == 0 and braces == 0:
                 return False, 0
             i += 1
-        if identifier == False or braces > 0 or brackets > 0 or parenthesis > 0:
+        if identifier is False or braces > 0 or brackets > 0 or parenthesis > 0:
             return False, 0
         context.scope.vars_name.append(ids[-1])
         if context.check_token(i, "SEMI_COLON") is True:
@@ -150,7 +174,6 @@ class IsVarDeclaration(PrimaryRule):
             elif context.check_token(i, "RPARENTHESIS") is True:
                 p -= 1
                 if identifier is True:
-                    par_pos = i
                     break
             elif context.check_token(i, "IDENTIFIER") is True:
                 identifier = True

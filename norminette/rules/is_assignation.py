@@ -1,5 +1,4 @@
 from norminette.rules import PrimaryRule
-import pdb
 
 assign_ops = [
     "RIGHT_ASSIGN",

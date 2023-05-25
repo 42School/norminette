@@ -4,8 +4,6 @@ from norminette.lexer import Lexer
 from norminette.rules import Rule
 from norminette.scope import GlobalScope, Function
 
-import pdb
-
 
 class CheckPreprocessorDefine(Rule):
     def __init__(self):

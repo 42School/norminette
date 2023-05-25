@@ -1,4 +1,3 @@
-import sys
 import unittest
 
 from norminette.lexer.lexer import Lexer

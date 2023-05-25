@@ -1,7 +1,5 @@
 from norminette.rules import Rule
 
-import pdb
-
 
 class CheckSpacing(Rule):
     def __init__(self):

@@ -1,5 +1,3 @@
-import pdb
-
 from norminette.rules import Rule
 from norminette.scope import GlobalScope
 

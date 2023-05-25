@@ -2,7 +2,6 @@ from norminette.scope import Function
 from norminette.context import GlobalScope
 from norminette.rules import PrimaryRule
 
-import pdb
 
 whitespaces = ["SPACE", "TAB"]
 
@@ -157,7 +156,7 @@ class IsFuncDeclaration(PrimaryRule):
                     type_id.append(identifier[0])
                 identifier = (context.peek_token(i), i)
             if context.check_token(i, "NEWLINE") is True:
-                if args == False:
+                if args is False:
                     i += 1
                     continue
                 else:
@@ -188,7 +187,7 @@ class IsFuncDeclaration(PrimaryRule):
                     i += 1
             else:
                 i += 1
-        if len(type_id) > 0 and args == True and identifier != None:
+        if len(type_id) > 0 and args is True and identifier is not None:
             i = identifier[1]
             i = context.skip_ws(i, nl=True)
             while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:

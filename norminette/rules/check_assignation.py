@@ -1,5 +1,4 @@
 from norminette.rules import Rule
-import pdb
 
 assigns = [
     "RIGHT_ASSIGN",

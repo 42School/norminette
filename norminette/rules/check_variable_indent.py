@@ -2,7 +2,6 @@ import math
 import string
 
 from norminette.rules import Rule
-import pdb
 
 
 keywords = [

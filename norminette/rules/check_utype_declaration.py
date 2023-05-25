@@ -1,6 +1,5 @@
 from norminette.exceptions import CParsingError
 from norminette.rules import Rule
-import pdb
 
 types = [
     "STRUCT",
@@ -77,10 +76,6 @@ class CheckUtypeDeclaration(Rule):
                         and context.is_operator(tmp) is False
                     ):
                         tmp -= 1
-                    # if context.check_token(tmp, "LPARENTHESIS") is True:
-                    #     tmp = tmp - 1
-                    #     while context.check_token(tmp, ["LPARENTHESIS"]) is True and context.is_operator(tmp) == False:
-                    #         tmp -= 1
                     ids.append((context.peek_token(i), tmp))
                 else:
                     ids.append((context.peek_token(i), i))

@@ -1,5 +1,4 @@
 from norminette.rules import PrimaryRule
-import pdb
 
 condition_ops = [
     "LESS_OR_EQUAL",
@@ -27,12 +26,7 @@ condition_ops = [
     "MORE_THAN",
 ]
 
-SEPARATORS = [
-    "COMMA",
-    "AND",
-    "OR",
-    "SEMI_COLON"
-]
+SEPARATORS = ["COMMA", "AND", "OR", "SEMI_COLON"]
 
 assign_ops = [
     "RIGHT_ASSIGN",
@@ -101,12 +95,14 @@ class IsFunctionCall(PrimaryRule):
         i = context.skip_ws(0, nl=False)
         types = []
         while context.check_token(i, "LPARENTHESIS") is True:
-            start = i
             typ, i = context.parenthesis_contain(i)
             types.append(typ)
-            if typ == None or typ == "pointer":
+            if typ is None or typ == "pointer":
                 i = context.skip_ws(i + 1)
-                if context.peek_token(i) is None or context.check_token(i, "NEWLINE") is True:
+                if (
+                    context.peek_token(i) is None
+                    or context.check_token(i, "NEWLINE") is True
+                ):
                     return False, 0
                 # i += 1
                 if len(types) > 1:
@@ -128,12 +124,19 @@ class IsFunctionCall(PrimaryRule):
             if context.check_token(i, "LPARENTHESIS"):
                 while context.check_token(i, "LPARENTHESIS") is True:
                     i = context.skip_nest(i) + 1
-                while context.peek_token(i) is not None and context.check_token(i, SEPARATORS) is False:
+                while (
+                    context.peek_token(i) is not None
+                    and context.check_token(i, SEPARATORS) is False
+                ):
                     i += 1
                 i += 1
                 i = context.eol(i)
                 return True, i
-        elif len(types) > 1 and typ == "cast" and (types[-2] == "function" or types[-2] == "pointer"):
+        elif (
+            len(types) > 1
+            and typ == "cast"
+            and (types[-2] == "function" or types[-2] == "pointer")
+        ):
             i += 1
             i = context.eol(i)
             return True, i

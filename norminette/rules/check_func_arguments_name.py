@@ -1,7 +1,4 @@
-from norminette.lexer import Token
 from norminette.rules import Rule
-
-import pdb
 
 type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID", "SHORT"]
 
