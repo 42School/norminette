@@ -1,0 +1,17 @@
+[36mko_white_space_eof.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_white_space_eof.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mko_white_space_eof.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
+[36mko_white_space_eof.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 4":
+		<NEWLINE>
+[36mko_white_space_eof.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mko_white_space_eof.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 6":
+		<RBRACE> <NEWLINE>
+[36mko_white_space_eof.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<TAB> 
+ko_white_space_eof.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_EMPTY_LINE     (line:   7, col:   1):	Space on empty line
