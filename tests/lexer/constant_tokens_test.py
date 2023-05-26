@@ -36,6 +36,12 @@ class ConstantTokensTest(unittest.TestCase):
     def test_exponential_constant_starting_with_dot(self):
         self.assertEqual(Lexer(".4e2").check_tokens(), "<CONSTANT=.4e2>\n")
 
+    def test_float_exponential_constant_starting_with_dot(self):
+        self.assertEqual(Lexer("4e2f").check_tokens(), "<CONSTANT=4e2f>\n")
+
+    def test_float_exponential_constant(self):
+        self.assertEqual(Lexer(".4e2f").check_tokens(), "<CONSTANT=.4e2f>\n")
+
     def test_octal_constant(self):
         self.assertEqual(Lexer("042").check_tokens(), "<CONSTANT=042>\n")
 
