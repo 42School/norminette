@@ -17,3 +17,7 @@ bundle/
 pdf/*.out
 pdf/*.toc
 resources/
+dist/
+
+*_cache
+.venv

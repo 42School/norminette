@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "norminette"
+version = "3.3.52"
+description = "Open source C files linter for 42 Network campuses"
+authors = ["42 <pedago@42.fr>"]
+license = "MIT Licence"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+argparse = "^1.4.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.2"
+tox = "^4.6.0"
+flake8 = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+norminette = "norminette.__main__:main"
