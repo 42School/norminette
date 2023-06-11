@@ -1,7 +1,7 @@
 import sys
 import unittest
 
-from lexer.lexer import Lexer
+from norminette.lexer.lexer import Lexer
 
 
 class BracketsTokensTest(unittest.TestCase):
