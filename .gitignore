@@ -21,3 +21,4 @@ dist/
 
 *_cache
 .venv
+.tox
