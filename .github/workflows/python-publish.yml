@@ -21,18 +21,16 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install setuptools wheel twine
+        pip install setuptools wheel twine poetry
     - name: Build and publish
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        python setup.py sdist
-        twine upload dist/*
+        poetry publish --build --username $TWINE_USERNAME --password $TWINE_PASSWORD
     - name: Build and publish to test_pypi
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_TEST_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_TEST_PASSWORD }}
       run: |
-        python setup.py sdist
-        twine upload --repository testpypi dist/*
+        poetry publish --build --repository testpypi --username $TWINE_USERNAME --password $TWINE_PASSWORD

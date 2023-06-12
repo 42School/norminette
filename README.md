@@ -1,8 +1,8 @@
 # norminette for 42 schools
 
-## Install:
+## Install
 
-Requires python3.7+ (3.7, 3.8, 3.9)
+Requires python3.8+ (3.8, 3.9, 3.10, 3.11)
 
 ### Directly inside your global commands
 
@@ -15,16 +15,6 @@ python3 -m pip install norminette
 To upgrade an existing install, use
 ```shell
 python3 -m pip install --upgrade norminette
-```
-
-### Inside a virtual environment
-
-Using a virtual environment will avoid version conflicts with already globally installed packages.
-
-```shell
-python3 -m venv venv
-source venv/bin/activate
-pip install norminette
 ```
 
 ## Usage
@@ -69,3 +59,23 @@ If you encounter an error or an incorrect output, you can:
 Please try to include as much information as possible (the file on which it crashed, etc)
 
 Feel free to do pull requests if you want to help as well. Make sure that run_test.sh properly runs after your modifications.
+
+## Run for development
+
+This new version uses poetry as a dependency manager.
+
+If you want to contribute:
+
+```shell
+poetry install
+
+# Run dev norminette
+poetry run norminette
+
+# Or... with virtual env
+source .venv/bin/activate
+norminette
+
+# Run tests
+poetry run pytest
+```

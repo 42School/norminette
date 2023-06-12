@@ -1,6 +1,7 @@
 import glob
 import os
 import sys
+from importlib.metadata import version
 
 import argparse
 from norminette.lexer import Lexer, TokenError
@@ -8,7 +9,6 @@ from norminette.exceptions import CParsingError
 from norminette.registry import Registry
 from norminette.context import Context
 from norminette.tools.colors import colors
-from norminette import __version__
 
 import _thread
 from threading import Event
@@ -48,7 +48,7 @@ def main():
         help="By default norminette displays the full path to the file, this allows to show only filename",
         default=False,
     )
-    parser.add_argument("-v", "--version", action="version", version="norminette " + str(__version__))
+    parser.add_argument("-v", "--version", action="version", version="norminette " + version("norminette"))
     parser.add_argument(
         "--cfile",
         action="store",
