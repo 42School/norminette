@@ -33,7 +33,7 @@ jobs:
           poetry install
       - name: Run linter
         run: |
-          flake8 $(find norminette/ -d -name "*.py")
+          poetry run flake8
       - name: Run tests
         run: |
           poetry run pytest
