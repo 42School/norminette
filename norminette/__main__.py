@@ -9,7 +9,6 @@ from norminette.exceptions import CParsingError
 from norminette.registry import Registry
 from norminette.context import Context
 from norminette.tools.colors import colors
-from norminette import __version__
 
 import _thread
 from threading import Event
