@@ -1,6 +1,7 @@
 import glob
 import os
 import sys
+from importlib.metadata import version
 
 import argparse
 from norminette.lexer import Lexer, TokenError
@@ -48,7 +49,7 @@ def main():
         help="By default norminette displays the full path to the file, this allows to show only filename",
         default=False,
     )
-    parser.add_argument("-v", "--version", action="version", version="norminette " + str(__version__))
+    parser.add_argument("-v", "--version", action="version", version="norminette " + version("norminette"))
     parser.add_argument(
         "--cfile",
         action="store",

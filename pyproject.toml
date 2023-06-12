@@ -5,6 +5,7 @@ description = "Open source C files linter for 42 Network campuses"
 authors = ["42 <pedago@42.fr>"]
 license = "MIT Licence"
 readme = "README.md"
+repository = "https://github.com/42School/norminette"
 keywords = ['42', 'norminette']
 classifiers = [
     "Development Status :: 5 - Production/Stable",
