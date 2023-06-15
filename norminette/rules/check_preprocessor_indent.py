@@ -11,7 +11,7 @@ ALLOWED_PREPROC = [
     "INCLUDE",
     "WARNING",
     "UNDEF",
-    "ERROR"
+    "ERROR",
 ]
 TOO_MUCH_INDENT = ["IFNDEF", "IFDEF", "ELIF", "#IF", "#ELSE"]
 
@@ -50,8 +50,6 @@ class CheckPreprocessorIndent(Rule):
             current_indent -= 1
         if current_indent < 0:
             current_indent = 0
-        fmt = ""
-        val = tken.value[1:] if tken.value else tken.type
         spaces = self.get_space_number(tken.value if tken.value else tken.type)
         if current_indent != spaces:
             context.new_error("PREPROC_BAD_INDENT", context.peek_token(i))

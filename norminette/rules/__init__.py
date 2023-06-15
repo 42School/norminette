@@ -30,5 +30,7 @@ for f in files:
     primary_rules[class_name] = rule()
 
 
-primary_rules = [v for k, v in sorted(primary_rules.items(), key=lambda item: -item[1].priority)]
-__all__ = ["rules", "primary_rules"]
+primary_rules = [
+    v for k, v in sorted(primary_rules.items(), key=lambda item: -item[1].priority)
+]
+__all__ = ["rules", "primary_rules", "Rule", "PrimaryRule"]

@@ -1,5 +1,3 @@
-import pdb
-
 from norminette.lexer import Lexer
 from norminette.rules import Rule
 from norminette.scope import GlobalScope
@@ -19,7 +17,10 @@ class CheckPreprocessorInclude(Rule):
         filetype = ""
         if context.check_token(i, "INCLUDE") is False:
             return False, 0
-        if type(context.scope) is not GlobalScope or context.scope.include_allowed == False:
+        if (
+            type(context.scope) is not GlobalScope
+            or context.scope.include_allowed is False
+        ):
             context.new_error("INCLUDE_START_FILE", context.peek_token(i))
             return True, i
         val = context.peek_token(i).value.split("include", 1)[1]
@@ -45,7 +46,9 @@ class CheckPreprocessorInclude(Rule):
                 filetype = ""
         while tkns[i].type != "NEWLINE" and i < len(tkns) - 1:
             i += 1
-        if (tkns[i].type == "NEWLINE" and tkns[i - 1].type in ["SPACE", "TAB"]) or tkns[i].type in ["SPACE", "TAB"]:
+        if (tkns[i].type == "NEWLINE" and tkns[i - 1].type in ["SPACE", "TAB"]) or tkns[
+            i
+        ].type in ["SPACE", "TAB"]:
             context.new_error("SPC_BEFORE_NL", context.peek_token(0))
         if filetype and filetype != "h":
             context.new_error("INCLUDE_HEADER_ONLY", context.peek_token(0))

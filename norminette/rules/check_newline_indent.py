@@ -1,11 +1,15 @@
 from norminette.rules import Rule
-from norminette.scope import GlobalScope
-import pdb
+
 
 class CheckNewlineIndent(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsDeclaration", "IsAssignation", "IsCast", "IsExpressionStatement"]
+        self.depends_on = [
+            "IsDeclaration",
+            "IsAssignation",
+            "IsCast",
+            "IsExpressionStatement",
+        ]
 
     def run(self, context):
         """

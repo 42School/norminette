@@ -4,7 +4,6 @@ from norminette.lexer import Lexer
 from norminette.rules import Rule
 from norminette.scope import GlobalScope, Function
 
-import pdb
 
 class CheckPreprocessorDefine(Rule):
     def __init__(self):
@@ -40,7 +39,7 @@ class CheckPreprocessorDefine(Rule):
         if len(context.history) > 1 and context.history[-2] == "IsFuncDeclaration":
             self.check_function_declaration(context)
         if type(context.scope) is not GlobalScope:
-            if type(context.scope) == Function and context.scope.multiline == False:
+            if type(context.scope) == Function and context.scope.multiline is False:
                 pass
             else:
                 context.new_error("PREPROC_GLOBAL", context.peek_token(0))
@@ -64,7 +63,9 @@ class CheckPreprocessorDefine(Rule):
                     context.new_error("TAB_INSTEAD_SPC", tkn)
                 i += 1
                 continue
-            elif (tkn.type == "IDENTIFIER" or tkn.type == "NULL") and len(identifiers) == 0:
+            elif (tkn.type == "IDENTIFIER" or tkn.type == "NULL") and len(
+                identifiers
+            ) == 0:
                 if tkn.type != "NULL" and tkn.value.isupper() is False:
                     context.new_error("MACRO_NAME_CAPITAL", tkn)
                 identifiers.append(tkn)
@@ -85,7 +86,7 @@ class CheckPreprocessorDefine(Rule):
                             context.new_error("HEADER_PROT_NAME", tkns[1])
                 elif (
                     context.filetype == "c"
-                    and context.scope.include_allowed == True
+                    and context.scope.include_allowed is True
                     and (
                         len(tkns) > tmp + 1
                         or (
@@ -97,7 +98,7 @@ class CheckPreprocessorDefine(Rule):
                 ):
                     context.scope.include_allowed = False
             elif tkn.type in ["IDENTIFIER", "STRING", "CONSTANT"]:
-                if context.skip_define_error == True:
+                if context.skip_define_error is True:
                     continue
                 if len(identifiers) == 1:
                     if tkn.type == "IDENTIFIER" and tkn.value.isupper() is False:
@@ -108,7 +109,7 @@ class CheckPreprocessorDefine(Rule):
                 else:
                     context.new_error("TOO_MANY_VALS", tkn)
             elif tkn.type == "LPARENTHESIS":
-                if context.skip_define_error == True:
+                if context.skip_define_error is True:
                     continue
                 if len(identifiers) == 0:
                     continue
@@ -119,7 +120,7 @@ class CheckPreprocessorDefine(Rule):
                 else:
                     context.new_error("PREPROC_CONSTANT", tkn)
             elif tkn.type in ["LBRACKET", "LBRACE"]:
-                if context.skip_define_error == True:
+                if context.skip_define_error is True:
                     continue
                 context.new_error("PREPROC_CONSTANT", tkn)
             i += 1

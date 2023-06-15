@@ -1,4 +1,3 @@
-import sys
 import unittest
 
 from norminette.lexer.lexer import Lexer
@@ -20,13 +19,14 @@ class CharConstTokenTest(unittest.TestCase):
         self.assertEqual(Lexer("'\\n'").get_next_token().test(), "<CHAR_CONST='\\n'>")
 
     def test_octal_char(self):
-        self.assertEqual(Lexer("'\\042'").get_next_token().test(), "<CHAR_CONST='\\042'>")
+        self.assertEqual(
+            Lexer("'\\042'").get_next_token().test(), "<CHAR_CONST='\\042'>"
+        )
 
     def test_hex_char(self):
-        self.assertEqual(Lexer("'0x042'").get_next_token().test(), "<CHAR_CONST='0x042'>")
-
-    def test_hex_char(self):
-        self.assertEqual(Lexer("'0x042'").get_next_token().test(), "<CHAR_CONST='0x042'>")
+        self.assertEqual(
+            Lexer("'0x042'").get_next_token().test(), "<CHAR_CONST='0x042'>"
+        )
 
     def test_error_newline_in_const(self):
         self.assertRaises(Lexer("'\n1'").get_next_token)

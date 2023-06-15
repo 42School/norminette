@@ -1,5 +1,4 @@
 from norminette.rules import PrimaryRule
-import pdb
 
 cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH"]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]

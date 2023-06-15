@@ -1,5 +1,4 @@
 from norminette.rules import PrimaryRule
-import pdb
 
 assign_ops = [
     "RIGHT_ASSIGN",
@@ -21,7 +20,7 @@ SEPARATORS = [
     "COMMA",
     # "AND",
     # "OR",
-    "SEMI_COLON"
+    "SEMI_COLON",
 ]
 
 types = [
@@ -68,15 +67,11 @@ class IsAssignation(PrimaryRule):
         self.priority = 20
         self.scope = []
 
-    def skip_ptr(self, context, pos):
-        i = context.skip_ws(pos)
-        while context.check_token(i, operators + ws + ["IDENTIFIER"]) is True:
-            i += 1
-        return i
-
     def check_identifier(self, context, pos):
         i = pos
-        while context.check_token(i, types + ws + op + ["IDENTIFIER", "CONSTANT", "INC", "DEC"]):
+        while context.check_token(
+            i, types + ws + op + ["IDENTIFIER", "CONSTANT", "INC", "DEC"]
+        ):
             if context.check_token(i, "LBRACKET"):
                 i = context.skip_nest(i)
             i += 1
@@ -91,7 +86,6 @@ class IsAssignation(PrimaryRule):
                 i = context.skip_nest(i)
             i += 1
         return i
-
 
     def run(self, context):
         """
@@ -108,14 +102,18 @@ class IsAssignation(PrimaryRule):
         if context.check_token(tmp, assign_ops) is False:
             return False, 0
         i = tmp + 1
-        #i += 1
+        # i += 1
         i = context.skip_ws(i)
         # if context.check_token(i, "LBRACE") is True:
         # i += 1
         # context.sub = context.scope.inner(VariableAssignation)
         # return True, i
         if context.scope.name == "UserDefinedEnum":
-            while context.peek_token(i) and (context.check_token(i, ["COMMA", "SEMI_COLON", "NEWLINE"])) is False:
+            while (
+                context.peek_token(i)
+                and (context.check_token(i, ["COMMA", "SEMI_COLON", "NEWLINE"]))
+                is False
+            ):
                 i += 1
             i = context.eol(i)
             return True, i

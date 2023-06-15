@@ -2,16 +2,10 @@ from norminette.scope import Function
 from norminette.context import GlobalScope
 from norminette.rules import PrimaryRule
 
-import pdb
 
 whitespaces = ["SPACE", "TAB"]
 
-SEPARATORS = [
-    "COMMA",
-    "AND",
-    "OR",
-    "SEMI_COLON"
-]
+SEPARATORS = ["COMMA", "AND", "OR", "SEMI_COLON"]
 preproc = [
     "DEFINE",
     "ERROR",
@@ -129,18 +123,31 @@ class IsFuncDeclaration(PrimaryRule):
         if context.check_token(i, "NEWLINE") is True:
             return False, 0
         while context.peek_token(i):
-            while context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+            while (
+                context.check_token(i, "IDENTIFIER") is True
+                and context.peek_token(i).value == "__attribute__"
+            ):
                 i += 1
                 i = context.skip_ws(i)
                 i = context.skip_nest(i)
                 i = context.skip_ws(i)
-            if context.check_token(i, "NEWLINE") is True and identifier == False and misc_id == [] and type_id == []:
+            if (
+                context.check_token(i, "NEWLINE") is True
+                and identifier is False
+                and misc_id == []
+                and type_id == []
+            ):
                 return False, 0
             if context.check_token(i, misc_identifier) is True:
                 misc_id.append(context.peek_token(i))
             elif context.check_token(i, type_identifier) is True:
                 type_id.append(context.peek_token(i))
-            if context.check_token(i, assigns + ["TYPEDEF", "COMMA", "LBRACE"] + preproc) is True:
+            if (
+                context.check_token(
+                    i, assigns + ["TYPEDEF", "COMMA", "LBRACE"] + preproc
+                )
+                is True
+            ):
                 return False, 0
             if context.check_token(i, "SEMI_COLON") is True:
                 return False, 0
@@ -149,7 +156,7 @@ class IsFuncDeclaration(PrimaryRule):
                     type_id.append(identifier[0])
                 identifier = (context.peek_token(i), i)
             if context.check_token(i, "NEWLINE") is True:
-                if args == False:
+                if args is False:
                     i += 1
                     continue
                 else:
@@ -180,7 +187,7 @@ class IsFuncDeclaration(PrimaryRule):
                     i += 1
             else:
                 i += 1
-        if len(type_id) > 0 and args == True and identifier != None:
+        if len(type_id) > 0 and args is True and identifier is not None:
             i = identifier[1]
             i = context.skip_ws(i, nl=True)
             while context.check_token(i, ["LPARENTHESIS", "MULT", "BWISE_AND"]) is True:
@@ -204,7 +211,10 @@ class IsFuncDeclaration(PrimaryRule):
                 i = context.skip_nest(i)
                 i += 1
                 i = context.skip_ws(i, nl=True)
-            while context.check_token(i, "IDENTIFIER") is True and context.peek_token(i).value == "__attribute__":
+            while (
+                context.check_token(i, "IDENTIFIER") is True
+                and context.peek_token(i).value == "__attribute__"
+            ):
                 i += 1
                 i = context.skip_ws(i)
                 i = context.skip_nest(i) + 1

@@ -1,5 +1,3 @@
-import pdb
-
 from norminette.rules import Rule
 from norminette.scope import GlobalScope
 
@@ -13,13 +11,18 @@ class CheckLineIndent(Rule):
         """
         Each new scope (function, control structure, struct/enum type declaration) adds a tab to the general indentation
         """
-        expected = context.scope.indent 
-        if context.history[-1] in ["IsEmptyLine", 'IsComment', "IsPreprocessorStatement", "IsVariableDeclaration"]:
+        expected = context.scope.indent
+        if context.history[-1] in [
+            "IsEmptyLine",
+            "IsComment",
+            "IsPreprocessorStatement",
+            "IsVariableDeclaration",
+        ]:
             return False, 0
         if (
             context.history[-1] != "IsPreprocessorStatement"
             and type(context.scope) is GlobalScope
-            and context.scope.include_allowed == True
+            and context.scope.include_allowed is True
         ):
             context.scope.include_allowed = False
         got = 0
@@ -31,7 +34,11 @@ class CheckLineIndent(Rule):
             else:
                 hist = context.history[: len(context.history) - 1]
                 for item in hist[::-1]:
-                    if item == "IsEmptyLine" or item == "IsComment" or item == "IsPreprocessorStatement":
+                    if (
+                        item == "IsEmptyLine"
+                        or item == "IsComment"
+                        or item == "IsPreprocessorStatement"
+                    ):
                         continue
                     if item not in [
                         "IsControlStatement",

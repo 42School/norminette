@@ -26,7 +26,9 @@ class norminetteFileTester:
         else:
             print("Error")
             self.__failed += 1
-            diff = difflib.ndiff(first.splitlines(keepends=True), second.splitlines(keepends=True))
+            diff = difflib.ndiff(
+                first.splitlines(keepends=True), second.splitlines(keepends=True)
+            )
             diff = list(diff)
             self.result.append("✗ ")
             print("".join(diff))
@@ -41,7 +43,7 @@ class norminetteFileTester:
         except TokenError as e:
             if e.msg == ref:
                 self.__success += 1
-                print(f"OK")
+                print("OK")
                 self.result.append("✓ ")
             else:
                 self.__failed += 1

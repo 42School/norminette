@@ -1,5 +1,6 @@
 from norminette.rules import Rule
 
+
 class CheckManyInstructions(Rule):
     def __init__(self):
         super().__init__()

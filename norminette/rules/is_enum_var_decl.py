@@ -22,14 +22,21 @@ class IsEnumVarDecl(PrimaryRule):
         return True, i
 
     def var_declaration(self, context, pos):
-        pclose = ["RPARENTHESIS", "NEWLINE", "SPACE", "TAB"]
         brackets = 0
         parenthesis = 0
         braces = 0
         i = pos
         identifier = False
-        while context.peek_token(i) is not None and context.check_token(i, ["COMMA", "RBRACE", "NEWLINE"]) is False:
-            if context.check_token(i, "IDENTIFIER") is True and braces == 0 and brackets == 0 and parenthesis == 0:
+        while (
+            context.peek_token(i) is not None
+            and context.check_token(i, ["COMMA", "RBRACE", "NEWLINE"]) is False
+        ):
+            if (
+                context.check_token(i, "IDENTIFIER") is True
+                and braces == 0
+                and brackets == 0
+                and parenthesis == 0
+            ):
                 identifier = True
             elif context.check_token(i, lbrackets) is True:
                 if context.check_token(i, "LBRACE") is True:
@@ -46,18 +53,20 @@ class IsEnumVarDecl(PrimaryRule):
                 if context.check_token(i, "RPARENTHESIS") is True:
                     parenthesis -= 1
             elif context.check_token(i, "ASSIGN") is True:
-                if identifier == False:
+                if identifier is False:
                     return False, pos
                 ret, i = self.assignment_right_side(context, i + 1)
                 i -= 1
                 if ret is False:
                     return False, pos
-            elif context.check_token(i, ["SPACE", "TAB", "MULT", "BWISE_AND", "NEWLINE"]):
+            elif context.check_token(
+                i, ["SPACE", "TAB", "MULT", "BWISE_AND", "NEWLINE"]
+            ):
                 pass
             elif parenthesis == 0 and brackets == 0 and braces == 0:
                 return False, 0
             i += 1
-        if identifier == False:
+        if identifier is False:
             return False, pos
         if context.check_token(i, ["NEWLINE", "COMMA"]) is True:
             return True, i

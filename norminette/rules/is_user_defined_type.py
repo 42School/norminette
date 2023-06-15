@@ -1,6 +1,5 @@
 from norminette.rules import PrimaryRule
 from norminette.scope import UserDefinedType, GlobalScope, UserDefinedEnum
-import pdb
 
 utypes = ["TYPEDEF", "UNION", "STRUCT", "ENUM"]
 
@@ -29,8 +28,6 @@ class IsUserDefinedType(PrimaryRule):
         if not [tkn for tkn in context.tokens[:pos] if tkn.type in utypes]:
             return False, pos
         return True, pos
-        i = context.skip_ws(i)
-        return ret, i
 
     def run(self, context):
         """
@@ -68,7 +65,7 @@ class IsUserDefinedType(PrimaryRule):
                 ids.append(context.peek_token(i))
             i += 1
         if context.check_token(i, "NEWLINE") is True and p <= 0:
-            if enum == True:
+            if enum is True:
                 context.sub = context.scope.inner(UserDefinedEnum)
             else:
                 context.sub = context.scope.inner(UserDefinedType)

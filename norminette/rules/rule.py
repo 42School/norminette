@@ -17,6 +17,7 @@ class Rule:
             else:
                 registry.dependencies[rule] = [self.name]
 
+
 class PrimaryRule(Rule):
     def __init__(self):
         super().__init__()

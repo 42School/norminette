@@ -44,7 +44,7 @@ class CheckExpressionStatement(Rule):
             "IsControlStatement",
             "IsFunctionCall",
             "IsAssignation",
-            "IsCast"
+            "IsCast",
         ]
 
     def run(self, context):
@@ -54,10 +54,15 @@ class CheckExpressionStatement(Rule):
         Return values in a function must be contained in parenthesis
         """
         i = 0
-        parenthesis = False
         while context.check_token(i, ["SEMI_COLON", "NEWLINE"]) is False:
             if context.check_token(i, kw) is True:
-                if context.check_token(i + 1, ["SPACE", "NEWLINE", "RPARENTHESIS", "COMMENT", "MULT_COMMENT"]) is False:
+                if (
+                    context.check_token(
+                        i + 1,
+                        ["SPACE", "NEWLINE", "RPARENTHESIS", "COMMENT", "MULT_COMMENT"],
+                    )
+                    is False
+                ):
                     context.new_error("SPACE_AFTER_KW", context.peek_token(i))
             if context.check_token(i, ["MULT", "BWISE_AND"]) is True and i > 0:
                 if context.check_token(i - 1, "IDENTIFIER") is True:
