@@ -1,0 +1,11 @@
+[36mko_too_many_arg.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<STATIC> <SPACE> <VOID> <TAB> <IDENTIFIER=test> <LPARENTHESIS> <INT> <SPACE> <LPARENTHESIS> <MULT> <IDENTIFIER=f> <RPARENTHESIS> <LPARENTHESIS> <VOID> <SPACE> <MULT> <IDENTIFIER=z> <RPARENTHESIS> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=a> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=b> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=c> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=d> <COMMA> <SPACE> <INT> <SPACE> <IDENTIFIER=e> <RPARENTHESIS> <NEWLINE>
+[36mko_too_many_arg.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mko_too_many_arg.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mko_too_many_arg.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 4":
+		<RBRACE> <NEWLINE>
+ko_too_many_arg.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: TOO_MANY_ARGS        (line:   1, col:  71):	Function has more than 4 arguments

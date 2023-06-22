@@ -38,8 +38,6 @@ class CheckSpacing(Rule):
                         space_error = True
                     while i < context.tkn_scope and context.check_token(i, "SPACE"):
                         i += 1
-                if context.check_token(i, "NEWLINE"):
-                    context.new_error("SPC_BEFORE_NL", context.peek_token(i - 1))
                 if context.check_token(i, "TAB"):
                     if space_tab_error is False:
                         context.new_error("MIXED_SPACE_TAB", context.peek_token(i - 1))

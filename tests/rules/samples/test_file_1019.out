@@ -182,3 +182,5 @@ Error: TOO_MANY_FUNCS       (line:  73, col:   1):	Too many functions in file
 Error: SPC_BEFORE_NL        (line:  73, col:  17):	Space before newline
 Error: TOO_MANY_FUNCS       (line:  78, col:   1):	Too many functions in file
 Error: SPC_BEFORE_NL        (line:  78, col:  17):	Space before newline
+Error: SPC_BEFORE_NL        (line:  79, col:   2):	Space before newline
+Error: SPC_BEFORE_NL        (line:  81, col:   2):	Space before newline

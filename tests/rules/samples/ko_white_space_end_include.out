@@ -1,0 +1,24 @@
+[36mko_white_space_end_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<INCLUDE=#include "libft.h"	> <NEWLINE>
+[36mko_white_space_end_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<INCLUDE=#include "libft.h" > <NEWLINE>
+[36mko_white_space_end_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mko_white_space_end_include.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 4":
+		<VOID> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_white_space_end_include.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 5":
+		<LBRACE> <TAB> <NEWLINE>
+[36mko_white_space_end_include.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <INT> <TAB> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
+[36mko_white_space_end_include.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 7":
+		<NEWLINE>
+[36mko_white_space_end_include.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mko_white_space_end_include.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 9":
+		<RBRACE> <SPACE> <NEWLINE>
+ko_white_space_end_include.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPC_BEFORE_NL        (line:   1, col:   1):	Space before newline
+Error: SPC_BEFORE_NL        (line:   2, col:   1):	Space before newline
+Error: SPC_BEFORE_NL        (line:   5, col:   2):	Space before newline
+Error: SPC_BEFORE_NL        (line:   9, col:   2):	Space before newline
