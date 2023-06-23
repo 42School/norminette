@@ -44,7 +44,7 @@ class CheckPreprocessorInclude(Rule):
                 filetype = tkns[i].value.split(".")[-1][0]
             except:
                 filetype = ""
-        if (i == len(tkns)):
+        if i == len(tkns):
             i = len(tkns) - 1
         while tkns[i].type != "NEWLINE" and i < len(tkns) - 1:
             i += 1
