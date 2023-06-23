@@ -53,12 +53,7 @@ class Lexer:
         for escaped characters self.__pos will be increased twice
         """
         if self.peek_char() == "\t":
-            # this calculates the 'visual offset' of a tab based on it's
-            # position on the line, if there's an easier way to calculate this
-            # you're welcome
-            self.__line_pos = int(
-                (self.__line_pos + 4 - (self.__line_pos - 1) % 4) * 5 / 5
-            )
+            self.__line_pos += 4 - (self.__line_pos-1 & 3)
         else:
             self.__line_pos += 1
         if self.__pos < self.len and self.src[self.__pos] == "\\":

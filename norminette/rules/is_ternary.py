@@ -1,7 +1,7 @@
-from norminette.rules import Rule
+from norminette.rules import PrimaryRule
 
 
-class IsTernary(Rule):
+class IsTernary(PrimaryRule):
     def __init__(self):
         super().__init__()
         self.priority = 53

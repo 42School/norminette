@@ -1,36 +1,36 @@
+__all__ = (
+    "rules",
+    "primary_rules",
+    "Rule",
+    "PrimaryRule",
+)
+
+import operator
+import itertools
 import importlib
 import os
-from glob import glob
 
 from norminette.rules.rule import PrimaryRule
 from norminette.rules.rule import Rule
 
 
+def partition(predicate, iterable):
+    it1, it2 = itertools.tee(iterable)
+    return itertools.filterfalse(predicate, it1), filter(predicate, it2)
+
+
 path = os.path.dirname(os.path.realpath(__file__))
-files = glob(path + "/check_*.py")
 
-rules = {}
-primary_rules = {}
+for f in os.listdir(path):
+    name, _ = os.path.splitext(f)
+    importlib.import_module("norminette.rules." + name)
 
-for f in files:
-    mod_name = f.split(os.path.sep)[-1].split(".")[0]
-    class_name = "".join([s.capitalize() for s in mod_name.split("_")])
-    module = importlib.import_module("norminette.rules." + mod_name)
-    rule = getattr(module, class_name)
-    rule = rule()
-    rules[class_name] = rule
+_all_rules = Rule.__subclasses__()[1:] + PrimaryRule.__subclasses__()
+_all_rules = map(type.__call__, _all_rules)  # In 3.11^ we can just use `operator.call``
 
-files = glob(path + "/is_*.py")
+_is_primary_rule = operator.attrgetter("primary")
+_rules, _primary_rules = partition(_is_primary_rule, _all_rules)
 
-for f in files:
-    mod_name = f.split(os.path.sep)[-1].split(".")[0]
-    class_name = "".join([s.capitalize() for s in mod_name.split("_")])
-    module = importlib.import_module("norminette.rules." + mod_name)
-    rule = getattr(module, class_name)
-    primary_rules[class_name] = rule()
+rules = {rule.__class__.__name__: rule for rule in _rules}
 
-
-primary_rules = [
-    v for k, v in sorted(primary_rules.items(), key=lambda item: -item[1].priority)
-]
-__all__ = ["rules", "primary_rules", "Rule", "PrimaryRule"]
+primary_rules = sorted(_primary_rules, reverse=True, key=operator.attrgetter("priority"))
