@@ -53,6 +53,8 @@ class CheckFuncDeclaration(Rule):
                 deep -= 1
             elif context.check_token(i, "COMMA"):
                 arg += 1
+            elif context.check_token(i, "NEWLINE"):
+                break
             i += 1
         if context.check_token(i - 1, ["SPACE", "TAB"]) is True:
             tmp = i - 1
