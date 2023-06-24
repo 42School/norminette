@@ -100,7 +100,7 @@ def main():
                 elif os.path.isfile(arg):
                     targets.append(arg)
     event = []
-    for target in targets:
+    for target in filter(os.path.isfile, targets):
         if target[-2:] not in [".c", ".h"]:
             print(f"Error: {target} is not valid C or C header file")
         else:
