@@ -18,10 +18,7 @@ class CheckEmptyLine(Rule):
         if len(context.history) == 1 and context.history[-1] == "IsEmptyLine":
             context.new_error("EMPTY_LINE_FILE_START", context.peek_token(i))
             return False, 0
-        if (
-            context.scope.name != "GlobalScope"
-            and context.history[-1] != "IsBlockStart"
-        ):
+        if context.scope.name != "GlobalScope":
             if (
                 context.history[-1] != "IsVarDeclaration"
                 and context.scope.vdeclarations_allowed is True
