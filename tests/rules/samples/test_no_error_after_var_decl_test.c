@@ -34,3 +34,29 @@ void	test5(void)
 		printf("Not ok");
 	}
 }
+
+void	test6(void)
+{
+	int	a;
+	{
+		return ;
+	}
+}
+
+void	test7(void)
+{
+	int	a;
+	{
+		while (1)
+			return ;
+	}
+}
+
+void	test8(void)
+{
+	int	a;
+	{
+		if (1)
+			return ;
+	}
+}
