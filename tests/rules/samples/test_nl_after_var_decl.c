@@ -37,26 +37,22 @@ void	test5(void)
 
 void	test6(void)
 {
-	int	a;
+	int	x;
 	{
-		return ;
+		while (1)
+return ;
 	}
 }
 
 void	test7(void)
 {
-	int	a;
-	{
-		while (1)
-			return ;
-	}
+	int	x;
+	{{return ;}}
 }
 
 void	test8(void)
 {
-	int	a;
-	{
-		if (1)
-			return ;
-	}
+	int	x;
+	{if (1)
+	 	return ;}
 }
