@@ -1,140 +1,140 @@
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
 		<VOID> <TAB> <IDENTIFIER=test> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
 		<LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+[36mtest_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
 		<TAB> <INT> <TAB> <IDENTIFIER=x> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 4":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 4":
 		<TAB> <LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 5":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 5":
 		<TAB> <TAB> <IDENTIFIER=printf> <LPARENTHESIS> <STRING="Ok?"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 6":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 6":
 		<TAB> <RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 7":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 7":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
+[36mtest_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
 		<NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 9":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 9":
 		<VOID> <TAB> <IDENTIFIER=test2> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 10":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 10":
 		<LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 11":
+[36mtest_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 11":
 		<TAB> <INT> <TAB> <IDENTIFIER=x> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 12":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 12":
 		<TAB> <LBRACE> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 12":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 12":
 		<LBRACE> <SPACE> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 12":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "ControlStructure" line 12":
 		<IDENTIFIER=printf> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <SPACE> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 12":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 12":
 		<RBRACE> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 12":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 12":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 13":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 13":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 14":
+[36mtest_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 14":
 		<NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 15":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 15":
 		<VOID> <TAB> <IDENTIFIER=test3> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 16":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 16":
 		<LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 17":
+[36mtest_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 17":
 		<TAB> <INT> <TAB> <IDENTIFIER=y> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 18":
+[36mtest_nl_after_var_decl.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 18":
 		<TAB> <LPARENTHESIS> <IDENTIFIER=printf> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 19":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 19":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 20":
+[36mtest_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 20":
 		<NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 21":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 21":
 		<VOID> <TAB> <IDENTIFIER=test4> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 22":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 22":
 		<LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 23":
+[36mtest_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 23":
 		<TAB> <INT> <TAB> <IDENTIFIER=y> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 24":
+[36mtest_nl_after_var_decl.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 24":
 		<TAB> <IF> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 25":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 25":
 		<TAB> <LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 26":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 26":
 		<TAB> <TAB> <IDENTIFIER=printf> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 27":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 27":
 		<TAB> <RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 28":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 28":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 29":
+[36mtest_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 29":
 		<NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 30":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 30":
 		<VOID> <TAB> <IDENTIFIER=test5> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 31":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 31":
 		<LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 32":
+[36mtest_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 32":
 		<TAB> <INT> <TAB> <IDENTIFIER=x> <COMMA> <SPACE> <IDENTIFIER=y> <COMMA> <SPACE> <IDENTIFIER=z> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 33":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 33":
 		<TAB> <LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 34":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 34":
 		<TAB> <TAB> <IDENTIFIER=printf> <LPARENTHESIS> <STRING="Not ok"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 35":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 35":
 		<TAB> <RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 36":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 36":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 37":
+[36mtest_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 37":
 		<NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 38":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 38":
 		<VOID> <TAB> <IDENTIFIER=test6> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 39":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 39":
 		<LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 40":
+[36mtest_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 40":
 		<TAB> <INT> <TAB> <IDENTIFIER=x> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 41":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 41":
 		<TAB> <LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 42":
+[36mtest_nl_after_var_decl.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 42":
 		<TAB> <TAB> <WHILE> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 43":
+[36mtest_nl_after_var_decl.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 43":
 		<RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 44":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 44":
 		<TAB> <RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 45":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 45":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 46":
+[36mtest_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 46":
 		<NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 47":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 47":
 		<VOID> <TAB> <IDENTIFIER=test7> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 48":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 48":
 		<LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 49":
+[36mtest_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 49":
 		<TAB> <INT> <TAB> <IDENTIFIER=x> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 50":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 50":
 		<TAB> <LBRACE> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 50":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 50":
 		<LBRACE> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 50":
+[36mtest_nl_after_var_decl.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 50":
 		<RETURN> <SPACE> <SEMI_COLON> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 50":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 50":
 		<RBRACE> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 50":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 50":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 51":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 51":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 52":
+[36mtest_nl_after_var_decl.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 52":
 		<NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 53":
+[36mtest_nl_after_var_decl.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 53":
 		<VOID> <TAB> <IDENTIFIER=test8> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 54":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 54":
 		<LBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 55":
+[36mtest_nl_after_var_decl.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 55":
 		<TAB> <INT> <TAB> <IDENTIFIER=x> <SEMI_COLON> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 56":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 56":
 		<TAB> <LBRACE> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 56":
+[36mtest_nl_after_var_decl.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 56":
 		<IF> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 57":
+[36mtest_nl_after_var_decl.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 57":
 		<TAB> <SPACE> <TAB> <RETURN> <SPACE> <SEMI_COLON> 
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 57":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 57":
 		<RBRACE> <NEWLINE>
-[36m/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 58":
+[36mtest_nl_after_var_decl.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 58":
 		<RBRACE> <NEWLINE>
-/nfs/homes/johmatos/Documents/norminette/tests/rules/samples/test_nl_after_var_decl.c: Error!
+test_nl_after_var_decl.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: NL_AFTER_VAR_DECL    (line:   4, col:   1):	Variable declarations must be followed by a newline
 Error: NL_AFTER_VAR_DECL    (line:  12, col:   1):	Variable declarations must be followed by a newline
