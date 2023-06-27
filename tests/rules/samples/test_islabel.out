@@ -29,9 +29,7 @@
 [36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 14":
 		<TAB> <GOTO> <SPACE> <IDENTIFIER=end> <SEMI_COLON> <NEWLINE>
 [36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 15":
-		<TAB> <IDENTIFIER=_4> <COLON> 
-[36mtest_islabel.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 15":
-		<NEWLINE>
+		<TAB> <IDENTIFIER=_4> <COLON> <NEWLINE>
 [36mtest_islabel.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 16":
 		<TAB> <LBRACE> <NEWLINE>
 [36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 17":
@@ -39,15 +37,11 @@
 [36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 18":
 		<TAB> <RBRACE> <NEWLINE>
 [36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 19":
-		<TAB> <IDENTIFIER=_2> <COLON> 
-[36mtest_islabel.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 19":
-		<NEWLINE>
+		<TAB> <IDENTIFIER=_2> <COLON> <NEWLINE>
 [36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 20":
 		<TAB> <TAB> <IDENTIFIER=write> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="2"> <COMMA> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 21":
-		<IDENTIFIER=end> <COLON> 
-[36mtest_islabel.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 21":
-		<NEWLINE>
+		<IDENTIFIER=end> <COLON> <NEWLINE>
 [36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 22":
 		<TAB> <IDENTIFIER=write> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="\n"> <COMMA> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 23":
@@ -71,13 +65,10 @@ Error: NO_SPC_AFR_PAR       (line:  11, col:  15):	Extra space after parenthesis
 Error: TOO_FEW_TAB          (line:  11, col:  17):	Missing tabs for indent level
 Error: LABEL_FBIDDEN        (line:  14, col:   1):	Label statements are forbidden
 Error: LABEL_FBIDDEN        (line:  15, col:   1):	Label statements are forbidden
-Error: EMPTY_LINE_FUNCTION  (line:  15, col:   8):	Empty line in function
 Error: LABEL_FBIDDEN        (line:  19, col:   1):	Label statements are forbidden
-Error: EMPTY_LINE_FUNCTION  (line:  19, col:   8):	Empty line in function
 Error: TOO_MANY_TAB         (line:  20, col:   1):	Extra tabs for indent level
 Error: LABEL_FBIDDEN        (line:  21, col:   1):	Label statements are forbidden
 Error: TOO_FEW_TAB          (line:  21, col:   1):	Missing tabs for indent level
-Error: EMPTY_LINE_FUNCTION  (line:  21, col:   5):	Empty line in function
 Error: LABEL_FBIDDEN        (line:  23, col:   1):	Label statements are forbidden
 Error: TOO_FEW_TAB          (line:  23, col:   1):	Missing tabs for indent level
 Error: LABEL_FBIDDEN        (line:  24, col:   1):	Label statements are forbidden
