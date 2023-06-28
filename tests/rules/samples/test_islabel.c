@@ -1,6 +1,7 @@
 int	main(void)
 {
 	dummy(4);
+	kikuti();
 	return (0);
 }
 
@@ -30,3 +31,25 @@ ble:(
 	)
 	)
 ;}
+
+void	kikuti(void)
+{
+	int	i;
+
+	i = 0;
+loop:
+	if (i < 10)
+		goto loop;
+	{
+		{
+		goto calcal;
+		calcal:
+	}
+	while (1)
+	{
+		goto calcal;
+	}
+        if (1)
+                goto calcal;
+	}
+}

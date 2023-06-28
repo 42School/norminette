@@ -4,83 +4,147 @@
 		<LBRACE> <NEWLINE>
 [36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 3":
 		<TAB> <IDENTIFIER=dummy> <LPARENTHESIS> <CONSTANT=4> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 4":
+[36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <IDENTIFIER=kikuti> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 5":
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 5":
+[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 6":
 		<RBRACE> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 6":
+[36mtest_islabel.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
 		<NEWLINE>
-[36mtest_islabel.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 7":
+[36mtest_islabel.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 8":
 		<VOID> <TAB> <IDENTIFIER=dummy> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=n> <RPARENTHESIS> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 8":
+[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 9":
 		<LBRACE> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 9":
+[36mtest_islabel.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 10":
 		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=n> <SPACE> <EQUALS> <SPACE> <CONSTANT=4> <RPARENTHESIS> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 10":
+[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 11":
 		<TAB> <TAB> <GOTO> <SPACE> <IDENTIFIER=_4> <SEMI_COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 11":
+[36mtest_islabel.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 12":
 		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=n> <SPACE> <EQUALS> <SPACE> <CONSTANT=2> <RPARENTHESIS> <SPACE> 
-[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 11":
+[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 12":
 		<LBRACE> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 12":
+[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 13":
 		<TAB> <TAB> <GOTO> <SPACE> <IDENTIFIER=_2> <SEMI_COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 13":
+[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 14":
 		<TAB> <RBRACE> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 14":
+[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 15":
 		<TAB> <GOTO> <SPACE> <IDENTIFIER=end> <SEMI_COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 15":
+[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 16":
 		<TAB> <IDENTIFIER=_4> <COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 16":
+[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 17":
 		<TAB> <LBRACE> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 17":
+[36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 18":
 		<TAB> <TAB> <IDENTIFIER=write> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="4"> <COMMA> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 18":
+[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 19":
 		<TAB> <RBRACE> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 19":
+[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 20":
 		<TAB> <IDENTIFIER=_2> <COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 20":
+[36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 21":
 		<TAB> <TAB> <IDENTIFIER=write> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="2"> <COMMA> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 21":
+[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 22":
 		<IDENTIFIER=end> <COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 22":
+[36mtest_islabel.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 23":
 		<TAB> <IDENTIFIER=write> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <STRING="\n"> <COMMA> <SPACE> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 23":
+[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 24":
 		<IDENTIFIER=bla> <COLON> <SPACE> <RETURN> <SEMI_COLON> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 24":
+[36mtest_islabel.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 25":
 		<IDENTIFIER=blo> <COLON> <SPACE> <IDENTIFIER=printf> <LPARENTHESIS> <NEWLINE>
 		<TAB> <STRING="NiumXp :D"> <RPARENTHESIS> <NEWLINE>
 		<TAB> <SPACE> <SEMI_COLON> <SPACE> <NEWLINE>
-[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 27":
+[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 28":
 		<IDENTIFIER=ble> <COLON> <LPARENTHESIS> <NEWLINE>
 		<TAB> <IDENTIFIER=printf> <LPARENTHESIS> <NEWLINE>
 		<TAB> <STRING="NiumXp :D"> <NEWLINE>
 		<TAB> <RPARENTHESIS> <NEWLINE>
 		<TAB> <RPARENTHESIS> <NEWLINE>
 		<SEMI_COLON> 
-[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 32":
+[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 33":
+		<RBRACE> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 34":
+		<NEWLINE>
+[36mtest_islabel.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 35":
+		<VOID> <TAB> <IDENTIFIER=kikuti> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 36":
+		<LBRACE> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 37":
+		<TAB> <INT> <TAB> <IDENTIFIER=i> <SEMI_COLON> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 38":
+		<NEWLINE>
+[36mtest_islabel.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 39":
+		<TAB> <IDENTIFIER=i> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsLabel[0m In "Function" from "GlobalScope" line 40":
+		<IDENTIFIER=loop> <COLON> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 41":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=i> <SPACE> <LESS_THAN> <SPACE> <CONSTANT=10> <RPARENTHESIS> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 42":
+		<TAB> <TAB> <GOTO> <SPACE> <IDENTIFIER=loop> <SEMI_COLON> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 43":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 44":
+		<TAB> <TAB> <LBRACE> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 45":
+		<TAB> <TAB> <GOTO> <SPACE> <IDENTIFIER=calcal> <SEMI_COLON> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsLabel[0m In "ControlStructure" from "ControlStructure" line 46":
+		<TAB> <TAB> <IDENTIFIER=calcal> <COLON> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 47":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 48":
+		<TAB> <WHILE> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "ControlStructure" line 49":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 50":
+		<TAB> <TAB> <GOTO> <SPACE> <IDENTIFIER=calcal> <SEMI_COLON> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "ControlStructure" line 51":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsControlStatement[0m In "ControlStructure" from "Function" line 52":
+		<SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <IF> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "ControlStructure" line 53":
+		<SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <GOTO> <SPACE> <IDENTIFIER=calcal> <SEMI_COLON> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 54":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_islabel.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 55":
 		<RBRACE> <NEWLINE>
 test_islabel.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: GOTO_FBIDDEN         (line:  10, col:   1):	Goto statements are forbidden
-Error: NO_SPC_AFR_PAR       (line:  11, col:  15):	Extra space after parenthesis (brace/bracket)
-Error: TOO_FEW_TAB          (line:  11, col:  17):	Missing tabs for indent level
-Error: GOTO_FBIDDEN         (line:  12, col:   1):	Goto statements are forbidden
-Error: GOTO_FBIDDEN         (line:  14, col:   1):	Goto statements are forbidden
-Error: LABEL_FBIDDEN        (line:  15, col:   1):	Label statements are forbidden
-Error: LABEL_FBIDDEN        (line:  19, col:   1):	Label statements are forbidden
-Error: TOO_MANY_TAB         (line:  20, col:   1):	Extra tabs for indent level
-Error: LABEL_FBIDDEN        (line:  21, col:   1):	Label statements are forbidden
-Error: TOO_FEW_TAB          (line:  21, col:   1):	Missing tabs for indent level
-Error: LABEL_FBIDDEN        (line:  23, col:   1):	Label statements are forbidden
-Error: TOO_FEW_TAB          (line:  23, col:   1):	Missing tabs for indent level
+Error: GOTO_FBIDDEN         (line:  11, col:   1):	Goto statements are forbidden
+Error: NO_SPC_AFR_PAR       (line:  12, col:  15):	Extra space after parenthesis (brace/bracket)
+Error: TOO_FEW_TAB          (line:  12, col:  17):	Missing tabs for indent level
+Error: GOTO_FBIDDEN         (line:  13, col:   1):	Goto statements are forbidden
+Error: GOTO_FBIDDEN         (line:  15, col:   1):	Goto statements are forbidden
+Error: LABEL_FBIDDEN        (line:  16, col:   1):	Label statements are forbidden
+Error: LABEL_FBIDDEN        (line:  20, col:   1):	Label statements are forbidden
+Error: TOO_MANY_TAB         (line:  21, col:   1):	Extra tabs for indent level
+Error: LABEL_FBIDDEN        (line:  22, col:   1):	Label statements are forbidden
+Error: TOO_FEW_TAB          (line:  22, col:   1):	Missing tabs for indent level
 Error: LABEL_FBIDDEN        (line:  24, col:   1):	Label statements are forbidden
 Error: TOO_FEW_TAB          (line:  24, col:   1):	Missing tabs for indent level
-Error: VAR_DECL_START_FUNC  (line:  24, col:   1):	Variable declaration not at start of function
-Error: SPACE_REPLACE_TAB    (line:  24, col:   4):	Found space when expecting tab
+Error: LABEL_FBIDDEN        (line:  25, col:   1):	Label statements are forbidden
 Error: TOO_FEW_TAB          (line:  25, col:   1):	Missing tabs for indent level
-Error: MIXED_SPACE_TAB      (line:  26, col:   1):	Mixed spaces and tabs
+Error: VAR_DECL_START_FUNC  (line:  25, col:   1):	Variable declaration not at start of function
+Error: SPACE_REPLACE_TAB    (line:  25, col:   4):	Found space when expecting tab
 Error: TOO_FEW_TAB          (line:  26, col:   1):	Missing tabs for indent level
-Error: NO_SPC_BFR_OPR       (line:  26, col:   6):	extra space before operator
-Error: LABEL_FBIDDEN        (line:  27, col:   1):	Label statements are forbidden
+Error: MIXED_SPACE_TAB      (line:  27, col:   1):	Mixed spaces and tabs
 Error: TOO_FEW_TAB          (line:  27, col:   1):	Missing tabs for indent level
-Error: TOO_MANY_INSTR       (line:  32, col:   2):	Too many instructions on a single line
+Error: NO_SPC_BFR_OPR       (line:  27, col:   6):	extra space before operator
+Error: LABEL_FBIDDEN        (line:  28, col:   1):	Label statements are forbidden
+Error: TOO_FEW_TAB          (line:  28, col:   1):	Missing tabs for indent level
+Error: TOO_MANY_INSTR       (line:  33, col:   2):	Too many instructions on a single line
+Error: LABEL_FBIDDEN        (line:  40, col:   1):	Label statements are forbidden
+Error: TOO_FEW_TAB          (line:  40, col:   1):	Missing tabs for indent level
+Error: GOTO_FBIDDEN         (line:  42, col:   1):	Goto statements are forbidden
+Error: GOTO_FBIDDEN         (line:  45, col:   1):	Goto statements are forbidden
+Error: TOO_FEW_TAB          (line:  45, col:   1):	Missing tabs for indent level
+Error: LABEL_FBIDDEN        (line:  46, col:   1):	Label statements are forbidden
+Error: TOO_FEW_TAB          (line:  46, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  47, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  48, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  49, col:   1):	Missing tabs for indent level
+Error: GOTO_FBIDDEN         (line:  50, col:   1):	Goto statements are forbidden
+Error: TOO_FEW_TAB          (line:  50, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  51, col:   1):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  52, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  52, col:   9):	Found space when expecting tab
+Error: GOTO_FBIDDEN         (line:  53, col:   1):	Goto statements are forbidden
+Error: TOO_FEW_TAB          (line:  53, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  53, col:  17):	Found space when expecting tab
