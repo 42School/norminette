@@ -15,7 +15,7 @@ class CheckLabel(Rule):
             return False, 0
         i = context.skip_ws(i)
         if context.check_token(i, "GOTO"):
-            context.new_error("LABEL_FBIDDEN", context.peek_token(0))
+            context.new_error("GOTO_FBIDDEN", context.peek_token(0))
             return False, 0
         if context.check_token(i, "IDENTIFIER") is False:
             return False, 0

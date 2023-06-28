@@ -61,9 +61,11 @@
 		<RBRACE> <NEWLINE>
 test_islabel.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: GOTO_FBIDDEN         (line:  10, col:   1):	Goto statements are forbidden
 Error: NO_SPC_AFR_PAR       (line:  11, col:  15):	Extra space after parenthesis (brace/bracket)
 Error: TOO_FEW_TAB          (line:  11, col:  17):	Missing tabs for indent level
-Error: LABEL_FBIDDEN        (line:  14, col:   1):	Label statements are forbidden
+Error: GOTO_FBIDDEN         (line:  12, col:   1):	Goto statements are forbidden
+Error: GOTO_FBIDDEN         (line:  14, col:   1):	Goto statements are forbidden
 Error: LABEL_FBIDDEN        (line:  15, col:   1):	Label statements are forbidden
 Error: LABEL_FBIDDEN        (line:  19, col:   1):	Label statements are forbidden
 Error: TOO_MANY_TAB         (line:  20, col:   1):	Extra tabs for indent level
