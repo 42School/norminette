@@ -274,10 +274,12 @@ In \"{self.scope.name}\" from \
             pos += 1
         return pos
 
-    def skip_ws(self, pos, nl=False):
+    def skip_ws(self, pos, nl=False, comment=False):
         ws = whitespaces[:]
         if nl is False:
             ws.remove("NEWLINE")
+        if comment:
+            ws += ("COMMENT", "MULT_COMMENT")
         while self.check_token(pos, ws):
             pos += 1
         return pos
