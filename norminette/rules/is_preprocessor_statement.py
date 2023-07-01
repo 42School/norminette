@@ -75,10 +75,31 @@ class IsPreprocessorStatement(PrimaryRule):
         raise CParsingError(f"Invalid preprocessing directive #{direc}")
 
     def check_define(self, context, index):
-        pass
+        if not context.check_token(index, "IDENTIFIER"):
+            raise CParsingError(f"No identifier after #define")
+        index += 1
+        if context.check_token(index, "LPARENTHESIS"):
+            index += 1
+            index = context.skip_ws(index)
+            while context.check_token(index, "IDENTIFIER"):
+                index += 1
+                index = context.skip_ws(index)
+                if context.check_token(index, "COMMA"):
+                    index += 1
+                    index = context.skip_ws(index)
+            # Add better errors like check EOF and invalid identifier?
+            if not context.check_token(index, "RPARENTHESIS"):
+                raise CParsingError(f"Invalid macro function definition")
+            index += 1
+        index = context.skip_ws(index)
+        return self._just_token_string("define", context, index)
 
     def check_import(self, context, index):
-        pass
+        is_valid_argument, index = self._check_path(context, index)
+        if not is_valid_argument:
+            raise CParsingError("Invalid file argument for #import directive")
+        index = context.skip_ws(index)
+        return self._just_token_string("import", context, index)
 
     def check_pragma(self, context, index):
         return self._just_token_string("pragma", context, index)
@@ -121,42 +142,42 @@ class IsPreprocessorStatement(PrimaryRule):
         return self._just_eol("endif", context, index)
 
     def check_include(self, context, index):
-        def check_include_header():
-            """Checks the argument of an include statement.
-
-            Examples of valid headers:
-            - `"libft.h"`
-            - `<    bla.h   >`
-            - `<42.h   >`
-            - `<   four.two>`
-            """
-            nonlocal context, index
-            if context.check_token(index, "STRING"):
-                index += 1
-                return True, index
-            if not context.check_token(index, "LESS_THAN"):
-                return False, index
-            index = context.skip_ws(index + 1)
-            if not context.check_token(index, "IDENTIFIER"):
-                return False, index
-            # TODO: Add to support `sys/types/a/b/c/`
-            index += 1
-            if not context.check_token(index, "DOT"):
-                return False, index
-            index += 1
-            if not context.check_token(index, "IDENTIFIER"):  # We need check if is 'h'?
-                return False, index
-            index = context.skip_ws(index + 1)
-            if not context.check_token(index, "MORE_THAN"):
-                return False, index
-            index += 1
-            return True, index
-
-        is_valid_argument, index = check_include_header()
+        is_valid_argument, index = self._check_path(context, index)
         if not is_valid_argument:
-            raise CParsingError("Invalid argument for #include directive")
+            raise CParsingError("Invalid file argument for #include directive")
         index = context.skip_ws(index)
         return self._just_eol("include", context, index)
+
+    def _check_path(self, context, index):
+        """Checks the argument of an include/import statement.
+
+        Examples of valid headers:
+        - `"libft.h"`
+        - `<    bla.h   >`
+        - `<42.h   >`
+        - `<   four.two>`
+        """
+        if context.check_token(index, "STRING"):
+            index += 1
+            return True, index
+        if not context.check_token(index, "LESS_THAN"):
+            return False, index
+        index = context.skip_ws(index + 1)
+        if not context.check_token(index, "IDENTIFIER"):
+            return False, index
+        # TODO: Add to support `sys/types/a/b/c/`
+        # TODO: Add to support names with `-`, `_` and `.`?
+        index += 1
+        if not context.check_token(index, "DOT"):
+            return False, index
+        index += 1
+        if not context.check_token(index, "IDENTIFIER"):
+            return False, index
+        index = context.skip_ws(index + 1)
+        if not context.check_token(index, "MORE_THAN"):
+            return False, index
+        index += 1
+        return True, index
 
     def _just_token_string(self, directive, context, index):
         if context.check_token(index, "NEWLINE"):
@@ -164,6 +185,7 @@ class IsPreprocessorStatement(PrimaryRule):
             return True, index
         lines = 1
         while context.peek_token(index) is not None and lines > 0:
+            # TODO: It is buggy when we have consecutive backslashes
             if context.check_token(index, "NEWLINE"):
                 lines -= 1
             elif context.check_token(index, "BACKSLASH"):
