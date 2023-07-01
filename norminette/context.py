@@ -1,3 +1,4 @@
+from collections.abc import Container
 from norminette.exceptions import CParsingError
 from norminette.norm_error import NormError, NormWarning
 from norminette.scope import GlobalScope, ControlStructure
@@ -182,10 +183,8 @@ class Context:
         if tkn is None:
             return None
 
-        if isinstance(value, list):
-            if tkn.type in value:
-                return True
-            return False
+        if isinstance(value, Container):
+            return tkn.type in value
 
         return tkn.type == value
 
