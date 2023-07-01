@@ -28,7 +28,7 @@ class CheckPreprocessorInclude(Rule):
         i += 1  # skip INCLUDE
         i = context.skip_ws(i)
         if context.check_token(i, "STRING"):  # "niumxp.h"
-            file = context.peek_token(i).value.strip()
+            file = context.peek_token(i).value.strip().strip('"')
             file, extension = os.path.splitext(file)
             if extension != ".h":
                 context.new_error("INCLUDE_HEADER_ONLY", context.peek_token(i))

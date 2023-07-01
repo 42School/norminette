@@ -47,11 +47,7 @@ class CheckPreprocessorDefine(Rule):
             i += 1
         elif context.check_token(i, ("CONSTANT", "IDENTIFIER", "STRING")):
             i += 1
-        else:
-            context.new_error("PREPROC_CONSTANT", context.peek_token(i))
-            return
 
         i = context.skip_ws(i, comment=True)
-
-        if not context.check_token(i, "NEWLINE"):
-            context.new_error("TOO_MANY_VALS", context.peek_token(i))
+        if context.peek_token(i) and not context.check_token(i, "NEWLINE"):
+            context.new_error("PREPROC_CONSTANT", context.peek_token(i))
