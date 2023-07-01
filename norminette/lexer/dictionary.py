@@ -39,22 +39,6 @@ keywords = {
     "restrict": "RESTRICT",
 }
 
-preproc_keywords = {
-    "define": "DEFINE",
-    "error": "ERROR",
-    "endif": "ENDIF",
-    "elif": "ELIF",
-    "ifdef": "IFDEF",
-    "ifndef": "IFNDEF",
-    "if": "#IF",
-    "else": "#ELSE",
-    "include": "INCLUDE",
-    "pragma": "PRAGMA",
-    "undef": "UNDEF",
-    "warning": "WARNING",
-    "import": "IMPORT",
-}
-
 """
 __FILE__ ?add?
 __LINE__ ?add?
@@ -115,4 +99,4 @@ brackets = {
     "]": "RBRACKET",
 }
 
-__all__ = ["brackets", "operators", "preproc_keywords", "keywords"]
+__all__ = ["brackets", "operators", "keywords"]

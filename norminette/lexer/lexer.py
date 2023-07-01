@@ -3,7 +3,6 @@ import string
 from norminette.lexer.dictionary import brackets
 from norminette.lexer.dictionary import keywords
 from norminette.lexer.dictionary import operators
-from norminette.lexer.dictionary import preproc_keywords
 from norminette.lexer.tokens import Token
 
 
@@ -384,31 +383,6 @@ class Lexer:
             self.tokens.append(Token(operators[self.src[self.__pos]], pos))
             self.pop_char()
 
-    def preprocessor(self):
-        pos = self.line_pos()
-        tkn_value = ""
-        while self.peek_char():
-            tkn_value += self.peek_char()
-            self.pop_char()
-            if self.peek_sub_string(2) == "\\\n":
-                self.__line_pos = 1
-                self.__line += 1
-            #    raise TokenError(self.line_pos())
-            if self.peek_sub_string(2) in ["//", "/*"] or self.peek_char() == "\n":
-                break
-        if len(tkn_value) <= 1:
-            raise TokenError(self.line_pos())
-        tkn_key = tkn_value[1:].split()[0]
-        if tkn_key not in preproc_keywords and tkn_key[: len("include")] != "include":
-            raise TokenError(self.line_pos())
-        else:
-            if (
-                tkn_key not in preproc_keywords
-                and tkn_key[: len("include")] == "include"
-            ):
-                tkn_key = "include"
-            self.tokens.append(Token(preproc_keywords.get(tkn_key), pos, tkn_value))
-
     def get_next_token(self):
         """Peeks one character and tries to match it to a token type,
         if it doesn't match any of the token types, an error will be raised
@@ -430,7 +404,8 @@ class Lexer:
                 self.char_constant()
 
             elif self.peek_char() == "#":
-                self.preprocessor()
+                self.tokens.append(Token("HASH", self.line_pos()))
+                self.pop_char()
 
             elif self.src[self.__pos :].startswith("/*"):
                 self.mult_comment()
