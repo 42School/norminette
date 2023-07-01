@@ -212,7 +212,7 @@ class ConstantExpressionParser:
         self.context = context
         self.index = index
 
-    def parse(self) -> tuple[bool, int]:
+    def parse(self):
         try:
             self.parse_constant_expression()
             if self.context.peek_token(self.index) is None:
@@ -225,14 +225,14 @@ class ConstantExpressionParser:
             raise CParsingError("Constant expression too complex")
         return True, self.index
 
-    def skip_ws(self) -> None:
+    def skip_ws(self):
         self.index = self.context.skip_ws(self.index)
 
     @recursion_limit(100)
-    def parse_constant_expression(self) -> None:
+    def parse_constant_expression(self):
         self.parse_expression()
 
-    def parse_expression(self) -> None:
+    def parse_expression(self):
         if self.context.check_token(self.index, "LPARENTHESIS"):
             self.index += 1
             self.parse_expression()
@@ -263,7 +263,7 @@ class ConstantExpressionParser:
 
         raise CParsingError(f"Unexpected token: {self.context.peek_token(self.index)}")
 
-    def parse_function_macro(self) -> None:
+    def parse_function_macro(self):
         self.skip_ws()
         if not self.context.check_token(self.index, "RPARENTHESIS"):
             self.parse_expression()
@@ -276,7 +276,7 @@ class ConstantExpressionParser:
         self.index += 1
         self.skip_ws()
 
-    def parse_potential_binary_operator(self) -> None:
+    def parse_potential_binary_operator(self):
         self.skip_ws()
         if self.context.check_token(self.index, BINARY_OPERATORS):
             self.index += 1
