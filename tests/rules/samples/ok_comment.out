@@ -1,5 +1,5 @@
 [36mok_comment.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<DEFINE=#define TTOO 1> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TTOO> <SPACE> <CONSTANT=1> <NEWLINE>
 [36mok_comment.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
 		<NEWLINE>
 [36mok_comment.c[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 3":

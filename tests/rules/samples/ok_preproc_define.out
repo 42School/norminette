@@ -1,8 +1,9 @@
 [36mok_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<DEFINE=#define TOTO "TATA"> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TOTO> <SPACE> <STRING="TATA"> <NEWLINE>
 [36mok_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<DEFINE=#define PRINTF       "printf"> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=PRINTF> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <STRING="printf"> <NEWLINE>
 [36mok_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
-		<DEFINE=#define TOTO 12> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TOTO> <SPACE> <CONSTANT=12> <NEWLINE>
 ok_preproc_define.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: CONSECUTIVE_SPC      (line:   2, col:  15):  Two or more consecutives spaces

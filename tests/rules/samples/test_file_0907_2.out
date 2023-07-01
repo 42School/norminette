@@ -1,97 +1,97 @@
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<IFNDEF=#ifndef TEST_FILE_0907_2_H> <NEWLINE>
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=TEST_FILE_0907_2_H> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<DEFINE=# define TEST_FILE_0907_2_H> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TEST_FILE_0907_2_H> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
-		<INCLUDE=# include "structs/structs.h"> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=include> <SPACE> <STRING="structs/structs.h"> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
-		<INCLUDE=# include "settings.h"> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=include> <SPACE> <STRING="settings.h"> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
-		<INCLUDE=# include "frontend.h"> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=include> <SPACE> <STRING="frontend.h"> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 8":
-		<DEFINE=# define T_BUFF_SIZE		8> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=T_BUFF_SIZE> <TAB> <TAB> <CONSTANT=8> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 9":
-		<DEFINE=# define S_BUFF_SIZE		1> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=S_BUFF_SIZE> <TAB> <TAB> <CONSTANT=1> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 10":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 11":
-		<IFDEF=# ifdef OS_UBUNTU> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=ifdef> <SPACE> <IDENTIFIER=OS_UBUNTU> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
-		<WARNING=#  warning "UBUNTU"> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=warning> <SPACE> <STRING="UBUNTU"> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 14":
-		<IFNDEF=#  ifndef QWERTY> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=QWERTY> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
-		<DEFINE=#   define FORWARD_KEY		122> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=FORWARD_KEY> <TAB> <TAB> <CONSTANT=122> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 16":
-		<DEFINE=#   define BACKWARD_KEY		115> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BACKWARD_KEY> <TAB> <TAB> <CONSTANT=115> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 17":
-		<DEFINE=#   define LEFT_KEY			113> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=LEFT_KEY> <TAB> <TAB> <TAB> <CONSTANT=113> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 18":
-		<DEFINE=#   define RIGHT_KEY			100> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=RIGHT_KEY> <TAB> <TAB> <TAB> <CONSTANT=100> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 19":
-		<DEFINE=#   define CTRL_KEY			65507> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=CTRL_KEY> <TAB> <TAB> <TAB> <CONSTANT=65507> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 20":
-		<DEFINE=#   define ALT_KEY			65513> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=ALT_KEY> <TAB> <TAB> <TAB> <CONSTANT=65513> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 21":
-		<DEFINE=#   define C_KEY				99> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=C_KEY> <TAB> <TAB> <TAB> <TAB> <CONSTANT=99> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 22":
-		<ENDIF=#  endif> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=endif> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 23":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 24":
-		<IFDEF=#  ifdef QWERTY> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=ifdef> <SPACE> <IDENTIFIER=QWERTY> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 25":
-		<DEFINE=#   define FORWARD_KEY		119> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=FORWARD_KEY> <TAB> <TAB> <CONSTANT=119> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 26":
-		<DEFINE=#   define BACKWARD_KEY		115> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BACKWARD_KEY> <TAB> <TAB> <CONSTANT=115> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 27":
-		<DEFINE=#   define LEFT_KEY			97> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=LEFT_KEY> <TAB> <TAB> <TAB> <CONSTANT=97> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 28":
-		<DEFINE=#   define RIGHT_KEY		100> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=RIGHT_KEY> <TAB> <TAB> <CONSTANT=100> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 29":
-		<DEFINE=#   define CTRL_KEY			65507> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=CTRL_KEY> <TAB> <TAB> <TAB> <CONSTANT=65507> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 30":
-		<DEFINE=#   define ALT_KEY			65506> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=ALT_KEY> <TAB> <TAB> <TAB> <CONSTANT=65506> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 31":
-		<DEFINE=#   define C_KEY			99> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=C_KEY> <TAB> <TAB> <TAB> <CONSTANT=99> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 32":
-		<ENDIF=#  endif> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=endif> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 33":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 34":
-		<ENDIF=# endif> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=endif> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 35":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 36":
-		<IFDEF=# ifdef OS_OSX> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=ifdef> <SPACE> <IDENTIFIER=OS_OSX> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 37":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 38":
-		<WARNING=#  warning "OSX"> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=warning> <SPACE> <STRING="OSX"> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 39":
-		<DEFINE=#  define FORWARD_KEY		13> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=FORWARD_KEY> <TAB> <TAB> <CONSTANT=13> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 40":
-		<DEFINE=#  define BACKWARD_KEY		1> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BACKWARD_KEY> <TAB> <TAB> <CONSTANT=1> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 41":
-		<DEFINE=#  define LEFT_KEY			0> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=LEFT_KEY> <TAB> <TAB> <TAB> <CONSTANT=0> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 42":
-		<DEFINE=#  define RIGHT_KEY			2> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=RIGHT_KEY> <TAB> <TAB> <TAB> <CONSTANT=2> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 43":
-		<DEFINE=#  define CTRL_KEY			256> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=CTRL_KEY> <TAB> <TAB> <TAB> <CONSTANT=256> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 44":
-		<DEFINE=#  define ALT_KEY			258> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=ALT_KEY> <TAB> <TAB> <TAB> <CONSTANT=258> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 45":
-		<DEFINE=#  define C_KEY				8> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=C_KEY> <TAB> <TAB> <TAB> <TAB> <CONSTANT=8> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 46":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 47":
-		<ENDIF=# endif> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=endif> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 48":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 49":
@@ -139,23 +139,23 @@
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 73":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 74":
-		<DEFINE=# define NOEVENT_MASK			    0L> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=NOEVENT_MASK> <TAB> <TAB> <TAB> <SPACE> <SPACE> <SPACE> <SPACE> <CONSTANT=0L> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 75":
-		<DEFINE=# define KEYPRESS_MASK			    1L> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=KEYPRESS_MASK> <TAB> <TAB> <TAB> <SPACE> <SPACE> <SPACE> <SPACE> <CONSTANT=1L> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 76":
-		<DEFINE=# define KEYRELEASE_MASK			2L> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=KEYRELEASE_MASK> <TAB> <TAB> <TAB> <CONSTANT=2L> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 77":
-		<DEFINE=# define BUTTONPRESS_MASK			4L> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BUTTONPRESS_MASK> <TAB> <TAB> <TAB> <CONSTANT=4L> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 78":
-		<DEFINE=# define BUTTONRELEASE_MASK		    8L> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BUTTONRELEASE_MASK> <TAB> <TAB> <SPACE> <SPACE> <SPACE> <SPACE> <CONSTANT=8L> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 79":
-		<DEFINE=# define ENTERWINDOW_MASK			16L> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=ENTERWINDOW_MASK> <TAB> <TAB> <TAB> <CONSTANT=16L> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 80":
-		<DEFINE=# define LEAVEWINDOW_MASK			32L> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=LEAVEWINDOW_MASK> <TAB> <TAB> <TAB> <CONSTANT=32L> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 81":
-		<DEFINE=# define POINTERMOTION_MASK		    64L> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=POINTERMOTION_MASK> <TAB> <TAB> <SPACE> <SPACE> <SPACE> <SPACE> <CONSTANT=64L> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 82":
-		<DEFINE=# define POINTERMOTIONHINT_MASK	    128L> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=POINTERMOTIONHINT_MASK> <TAB> <SPACE> <SPACE> <SPACE> <SPACE> <CONSTANT=128L> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 83":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 84":
@@ -181,13 +181,13 @@
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 103":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 104":
-		<DEFINE=# define KEY_PRESS		    2> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=KEY_PRESS> <TAB> <TAB> <SPACE> <SPACE> <SPACE> <SPACE> <CONSTANT=2> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 105":
-		<DEFINE=# define KEY_RELEASE		3> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=KEY_RELEASE> <TAB> <TAB> <CONSTANT=3> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 106":
-		<DEFINE=# define BUTTON_PRESS		4> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BUTTON_PRESS> <TAB> <TAB> <CONSTANT=4> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 107":
-		<DEFINE=# define BUTTON_RELEASE	    5> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BUTTON_RELEASE> <TAB> <SPACE> <SPACE> <SPACE> <SPACE> <CONSTANT=5> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 108":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 109":
@@ -227,6 +227,58 @@
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 142":
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 143":
-		<ENDIF=#endif> <NEWLINE>
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
 test_file_0907_2.h: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: CONSECUTIVE_SPC      (line:  13, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  14, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  15, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  16, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  17, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  18, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  19, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  20, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  21, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  22, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  24, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  25, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  26, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  27, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  28, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  29, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  30, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  31, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  32, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  38, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  39, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  40, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  41, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  42, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  43, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  44, col:   2):	Two or more consecutives spaces
+Error: CONSECUTIVE_SPC      (line:  45, col:   2):	Two or more consecutives spaces
+Error: HEADER_PROT_ALL      (line:  53, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  59, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  60, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  61, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  62, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  63, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  64, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  65, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  66, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  67, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  68, col:   1):	Header protection must include all the instructions
+Error: MIXED_SPACE_TAB      (line:  74, col:  29):	Mixed spaces and tabs
+Error: CONSECUTIVE_SPC      (line:  74, col:  33):	Two or more consecutives spaces
+Error: MIXED_SPACE_TAB      (line:  75, col:  29):	Mixed spaces and tabs
+Error: CONSECUTIVE_SPC      (line:  75, col:  33):	Two or more consecutives spaces
+Error: MIXED_SPACE_TAB      (line:  78, col:  29):	Mixed spaces and tabs
+Error: CONSECUTIVE_SPC      (line:  78, col:  33):	Two or more consecutives spaces
+Error: MIXED_SPACE_TAB      (line:  81, col:  29):	Mixed spaces and tabs
+Error: CONSECUTIVE_SPC      (line:  81, col:  33):	Two or more consecutives spaces
+Error: MIXED_SPACE_TAB      (line:  82, col:  32):	Mixed spaces and tabs
+Error: CONSECUTIVE_SPC      (line:  82, col:  33):	Two or more consecutives spaces
+Error: MIXED_SPACE_TAB      (line: 104, col:  21):	Mixed spaces and tabs
+Error: CONSECUTIVE_SPC      (line: 104, col:  25):	Two or more consecutives spaces
+Error: MIXED_SPACE_TAB      (line: 107, col:  24):	Mixed spaces and tabs
+Error: CONSECUTIVE_SPC      (line: 107, col:  25):	Two or more consecutives spaces

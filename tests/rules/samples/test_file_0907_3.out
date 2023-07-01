@@ -128,7 +128,7 @@
 [36mtest_file_0907_3.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 63":
 		<TAB> <RBRACE> <SPACE> 
 [36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 63":
-		<ELSE> <NEWLINE>
+		<HASH> <ELSE> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "ControlStructure" from "Function" line 64":
 		<TAB> <TAB> <IDENTIFIER=fname> <SPACE> <ASSIGN> <SPACE> <STRING="typescript"> <SEMI_COLON> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 65":

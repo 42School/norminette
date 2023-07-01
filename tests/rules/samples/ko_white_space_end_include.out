@@ -1,7 +1,7 @@
 [36mko_white_space_end_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<INCLUDE=#include "libft.h"	> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="libft.h"> <TAB> <NEWLINE>
 [36mko_white_space_end_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<INCLUDE=#include "libft.h" > <NEWLINE>
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="libft.h"> <SPACE> <NEWLINE>
 [36mko_white_space_end_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
 		<NEWLINE>
 [36mko_white_space_end_include.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 4":

@@ -37,7 +37,7 @@
 [36mlong_test.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 16":
 		<NEWLINE>
 [36mlong_test.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 17":
-		<INCLUDE=#include <stdlib.h>> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <MORE_THAN> <IDENTIFIER=stdlib> <DOT> <IDENTIFIER=h> <LESS_THAN> <NEWLINE>
 [36mlong_test.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 18":
 		<INT> <TAB> <MULT> <IDENTIFIER=truc> <LPARENTHESIS> <RPARENTHESIS> <NEWLINE>
 [36mlong_test.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 19":

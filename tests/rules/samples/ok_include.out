@@ -1,10 +1,10 @@
 [36mok_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<INCLUDE=#include <stdio.h>> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=stdio> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
 [36mok_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<INCLUDE=#include "main.h"> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="main.h"> <NEWLINE>
 [36mok_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
 		<NEWLINE>
 [36mok_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
-		<INCLUDE=#include <main.h>> 
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=main> <DOT> <IDENTIFIER=h> <MORE_THAN> 
 ok_include.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

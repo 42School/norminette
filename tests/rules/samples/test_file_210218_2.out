@@ -1,7 +1,7 @@
 [36mtest_file_210218_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<IFNDEF=#ifndef FT_EXAMPLE_H> <NEWLINE>
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=FT_EXAMPLE_H> <NEWLINE>
 [36mtest_file_210218_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<DEFINE=# define FT_EXAMPLE_H> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=FT_EXAMPLE_H> <NEWLINE>
 [36mtest_file_210218_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
 		<NEWLINE>
 [36mtest_file_210218_2.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 4":
@@ -12,6 +12,6 @@
 [36mtest_file_210218_2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
 		<NEWLINE>
 [36mtest_file_210218_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 9":
-		<ENDIF=#endif> 
+		<HASH> <IDENTIFIER=endif> 
 test_file_210218_2.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

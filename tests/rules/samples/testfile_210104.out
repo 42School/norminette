@@ -1,7 +1,7 @@
 [36mtestfile_210104.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<IFNDEF=#ifndef TESTFILE_210104_H> <NEWLINE>
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=TESTFILE_210104_H> <NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<DEFINE=# define TESTFILE_210104_H> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TESTFILE_210104_H> <NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
 		<NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 4":
@@ -21,13 +21,13 @@
 [36mtestfile_210104.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 11":
 		<NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 12":
-		<DEFINE=# define FOUR (2 << 1)> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=FOUR> <SPACE> <LPARENTHESIS> <CONSTANT=2> <SPACE> <LEFT_SHIFT> <SPACE> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
-		<DEFINE=# define FTFLOAT 0x42f> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=FTFLOAT> <SPACE> <CONSTANT=0x42f> <NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 14":
 		<NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
-		<ENDIF=#endif> <NEWLINE>
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 16":
 		<NEWLINE>
 [36mtestfile_210104.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 17":
@@ -35,3 +35,4 @@
 testfile_210104.h: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: TOO_MANY_VALS        (line:  12, col:  24):	Too many values on define
+Error: PREPROC_CONSTANT     (line:  12, col:  15):	Preprocessor statement must only contain constant defines
