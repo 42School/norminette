@@ -184,12 +184,14 @@ class IsPreprocessorStatement(PrimaryRule):
             index += 1
             return True, index
         lines = 1
+        newline = False
         while context.peek_token(index) is not None and lines > 0:
-            # TODO: It is buggy when we have consecutive backslashes
             if context.check_token(index, "NEWLINE"):
                 lines -= 1
-            elif context.check_token(index, "BACKSLASH"):
+                newline = False
+            elif context.check_token(index, "BACKSLASH") and not newline:
                 lines += 1
+                newline = True
             index += 1
         if lines > 0:
             raise CParsingError(f"Unexpected end of file after #{directive} directive")
