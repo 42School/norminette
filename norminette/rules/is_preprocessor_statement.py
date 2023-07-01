@@ -158,6 +158,7 @@ class IsPreprocessorStatement(PrimaryRule):
         - `<42.h   >`
         - `<   four.two>`
         """
+        # TODO: It not works with `#include <if.h>` because of the `if` keyword
         if context.check_token(index, "STRING"):
             index += 1
             return True, index
