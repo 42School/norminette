@@ -60,9 +60,10 @@ class IsPreprocessorStatement(PrimaryRule):
         i = context.skip_ws(0)
         if not context.check_token(i, "HASH"):
             return False, 0
-        i = context.skip_ws(i + 1)
+        i += 1
+        i = context.skip_ws(i)
         if context.check_token(i, "NEWLINE"):  # Null directive
-            return True, i + 1                 # TODO: Fix null directives
+            return True, i + 1                 # TODO: Fix null directives (comments)
         # Why `if` and `else` need to be a special case?
         if not context.check_token(i, ("IDENTIFIER", "IF", "ELSE")):
             raise CParsingError(f"Invalid preprocessor statement {context.peek_token(i)}")
@@ -193,7 +194,7 @@ class IsPreprocessorStatement(PrimaryRule):
                 lines += 1
                 newline = True
             index += 1
-        if lines > 0:
+        if lines > 0 and context.peek_token(index) is not None:
             raise CParsingError(f"Unexpected end of file after #{directive} directive")
         return True, index
 
@@ -210,7 +211,8 @@ class IsPreprocessorStatement(PrimaryRule):
     def _just_eol(self, directive, context, index):
         index = context.skip_ws(index)
         if context.peek_token(index) is None:
-            raise CParsingError(f"Unexpected end of file after #{directive} directive")
+            return True, index
+        #     raise CParsingError(f"Unexpected end of file after #{directive} directive")
         if not context.check_token(index, "NEWLINE"):
             raise CParsingError(f"Extra tokens at end of #{directive} directive")
         index += 1
