@@ -12,7 +12,7 @@ class CheckSpacing(Rule):
         There cannot be trailing spaces or tabs at the end of line
         """
         i = 0
-        if context.history[-1] == "IsEmptyLine":
+        if context.history[-1] in ("IsEmptyLine", "IsPreprocessorStatement"):
             return False, 0
         space_tab_error = False
         space_error = False

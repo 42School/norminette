@@ -116,7 +116,6 @@ class IsPreprocessorStatement(PrimaryRule):
         return self._just_constant_expression("if", context, index)
 
     def check_elif(self, context, index):
-        context.preproc_scope_indent += 1
         return self._just_constant_expression("elif", context, index)
 
     def check_ifdef(self, context, index):
@@ -133,7 +132,6 @@ class IsPreprocessorStatement(PrimaryRule):
     def check_else(self, context, index):
         if context.preproc_scope_indent == 0:  # This need to be an error or a warning?
             raise CParsingError("#else directive without matching #if or #elif")
-        context.preproc_scope_indent += 1
         return self._just_eol("else", context, index)
 
     def check_endif(self, context, index):

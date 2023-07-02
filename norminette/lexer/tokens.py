@@ -9,6 +9,10 @@ class Token:
             self.value = None
             self.length = 0
 
+    @property
+    def line_column(self):
+        return self.pos[1]
+
     def __repr__(self):
         """
         Token representation for debugging, using the format <TYPE=value>
