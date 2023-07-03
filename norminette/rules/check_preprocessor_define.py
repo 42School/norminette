@@ -18,7 +18,7 @@ class CheckPreprocessorDefine(Rule):
             return
         if not context.peek_token(i).value == "define":
             return
-        if context.skip_define_error:
+        if context.preproc.skip_define:
             return
         i += 1  # skip DEFINE
         i = context.skip_ws(i)

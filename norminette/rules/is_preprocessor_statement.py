@@ -3,6 +3,7 @@ import contextlib
 
 from norminette.rules import PrimaryRule
 from norminette.exceptions import CParsingError
+from norminette.context import Macro
 
 UNARY_OPERATORS = (
     "PLUS",
@@ -60,6 +61,7 @@ class IsPreprocessorStatement(PrimaryRule):
         i = context.skip_ws(0)
         if not context.check_token(i, "HASH"):
             return False, 0
+        self.hash = context.peek_token(i)
         i += 1
         i = context.skip_ws(i)
         if context.check_token(i, "NEWLINE"):  # Null directive
@@ -78,8 +80,9 @@ class IsPreprocessorStatement(PrimaryRule):
     def check_define(self, context, index):
         if not context.check_token(index, "IDENTIFIER"):
             raise CParsingError(f"No identifier after #define")
+        token = context.peek_token(index)
         index += 1
-        if context.check_token(index, "LPARENTHESIS"):
+        if is_function := context.check_token(index, "LPARENTHESIS"):
             index += 1
             index = context.skip_ws(index)
             while context.check_token(index, "IDENTIFIER"):
@@ -92,6 +95,8 @@ class IsPreprocessorStatement(PrimaryRule):
             if not context.check_token(index, "RPARENTHESIS"):
                 raise CParsingError(f"Invalid macro function definition")
             index += 1
+        macro = Macro.from_token(token, is_func=is_function)
+        context.preproc.macros.append(macro)
         index = context.skip_ws(index)
         return self._just_token_string("define", context, index)
 
@@ -112,32 +117,45 @@ class IsPreprocessorStatement(PrimaryRule):
         return self._just_token_string("warning", context, index)
 
     def check_if(self, context, index):
-        context.preproc_scope_indent += 1
+        if not self.corresponding_endif(context, index):
+            context.new_error("PREPROC_BAD_IF", self.hash)
+        context.preproc.indent += 1
+        context.preproc.total_ifs += 1
         return self._just_constant_expression("if", context, index)
 
     def check_elif(self, context, index):
+        if not self.corresponding_endif(context, index):
+            context.new_error("PREPROC_BAD_ELIF", self.hash)
+        context.preproc.total_elifs += 1
         return self._just_constant_expression("elif", context, index)
 
     def check_ifdef(self, context, index):
-        context.preproc_scope_indent += 1
+        if not self.corresponding_endif(context, index):
+            context.new_error("PREPROC_BAD_IFDEF", self.hash)
+        context.preproc.indent += 1
+        context.preproc.total_ifdefs += 1
         return self._just_identifier("ifdef", context, index)
 
     def check_ifndef(self, context, index):
-        context.preproc_scope_indent += 1
+        if not self.corresponding_endif(context, index):
+            context.new_error("PREPROC_BAD_IFNDEF", self.hash)
+        context.preproc.indent += 1
+        context.preproc.total_ifndefs += 1
         return self._just_identifier("infdef", context, index)
 
     def check_undef(self, context, index):
         return self._just_identifier("undef", context, index)
 
     def check_else(self, context, index):
-        if context.preproc_scope_indent == 0:  # This need to be an error or a warning?
-            raise CParsingError("#else directive without matching #if or #elif")
+        if context.preproc.indent == 0:
+            context.new_error("PREPROC_BAD_ELSE", self.hash)
+        context.preproc.total_elses += 1
         return self._just_eol("else", context, index)
 
     def check_endif(self, context, index):
-        if context.preproc_scope_indent == 0:  # This need to be an error or a warning?
-            raise CParsingError("#endif directive without matching #if, #elif or #else")
-        context.preproc_scope_indent -= 1
+        if context.preproc.indent == 0:
+            context.new_error("PREPROC_BAD_ENDIF", self.hash)
+        context.preproc.indent -= 1
         return self._just_eol("endif", context, index)
 
     def check_include(self, context, index):
@@ -146,6 +164,31 @@ class IsPreprocessorStatement(PrimaryRule):
             raise CParsingError("Invalid file argument for #include directive")
         index = context.skip_ws(index)
         return self._just_eol("include", context, index)
+
+    def corresponding_endif(self, context, index):
+        """Checks if the corresponding `#endif` is present.
+        """
+        depth = 0
+        while index < len(context.tokens):
+            if not context.check_token(index, "HASH"):
+                index += 1
+                continue
+
+            index += 1
+            index = context.skip_ws(index)
+            if not context.check_token(index, ("IDENTIFIER", "IF", "ELSE")):
+                continue
+
+            token = context.peek_token(index)
+            direc = (token.value if token.type == "IDENTIFIER" else token.type).lower()
+            if direc == "endif":
+                if depth == 0:
+                    return True
+                depth -= 1
+            elif direc in ("if", "ifdef", "ifndef"):
+                depth += 1
+            index += 1
+        return False
 
     def _check_path(self, context, index):
         """Checks the argument of an include/import statement.
@@ -198,7 +241,7 @@ class IsPreprocessorStatement(PrimaryRule):
         return True, index
 
     def _just_constant_expression(self, directive, context, index):
-        parser = ConstantExpressionParser(context, index)
+        parser = ConstantExpressionParser(directive, context, index)
         return parser.parse()
 
     def _just_identifier(self, directive, context, index):
@@ -233,17 +276,21 @@ class ConstantExpressionParser:
     The `string`, `constant` and `identifier` comes from the tokenizer.
     """
 
-    def __init__(self, context, index):
+    def __init__(self, directive, context, index):
+        self.directive = directive
         self.context = context
         self.index = index
 
     def parse(self):
         try:
+            index = self.index
             self.parse_constant_expression()
+            if index == self.index: # No tokens were parsed
+                raise CParsingError(f"No argument for #{self.directive} statement")
             if self.context.peek_token(self.index) is None:
-                raise CParsingError("Unexpected end of file")
+                raise CParsingError("Unexpected end of file while parsing constant expression")
+            self.index = self.context.skip_ws(self.index, comment=True)
             if not self.context.check_token(self.index, "NEWLINE"):
-                print(self.context.tokens[self.index:])
                 raise CParsingError("Unexpected tokens after the constant expression")
             self.index += 1  # Skip the newline
         except RecursionError:
@@ -285,8 +332,6 @@ class ConstantExpressionParser:
             self.index += 1
             self.parse_potential_binary_operator()
             return
-
-        raise CParsingError(f"Unexpected token: {self.context.peek_token(self.index)}")
 
     def parse_function_macro(self):
         self.skip_ws()
