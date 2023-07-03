@@ -10,7 +10,7 @@
 
 \begin{document}
 \title{The Norm}
-\subtitle{Version 3}
+\subtitle{Version 4}
 
 \summary
 {
@@ -73,7 +73,7 @@
       and get directly to the point instead of spending time to read the code before understanding it.
       The Norm also comes as a trademark. As part of the 42 community, you will be able to
       recognize code written by another 42 student or alumni when you'll be in the labor market.
-    
+
     \item Long-term vision: making the effort to write understandable code is the
       best way to maintain it. Each time that someone else, including you, has to fix a bug
       or add a new feature they won't have to lose their precious time trying to figure out
@@ -121,16 +121,16 @@
             \item A global's name must start by \texttt{g\_}.
 
             \item Variables and functions names can only contain lowercases, digits and
-                '\_' (Unix Case).
+                '\_' (snake\_case).
 
             \item Files and directories names can only contain lowercases, digits and
-                '\_' (Unix Case).
+                '\_' (snake\_case).
 
             \item Characters that aren't part of the standard
                 ASCII table are forbidden.
 
             \item Variables, functions, and any other identifier must use
-                snake case. No capital letters, and each word separated by an 
+                snake case. No capital letters, and each word separated by an
                 underscore.
 
             \item All identifiers (functions, macros, types,
@@ -140,7 +140,7 @@
                 files or directories) must have the most
                 explicit or most mnemonic names as possible.
 
-            \item Declaring global variables that are not marked const and static is 
+            \item Using global variables that are not marked const and static is
             forbidden and is considered a norm error, unless the project explicitly allows them.
 
             \item The file must compile. A file that doesn't compile isn't expected
@@ -205,7 +205,7 @@
 
                 \item Declarations must be at the beginning of a function.
 
-                \item In a function, you must place an empty line between 
+                \item In a function, you must place an empty line between
                     variable declarations and the remaining of the function.
                     No other empty lines are allowed in a function.
 
@@ -216,7 +216,7 @@
                   indentation with brackets or assignment operator.
                   Operators must be at the beginning of a line.
 
-                \item Control structures (if, while..) must have braces, unless they contain a single 
+                \item Control structures (if, while..) must have braces, unless they contain a single
                     line.
 
                 \item Braces following functions, declarators or control structures must be preceded and followed by a newline.
@@ -265,7 +265,7 @@ int     main(void)
 
             \item You can't declare more than 5 variables per function.
 
-            \item Return of a function has to be between parenthesis. 
+            \item Return of a function has to be between parenthesis.
 
             \item Each function must have a single tabulation between its
                 return type and its name.
@@ -372,8 +372,8 @@ struct	s_struct;
 
         \end{itemize}
         \newpage
-        
-                
+
+
 %******************************************************************************%
 %                           Macros and Pre-processors                          %
 %******************************************************************************%
@@ -386,11 +386,12 @@ struct	s_struct;
             \item All \#define created to bypass the norm and/or obfuscate
                 code are forbidden. This part must be checked by a human.
             \item You can use macros available in standard libraries, only
-                if the latter are allowed in the scope of the given project.
+                if those ones are allowed in the scope of the given project.
             \item Multiline macros are forbidden.
             \item Macro names must be all uppercase.
             \item You must indent characters following \#if, \#ifdef
                 or \#ifndef.
+            \item Preprocessor instructions are forbidden outside of global scope.
 
         \end{itemize}
         \newpage
@@ -446,9 +447,20 @@ struct	s_struct;
             \item Your comments must be in English. And they must be
                 useful.
 
-            \item A comment cannot justify a "bastard" function.
+            \item  A comment cannot justify the creation of a carryall or bad function.
 
         \end{itemize}
+
+        \warn{
+            A carryall or bad function usually comes with names that are
+            not explicit such as f1, f2... for the function and a, b, i,..
+            for the declarations.
+            A function whose only goal is to avoid the norm, without a unique
+            logical purpose, is also considered as a bad function.
+            Please remind that it is desirable to have clear and readable functions that achieve a
+            clear and simple task each. Avoid any code obfuscation techniques,
+            such as the one-liner..
+        }
         \newpage
 
 
@@ -472,7 +484,7 @@ struct	s_struct;
 %******************************************************************************%
     \section{Makefile}
 
-            Makefiles aren't checked by the Norm, and must be checked during evaluation by 
+            Makefiles aren't checked by the Norm, and must be checked during evaluation by
             the student.
             \begin{itemize}
 
