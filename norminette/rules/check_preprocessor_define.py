@@ -28,6 +28,7 @@ class CheckPreprocessorDefine(Rule):
         i += 1  # skip macro name
 
         if context.check_token(i, "LPARENTHESIS"):
+            context.new_error("MACRO_FUNC_FORBIDDEN", context.peek_token(i))
             while not context.check_token(i, "RPARENTHESIS"):
                 i += 1
             i += 1
