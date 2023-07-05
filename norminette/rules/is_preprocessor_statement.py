@@ -171,7 +171,6 @@ class IsPreprocessorStatement(PrimaryRule):
         is_valid_argument, index = self._check_path(context, index)
         if not is_valid_argument:
             raise CParsingError("Invalid file argument for #include directive")
-        index = context.skip_ws(index)
         return self._just_eol("include", context, index)
 
     def corresponding_endif(self, context, index):
@@ -223,6 +222,7 @@ class IsPreprocessorStatement(PrimaryRule):
         return True, index
 
     def _just_token_string(self, directive, context, index):
+        index = context.skip_ws(index, comment=True)
         if context.check_token(index, "NEWLINE"):
             index += 1
             return True, index
@@ -242,7 +242,10 @@ class IsPreprocessorStatement(PrimaryRule):
 
     def _just_constant_expression(self, directive, context, index):
         parser = ConstantExpressionParser(directive, context, index)
-        return parser.parse()
+        ok, index = parser.parse()
+        if not ok:
+            return ok, index
+        return self._just_eol(directive, context, index)
 
     def _just_identifier(self, directive, context, index):
         if not context.check_token(index, "IDENTIFIER"):
@@ -251,7 +254,7 @@ class IsPreprocessorStatement(PrimaryRule):
         return self._just_eol(directive, context, index)
 
     def _just_eol(self, directive, context, index):
-        index = context.skip_ws(index)
+        index = context.skip_ws(index, comment=True)
         if context.peek_token(index) is None:
             return True, index
         #     raise CParsingError(f"Unexpected end of file after #{directive} directive")
@@ -292,7 +295,7 @@ class ConstantExpressionParser:
             self.index = self.context.skip_ws(self.index, comment=True)
             if not self.context.check_token(self.index, "NEWLINE"):
                 raise CParsingError("Unexpected tokens after the constant expression")
-            self.index += 1  # Skip the newline
+            # self.index += 1  # Skip the newline
         except RecursionError:
             raise CParsingError("Constant expression too complex")
         return True, self.index
