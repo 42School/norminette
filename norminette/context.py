@@ -1,5 +1,4 @@
 from dataclasses import dataclass, field
-from collections.abc import Container
 
 from norminette.exceptions import CParsingError
 from norminette.norm_error import NormError, NormWarning
@@ -194,6 +193,7 @@ class Context:
         self.arg_pos = [0, 0]
 
         # Preprocessor handling
+        self.protected = False
         self.preproc = PreProcessors()
         self.preproc.skip_define = "CheckDefine" in (added_value or [])
 
@@ -210,7 +210,7 @@ class Context:
         if tkn is None:
             return None
 
-        if isinstance(value, Container):
+        if isinstance(value, (tuple, list)):
             return tkn.type in value
 
         return tkn.type == value

@@ -30,3 +30,4 @@
 		<RBRACE> <NEWLINE>
 test_file_1019_1.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: PREPROC_BAD_IFNDEF   (line:   1, col:   1):	Ifndef preprocessor statement without endif

@@ -14,4 +14,3 @@
 		<HASH> <IDENTIFIER=endif> <NEWLINE>
 ok_preproc_indent.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: CONSECUTIVE_SPC      (line:   5, col:   2):	Two or more consecutives spaces

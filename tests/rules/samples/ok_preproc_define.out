@@ -6,4 +6,3 @@
 		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TOTO> <SPACE> <CONSTANT=12> <NEWLINE>
 ok_preproc_define.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: CONSECUTIVE_SPC      (line:   2, col:  15):  Two or more consecutives spaces

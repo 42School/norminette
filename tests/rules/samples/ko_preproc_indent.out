@@ -10,7 +10,7 @@
 		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BAR> <SPACE> <CONSTANT=3> <NEWLINE>
 ko_preproc_indent.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: PREPROC_BAD_INDENT   (line:   1, col:   1):	Bad preprocessor indentation
+Error: TOO_MANY_WS          (line:   1, col:   1):	Extra whitespaces for indent level
 Error: PREPROC_BAD_INDENT   (line:   3, col:   1):	Bad preprocessor indentation
-Error: PREPROC_BAD_INDENT   (line:   4, col:   1):	Bad preprocessor indentation
-Error: PREPROC_BAD_INDENT   (line:   5, col:   1):	Bad preprocessor indentation
+Error: TOO_MANY_WS          (line:   4, col:   1):	Extra whitespaces for indent level
+Error: TOO_MANY_WS          (line:   5, col:   1):	Extra whitespaces for indent level
