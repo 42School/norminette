@@ -88,7 +88,7 @@ class IsPreprocessorStatement(PrimaryRule):
 
     def check_define(self, context, index):
         if not context.check_token(index, "IDENTIFIER"):
-            raise CParsingError(f"No identifier after #define")
+            raise CParsingError("No identifier after #define")
         token = context.peek_token(index)
         index += 1
         if is_function := context.check_token(index, "LPARENTHESIS"):
@@ -102,7 +102,7 @@ class IsPreprocessorStatement(PrimaryRule):
                     index = context.skip_ws(index)
             # Add better errors like check EOF and invalid identifier?
             if not context.check_token(index, "RPARENTHESIS"):
-                raise CParsingError(f"Invalid macro function definition")
+                raise CParsingError("Invalid macro function definition")
             index += 1
         macro = Macro.from_token(token, is_func=is_function)
         context.preproc.macros.append(macro)
@@ -288,7 +288,7 @@ class ConstantExpressionParser:
         try:
             index = self.index
             self.parse_constant_expression()
-            if index == self.index: # No tokens were parsed
+            if index == self.index:  # No tokens were parsed
                 raise CParsingError(f"No argument for #{self.directive} statement")
             if self.context.peek_token(self.index) is None:
                 raise CParsingError("Unexpected end of file while parsing constant expression")

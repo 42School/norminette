@@ -133,7 +133,7 @@ class TokensKeywordsTest(unittest.TestCase):
         self.assertEqual(eat_tokens("# ifdef "), ["<HASH>", "<SPACE>", "<IDENTIFIER=ifdef>", "<SPACE>"])
         self.assertEqual(eat_tokens("#ifdef 	"), ["<HASH>", "<IDENTIFIER=ifdef>", "<SPACE>", "<TAB>"])
         self.assertEqual(eat_tokens("#ifdef //bla"), ["<HASH>", "<IDENTIFIER=ifdef>", "<SPACE>", "<COMMENT=//bla>"])
-        self.assertEqual(eat_tokens("#ifdef//bla "), ["<HASH>", "<IDENTIFIER=ifdef>","<COMMENT=//bla >"])
+        self.assertEqual(eat_tokens("#ifdef//bla "), ["<HASH>", "<IDENTIFIER=ifdef>", "<COMMENT=//bla >"])
 
     def test_include_keyword(self):
         self.assertEqual(eat_tokens("#include"), ["<HASH>", "<IDENTIFIER=include>"])

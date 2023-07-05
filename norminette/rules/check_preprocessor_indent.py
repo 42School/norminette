@@ -3,7 +3,7 @@ from norminette.rules import Rule
 ARGUMENTED_PREPROCESSORS = (
     "include",
     "import",
-    "if",  # just in case 
+    "if",  # just in case
     None,  # "if" is a special case ...
     "ifdef",
     "ifndef",
