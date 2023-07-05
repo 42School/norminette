@@ -38,6 +38,15 @@ BINARY_OPERATORS = (
     "RIGHT_SHIFT",  # >>
 )
 
+ALLOWED_IN_PATH = (
+    "IDENTIFIER",
+    "DIV",
+    "MINUS",
+    "DOT",
+    "SPACE",
+    "TAB",
+)
+
 
 @contextlib.contextmanager
 def recursion_limit(limit):
@@ -206,17 +215,8 @@ class IsPreprocessorStatement(PrimaryRule):
         if not context.check_token(index, "LESS_THAN"):
             return False, index
         index = context.skip_ws(index + 1)
-        if not context.check_token(index, "IDENTIFIER"):
-            return False, index
-        # TODO: Add to support `sys/types/a/b/c/`
-        # TODO: Add to support names with `-`, `_` and `.`?
-        index += 1
-        if not context.check_token(index, "DOT"):
-            return False, index
-        index += 1
-        if not context.check_token(index, "IDENTIFIER"):
-            return False, index
-        index = context.skip_ws(index + 1)
+        while context.check_token(index, ALLOWED_IN_PATH):
+            index += 1
         if not context.check_token(index, "MORE_THAN"):
             return False, index
         index += 1
