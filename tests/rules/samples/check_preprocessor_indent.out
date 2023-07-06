@@ -1,0 +1,127 @@
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=HOJEEHDIA> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<HASH> <IDENTIFIER=ifdef> <SPACE> <IDENTIFIER=HOJEEHDIA> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BADIDENT> <SPACE> <CONSTANT=2> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
+		<HASH> <IF> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
+		<HASH> <SPACE> <IDENTIFIER=error> <SPACE> <STRING="Ta errado essa indentação aqui hein"> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
+		<HASH> <SPACE> <SPACE> <SPACE> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 7":
+		<HASH> <TAB> <TAB> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 9":
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=bad> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 10":
+		<COMMENT=// #define toto f(x)> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 11":
+		<COMMENT=// #define A AB+AB> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=PRINTF> <SPACE> <IDENTIFIER=printf> <SPACE> <COMMENT=// ALIAS> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 14":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=X> <SPACE> <CONSTANT=2> <SPACE> <MULT_COMMENT=/*
+o X é 2, logo 2 não é X
+*/> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 18":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 19":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=NEVER> <SPACE> <CONSTANT=2> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 20":
+		<HASH> <IF> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 21":
+		<HASH> <SPACE> <IF> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 22":
+		<HASH> <SPACE> <SPACE> <IF> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 23":
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 24":
+		<HASH> <SPACE> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 25":
+		<HASH> <IDENTIFIER=elif> <SPACE> <IDENTIFIER=HOJEEHDIA> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 26":
+		<HASH> <SPACE> <TAB> <TAB> <TAB> <SPACE> <SPACE> <SPACE> <SPACE> <TAB> <SPACE> <TAB> <SPACE> <TAB> <TAB> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 27":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 28":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 29":
+		<TAB> <TAB> <TAB> <TAB> <HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=J> <SPACE> <CONSTANT=2> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 30":
+		<TAB> <HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=NATHAN> <SPACE> <STRING="lINDO"> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 31":
+		<TAB> <HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=PANSUDINHO> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 32":
+		<SPACE> <SPACE> <HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=barrigudinho> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=PANSUDINHO> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 33":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 34":
+		<HASH> <IDENTIFIER=include> <LESS_THAN> <IDENTIFIER=stdio> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 35":
+		<HASH> <IDENTIFIER=include> <TAB> <LESS_THAN> <IDENTIFIER=stdlib> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 36":
+		<HASH> <IDENTIFIER=include> <SPACE> <SPACE> <STRING="stdio.h"> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 37":
+		<HASH> <IDENTIFIER=include> <SPACE> <SPACE> <TAB> <SPACE> <STRING="stdlib.h"> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 38":
+		<HASH> <IDENTIFIER=include> <SPACE> <TAB> <STRING="stdio.h"> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 39":
+		<HASH> <IDENTIFIER=include> <STRING="stdlib.h"> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 40":
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="sys/type.h"> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 41":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=sys> <DIV> <IDENTIFIER=type> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 42":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <SPACE> <SPACE> <SPACE> <IDENTIFIER=sys_ali> <SPACE> <SPACE> <SPACE> <DIV> <SPACE> <SPACE> <IDENTIFIER=aqui> <SPACE> <IDENTIFIER=_123_2> <SPACE> <SPACE> <SPACE> <SPACE> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 43":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 44":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=stdint> <DOT> <IDENTIFIER=h> <MORE_THAN> <SPACE> <SPACE> <COMMENT=// uint32_t> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 45":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=stdlib> <DOT> <IDENTIFIER=h> <MORE_THAN> <SPACE> <SPACE> <MULT_COMMENT=/* malloc */> <SPACE> <TAB> <TAB> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 46":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=stdio> <DOT> <IDENTIFIER=h> <MORE_THAN> <SPACE> <SPACE> <SPACE> <MULT_COMMENT=/*
+printf
+*/> <SPACE> <COMMENT=// é o negócio n ta legal não> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 49":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 50":
+		<HASH> <IDENTIFIER=import> <TAB> <LESS_THAN> <IDENTIFIER=stdio> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 51":
+		<HASH> <IDENTIFIER=import> <SPACE> <LESS_THAN> <IDENTIFIER=stdio> <DOT> <IDENTIFIER=h> <MORE_THAN> <SPACE> <SPACE> <COMMENT=// pipoca é bem gostoso> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 52":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 53":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=X> 
+check_preprocessor_indent.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: TOO_MANY_WS          (line:   1, col:   1):	Extra whitespaces for indent level
+Error: PREPROC_BAD_INDENT   (line:   3, col:   1):	Bad preprocessor indentation
+Error: PREPROC_BAD_INDENT   (line:   4, col:   1):	Bad preprocessor indentation
+Error: PREPROC_BAD_INDENT   (line:   5, col:   1):	Bad preprocessor indentation
+Error: TOO_MANY_WS          (line:   6, col:   1):	Extra whitespaces for indent level
+Error: TOO_MANY_WS          (line:   7, col:   1):	Extra whitespaces for indent level
+Error: TAB_REPLACE_SPACE    (line:   7, col:   2):	Found tab when expecting space
+Error: TOO_MANY_WS          (line:   9, col:   1):	Extra whitespaces for indent level
+Error: MACRO_NAME_CAPITAL   (line:   9, col:  10):	Macro name must be capitalized
+Error: PREPROC_START_LINE   (line:  29, col:  17):	Preprocessor statement not at the beginning of the line
+Error: PREPROC_START_LINE   (line:  30, col:   5):	Preprocessor statement not at the beginning of the line
+Error: PREPROC_START_LINE   (line:  31, col:   5):	Preprocessor statement not at the beginning of the line
+Error: PREPROC_START_LINE   (line:  32, col:   3):	Preprocessor statement not at the beginning of the line
+Error: MACRO_NAME_CAPITAL   (line:  32, col:  11):	Macro name must be capitalized
+Error: PREPROC_NO_SPACE     (line:  34, col:   9):	Missing space after preprocessor directive
+Error: TAB_REPLACE_SPACE    (line:  35, col:   9):	Found tab when expecting space
+Error: CONSECUTIVE_WS       (line:  36, col:   9):	Two or more consecutives white spaces
+Error: CONSECUTIVE_WS       (line:  37, col:   9):	Two or more consecutives white spaces
+Error: TAB_REPLACE_SPACE    (line:  37, col:  11):	Found tab when expecting space
+Error: CONSECUTIVE_WS       (line:  38, col:   9):	Two or more consecutives white spaces
+Error: TAB_REPLACE_SPACE    (line:  38, col:  10):	Found tab when expecting space
+Error: PREPROC_NO_SPACE     (line:  39, col:   9):	Missing space after preprocessor directive
+Error: TAB_REPLACE_SPACE    (line:  50, col:   8):	Found tab when expecting space

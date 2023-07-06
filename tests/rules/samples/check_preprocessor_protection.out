@@ -1,0 +1,39 @@
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=X> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 2":
+		<NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=check_preprocessor_protection_h> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=CHECK_PREPROCESSOR_PROTECTION_H> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
+		<HASH> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 8":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=Y> <SPACE> <CONSTANT=2> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
+		<NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 10":
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=check_preprocessor_protection_h> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 11":
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=CHECK_PREPROCESSOR_PROTECTION_H> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 12":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 13":
+		<NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 14":
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=check_preprocessor_protection_h> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=CHECK_PREPROCESSOR_PROTECTION_H> <NEWLINE>
+[36mcheck_preprocessor_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 16":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+check_preprocessor_protection.h: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: HEADER_PROT_ALL      (line:   3, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_UPPER    (line:   3, col:   9):	Header protection must be in uppercase
+Error: HEADER_PROT_ALL_AF   (line:   8, col:   1):	Instructions after header protection are forbidden
+Error: HEADER_PROT_MULT     (line:  10, col:   1):	Multiple header protections, only one is allowed
+Error: HEADER_PROT_MULT     (line:  14, col:   1):	Multiple header protections, only one is allowed
