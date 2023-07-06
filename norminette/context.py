@@ -166,6 +166,12 @@ class PreProcessors:
 
         self.skip_define = False
 
+    def has_macro_defined(self, name):
+        for macro in self.macros:
+            if macro.name == name:
+                return True
+        return False
+
 
 class Context:
     def __init__(self, filename, tokens, debug=0, added_value=[]):

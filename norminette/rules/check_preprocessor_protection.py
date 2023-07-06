@@ -34,34 +34,39 @@ class CheckPreprocessorProtection(Rule):
         if not t or t.type != "IDENTIFIER" or t.value.upper() not in ("IFNDEF", "ENDIF"):
             return False, 0
         i += 1
+        guard = Path(context.filename).name.upper().replace(".", "_")
         if t.value.upper() == "ENDIF":
             if context.preproc.indent == 0 and not context.protected:
                 i = context.skip_ws(i, nl=True, comment=True)
                 if context.peek_token(i) is not None:
                     context.new_error("HEADER_PROT_ALL_AF", context.peek_token(i))
+                if not context.preproc.has_macro_defined(guard):
+                    context.new_error("HEADER_PROT_NODEF", hash)
                 context.protected = True
             return False, 0
         if context.preproc.indent != 1:
             return False, 0
         i = context.skip_ws(i)
         macro = context.peek_token(i).value
-        guard = Path(context.filename).name.upper().replace(".", "_")
-        if macro != guard:
+        if macro != guard and not context.protected:
             if macro.upper() == guard:
                 context.new_error("HEADER_PROT_UPPER", context.peek_token(i))
             else:
                 context.new_error("HEADER_PROT_NAME", context.peek_token(i))
-        elif context.protected:
+
+        if context.protected:
             context.new_error("HEADER_PROT_MULT", hash)
-        else:
-            headers = (
-                "IsComment",
-                "IsEmptyLine",
-            )
-            history = context.history[:-1]  # Remove the current `IsPreprocessorStatement`
-            history = itertools.filterfalse(lambda item: item in headers, history)
-            if next(history, None):
-                # We can't say what line contains the instruction outside
-                # header protection due to limited history information.
-                context.new_error("HEADER_PROT_ALL", hash)
+            return False, 0
+
+        headers = (
+            "IsComment",
+            "IsEmptyLine",
+        )
+        history = context.history[:-1]  # Remove the current `IsPreprocessorStatement`
+        history = itertools.filterfalse(lambda item: item in headers, history)
+        if next(history, None):
+            # We can't say what line contains the instruction outside
+            # header protection due to limited history information.
+            context.new_error("HEADER_PROT_ALL", hash)
+
         return False, 0
