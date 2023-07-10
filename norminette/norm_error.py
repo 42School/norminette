@@ -98,6 +98,7 @@ digits or '_'",
     "MIXED_SPACE_TAB": "Mixed spaces and tabs",
     "ATTR_EOL": "Function attribute must be at the end of line",
     "INVALID_HEADER": "Missing or invalid 42 header",
+    "INCLUDE_MISSING_SP": "Missing space between include and filename",
 }
 
 

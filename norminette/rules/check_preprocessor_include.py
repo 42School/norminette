@@ -26,7 +26,10 @@ class CheckPreprocessorInclude(Rule):
         val = context.peek_token(i).value.split("include", 1)[1]
         content = Lexer(val, context.peek_token(i).pos[0])
         tkns = content.get_tokens()
-        i = 1
+        i = 0
+        if tkns[i].type not in ["TAB", "SPACE"]:
+            context.new_error("INCLUDE_MISSING_SP", tkns[i])
+            i += 1
         while i < len(tkns) and tkns[i].type in ["TAB", "SPACE"]:
             if tkns[i].type == "TAB":
                 context.new_error("TAB_INSTEAD_SPC", tkns[i])
