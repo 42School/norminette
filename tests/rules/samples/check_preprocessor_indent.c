@@ -50,4 +50,19 @@ printf
 #import	<stdio.h>
 #import <stdio.h>  // pipoca é bem gostoso
 
+{
+// We are in GlobalScope here, right?
+#define OK
+
+}
+
+int	main(void)
+{
+#ifdef ONLY_GLOBAL_SCOPE
+	return (1);
+#else
+	return (0);
+#endif
+}
+
 #define X

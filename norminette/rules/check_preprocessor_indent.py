@@ -1,4 +1,5 @@
 from norminette.rules import Rule
+from norminette.scope import GlobalScope
 
 ARGUMENTED_PREPROCESSORS = (
     "include",
@@ -33,6 +34,8 @@ class CheckPreprocessorIndent(Rule):
         hash_ = context.peek_token(i)
         if hash_ and hash_.line_column != 1:
             context.new_error("PREPROC_START_LINE", hash_)
+        if not isinstance(context.scope, GlobalScope):
+            context.new_error("PREPOC_ONLY_GLOBAL", hash_)
         i += 1
 
         # Empty preprocessor statement (only #)

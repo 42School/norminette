@@ -98,7 +98,35 @@ printf
 		<HASH> <IDENTIFIER=import> <SPACE> <LESS_THAN> <IDENTIFIER=stdio> <DOT> <IDENTIFIER=h> <MORE_THAN> <SPACE> <SPACE> <COMMENT=// pipoca é bem gostoso> <NEWLINE>
 [36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 52":
 		<NEWLINE>
-[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 53":
+[36mcheck_preprocessor_indent.c[0m - [32mIsBlockStart[0m In "GlobalScope" from "None" line 53":
+		<LBRACE> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 54":
+		<COMMENT=// We are in GlobalScope here, right?> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 55":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=OK> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 56":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 57":
+		<RBRACE> <NEWLINE>
+		<NEWLINE>
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 60":
+		<LBRACE> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "Function" from "GlobalScope" line 61":
+		<HASH> <IDENTIFIER=ifdef> <SPACE> <IDENTIFIER=ONLY_GLOBAL_SCOPE> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 62":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "Function" from "GlobalScope" line 63":
+		<HASH> <ELSE> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 64":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "Function" from "GlobalScope" line 65":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 66":
+		<RBRACE> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 67":
+		<NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 68":
 		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=X> 
 check_preprocessor_indent.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
@@ -125,3 +153,9 @@ Error: CONSECUTIVE_WS       (line:  38, col:   9):	Two or more consecutives whit
 Error: TAB_REPLACE_SPACE    (line:  38, col:  10):	Found tab when expecting space
 Error: PREPROC_NO_SPACE     (line:  39, col:   9):	Missing space after preprocessor directive
 Error: TAB_REPLACE_SPACE    (line:  50, col:   8):	Found tab when expecting space
+Error: PREPOC_ONLY_GLOBAL   (line:  61, col:   1):	Preprocessor statements are only allowed in the global scope
+Error: NL_AFTER_PREPROC     (line:  62, col:   1):	Preprocessor statement must be followed by a newline
+Error: PREPOC_ONLY_GLOBAL   (line:  63, col:   1):	Preprocessor statements are only allowed in the global scope
+Error: NL_AFTER_PREPROC     (line:  64, col:   1):	Preprocessor statement must be followed by a newline
+Error: PREPOC_ONLY_GLOBAL   (line:  65, col:   1):	Preprocessor statements are only allowed in the global scope
+Error: NL_AFTER_PREPROC     (line:  66, col:   1):	Preprocessor statement must be followed by a newline
