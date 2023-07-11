@@ -6,19 +6,6 @@ from norminette.rules import PrimaryRule
 whitespaces = ["SPACE", "TAB"]
 
 SEPARATORS = ["COMMA", "AND", "OR", "SEMI_COLON"]
-preproc = [
-    "DEFINE",
-    "ERROR",
-    "ENDIF",
-    "ELIF",
-    "IFDEF",
-    "IFNDEF",
-    "#IF",
-    "#ELSE",
-    "INCLUDE",
-    "PRAGMA",
-    "UNDEF",
-]
 assigns = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -144,7 +131,7 @@ class IsFuncDeclaration(PrimaryRule):
                 type_id.append(context.peek_token(i))
             if (
                 context.check_token(
-                    i, assigns + ["TYPEDEF", "COMMA", "LBRACE"] + preproc
+                    i, assigns + ["TYPEDEF", "COMMA", "LBRACE", "HASH"]
                 )
                 is True
             ):
@@ -236,12 +223,14 @@ class IsFuncDeclaration(PrimaryRule):
         while context.check_token(read, ["COMMENT", "MULT_COMMENT"]) is True:
             read += 1
         read = context.skip_ws(read, nl=False)
-        if context.check_token(read, ["NEWLINE", "LBRACE"] + preproc):
-            if context.check_token(read, ["LBRACE"] + preproc) is True:
+        if context.check_token(read, ["NEWLINE", "LBRACE", "HASH"]):
+            if context.check_token(read, ["LBRACE", "HASH"]) is True:
                 read -= 1
             context.scope.functions += 1
             read += 1
-            context.sub = context.scope.inner(Function)
+            temp = context.skip_ws(read, nl=True)
+            if context.check_token(temp, "LBRACE"):
+                context.sub = context.scope.inner(Function)
             read = context.eol(read)
             return True, read
 

@@ -26,9 +26,8 @@ class IsBlockStart(PrimaryRule):
         if context.check_token(i, "LBRACE") is False:
             return False, 0
         i += 1
-        hist = context.history
         lines = context.scope.lines
-        for item in hist[::-1]:
+        for item in reversed(context.history):
             if item == "IsEmptyLine" or item == "IsComment" or item == "IsPreprocessorStatement":
                 lines -= 1
                 continue
@@ -41,7 +40,11 @@ class IsBlockStart(PrimaryRule):
                 ]
                 or (item in ["IsControlStatement", "IsFuncDeclaration", "IsUserDefinedType"] and lines >= 1)
             ):
-                context.sub = context.scope.inner(ControlStructure)
+                scope = {
+                    "IsFuncDeclaration": Function,
+                    "IsUserDefinedType": UserDefinedType,
+                }.get(item, ControlStructure)
+                context.sub = context.scope.inner(scope)
                 context.sub.multiline = True
                 break
             else:
