@@ -1,0 +1,22 @@
+[36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<INCLUDE=#include"libft.h"> <NEWLINE>
+[36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<INCLUDE=#include	"libft.h"> <NEWLINE>
+[36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<INCLUDE=#include		"libft.h"> <NEWLINE>
+[36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
+		<INCLUDE=#include<unistd.h>> <NEWLINE>
+[36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
+		<INCLUDE=#include	<unistd.h>> <NEWLINE>
+[36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
+		<INCLUDE=#include		<unistd.h>> <NEWLINE>
+ko_include2.c: Error!
+Error: INCLUDE_MISSING_SP   (line:   1, col:   1):	Missing space between include and filename
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: TAB_INSTEAD_SPC      (line:   2, col:   2):	Found tab when expecting space
+Error: TAB_INSTEAD_SPC      (line:   3, col:   3):	Found tab when expecting space
+Error: TAB_INSTEAD_SPC      (line:   3, col:   5):	Found tab when expecting space
+Error: INCLUDE_MISSING_SP   (line:   4, col:   4):	Missing space between include and filename
+Error: TAB_INSTEAD_SPC      (line:   5, col:   5):	Found tab when expecting space
+Error: TAB_INSTEAD_SPC      (line:   6, col:   6):	Found tab when expecting space
+Error: TAB_INSTEAD_SPC      (line:   6, col:   9):	Found tab when expecting space
