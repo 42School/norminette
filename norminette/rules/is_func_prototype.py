@@ -3,19 +3,6 @@ from norminette.scope import UserDefinedType
 from norminette.rules import PrimaryRule
 
 whitespaces = ["SPACE", "TAB"]
-preproc = [
-    "DEFINE",
-    "ERROR",
-    "ENDIF",
-    "ELIF",
-    "IFDEF",
-    "IFNDEF",
-    "#IF",
-    "#ELSE",
-    "INCLUDE",
-    "PRAGMA",
-    "UNDEF",
-]
 assigns = [
     "RIGHT_ASSIGN",
     "LEFT_ASSIGN",
@@ -134,7 +121,7 @@ class IsFuncPrototype(PrimaryRule):
                 type_id.append(context.peek_token(i))
             if (
                 context.check_token(
-                    i, assigns + ["TYPEDEF", "COMMA", "LBRACE", "RBRACE"] + preproc
+                    i, assigns + ["TYPEDEF", "COMMA", "LBRACE", "RBRACE", "HASH"]
                 )
                 is True
             ):
