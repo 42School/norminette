@@ -21,7 +21,6 @@ class CheckPreprocessorInclude(Rule):
             return False, 0
         if context.peek_token(i).value != "include":
             return False, 0
-
         if not self.is_in_start_of_file(context):
             context.new_error("INCLUDE_START_FILE", context.peek_token(hash_index))
 

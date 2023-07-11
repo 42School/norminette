@@ -1,0 +1,22 @@
+[36mko_func_name2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=42> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 4":
+		<RBRACE> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mko_func_name2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 6":
+		<INT> <TAB> <IDENTIFIER=main> <SPACE> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 7":
+		<LBRACE> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=21> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 9":
+		<RBRACE> <NEWLINE>
+ko_func_name2.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: EXP_PARENTHESIS      (line:   1, col:   9):	Expected parenthesis
+Error: EXP_PARENTHESIS      (line:   6, col:   9):	Expected parenthesis

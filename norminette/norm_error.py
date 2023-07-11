@@ -101,6 +101,7 @@ digits or '_'",
     "NEWLINE_DEFINE": "Newline in define",
     "MISSING_TYPEDEF_ID": "Missing identifier in typedef declaration",
     "LABEL_FBIDDEN": "Label statements are forbidden",
+    "GOTO_FBIDDEN": "Goto statements are forbidden",
     "PREPROC_GLOBAL": "Preprocessors can only be used in the global scope",
     "WRONG_SCOPE_FCT": "Function prototype in incorrect scope",
     "WRONG_SCOPE": "Statement is in incorrect scope",
@@ -113,6 +114,7 @@ digits or '_'",
     "MIXED_SPACE_TAB": "Mixed spaces and tabs",
     "ATTR_EOL": "Function attribute must be at the end of line",
     "INVALID_HEADER": "Missing or invalid 42 header",
+    "INCLUDE_MISSING_SP": "Missing space between include and filename",
 }
 
 
