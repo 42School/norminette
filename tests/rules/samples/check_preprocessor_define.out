@@ -1,0 +1,85 @@
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=lower_case_macro> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=UPPER_CASE_MACRO> <SPACE> <CONSTANT=2> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=PascalCaseMacro> <SPACE> <CONSTANT=3> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
+		<HASH> <IDENTIFIER=define> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <IDENTIFIER=EXTRA_SPACING> <SPACE> <CONSTANT=0> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
+		<HASH> <IDENTIFIER=define> <TAB> <TAB> <IDENTIFIER=IlikeTabs> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 7":
+		<HASH> <IDENTIFIER=define> <SPACE> <TAB> <SPACE> <TAB> <SPACE> <SPACE> <SPACE> <TAB> <IDENTIFIER=WEIRD_SPACING> <SPACE> <CONSTANT=2> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 10":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=HOJEEHDIA> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <ESCAPED_NEWLINE> <TAB> <CONSTANT=1> <SPACE> <MULT_COMMENT=/* wat */> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=HOJEEHDIA2> <SPACE> <SPACE> <TAB> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <TAB> <TAB> <SPACE> <STRING="5 do 7 de 2023"> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 14":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=PERGUNTAMO> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 16":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 17":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=NUNTI> <SPACE> <IDENTIFIER=PERGUNTAMO> <SPACE> <COMMENT=// NADA> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 18":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 19":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=NON_CONSTANT> <SPACE> <CONSTANT=1> <SPACE> <PLUS> <SPACE> <CONSTANT=2> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 20":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=AHN> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 21":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 22":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BLA> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 23":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 24":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BLO> <SPACE> <PLUS> <SPACE> <CONSTANT=2> <RPARENTHESIS> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 25":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 26":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=NO_SYMBOLS> <SPACE> <TERN_CONDITION> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 27":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=NO_SYMBOLS2> <SPACE> <AND> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 28":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 29":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=ABS> <LPARENTHESIS> <IDENTIFIER=x> <RPARENTHESIS> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=x> <RPARENTHESIS> <SPACE> <LESS_THAN> <SPACE> <CONSTANT=0> <SPACE> <TERN_CONDITION> <SPACE> <MINUS> <LPARENTHESIS> <IDENTIFIER=x> <RPARENTHESIS> <SPACE> <COLON> <SPACE> <LPARENTHESIS> <IDENTIFIER=x> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 30":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=NOT> <LPARENTHESIS> <IDENTIFIER=o> <RPARENTHESIS> <TAB> <TAB> <TAB> <NOT> <IDENTIFIER=o> <NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 31":
+		<NEWLINE>
+[36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 32":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=OK> <NEWLINE>
+check_preprocessor_define.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: MACRO_NAME_CAPITAL   (line:   1, col:   9):	Macro name must be capitalized
+Error: MACRO_NAME_CAPITAL   (line:   3, col:   9):	Macro name must be capitalized
+Error: CONSECUTIVE_WS       (line:   5, col:   8):	Two or more consecutives white spaces
+Error: CONSECUTIVE_WS       (line:   6, col:   8):	Two or more consecutives white spaces
+Error: TAB_REPLACE_SPACE    (line:   6, col:   8):	Found tab when expecting space
+Error: MACRO_NAME_CAPITAL   (line:   6, col:  13):	Macro name must be capitalized
+Error: CONSECUTIVE_WS       (line:   7, col:   8):	Two or more consecutives white spaces
+Error: TAB_REPLACE_SPACE    (line:   7, col:   9):	Found tab when expecting space
+Error: CONSECUTIVE_NEWLINES (line:   9, col:   1):	Consecutive newlines
+Error: PREPROC_CONSTANT     (line:  19, col:  24):	Preprocessor statement must only contain constant defines
+Error: PREPROC_CONSTANT     (line:  20, col:  15):	Preprocessor statement must only contain constant defines
+Error: PREPROC_CONSTANT     (line:  22, col:  13):	Preprocessor statement must only contain constant defines
+Error: PREPROC_CONSTANT     (line:  24, col:  16):	Preprocessor statement must only contain constant defines
+Error: PREPROC_CONSTANT     (line:  26, col:  20):	Preprocessor statement must only contain constant defines
+Error: TERNARY_FBIDDEN      (line:  26, col:  20):	Ternaries are forbidden
+Error: PREPROC_CONSTANT     (line:  27, col:  21):	Preprocessor statement must only contain constant defines
+Error: MACRO_FUNC_FORBIDDEN (line:  29, col:  12):	Macro functions are forbidden
+Error: PREPROC_CONSTANT     (line:  29, col:  16):	Preprocessor statement must only contain constant defines
+Error: TERNARY_FBIDDEN      (line:  29, col:  25):	Ternaries are forbidden
+Error: MACRO_FUNC_FORBIDDEN (line:  30, col:  12):	Macro functions are forbidden
+Error: PREPROC_CONSTANT     (line:  30, col:  25):	Preprocessor statement must only contain constant defines

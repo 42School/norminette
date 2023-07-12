@@ -1,16 +1,16 @@
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<DEFINE=#define STUFF 1> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=STUFF> <SPACE> <CONSTANT=1> <NEWLINE>
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<IFNDEF=#ifndef FOO> <NEWLINE>
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=FOO> <NEWLINE>
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
-		<DEFINE=# define FOO> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=FOO> <NEWLINE>
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
-		<IFNDEF=# ifndef BAR> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=BAR> <NEWLINE>
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
-		<DEFINE=#  define BAR> <NEWLINE>
+		<HASH> <SPACE> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=BAR> <NEWLINE>
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
-		<ENDIF=# endif> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=endif> <NEWLINE>
 [36mok_preproc_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 7":
-		<ENDIF=#endif> <NEWLINE>
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
 ok_preproc_indent.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

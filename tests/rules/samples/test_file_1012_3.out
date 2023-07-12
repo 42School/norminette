@@ -23,13 +23,13 @@
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
 		<NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
-		<IFNDEF=#ifndef TEST_FILE_1012_3_H> <NEWLINE>
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=TEST_FILE_1012_3_H> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 14":
-		<DEFINE=# define TEST_FILE_1012_3_H> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TEST_FILE_1012_3_H> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 15":
 		<NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 16":
-		<INCLUDE=# include "../dynarray/dynarray.h"> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=include> <SPACE> <STRING="../dynarray/dynarray.h"> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 17":
 		<NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsVarDeclaration[0m In "GlobalScope" from "None" line 18":
@@ -119,5 +119,5 @@
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 77":
 		<NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 78":
-		<ENDIF=#endif> 
+		<HASH> <IDENTIFIER=endif> 
 test_file_1012_3.h: OK!

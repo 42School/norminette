@@ -1,3 +1,5 @@
+from dataclasses import dataclass, field
+
 from norminette.exceptions import CParsingError
 from norminette.norm_error import NormError, NormWarning
 from norminette.scope import GlobalScope, ControlStructure
@@ -138,6 +140,39 @@ whitespaces = ["SPACE", "TAB", "ESCAPED_NEWLINE", "NEWLINE"]
 arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
 
+@dataclass
+class Macro:
+    name: str
+    is_func: bool = field(default=False)
+
+    @classmethod
+    def from_token(self, token, **kwargs):
+        name = token.value or token.type
+        return Macro(name, **kwargs)
+
+
+class PreProcessors:
+    def __init__(self) -> None:
+        self.indent = 0
+
+        self.macros = []
+        self.includes = []
+
+        self.total_ifs = 0
+        self.total_elifs = 0
+        self.total_elses = 0
+        self.total_ifdefs = 0
+        self.total_ifndefs = 0
+
+        self.skip_define = False
+
+    def has_macro_defined(self, name):
+        for macro in self.macros:
+            if macro.name == name:
+                return True
+        return False
+
+
 class Context:
     def __init__(self, filename, tokens, debug=0, added_value=[]):
         # Header relative informations
@@ -164,10 +199,9 @@ class Context:
         self.arg_pos = [0, 0]
 
         # Preprocessor handling
-        self.preproc_scope_indent = 0
-        self.skip_define_error = (
-            True if added_value is not None and "CheckDefine" in added_value else False
-        )
+        self.protected = False
+        self.preproc = PreProcessors()
+        self.preproc.skip_define = "CheckDefine" in (added_value or [])
 
     def peek_token(self, pos):
         return self.tokens[pos] if pos < len(self.tokens) else None
@@ -182,10 +216,8 @@ class Context:
         if tkn is None:
             return None
 
-        if isinstance(value, list):
-            if tkn.type in value:
-                return True
-            return False
+        if isinstance(value, (tuple, list)):
+            return tkn.type in value
 
         return tkn.type == value
 
@@ -275,10 +307,12 @@ In \"{self.scope.name}\" from \
             pos += 1
         return pos
 
-    def skip_ws(self, pos, nl=False):
+    def skip_ws(self, pos, nl=False, comment=False):
         ws = whitespaces[:]
         if nl is False:
             ws.remove("NEWLINE")
+        if comment:
+            ws += ("COMMENT", "MULT_COMMENT")
         while self.check_token(pos, ws):
             pos += 1
         return pos

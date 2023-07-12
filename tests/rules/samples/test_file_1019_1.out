@@ -1,7 +1,7 @@
 [36mtest_file_1019_1.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<IFNDEF=#ifndef TEST_H> <NEWLINE>
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=TEST_H> <NEWLINE>
 [36mtest_file_1019_1.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<DEFINE=# define TEST_H> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TEST_H> <NEWLINE>
 [36mtest_file_1019_1.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
 		<NEWLINE>
 [36mtest_file_1019_1.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 4":
@@ -30,3 +30,4 @@
 		<RBRACE> <NEWLINE>
 test_file_1019_1.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: PREPROC_BAD_IFNDEF   (line:   1, col:   1):	Ifndef preprocessor statement without endif

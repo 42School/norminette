@@ -1,27 +1,21 @@
 [36mko_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<DEFINE=#define toto f(x)> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=toto> <SPACE> <IDENTIFIER=f> <LPARENTHESIS> <IDENTIFIER=x> <RPARENTHESIS> <NEWLINE>
 [36mko_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<DEFINE=#define A AB+AB> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=A> <SPACE> <IDENTIFIER=AB> <PLUS> <IDENTIFIER=AB> <NEWLINE>
 [36mko_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
-		<DEFINE=#define PRINTF printf()> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=PRINTF> <SPACE> <IDENTIFIER=printf> <LPARENTHESIS> <RPARENTHESIS> <NEWLINE>
 [36mko_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
-		<DEFINE=#define PRINTF printf> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=PRINTF> <SPACE> <IDENTIFIER=printf> <NEWLINE>
 [36mko_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
-		<DEFINE=#define TOTO TATA 12> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TOTO> <SPACE> <IDENTIFIER=TATA> <SPACE> <CONSTANT=12> <NEWLINE>
 [36mko_preproc_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
-		<SPACE> <DEFINE=#define TOTo TATa> 
+		<SPACE> <HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TOTo> <SPACE> <IDENTIFIER=TATa> 
 ko_preproc_define.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: MACRO_NAME_CAPITAL   (line:   1, col:   2):	Macro name must be capitalized
-Error: PREPROC_CONSTANT     (line:   1, col:   7):	Preprocessor statement must only contain constant defines
-Error: PREPROC_CONSTANT     (line:   1, col:   8):	Preprocessor statement must only contain constant defines
-Error: TOO_MANY_VALS        (line:   1, col:   9):	Too many values on define
-Error: TOO_MANY_VALS        (line:   2, col:   8):	Too many values on define
-Error: PREPROC_CONSTANT     (line:   3, col:  11):	Preprocessor statement must only contain constant defines
-Error: PREPROC_CONSTANT     (line:   3, col:  17):	Preprocessor statement must only contain constant defines
-Error: PREPROC_CONSTANT     (line:   4, col:  12):	Preprocessor statement must only contain constant defines
-Error: TOO_MANY_VALS        (line:   5, col:  16):	Too many values on define
-Error: PREPROC_START_LINE   (line:   6, col:   1):	Preprocessor statement not at the beginning of the line
-Error: SPACE_REPLACE_TAB    (line:   6, col:   2):	Found space when expecting tab
-Error: MACRO_NAME_CAPITAL   (line:   6, col:   7):	Macro name must be capitalized
-Error: PREPROC_CONSTANT     (line:   6, col:  12):	Preprocessor statement must only contain constant defines
+Error: MACRO_NAME_CAPITAL   (line:   1, col:   9):	Macro name must be capitalized
+Error: PREPROC_CONSTANT     (line:   1, col:  15):	Preprocessor statement must only contain constant defines
+Error: PREPROC_CONSTANT     (line:   2, col:  13):	Preprocessor statement must only contain constant defines
+Error: PREPROC_CONSTANT     (line:   3, col:  22):	Preprocessor statement must only contain constant defines
+Error: PREPROC_CONSTANT     (line:   5, col:  19):	Preprocessor statement must only contain constant defines
+Error: PREPROC_START_LINE   (line:   6, col:   2):	Preprocessor statement not at the beginning of the line
+Error: MACRO_NAME_CAPITAL   (line:   6, col:  10):	Macro name must be capitalized

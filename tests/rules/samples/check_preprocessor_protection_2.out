@@ -1,0 +1,12 @@
+[36mcheck_preprocessor_protection_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 1":
+		<COMMENT=// Ok> <NEWLINE>
+[36mcheck_preprocessor_protection_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=CHECK_PREPROCESSOR_PROTECTION_2_H> <NEWLINE>
+[36mcheck_preprocessor_protection_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=CHECK_PREPROCESSOR_PROTECTION_2_H> <NEWLINE>
+[36mcheck_preprocessor_protection_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
+		<NEWLINE>
+[36mcheck_preprocessor_protection_2.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+check_preprocessor_protection_2.h: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

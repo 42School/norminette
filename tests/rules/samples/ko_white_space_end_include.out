@@ -1,7 +1,7 @@
 [36mko_white_space_end_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<INCLUDE=#include "libft.h"	> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="libft.h"> <TAB> <NEWLINE>
 [36mko_white_space_end_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<INCLUDE=#include "libft.h" > <NEWLINE>
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="libft.h"> <SPACE> <NEWLINE>
 [36mko_white_space_end_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
 		<NEWLINE>
 [36mko_white_space_end_include.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 4":
@@ -18,7 +18,5 @@
 		<RBRACE> <SPACE> <NEWLINE>
 ko_white_space_end_include.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: SPC_BEFORE_NL        (line:   1, col:   1):	Space before newline
-Error: SPC_BEFORE_NL        (line:   2, col:   1):	Space before newline
 Error: SPC_BEFORE_NL        (line:   5, col:   2):	Space before newline
 Error: SPC_BEFORE_NL        (line:   9, col:   2):	Space before newline

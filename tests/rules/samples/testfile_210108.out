@@ -1,7 +1,7 @@
 [36mtestfile_210108.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<IFNDEF=#ifndef TESTFILE_210108_H> <NEWLINE>
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=TESTFILE_210108_H> <NEWLINE>
 [36mtestfile_210108.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<DEFINE=# define TESTFILE_210108_H> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TESTFILE_210108_H> <NEWLINE>
 [36mtestfile_210108.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
 		<NEWLINE>
 [36mtestfile_210108.h[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 4":
@@ -27,6 +27,6 @@
 [36mtestfile_210108.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 14":
 		<NEWLINE>
 [36mtestfile_210108.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
-		<ENDIF=#endif> 
+		<HASH> <IDENTIFIER=endif> 
 testfile_210108.h: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

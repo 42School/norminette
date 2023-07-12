@@ -1,9 +1,9 @@
 [36mok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<IFNDEF=#ifndef OK_PROTECTION_H> <NEWLINE>
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=OK_PROTECTION_H> <NEWLINE>
 [36mok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<DEFINE=# define OK_PROTECTION_H> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=OK_PROTECTION_H> <NEWLINE>
 [36mok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
-		<DEFINE=# define TOTO "tata"> <NEWLINE>
+		<HASH> <SPACE> <IDENTIFIER=define> <SPACE> <IDENTIFIER=TOTO> <SPACE> <STRING="tata"> <NEWLINE>
 [36mok_protection.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
 		<NEWLINE>
 [36mok_protection.h[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 5":
@@ -15,7 +15,7 @@
 [36mok_protection.h[0m - [32mIsAssignation[0m In "GlobalScope" from "None" line 8":
 		<IDENTIFIER=v> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
 [36mok_protection.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 9":
-		<ENDIF=#endif> <NEWLINE>
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
 ok_protection.h: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Notice: GLOBAL_VAR_DETECTED  (line:   6, col:   1):	Global variable present in file. Make sure it is a reasonable choice.

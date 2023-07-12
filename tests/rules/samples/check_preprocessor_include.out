@@ -1,0 +1,31 @@
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="ok.h"> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="error.c"> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="error"> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
+		<NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsFuncPrototype[0m In "GlobalScope" from "None" line 6":
+		<VOID> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 8":
+		<HASH> <IDENTIFIER=include> <SPACE> <STRING="not in start.h"> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
+		<NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 10":
+		<HASH> <IF> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 11":
+		<HASH> <SPACE> <IDENTIFIER=include> <SPACE> <STRING="ok but not ok.h"> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 12":
+		<HASH> <IDENTIFIER=endif> 
+check_preprocessor_include.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: INCLUDE_HEADER_ONLY  (line:   2, col:  10):	.c file includes are forbidden
+Error: INCLUDE_HEADER_ONLY  (line:   3, col:  10):	.c file includes are forbidden
+Error: CONSECUTIVE_NEWLINES (line:   5, col:   1):	Consecutive newlines
+Error: INCLUDE_START_FILE   (line:   8, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  11, col:   1):	Include must be at the start of file

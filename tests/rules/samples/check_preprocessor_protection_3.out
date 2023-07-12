@@ -1,0 +1,16 @@
+[36mcheck_preprocessor_protection_3.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<HASH> <IDENTIFIER=ifndef> <SPACE> <IDENTIFIER=CHECK_PREPROCESSOR_PROTECTION_3_H> <NEWLINE>
+[36mcheck_preprocessor_protection_3.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 2":
+		<COMMENT=// No #define> <NEWLINE>
+[36mcheck_preprocessor_protection_3.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_protection_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 4":
+		<NEWLINE>
+[36mcheck_preprocessor_protection_3.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 5":
+		<COMMENT=// Just to check that the #define is not added> <NEWLINE>
+[36mcheck_preprocessor_protection_3.h[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=CHECK_PREPROCESSOR_PROTECTION_3_H> <NEWLINE>
+check_preprocessor_protection_3.h: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: HEADER_PROT_NODEF    (line:   3, col:   1):	Header protection not containing #define
+Error: HEADER_PROT_ALL_AF   (line:   6, col:   1):	Instructions after header protection are forbidden

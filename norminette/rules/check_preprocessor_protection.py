@@ -1,51 +1,72 @@
+import itertools
 from pathlib import Path
 
-from norminette.lexer import Lexer
 from norminette.rules import Rule
-from norminette.scope import GlobalScope
 
 
 class CheckPreprocessorProtection(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsPreprocessorStatement"]
+        self.depends_on = [
+            "IsPreprocessorStatement",
+        ]
 
     def run(self, context):
         """
         Header protection must be as follows:
-        ```
+        ```c
         #ifndef __FILENAME_H__
         # define __FILENAME_H__
         #endif
         ```
         Any header instruction must be within the header protection
         """
-        i = 0
-        if type(context.scope) is not GlobalScope:
+        if context.filetype != "h":
             return False, 0
-        if context.check_token(i, ["IFNDEF", "ENDIF"]) is False or context.filetype != "h":
+        i = context.skip_ws(0)
+        hash = context.peek_token(i)
+        i += 1  # Skip the HASH
+        i = context.skip_ws(i)
+        if not context.check_token(i, "IDENTIFIER"):
             return False, 0
-        # protection = context.filename.upper().split("/")[-1].replace(".", "_")
-        protection = Path(context.filename).name.upper().replace(".", "_")
-        val = context.peek_token(i).value.split(" ")[-1]
-        content = Lexer(val, context.peek_token(i).pos[0])
-        tkns = content.get_tokens()
-        if context.check_token(i, "IFNDEF") is True:
-            if (
-                len(tkns) >= 1
-                and tkns[0].value == protection
-                and context.scope.header_protection == -1
-                and context.preproc_scope_indent == 1
-            ):
-                if len(context.history) > 1:
-                    for i in range(len(context.history) - 2, 0, -1):
-                        if context.history[i] != "IsEmptyLine" and context.history[i] != "IsComment":
-                            context.new_error("HEADER_PROT_ALL", context.peek_token(0))
-                            break
-                context.scope.header_protection = 0
-            elif len(tkns) < 1 or (tkns[0].value != protection and context.scope.header_protection == -1):
-                context.new_error("HEADER_PROT_NAME", context.peek_token(0))
-        elif context.check_token(i, "ENDIF") is True:
-            if context.scope.header_protection == 1 and context.preproc_scope_indent == 0:
-                context.scope.header_protection = 2
+        # TODO: Add to check if macro definition is bellow #ifndef
+        t = context.peek_token(i)
+        if not t or t.type != "IDENTIFIER" or t.value.upper() not in ("IFNDEF", "ENDIF"):
+            return False, 0
+        i += 1
+        guard = Path(context.filename).name.upper().replace(".", "_")
+        if t.value.upper() == "ENDIF":
+            if context.preproc.indent == 0 and not context.protected:
+                i = context.skip_ws(i, nl=True, comment=True)
+                if context.peek_token(i) is not None:
+                    context.new_error("HEADER_PROT_ALL_AF", context.peek_token(i))
+                if not context.preproc.has_macro_defined(guard):
+                    context.new_error("HEADER_PROT_NODEF", hash)
+                context.protected = True
+            return False, 0
+        if context.preproc.indent != 1:
+            return False, 0
+        i = context.skip_ws(i)
+        macro = context.peek_token(i).value
+        if macro != guard and not context.protected:
+            if macro.upper() == guard:
+                context.new_error("HEADER_PROT_UPPER", context.peek_token(i))
+            else:
+                context.new_error("HEADER_PROT_NAME", context.peek_token(i))
+
+        if context.protected:
+            context.new_error("HEADER_PROT_MULT", hash)
+            return False, 0
+
+        headers = (
+            "IsComment",
+            "IsEmptyLine",
+        )
+        history = context.history[:-1]  # Remove the current `IsPreprocessorStatement`
+        history = itertools.filterfalse(lambda item: item in headers, history)
+        if next(history, None):
+            # We can't say what line contains the instruction outside
+            # header protection due to limited history information.
+            context.new_error("HEADER_PROT_ALL", hash)
+
         return False, 0

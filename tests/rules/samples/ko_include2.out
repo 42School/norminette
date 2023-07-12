@@ -1,22 +1,22 @@
 [36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
-		<INCLUDE=#include"libft.h"> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <STRING="libft.h"> <NEWLINE>
 [36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
-		<INCLUDE=#include	"libft.h"> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <TAB> <STRING="libft.h"> <NEWLINE>
 [36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
-		<INCLUDE=#include		"libft.h"> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <TAB> <TAB> <STRING="libft.h"> <NEWLINE>
 [36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
-		<INCLUDE=#include<unistd.h>> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <LESS_THAN> <IDENTIFIER=unistd> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
 [36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
-		<INCLUDE=#include	<unistd.h>> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <TAB> <LESS_THAN> <IDENTIFIER=unistd> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
 [36mko_include2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
-		<INCLUDE=#include		<unistd.h>> <NEWLINE>
+		<HASH> <IDENTIFIER=include> <TAB> <TAB> <LESS_THAN> <IDENTIFIER=unistd> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
 ko_include2.c: Error!
-Error: INCLUDE_MISSING_SP   (line:   1, col:   1):	Missing space between include and filename
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: TAB_INSTEAD_SPC      (line:   2, col:   2):	Found tab when expecting space
-Error: TAB_INSTEAD_SPC      (line:   3, col:   3):	Found tab when expecting space
-Error: TAB_INSTEAD_SPC      (line:   3, col:   5):	Found tab when expecting space
-Error: INCLUDE_MISSING_SP   (line:   4, col:   4):	Missing space between include and filename
-Error: TAB_INSTEAD_SPC      (line:   5, col:   5):	Found tab when expecting space
-Error: TAB_INSTEAD_SPC      (line:   6, col:   6):	Found tab when expecting space
-Error: TAB_INSTEAD_SPC      (line:   6, col:   9):	Found tab when expecting space
+Error: PREPROC_NO_SPACE     (line:   1, col:   9):	Missing space after preprocessor directive
+Error: TAB_REPLACE_SPACE    (line:   2, col:   9):	Found tab when expecting space
+Error: CONSECUTIVE_WS       (line:   3, col:   9):	Two or more consecutives white spaces
+Error: TAB_REPLACE_SPACE    (line:   3, col:   9):	Found tab when expecting space
+Error: PREPROC_NO_SPACE     (line:   4, col:   9):	Missing space after preprocessor directive
+Error: TAB_REPLACE_SPACE    (line:   5, col:   9):	Found tab when expecting space
+Error: CONSECUTIVE_WS       (line:   6, col:   9):	Two or more consecutives white spaces
+Error: TAB_REPLACE_SPACE    (line:   6, col:   9):	Found tab when expecting space
