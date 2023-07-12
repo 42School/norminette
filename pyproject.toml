@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "norminette"
-version = "3.3.52"
+version = "3.3.53"
 description = "Open source C files linter for 42 Network campuses"
 authors = ["42 <pedago@42.fr>"]
 license = "MIT Licence"
