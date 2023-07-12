@@ -46,7 +46,7 @@ class CheckPreprocessorDefine(Rule):
                 context.new_error("PREPROC_CONSTANT", context.peek_token(i))
                 return
             i += 1
-        elif context.check_token(i, ("CONSTANT", "IDENTIFIER", "STRING")):
+        elif context.check_token(i, ("CONSTANT", "IDENTIFIER", "STRING", "CHAR_CONST")):
             i += 1
 
         i = context.skip_ws(i, comment=True)

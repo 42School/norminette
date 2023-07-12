@@ -127,7 +127,19 @@ printf
 [36mcheck_preprocessor_indent.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 67":
 		<NEWLINE>
 [36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 68":
-		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=X> 
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=X> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 69":
+		<HASH> <IF> <SPACE> <CHAR_CONST='A'> <SPACE> <EQUALS> <SPACE> <CHAR_CONST='A'> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 70":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 71":
+		<HASH> <IF> <SPACE> <CHAR_CONST='A'> <SPACE> <EQUALS> <SPACE> <CONSTANT=65> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 72":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 73":
+		<HASH> <IF> <SPACE> <CHAR_CONST='A'> <NEWLINE>
+[36mcheck_preprocessor_indent.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 74":
+		<HASH> <IDENTIFIER=endif> 
 check_preprocessor_indent.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: TOO_MANY_WS          (line:   1, col:   1):	Extra whitespaces for indent level
