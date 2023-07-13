@@ -331,7 +331,7 @@ class ConstantExpressionParser:
             self.parse_potential_binary_operator()
             return
 
-        if self.context.check_token(self.index, ("STRING", "CONSTANT")):
+        if self.context.check_token(self.index, ("STRING", "CONSTANT", "CHAR_CONST")):
             self.index += 1
             self.parse_potential_binary_operator()
             return

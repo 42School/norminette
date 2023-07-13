@@ -66,3 +66,9 @@ int	main(void)
 }
 
 #define X
+#if 'A' == 'A'
+#endif
+#if 'A' == 65
+#endif
+#if 'A'
+#endif

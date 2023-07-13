@@ -30,3 +30,6 @@
 #define NOT(o)			!o
 
 #define OK
+
+#define B 'A'
+#define B 'a'
