@@ -1,4 +1,5 @@
 from norminette.rules import PrimaryRule
+from norminette.lexer.dictionary import keywords
 
 condition_ops = [
     "LESS_OR_EQUAL",
@@ -124,10 +125,16 @@ class IsFunctionCall(PrimaryRule):
             if context.check_token(i, "LPARENTHESIS"):
                 while context.check_token(i, "LPARENTHESIS") is True:
                     i = context.skip_nest(i) + 1
-                while (
-                    context.peek_token(i) is not None
-                    and context.check_token(i, SEPARATORS) is False
-                ):
+                i = context.skip_ws(i)
+                if context.check_token(i, "PTR"):  # ->
+                    i = context.skip_ws(i + 1)
+                    if context.check_token(i, ("IDENTIFIER", *map(str.upper, keywords))):
+                        i = context.skip_ws(i + 1)
+                if context.check_token(i, assign_ops):
+                    expected = "SEMI_COLON"
+                else:
+                    expected = SEPARATORS
+                while not context.check_token(i, expected):
                     i += 1
                 i += 1
                 i = context.eol(i)

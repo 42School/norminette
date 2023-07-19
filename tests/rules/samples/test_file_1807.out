@@ -1,0 +1,59 @@
+[36mtest_file_1807.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <IDENTIFIER=x> <LPARENTHESIS> <RPARENTHESIS> <SPACE> <AND> <SPACE> 
+[36mtest_file_1807.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 3":
+		<IDENTIFIER=y> <LPARENTHESIS> <RPARENTHESIS> <SPACE> <OR> <SPACE> 
+[36mtest_file_1807.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 3":
+		<IDENTIFIER=z> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 4":
+		<TAB> <IDENTIFIER=x> <LPARENTHESIS> <RPARENTHESIS> <COMMA> <SPACE> 
+[36mtest_file_1807.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 4":
+		<IDENTIFIER=y> <LPARENTHESIS> <RPARENTHESIS> <COMMA> <SPACE> 
+[36mtest_file_1807.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 4":
+		<IDENTIFIER=z> <LPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <IDENTIFIER=x> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <CONSTANT=2> <SPACE> <AND> <SPACE> <CONSTANT=3> <RPARENTHESIS> <TAB> <TAB> <PTR> <IDENTIFIER=x> <SPACE> <RIGHT_ASSIGN> <SPACE> <IDENTIFIER=y> <LPARENTHESIS> <CONSTANT=1> <COMMA> <SPACE> <CONSTANT=3> <COMMA> <SPACE> <CONSTANT=4> <RPARENTHESIS> <COMMA> <SPACE> <IDENTIFIER=z> <LPARENTHESIS> <STRING="hello"> <RPARENTHESIS> <SPACE> <AND> <SPACE> <CONSTANT=3> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 6":
+		<TAB> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <INT> <MULT> <MULT> <MULT> <MULT> <MULT> <MULT> <MULT> <MULT> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=x> <LPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <PTR> <IDENTIFIER=back> <SPACE> <MUL_ASSIGN> <SPACE> <IDENTIFIER=x> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <LPARENTHESIS> <INT> <RPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <LPARENTHESIS> <IDENTIFIER=x> <RPARENTHESIS> <COMMA> <SPACE> <CONSTANT=2> <COMMA> <SPACE> <CONSTANT=3> <COMMA> <SPACE> <CONSTANT=4> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 7":
+		<TAB> <IDENTIFIER=main> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=main> <LPARENTHESIS> <IDENTIFIER=main> <COMMA> <SPACE> <IDENTIFIER=main> <COMMA> <SPACE> <IDENTIFIER=main> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <IDENTIFIER=main> <PTR> <TAB> <IF> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=x> <LPARENTHESIS> <LPARENTHESIS> <STRING="bla"> <COMMA> <SPACE> <STRING="ble"> <COMMA> <SPACE> <STRING="bli"> <COMMA> <SPACE> <STRING="blo"> <COMMA> <SPACE> <STRING="blu"> <RPARENTHESIS> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 9":
+		<TAB> <IDENTIFIER=x> <SPACE> <ASSIGN> <SPACE> <LPARENTHESIS> <LPARENTHESIS> <BWISE_AND> <IDENTIFIER=main> <PTR> <IDENTIFIER=x> <PTR> <IDENTIFIER=x> <LPARENTHESIS> <RPARENTHESIS> <RPARENTHESIS> <SPACE> <AND> <SPACE> <IDENTIFIER=x> <LPARENTHESIS> <RPARENTHESIS> <COMMA> <SPACE> <CONSTANT=2> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 10":
+		<TAB> <LPARENTHESIS> <IDENTIFIER=x> <SPACE> <ASSIGN> <SPACE> <IDENTIFIER=y> <PTR> <IDENTIFIER=x> <COMMA> <SPACE> 
+[36mtest_file_1807.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 10":
+		<IDENTIFIER=x> <PTR> <IDENTIFIER=x> <RPARENTHESIS> <PTR> <IDENTIFIER=x> <SPACE> <ASSIGN> <SPACE> <STRING="eita"> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsDeclaration[0m In "Function" from "GlobalScope" line 11":
+		<TAB> <LPARENTHESIS> <IDENTIFIER=x> <RPARENTHESIS> <LPARENTHESIS> <NEWLINE>
+		<TAB> <TAB> <STRING="e se for"> <COMMA> <SPACE> <STRING="uma string grande"> <COMMA> <NEWLINE>
+		<TAB> <RPARENTHESIS> <TAB> <TAB> <TAB> <TAB> <PTR> <TAB> <TAB> <IDENTIFIER=x> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <ASSIGN> <LPARENTHESIS> <IDENTIFIER=x> <RPARENTHESIS> <NEWLINE>
+		<TAB> <SEMI_COLON> <NEWLINE>
+[36mtest_file_1807.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
+		<RBRACE> <NEWLINE>
+test_file_1807.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: TOO_FEW_TAB          (line:   3, col:  12):	Missing tabs for indent level
+Error: TOO_MANY_INSTR       (line:   3, col:  12):	Too many instructions on a single line
+Error: TOO_FEW_TAB          (line:   3, col:  19):	Missing tabs for indent level
+Error: TOO_MANY_INSTR       (line:   3, col:  19):	Too many instructions on a single line
+Error: TOO_FEW_TAB          (line:   4, col:  10):	Missing tabs for indent level
+Error: TOO_MANY_INSTR       (line:   4, col:  10):	Too many instructions on a single line
+Error: TOO_FEW_TAB          (line:   4, col:  15):	Missing tabs for indent level
+Error: TOO_MANY_INSTR       (line:   4, col:  15):	Too many instructions on a single line
+Error: NO_SPC_AFR_PAR       (line:   5, col:  16):	Extra space after parenthesis (brace/bracket)
+Error: TAB_INSTEAD_SPC      (line:   5, col:  17):	Found tab when expecting space
+Error: SPACE_AFTER_KW       (line:   6, col:   9):	Missing space after keyword
+Error: TAB_INSTEAD_SPC      (line:   8, col:  11):	Found tab when expecting space
+Error: TOO_FEW_TAB          (line:  10, col:  16):	Missing tabs for indent level
+Error: TOO_FEW_TAB          (line:  10, col:  16):	Missing tabs for indent level
+Error: TOO_MANY_INSTR       (line:  10, col:  16):	Too many instructions on a single line
+Error: MULT_ASSIGN_LINE     (line:  10, col:  25):	Multiple assignations on a single line
+Error: NO_SPC_AFR_PAR       (line:  13, col:   5):	Extra space after parenthesis (brace/bracket)
+Error: TAB_INSTEAD_SPC      (line:  13, col:   6):	Found tab when expecting space
+Error: SPC_BFR_OPERATOR     (line:  13, col:  61):	missing space before operator
+Error: SPC_BFR_PAR          (line:  13, col:  62):	Missing space before parenthesis (brace/bracket)
