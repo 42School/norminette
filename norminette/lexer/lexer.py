@@ -47,15 +47,15 @@ class Lexer:
             self.__char = None
         return self.__char
 
-    def pop_char(self):
+    def pop_char(self, skip_escaped=True):
         """Pop a character that's been read by increasing self.__pos,
         for escaped characters self.__pos will be increased twice
         """
         if self.peek_char() == "\t":
-            self.__line_pos += 4 - (self.__line_pos-1 & 3)
+            self.__line_pos += 4 - (self.__line_pos - 1 & 3)
         else:
             self.__line_pos += 1
-        if self.__pos < self.len and self.src[self.__pos] == "\\":
+        if self.__pos < self.len and skip_escaped and self.src[self.__pos] == "\\":
             self.__pos += 1
         self.__pos += 1
         return self.peek_char()
@@ -300,7 +300,7 @@ class Lexer:
             if self.peek_char() == "\n":
                 self.__line += 1
                 self.__line_pos = 1
-            self.pop_char()
+            self.pop_char(skip_escaped=False)
         if tkn_value.endswith("*/"):
             self.tokens.append(Token("MULT_COMMENT", pos, tkn_value))
         else:
