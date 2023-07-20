@@ -166,6 +166,14 @@ class PreProcessors:
 
         self.skip_define = False
 
+    @property
+    def indent(self):
+        return self._indent
+
+    @indent.setter
+    def indent(self, value):
+        self._indent = max(0, value)
+
     def has_macro_defined(self, name):
         for macro in self.macros:
             if macro.name == name:

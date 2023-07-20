@@ -59,6 +59,7 @@ class CheckPreprocessorIndent(Rule):
             t = context.peek_token(i)
             if t and t.type == "IDENTIFIER" and t.value.upper() in ("IFNDEF", "IFDEF", "ELIF"):
                 indent -= 1
+        indent = max(0, indent)
         if spaces > indent:
             context.new_error("TOO_MANY_WS", hash_)
         if spaces < indent:
