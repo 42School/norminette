@@ -1,0 +1,46 @@
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 1":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 2":
+		<HASH> <ELSE> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 3":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
+		<HASH> <ELSE> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 5":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 6":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 7":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 8":
+		<HASH> <ELSE> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 9":
+		<HASH> <ELSE> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 10":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 11":
+		<COMMENT=// Ok> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 12":
+		<HASH> <IF> <SPACE> <CONSTANT=1> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 14":
+		<COMMENT=// END Ok> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
+		<HASH> <ELSE> <NEWLINE>
+[36mcheck_preprocessor_indent_2.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 16":
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+check_preprocessor_indent_2.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: PREPROC_BAD_ENDIF    (line:   1, col:   1):	Endif preprocessor statement without if, elif or else
+Error: PREPROC_BAD_ELSE     (line:   2, col:   1):	Else preprocessor statement without if or elif
+Error: PREPROC_BAD_ENDIF    (line:   3, col:   1):	Endif preprocessor statement without if, elif or else
+Error: PREPROC_BAD_ELSE     (line:   4, col:   1):	Else preprocessor statement without if or elif
+Error: PREPROC_BAD_ENDIF    (line:   5, col:   1):	Endif preprocessor statement without if, elif or else
+Error: PREPROC_BAD_ENDIF    (line:   6, col:   1):	Endif preprocessor statement without if, elif or else
+Error: PREPROC_BAD_ENDIF    (line:   7, col:   1):	Endif preprocessor statement without if, elif or else
+Error: PREPROC_BAD_ELSE     (line:   8, col:   1):	Else preprocessor statement without if or elif
+Error: PREPROC_BAD_ELSE     (line:   9, col:   1):	Else preprocessor statement without if or elif
+Error: PREPROC_BAD_ENDIF    (line:  10, col:   1):	Endif preprocessor statement without if, elif or else
+Error: PREPROC_BAD_ELSE     (line:  15, col:   1):	Else preprocessor statement without if or elif
+Error: PREPROC_BAD_ENDIF    (line:  16, col:   1):	Endif preprocessor statement without if, elif or else
