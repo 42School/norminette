@@ -1,0 +1,35 @@
+[36mtest_file_2007.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<INT> <TAB> <IDENTIFIER=philo> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=argc> <COMMA> <SPACE> <CHAR> <SPACE> <CONST> <SPACE> <MULT> <IDENTIFIER=argv> <LBRACKET> <RBRACKET> <COMMA> <SPACE> <CHAR> <SPACE> <MULT> <CONST> <SPACE> <IDENTIFIER=envp> <LBRACKET> <RBRACKET> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<TAB> <CHAR> <SPACE> <MULT> <IDENTIFIER=str> <SEMI_COLON> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 4":
+		<NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 5":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=argc> <SPACE> <NOT_EQUAL> <SPACE> <CONSTANT=1> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsBlockStart[0m In "ControlStructure" from "Function" line 6":
+		<TAB> <LBRACE> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 7":
+		<TAB> <TAB> <IDENTIFIER=ft_putstr> <LPARENTHESIS> <STRING="\033[0;33mUsage: ./philo number_of_philosophers time_to_die"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 8":
+		<TAB> <TAB> <IDENTIFIER=ft_putstr> <LPARENTHESIS> <STRING="time_to_eat time_to_sleep [number_of_times_each_philosopher"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 9":
+		<TAB> <TAB> <IDENTIFIER=ft_putstr> <LPARENTHESIS> <STRING="_must_eat]\033[0m\n"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 10":
+		<TAB> <TAB> <IDENTIFIER=ft_putstr> <LPARENTHESIS> <STRING="\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 11":
+		<TAB> <TAB> <IDENTIFIER=ft_putstr> <LPARENTHESIS> <STRING="time_to_eat time_to_sleep [number_of_times_each_philosopher"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 12":
+		<TAB> <RBRACE> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 13":
+		<TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> <IDENTIFIER=argv> <SEMI_COLON> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 14":
+		<RBRACE> <NEWLINE>
+test_file_2007.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_REPLACE_TAB    (line:   3, col:   9):	Found space when expecting tab
+Error: LINE_TOO_LONG        (line:   7, col:  82):	line too long
+Error: LINE_TOO_LONG        (line:   8, col:  82):	line too long
+Error: LINE_TOO_LONG        (line:  10, col: 117):	line too long
+Error: LINE_TOO_LONG        (line:  11, col:  82):	line too long
