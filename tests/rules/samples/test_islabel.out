@@ -127,6 +127,7 @@ Error: TOO_FEW_TAB          (line:  26, col:   1):	Missing tabs for indent level
 Error: MIXED_SPACE_TAB      (line:  27, col:   1):	Mixed spaces and tabs
 Error: TOO_FEW_TAB          (line:  27, col:   1):	Missing tabs for indent level
 Error: NO_SPC_BFR_OPR       (line:  27, col:   6):	extra space before operator
+Error: SPC_BEFORE_NL        (line:  27, col:   7):	Space before newline
 Error: LABEL_FBIDDEN        (line:  28, col:   1):	Label statements are forbidden
 Error: TOO_FEW_TAB          (line:  28, col:   1):	Missing tabs for indent level
 Error: TOO_MANY_INSTR       (line:  33, col:   2):	Too many instructions on a single line

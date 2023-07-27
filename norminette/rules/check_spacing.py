@@ -31,6 +31,14 @@ class CheckSpacing(Rule):
                         continue
                     context.new_error("SPACE_REPLACE_TAB", context.peek_token(i))
                     continue
+                t = context.skip_ws(i)
+                if (
+                    t != i
+                    and context.check_token(t, "NEWLINE")
+                    # CheckBrace already check for spacing, we avoid duplicating error here
+                    and not context.check_token(i-1, ("LBRACE", "RBRACE"))
+                ):
+                    context.new_error("SPC_BEFORE_NL", context.peek_token(i))
                 i += 1
                 if context.check_token(i, "SPACE"):
                     if space_error is False:
