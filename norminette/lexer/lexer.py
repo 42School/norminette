@@ -54,7 +54,7 @@ class Lexer:
         if self.peek_char() == "\t":
             self.__line_pos += 4 - (self.__line_pos - 1 & 3)
         else:
-            self.__line_pos += 1
+            self.__line_pos += len(self.peek_char())
         if self.__pos < self.len and skip_escaped and self.src[self.__pos] == "\\":
             self.__pos += 1
         self.__pos += 1
