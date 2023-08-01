@@ -15,6 +15,7 @@ from pathlib import Path
 import _thread
 from threading import Event
 import time
+import subprocess
 
 
 has_err = False
@@ -71,6 +72,11 @@ def main():
         action="store",
         help="Stores filename if --cfile or --hfile is passed",
     )
+    parser.add_argument(
+        "--use-gitignore",
+        action="store_true",
+        help="Parse only source files not match to .gitignore",
+    )
     parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
     registry = Registry()
@@ -99,6 +105,27 @@ def main():
                     targets.extend(glob.glob(arg + "**/*.[ch]", recursive=True))
                 elif os.path.isfile(arg):
                     targets.append(arg)
+
+    if args.use_gitignore:
+        tmp_targets = []
+        for target in targets:
+            command = ["git", "check-ignore", "-q", target]
+            exit_code = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE).returncode
+            """
+            see: $ man git-check-ignore
+            EXIT STATUS
+                  0: One or more of the provided paths is ignored.
+                  1: None of the provided paths are ignored.
+                128: A fatal error was encountered.
+            """
+            if exit_code == 0:
+                pass
+            elif exit_code == 1:
+                tmp_targets.append(target)
+            elif exit_code == 128:
+                print(f'Error: something wrong with --use-gitignore option {target}')
+                sys.exit(0)
+        targets = tmp_targets
     event = []
     for target in filter(os.path.isfile, targets):
         if target[-2:] not in [".c", ".h"]:
