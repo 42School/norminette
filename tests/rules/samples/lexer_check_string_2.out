@@ -1,0 +1,42 @@
+[36mlexer_check_string_2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 1":
+		<VOID> <SPACE> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mlexer_check_string_2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mlexer_check_string_2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 3":
+		<SPACE> <SPACE> <SPACE> <SPACE> <CHAR> <SPACE> <MULT> <IDENTIFIER=str> <SPACE> <ASSIGN> <SPACE> <STRING="Pizza\
+    :yum:"> <SEMI_COLON> <NEWLINE>
+[36mlexer_check_string_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 5":
+		<SPACE> <SPACE> <SPACE> <SPACE> <IDENTIFIER=x> <SPACE> <ASSIGN> <SPACE> <STRING=L"eae"> <SEMI_COLON> <NEWLINE>
+[36mlexer_check_string_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 6":
+		<SPACE> <SPACE> <SPACE> <SPACE> <IDENTIFIER=x> <SPACE> <ASSIGN> <SPACE> <STRING=L"\
+    será q\
+    x = ta certo?\""> <SEMI_COLON> <NEWLINE>
+[36mlexer_check_string_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 9":
+		<SPACE> <SPACE> <SPACE> <SPACE> <IDENTIFIER=x> <SPACE> <ASSIGN> <SPACE> <STRING=""> <SEMI_COLON> <NEWLINE>
+[36mlexer_check_string_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 10":
+		<SPACE> <SPACE> <SPACE> <SPACE> <IDENTIFIER=x> <SPACE> <ASSIGN> <SPACE> <STRING="\
+    "> <SEMI_COLON> <NEWLINE>
+[36mlexer_check_string_2.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 12":
+		<SPACE> <SPACE> <SPACE> <SPACE> <IDENTIFIER=x> <SPACE> <ASSIGN> <SPACE> <STRING="PAH! poW\
+    XERAP\\\\\\\
+    "> <SEMI_COLON> <NEWLINE>
+[36mlexer_check_string_2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
+		<RBRACE> <NEWLINE>
+lexer_check_string_2.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_BEFORE_FUNC    (line:   1, col:   5):	space before function name
+Error: TOO_FEW_TAB          (line:   3, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:   3, col:   5):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:   3, col:   9):	Found space when expecting tab
+Error: DECL_ASSIGN_LINE     (line:   3, col:  15):	Declaration and assignation on a single line
+Error: NL_AFTER_VAR_DECL    (line:   5, col:   1):	Variable declarations must be followed by a newline
+Error: TOO_FEW_TAB          (line:   5, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:   5, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:   6, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:   6, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:   9, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:   9, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  10, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  10, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  12, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  12, col:   5):	Found space when expecting tab

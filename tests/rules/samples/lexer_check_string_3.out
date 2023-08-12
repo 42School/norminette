@@ -1,0 +1,2 @@
+tests/rules/samples/lexer_check_string_3.c: Error!
+	[31mString literal unterminated detected at line 3[0m
