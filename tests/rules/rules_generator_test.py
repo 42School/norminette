@@ -1,8 +1,9 @@
 import pytest
 import glob
 
-from norminette.lexer import Lexer
-from norminette.context import Context
+from norminette.__main__ import colors
+from norminette.lexer import Lexer, TokenError
+from norminette.context import Context, CParsingError
 from norminette.registry import Registry
 
 
@@ -18,9 +19,13 @@ def test_rule_for_file(file, capsys):
     with open(f"{file.split('.')[0]}.out") as out_file:
         out_content = out_file.read()
 
-    lexer = Lexer(file_to_lex)
-    context = Context(file.split("/")[-1], lexer.get_tokens(), debug=2)
-    registry.run(context, file_to_lex)
-    captured = capsys.readouterr()
+    try:
+        lexer = Lexer(file_to_lex)
+        context = Context(file.split("/")[-1], lexer.get_tokens(), debug=2)
+        registry.run(context, file_to_lex)
+    except (TokenError, CParsingError) as e:
+        captured = file + f": Error!\n\t{colors(e.msg, 'red')}" + '\n'
+    else:
+        captured = capsys.readouterr().out
 
-    assert captured.out == out_content
+    assert captured == out_content
