@@ -16,7 +16,7 @@ Please use markdown to send the code here.
 
 **Additional infos**
  - OS:
- - python --version:
+ - python3 --version:
  - norminette -v:
 
 **Additional context**
