@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "norminette"
-version = "3.3.53"
+version = "3.3.54"
 description = "Open source C files linter for 42 Network campuses"
 authors = ["42 <pedago@42.fr>"]
 license = "MIT Licence"
@@ -14,7 +14,7 @@ classifiers = [
     "Natural Language :: English",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9"
+    "Programming Language :: Python :: 3.9",
 ]
 
 [tool.poetry.dependencies]
