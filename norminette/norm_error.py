@@ -1,3 +1,6 @@
+import json
+import os
+
 errors = {
     "SPC_INSTEAD_TAB": "Spaces at beginning of line",
     "TAB_INSTEAD_SPC": "Found tab when expecting space",
@@ -116,6 +119,13 @@ digits or '_'",
     "INVALID_HEADER": "Missing or invalid 42 header",
     "INCLUDE_MISSING_SP": "Missing space between include and filename",
 }
+
+try:
+    with open(os.path.expanduser("~/.local/share/norminette/en_us.json"), 'r') as arq:
+        new = json.load(arq)
+        errors.update(new)
+except:
+    ...
 
 
 class NormError:
