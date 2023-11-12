@@ -6,7 +6,11 @@ types = ["INT", "FLOAT", "CHAR", "DOUBLE", "LONG", "SHORT"]
 class CheckFuncDeclaration(Rule):
     def __init__(self):
         super().__init__()
-        self.depends_on = ["IsFuncDeclaration", "IsFuncPrototype"]
+        self.depends_on = (
+            "IsFuncDeclaration",
+            "IsFuncPrototype",
+            "IsUserDefinedType",
+        )
 
     def run(self, context):
         """
@@ -22,6 +26,8 @@ class CheckFuncDeclaration(Rule):
             if context.check_token(tmp, "LBRACE") is True:
                 context.new_error("BRACE_NEWLINE", context.peek_token(tmp))
             tmp += 1
+        if context.history[-1] == "IsUserDefinedType":
+            return
         # if tmp < context.tkn_scope - 2:
         # context.new_error("NEWLINE_IN_DECL", context.peek_token(tmp))
         # this is a func declaration
