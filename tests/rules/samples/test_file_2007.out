@@ -22,9 +22,13 @@
 		<TAB> <TAB> <IDENTIFIER=ft_putstr> <LPARENTHESIS> <STRING="time_to_eat time_to_sleep [number_of_times_each_philosopher"> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_2007.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 12":
 		<TAB> <RBRACE> <NEWLINE>
-[36mtest_file_2007.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 13":
+[36mtest_file_2007.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 13":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=c> <SPACE> <EQUALS> <SPACE> <CHAR_CONST=' '> <SPACE> <BWISE_AND> <SPACE> <IDENTIFIER=c> <SPACE> <EQUALS> <SPACE> <CHAR_CONST='\t'> <SPACE> <BWISE_AND> <SPACE> <IDENTIFIER=c> <SPACE> <EQUALS> <SPACE> <CHAR_CONST='\n'> <SPACE> <BWISE_AND> <SPACE> <IDENTIFIER=c> <SPACE> <EQUALS> <SPACE> <CHAR_CONST='\v'> <SPACE> <BWISE_AND> <SPACE> <IDENTIFIER=c> <SPACE> <EQUALS> <SPACE> <CHAR_CONST='\f'> <SPACE> <BWISE_AND> <SPACE> <IDENTIFIER=c> <SPACE> <EQUALS> <SPACE> <CHAR_CONST='\r'> <RPARENTHESIS> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 14":
+		<TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_file_2007.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 15":
 		<TAB> <LPARENTHESIS> <VOID> <RPARENTHESIS> <SPACE> <IDENTIFIER=argv> <SEMI_COLON> <NEWLINE>
-[36mtest_file_2007.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 14":
+[36mtest_file_2007.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 16":
 		<RBRACE> <NEWLINE>
 test_file_2007.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
