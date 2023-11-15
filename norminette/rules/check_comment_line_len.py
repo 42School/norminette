@@ -19,7 +19,7 @@ class CheckCommentLineLen(Rule):
         index = token.pos[1]
         if token.type == "MULT_COMMENT":
             lines = token.value.split('\n')
-            # We need to add a padding to the first line because the comment 
+            # We need to add a padding to the first line because the comment
             # can be at the end of a line.
             lines[0] = ' ' * index + lines[0]
             for lineno, line in enumerate(lines, start=token.pos[0]):
