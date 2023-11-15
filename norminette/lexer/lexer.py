@@ -12,8 +12,8 @@ def read_file(filename):
 
 
 class TokenError(Exception):
-    def __init__(self, pos):
-        self.msg = f"Error: Unrecognized token line {pos[0]}, col {pos[1]}"
+    def __init__(self, pos, message=None):
+        self.msg = message or f"Error: Unrecognized token line {pos[0]}, col {pos[1]}"
 
     def __repr__(self):
         return self.msg
@@ -114,6 +114,8 @@ class Lexer:
                 self.__line_pos = 1
             if self.peek_char() == '"':
                 break
+            if self.peek_char() == '\n':
+                raise TokenError(pos, f"String literal unterminated detected at line {pos[0]}")
             self.pop_char()
         else:
             raise TokenError(pos)
