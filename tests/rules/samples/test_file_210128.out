@@ -39,7 +39,6 @@
 		<RBRACE> <NEWLINE>
 test_file_210128.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: WRONG_SCOPE_COMMENT  (line:   1, col:  15):	Comment is invalid in this scope
 Error: WRONG_SCOPE_COMMENT  (line:   5, col:  14):	Comment is invalid in this scope
 Error: WRONG_SCOPE_COMMENT  (line:   5, col:  14):	Comment is invalid in this scope
 Error: WRONG_SCOPE_COMMENT  (line:   5, col:  63):	Comment is invalid in this scope

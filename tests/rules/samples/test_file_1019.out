@@ -164,20 +164,20 @@ test_file_1019.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: RETURN_PARENTHESIS   (line:   8, col:  12):	Return value must be in parenthesis
 Error: FORBIDDEN_CHAR_NAME  (line:  28, col:   9):	user defined identifiers should contain only lowercase characters, digits or '_'
-Error: COMMENT_ON_INSTR     (line:  35, col:  25):	Comment must be on its own line
+Error: COMMENT_ON_INSTR     (line:  35, col:   6):	Comment must be on its own line or at end of a line
+Error: COMMENT_ON_INSTR     (line:  41, col:  10):	Comment must be on its own line or at end of a line
 Error: WRONG_SCOPE_COMMENT  (line:  41, col:  10):	Comment is invalid in this scope
-Error: COMMENT_ON_INSTR     (line:  41, col:  29):	Comment must be on its own line
+Error: COMMENT_ON_INSTR     (line:  42, col:  10):	Comment must be on its own line or at end of a line
 Error: WRONG_SCOPE_COMMENT  (line:  42, col:  10):	Comment is invalid in this scope
-Error: COMMENT_ON_INSTR     (line:  42, col:  29):	Comment must be on its own line
 Error: TOO_MANY_FUNCS       (line:  46, col:   1):	Too many functions in file
 Error: GOTO_FBIDDEN         (line:  50, col:   1):	Goto statements are forbidden
 Error: LABEL_FBIDDEN        (line:  52, col:   1):	Label statements are forbidden
 Error: TOO_MANY_FUNCS       (line:  56, col:   1):	Too many functions in file
+Error: COMMENT_ON_INSTR     (line:  62, col:  27):	Comment must be on its own line or at end of a line
 Error: WRONG_SCOPE_COMMENT  (line:  62, col:  27):	Comment is invalid in this scope
-Error: COMMENT_ON_INSTR     (line:  62, col:  47):	Comment must be on its own line
 Error: TOO_MANY_FUNCS       (line:  66, col:   1):	Too many functions in file
+Error: COMMENT_ON_INSTR     (line:  70, col:  14):	Comment must be on its own line or at end of a line
 Error: WRONG_SCOPE_COMMENT  (line:  70, col:  14):	Comment is invalid in this scope
-Error: COMMENT_ON_INSTR     (line:  70, col:  32):	Comment must be on its own line
 Error: TOO_MANY_FUNCS       (line:  73, col:   1):	Too many functions in file
 Error: SPC_BEFORE_NL        (line:  73, col:  17):	Space before newline
 Error: TOO_MANY_FUNCS       (line:  78, col:   1):	Too many functions in file
