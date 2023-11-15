@@ -39,9 +39,9 @@
 [36mtest_file_1012_3.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 20":
 		<MULT_COMMENT=/*
 ** Duplicates the provided array to initialize the environnement.
-** @param char** environ	An array of strings that will be used as environnem
+** @param char** environ    An array of strings that will be used as environnem
 ** ent variables. These are not checked for invalid syntax.
-** @param char**	The resulting environnement, or NULL in case of error.
+** @param char**    The resulting environnement, or NULL in case of error.
 */> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 26":
 		<NEWLINE>
@@ -62,8 +62,8 @@
 [36mtest_file_1012_3.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 35":
 		<MULT_COMMENT=/*
 ** Fetches the value of an environnement variable.
-** @param const char* name	The name of the variable.
-** @return char*	An allocated copy of the variable's value.
+** @param const char* name  The name of the variable.
+** @return char*    An allocated copy of the variable's value.
 */> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 40":
 		<NEWLINE>
@@ -74,13 +74,13 @@
 [36mtest_file_1012_3.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 43":
 		<MULT_COMMENT=/*
 ** Sets an environnement variable.
-** @param char* value 	A string formated as "name=value".
-** 	This string is NOT checked for invalid syntax.
-** 	This exact pointer is stored internally, and should notbe modified or freed
+** @param char* value   A string formated as "name=value".
+**  This string is NOT checked for invalid syntax.
+**  This exact pointer is stored internally, and should notbe modified or freed
 **  afterward.
 ** @return bool
-** 	true 	OK;
-** 	false 	Error;
+**  true    OK;
+**  false   Error;
 */> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 53":
 		<NEWLINE>
@@ -91,12 +91,12 @@
 [36mtest_file_1012_3.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 56":
 		<MULT_COMMENT=/*
 ** Sets an environnement variable.
-** @param const char* name	The name of the variable to set.
-** 	This name is NOT checked for invalid caracters, except for '='.
-** @param const char* value	The value to set.
+** @param const char* name  The name of the variable to set.
+**  This name is NOT checked for invalid caracters, except for '='.
+** @param const char* value The value to set.
 ** return bool
-** 	true 	OK
-** 	false	Error
+**  true    OK
+**  false   Error
 */> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 65":
 		<NEWLINE>
@@ -108,8 +108,8 @@
 		<MULT_COMMENT=/*
 ** Checks the validity of an environnement variable's name.
 ** The special name '?' is considered valid.
-** @param const char* name	The name to validate
-** @return char*	A pointer to the first invalid character, else a pointer to
+** @param const char* name  The name to validate
+** @return char*    A pointer to the first invalid character, else a pointer to
 **  the null terminator.
 */> <NEWLINE>
 [36mtest_file_1012_3.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 75":

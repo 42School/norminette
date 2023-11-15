@@ -6,9 +6,9 @@
 		<TAB> <COMMENT=// toototo> <NEWLINE>
 [36mok_func_classic.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 4":
 		<TAB> <MULT_COMMENT=/*
-	 ** aallo
-	 **
-	 */> <NEWLINE>
+     ** aallo
+     **
+     */> <NEWLINE>
 [36mok_func_classic.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 8":
 		<NEWLINE>
 [36mok_func_classic.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 9":
