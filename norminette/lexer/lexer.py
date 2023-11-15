@@ -312,20 +312,14 @@ class Lexer:
 
     def mult_comment(self):
         pos = self.line_pos()
-        self.pop_char(), self.pop_char()
-        tkn_value = "/*"
-        while self.peek_char():
-            if self.src[self.__pos :].startswith("*/"):
-                tkn_value += "*/"
-                self.pop_char(), self.pop_char()
+        val = self.pop(times=2)
+        while self.peek():
+            if self.peek(collect=2) == "*/":
+                val += self.pop(times=2)
                 break
-            tkn_value += self.peek_char()
-            if self.peek_char() == "\n":
-                self.__line += 1
-                self.__line_pos = 1
-            self.pop_char(skip_escaped=False)
-        if tkn_value.endswith("*/"):
-            self.tokens.append(Token("MULT_COMMENT", pos, tkn_value))
+            val += self.pop(use_spaces=True)
+        if val.endswith("*/"):
+            self.tokens.append(Token("MULT_COMMENT", pos, val))
         else:
             raise TokenError(pos)
 
@@ -334,18 +328,10 @@ class Lexer:
         end of file
         """
         pos = self.line_pos()
-        tkn_value = "//"
-        self.pop_char(), self.pop_char()
-        while self.peek_char() is not None:
-            if self.peek_char() == "\n":
-                self.tokens.append(Token("COMMENT", pos, tkn_value))
-                return
-            tkn_value += self.peek_char()
-            self.pop_char()
-        if self.__pos == self.len:
-            self.tokens.append(Token("COMMENT", pos, tkn_value))
-            return
-        raise TokenError(pos)
+        val = self.pop(times=2)
+        while self.peek() and self.peek() != '\n':
+            val += self.pop()
+        self.tokens.append(Token("COMMENT", pos, val))
 
     def identifier(self):
         """Identifiers can start with any letter [a-z][A-Z] or an underscore
