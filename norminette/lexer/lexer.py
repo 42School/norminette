@@ -32,6 +32,29 @@ class Lexer:
     def peek_sub_string(self, size):
         return self.src[self.__pos : self.__pos + size]
 
+    def peek(self, *, offset: int = 0, collect: int = 1):
+        assert collect > 0 and offset >= 0
+        if (pos := self.__pos + offset) < self.len:
+            return ''.join(self.src[pos:pos+collect])
+        return None
+
+    def pop(self, *, times: int = 1, use_spaces: bool = False):
+        assert times > 0
+        result = ""
+        for _ in range(times):
+            char = self.peek()
+            if char == '\n':
+                self.__line_pos = 0
+                self.__line += 1
+            if char == '\t':
+                self.__line_pos += (spaces := 4 - (self.__line_pos - 1) % 4) - 1
+                if use_spaces:
+                    char = ' ' * spaces
+            self.__line_pos += 1
+            self.__pos += 1
+            result += char
+        return result
+
     def peek_char(self):
         """Return current character being checked,
         if the character is a backslash character the following
