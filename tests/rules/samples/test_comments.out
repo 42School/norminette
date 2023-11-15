@@ -48,10 +48,12 @@
 		<RBRACE> <NEWLINE>
 test_comments.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: BRACE_NEWLINE        (line:   1, col:   8):	Expected newline before brace
 Error: COMMENT_ON_INSTR     (line:   6, col:   9):	Comment must be on its own line or at end of a line
 Error: SPACE_REPLACE_TAB    (line:   6, col:  25):	Found space when expecting tab
 Error: USER_DEFINED_TYPEDEF (line:   6, col:  26):	User defined typedef must start with t_
 Error: ENUM_TYPE_NAMING     (line:   8, col:   6):	Enum name must start with e_
+Error: BRACE_NEWLINE        (line:   8, col:  11):	Expected newline before brace
 Error: SPACE_EMPTY_LINE     (line:   9, col:   5):	Space on empty line
 Error: TOO_FEW_TAB          (line:  10, col:   1):	Missing tabs for indent level
 Error: SPACE_REPLACE_TAB    (line:  10, col:   5):	Found space when expecting tab
