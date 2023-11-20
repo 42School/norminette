@@ -1,20 +1,18 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckManyInstructions(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = [
-            "IsAssignation",
-            "IsBlockEnd",
-            "IsControlStatement",
-            "IsExpressionStatement",
-            "IsFuncDeclaration",
-            "IsFuncPrototype",
-            "IsUserDefinedType",
-            "IsVarDeclaration",
-            "IsFunctionCall",
-        ]
+class CheckManyInstructions(Rule, Check):
+    depends_on = (
+        "IsAssignation",
+        "IsBlockEnd",
+        "IsControlStatement",
+        "IsExpressionStatement",
+        "IsFuncDeclaration",
+        "IsFuncPrototype",
+        "IsUserDefinedType",
+        "IsVarDeclaration",
+        "IsFunctionCall",
+    )
 
     def run(self, context):
         """

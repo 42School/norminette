@@ -1,11 +1,7 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckLabel(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckLabel(Rule, Check):
     def run(self, context):
         """
         Goto and labels are forbidden

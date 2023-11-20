@@ -1,4 +1,4 @@
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 types = [
     "CHAR",
@@ -37,13 +37,7 @@ op = [
 ws = ["SPACE", "TAB", "NEWLINE"]
 
 
-class IsCast(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.primary = True
-        self.priority = 15
-        self.scope = []
-
+class IsCast(Rule, Primary, priority=15):
     def run(self, context):
         """
         Catches all casts instructions

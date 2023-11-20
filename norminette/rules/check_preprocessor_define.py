@@ -1,10 +1,10 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckPreprocessorDefine(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsPreprocessorStatement"]
+class CheckPreprocessorDefine(Rule, Check):
+    depends_on = (
+        "IsPreprocessorStatement",
+    )
 
     def run(self, context):
         """

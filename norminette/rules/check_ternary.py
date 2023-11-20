@@ -1,11 +1,7 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckTernary(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckTernary(Rule, Check):
     def run(self, context):
         """
         Ternaries are forbidden

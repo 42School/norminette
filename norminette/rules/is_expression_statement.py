@@ -1,7 +1,7 @@
 from norminette.context import ControlStructure
 from norminette.scope import Function
 from norminette.exceptions import CParsingError
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 keywords = ["BREAK", "CONTINUE", "GOTO", "RETURN"]
 
@@ -18,11 +18,11 @@ operators = [
 ws = ["SPACE", "TAB", "NEWLINE"]
 
 
-class IsExpressionStatement(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 25
-        self.scope = [Function, ControlStructure]
+class IsExpressionStatement(Rule, Primary, priority=25):
+    scope = (
+        Function,
+        ControlStructure,
+    )
 
     def check_reserved_keywords(self, context, pos):
         if context.check_token(pos, keywords) is False:

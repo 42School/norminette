@@ -1,5 +1,5 @@
 from norminette.exceptions import CParsingError
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 types = [
     "STRUCT",
@@ -22,10 +22,10 @@ types = [
 utypes = ["STRUCT", "ENUM", "UNION"]
 
 
-class CheckUtypeDeclaration(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsUserDefinedType"]
+class CheckUtypeDeclaration(Rule, Check):
+    depends_on = (
+        "IsUserDefinedType",
+    )
 
     def run(self, context):
         """

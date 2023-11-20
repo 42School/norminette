@@ -1,11 +1,11 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 from norminette.scope import GlobalScope, ControlStructure
 
 
-class CheckBlockStart(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsBlockStart"]
+class CheckBlockStart(Rule, Check):
+    depends_on = (
+        "IsBlockStart",
+    )
 
     def run(self, context):
         """

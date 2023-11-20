@@ -1,6 +1,6 @@
 import math
 
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 keywords = [
     # C reserved keywords #
@@ -41,10 +41,10 @@ keywords = [
 eol = ["SEMI_COLON", "LPARENTHESIS"]
 
 
-class CheckPrototypeIndent(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsFuncPrototype"]
+class CheckPrototypeIndent(Rule, Check):
+    depends_on = (
+        "IsFuncPrototype",
+    )
 
     def run(self, context):
         """

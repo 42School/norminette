@@ -1,13 +1,9 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 allowed_on_comment = ["COMMENT", "MULT_COMMENT", "SPACE", "TAB"]
 
 
-class CheckComment(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckComment(Rule, Check):
     def run(self, context):
         """
         Comments are only allowed in GlobalScope.

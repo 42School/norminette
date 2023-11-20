@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 from norminette.scope import GlobalScope
 
 ARGUMENTED_PREPROCESSORS = (
@@ -16,10 +16,10 @@ ARGUMENTED_PREPROCESSORS = (
 )
 
 
-class CheckPreprocessorIndent(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsPreprocessorStatement"]
+class CheckPreprocessorIndent(Rule, Check):
+    depends_on = (
+        "IsPreprocessorStatement",
+    )
 
     def run(self, context):
         """

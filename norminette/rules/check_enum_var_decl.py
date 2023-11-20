@@ -1,10 +1,10 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckEnumVarDecl(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsEnumVarDecl"]
+class CheckEnumVarDecl(Rule, Check):
+    depends_on = (
+        "IsEnumVarDecl",
+    )
 
     def run(self, context):
         """

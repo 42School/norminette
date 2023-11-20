@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 types = [
     "INT",
@@ -22,10 +22,10 @@ types = [
 ]
 
 
-class CheckGlobalNaming(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsVarDeclaration"]
+class CheckGlobalNaming(Rule, Check):
+    depends_on = (
+        "IsVarDeclaration",
+    )
 
     def run(self, context):
         """

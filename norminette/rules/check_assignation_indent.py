@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 from norminette.exceptions import CParsingError
 
 
@@ -42,15 +42,13 @@ operators = [
 nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]
 
 
-class CheckAssignationIndent(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = [
-            "IsAssignation",
-            "IsFuncPrototype",
-            "IsFunctionCall",
-            "IsVarDeclaration",
-        ]
+class CheckAssignationIndent(Rule, Check):
+    depends_on = (
+        "IsAssignation",
+        "IsFuncPrototype",
+        "IsFunctionCall",
+        "IsVarDeclaration",
+    )
 
     def run(self, context):
         """

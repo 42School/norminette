@@ -1,12 +1,8 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 import re
 
 
-class CheckHeader(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckHeader(Rule, Check):
     def parse_header(self, context):
         if context.check_token(0, "MULT_COMMENT") is False:
             context.new_error("INVALID_HEADER", context.peek_token(0))

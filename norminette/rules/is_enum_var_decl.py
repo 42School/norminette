@@ -1,4 +1,4 @@
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 from norminette.scope import UserDefinedEnum
 
 
@@ -6,11 +6,10 @@ lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
 rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
 
 
-class IsEnumVarDecl(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 30
-        self.scope = [UserDefinedEnum]
+class IsEnumVarDecl(Rule, Primary, priority=30):
+    scope = (
+        UserDefinedEnum,
+    )
 
     def assignment_right_side(self, context, pos):
         sep = ["COMMA", "ASSIGN", "NEWLINE"]

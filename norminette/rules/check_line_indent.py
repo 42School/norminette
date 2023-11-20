@@ -1,12 +1,8 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 from norminette.scope import GlobalScope
 
 
-class CheckLineIndent(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckLineIndent(Rule, Check):
     def run(self, context):
         """
         Each new scope (function, control structure, struct/enum type declaration) adds a tab to the general indentation

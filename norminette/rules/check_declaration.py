@@ -1,10 +1,10 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckDeclaration(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsDeclaration"]
+class CheckDeclaration(Rule, Check):
+    depends_on = (
+        "IsDeclaration",
+    )
 
     def run(self, context):
         """

@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
 allowed_in_header = [
@@ -20,20 +20,18 @@ must_be_within_define = [
 ]
 
 
-class CheckInHeader(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = [
-            "IsVarDeclaration",
-            "IsUserDefinedType",
-            "IsPreprocessorStatement",
-            "IsEmptyLine",
-            "IsBlockStart",
-            "IsBlockEnd",
-            "IsComment",
-            "IsEndOfLine",
-            "IsFuncPrototype",
-        ]
+class CheckInHeader(Rule, Check):
+    depends_on = (
+        "IsVarDeclaration",
+        "IsUserDefinedType",
+        "IsPreprocessorStatement",
+        "IsEmptyLine",
+        "IsBlockStart",
+        "IsBlockEnd",
+        "IsComment",
+        "IsEndOfLine",
+        "IsFuncPrototype",
+    )
 
     def run(self, context):
         """

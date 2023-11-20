@@ -1,7 +1,7 @@
 import sys
 import contextlib
 
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 from norminette.exceptions import CParsingError
 from norminette.context import Macro
 
@@ -56,12 +56,7 @@ def recursion_limit(limit):
     sys.setrecursionlimit(old_limit)
 
 
-class IsPreprocessorStatement(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 100
-        self.scope = []
-
+class IsPreprocessorStatement(Rule, Primary, priority=100):
     def run(self, context):
         """
         Catches any kind of preprocessor statements

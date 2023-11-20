@@ -1,17 +1,13 @@
 import string
 
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 from norminette.scope import GlobalScope, UserDefinedType
 
 
 assigns = ["ASSIGN"]
 
 
-class CheckIdentifierName(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckIdentifierName(Rule, Check):
     def run(self, context):
         """
         Function can only be declared in the global scope

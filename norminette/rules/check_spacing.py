@@ -1,11 +1,7 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckSpacing(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckSpacing(Rule, Check):
     def run(self, context):
         """
         Indentation (except for preprocessors) must be done with tabs

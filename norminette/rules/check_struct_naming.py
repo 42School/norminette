@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 types = [
     "STRUCT",
@@ -7,18 +7,16 @@ types = [
 ]
 
 
-class CheckStructNaming(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsUserDefinedType"]
-        self.__i = 0
+class CheckStructNaming(Rule, Check):
+    depends_on = (
+        "IsUserDefinedType",
+    )
 
     def run(self, context):
         """
         Rewritten elsewhere
         """
         return False, 0
-        self.__i += 1
         i = 0
         i = context.skip_ws(i)
         while context.check_token(i, types) is False:
