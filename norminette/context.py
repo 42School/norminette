@@ -244,7 +244,10 @@ class Context:
         return -1
 
     def new_error(self, errno, tkn):
-        self.errors.append(NormError(errno, tkn.pos[0], tkn.pos[1]))
+        pos = tkn
+        if not isinstance(tkn, (tuple, list)):
+            pos = tkn.pos
+        self.errors.append(NormError(errno, pos[0], pos[1]))
 
     def new_warning(self, errno, tkn):
         self.warnings.append(NormWarning(errno, tkn.pos[0], tkn.pos[1]))

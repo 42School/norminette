@@ -38,7 +38,7 @@
 		<TAB> <IDENTIFIER=fm_fd> <SPACE> <ASSIGN> <SPACE> <MINUS> <CONSTANT=1> <SEMI_COLON> <TAB> 
 [36mtest_file_0907_3.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 19":
 		<MULT_COMMENT=/* Shut up stupid "may be used uninitialized" GCC
-				warning. (not needed w/clang) */> <NEWLINE>
+                warning. (not needed w/clang) */> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 21":
 		<TAB> <IDENTIFIER=showexit> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0> <SEMI_COLON> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 22":
@@ -141,7 +141,7 @@
 		<NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 69":
 		<TAB> <MULT_COMMENT=/*if (pflg)
-		playback(fscript);*/> <NEWLINE>
+        playback(fscript);*/> <NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 71":
 		<NEWLINE>
 [36mtest_file_0907_3.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 72":

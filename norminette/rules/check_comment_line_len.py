@@ -11,12 +11,19 @@ class CheckCommentLineLen(Rule):
         Lines must not be over 80 characters long
         """
         i = 0
-        while context.check_token(i, ["COMMENT", "MULT_COMMENT"]) is False:
+        while not context.check_token(i, ["COMMENT", "MULT_COMMENT"]):
             i += 1
-        val = context.peek_token(i).value
-        line_start = context.peek_token(0).pos[1]
-        val = val.split("\n")
-        for item in val:
-            if len(item) + line_start > 81:
-                context.new_error("LINE_TOO_LONG", context.peek_token(0))
-            line_start = 0
+        token = context.peek_token(i)
+        if not token:
+            return
+        index = token.pos[1]
+        if token.type == "MULT_COMMENT":
+            lines = token.value.split('\n')
+            # We need to add a padding to the first line because the comment
+            # can be at the end of a line.
+            lines[0] = ' ' * index + lines[0]
+            for lineno, line in enumerate(lines, start=token.pos[0]):
+                if len(line) > 81:
+                    context.new_error("LINE_TOO_LONG", (lineno, 1))
+        elif index + len(token.value) > 81:  # token.type == "COMMENT"
+            context.new_error("LINE_TOO_LONG", token)
