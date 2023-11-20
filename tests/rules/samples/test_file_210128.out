@@ -13,9 +13,9 @@
 		<COMMENT=// comment in fun> <NEWLINE>
 [36mtest_file_210128.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 6":
 		<TAB> <MULT_COMMENT=/*
-		Multi line comment in function body
+        Multi line comment in function body
 
-	*/> <NEWLINE>
+    */> <NEWLINE>
 [36mtest_file_210128.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 10":
 		<TAB> <IDENTIFIER=num1> <SPACE> <ASSIGN> <SPACE> <CONSTANT=25> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210128.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 11":
@@ -39,7 +39,6 @@
 		<RBRACE> <NEWLINE>
 test_file_210128.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: WRONG_SCOPE_COMMENT  (line:   1, col:  15):	Comment is invalid in this scope
 Error: WRONG_SCOPE_COMMENT  (line:   5, col:  14):	Comment is invalid in this scope
 Error: WRONG_SCOPE_COMMENT  (line:   5, col:  14):	Comment is invalid in this scope
 Error: WRONG_SCOPE_COMMENT  (line:   5, col:  63):	Comment is invalid in this scope

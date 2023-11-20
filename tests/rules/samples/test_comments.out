@@ -1,0 +1,75 @@
+[36mtest_comments.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<STRUCT> <SPACE> <LBRACE> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsComment[0m In "UserDefinedType" from "GlobalScope" line 2":
+		<TAB> <COMMENT=// points is to something> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=points> <SEMI_COLON> <SPACE> 
+[36mtest_comments.c[0m - [32mIsComment[0m In "UserDefinedType" from "GlobalScope" line 3":
+		<COMMENT=// is an int :D> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 4":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mtest_comments.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 6":
+		<TYPEDEF> <SPACE> <MULT_COMMENT=/* oopss */> <SPACE> <IDENTIFIER=bool> <SPACE> <IDENTIFIER=bool> <SEMI_COLON> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 7":
+		<NEWLINE>
+[36mtest_comments.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 8":
+		<ENUM> <SPACE> <IDENTIFIER=test> <SPACE> <LBRACE> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsComment[0m In "UserDefinedEnum" from "GlobalScope" line 9":
+		<SPACE> <SPACE> <SPACE> <SPACE> <COMMENT=// blaboe> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 10":
+		<SPACE> <SPACE> <SPACE> <SPACE> <IDENTIFIER=hello> <COMMA> <SPACE> <SPACE> 
+[36mtest_comments.c[0m - [32mIsComment[0m In "UserDefinedEnum" from "GlobalScope" line 10":
+		<COMMENT=// it works> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsComment[0m In "UserDefinedEnum" from "GlobalScope" line 11":
+		<SPACE> <SPACE> <SPACE> <SPACE> <MULT_COMMENT=/* error*/> <SPACE> 
+[36mtest_comments.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 11":
+		<IDENTIFIER=error> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsBlockEnd[0m In "UserDefinedEnum" from "GlobalScope" line 12":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 13":
+		<NEWLINE>
+[36mtest_comments.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 14":
+		<VOID> <SPACE> <IDENTIFIER=hello> <LPARENTHESIS> <MULT_COMMENT=/* nothing */> <SPACE> <VOID> <RPARENTHESIS> <SPACE> <COMMENT=// error because comment is in middle of the line> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 15":
+		<LBRACE> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 16":
+		<SPACE> <SPACE> <SPACE> <COMMENT=// error because scope is from a function> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 17":
+		<SPACE> <SPACE> <SPACE> <LBRACE> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsComment[0m In "ControlStructure" from "Function" line 18":
+		<SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <COMMENT=// are you trying to cheat?> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsComment[0m In "ControlStructure" from "Function" line 19":
+		<SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <SPACE> <COMMENT=// error because scope is from a function> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsBlockEnd[0m In "ControlStructure" from "Function" line 20":
+		<SPACE> <SPACE> <SPACE> <RBRACE> <NEWLINE>
+[36mtest_comments.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 21":
+		<RBRACE> <NEWLINE>
+test_comments.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: BRACE_NEWLINE        (line:   1, col:   8):	Expected newline before brace
+Error: COMMENT_ON_INSTR     (line:   6, col:   9):	Comment must be on its own line or at end of a line
+Error: SPACE_REPLACE_TAB    (line:   6, col:  25):	Found space when expecting tab
+Error: USER_DEFINED_TYPEDEF (line:   6, col:  26):	User defined typedef must start with t_
+Error: ENUM_TYPE_NAMING     (line:   8, col:   6):	Enum name must start with e_
+Error: BRACE_NEWLINE        (line:   8, col:  11):	Expected newline before brace
+Error: SPACE_EMPTY_LINE     (line:   9, col:   5):	Space on empty line
+Error: TOO_FEW_TAB          (line:  10, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  10, col:   5):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  10, col:  11):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  11, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  11, col:  16):	Missing tabs for indent level
+Error: SPACE_BEFORE_FUNC    (line:  14, col:   5):	space before function name
+Error: COMMENT_ON_INSTR     (line:  14, col:  12):	Comment must be on its own line or at end of a line
+Error: MISSING_IDENTIFIER   (line:  14, col:  25):	missing type qualifier or identifier in function arguments
+Error: SPACE_EMPTY_LINE     (line:  16, col:   4):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  16, col:   4):	Comment is invalid in this scope
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  17, col:   4):	Space on empty line
+Error: SPACE_EMPTY_LINE     (line:  18, col:   7):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  18, col:   7):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  19, col:   7):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  19, col:   7):	Comment is invalid in this scope
+Error: TOO_FEW_TAB          (line:  20, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  20, col:   4):	Space on empty line

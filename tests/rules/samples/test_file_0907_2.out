@@ -160,23 +160,23 @@
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 84":
 		<MULT_COMMENT=/*
-** # define Button1MotionMask		(1L<<8)
-** # define Button2MotionMask		(1L<<9)
-** # define Button3MotionMask		(1L<<10)
-** # define Button4MotionMask		(1L<<11)
-** # define Button5MotionMask		(1L<<12)
-** # define ButtonMotionMask		(1L<<13)
-** # define KeymapStateMask			(1L<<14)
-** # define ExposureMask			(1L<<15)
-** # define VisibilityChangeMask	(1L<<16)
-** # define StructureNotifyMask		(1L<<17)
-** # define ResizeRedirectMask		(1L<<18)
-** # define SubstructureNotifyMask	(1L<<19)
-** # define SubstructureRedirectMask	(1L<<20)
-** # define FocusChangeMask			(1L<<21)
-** # define PropertyChangeMask		(1L<<22)
-** # define ColormapChangeMask		(1L<<23)
-** # define OwnerGrabButtonMask		(1L<<24)
+** # define Button1MotionMask       (1L<<8)
+** # define Button2MotionMask       (1L<<9)
+** # define Button3MotionMask       (1L<<10)
+** # define Button4MotionMask       (1L<<11)
+** # define Button5MotionMask       (1L<<12)
+** # define ButtonMotionMask        (1L<<13)
+** # define KeymapStateMask         (1L<<14)
+** # define ExposureMask            (1L<<15)
+** # define VisibilityChangeMask    (1L<<16)
+** # define StructureNotifyMask     (1L<<17)
+** # define ResizeRedirectMask      (1L<<18)
+** # define SubstructureNotifyMask  (1L<<19)
+** # define SubstructureRedirectMask    (1L<<20)
+** # define FocusChangeMask         (1L<<21)
+** # define PropertyChangeMask      (1L<<22)
+** # define ColormapChangeMask      (1L<<23)
+** # define OwnerGrabButtonMask     (1L<<24)
 */> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 103":
 		<NEWLINE>
@@ -192,37 +192,37 @@
 		<NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsComment[0m In "GlobalScope" from "None" line 109":
 		<MULT_COMMENT=/*
-** # define MotionNotify	    6
-** # define EnterNotify		    7
-** # define LeaveNotify		    8
-** # define FocusIn			    9
-** # define FocusOut		    10
-** # define KeymapNotify	    11
-** # define Expose			    12
-** # define GraphicsExpose	    13
-** # define NoExpose		    14
+** # define MotionNotify        6
+** # define EnterNotify         7
+** # define LeaveNotify         8
+** # define FocusIn             9
+** # define FocusOut            10
+** # define KeymapNotify        11
+** # define Expose              12
+** # define GraphicsExpose      13
+** # define NoExpose            14
 ** # define VisibilityNotify    15
-** # define CreateNotify		16
-** # define DestroyNotify		17
-** # define UnmapNotify		    18
-** # define MapNotify		    19
-** # define MapRequest		    20
-** # define ReparentNotify		21
-** # define ConfigureNotify		22
-** # define ConfigureRequest	23
-** # define GravityNotify		24
-** # define ResizeRequest		25
-** # define CirculateNotify		26
-** # define CirculateRequest	27
-** # define PropertyNotify		28
-** # define SelectionClear		29
-** # define SelectionRequest	30
-** # define SelectionNotify		31
-** # define ColormapNotify		32
-** # define ClientMessage		33
-** # define MappingNotify		34
-** # define GenericEvent		35
-** # define LASTEvent		    36
+** # define CreateNotify        16
+** # define DestroyNotify       17
+** # define UnmapNotify         18
+** # define MapNotify           19
+** # define MapRequest          20
+** # define ReparentNotify      21
+** # define ConfigureNotify     22
+** # define ConfigureRequest    23
+** # define GravityNotify       24
+** # define ResizeRequest       25
+** # define CirculateNotify     26
+** # define CirculateRequest    27
+** # define PropertyNotify      28
+** # define SelectionClear      29
+** # define SelectionRequest    30
+** # define SelectionNotify     31
+** # define ColormapNotify      32
+** # define ClientMessage       33
+** # define MappingNotify       34
+** # define GenericEvent        35
+** # define LASTEvent           36
 */> <NEWLINE>
 [36mtest_file_0907_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 142":
 		<NEWLINE>
