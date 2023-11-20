@@ -38,6 +38,18 @@ class Scope:
         # print (f"{self.name} -> {self.parent.name}")
         return self.parent
 
+    def __eq__(self, value) -> bool:
+        if isinstance(value, str):
+            return self.name == value
+        if issubclass(value, Scope):
+            return self.name == value.__name__
+        if hasattr(value, "name"):
+            return self.name == value.name
+        return super().__eq__(value)
+
+    def __ne__(self, value) -> bool:
+        return not (self == value)
+
     def get_outer(self):
         """
         Allows to peek to the parent scope without adding lines to
