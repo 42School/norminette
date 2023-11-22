@@ -1,15 +1,10 @@
-from norminette.rules import PrimaryRule
+from norminette.rules import Primary, Rule
 
 cs_keywords = ["DO", "WHILE", "FOR", "IF", "ELSE", "SWITCH", "CASE", "DEFAULT"]
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
 
 
-class IsAmbiguousDeclaration(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 0
-        self.scope = []
-
+class IsAmbiguousDeclaration(Primary, Rule, priority=0):
     def run(self, context):
         """
         Catches missing semi-colon or other various missing stuff. Dev feature

@@ -1,6 +1,6 @@
 from norminette.context import GlobalScope
 from norminette.scope import UserDefinedType
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 whitespaces = ["SPACE", "TAB"]
 assigns = [
@@ -44,11 +44,10 @@ type_identifier = [
 ]
 
 
-class IsFuncPrototype(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 82
-        self.scope = [GlobalScope]
+class IsFuncPrototype(Rule, Primary, priority=82):
+    scope = (
+        GlobalScope,
+    )
 
     def check_args(self, context, pos):
         i = context.skip_ws(pos)

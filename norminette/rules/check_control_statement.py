@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
 forbidden_cs = ["FOR", "SWITCH", "CASE", "GOTO"]
@@ -17,10 +17,10 @@ assigns = [
 ]
 
 
-class CheckControlStatement(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsControlStatement"]
+class CheckControlStatement(Rule, Check):
+    depends_on = (
+        "IsControlStatement",
+    )
 
     def check_nest(self, context, i):
         depth = 1

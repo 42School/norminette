@@ -1,12 +1,7 @@
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 
-class IsDeclaration(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 5
-        self.scope = []
-
+class IsDeclaration(Rule, Primary, priority=5):
     def run(self, context):
         # return False, 0
         i = context.skip_ws(0, nl=False)

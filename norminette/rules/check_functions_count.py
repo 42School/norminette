@@ -1,10 +1,10 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckFunctionsCount(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsFuncDeclaration"]
+class CheckFunctionsCount(Rule, Check):
+    depends_on = (
+        "IsFuncDeclaration",
+    )
 
     def run(self, context):
         """

@@ -1,4 +1,4 @@
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 from norminette.lexer.dictionary import keywords
 
 condition_ops = [
@@ -82,13 +82,7 @@ op = [
 ws = ["SPACE", "TAB", "NEWLINE"]
 
 
-class IsFunctionCall(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.primary = True
-        self.priority = 80
-        self.scope = []
-
+class IsFunctionCall(Rule, Primary, priority=80):
     def run(self, context):
         """
         Catches function calls when it's in an assignation

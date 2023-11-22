@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 operators = [
     "RIGHT_ASSIGN",
@@ -138,20 +138,17 @@ right_auth = []
 whitespaces = ["NEWLINE", "SPACE", "TAB"]
 
 
-class CheckOperatorsSpacing(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = [
-            "IsFuncDeclaration",
-            "IsFuncPrototype",
-            "IsExpressionStatement",
-            "IsAssignation",
-            "IsControlStatement",
-            "IsVarDeclaration",
-            "IsFunctionCall",
-            "IsDeclaration",
-        ]
-        self.last_seen_tkn = None
+class CheckOperatorsSpacing(Rule, Check):
+    depends_on = (
+        "IsFuncDeclaration",
+        "IsFuncPrototype",
+        "IsExpressionStatement",
+        "IsAssignation",
+        "IsControlStatement",
+        "IsVarDeclaration",
+        "IsFunctionCall",
+        "IsDeclaration",
+    )
 
     def check_prefix(self, context, pos):
         if pos > 0 and context.check_token(pos, ["TAB", "SPACE"]):
@@ -472,7 +469,6 @@ class CheckOperatorsSpacing(Rule):
         some must be only followed by a space,
         and the rest must be preceded and followed by a space.
         """
-        self.last_seen_tkn = None
         i = 0
         while i < len(context.tokens[: context.tkn_scope]):
             if context.check_token(i, ["MULT", "BWISE_AND"]) is True:
@@ -504,7 +500,5 @@ class CheckOperatorsSpacing(Rule):
                 self.check_suffix(context, i)
             elif context.check_token(i, p_operators) is True:
                 self.check_prefix(context, i)
-            if context.check_token(i, whitespaces) is False:
-                self.last_seen_tkn = context.peek_token(i)
             i += 1
         return False, 0

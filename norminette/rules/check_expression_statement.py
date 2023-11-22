@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 kw = [
     # C reserved keywords #
@@ -36,16 +36,14 @@ kw = [
 ]
 
 
-class CheckExpressionStatement(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = [
-            "IsExpressionStatement",
-            "IsControlStatement",
-            "IsFunctionCall",
-            "IsAssignation",
-            "IsCast",
-        ]
+class CheckExpressionStatement(Rule, Check):
+    depends_on = (
+        "IsExpressionStatement",
+        "IsControlStatement",
+        "IsFunctionCall",
+        "IsAssignation",
+        "IsCast",
+    )
 
     def run(self, context):
         """

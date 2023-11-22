@@ -1,4 +1,4 @@
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 assign_ops = [
     "RIGHT_ASSIGN",
@@ -60,13 +60,7 @@ op = [
 ws = ["SPACE", "TAB", "NEWLINE"]
 
 
-class IsAssignation(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.primary = True
-        self.priority = 20
-        self.scope = []
-
+class IsAssignation(Rule, Primary, priority=20):
     def check_identifier(self, context, pos):
         i = pos
         while context.check_token(

@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 type_specifiers = ["CHAR", "DOUBLE", "ENUM", "FLOAT", "INT", "UNION", "VOID", "SHORT"]
 
@@ -13,10 +13,11 @@ whitespaces = ["SPACE", "TAB", "NEWLINE"]
 arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
 
-class CheckFuncArgumentsName(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsFuncDeclaration", "IsFuncPrototype"]
+class CheckFuncArgumentsName(Rule, Check):
+    depends_on = (
+        "IsFuncDeclaration",
+        "IsFuncPrototype",
+    )
 
     def check_arg_format(self, context, pos):
         """

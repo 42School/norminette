@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
 operators = [
@@ -39,14 +39,12 @@ operators = [
 nest_kw = ["RPARENTHESIS", "LPARENTHESIS", "NEWLINE"]
 
 
-class CheckNestLineIndent(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = [
-            "IsControlStatement",
-            "IsExpressionStatement",
-            "IsDeclaration",
-        ]
+class CheckNestLineIndent(Rule, Check):
+    depends_on = (
+        "IsControlStatement",
+        "IsExpressionStatement",
+        "IsDeclaration",
+    )
 
     def find_nest_content(self, context, nest, i):
         expected = context.scope.indent + nest

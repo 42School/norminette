@@ -2,7 +2,7 @@ from norminette.context import ControlStructure
 from norminette.scope import Function
 from norminette.context import GlobalScope
 from norminette.scope import UserDefinedType
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 lbrackets = ["LBRACE", "LPARENTHESIS", "LBRACKET"]
 rbrackets = ["RBRACE", "RPARENTHESIS", "RBRACKET"]
@@ -35,11 +35,13 @@ type_specifiers = [
 ]
 
 
-class IsVarDeclaration(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 75
-        self.scope = [GlobalScope, UserDefinedType, Function, ControlStructure]
+class IsVarDeclaration(Rule, Primary, priority=75):
+    scope = (
+        GlobalScope,
+        UserDefinedType,
+        Function,
+        ControlStructure,
+    )
 
     def assignment_right_side(self, context, pos):
         sep = ["COMMA", "SEMI_COLON", "ASSIGN"]

@@ -1,11 +1,7 @@
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 
-class IsLabel(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 10
-
+class IsLabel(Rule, Primary, priority=10):
     def run(self, context):
         """
         Catches label and raises norm error whenever

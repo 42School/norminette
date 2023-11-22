@@ -1,7 +1,11 @@
+import collections
 from functools import cmp_to_key
+from operator import attrgetter
 
-import norminette.rules as rules
+from norminette.rules import Rules, Primary
 from norminette.exceptions import CParsingError
+
+rules = Rules()
 
 
 def sort_errs(a, b):
@@ -14,37 +18,25 @@ class Registry:
     global has_err
 
     def __init__(self):
-        self.rules = rules.rules
-        self.primary_rules = rules.primary_rules
-        self.dependencies = {}
-        for k, r in self.rules.items():
-            r.register(self)
-        for k, v in self.dependencies.items():
-            self.dependencies[k] = sorted(self.dependencies[k], reverse=True)
+        self.dependencies = collections.defaultdict(list)
+        for rule in rules.checks:
+            rule.register(self)
+        for name, dependencies in self.dependencies.items():
+            self.dependencies[name] = sorted(dependencies, reverse=True, key=attrgetter("__name__"))
 
     def run_rules(self, context, rule):
-        if rule.name.startswith("Is"):
-            ret, read = rule.run(context)
-        else:
-            # print (rule.name)
-            ret = False
-            read = 0
-            rule.run(context)
-        # print(context.history, context.tokens[:5], rule)
-        # if rule.name.startswith("Is"):
-        #     print (rule.name, ret)
-        if ret is True:
+        rule = rule(context)
+        result = rule.run(context)
+        ret, read = result if isinstance(rule, Primary) else (False, 0)
+        if ret:
             context.scope.instructions += 1
-            if rule.name.startswith("Is"):
-                # print ("Line", context.tokens[0].pos[0], rule.name)
+            if isinstance(rule, Primary):
                 context.tkn_scope = read
-                context.history.append(rule.name)
-            for r in self.dependencies.get(rule.name, []):
-                self.run_rules(context, self.rules[r])
-            if "all" in self.dependencies:
-                for r in self.dependencies["all"]:
-                    self.run_rules(context, self.rules[r])
-            # context.history.pop(-1)
+                context.history.append(rule)
+            for rule in self.dependencies[rule.name]:
+                self.run_rules(context, rule)
+            for rule in self.dependencies["_rule"]:
+                self.run_rules(context, rule)
             context.tkn_scope = 0
         return ret, read
 
@@ -57,10 +49,14 @@ class Registry:
         dependencies
         """
         unrecognized_tkns = []
+        context.state = "starting"
+        for rule in self.dependencies["_start"]:
+            self.run_rules(context, rule)
+        context.state = "running"
         while context.tokens != []:
             context.tkn_scope = len(context.tokens)
-            for rule in self.primary_rules:
-                if type(context.scope) not in rule.scope and rule.scope != []:
+            for rule in rules.primaries:
+                if rule.scope and context.scope not in rule.scope:
                     continue
                 ret, jump = self.run_rules(context, rule)
                 if ret is True:
@@ -82,6 +78,9 @@ class Registry:
                 unrecognized_tkns.append(context.tokens[0])
                 context.pop_tokens(1)  # ##################################
             # #############################################################
+        context.state = "ending"
+        for rule in self.dependencies["_end"]:
+            self.run_rules(context, rule)
         if unrecognized_tkns != []:
             print(context.debug)
             if context.debug > 0:

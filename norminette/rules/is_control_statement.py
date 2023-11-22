@@ -1,7 +1,7 @@
 from norminette.context import ControlStructure
 from norminette.scope import Function
 from norminette.context import GlobalScope
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 cs_keywords = [
     "DO",
@@ -17,11 +17,12 @@ cs_keywords = [
 whitespaces = ["TAB", "SPACE", "NEWLINE"]
 
 
-class IsControlStatement(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 65
-        self.scope = [Function, ControlStructure, GlobalScope]
+class IsControlStatement(Rule, Primary, priority=65):
+    scope = (
+        Function,
+        ControlStructure,
+        GlobalScope,
+    )
 
     def run(self, context):
         """

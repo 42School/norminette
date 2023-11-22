@@ -1,12 +1,7 @@
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 
-class IsTernary(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 53
-        self.scope = []
-
+class IsTernary(Rule, Primary, priority=53):
     def run(self, context):
         """
         Catches ternaries and raises an error

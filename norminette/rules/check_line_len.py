@@ -1,11 +1,7 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckLineLen(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckLineLen(Rule, Check):
     def run(self, context):
         """
         Lines must not be over 80 characters long

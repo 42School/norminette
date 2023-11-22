@@ -2,15 +2,10 @@ from norminette.context import ControlStructure
 from norminette.scope import UserDefinedEnum
 from norminette.scope import UserDefinedType
 from norminette.scope import VariableAssignation
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 
-class IsBlockEnd(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 54
-        self.scope = []
-
+class IsBlockEnd(Rule, Primary, priority=54):
     def check_udef_typedef(self, context, pos):
         i = context.skip_ws(pos)
         if context.check_token(i, "IDENTIFIER") is False:

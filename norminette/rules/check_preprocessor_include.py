@@ -1,13 +1,13 @@
 import os.path
 import itertools
 
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckPreprocessorInclude(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsPreprocessorStatement"]
+class CheckPreprocessorInclude(Rule, Check):
+    depends_on = (
+        "IsPreprocessorStatement",
+    )
 
     def run(self, context):
         """

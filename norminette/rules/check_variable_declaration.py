@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 assigns = [
     "RIGHT_ASSIGN",
@@ -15,10 +15,10 @@ assigns = [
 ]
 
 
-class CheckVariableDeclaration(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsVarDeclaration"]
+class CheckVariableDeclaration(Rule, Check):
+    depends_on = (
+        "IsVarDeclaration",
+    )
 
     def run(self, context):
         """

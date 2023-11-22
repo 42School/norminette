@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 whitespaces = ["SPACE", "TAB", "NEWLINE"]
 
@@ -13,10 +13,10 @@ sign_specifiers = ["SIGNED", "UNSIGNED"]
 arg_separator = ["COMMA", "CLOSING_PARENTHESIS"]
 
 
-class CheckFuncSpacing(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsFuncDeclaration"]
+class CheckFuncSpacing(Rule, Check):
+    depends_on = (
+        "IsFuncDeclaration",
+    )
 
     def run(self, context):
         """

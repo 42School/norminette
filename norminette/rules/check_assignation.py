@@ -1,4 +1,4 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 assigns = [
     "RIGHT_ASSIGN",
@@ -17,10 +17,10 @@ assigns = [
 special_assigns = ["INC", "DEC"]
 
 
-class CheckAssignation(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsAssignation"]
+class CheckAssignation(Rule, Check):
+    depends_on = (
+        "IsAssignation",
+    )
 
     def check_brace_assign(self, context, i):
         i += 1

@@ -1,7 +1,7 @@
 import math
 import string
 
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
 keywords = [
@@ -58,10 +58,10 @@ assigns_or_eol = [
 ]
 
 
-class CheckVariableIndent(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsVarDeclaration"]
+class CheckVariableIndent(Rule, Check):
+    depends_on = (
+        "IsVarDeclaration",
+    )
 
     def check_tabs(self, context):
         i = 0

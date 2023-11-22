@@ -1,36 +1,30 @@
-__all__ = (
-    "rules",
-    "primary_rules",
-    "Rule",
-    "PrimaryRule",
-)
-
-import operator
-import itertools
 import importlib
 import os
+from operator import attrgetter
 
-from norminette.rules.rule import PrimaryRule
-from norminette.rules.rule import Rule
-
-
-def partition(predicate, iterable):
-    it1, it2 = itertools.tee(iterable)
-    return itertools.filterfalse(predicate, it1), filter(predicate, it2)
+from norminette.rules.rule import Rule, Primary, Check
 
 
-path = os.path.dirname(os.path.realpath(__file__))
+class Rules:
+    __slots__ = (
+        "all",
+        "primaries",
+        "checks",
+    )
 
-for f in os.listdir(path):
-    name, _ = os.path.splitext(f)
-    importlib.import_module("norminette.rules." + name)
+    __instance = None
 
-_all_rules = Rule.__subclasses__()[1:] + PrimaryRule.__subclasses__()
-_all_rules = map(type.__call__, _all_rules)  # In 3.11^ we can just use `operator.call``
+    def __new__(cls):
+        if not cls.__instance:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
 
-_is_primary_rule = operator.attrgetter("primary")
-_rules, _primary_rules = partition(_is_primary_rule, _all_rules)
+    def __init__(self) -> None:
+        path = os.path.dirname(os.path.realpath(__file__))
+        for f in os.listdir(path):
+            name, _ = os.path.splitext(f)
+            importlib.import_module("norminette.rules." + name)
 
-rules = {rule.__class__.__name__: rule for rule in _rules}
-
-primary_rules = sorted(_primary_rules, reverse=True, key=operator.attrgetter("priority"))
+        self.all = Rule.__subclasses__()
+        self.checks = Check.__subclasses__()
+        self.primaries = sorted(Primary.__subclasses__(), reverse=True, key=attrgetter("priority"))

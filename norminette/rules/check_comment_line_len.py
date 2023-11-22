@@ -1,10 +1,10 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckCommentLineLen(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsComment"]
+class CheckCommentLineLen(Rule, Check):
+    depends_on = (
+        "IsComment",
+    )
 
     def run(self, context):
         """

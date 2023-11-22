@@ -1,16 +1,14 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 types = ["INT", "FLOAT", "CHAR", "DOUBLE", "LONG", "SHORT"]
 
 
-class CheckFuncDeclaration(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = (
-            "IsFuncDeclaration",
-            "IsFuncPrototype",
-            "IsUserDefinedType",
-        )
+class CheckFuncDeclaration(Rule, Check):
+    depends_on = (
+        "IsFuncDeclaration",
+        "IsFuncPrototype",
+        "IsUserDefinedType",
+    )
 
     def run(self, context):
         """

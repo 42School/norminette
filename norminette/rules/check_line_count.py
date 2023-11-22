@@ -1,12 +1,8 @@
 from norminette.context import GlobalScope
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckLineCount(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckLineCount(Rule, Check):
     def run(self, context):
         """
         Each function can only have 25 lines between its opening and closing brackets

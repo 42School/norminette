@@ -1,7 +1,7 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckComment(Rule):
+class CheckComment(Rule, Check):
     def run(self, context):
         """
         Comments are forbidden inside functions and in the middle of instructions.

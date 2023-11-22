@@ -1,11 +1,7 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckEmptyLine(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = []
-
+class CheckEmptyLine(Rule, Check):
     def run(self, context):
         """
         Empty line must not contains tabs or spaces

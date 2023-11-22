@@ -1,20 +1,17 @@
 from norminette.context import ControlStructure
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 from norminette.scope import GlobalScope, UserDefinedEnum, Function, UserDefinedType, VariableAssignation
 
 
-class IsBlockStart(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 55
-        self.scope = [
-            Function,
-            UserDefinedType,
-            VariableAssignation,
-            ControlStructure,
-            UserDefinedEnum,
-            GlobalScope,
-        ]
+class IsBlockStart(Rule, Primary, priority=55):
+    scope = (
+        Function,
+        UserDefinedType,
+        VariableAssignation,
+        ControlStructure,
+        UserDefinedEnum,
+        GlobalScope,
+    )
 
     def run(self, context):
         """

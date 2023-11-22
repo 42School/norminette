@@ -1,15 +1,13 @@
 import itertools
 from pathlib import Path
 
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckPreprocessorProtection(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = [
-            "IsPreprocessorStatement",
-        ]
+class CheckPreprocessorProtection(Rule, Check):
+    depends_on = (
+        "IsPreprocessorStatement",
+    )
 
     def run(self, context):
         """

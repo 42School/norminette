@@ -1,10 +1,11 @@
-from norminette.rules import Rule
+from norminette.rules import Rule, Check
 
 
-class CheckBrace(Rule):
-    def __init__(self):
-        super().__init__()
-        self.depends_on = ["IsBlockStart", "IsBlockEnd"]
+class CheckBrace(Rule, Check):
+    depends_on = (
+        "IsBlockStart",
+        "IsBlockEnd",
+    )
 
     def run(self, context):
         """

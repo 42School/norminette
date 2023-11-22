@@ -1,6 +1,6 @@
 from norminette.scope import Function
 from norminette.context import GlobalScope
-from norminette.rules import PrimaryRule
+from norminette.rules import Rule, Primary
 
 
 whitespaces = ["SPACE", "TAB"]
@@ -47,11 +47,10 @@ type_identifier = [
 ]
 
 
-class IsFuncDeclaration(PrimaryRule):
-    def __init__(self):
-        super().__init__()
-        self.priority = 81
-        self.scope = [GlobalScope]
+class IsFuncDeclaration(Rule, Primary, priority=81):
+    scope = (
+        GlobalScope,
+    )
 
     def check_args(self, context, pos):
         i = context.skip_ws(pos, nl=True)
