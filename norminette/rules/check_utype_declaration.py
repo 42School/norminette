@@ -37,6 +37,19 @@ class CheckUtypeDeclaration(Rule, Check):
         """
         i = 0
         i = context.skip_ws(i)
+        token = context.peek_token(i)
+        if token.type == "TYPEDEF":
+            temp = context.peek_token(context.skip_ws(i + 1))
+            if temp.type in ("STRUCT", "UNION", "ENUM"):
+                token = temp
+        if context.scope.name not in ("GlobalScope", "UserDefinedType"):
+            context.new_error("TYPE_NOT_GLOBAL", token)
+        if (
+            context.filetype == "c"
+            and token.type == "STRUCT"
+            and not any(it.type == "SEMI_COLON" for it in context.tokens[:context.tkn_scope])
+        ):
+            context.new_error("FORBIDDEN_STRUCT", token)
         is_td = False
         on_newline = False
         utype = None

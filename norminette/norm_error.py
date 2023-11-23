@@ -115,6 +115,8 @@ digits or '_'",
     "ATTR_EOL": "Function attribute must be at the end of line",
     "INVALID_HEADER": "Missing or invalid 42 header",
     "INCLUDE_MISSING_SP": "Missing space between include and filename",
+    "TYPE_NOT_GLOBAL": "Enums, structs and unions need to be defined only in global scope",
+    "FORBIDDEN_STRUCT": "Struct declaration are not allowed in .c files"
 }
 
 
