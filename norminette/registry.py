@@ -87,6 +87,8 @@ class Registry:
                 print("uncaught ->", unrecognized_tkns)
         if context.errors == []:
             print(context.filename + ": OK!")
+            for warning in sorted(context.warnings, key=cmp_to_key(sort_errs)):
+                print(warning)
         else:
             print(context.filename + ": Error!")
             context.errors = sorted(
