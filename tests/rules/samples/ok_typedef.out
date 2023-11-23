@@ -34,3 +34,5 @@
 		<RBRACE> <NEWLINE>
 ok_typedef.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: FORBIDDEN_STRUCT     (line:   1, col:   9):	Struct declaration are not allowed in .c files
+Error: FORBIDDEN_STRUCT     (line:   9, col:   1):	Struct declaration are not allowed in .c files

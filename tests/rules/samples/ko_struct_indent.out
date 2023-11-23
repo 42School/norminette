@@ -36,6 +36,7 @@ Error: MISALIGNED_VAR_DECL  (line:   2, col:  29):	Misaligned variable declarati
 Notice: GLOBAL_VAR_DETECTED  (line:   3, col:   1):	Global variable present in file. Make sure it is a reasonable choice.
 Error: MISALIGNED_VAR_DECL  (line:   3, col:  29):	Misaligned variable declaration
 Error: MULT_DECL_LINE       (line:   3, col:  34):	Multiple declarations on a single line
+Error: FORBIDDEN_STRUCT     (line:   5, col:   9):	Struct declaration are not allowed in .c files
 Error: BRACE_NEWLINE        (line:   5, col:  23):	Expected newline before brace
 Error: MISALIGNED_VAR_DECL  (line:   7, col:  29):	Misaligned variable declaration
 Error: MISALIGNED_VAR_DECL  (line:   8, col:   1):	Misaligned variable declaration

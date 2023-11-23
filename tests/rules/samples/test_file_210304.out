@@ -57,3 +57,6 @@
 		<RBRACE> <NEWLINE>
 test_file_210304.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: FORBIDDEN_STRUCT     (line:   1, col:   9):	Struct declaration are not allowed in .c files
+Error: FORBIDDEN_STRUCT     (line:   6, col:   9):	Struct declaration are not allowed in .c files
+Error: FORBIDDEN_STRUCT     (line:  14, col:   9):	Struct declaration are not allowed in .c files

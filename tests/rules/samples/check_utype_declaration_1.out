@@ -1,0 +1,79 @@
+[36mcheck_utype_declaration_1.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<STRUCT> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 4":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 6":
+		<VOID> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 7":
+		<LBRACE> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsUserDefinedType[0m In "Function" from "GlobalScope" line 8":
+		<TAB> <STRUCT> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "Function" line 9":
+		<TAB> <LBRACE> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "Function" line 10":
+		<TAB> <TAB> <INT> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "Function" line 11":
+		<TAB> <RBRACE> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 12":
+		<RBRACE> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 13":
+		<NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 14":
+		<COMMENT=// https://github.com/42School/norminette/issues/437> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 15":
+		<ENUM> <SPACE> <IDENTIFIER=e_endian> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockStart[0m In "UserDefinedEnum" from "GlobalScope" line 16":
+		<LBRACE> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 17":
+		<TAB> <IDENTIFIER=LITTLE> <COMMA> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsEnumVarDecl[0m In "UserDefinedEnum" from "GlobalScope" line 18":
+		<TAB> <IDENTIFIER=BIG> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockEnd[0m In "UserDefinedEnum" from "GlobalScope" line 19":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 20":
+		<NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 21":
+		<ENUM> <SPACE> <IDENTIFIER=e_endian> <TAB> <IDENTIFIER=which_endian> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 22":
+		<LBRACE> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsUserDefinedType[0m In "Function" from "GlobalScope" line 23":
+		<TAB> <UNION> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "Function" line 24":
+		<TAB> <LBRACE> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "Function" line 25":
+		<TAB> <TAB> <UNSIGNED> <SPACE> <CHAR> <TAB> <IDENTIFIER=var2> <LBRACKET> <CONSTANT=2> <RBRACKET> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "Function" line 26":
+		<TAB> <TAB> <UNSIGNED> <SPACE> <SHORT> <TAB> <IDENTIFIER=var1> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "Function" line 27":
+		<TAB> <RBRACE> <TAB> <IDENTIFIER=u_endian> <SEMI_COLON> 
+[36mcheck_utype_declaration_1.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 27":
+		<COMMENT=// This should be the correct indentation> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsComment[0m In "Function" from "GlobalScope" line 28":
+		<COMMENT=//	}					u_endian; > <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsAssignation[0m In "Function" from "GlobalScope" line 29":
+		<TAB> <IDENTIFIER=u_endian> <DOT> <IDENTIFIER=var1> <SPACE> <ASSIGN> <SPACE> <CONSTANT=1> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 30":
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=u_endian> <DOT> <IDENTIFIER=var1> <SPACE> <EQUALS> <SPACE> <IDENTIFIER=u_endian> <DOT> <IDENTIFIER=var2> <LBRACKET> <CONSTANT=0> <RBRACKET> <RPARENTHESIS> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 31":
+		<TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=LITTLE> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 32":
+		<TAB> <ELSE> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 33":
+		<TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <IDENTIFIER=BIG> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_1.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 34":
+		<RBRACE> <NEWLINE>
+check_utype_declaration_1.c: Error!
+Error: FORBIDDEN_STRUCT     (line:   1, col:   1):	Struct declaration are not allowed in .c files
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: FORBIDDEN_STRUCT     (line:   8, col:   5):	Struct declaration are not allowed in .c files
+Error: TYPE_NOT_GLOBAL      (line:   8, col:   5):	Enums, structs and unions need to be defined only in global scope
+Error: TYPE_NOT_GLOBAL      (line:  23, col:   5):	Enums, structs and unions need to be defined only in global scope
+Error: WRONG_SCOPE_COMMENT  (line:  27, col:  18):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line:  27, col:  18):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line:  28, col:   1):	Comment is invalid in this scope

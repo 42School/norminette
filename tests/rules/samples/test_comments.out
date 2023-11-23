@@ -47,6 +47,7 @@
 [36mtest_comments.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 21":
 		<RBRACE> <NEWLINE>
 test_comments.c: Error!
+Error: FORBIDDEN_STRUCT     (line:   1, col:   1):	Struct declaration are not allowed in .c files
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: BRACE_NEWLINE        (line:   1, col:   8):	Expected newline before brace
 Error: COMMENT_ON_INSTR     (line:   6, col:   9):	Comment must be on its own line or at end of a line
