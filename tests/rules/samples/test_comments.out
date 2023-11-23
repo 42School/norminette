@@ -50,9 +50,11 @@ test_comments.c: Error!
 Error: FORBIDDEN_STRUCT     (line:   1, col:   1):	Struct declaration are not allowed in .c files
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: BRACE_NEWLINE        (line:   1, col:   8):	Expected newline before brace
+Error: FORBIDDEN_TYPEDEF    (line:   6, col:   1):	Typedef declaration are not allowed in .c files
 Error: COMMENT_ON_INSTR     (line:   6, col:   9):	Comment must be on its own line or at end of a line
 Error: SPACE_REPLACE_TAB    (line:   6, col:  25):	Found space when expecting tab
 Error: USER_DEFINED_TYPEDEF (line:   6, col:  26):	User defined typedef must start with t_
+Error: FORBIDDEN_ENUM       (line:   8, col:   1):	Enum declaration are not allowed in .c files
 Error: ENUM_TYPE_NAMING     (line:   8, col:   6):	Enum name must start with e_
 Error: BRACE_NEWLINE        (line:   8, col:  11):	Expected newline before brace
 Error: SPACE_EMPTY_LINE     (line:   9, col:   5):	Space on empty line

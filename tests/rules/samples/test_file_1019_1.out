@@ -31,4 +31,5 @@
 test_file_1019_1.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: PREPROC_BAD_IFNDEF   (line:   1, col:   1):	Ifndef preprocessor statement without endif
+Error: FORBIDDEN_TYPEDEF    (line:   4, col:   1):	Typedef declaration are not allowed in .c files
 Error: FORBIDDEN_STRUCT     (line:   5, col:   1):	Struct declaration are not allowed in .c files

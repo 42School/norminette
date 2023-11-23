@@ -73,6 +73,8 @@ Error: FORBIDDEN_STRUCT     (line:   1, col:   1):	Struct declaration are not al
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: FORBIDDEN_STRUCT     (line:   8, col:   5):	Struct declaration are not allowed in .c files
 Error: TYPE_NOT_GLOBAL      (line:   8, col:   5):	Enums, structs and unions need to be defined only in global scope
+Error: FORBIDDEN_ENUM       (line:  15, col:   1):	Enum declaration are not allowed in .c files
+Error: FORBIDDEN_UNION      (line:  23, col:   5):	Union declaration are not allowed in .c files
 Error: TYPE_NOT_GLOBAL      (line:  23, col:   5):	Enums, structs and unions need to be defined only in global scope
 Error: WRONG_SCOPE_COMMENT  (line:  27, col:  18):	Comment is invalid in this scope
 Error: WRONG_SCOPE_COMMENT  (line:  27, col:  18):	Comment is invalid in this scope

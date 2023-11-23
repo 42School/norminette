@@ -33,6 +33,7 @@
 [36mok_typedef.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 17":
 		<RBRACE> <NEWLINE>
 ok_typedef.c: Error!
+Error: FORBIDDEN_TYPEDEF    (line:   1, col:   1):	Typedef declaration are not allowed in .c files
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: FORBIDDEN_STRUCT     (line:   1, col:   9):	Struct declaration are not allowed in .c files
+Error: FORBIDDEN_TYPEDEF    (line:   7, col:   1):	Typedef declaration are not allowed in .c files
 Error: FORBIDDEN_STRUCT     (line:   9, col:   1):	Struct declaration are not allowed in .c files
