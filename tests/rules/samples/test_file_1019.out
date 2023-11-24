@@ -163,6 +163,7 @@
 test_file_1019.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: RETURN_PARENTHESIS   (line:   8, col:  12):	Return value must be in parenthesis
+Error: FORBIDDEN_STRUCT     (line:  11, col:   1):	Struct declaration are not allowed in .c files
 Error: FORBIDDEN_CHAR_NAME  (line:  28, col:   9):	user defined identifiers should contain only lowercase characters, digits or '_'
 Error: COMMENT_ON_INSTR     (line:  35, col:   6):	Comment must be on its own line or at end of a line
 Error: COMMENT_ON_INSTR     (line:  41, col:  10):	Comment must be on its own line or at end of a line

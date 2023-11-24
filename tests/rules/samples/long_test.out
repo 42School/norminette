@@ -190,6 +190,7 @@ Error: GLOBAL_VAR_NAMING    (line:  38, col:   8):	Global variable must start wi
 Error: NO_SPC_AFR_PAR       (line:  38, col:  17):	Extra space after parenthesis (brace/bracket)
 Error: SPACE_REPLACE_TAB    (line:  39, col:   4):	Found space when expecting tab
 Error: EXP_PARENTHESIS      (line:  39, col:  10):	Expected parenthesis
+Error: FORBIDDEN_ENUM       (line:  40, col:   1):	Enum declaration are not allowed in .c files
 Error: ENUM_TYPE_NAMING     (line:  40, col:   6):	Enum name must start with e_
 Error: BRACE_NEWLINE        (line:  40, col:  10):	Expected newline before brace
 Error: MISALIGNED_FUNC_DECL (line:  46, col:  21):	Misaligned function declaration

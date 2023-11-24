@@ -37,6 +37,15 @@ class CheckUtypeDeclaration(Rule, Check):
         """
         i = 0
         i = context.skip_ws(i)
+        token = context.peek_token(i)
+        if context.scope.name not in ("GlobalScope", "UserDefinedType"):
+            context.new_error("TYPE_NOT_GLOBAL", token)
+        if (
+            context.filetype == "c"
+            and token.type in ("STRUCT", "UNION", "ENUM", "TYPEDEF")
+            and context.scope not in ("UserDefinedType", "UserDefinedEnum")
+        ):
+            context.new_error(f"FORBIDDEN_{token.type}", token)
         is_td = False
         on_newline = False
         utype = None

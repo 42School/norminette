@@ -1,0 +1,26 @@
+[36mcheck_utype_declaration_2.h[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 1":
+		<STRUCT> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 2":
+		<LBRACE> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 3":
+		<TAB> <INT> <TAB> <IDENTIFIER=a> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 4":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 6":
+		<STRUCT> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 7":
+		<LBRACE> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsUserDefinedType[0m In "UserDefinedType" from "GlobalScope" line 8":
+		<TAB> <STRUCT> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsBlockStart[0m In "UserDefinedType" from "UserDefinedType" line 9":
+		<TAB> <LBRACE> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "UserDefinedType" line 10":
+		<TAB> <TAB> <INT> <TAB> <IDENTIFIER=b> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "UserDefinedType" line 11":
+		<TAB> <RBRACE> <TAB> <IDENTIFIER=s_a> <SEMI_COLON> <NEWLINE>
+[36mcheck_utype_declaration_2.h[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 12":
+		<RBRACE> <SEMI_COLON> <NEWLINE>
+check_utype_declaration_2.h: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header

@@ -1,15 +1,10 @@
 from norminette.rules import Rule, Primary
-from norminette.scope import UserDefinedType, GlobalScope, UserDefinedEnum
+from norminette.scope import UserDefinedType, UserDefinedEnum
 
 utypes = ["TYPEDEF", "UNION", "STRUCT", "ENUM"]
 
 
 class IsUserDefinedType(Rule, Primary, priority=45):
-    scope = (
-        GlobalScope,
-        UserDefinedType,
-    )
-
     def typedef(self, context, pos):
         i = context.skip_ws(pos)
         if "TYPEDEF" not in [tkn.type for tkn in context.tokens[:i]]:

@@ -51,3 +51,4 @@
 testfile_210104_2.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: WRONG_SCOPE_COMMENT  (line:   5, col:   5):	Comment is invalid in this scope
+Error: FORBIDDEN_TYPEDEF    (line:  18, col:   1):	Typedef declaration are not allowed in .c files
