@@ -9,6 +9,11 @@ typedef struct toto {
 	enum g_toto			vv;
 }	u_struct;
 
+typedef struct test
+{
+	int	_42;
+}t_boom;
+
 int	main(void)
 {
 	return (0);
