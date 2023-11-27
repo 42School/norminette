@@ -50,4 +50,5 @@ Error: FORBIDDEN_TYPEDEF    (line:   5, col:   1):	Typedef declaration are not a
 Error: BRACE_NEWLINE        (line:   5, col:  21):	Expected newline before brace
 Error: USER_DEFINED_TYPEDEF (line:   8, col:  25):	User defined typedef must start with t_
 Error: USER_DEFINED_TYPEDEF (line:  10, col:   5):	User defined typedef must start with t_
+Error: FORBIDDEN_TYPEDEF    (line:  12, col:   1):	Typedef declaration are not allowed in .c files
 Error: NO_TAB_BF_TYPEDEF    (line:  15, col:   2):	Missing whitespace before typedef name
