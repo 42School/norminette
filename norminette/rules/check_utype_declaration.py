@@ -106,6 +106,8 @@ class CheckUtypeDeclaration(Rule, Check):
         name = ids[0][0]
         loc = ids[check][1]
         if is_td is True:
+            if not context.check_token(ids[check][1] - 1, ("SPACE", "TAB")):
+                context.new_error("NO_TAB_BF_TYPEDEF", ids[check][0])
             if ids[check][0].value.startswith("t_") is False:
                 context.new_error("USER_DEFINED_TYPEDEF", context.peek_token(loc))
             if utype is not None:
