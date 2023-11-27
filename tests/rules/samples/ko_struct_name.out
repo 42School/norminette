@@ -20,23 +20,13 @@
 		<RBRACE> <TAB> <IDENTIFIER=u_struct> <SEMI_COLON> <NEWLINE>
 [36mko_struct_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 11":
 		<NEWLINE>
-[36mko_struct_name.c[0m - [32mIsUserDefinedType[0m In "GlobalScope" from "None" line 12":
-		<TYPEDEF> <SPACE> <STRUCT> <SPACE> <IDENTIFIER=test> <NEWLINE>
-[36mko_struct_name.c[0m - [32mIsBlockStart[0m In "UserDefinedType" from "GlobalScope" line 13":
-		<LBRACE> <NEWLINE>
-[36mko_struct_name.c[0m - [32mIsVarDeclaration[0m In "UserDefinedType" from "GlobalScope" line 14":
-		<TAB> <INT> <TAB> <IDENTIFIER=_42> <SEMI_COLON> <NEWLINE>
-[36mko_struct_name.c[0m - [32mIsBlockEnd[0m In "UserDefinedType" from "GlobalScope" line 15":
-		<RBRACE> <IDENTIFIER=t_boom> <SEMI_COLON> <NEWLINE>
-[36mko_struct_name.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 16":
-		<NEWLINE>
-[36mko_struct_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 17":
+[36mko_struct_name.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 12":
 		<INT> <TAB> <IDENTIFIER=main> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
-[36mko_struct_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 18":
+[36mko_struct_name.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 13":
 		<LBRACE> <NEWLINE>
-[36mko_struct_name.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 19":
+[36mko_struct_name.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 14":
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
-[36mko_struct_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 20":
+[36mko_struct_name.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 15":
 		<RBRACE> <NEWLINE>
 ko_struct_name.c: Error!
 Error: FORBIDDEN_TYPEDEF    (line:   1, col:   1):	Typedef declaration are not allowed in .c files
@@ -50,4 +40,3 @@ Error: FORBIDDEN_TYPEDEF    (line:   5, col:   1):	Typedef declaration are not a
 Error: BRACE_NEWLINE        (line:   5, col:  21):	Expected newline before brace
 Error: USER_DEFINED_TYPEDEF (line:   8, col:  25):	User defined typedef must start with t_
 Error: USER_DEFINED_TYPEDEF (line:  10, col:   5):	User defined typedef must start with t_
-Error: NO_TAB_BF_TYPEDEF    (line:  15, col:   2):	Missing whitespace before typedef name
