@@ -182,21 +182,19 @@ class PreProcessors:
 
 
 class Context:
-    def __init__(self, filename, tokens, debug=0, added_value=[]):
+    def __init__(self, file, tokens, debug=0, added_value=[]):
         # Header relative informations
         self.header_started = False
         self.header_parsed = False
         self.header = ""
         # File relative informations
-        self.filename = filename
-        self.filetype = filename.split(".")[-1]  # ?
+        self.file = file
         self.tokens = tokens
         self.debug = int(debug)
 
         # Rule relative informations
         self.history = []
-        self.errors = []
-        self.warnings = []
+        self.errors = file.errors
         self.tkn_scope = len(tokens)
 
         # Scope informations
@@ -250,7 +248,7 @@ class Context:
         self.errors.append(NormError(errno, pos[0], pos[1]))
 
     def new_warning(self, errno, tkn):
-        self.warnings.append(NormWarning(errno, tkn.pos[0], tkn.pos[1]))
+        self.errors.append(NormWarning(errno, tkn.pos[0], tkn.pos[1]))
 
     def get_parent_rule(self):
         if len(self.history) == 0:
@@ -288,7 +286,7 @@ class Context:
         if self.debug < 2:
             return
         print(
-            f"{colors(self.filename, 'cyan')} - {colors(rule, 'green')} \
+            f"{colors(self.file.basename, 'cyan')} - {colors(rule, 'green')} \
 In \"{self.scope.name}\" from \
 \"{self.scope.parent.name if self.scope.parent is not  None else None}\" line {self.tokens[0].pos[0]}\":"
         )
