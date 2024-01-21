@@ -1,5 +1,4 @@
 import itertools
-from pathlib import Path
 
 from norminette.rules import Rule, Check
 

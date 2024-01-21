@@ -22,7 +22,11 @@ constants = (
     ("42ll", "<CONSTANT=42ll>\n"),
     ("42ull", "<CONSTANT=42ull>\n"),
     ("42u", "<CONSTANT=42u>\n"),
-    ("-+-+-+-+-+-+-+-0Xe4Ae2", "<MINUS><PLUS><MINUS><PLUS><MINUS><PLUS><MINUS><PLUS><MINUS><PLUS><MINUS><PLUS><MINUS><PLUS><MINUS><CONSTANT=0Xe4Ae2>\n"),
+    (
+        "-+-+-+-+-+-+-+-0Xe4Ae2",
+        "<MINUS><PLUS><MINUS><PLUS><MINUS><PLUS><MINUS><PLUS><MINUS><PLUS>"
+        "<MINUS><PLUS><MINUS><PLUS><MINUS><CONSTANT=0Xe4Ae2>\n"
+    ),
     (".e42", "<DOT><IDENTIFIER=e42>\n"),
     ("4.4.4", None),
     ("4e4e4", None),
