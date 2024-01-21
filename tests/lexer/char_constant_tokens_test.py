@@ -1,42 +1,25 @@
-import unittest
+import pytest
 
-from norminette.lexer.lexer import Lexer
-from norminette.lexer.lexer import TokenError
+from norminette.file import File
+from norminette.lexer import Lexer, TokenError
 
-
-class CharConstTokenTest(unittest.TestCase):
-    def assertRaises(self, test):
-        try:
-            test()
-            return False
-        except TokenError:
-            return True
-
-    def test_basic_char(self):
-        self.assertEqual(Lexer("'*'").get_next_token().test(), "<CHAR_CONST='*'>")
-
-    def test_escaped_newline(self):
-        self.assertEqual(Lexer("'\\n'").get_next_token().test(), "<CHAR_CONST='\\n'>")
-
-    def test_octal_char(self):
-        self.assertEqual(
-            Lexer("'\\042'").get_next_token().test(), "<CHAR_CONST='\\042'>"
-        )
-
-    def test_hex_char(self):
-        self.assertEqual(
-            Lexer("'0x042'").get_next_token().test(), "<CHAR_CONST='0x042'>"
-        )
-
-    def test_error_newline_in_const(self):
-        self.assertRaises(Lexer("'\n1'").get_next_token)
-
-    def test_error_escaped_newline_followed_by_newline(self):
-        self.assertRaises(Lexer("'\\n\n'").get_next_token)
-
-    def test_error_unclosed_quote(self):
-        self.assertRaises(Lexer("'A").get_next_token)
+char_constants = (
+    ("'*'", "<CHAR_CONST='*'>"),
+    ("'\\n'", "<CHAR_CONST='\\n'>"),
+    ("'\\042'", "<CHAR_CONST='\\042'>"),
+    ("'0x042'", "<CHAR_CONST='0x042'>"),
+    ("'\n1'", None),
+    ("'\\n\n'", None),
+    ("'A", None),
+)
 
 
-if __name__ == "__main__":
-    unittest.main()
+@pytest.mark.parametrize("lexeme,expected", char_constants)
+def test_char_constants_tokens(lexeme, expected):
+    lexer = Lexer(File("<file>", lexeme))
+    if expected is None:
+        with pytest.raises(TokenError):
+            lexer.get_next_token()
+        return
+    token = lexer.get_next_token()
+    assert token.test() == expected

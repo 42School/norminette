@@ -1,5 +1,6 @@
 import pytest
 
+from norminette.file import File
 from norminette.lexer import Lexer, TokenError
 
 
@@ -45,4 +46,4 @@ def test_tokenizing_errors(data):
     text, line, pos = data.values()
 
     with pytest.raises(TokenError, match=f"({line}, {pos})"):
-        Lexer(text).check_tokens()
+        Lexer(File("<file>", text)).check_tokens()

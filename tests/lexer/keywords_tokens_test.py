@@ -1,10 +1,11 @@
 import unittest
 
+from norminette.file import File
 from norminette.lexer.lexer import Lexer
 
 
 def eat_tokens(line):
-    lex = Lexer(line)
+    lex = Lexer(File("<file>", line))
     tokens = []
     while lex.get_next_token():
         tokens.append(lex.peek_token().test())

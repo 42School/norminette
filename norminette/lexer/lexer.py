@@ -157,8 +157,7 @@ class Lexer:
             tkn_value += self.peek_char()
             if self.peek_char() == "\n":
                 self.pop_char()
-                self.tokens.append(Token("TKN_ERROR", pos))
-                return
+                raise TokenError(pos)
             if self.peek_char() == "'":
                 self.pop_char()
                 self.tokens.append(Token("CHAR_CONST", pos, tkn_value))

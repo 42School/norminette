@@ -42,7 +42,7 @@ class CheckInHeader(Rule, Check):
             - Comments
             - Function prototypes
         """
-        if context.filetype != "h":
+        if context.file.type != ".h":
             return False, 0
         sc = context.scope
         while sc.name != "GlobalScope":

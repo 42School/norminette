@@ -1,31 +1,17 @@
-import unittest
+import pytest
 
-from norminette.lexer.lexer import Lexer
+from norminette.file import File
+from norminette.lexer import Lexer
 
-
-class StringTokenTest(unittest.TestCase):
-    def test_basic_string(self):
-        self.assertEqual(
-            Lexer('"Basic string"').get_next_token().test(), '<STRING="Basic string">'
-        )
-
-    def test_basic_L_string(self):
-        self.assertEqual(
-            Lexer('L"Basic string"').get_next_token().test(), '<STRING=L"Basic string">'
-        )
-
-    def test_basic_escaped_string(self):
-        self.assertEqual(
-            Lexer('"Basic \\"string\\""').get_next_token().test(),
-            '<STRING="Basic \\"string\\"">',
-        )
-
-    def test_escaped_string(self):
-        self.assertEqual(
-            Lexer('"Escaped \\\\\\"string\\\\\\\\\\"\\\\"').get_next_token().test(),
-            '<STRING="Escaped \\\\\\"string\\\\\\\\\\"\\\\">',
-        )
+strings = (
+    ('"Basic string"', '<STRING="Basic string">'),
+    ('L"Basic string"', '<STRING=L"Basic string">'),
+    ('"Basic \\"string\\""', '<STRING="Basic \\"string\\"">'),
+    ('"Escaped \\\\\\"string\\\\\\\\\\"\\\\"', '<STRING="Escaped \\\\\\"string\\\\\\\\\\"\\\\">'),
+)
 
 
-if __name__ == "__main__":
-    unittest.main()
+@pytest.mark.parametrize("string,expected", strings)
+def test_string_tokens(string, expected):
+    token = Lexer(File("<file>", string)).get_next_token()
+    assert token.test() == expected
