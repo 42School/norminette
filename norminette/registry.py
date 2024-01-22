@@ -1,17 +1,10 @@
 import collections
-from functools import cmp_to_key
 from operator import attrgetter
 
 from norminette.rules import Rules, Primary
 from norminette.exceptions import CParsingError
 
 rules = Rules()
-
-
-def sort_errs(a, b):
-    if a.col == b.col and a.line == b.line:
-        return 1 if a.errno > b.errno else -1
-    return a.col - b.col if a.line == b.line else a.line - b.line
 
 
 class Registry:
@@ -40,7 +33,7 @@ class Registry:
             context.tkn_scope = 0
         return ret, read
 
-    def run(self, context, source):
+    def run(self, context):
         """
         Main function for each file.
         Primary rules are determined by the prefix "Is" and
@@ -85,17 +78,6 @@ class Registry:
             print(context.debug)
             if context.debug > 0:
                 print("uncaught ->", unrecognized_tkns)
-        if context.errors == []:
-            print(context.filename + ": OK!")
-            for warning in sorted(context.warnings, key=cmp_to_key(sort_errs)):
-                print(warning)
-        else:
-            print(context.filename + ": Error!")
-            context.errors = sorted(
-                context.errors + context.warnings, key=cmp_to_key(sort_errs)
-            )
-            for err in context.errors:
-                print(err)
-            # context.warnings = sorted(context.warnings, key=cmp_to_key(sort_errs))
-            # for warn in context.warnings:
-            #     print (warn)
+        print(f"{context.file.basename}: {context.file.errors.status}!")
+        for error in context.file.errors:
+            print(error)

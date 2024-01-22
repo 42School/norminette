@@ -1,5 +1,4 @@
 import itertools
-from pathlib import Path
 
 from norminette.rules import Rule, Check
 
@@ -19,7 +18,7 @@ class CheckPreprocessorProtection(Rule, Check):
         ```
         Any header instruction must be within the header protection
         """
-        if context.filetype != "h":
+        if context.file.type != ".h":
             return False, 0
         i = context.skip_ws(0)
         hash = context.peek_token(i)
@@ -32,7 +31,7 @@ class CheckPreprocessorProtection(Rule, Check):
         if not t or t.type != "IDENTIFIER" or t.value.upper() not in ("IFNDEF", "ENDIF"):
             return False, 0
         i += 1
-        guard = Path(context.filename).name.upper().replace(".", "_")
+        guard = context.file.basename.upper().replace(".", "_")
         if t.value.upper() == "ENDIF":
             if context.preproc.indent == 0 and not context.protected:
                 i = context.skip_ws(i, nl=True, comment=True)

@@ -1,27 +1,19 @@
-import unittest
+import pytest
 
-from norminette.lexer.lexer import Lexer
+from norminette.file import File
+from norminette.lexer import Lexer
 
-
-class BracketsTokensTest(unittest.TestCase):
-    def test_opening_bracket(self):
-        self.assertEqual(Lexer("{").get_next_token().type, "LBRACE")
-
-    def test_closing_bracket(self):
-        self.assertEqual(Lexer("}").get_next_token().type, "RBRACE")
-
-    def test_opening_parenthesis(self):
-        self.assertEqual(Lexer("(").get_next_token().type, "LPARENTHESIS")
-
-    def test_closing_parenthesis(self):
-        self.assertEqual(Lexer(")").get_next_token().type, "RPARENTHESIS")
-
-    def test_opening_square_bracket(self):
-        self.assertEqual(Lexer("[").get_next_token().type, "LBRACKET")
-
-    def test_closing_square_bracket(self):
-        self.assertEqual(Lexer("]").get_next_token().type, "RBRACKET")
+brackets = (
+    ('{', "LBRACE"),
+    ('}', "RBRACE"),
+    ("(", "LPARENTHESIS"),
+    (")", "RPARENTHESIS"),
+    ("[", "LBRACKET"),
+    ("]", "RBRACKET"),
+)
 
 
-if __name__ == "__main__":
-    unittest.main()
+@pytest.mark.parametrize("lexeme,name", brackets)
+def test_brackets_tokens(lexeme, name):
+    token = Lexer(File("<file>", lexeme)).get_next_token()
+    assert token.type == name

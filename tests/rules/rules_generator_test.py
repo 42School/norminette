@@ -1,6 +1,7 @@
 import pytest
 import glob
 
+from norminette.file import File
 from norminette.lexer import Lexer
 from norminette.context import Context
 from norminette.registry import Registry
@@ -18,9 +19,10 @@ def test_rule_for_file(file, capsys):
     with open(f"{file.split('.')[0]}.out") as out_file:
         out_content = out_file.read()
 
-    lexer = Lexer(file_to_lex)
-    context = Context(file.split("/")[-1], lexer.get_tokens(), debug=2)
-    registry.run(context, file_to_lex)
+    file = File(file, file_to_lex)
+    lexer = Lexer(file)
+    context = Context(file, lexer.get_tokens(), debug=2)
+    registry.run(context)
     captured = capsys.readouterr()
 
     assert captured.out == out_content

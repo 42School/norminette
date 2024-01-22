@@ -4,6 +4,7 @@ from norminette.lexer.dictionary import brackets
 from norminette.lexer.dictionary import keywords
 from norminette.lexer.dictionary import operators
 from norminette.lexer.tokens import Token
+from norminette.file import File
 
 
 def read_file(filename):
@@ -20,13 +21,14 @@ class TokenError(Exception):
 
 
 class Lexer:
-    def __init__(self, source_code, starting_line=1):
-        self.src = source_code
-        self.len = len(source_code)
+    def __init__(self, file: File):
+        self.file = file
+
+        self.src = file.source
+        self.len = len(file.source)
         self.__char = self.src[0] if self.src != "" else None
         self.__pos = int(0)
-        self.__line_pos = int(starting_line)
-        self.__line = int(starting_line)
+        self.__line_pos = self.__line = 1
         self.tokens = []
 
     def peek_sub_string(self, size):
@@ -155,8 +157,7 @@ class Lexer:
             tkn_value += self.peek_char()
             if self.peek_char() == "\n":
                 self.pop_char()
-                self.tokens.append(Token("TKN_ERROR", pos))
-                return
+                raise TokenError(pos)
             if self.peek_char() == "'":
                 self.pop_char()
                 self.tokens.append(Token("CHAR_CONST", pos, tkn_value))

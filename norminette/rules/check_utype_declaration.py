@@ -41,7 +41,7 @@ class CheckUtypeDeclaration(Rule, Check):
         if context.scope.name not in ("GlobalScope", "UserDefinedType"):
             context.new_error("TYPE_NOT_GLOBAL", token)
         if (
-            context.filetype == "c"
+            context.file.type == ".c"
             and token.type in ("STRUCT", "UNION", "ENUM", "TYPEDEF")
             and context.scope not in ("UserDefinedType", "UserDefinedEnum")
         ):

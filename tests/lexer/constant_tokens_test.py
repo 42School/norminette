@@ -1,104 +1,48 @@
-import unittest
+import pytest
 
-from norminette.lexer.lexer import Lexer
-from norminette.lexer.lexer import TokenError
+from norminette.file import File
+from norminette.lexer import Lexer, TokenError
 
-
-class ConstantTokensTest(unittest.TestCase):
-    def assertRaises(self, test):
-        try:
-            test()
-            return False
-        except TokenError:
-            return True
-
-    def test_basic_constant(self):
-        self.assertEqual(Lexer("42").check_tokens(), "<CONSTANT=42>\n")
-
-    def test_plus_sign_constant(self):
-        self.assertEqual(Lexer("+42").check_tokens(), "<PLUS><CONSTANT=42>\n")
-
-    def test_minus_sign_constant(self):
-        self.assertEqual(Lexer("-42").check_tokens(), "<MINUS><CONSTANT=42>\n")
-
-    def test_many_signs_constant(self):
-        self.assertEqual(Lexer("+-42").check_tokens(), "<PLUS><MINUS><CONSTANT=42>\n")
-
-    def test_decimal_constant(self):
-        self.assertEqual(Lexer("4.2").check_tokens(), "<CONSTANT=4.2>\n")
-
-    def test_decimal_constant_starting_with_dot(self):
-        self.assertEqual(Lexer(".42").check_tokens(), "<CONSTANT=.42>\n")
-
-    def test_exponential_constant(self):
-        self.assertEqual(Lexer("4e2").check_tokens(), "<CONSTANT=4e2>\n")
-
-    def test_exponential_constant_starting_with_dot(self):
-        self.assertEqual(Lexer(".4e2").check_tokens(), "<CONSTANT=.4e2>\n")
-
-    def test_float_exponential_constant_starting_with_dot(self):
-        self.assertEqual(Lexer("4e2f").check_tokens(), "<CONSTANT=4e2f>\n")
-
-    def test_float_exponential_constant(self):
-        self.assertEqual(Lexer(".4e2f").check_tokens(), "<CONSTANT=.4e2f>\n")
-
-    def test_octal_constant(self):
-        self.assertEqual(Lexer("042").check_tokens(), "<CONSTANT=042>\n")
-
-    def test_hex_constant(self):
-        self.assertEqual(Lexer("0x42").check_tokens(), "<CONSTANT=0x42>\n")
-
-    def test_hex_with_sign_constant(self):
-        self.assertEqual(Lexer("-0x4e2").check_tokens(), "<MINUS><CONSTANT=0x4e2>\n")
-
-    def test_hex_with_many_signs_constant(self):
-        self.assertEqual(
-            Lexer("-+-+-+-+-+-+-+-0Xe4Ae2").check_tokens(),
-            "<MINUS><PLUS><MINUS><PLUS><MINUS>"
-            + "<PLUS><MINUS><PLUS><MINUS><PLUS>"
-            + "<MINUS><PLUS><MINUS><PLUS><MINUS>"
-            + "<CONSTANT=0Xe4Ae2>\n",
-        )
-
-    def test_long_constant(self):
-        self.assertEqual(Lexer("42l").check_tokens(), "<CONSTANT=42l>\n")
-
-    def test_unsigned_long_constant(self):
-        self.assertEqual(Lexer("42ul").check_tokens(), "<CONSTANT=42ul>\n")
-
-    def test_long_long_constant(self):
-        self.assertEqual(Lexer("42ll").check_tokens(), "<CONSTANT=42ll>\n")
-
-    def test_unsigned_long_long_constant(self):
-        self.assertEqual(Lexer("42ull").check_tokens(), "<CONSTANT=42ull>\n")
-
-    def test_unsigned_constant(self):
-        self.assertEqual(Lexer("42u").check_tokens(), "<CONSTANT=42u>\n")
-
-    def test_error_too_many_dots(self):
-        self.assertRaises(Lexer("4.4.4").check_tokens)
-
-    def test_error_too_many_e(self):
-        self.assertRaises(Lexer("4e4e4").check_tokens)
-
-    def test_error_too_many_x(self):
-        self.assertRaises(Lexer("4x4x4").check_tokens)
-
-    def test_error_too_many_u(self):
-        self.assertRaises(Lexer("42uul").check_tokens)
-
-    def test_error_too_many_l(self):
-        self.assertRaises(Lexer("42Lllu").check_tokens)
-
-    def test_error_misplaced_l(self):
-        self.assertRaises(Lexer("42lul").check_tokens)
-
-    def test_misplaced_e(self):
-        self.assertEqual(Lexer(".e42").check_tokens(), "<DOT><IDENTIFIER=e42>\n")
-
-    def test_another_misplaced_e(self):
-        self.assertRaises(Lexer(".42e").check_tokens)
+constants = (
+    ("42", "<CONSTANT=42>\n"),
+    ("+42", "<PLUS><CONSTANT=42>\n"),
+    ("-42", "<MINUS><CONSTANT=42>\n"),
+    ("+-42", "<PLUS><MINUS><CONSTANT=42>\n"),
+    ("4.2", "<CONSTANT=4.2>\n"),
+    (".42", "<CONSTANT=.42>\n"),
+    ("4e2", "<CONSTANT=4e2>\n"),
+    (".4e2", "<CONSTANT=.4e2>\n"),
+    ("4e2f", "<CONSTANT=4e2f>\n"),
+    (".4e2f", "<CONSTANT=.4e2f>\n"),
+    ("042", "<CONSTANT=042>\n"),
+    ("0x42", "<CONSTANT=0x42>\n"),
+    ("-0x4e2", "<MINUS><CONSTANT=0x4e2>\n"),
+    ("42l", "<CONSTANT=42l>\n"),
+    ("42ul", "<CONSTANT=42ul>\n"),
+    ("42ll", "<CONSTANT=42ll>\n"),
+    ("42ull", "<CONSTANT=42ull>\n"),
+    ("42u", "<CONSTANT=42u>\n"),
+    (
+        "-+-+-+-+-+-+-+-0Xe4Ae2",
+        "<MINUS><PLUS><MINUS><PLUS><MINUS><PLUS><MINUS><PLUS><MINUS><PLUS>"
+        "<MINUS><PLUS><MINUS><PLUS><MINUS><CONSTANT=0Xe4Ae2>\n"
+    ),
+    (".e42", "<DOT><IDENTIFIER=e42>\n"),
+    ("4.4.4", None),
+    ("4e4e4", None),
+    ("4x4x4", None),
+    ("42uul", None),
+    ("42Lllu", None),
+    ("42lul", None),
+    (".42e", None),
+)
 
 
-if __name__ == "__main__":
-    unittest.main()
+@pytest.mark.parametrize("lexeme,expected", constants)
+def test_constants_tokens(lexeme, expected):
+    lexer = Lexer(File("<file>", lexeme))
+    if expected is None:
+        with pytest.raises(TokenError):
+            lexer.get_next_token()
+        return
+    assert lexer.check_tokens() == expected
