@@ -78,6 +78,3 @@ class Registry:
             print(context.debug)
             if context.debug > 0:
                 print("uncaught ->", unrecognized_tkns)
-        print(f"{context.file.basename}: {context.file.errors.status}!")
-        for error in context.file.errors:
-            print(error)
