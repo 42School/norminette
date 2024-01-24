@@ -21,7 +21,27 @@
 [36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 11":
 		<HASH> <SPACE> <IDENTIFIER=include> <SPACE> <STRING="ok but not ok.h"> <NEWLINE>
 [36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 12":
-		<HASH> <IDENTIFIER=endif> 
+		<HASH> <IDENTIFIER=endif> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 13":
+		<NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 14":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <FLOAT> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 15":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <INT> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 16":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <CHAR> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 17":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=wchar> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 18":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IF> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 19":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <ELSE> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 20":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=bool> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 21":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=null> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mcheck_preprocessor_include.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 22":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <NULL> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
 check_preprocessor_include.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: INCLUDE_HEADER_ONLY  (line:   2, col:  10):	.c file includes are forbidden
@@ -29,3 +49,12 @@ Error: INCLUDE_HEADER_ONLY  (line:   3, col:  10):	.c file includes are forbidde
 Error: CONSECUTIVE_NEWLINES (line:   5, col:   1):	Consecutive newlines
 Error: INCLUDE_START_FILE   (line:   8, col:   1):	Include must be at the start of file
 Error: INCLUDE_START_FILE   (line:  11, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  14, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  15, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  16, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  17, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  18, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  19, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  20, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  21, col:   1):	Include must be at the start of file
+Error: INCLUDE_START_FILE   (line:  22, col:   1):	Include must be at the start of file
