@@ -1,0 +1,37 @@
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 1":
+		<MULT_COMMENT=/* */> <NEWLINE>
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 3":
+		<NEWLINE>
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 4":
+		<HASH> <IDENTIFIER=include> <SPACE> <LESS_THAN> <IDENTIFIER=stdio> <DOT> <IDENTIFIER=h> <MORE_THAN> <NEWLINE>
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 5":
+		<NEWLINE>
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 6":
+		<INT> <SPACE> <IDENTIFIER=main> <LPARENTHESIS> <RPARENTHESIS> <SPACE> 
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 6":
+		<LBRACE> <NEWLINE>
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 7":
+		<SPACE> <SPACE> <FOR> <SPACE> <LPARENTHESIS> <INT> <SPACE> <IDENTIFIER=i> <ASSIGN> <CONSTANT=0> <SEMI_COLON> <SPACE> <IDENTIFIER=i> <LESS_THAN> <CONSTANT=2> <SEMI_COLON> <INC> <IDENTIFIER=i> <RPARENTHESIS> <NEWLINE>
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsFunctionCall[0m In "ControlStructure" from "Function" line 8":
+		<SPACE> <SPACE> <SPACE> <SPACE> <IDENTIFIER=printf> <LPARENTHESIS> <STRING="%d\n"> <COMMA> <SPACE> <IDENTIFIER=i> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 9":
+		<RBRACE> <NEWLINE>
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 10":
+		<NEWLINE>
+[36mtest_comment_escaping_with_trigraph.c[0m - [32mIsComment[0m In "GlobalScope" from "None" line 11":
+		<MULT_COMMENT=/**/> 
+test_comment_escaping_with_trigraph.c: Error!
+Error: INVALID_HEADER       (line:   3, col:   1):	Missing or invalid 42 header
+Error: SPACE_BEFORE_FUNC    (line:   6, col:   4):	space before function name
+Error: NO_ARGS_VOID         (line:   6, col:  10):	Empty function argument requires void
+Error: BRACE_NEWLINE        (line:   6, col:  12):	Expected newline before brace
+Error: TOO_FEW_TAB          (line:   7, col:   1):	Missing tabs for indent level
+Error: FORBIDDEN_CS         (line:   7, col:   3):	Forbidden control structure
+Error: SPACE_REPLACE_TAB    (line:   7, col:   3):	Found space when expecting tab
+Error: SPC_AFTER_OPERATOR   (line:   7, col:  13):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:   7, col:  13):	missing space before operator
+Error: SPC_AFTER_OPERATOR   (line:   7, col:  18):	missing space after operator
+Error: SPC_BFR_OPERATOR     (line:   7, col:  18):	missing space before operator
+Error: SPC_AFTER_OPERATOR   (line:   7, col:  20):	missing space after operator
+Error: TOO_FEW_TAB          (line:   8, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:   8, col:   5):	Found space when expecting tab
