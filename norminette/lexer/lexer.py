@@ -333,7 +333,7 @@ class Lexer:
             # the `.pop(...)` can raise an `UnexpectedEOF` if source is like:
             # ```c
             # /*\
-            # 
+            #
             # ```
             # note the backslash followed by an empty line
             val += self.pop(use_spaces=True)
