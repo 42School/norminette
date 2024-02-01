@@ -2,6 +2,7 @@ import sys
 import contextlib
 
 from norminette.rules import Rule, Primary
+from norminette.lexer.dictionary import keywords
 from norminette.exceptions import CParsingError
 from norminette.context import Macro
 
@@ -45,6 +46,8 @@ ALLOWED_IN_PATH = (
     "DOT",
     "SPACE",
     "TAB",
+    # TODO Remove all keyword tokens and add to just use 'IDENTIFIER' instead
+    *keywords.values(),  # https://github.com/42School/norminette/issues/470
 )
 
 
