@@ -15,9 +15,7 @@ Please use markdown to send the code here.
 
 
 **Additional infos**
- - OS:
- - python3 --version:
- - norminette -v:
+Copy and paste the output of `norminette --version` command here.
 
 **Additional context**
 Add any other context about the problem here.

@@ -1,6 +1,7 @@
 import glob
 import sys
 import pathlib
+import platform
 from importlib.metadata import version
 
 import argparse
@@ -13,6 +14,10 @@ from norminette.context import Context
 from norminette.tools.colors import colors
 
 import subprocess
+
+version_text = "norminette" + version("norminette")
+version_text += f", Python {platform.python_version()}"
+version_text += f", {platform.platform()}"
 
 
 def main():
@@ -40,7 +45,7 @@ def main():
         "-v",
         "--version",
         action="version",
-        version="norminette " + version("norminette"),
+        version=version_text,
     )
     parser.add_argument(
         "--cfile",
