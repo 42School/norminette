@@ -5,6 +5,7 @@ from norminette.file import File
 from norminette.lexer import Lexer
 from norminette.context import Context
 from norminette.registry import Registry
+from norminette.errors import HumanizedErrorsFormatter
 
 
 registry = Registry()
@@ -23,6 +24,8 @@ def test_rule_for_file(file, capsys):
     lexer = Lexer(file)
     context = Context(file, lexer.get_tokens(), debug=2)
     registry.run(context)
+    errors = HumanizedErrorsFormatter(file)
+    print(errors)
     captured = capsys.readouterr()
 
     assert captured.out == out_content

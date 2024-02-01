@@ -4,6 +4,7 @@ import pathlib
 from importlib.metadata import version
 
 import argparse
+from norminette.errors import formatters
 from norminette.file import File
 from norminette.lexer import Lexer, TokenError
 from norminette.exceptions import CParsingError
@@ -61,10 +62,18 @@ def main():
         action="store_true",
         help="Parse only source files not match to .gitignore",
     )
+    parser.add_argument(
+        "-f",
+        "--format",
+        choices=list(formatter.name for formatter in formatters),
+        help="formatting style for errors",
+        default="humanized",
+    )
     parser.add_argument("-R", nargs=1, help="compatibility for norminette 2")
     args = parser.parse_args()
     registry = Registry()
 
+    format = next(filter(lambda it: it.name == args.format, formatters))
     files = []
     debug = args.debug
     if args.cfile or args.hfile:
@@ -121,6 +130,8 @@ def main():
             sys.exit(1)
         except KeyboardInterrupt:
             sys.exit(1)
+    errors = format(files)
+    print(errors)
     sys.exit(1 if len(file.errors) else 0)
 
 
