@@ -16,7 +16,40 @@
 		<TAB> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=21> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mko_func_name2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 9":
 		<RBRACE> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 10":
+		<NEWLINE>
+[36mko_func_name2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 11":
+		<INT> <SPACE> <IDENTIFIER=main> <SPACE> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 12":
+		<LBRACE> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 13":
+		<SPACE> <SPACE> <SPACE> <SPACE> <INT> <SPACE> <IDENTIFIER=array> <LBRACKET> <RBRACKET> <SPACE> <ASSIGN> <SPACE> <LBRACE> <CONSTANT=1> <COMMA> <SPACE> <CONSTANT=2> <COMMA> <SPACE> <CONSTANT=3> <COMMA> <SPACE> <CONSTANT=4> <COMMA> <SPACE> <CONSTANT=5> <RBRACE> <SEMI_COLON> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsEmptyLine[0m In "Function" from "GlobalScope" line 14":
+		<NEWLINE>
+[36mko_func_name2.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 15":
+		<SPACE> <SPACE> <SPACE> <SPACE> <RETURN> <SPACE> <LPARENTHESIS> <CONSTANT=0> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 16":
+		<RBRACE> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 17":
+		<NEWLINE>
+[36mko_func_name2.c[0m - [32mIsFuncDeclaration[0m In "GlobalScope" from "None" line 18":
+		<INT> <SPACE> <IDENTIFIER=_1> <SPACE> <IDENTIFIER=a> <SPACE> <IDENTIFIER=b> <SPACE> <IDENTIFIER=c> <LPARENTHESIS> <VOID> <RPARENTHESIS> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 19":
+		<LBRACE> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsExpressionStatement[0m In "Function" from "GlobalScope" line 20":
+		<TAB> <RETURN> <SPACE> <SEMI_COLON> <NEWLINE>
+[36mko_func_name2.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 21":
+		<RBRACE> <NEWLINE>
 ko_func_name2.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
 Error: EXP_PARENTHESIS      (line:   1, col:   9):	Expected parenthesis
 Error: EXP_PARENTHESIS      (line:   6, col:   9):	Expected parenthesis
+Error: SPACE_BEFORE_FUNC    (line:  11, col:   4):	space before function name
+Error: EXP_PARENTHESIS      (line:  11, col:   9):	Expected parenthesis
+Error: TOO_FEW_TAB          (line:  13, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  13, col:   5):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  13, col:   8):	Found space when expecting tab
+Error: DECL_ASSIGN_LINE     (line:  13, col:  17):	Declaration and assignation on a single line
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   5):	Found space when expecting tab
+Error: SPACE_BEFORE_FUNC    (line:  18, col:  11):	space before function name

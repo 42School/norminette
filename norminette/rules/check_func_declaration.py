@@ -48,6 +48,7 @@ class CheckFuncDeclaration(Rule, Check):
             i += 1
         if context.check_token(i, "LPARENTHESIS") is False:
             context.new_error("EXP_PARENTHESIS", context.peek_token(i))
+        i = context.skip_ws(i)
         i += 1
         deep = 1
         while deep > 0 and context.peek_token(i) is not None:
