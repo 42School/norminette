@@ -65,8 +65,16 @@ class Lexer:
                 if self.peek() is None:
                     raise UnexpectedEOF()
                 char, size = self.peek()
-                break
             else:
+                # It hits when we have multiple lines followed by `\`, e.g:
+                # ```c
+                # // hello \
+                # a \
+                #  b \
+                # c\
+                # \
+                # a
+                # ```
                 raise MaybeInfiniteLoop()
             if char == '\n':
                 self.__line_pos = 0
