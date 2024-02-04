@@ -15,6 +15,7 @@ python3 -m pip install norminette
 Install using pipx.
 ```shell
 sudo apt update
+sudo apt install python3-setuptools
 sudo apt install pipx
 pipx install norminette
 pipx ensurepath
