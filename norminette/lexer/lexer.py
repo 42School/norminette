@@ -1,15 +1,13 @@
 import string
+from typing import Optional, Tuple
 
+from norminette.exceptions import UnexpectedEOF, MaybeInfiniteLoop
+from norminette.lexer.dictionary import digraphs, trigraphs
 from norminette.lexer.dictionary import brackets
 from norminette.lexer.dictionary import keywords
 from norminette.lexer.dictionary import operators
 from norminette.lexer.tokens import Token
 from norminette.file import File
-
-
-def read_file(filename):
-    with open(filename) as f:
-        return f.read()
 
 
 class TokenError(Exception):
@@ -26,7 +24,6 @@ class Lexer:
 
         self.src = file.source
         self.len = len(file.source)
-        self.__char = self.src[0] if self.src != "" else None
         self.__pos = int(0)
         self.__line_pos = self.__line = 1
         self.tokens = []
@@ -34,17 +31,51 @@ class Lexer:
     def peek_sub_string(self, size):
         return self.src[self.__pos : self.__pos + size]
 
-    def peek(self, *, offset: int = 0, collect: int = 1):
+    def raw_peek(self, *, offset: int = 0, collect: int = 1):
         assert collect > 0 and offset >= 0
         if (pos := self.__pos + offset) < self.len:
             return ''.join(self.src[pos:pos+collect])
         return None
 
+    def peek(self, *, offset: int = 0) -> Optional[Tuple[str, int]]:
+        if (trigraph := self.raw_peek(offset=offset, collect=3)) in trigraphs:
+            return trigraphs[trigraph], 3
+        if (digraph := self.raw_peek(offset=offset, collect=2)) in digraphs:
+            return digraphs[digraph], 2
+        if word := self.raw_peek(offset=offset):
+            return word, 1
+        return None  # Let it crash :D
+
     def pop(self, *, times: int = 1, use_spaces: bool = False):
         assert times > 0
         result = ""
         for _ in range(times):
-            char = self.peek()
+            for _ in range(100):
+                char, size = self.peek()
+                if char != '\\':
+                    break
+                if self.peek(offset=size) is None:
+                    break
+                temp, _ = self.peek(offset=size)  # Don't change the `temp` to `char`
+                if temp != '\n':
+                    break
+                self.__pos += size + 1
+                self.__line += 1
+                self.__line_pos = 0
+                if self.peek() is None:
+                    raise UnexpectedEOF()
+                char, size = self.peek()
+            else:
+                # It hits when we have multiple lines followed by `\`, e.g:
+                # ```c
+                # // hello \
+                # a \
+                #  b \
+                # c\
+                # \
+                # a
+                # ```
+                raise MaybeInfiniteLoop()
             if char == '\n':
                 self.__line_pos = 0
                 self.__line += 1
@@ -52,8 +83,8 @@ class Lexer:
                 self.__line_pos += (spaces := 4 - (self.__line_pos - 1) % 4) - 1
                 if use_spaces:
                     char = ' ' * spaces
-            self.__line_pos += 1
-            self.__pos += 1
+            self.__line_pos += size
+            self.__pos += size
             result += char
         return result
 
@@ -63,14 +94,12 @@ class Lexer:
         character is appended to the return value. It will allow us to
         parse escaped characters easier.
         """
+        char = None
         if self.__pos < self.len:
+            char = self.src[self.__pos]
             if self.src[self.__pos] == "\\":
-                self.__char = self.src[self.__pos : self.__pos + 2]
-            else:
-                self.__char = self.src[self.__pos]
-        else:
-            self.__char = None
-        return self.__char
+                char = self.src[self.__pos : self.__pos + 2]
+        return char
 
     def pop_char(self, skip_escaped=True):
         """Pop a character that's been read by increasing self.__pos,
@@ -93,10 +122,7 @@ class Lexer:
 
     def is_string(self):
         """True if current character could start a string constant"""
-        if self.peek_sub_string(2) == 'L"' or self.peek_char() == '"':
-            return True
-        else:
-            return False
+        return self.raw_peek(collect=2) == 'L"' or self.raw_peek() == '"'
 
     def is_constant(self):
         """True if current character could start a numeric constant"""
@@ -115,10 +141,7 @@ class Lexer:
 
     def is_char_constant(self):
         """True if current character could start a character constant"""
-        if self.peek_char() == "'" or self.peek_sub_string(2) == "L'":
-            return True
-        else:
-            return False
+        return self.raw_peek() == "'" or self.raw_peek(collect=2) == "L'"
 
     def string(self):
         """String constants can contain any characer except unescaped newlines.
@@ -313,15 +336,20 @@ class Lexer:
     def mult_comment(self):
         pos = self.line_pos()
         val = self.pop(times=2)
+        # TODO Add to put `UnexpectedEOF` exception as an error in `file.errors`
         while self.peek():
-            if self.peek(collect=2) == "*/":
-                val += self.pop(times=2)
-                break
+            # the `.pop(...)` can raise an `UnexpectedEOF` if source is like:
+            # ```c
+            # /*\
+            #
+            # ```
+            # note the backslash followed by an empty line
             val += self.pop(use_spaces=True)
-        if val.endswith("*/"):
-            self.tokens.append(Token("MULT_COMMENT", pos, val))
+            if val.endswith("*/"):
+                break
         else:
-            raise TokenError(pos)
+            raise UnexpectedEOF()
+        self.tokens.append(Token("MULT_COMMENT", pos, val))
 
     def comment(self):
         """Comments are anything after '//' characters, up until a newline or
@@ -329,8 +357,14 @@ class Lexer:
         """
         pos = self.line_pos()
         val = self.pop(times=2)
-        while self.peek() and self.peek() != '\n':
-            val += self.pop()
+        while self.peek():
+            char, _ = self.peek()
+            if char in ('\n', None):
+                break
+            try:
+                val += self.pop()
+            except UnexpectedEOF:
+                break
         self.tokens.append(Token("COMMENT", pos, val))
 
     def identifier(self):
