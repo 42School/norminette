@@ -3,22 +3,20 @@ from __future__ import annotations
 import os
 import json
 from dataclasses import dataclass, field, asdict
-from functools import cmp_to_key
-from typing import TYPE_CHECKING, Sequence, Union, Literal, Optional, List
+from typing import (
+    TYPE_CHECKING,
+    Sequence,
+    Union,
+    Literal,
+    Optional,
+    List,
+    Any,
+)
 
 from norminette.norm_error import NormError, NormWarning, errors as errors_dict
 
 if TYPE_CHECKING:
     from norminette.file import File
-
-
-def sort_errs(a: Error, b: Error):
-    # TODO Add to Error and Highlight dataclasses be sortable to remove this fn
-    ah: Highlight = a.highlights[0]
-    bh: Highlight = b.highlights[0]
-    if ah.column == bh.column and ah.lineno == bh.lineno:
-        return 1 if a.name > b.name else -1
-    return ah.column - bh.column if ah.lineno == bh.lineno else ah.lineno - bh.lineno
 
 
 @dataclass
@@ -28,13 +26,29 @@ class Highlight:
     length: Optional[int] = field(default=None)
     hint: Optional[str] = field(default=None)
 
+    def __lt__(self, other: Any) -> bool:
+        assert isinstance(other, Highlight)
+        if self.lineno == other.lineno:
+            if self.column == other.column:
+                return len(self.hint or '') > len(other.hint or '')
+            return self.column > other.column
+        return self.lineno > other.lineno
+
 
 @dataclass
 class Error:
     name: str
     text: str
-    level: Literal["Error", "Notice"]
-    highlights: List[Highlight]
+    def __lt__(self, other: Any) -> bool:
+        assert isinstance(other, Error)
+        if not self.highlights:
+            return bool(other.highlights) or self.name > other.name
+        if not other.highlights:
+            return bool(self.highlights) or other.name > self.name
+        ah, bh = min(self.highlights), min(other.highlights)
+        if ah.column == bh.column and ah.lineno == bh.lineno:
+            return self.name < other.name
+        return (ah.lineno, ah.column) < (bh.lineno, bh.column)
 
 
 class Errors:
@@ -47,7 +61,7 @@ class Errors:
         return len(self._inner)
 
     def __iter__(self):
-        self._inner.sort(key=cmp_to_key(sort_errs))
+        self._inner.sort()
         return iter(self._inner)
 
     # TODO Add `add(...)` method to allow creating `Highlight`s and `Error`s easily
