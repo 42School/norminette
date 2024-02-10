@@ -41,6 +41,11 @@ class Error:
     text: str
     level: Literal["Error", "Notice"] = field(default="Error")
     highlights: List[Highlight] = field(default_factory=list)
+
+    @classmethod
+    def from_name(cls: Type[Error], /, name: str, **kwargs) -> Error:
+        return cls(name, errors_dict[name], **kwargs)
+
     def __lt__(self, other: Any) -> bool:
         assert isinstance(other, Error)
         if not self.highlights:

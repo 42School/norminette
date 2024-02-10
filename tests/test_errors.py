@@ -7,6 +7,7 @@ from norminette.lexer import Lexer
 from norminette.context import Context
 from norminette.registry import Registry
 from norminette.errors import JSONErrorsFormatter
+from norminette.errors import Error
 
 tests = [
     {
@@ -45,3 +46,9 @@ def test_json_formatter_errored_file(file, test):
 
     formatter = JSONErrorsFormatter(file)
     assert str(formatter) == json.dumps(test, separators=(',', ':'))
+
+
+def test_error_from_name():
+    Error.from_name("NO_ARGS_VOID")
+    with pytest.raises(KeyError):
+        Error.from_name("KeyThatDoesNoExists")
