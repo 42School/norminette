@@ -126,14 +126,11 @@ digits or '_'",
 
 
 class NormError:
-    def __init__(self, errno, line, col=None):
+    def __init__(self, errno, line, col):
         self.errno = errno
         self.line = line
         self.col = col
-        if col is not None:
-            self.error_pos = f"(line: {(str(self.line)).rjust(3)}, col: {(str(self.col)).rjust(3)}):\t"
-        else:
-            self.error_pos = f"(line: {(str(self.line)).rjust(3)}):\t "
+        self.error_pos = f"(line: {(str(self.line)).rjust(3)}, col: {(str(self.col)).rjust(3)}):\t"
         self.prefix = f"Error: {self.errno:<20} {self.error_pos:>21}"
         self.error_msg = f"{errors.get(self.errno, 'ERROR NOT FOUND')}"
 
@@ -142,14 +139,11 @@ class NormError:
 
 
 class NormWarning:
-    def __init__(self, errno, line, col=None):
+    def __init__(self, errno, line, col):
         self.errno = errno
         self.line = line
         self.col = col
-        if col is not None:
-            self.error_pos = f"(line: {(str(self.line)).rjust(3)}, col: {(str(self.col)).rjust(3)}):\t"
-        else:
-            self.error_pos = f"(line: {(str(self.line)).rjust(3)}):\t "
+        self.error_pos = f"(line: {(str(self.line)).rjust(3)}, col: {(str(self.col)).rjust(3)}):\t"
         self.prefix = f"Notice: {self.errno:<20} {self.error_pos:>21}"
         self.error_msg = f"{errors.get(self.errno, 'WARNING NOT FOUND')}"
 
