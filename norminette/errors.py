@@ -67,8 +67,10 @@ class Errors:
 
 
 class _formatter:
+    name: str
+
     def __init__(self, files: Union[File, Sequence[File]]) -> None:
-        if not isinstance(files, list):
+        if not isinstance(files, Sequence):
             files = [files]
         self.files = files
 
@@ -101,7 +103,7 @@ class JSONErrorsFormatter(_formatter):
         output = {
             "files": files,
         }
-        return json.dumps(output, separators=",:")
+        return json.dumps(output, separators=(',', ':'))
 
 
 formatters = (

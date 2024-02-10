@@ -44,4 +44,4 @@ def test_json_formatter_errored_file(file, test):
     Registry().run(context)
 
     formatter = JSONErrorsFormatter(file)
-    assert str(formatter) == json.dumps(test, separators=",:")
+    assert str(formatter) == json.dumps(test, separators=(',', ':'))
