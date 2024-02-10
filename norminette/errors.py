@@ -39,6 +39,8 @@ class Highlight:
 class Error:
     name: str
     text: str
+    level: Literal["Error", "Notice"] = field(default="Error")
+    highlights: List[Highlight] = field(default_factory=list)
     def __lt__(self, other: Any) -> bool:
         assert isinstance(other, Error)
         if not self.highlights:
