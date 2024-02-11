@@ -43,7 +43,7 @@ tests = [
 @pytest.mark.parametrize("file,test", [it.values() for it in tests])
 def test_json_formatter_errored_file(file, test):
     lexer = Lexer(file)
-    context = Context(file, lexer.get_tokens())
+    context = Context(file, list(lexer))
     Registry().run(context)
 
     formatter = JSONErrorsFormatter(file)

@@ -3,12 +3,11 @@
 [36mtest_file_210223.c[0m - [32mIsBlockStart[0m In "Function" from "GlobalScope" line 2":
 		<LBRACE> <NEWLINE>
 [36mtest_file_210223.c[0m - [32mIsControlStatement[0m In "Function" from "GlobalScope" line 3":
-		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=pthread_create> <LPARENTHESIS> <BWISE_AND> <IDENTIFIER=philos> <LBRACKET> <IDENTIFIER=i> <RBRACKET> <DOT> <IDENTIFIER=philo_status_thread> <COMMA> <SPACE> <NULL> <COMMA> <SPACE> <ESCAPED_NEWLINE> <TAB> <TAB> <IDENTIFIER=check_status> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=philos> <LBRACKET> <IDENTIFIER=i> <RBRACKET> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
+		<TAB> <IF> <SPACE> <LPARENTHESIS> <IDENTIFIER=pthread_create> <LPARENTHESIS> <BWISE_AND> <IDENTIFIER=philos> <LBRACKET> <IDENTIFIER=i> <RBRACKET> <DOT> <IDENTIFIER=philo_status_thread> <COMMA> <SPACE> <NULL> <COMMA> <SPACE> <TAB> <TAB> <IDENTIFIER=check_status> <COMMA> <SPACE> <BWISE_AND> <IDENTIFIER=philos> <LBRACKET> <IDENTIFIER=i> <RBRACKET> <RPARENTHESIS> <RPARENTHESIS> <NEWLINE>
 [36mtest_file_210223.c[0m - [32mIsExpressionStatement[0m In "ControlStructure" from "Function" line 5":
 		<TAB> <TAB> <RETURN> <SPACE> <LPARENTHESIS> <MINUS> <CONSTANT=1> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210223.c[0m - [32mIsFunctionCall[0m In "Function" from "GlobalScope" line 6":
-		<TAB> <IDENTIFIER=printf> <LPARENTHESIS> <STRING="\nOh noes. I, n°%i, no longer thinks, and therefore, is no more.\
-	*dies in philosopher*\n"> <COMMA> <SPACE> <IDENTIFIER=this> <PTR> <IDENTIFIER=uid> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
+		<TAB> <IDENTIFIER=printf> <LPARENTHESIS> <STRING="\nOh noes. I, n°%i, no longer thinks, and therefore, is no more.	*dies in philosopher*\n"> <COMMA> <SPACE> <IDENTIFIER=this> <PTR> <IDENTIFIER=uid> <RPARENTHESIS> <SEMI_COLON> <NEWLINE>
 [36mtest_file_210223.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 8":
 		<RBRACE> <NEWLINE>
 [36mtest_file_210223.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
@@ -25,3 +24,5 @@
 		<RBRACE> <NEWLINE>
 test_file_210223.c: Error!
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: MIXED_SPACE_TAB      (line:   3, col:  61):	Mixed spaces and tabs
+Error: TAB_INSTEAD_SPC      (line:   4, col:   1):	Found tab when expecting space

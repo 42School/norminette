@@ -7,7 +7,7 @@ from importlib.metadata import version
 import argparse
 from norminette.errors import formatters
 from norminette.file import File
-from norminette.lexer import Lexer, TokenError
+from norminette.lexer import Lexer
 from norminette.exceptions import CParsingError
 from norminette.registry import Registry
 from norminette.context import Context
@@ -127,10 +127,10 @@ def main():
     for file in files:
         try:
             lexer = Lexer(file)
-            tokens = lexer.get_tokens()
+            tokens = list(lexer)
             context = Context(file, tokens, debug, args.R)
             registry.run(context)
-        except (TokenError, CParsingError) as e:
+        except CParsingError as e:
             print(file.path + f": Error!\n\t{colors(e.msg, 'red')}")
             sys.exit(1)
         except KeyboardInterrupt:

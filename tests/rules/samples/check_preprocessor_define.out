@@ -17,7 +17,7 @@
 [36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 9":
 		<NEWLINE>
 [36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 10":
-		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=HOJEEHDIA> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <ESCAPED_NEWLINE> <TAB> <CONSTANT=1> <SPACE> <MULT_COMMENT=/* wat */> <NEWLINE>
+		<HASH> <IDENTIFIER=define> <SPACE> <IDENTIFIER=HOJEEHDIA> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <TAB> <CONSTANT=1> <SPACE> <MULT_COMMENT=/* wat */> <NEWLINE>
 [36mcheck_preprocessor_define.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 12":
 		<NEWLINE>
 [36mcheck_preprocessor_define.c[0m - [32mIsPreprocessorStatement[0m In "GlobalScope" from "None" line 13":
