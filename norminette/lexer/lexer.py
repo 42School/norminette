@@ -51,20 +51,25 @@ class Lexer:
         result = ""
         for _ in range(times):
             for _ in range(100):
-                char, size = self.peek()
+                if peek := self.peek():
+                    char, size = peek
+                else:
+                    raise UnexpectedEOF()
                 if char != '\\':
                     break
-                if self.peek(offset=size) is None:
+                peek = self.peek(offset=size)
+                if peek is None:
                     break
-                temp, _ = self.peek(offset=size)  # Don't change the `temp` to `char`
+                temp, _ = peek  # Don't change the `temp` to `char`
                 if temp != '\n':
                     break
                 self.__pos += size + 1
                 self.__line += 1
                 self.__line_pos = 0
-                if self.peek() is None:
+                peek = self.peek()
+                if peek is None:
                     raise UnexpectedEOF()
-                char, size = self.peek()
+                char, size = peek
             else:
                 # It hits when we have multiple lines followed by `\`, e.g:
                 # ```c
