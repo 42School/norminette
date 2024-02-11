@@ -136,7 +136,7 @@ def main():
         except KeyboardInterrupt:
             sys.exit(1)
     errors = format(files)
-    print(errors)
+    print(errors, end='')
     sys.exit(1 if len(file.errors) else 0)
 
 
