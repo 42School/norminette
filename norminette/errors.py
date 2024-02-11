@@ -10,7 +10,9 @@ from typing import (
     Literal,
     Optional,
     List,
+    overload,
     Any,
+    Type,
 )
 
 from norminette.norm_error import NormError, NormWarning, errors as errors_dict
@@ -57,12 +59,33 @@ class Error:
             return self.name < other.name
         return (ah.lineno, ah.column) < (bh.lineno, bh.column)
 
+    @overload
+    def add_highlight(
+        self,
+        lineno: int,
+        column: int,
+        length: Optional[int] = None,
+        hint: Optional[str] = None,
+    ) -> None: ...
+    @overload
+    def add_highlight(self, highlight: Highlight, /) -> None: ...
+
+    def add_highlight(self, *args, **kwargs) -> None:
+        if len(args) == 1:
+            highlight, = args
+        else:
+            highlight = Highlight(*args, **kwargs)
+        self.highlights.append(highlight)
+
 
 class Errors:
     __slots__ = "_inner"
 
     def __init__(self) -> None:
-        self._inner = []
+        self._inner: List[Error] = []
+
+    def __repr__(self) -> str:
+        return repr(self._inner)
 
     def __len__(self) -> int:
         return len(self._inner)
@@ -71,7 +94,55 @@ class Errors:
         self._inner.sort()
         return iter(self._inner)
 
-    # TODO Add `add(...)` method to allow creating `Highlight`s and `Error`s easily
+    @overload
+    def add(self, error: Error) -> None:
+        """Add an `Error` instance to the errors.
+        """
+        ...
+
+    @overload
+    def add(self, name: str, *, level: Literal["Error", "Notice"] = "Error", highlights: List[Highlight] = ...) -> None:
+        """Builds an `Error` instance from a name in `errors_dict` and adds it to the errors.
+
+        ```python
+        >>> errors.add("TOO_MANY_LINES")
+        >>> errors.add("INVALID_HEADER")
+        >>> errors.add("GLOBAL_VAR_DETECTED", level="Notice")
+        ```
+        """
+        ...
+
+    @overload
+    def add(
+        self,
+        /,
+        name: str,
+        text: str,
+        *,
+        level: Literal["Error", "Notice"] = "Error",
+        highlights: List[Highlight] = ...,
+    ) -> None:
+        """Builds an `Error` instance and adds it to the errors.
+
+        ```python
+        >>> errors.add("BAD_IDENTATION", "You forgot an column here")
+        >>> errors.add("CUSTOM_ERROR", f"name {not_defined!r} is not defined. Did you mean: {levenshtein_distance}?")
+        >>> errors.add("NOOP", "Empty if statement", level="Notice")
+        ```
+        """
+        ...
+
+    def add(self, *args, **kwargs) -> None:
+        kwargs.setdefault("level", "Error")
+        error = None
+        if len(args) == 1:
+            error = args[0]
+            if isinstance(error, str):
+                error = Error.from_name(error, **kwargs)
+        if len(args) == 2:
+            error = Error(*args, **kwargs)
+        assert isinstance(error, Error), "bad function call"
+        return self._inner.append(error)
 
     @property
     def status(self) -> Literal["OK", "Error"]:
@@ -81,10 +152,10 @@ class Errors:
         # TODO Remove NormError and NormWarning since it does not provide `length` data
         assert isinstance(value, (NormError, NormWarning))
         level = "Error" if isinstance(value, NormError) else "Notice"
-        value = Error(value.errno, value.error_msg, level, highlights=[
+        error = Error(value.errno, value.error_msg, level, highlights=[
             Highlight(value.line, value.col, None),
         ])
-        self._inner.append(value)
+        self._inner.append(error)
 
 
 class _formatter:
