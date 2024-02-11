@@ -8,14 +8,10 @@ from norminette.lexer.dictionary import keywords
 from norminette.lexer.dictionary import operators
 from norminette.lexer.tokens import Token
 from norminette.file import File
+from norminette.errors import Error, Highlight as H
 
-
-class TokenError(Exception):
-    def __init__(self, pos, message=None):
-        self.msg = message or f"Error: Unrecognized token line {pos[0]}, col {pos[1]}"
-
-    def __repr__(self):
-        return self.msg
+octal_digits = "01234567"
+hexadecimal_digits = "0123456789abcdefABCDEF"
 
 
 class Lexer:
@@ -46,7 +42,13 @@ class Lexer:
             return word, 1
         return None  # Let it crash :D
 
-    def pop(self, *, times: int = 1, use_spaces: bool = False):
+    def pop(
+        self,
+        *,
+        times: int = 1,
+        use_spaces: bool = False,
+        use_escape: bool = False,
+    ) -> str:
         assert times > 0
         result = ""
         for _ in range(times):
@@ -62,6 +64,37 @@ class Lexer:
                     break
                 temp, _ = peek  # Don't change the `temp` to `char`
                 if temp != '\n':
+                    if use_escape:
+                        if temp in r"abefnrtv\"'?":
+                            size += 1
+                            char += temp
+                        elif temp == 'x':
+                            size += 1
+                            char += temp
+                            # BUG It is just considering one `byte` (0x0 to 0xFF), so it not works correctly
+                            # with prefixed strings like `L"\0x1234"`.
+                            peek = self.raw_peek(offset=size, collect=2)
+                            assert peek  # TODO Replace it to `raise UnexpectedEOF`
+                            if peek[0] not in hexadecimal_digits:
+                                error = Error.from_name("NO_HEX_DIGITS", level="Notice")
+                                error.add_highlight(self.__line, self.__line_pos + size - 1, length=1)
+                                self.file.errors.add(error)
+                            else:
+                                for digit in peek:
+                                    if digit not in hexadecimal_digits:
+                                        break
+                                    size += 1
+                                    char += digit
+                        elif temp in octal_digits:
+                            while (temp := self.raw_peek(offset=size)) and temp in octal_digits:
+                                size += 1
+                                char += temp
+                        else:
+                            error = Error.from_name("UNKNOWN_ESCAPE", level="Notice")
+                            error.add_highlight(self.__line, self.__line_pos + size, length=1)
+                            self.file.errors.add(error)
+                            char += temp
+                            size += 1
                     break
                 self.__pos += size + 1
                 self.__line += 1
