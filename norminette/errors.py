@@ -176,10 +176,9 @@ class HumanizedErrorsFormatter(_formatter):
         for file in self.files:
             output += f"{file.basename}: {file.errors.status}!"
             for error in file.errors:
-                brief = errors_dict.get(error.name, "Error not found")
                 highlight = error.highlights[0]
                 output += f"\n{error.level}: {error.name:<20} "
-                output += f"(line: {highlight.lineno:>3}, col: {highlight.column:>3}):\t{brief}"
+                output += f"(line: {highlight.lineno:>3}, col: {highlight.column:>3}):\t{error.text}"
         return output
 
 
