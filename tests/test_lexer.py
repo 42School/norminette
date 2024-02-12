@@ -1,4 +1,4 @@
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Tuple
 
 import pytest
 
@@ -38,6 +38,30 @@ def test_lexer_raw_peek(source: str, parameters: Dict[str, Any], expected: Optio
     lexer = lexer_from_source(source)
 
     assert lexer.raw_peek(**parameters) == expected
+
+
+@pytest.mark.parametrize("source, parameters, expected", dict_to_pytest_param({
+    "Single source char": ['{', {}, ('{', 1)],
+    "Single digraph source": ["<%", {}, ('{', 2)],
+    "Single trigraph source": ["??<", {}, ('{', 3)],
+    "Newline": ['\n', {}, ('\n', 1)],
+    "Escaped newline": ["\\\n", {}, ('\\', 1)],
+    "Times with exact chars": ["abc", {"times": 3}, ("abc", 3)],
+    "Times with trigraphs": [r"??<a??<b", {"times": 4}, ("{a{b", 6)],
+    "Times with trigraphs": [r"??<a??<b", {"times": 4}, ("{a{b", 8)],
+    "Offset with large source": ["heello!s", {"offset": 6}, ('!', 1)],
+    # "Offset with large source with trigraphs": ["he??<el??/lo!s", {"offset": 8}, ('!', 1)],  # teoric BUG
+    "Empty source": ['', {}, None],
+    "Offset over source length": ["abc", {"offset": 3}, None],
+    "Offset to last char": ["abc", {"offset": 2}, ('c', 1)],
+    "Offset with times": ["abc", {"offset": 1, "times": 2}, ("bc", 2)],
+    "Offset with times and digraphs": ["hey<%wa<%ts", {"offset": 2, "times": 5}, ("y{wa{", 7)],
+    # "Offset with times and trigraphs": ["??/hey<%wa<%ts", {"offset": 1, "times": 4}, ("hey{", 5)],  # teoric BUG
+}))
+def test_lexer_peek(source: str, parameters: Dict[str, Any], expected: Optional[Tuple[str, int]]):
+    lexer = lexer_from_source(source)
+
+    assert lexer.peek(**parameters) == expected
 
 
 @pytest.mark.parametrize("source, parameters, expected", dict_to_pytest_param({
