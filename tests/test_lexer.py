@@ -1,3 +1,4 @@
+from itertools import chain
 from typing import Dict, Any, List, Optional, Tuple
 
 import pytest
@@ -515,8 +516,40 @@ def test_lexer_parse_brackets(bracket: str, token_type: str):
     "Escaped newline followed by an identifier": ["\\\nhello;", [
         T("IDENTIFIER", (2, 1), value="hello"),
         T("SEMI_COLON", (2, 6)),
-    ]]
-    # TODO Add to check prepoc tokens
+    ]],
+    # TODO Add tests for digraphs/trigraphs
+    **dict(chain.from_iterable(map(dict.items, (
+        {
+            f"Empty {name}": [f"#{name}", [
+                T("HASH", (1, 1)),
+                T("IDENTIFIER", (1, 2), value=name),
+            ]],
+            f"Empty spaced {name}": [f"# {name} ", [
+                T("HASH", (1, 1)),
+                T("SPACE", (1, 2)),
+                T("IDENTIFIER", (1, 3), value=name),
+                T("SPACE", (1, 3 + len(name))),
+            ]],
+            f"Empty {name} ending with withespaces": [f"#{name} 	", [
+                T("HASH", (1, 1)),
+                T("IDENTIFIER", (1, 2), value=name),
+                T("SPACE", (1, 2 + len(name))),
+                T("TAB", (1, 3 + len(name))),
+            ]],
+            f"Empty {name} ending with a comment separated by space": [f"#{name} //bla", [
+                T("HASH", (1, 1)),
+                T("IDENTIFIER", (1 , 2), value=name),
+                T("SPACE", (1, 2 + len(name))),
+                T("COMMENT", (1, 3 + len(name)), value="//bla"),
+            ]],
+            f"Empty {name} followed by a comment": [f"#{name}//bla ", [
+                T("HASH", (1, 1)),
+                T("IDENTIFIER", (1, 2), value=name),
+                T("COMMENT", (1, 2 + len(name)), value="//bla "),
+            ]],
+        }
+        for name in ("define", "error", "ifndef", "ifdef", "include", "pragma", "undef")
+    )))),
 }))
 def test_lexer_tokens(source: str, expected_tokens: List[T]):
     lexer = lexer_from_source(source)
