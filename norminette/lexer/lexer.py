@@ -90,13 +90,22 @@ class Lexer:
             return ''.join(self.file.source[pos:pos+collect])
         return None
 
-    def peek(self, *, offset: int = 0) -> Optional[Tuple[str, int]]:
-        if (trigraph := self.raw_peek(offset=offset, collect=3)) in trigraphs:
-            return trigraphs[trigraph], 3
-        if (digraph := self.raw_peek(offset=offset, collect=2)) in digraphs:
-            return digraphs[digraph], 2
-        if word := self.raw_peek(offset=offset):
-            return word, 1
+    def peek(self, *, times: int = 1, offset: int = 0) -> Optional[Tuple[str, int]]:
+        char, size = '', 0
+        for _ in range(times):
+            if (trigraph := self.raw_peek(offset=offset + size, collect=3)) in trigraphs:
+                char += trigraphs[trigraph]
+                size += 3
+            elif (digraph := self.raw_peek(offset=offset + size, collect=2)) in digraphs:
+                char += digraphs[digraph]
+                size += 2
+            elif word := self.raw_peek(offset=offset + size):
+                char += word
+                size += 1
+            else:
+                break
+        if size:
+            return char, size
         return None  # Let it crash :D
 
     def pop(
@@ -395,19 +404,23 @@ class Lexer:
         eg: '>>' being understood as two 'MORE_THAN' operators instead of
             one 'RIGHT_SHIFT' operator
         """
-        char = self.raw_peek()
-        if not char or char not in "+-*/,<>^&|!=%;:.~?#":
+        result = self.peek()
+        if not result:
+            return
+        char, _ = result
+        if char not in "+-*/,<>^&|!=%;:.~?#":
             return
         pos = self.line_pos()
         if char in ".+-*/%<>^&|!=":
             if self.raw_peek(collect=3) in (">>=", "<<=", "..."):
                 return Token(operators[self.pop(times=3)], pos)
-            if self.raw_peek(collect=2) in (">>", "<<", "->"):
+            temp, _ = self.peek(times=2)  # type: ignore
+            if temp in (">>", "<<", "->"):
                 return Token(operators[self.pop(times=2)], pos)
-            if self.raw_peek(collect=2) == char + "=":
+            if temp == char + "=":
                 return Token(operators[self.pop(times=2)], pos)
             if char in "+-<>=&|":
-                if self.raw_peek(collect=2) == char * 2:
+                if temp == char * 2:
                     return Token(operators[self.pop(times=2)], pos)
         char = self.pop()
         return Token(operators[char], pos)

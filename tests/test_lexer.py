@@ -364,7 +364,16 @@ def test_lexer_parse_identifier_keyword_only(keyword: str):
     assert lexer.file.errors.status == "OK"
 
 
-@pytest.mark.parametrize("operator, token_type", operators.items())
+@pytest.mark.parametrize("operator, token_type", list(operators.items()) + [
+    ["??=", "HASH"],
+    ["%:", "HASH"],
+    ["??'", "BWISE_XOR"],
+    ["??'=", "XOR_ASSIGN"],
+    ["??!", "BWISE_OR"],
+    ["??!??!", "OR"],
+    ["??!=", "OR_ASSIGN"],
+    ["??-", "BWISE_NOT"],
+])
 def test_lexer_parse_operator(operator: str, token_type: str):
     lexer = lexer_from_source(operator)
     token = lexer.parse_operator()
@@ -373,7 +382,16 @@ def test_lexer_parse_operator(operator: str, token_type: str):
     assert lexer.file.errors.status == "OK"
 
 
-@pytest.mark.parametrize("bracket, token_type", brackets.items())
+@pytest.mark.parametrize("bracket, token_type", list(brackets.items()) + [
+    ["<%", "LBRACE"],
+    ["??<", "LBRACE"],
+    ["%>", "RBRACE"],
+    ["??>", "RBRACE"],
+    ["<:", "LBRACKET"],
+    ["??(", "LBRACKET"],
+    [":>", "RBRACKET"],
+    ["??)", "RBRACKET"],
+])
 def test_lexer_parse_brackets(bracket: str, token_type: str):
     lexer = lexer_from_source(bracket)
     token = lexer.parse_brackets()
