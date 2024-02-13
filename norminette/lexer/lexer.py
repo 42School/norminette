@@ -89,8 +89,8 @@ def _float_pattern(const: str, digit: str, exponent: Tuple[str, str]):
 
 FLOAT_EXPONENT_LITERAL_PATTERN = _float_pattern(r"\d+", digit=r"\d", exponent=('', "eE"))
 FLOAT_FRACTIONAL_LITERAL_PATTERN = _float_pattern(r"(?:\d+)?\.\d+|\d+\.", digit=r"\d", exponent=('?', "eE"))
-FLOAT_HEXADECIMAL_LITERAL_PATTERN = _float_pattern(r"0[xX]+[\da-fA-F]*(?:\.[\da-fA-F]*)*",
-                                                   digit=r"[\da-fA-F]", exponent=('+', "pP"))
+FLOAT_HEXADECIMAL_LITERAL_PATTERN = _float_pattern(r"0[xX]+[\da-fA-F]+(?:\.[\da-fA-F]+)?",
+                                                   digit=r"[\da-fA-F]", exponent=('?', "pP"))
 
 
 class Lexer:
@@ -361,8 +361,17 @@ class Lexer:
         error = None
         suffix = len(match["Suffix"])
         column += len(match["Constant"])
+        badhex = match["Constant"].strip(hexadecimal_digits + '.')
         if type == "exponent" and not re.match(r"[eE][-+]?\d+", match["Exponent"]):
             error = Error.from_name("BAD_EXPONENT")
+            error.add_highlight(lineno, column, length=len(match["Exponent"]) + suffix)
+        elif type == "hexadecimal" and '.' not in match["Constant"] and not match["Exponent"]:
+            return  # Hexadecimal Integer
+        elif type == "hexadecimal" and badhex not in ('x', 'X'):
+            error = Error.from_name("MULTIPLE_X")
+            error.add_highlight(lineno, column - len(match["Constant"]) + 1, length=len(badhex))
+        elif match["Constant"].count('.') == 1 and match["Suffix"].count('.') > 0:
+            error = Error.from_name("MULTIPLE_DOTS")
             error.add_highlight(lineno, column, length=len(match["Exponent"]) + suffix)
         elif match["Suffix"] not in float_suffixes:
             error = Error.from_name("BAD_FLOAT_SUFFIX")

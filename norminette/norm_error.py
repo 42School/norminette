@@ -137,6 +137,8 @@ digits or '_'",
     "NO_HEX_DIGITS": "No hexadecimal digits followed by the \\x",
     "UNKNOWN_ESCAPE": "Unknown escape sequence",
     "BAD_EXPONENT": "Exponent has no digits",
+    "MULTIPLE_DOTS": "Multiple dots in float constant",
+    "MULTIPLE_X": "Multiple 'x' in hexadecimal float constant",
 }
 
 

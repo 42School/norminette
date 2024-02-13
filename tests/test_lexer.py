@@ -359,10 +359,25 @@ def test_lexer_parse_integer_literal(source: str, str_expected: str, errors: Lis
     "Bad exponent followed by a suffix": ["105eu", "<CONSTANT=105eu>", [
         E.from_name("BAD_EXPONENT", highlights=[H(lineno=1, column=4, length=2)]),
     ]],
-    # TODO Add tests for hexadecimal floats (multiple dots, multiple `xX`)
+    "Multiple dots": ["1.1..2.3.4.5", "<CONSTANT=1.1..2.3.4.5>", [
+        E.from_name("MULTIPLE_DOTS", highlights=[H(lineno=1, column=4, length=len("..2.3.4.5"))]),
+    ]],
+    "Hexadecimal multiple dots": ["0xF.22..2.3.4.5", "<CONSTANT=0xF.22..2.3.4.5>", [
+        E.from_name("MULTIPLE_DOTS", highlights=[H(lineno=1, column=7, length=len("..2.3.4.5"))]),
+    ]],
+    "Hexadecimal with just constant": ["0xC0FFE", "None", []],
+    "Hexadecimal integer with suffix": ["0XA0000024u", "None", []],
+    "Hexadecimal integer with double suffix": ["0XA0000021uL", "None", []],
+    "Multiple X": ["0xxXxxX123.32f", "<CONSTANT=0xxXxxX123.32f>", [
+        E.from_name("MULTIPLE_X", highlights=[H(lineno=1, column=2, length=len("xxXxxX"))]),
+    ]],
+    "Multiple X in an integer hexadecimal": ["0xX1", "None", []],
+    "Multiple X with exponent": ["0xxAp2", "<CONSTANT=0xxAp2>", [
+        E.from_name("MULTIPLE_X", highlights=[H(lineno=1, column=2, length=2)]),
+    ]],
     **{
         # https://www.gnu.org/software/c-intro-and-ref/manual/html_node/Floating-Constants.html
-        f"Float GNU {number}": [source, f"<CONSTANT={source}>", []]
+        f"Float GNU {number} {source!r}": [source, f"<CONSTANT={source}>", []]
         for number, source in enumerate((
             "1500.0", "15e2", "15e+2", "15.0e2", "1.5e+3", ".15e4", "15000e-1",
             "1.0", "1000.", "3.14159", ".05", ".0005", "1e0", "1.0000e0", "100e1",
