@@ -21,6 +21,7 @@ def c(a: str, b: str):
     )
 
 
+quote_prefixes = (*"lLuU", "u8")
 octal_digits = "01234567"
 hexadecimal_digits = "0123456789abcdefABCDEF"
 integer_suffixes = (
@@ -202,13 +203,20 @@ class Lexer:
         return self.__line, self.__line_pos
 
     def parse_char_literal(self) -> Optional[Token]:
-        if self.raw_peek(collect=2) != "L'" and self.raw_peek() != '\'':
-            return
         pos = lineno, column = self.line_pos()
-        value = self.pop()
+        value = ''
+        for prefix in quote_prefixes:
+            length = len(prefix)
+            result = self.raw_peek(collect=length + 1)
+            if not result:
+                return
+            if result.startswith(prefix) and result.endswith('\''):
+                value += self.pop(times=length)
+                break
+        if self.raw_peek() != '\'':
+            return
         chars = 0
-        if value == 'L':
-            value += self.pop()
+        value += self.pop()
         for _ in range(100):
             try:
                 char = self.pop(use_escape=True)
@@ -250,12 +258,19 @@ class Lexer:
         """
         if not self.peek():
             return
-        if self.raw_peek() != '"' and self.raw_peek(collect=2) != "L\"":
-            return
         pos = lineno, column = self.line_pos()
-        val = self.pop()
-        if val != '"':
-            val += self.pop()
+        val = ''
+        for prefix in quote_prefixes:
+            length = len(prefix)
+            result = self.raw_peek(collect=length + 1)
+            if not result:
+                return
+            if result.startswith(prefix) and result.endswith('"'):
+                val += self.pop(times=length)
+                break
+        if self.raw_peek() != '"':
+            return
+        val += self.pop()
         while self.peek() is not None:
             char = self.pop(use_escape=True)
             val += char

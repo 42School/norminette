@@ -172,6 +172,9 @@ def test_lexer_pop(source: str, parameters: Dict[str, Any], expected: Optional[s
     "Char escaped with L prefix": [r"L'\n'", r"<CHAR_CONST=L'\n'>", []],
     "Hex with one digit": [r"'\xA'", r"<CHAR_CONST='\xA'>", []],
     "Hex with two digits": [r"'\x3F'", r"<CHAR_CONST='\x3F'>", []],
+    "U prefixed char": ["U'h'", "<CHAR_CONST=U'h'>", []],
+    "u8 prefixed char": ["u8'h'", "<CHAR_CONST=u8'h'>", []],
+    "Bad prefixed char": ["s'h'", "None", []],
 }))
 def test_lexer_parse_char_literal(source: str, str_expected: str, errors: List[E]):
     lexer = lexer_from_source(source)
@@ -200,6 +203,9 @@ def test_lexer_parse_char_literal(source: str, str_expected: str, errors: List[E
     "String with escaped new line": ["\"first\\\n second\"", "<STRING=\"first second\">", []],
     "Basic string": ["\"Basic string\"", "<STRING=\"Basic string\">", []],
     "L basic string": ["L\"Basic string\"", "<STRING=L\"Basic string\">", []],
+    "U prefixed string": ["U\"hIGH\"", "<STRING=U\"hIGH\">", []],
+    "u8 prefixed string": ["u8\"hIGH\"", "<STRING=u8\"hIGH\">", []],
+    "Bad prefixed string": ["s\"hIGH\"", "None", []],
     "String with escaped quotes": ["\"Basic \\\"string\\\"\"", "<STRING=\"Basic \\\"string\\\"\">", []],
     "Multiples escapes and escaped quote": [r'"Escaped \\\"string\\\\\"\\"',
                                             r'<STRING="Escaped \\\"string\\\\\"\\">',
