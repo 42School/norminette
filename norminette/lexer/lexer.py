@@ -35,6 +35,13 @@ integer_suffixes = (
     *c('u', "wb"),
     *c('u', "i64"),
 )
+float_suffixes = (
+    '',
+    *"lLfFdD",
+    "dd", "DD",
+    "df", "DF",
+    "dl", "DL",
+)
 
 INT_LITERAL_PATTERN = re.compile(r"""
 ^
@@ -324,21 +331,23 @@ class Lexer:
         pos = lineno, column = self.line_pos()
         src = self.file.source[self.__pos:]
         if match := FLOAT_EXPONENT_LITERAL_PATTERN.match(src):
-            suffix = len(match["Suffix"])
-            column += len(match["Constant"])
-            error = None
-            if re.match(r"[eE][-+]?\d+", match["Exponent"]) is None:
-                error = Error.from_name("BAD_EXPONENT")
-                error.add_highlight(lineno, column, length=len(match["Exponent"]) + suffix)
-            elif match["Suffix"] not in ('', *"lLfF"):
-                error = Error.from_name("BAD_FLOAT_SUFFIX")
-                error.add_highlight(lineno, column + suffix, length=suffix)
-            if error:
-                self.file.errors.add(error)
-            return Token("CONSTANT", pos, self.pop(times=match.end()))
-        if match := FLOAT_FRACTIONAL_LITERAL_PATTERN.match(src):
-            # TODO Continue here lol
-            return Token("CONSTANT", pos, self.pop(times=match.end()))
+            type = "exponent"
+        elif match := FLOAT_FRACTIONAL_LITERAL_PATTERN.match(src):
+            type = "fractional"
+        else:
+            return
+        error = None
+        suffix = len(match["Suffix"])
+        column += len(match["Constant"])
+        if type == "exponent" and not re.match(r"[eE][-+]?\d+", match["Exponent"]):
+            error = Error.from_name("BAD_EXPONENT")
+            error.add_highlight(lineno, column, length=len(match["Exponent"]) + suffix)
+        elif match["Suffix"] not in float_suffixes:
+            error = Error.from_name("BAD_FLOAT_SUFFIX")
+            error.add_highlight(lineno, column + len(match["Exponent"]), length=suffix)
+        if error:
+            self.file.errors.add(error)
+        return Token("CONSTANT", pos, self.pop(times=match.end()))
 
     def parse_multi_line_comment(self) -> Optional[Token]:
         if self.raw_peek(collect=2) != "/*":

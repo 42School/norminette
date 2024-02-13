@@ -49,7 +49,7 @@ def test_lexer_raw_peek(source: str, parameters: Dict[str, Any], expected: Optio
     "Escaped newline": ["\\\n", {}, ('\\', 1)],
     "Times with exact chars": ["abc", {"times": 3}, ("abc", 3)],
     "Times with trigraphs": [r"??<a??<b", {"times": 4}, ("{a{b", 6)],
-    "Times with trigraphs": [r"??<a??<b", {"times": 4}, ("{a{b", 8)],
+    "Times with trigraphs 2": [r"??<a??<b", {"times": 4}, ("{a{b", 8)],
     "Offset with large source": ["heello!s", {"offset": 6}, ('!', 1)],
     # "Offset with large source with trigraphs": ["he??<el??/lo!s", {"offset": 8}, ('!', 1)],  # teoric BUG
     "Empty source": ['', {}, None],
@@ -276,6 +276,9 @@ def test_lexer_parse_multi_line_comment(source: str, str_expected: str, errors: 
             H(lineno=1, column=8, length=1, hint=None),  # 9
         ]),
     ]],
+    "Binary with bad suffix": ["0b0101e", "<CONSTANT=0b0101e>", [
+        E.from_name("INVALID_SUFFIX", highlights=[H(lineno=1, column=7, length=1)]),
+    ]],
     "Octal integer": ["01234567123", "<CONSTANT=01234567123>", []],
     "Octal integer with U as suffix": ["0123u", "<CONSTANT=0123u>", []],
     "Octal integer with bad digits": ["00072189", "<CONSTANT=00072189>", [
@@ -288,6 +291,9 @@ def test_lexer_parse_multi_line_comment(source: str, str_expected: str, errors: 
         E.from_name("INVALID_SUFFIX", highlights=[
             H(lineno=1, column=len("000123") + 1, length=len("u.23")),
         ]),
+    ]],
+    "Hexadecimal with bad suffix": ["0x1uLl;", "<CONSTANT=0x1uLl>", [
+        E.from_name("INVALID_SUFFIX", highlights=[H(lineno=1, column=4, length=3)]),
     ]],
     "Integer with u suffix": ["123u", "<CONSTANT=123u>", []],
     "Integer with U suffix": ["123U", "<CONSTANT=123U>", []],
@@ -302,9 +308,7 @@ def test_lexer_parse_multi_line_comment(source: str, str_expected: str, errors: 
     "Integer with ll suffix": ["9000000000ll", "<CONSTANT=9000000000ll>", []],
     "Integer with LL suffix": ["9000000000LL", "<CONSTANT=9000000000LL>", []],
     "Integer with bad suffix": ["10Uu", "<CONSTANT=10Uu>", [
-        E.from_name("INVALID_SUFFIX", highlights=[
-            H(lineno=1, column=1, length=len("10")),
-        ]),
+        E.from_name("INVALID_SUFFIX", highlights=[H(lineno=1, column=3, length=len("10"))]),
     ]],
 }))
 def test_lexer_parse_integer_literal(source: str, str_expected: str, errors: List[E]):
@@ -323,32 +327,42 @@ def test_lexer_parse_integer_literal(source: str, str_expected: str, errors: Lis
         E.from_name("BAD_EXPONENT", highlights=[H(lineno=1, column=2, length=7)]),
     ]],
     "Exponent with sign": ["1e+3", "<CONSTANT=1e+3>", []],
-    "": ["45e++ai", "None", []],
-    "": ["e42", "None", []],
-    "": ["0x1uLl;", "None", []],
-    "": [".0e4x;", "None", []],
-    "": ["10ul;", "None", []],
-    "": ["10lul;", "None", []],
-    "": ["0x1uLl;", "None", []],
-    "": ["0x1ULl;", "None", []],
-    "": ["0x1lL;", "None", []],
-    "": ["0x1Ll;", "None", []],
-    "": ["0x1UlL;", "None", []],
+    "Bad float followed by an unary expression": ["45e++ai", "<CONSTANT=45e+>", [
+        E.from_name("BAD_EXPONENT", highlights=[H(lineno=1, column=3, length=2)]),
+    ]],
+    "Identifier with numbers": ["e42", "None", []],
+    "Fractional exponent with bad suffix": [".0e4x;", "<CONSTANT=.0e4x>", [
+        E.from_name("BAD_FLOAT_SUFFIX", highlights=[H(lineno=1, column=5, length=1)]),
+    ]],
     "Integer with bad suffix": ["10uu", "None", []],
-    "": ["10Uu", "None", []],
-    "": ["10UU", "None", []],
-    "": ["0b0101e", "None", []],
-    "": ["0b0101f", "None", []],
-    "": ["0b0X101f", "None", []],
-    "": ["0X101Uf", "None", []],
-    "": ["0101f", "None", []],
-    "": ["10.12fe10", "None", []],
-    "": ["10.fU", "None", []],
-    "": ["21.3E56E4654", "None", []],
-    "": ["105e4d", "None", []],
-    "": ["105flu", "None", []],
-    "": ["105fu", "None", []],
-    "": ["105eu", "None", []],
+    "Bad suffix with all parts": ["10.12fe10", "<CONSTANT=10.12fe10>", [
+        E.from_name("BAD_FLOAT_SUFFIX", highlights=[H(lineno=1, column=6, length=len("fe10"))]),
+    ]],
+    "Float without fractional part but with suffix": ["10.f", "<CONSTANT=10.f>", []],
+    "Float without fractional part but bad suffix": ["10.fU", "<CONSTANT=10.fU>", [
+        E.from_name("BAD_FLOAT_SUFFIX", highlights=[H(lineno=1, column=4, length=2)]),
+    ]],
+    "Real bad suffix": ["21.3E56E4654", "<CONSTANT=21.3E56E4654>", [
+        E.from_name("BAD_FLOAT_SUFFIX", highlights=[H(lineno=1, column=8, length=5)]),
+    ]],
+    "Exponent with D suffix": ["105e4d", "<CONSTANT=105e4d>", []],
+    "Bad exponent followed by a suffix": ["105eu", "<CONSTANT=105eu>", [
+        E.from_name("BAD_EXPONENT", highlights=[H(lineno=1, column=4, length=2)]),
+    ]],
+    # TODO Add tests for hexadecimal floats
+    **{
+        # https://www.gnu.org/software/c-intro-and-ref/manual/html_node/Floating-Constants.html
+        f"Float GNU {number}": [source, f"<CONSTANT={source}>", []]
+        for number, source in enumerate((
+            "1500.0", "15e2", "15e+2", "15.0e2", "1.5e+3", ".15e4", "15000e-1",
+            "1.0", "1000.", "3.14159", ".05", ".0005", "1e0", "1.0000e0", "100e1",
+            "100e+1", "100E+1", "1e3", "10000e-1", "3.14159e0", "5e-2", ".0005e+2",
+            "5E-2", ".0005E2", ".05e-2", "3.14159f", "3.14159e0f", "1000.f", "100E1F",
+            ".0005f", ".05e-2f",
+            #  "0xAp2", "0xAp-1", "0x2.0Bp4", "0xE.2p3", "0x123.ABCp0",
+            #  "0x123.ABCp4", "0x100p-8", "0x10p-4", "0x1p+4", "0x1p+8",
+        ))
+    }
 }))
 def test_lexer_parse_float_literal(source: str, str_expected: str, errors: List[E]):
     lexer = lexer_from_source(source)
