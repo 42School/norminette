@@ -48,7 +48,7 @@ def test_lexer_raw_peek(source: str, parameters: Dict[str, Any], expected: Optio
     "Newline": ['\n', {}, ('\n', 1)],
     "Escaped newline": ["\\\n", {}, ('\\', 1)],
     "Times with exact chars": ["abc", {"times": 3}, ("abc", 3)],
-    "Times with trigraphs": [r"??<a??<b", {"times": 4}, ("{a{b", 6)],
+    "Times with trigraphs": [r"??<a??<b", {"times": 4}, ("{a{b", 8)],
     "Times with trigraphs 2": [r"??<a??<b", {"times": 4}, ("{a{b", 8)],
     "Offset with large source": ["heello!s", {"offset": 6}, ('!', 1)],
     # "Offset with large source with trigraphs": ["he??<el??/lo!s", {"offset": 8}, ('!', 1)],  # teoric BUG
@@ -98,6 +98,10 @@ def test_lexer_peek(source: str, parameters: Dict[str, Any], expected: Optional[
     "Multiples escaped newlines": ["\\\n\\\na\n", {}, 'a'],
     "Multiples escaped newlines with trigraphs": ["??/\n??/\na\n", {}, 'a'],
     "Bla": ["\\\na\n", {}, 'a'],
+    "Escape hex followed by EOF": [r"\x", {}, '\\'],
+    "Escape hex followed by EOF with use_escape": [r"\x", {"use_escape": True}, r"\x"],
+    "Bad escape hex with use_escape and times": [r"\x\x", {"use_escape": True, "times": 2}, r"\x\x"],
+    "Ok escape hex followed by a bad with use_escape and times": [r"\xF\x", {"use_escape": True, "times": 2}, r"\xF\x"],
 }))
 def test_lexer_pop(source: str, parameters: Dict[str, Any], expected: Optional[str]):
     lexer = lexer_from_source(source)

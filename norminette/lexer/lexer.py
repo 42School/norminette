@@ -92,7 +92,6 @@ class Lexer:
         self.__line_pos = self.__line = 1
 
     def raw_peek(self, *, offset: int = 0, collect: int = 1):
-        assert collect > 0 and offset >= 0
         if (pos := self.__pos + offset) < len(self.file.source):
             return ''.join(self.file.source[pos:pos+collect])
         return None
@@ -122,7 +121,6 @@ class Lexer:
         use_spaces: bool = False,
         use_escape: bool = False,
     ) -> str:
-        assert times > 0
         result = ""
         for _ in range(times):
             for _ in range(100):
@@ -147,8 +145,7 @@ class Lexer:
                             # BUG It is just considering one `byte` (0x0 to 0xFF), so it not works correctly
                             # with prefixed strings like `L"\0x1234"`.
                             peek = self.raw_peek(offset=size, collect=2)
-                            assert peek  # TODO Replace it to `raise UnexpectedEOF`
-                            if peek[0] not in hexadecimal_digits:
+                            if peek is None or peek[0] not in hexadecimal_digits:
                                 error = Error.from_name("NO_HEX_DIGITS", level="Notice")
                                 error.add_highlight(self.__line, self.__line_pos + size - 1, length=1)
                                 self.file.errors.add(error)
@@ -380,9 +377,9 @@ class Lexer:
             return
         pos = self.line_pos()
         val = self.pop(times=2)
-        while self.peek():
-            char, _ = self.peek()
-            if char in ('\n', None):
+        while result := self.peek():
+            char, _ = result
+            if char == '\n':
                 break
             try:
                 val += self.pop()
