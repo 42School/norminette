@@ -41,6 +41,8 @@ float_suffixes = (
     "dd", "DD",
     "df", "DF",
     "dl", "DL",
+    *c('f', 'i'),
+    *c('f', 'j'),
 )
 
 INT_LITERAL_PATTERN = re.compile(r"""
