@@ -70,21 +70,27 @@ INT_LITERAL_PATTERN = re.compile(r"""
 )
 """, re.VERBOSE)
 
-_float_pattern = r"""
-  ^
-  (?P<Constant>{0})
-  (?P<Exponent>
-    (?:
-      [eE]+[-+]\d+
-      |[eE]+\d+
-      |(?:[eE][+-]?(?:[.\d]+)?)+
-    ){1}
-  )
-  (?P<Suffix>[\w\d._]*|)
-"""
 
-FLOAT_EXPONENT_LITERAL_PATTERN = re.compile(_float_pattern.format(r"\d+", ''), re.VERBOSE)
-FLOAT_FRACTIONAL_LITERAL_PATTERN = re.compile(_float_pattern.format(r"(?:\d+)?\.\d+|\d+\.", '?'), re.VERBOSE)
+def _float_pattern(const: str, digit: str, exponent: Tuple[str, str]):
+    pattern = r"""
+    ^
+    (?P<Constant>{0})
+    (?P<Exponent>
+        (?:
+        [{2}]+[-+]{3}+
+        |[{2}]+{3}+
+        |(?:[{2}][+-]?(?:[.{3}]+)?)+
+        ){1}
+    )
+    (?P<Suffix>[\w\d._]*|)
+    """.format(const, *exponent, digit)
+    return re.compile(pattern, re.VERBOSE)
+
+
+FLOAT_EXPONENT_LITERAL_PATTERN = _float_pattern(r"\d+", digit=r"\d", exponent=('', "eE"))
+FLOAT_FRACTIONAL_LITERAL_PATTERN = _float_pattern(r"(?:\d+)?\.\d+|\d+\.", digit=r"\d", exponent=('?', "eE"))
+FLOAT_HEXADECIMAL_LITERAL_PATTERN = _float_pattern(r"0[xX]+[\da-fA-F]*(?:\.[\da-fA-F]*)*",
+                                                   digit=r"[\da-fA-F]", exponent=('+', "pP"))
 
 
 class Lexer:
@@ -348,6 +354,8 @@ class Lexer:
             type = "exponent"
         elif match := FLOAT_FRACTIONAL_LITERAL_PATTERN.match(src):
             type = "fractional"
+        elif match := FLOAT_HEXADECIMAL_LITERAL_PATTERN.match(src):
+            type = "hexadecimal"
         else:
             return
         error = None

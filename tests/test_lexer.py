@@ -359,7 +359,7 @@ def test_lexer_parse_integer_literal(source: str, str_expected: str, errors: Lis
     "Bad exponent followed by a suffix": ["105eu", "<CONSTANT=105eu>", [
         E.from_name("BAD_EXPONENT", highlights=[H(lineno=1, column=4, length=2)]),
     ]],
-    # TODO Add tests for hexadecimal floats
+    # TODO Add tests for hexadecimal floats (multiple dots, multiple `xX`)
     **{
         # https://www.gnu.org/software/c-intro-and-ref/manual/html_node/Floating-Constants.html
         f"Float GNU {number}": [source, f"<CONSTANT={source}>", []]
@@ -369,8 +369,8 @@ def test_lexer_parse_integer_literal(source: str, str_expected: str, errors: Lis
             "100e+1", "100E+1", "1e3", "10000e-1", "3.14159e0", "5e-2", ".0005e+2",
             "5E-2", ".0005E2", ".05e-2", "3.14159f", "3.14159e0f", "1000.f", "100E1F",
             ".0005f", ".05e-2f",
-            #  "0xAp2", "0xAp-1", "0x2.0Bp4", "0xE.2p3", "0x123.ABCp0",
-            #  "0x123.ABCp4", "0x100p-8", "0x10p-4", "0x1p+4", "0x1p+8",
+            "0xAp2", "0xAp-1", "0x2.0Bp4", "0xE.2p3", "0x123.ABCp0",
+            "0x123.ABCp4", "0x100p-8", "0x10p-4", "0x1p+4", "0x1p+8",
         ))
     }
 }))
