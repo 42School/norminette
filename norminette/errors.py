@@ -179,6 +179,7 @@ class HumanizedErrorsFormatter(_formatter):
                 highlight = error.highlights[0]
                 output += f"\n{error.level}: {error.name:<20} "
                 output += f"(line: {highlight.lineno:>3}, col: {highlight.column:>3}):\t{error.text}"
+            output += '\n'
         return output
 
 
@@ -194,7 +195,7 @@ class JSONErrorsFormatter(_formatter):
         output = {
             "files": files,
         }
-        return json.dumps(output, separators=(',', ':'))
+        return json.dumps(output, separators=(',', ':')) + '\n'
 
 
 formatters = (

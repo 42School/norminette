@@ -25,7 +25,7 @@ def test_rule_for_file(file, capsys):
     context = Context(file, list(lexer), debug=2)
     registry.run(context)
     errors = HumanizedErrorsFormatter(file)
-    print(errors)
+    print(errors, end='')
     captured = capsys.readouterr()
 
     assert captured.out == out_content
