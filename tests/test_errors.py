@@ -54,13 +54,13 @@ from norminette.errors import HumanizedErrorsFormatter
         },
     ]
 ])
-def test_humanized_formatter_errored_file(files, expected_result):
+def test_humanized_formatter_errored_file(files: List[File], expected_result: str):
     registry = Registry()
 
     with patch("norminette.rules.check_header.CheckHeader.run") as _:
         for file in files:
             lexer = Lexer(file)
-            context = Context(file, lexer.get_tokens())
+            context = Context(file, list(lexer))
             registry.run(context)
 
     formatter = HumanizedErrorsFormatter(files)
