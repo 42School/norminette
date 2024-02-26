@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, Any
 
 from norminette.context import Context
 
@@ -18,14 +18,14 @@ class Rule:
     def __hash__(self) -> int:
         return hash(self.name)
 
-    def __eq__(self, value) -> bool:
+    def __eq__(self, value: Any) -> bool:
         if isinstance(value, str):
             return self.name == value
-        if hasattr(value, "name"):
+        if isinstance(value, Rule):
             return self.name == value.name
         return super().__eq__(value)
 
-    def __ne__(self, value) -> bool:
+    def __ne__(self, value: Any) -> bool:
         return not (self == value)
 
 
@@ -80,7 +80,7 @@ class Primary:
     priority: int
     scope: Tuple[str, ...]
 
-    def __init_subclass__(cls, **kwargs):
+    def __init_subclass__(cls, **kwargs: Any):
         cls.priority = kwargs.pop("priority", 0)
         if not hasattr(cls, "scope"):
             cls.scope = ()
