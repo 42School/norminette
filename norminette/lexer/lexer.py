@@ -1,6 +1,6 @@
 import re
 import string
-from typing import Optional, Tuple
+from typing import Optional, Tuple, cast
 
 from norminette.exceptions import UnexpectedEOF, MaybeInfiniteLoop
 from norminette.lexer.dictionary import digraphs, trigraphs
@@ -504,7 +504,7 @@ class Lexer:
         parse_brackets,
     )
 
-    def get_next_token(self):
+    def get_next_token(self) -> Optional[Token]:
         """Peeks one character and tries to match it to a token type,
         if it doesn't match any of the token types, an error will be raised
         and current file's parsing will stop
@@ -515,7 +515,7 @@ class Lexer:
                 # newline and pops and upcomes after it. E.g, if we have
                 # `\\\nab` and use `.pop()`, the parsers funcs will see `b``.
                 _, size = self.peek()  # type: ignore
-                self.__pos += size + 1
+                self.__pos += cast(int, size) + 1
                 self.__line += 1
                 self.__line_pos = 1
             else:
