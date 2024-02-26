@@ -3,24 +3,14 @@ from typing import Dict, Any, List, Optional, Tuple
 
 import pytest
 
-from norminette.file import File
-from norminette.lexer import Lexer, Token as T
+from norminette.lexer import Token as T
 from norminette.lexer.dictionary import keywords, operators, brackets
 from norminette.errors import Error as E, Highlight as H
 from norminette.exceptions import UnexpectedEOF
-
-
-def lexer_from_source(source: str, /) -> Lexer:
-    file = File("<file>", source)
-    return Lexer(file)
-
-
-def dict_to_pytest_param(data: Dict[str, List[Any]]):
-    params = []
-    for id, values in data.items():
-        param = pytest.param(*values, id=id)
-        params.append(param)
-    return params
+from tests.utils import (
+    dict_to_pytest_param,
+    lexer_from_source,
+)
 
 
 @pytest.mark.parametrize("source, parameters, expected", dict_to_pytest_param({
