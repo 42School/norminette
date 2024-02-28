@@ -22,7 +22,7 @@ def test_rule_for_file(file, capsys):
 
     file = File(file, file_to_lex)
     lexer = Lexer(file)
-    context = Context(file, lexer.get_tokens(), debug=2)
+    context = Context(file, list(lexer), debug=2)
     registry.run(context)
     errors = HumanizedErrorsFormatter(file)
     print(errors, end='')

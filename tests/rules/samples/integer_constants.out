@@ -15,9 +15,9 @@
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 8":
 		<TAB> <UNSIGNED> <SPACE> <LONG> <SPACE> <LONG> <TAB> <IDENTIFIER=dec_ullong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=900000000001ull> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 9":
-		<TAB> <IDENTIFIER=__int64> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=dec_i64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=9000000000002> <IDENTIFIER=I64> <SEMI_COLON> <NEWLINE>
+		<TAB> <IDENTIFIER=__int64> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=dec_i64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=9000000000002I64> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 10":
-		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=dec_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=90000000000004u> <IDENTIFIER=i64> <SEMI_COLON> <NEWLINE>
+		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=dec_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=90000000000004ui64> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 11":
 		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=oct_int> <SPACE> <ASSIGN> <SPACE> <CONSTANT=024> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 12":
@@ -31,9 +31,9 @@
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 16":
 		<TAB> <UNSIGNED> <SPACE> <LONG> <SPACE> <LONG> <TAB> <IDENTIFIER=oct_ullong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=044400000000000001Ull> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 17":
-		<TAB> <IDENTIFIER=__int64> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=oct_i64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=04444000000000000002> <IDENTIFIER=i64> <SEMI_COLON> <NEWLINE>
+		<TAB> <IDENTIFIER=__int64> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=oct_i64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=04444000000000000002i64> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 18":
-		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=oct_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=04444000000000000004u> <IDENTIFIER=I64> <SEMI_COLON> <NEWLINE>
+		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=oct_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=04444000000000000004uI64> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 19":
 		<TAB> <INT> <TAB> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=hex_int> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x2a> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 20":
@@ -47,9 +47,9 @@
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 24":
 		<TAB> <UNSIGNED> <SPACE> <LONG> <SPACE> <LONG> <TAB> <IDENTIFIER=hex_ullong> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x8A40000000000010uLL> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 25":
-		<TAB> <IDENTIFIER=__int64> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=hex_i64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x4a44000000000020> <IDENTIFIER=I64> <SEMI_COLON> <NEWLINE>
+		<TAB> <IDENTIFIER=__int64> <TAB> <TAB> <TAB> <TAB> <IDENTIFIER=hex_i64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x4a44000000000020I64> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsVarDeclaration[0m In "Function" from "GlobalScope" line 26":
-		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=hex_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x8a44000000000040U> <IDENTIFIER=i64> <SEMI_COLON> <NEWLINE>
+		<TAB> <UNSIGNED> <SPACE> <IDENTIFIER=__int64> <TAB> <IDENTIFIER=hex_ui64> <SPACE> <ASSIGN> <SPACE> <CONSTANT=0x8a44000000000040Ui64> <SEMI_COLON> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsBlockEnd[0m In "Function" from "GlobalScope" line 27":
 		<RBRACE> <NEWLINE>
 [36minteger_constants.c[0m - [32mIsEmptyLine[0m In "GlobalScope" from "None" line 28":

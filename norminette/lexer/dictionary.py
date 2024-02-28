@@ -108,6 +108,7 @@ operators = {
     ">>": "RIGHT_SHIFT",
     "<<": "LEFT_SHIFT",
     "?": "TERN_CONDITION",
+    "#": "HASH",
 }
 
 brackets = {

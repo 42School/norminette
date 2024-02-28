@@ -58,7 +58,7 @@ class Registry:
                             raise CParsingError(
                                 f"Error: Unrecognized line {unrecognized_tkns[0].pos} while parsing line {unrecognized_tkns}"  # noqa: E501
                             )
-                        print("uncaught -> ", context.filename)
+                        print("uncaught -> ", context.file.name)
                         print("uncaught -> ", unrecognized_tkns)
                         unrecognized_tkns = []
                     context.dprint(rule.name, jump)
