@@ -1,3 +1,6 @@
+import json
+import os
+
 errors = {
     "SPC_INSTEAD_TAB": "Spaces at beginning of line",
     "TAB_INSTEAD_SPC": "Found tab when expecting space",
@@ -140,6 +143,13 @@ digits or '_'",
     "MULTIPLE_DOTS": "Multiple dots in float constant",
     "MULTIPLE_X": "Multiple 'x' in hexadecimal float constant",
 }
+
+try:
+    with open(os.path.expanduser("~/.local/share/norminette/en_us.json"), 'r') as arq:
+        new = json.load(arq)
+        errors.update(new)
+except:
+    ...
 
 
 class NormError:
