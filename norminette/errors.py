@@ -156,7 +156,6 @@ class Errors:
             return "\033[92m[OK]\033[0m"
         return "\033[91m[KO]\033[0m"
 
-
     def append(self, value: Union[NormError, NormWarning]) -> None:
         # TODO Remove NormError and NormWarning since it does not provide `length` data
         assert isinstance(value, (NormError, NormWarning))
