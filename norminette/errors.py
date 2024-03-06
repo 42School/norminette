@@ -148,6 +148,14 @@ class Errors:
     def status(self) -> Literal["OK", "Error"]:
         return "OK" if all(it.level == "Notice" for it in self._inner) else "Error"
 
+    @property
+    def colorful_status(self) -> str:
+        if self.status == "OK":
+            if any(it.level == "Notice" for it in self._inner):
+                return "\033[93m[OK]\033[0m"
+            return "\033[92m[OK]\033[0m"
+        return "\033[91m[KO]\033[0m"
+
     def append(self, value: Union[NormError, NormWarning]) -> None:
         # TODO Remove NormError and NormWarning since it does not provide `length` data
         assert isinstance(value, (NormError, NormWarning))
@@ -172,9 +180,17 @@ class _formatter:
 
 class HumanizedErrorsFormatter(_formatter):
     def __str__(self) -> str:
+
+        def colorize(status: Literal["OK", "Error", "Notice"], txt: str) -> str:
+            return "\033[9" + (
+                "1" if status == "Error" else (
+                    "2" if status == "OK" else "3"
+                )) + "m" + txt + "\033[0m"
+
         output = ''
         for file in self.files:
-            output += f"{file.basename}: {file.errors.status}!"
+            output += file.errors.colorful_status
+            output += f" {file.basename}"
             for error in file.errors:
                 highlight = error.highlights[0]
                 output += f"\n{error.level}: {error.name:<20} "
