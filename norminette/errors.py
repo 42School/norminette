@@ -149,8 +149,13 @@ class Errors:
         return "OK" if all(it.level == "Notice" for it in self._inner) else "Error"
 
     @property
-    def has_notice(self) -> bool:
-        return any(it.level == "Notice" for it in self._inner)
+    def colorful_status(self) -> str:
+        if self.status == "OK":
+            if any(it.level == "Notice" for it in self._inner):
+                return "\033[93m[OK]\033[0m"
+            return "\033[92m[OK]\033[0m"
+        return "\033[91m[KO]\033[0m"
+
 
     def append(self, value: Union[NormError, NormWarning]) -> None:
         # TODO Remove NormError and NormWarning since it does not provide `length` data
@@ -185,10 +190,7 @@ class HumanizedErrorsFormatter(_formatter):
 
         output = ''
         for file in self.files:
-            status = file.errors.status
-            if status == "OK" and file.errors.has_notice:
-                status = "Notice"
-            output += colorize(status, f"[{'KO' if status == 'Error' else 'OK'}]")
+            output += file.errors.colorful_status
             output += f" {file.basename}"
             for error in file.errors:
                 highlight = error.highlights[0]
