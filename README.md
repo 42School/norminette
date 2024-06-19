@@ -67,13 +67,13 @@ norminette -dd
 ```
 docker build -t norminette .
 cd ~/42/ft_printf
-docker run -v $PWD:/code norminette /code
+docker run --rm -v $PWD:/code norminette
 ```
 
 If you encounter an error or an incorrect output, you can:
- - Open an issue on github 
+ - Open an issue on github
  - Post a message on the dedicated slack channel (#norminette-v3-beta)
-    
+
 
 Please try to include as much information as possible (the file on which it crashed, etc)
 
