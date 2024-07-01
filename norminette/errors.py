@@ -18,6 +18,7 @@ from typing import (
 from norminette.norm_error import NormError, NormWarning, errors as errors_dict
 
 if TYPE_CHECKING:
+    from norminette.lexer import Token
     from norminette.file import File
 
 
@@ -35,6 +36,14 @@ class Highlight:
                 return len(self.hint or '') > len(other.hint or '')
             return self.column > other.column
         return self.lineno > other.lineno
+
+    @classmethod
+    def from_token(cls, token: Token, /) -> Highlight:
+        return cls(
+            lineno=token.lineno,
+            column=token.column,
+            length=token.length,
+        )
 
 
 @dataclass
@@ -69,10 +78,13 @@ class Error:
     ) -> None: ...
     @overload
     def add_highlight(self, highlight: Highlight, /) -> None: ...
+    def add_highlight(self, token: Token, /) -> None: ...
 
     def add_highlight(self, *args, **kwargs) -> None:
         if len(args) == 1:
             highlight, = args
+            if not isinstance(highlight, Highlight):  # highlight is Token
+                highlight = Highlight.from_token(highlight)
         else:
             highlight = Highlight(*args, **kwargs)
         self.highlights.append(highlight)
