@@ -11,6 +11,7 @@ from norminette.context import Context
 from norminette.registry import Registry
 from norminette.errors import JSONErrorsFormatter
 from norminette.errors import Error, Errors, Highlight as H
+from norminette.errors import ShortErrorsFormatter
 from norminette.errors import HumanizedErrorsFormatter
 
 
@@ -54,7 +55,7 @@ from norminette.errors import HumanizedErrorsFormatter
         },
     ]
 ])
-def test_humanized_formatter_errored_file(files: List[File], expected_result: str):
+def test_short_formatter_errored_file(files: List[File], expected_result: str):
     registry = Registry()
 
     with patch("norminette.rules.check_header.CheckHeader.run") as _:
@@ -63,7 +64,7 @@ def test_humanized_formatter_errored_file(files: List[File], expected_result: st
             context = Context(file, list(lexer))
             registry.run(context)
 
-    formatter = HumanizedErrorsFormatter(files)
+    formatter = ShortErrorsFormatter(files)
     assert str(formatter) == expected_result
 
 

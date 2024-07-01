@@ -179,10 +179,34 @@ class _formatter:
         self.files = files
 
     def __init_subclass__(cls) -> None:
-        cls.name = cls.__name__.rstrip("ErrorsFormatter").lower()
+        name = cls.__name__
+        if name.endswith(suffix := "ErrorsFormatter"):
+            name = name[:-len(suffix)]
+        cls.name = name.lower()
 
 
 class HumanizedErrorsFormatter(_formatter):
+    def __str__(self) -> str:
+        output = ''
+        for file in self.files:
+            for error in file.errors:
+                highlight = error.highlights[0]
+                # Location
+                output += f"\x1b[;97m{file.path}:{highlight.lineno}:{highlight.column}\x1b[0m"
+                output += ' ' + error.name
+                if not highlight.length:
+                    output += ' ' + error.text
+                if highlight.length:
+                    # Line
+                    output += f"\n {highlight.lineno:>5} | {file[highlight.lineno,].translated}"
+                    # Arrow
+                    output += "\n       | " + ' ' * (highlight.column - 1)
+                    output += f"\x1b[0;91m{'^' * (highlight.length or 0)} {highlight.hint or error.text}\x1b[0m"
+                output += '\n'
+        return output
+
+
+class ShortErrorsFormatter(_formatter):
     def __str__(self) -> str:
         output = ''
         for file in self.files:
@@ -212,5 +236,6 @@ class JSONErrorsFormatter(_formatter):
 
 formatters = (
     JSONErrorsFormatter,
+    ShortErrorsFormatter,
     HumanizedErrorsFormatter,
 )
