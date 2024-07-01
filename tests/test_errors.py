@@ -12,7 +12,7 @@ from norminette.registry import Registry
 from norminette.errors import JSONErrorsFormatter
 from norminette.errors import Error, Errors, Highlight as H
 from norminette.errors import ShortErrorsFormatter
-from norminette.errors import HumanizedErrorsFormatter
+# from norminette.errors import HumanizedErrorsFormatter
 
 
 @pytest.mark.parametrize("files, expected_result, ", [it.values() for it in [
