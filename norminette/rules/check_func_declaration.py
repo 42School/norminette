@@ -70,6 +70,4 @@ class CheckFuncDeclaration(Rule, Check):
         arg = []
         while context.check_token(i, ["NEWLINE", "SEMI_COLON"]) is False:
             i += 1
-        if context.check_token(i - 1, ["TAB", "SPACE"]):
-            context.new_error("SPC_BEFORE_NL", context.peek_token(i))
         return False, 0
