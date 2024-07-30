@@ -155,12 +155,12 @@ class NormError:
         self.no_color = "\033[0m"
         self.color = self.no_color
         color = {
-                "\033[91m":red,
-                "\033[92m":green,
-                "\033[93m":yellow,
-                "\033[94m":blue,
-                "\033[95m":pink,
-                "\033[97m":grey,
+                "\033[91m": red,
+                "\033[92m": green,
+                "\033[93m": yellow,
+                "\033[94m": blue,
+                "\033[95m": pink,
+                "\033[97m": grey,
         }
         for key,value in color.items():
             if errno in value:
@@ -171,7 +171,6 @@ class NormError:
 
     def __str__(self):
         return self.prefix + self.error_msg
-
 
 
 class NormWarning:
