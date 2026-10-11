@@ -98,6 +98,19 @@ def test_a_const_argument_does_not_excuse_the_declaration(tmp_path):
     assert "DECL_ASSIGN_LINE" not in names(check(excused))
 
 
+def test_auto_int_declarations_cannot_be_initialised_or_combined():
+    declaration = "int\tmain(void)\n{\n\tauto int\ta, b;\n\n\treturn (0);\n}\n"
+    assert names(check(declaration)).count("MULT_DECL_LINE") == 1
+
+    initialised = "int\tmain(void)\n{\n\tauto int\ta = 0;\n\n\treturn (a);\n}\n"
+    assert names(check(initialised)).count("DECL_ASSIGN_LINE") == 1
+
+    combined = "int\tmain(void)\n{\n\tauto int\ta = 0, b = 1;\n\n\treturn (a + b);\n}\n"
+    errors = names(check(combined))
+    assert errors.count("DECL_ASSIGN_LINE") == 2
+    assert errors.count("MULT_DECL_LINE") == 1
+
+
 def test_an_unsupported_extension_does_not_hide_the_others(tmp_path):
     (tmp_path / "Makefile").write_text("all:\n")
     good = write(tmp_path, "good.c", "int\tmain(void)\n{\n\treturn (0);\n}\n")
