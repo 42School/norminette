@@ -29,6 +29,14 @@ class CheckVariableDeclaration(Rule, Check):
         i = 0
         static_or_const = False
         passed_assign = False
+        auto_decl = False
+        auto_pos = 0
+        while context.peek_token(auto_pos) and context.check_token(
+            auto_pos, "SEMI_COLON"
+        ) is False:
+            if context.check_token(auto_pos, "AUTO") is True:
+                auto_decl = True
+            auto_pos += 1
         if context.scope.name == "Function":
             context.scope.vars += 1
             if context.scope.vars > 5:
@@ -86,7 +94,9 @@ class CheckVariableDeclaration(Rule, Check):
                     i += 1
                     continue
                 context.new_error("DECL_ASSIGN_LINE", context.peek_token(i))
-            if context.check_token(i, "COMMA") is True and passed_assign is False:
+            if context.check_token(i, "COMMA") is True and (
+                passed_assign is False or auto_decl is True
+            ):
                 context.new_error("MULT_DECL_LINE", context.peek_token(i))
             i += 1
         return False, 0
