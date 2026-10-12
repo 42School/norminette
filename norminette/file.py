@@ -5,9 +5,12 @@ from norminette.errors import Errors
 
 
 class File:
-    def __init__(self, path: str, source: Optional[str] = None) -> None:
+    def __init__(
+        self, path: str, source: Optional[str] = None, root: Optional[str] = None
+    ) -> None:
         self.path = path
         self._source = source
+        self.root = root
 
         self.errors = Errors()
         self.basename = os.path.basename(path)

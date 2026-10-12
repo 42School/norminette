@@ -1,5 +1,6 @@
 import argparse
 import glob
+import os
 import pathlib
 import platform
 import subprocess
@@ -104,8 +105,11 @@ def main():
     else:
         stack = []
         seen = set()
-        stack += args.file if args.file else glob.glob("**/*.[ch]", recursive=True)
-        for item in stack:
+        if args.file:
+            stack += [(item, None) for item in args.file]
+        else:
+            stack += [(item, ".") for item in glob.glob("**/*.[ch]", recursive=True)]
+        for item, root in stack:
             path = pathlib.Path(item)
             if not path.exists():
                 print(f"Error: '{path!s}' no such file or directory")
@@ -119,9 +123,10 @@ def main():
                 if resolved in seen:
                     continue
                 seen.add(resolved)
-                files.append(File(item))
+                files.append(File(item, root=root or os.path.dirname(item) or "."))
             if path.is_dir():
-                stack += glob.glob(str(path) + "/**/*.[ch]", recursive=True)
+                children = glob.glob(str(path) + "/**/*.[ch]", recursive=True)
+                stack += [(child, root or item) for child in children]
         del stack
 
     if args.use_gitignore:

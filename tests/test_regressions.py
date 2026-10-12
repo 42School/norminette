@@ -398,3 +398,53 @@ def test_a_file_name_holds_lowercases_digits_and_underscores(tmp_path):
 
     bad = write(tmp_path, "MyFile.c", "int\tmain(void)\n{\n\treturn (0);\n}\n")
     assert "FORBIDDEN_CHAR_FILE" in norminette(bad).stdout
+
+
+BODY = "int\tmain(void)\n{\n\treturn (0);\n}\n"
+
+
+def project(tmp_path):
+    root = tmp_path / "Project"
+    for folder in ("srcs", "Utils"):
+        (root / folder).mkdir(parents=True)
+        write(root / folder, "ft_ok.c", BODY)
+    return root
+
+
+def verdicts(result):
+    return sorted(
+        line.split(": ")[1]
+        for line in result.stdout.splitlines()
+        if line.endswith(("OK!", "Error!"))
+    )
+
+
+def test_a_name_error_says_which_name(tmp_path):
+    bad = write(tmp_path, "MyFile.c", BODY)
+    assert "'MyFile.c':" in norminette(bad).stdout
+    root = project(tmp_path)
+    assert "'Utils':" in norminette(str(root)).stdout
+
+
+def test_the_folder_a_run_starts_from_is_not_checked(tmp_path):
+    root = project(tmp_path)
+    result = norminette(str(root))
+    assert "'Project'" not in result.stdout
+    assert verdicts(result) == ["Error!", "OK!"]
+
+
+def test_a_folder_gets_the_same_verdict_however_it_is_typed(tmp_path, monkeypatch):
+    root = project(tmp_path)
+    expected = verdicts(norminette(str(root)))
+    monkeypatch.chdir(tmp_path)
+    assert verdicts(norminette("Project")) == expected
+    assert verdicts(norminette("./Project/")) == expected
+    monkeypatch.chdir(root)
+    assert verdicts(norminette()) == expected
+
+
+def test_a_file_named_on_the_command_line_is_judged_on_its_own_name(tmp_path, monkeypatch):
+    root = project(tmp_path)
+    monkeypatch.chdir(tmp_path)
+    for path in ("Project/srcs/ft_ok.c", "./Project/Utils/ft_ok.c", str(root / "srcs" / "ft_ok.c")):
+        assert "FORBIDDEN_CHAR_FILE" not in norminette(path).stdout
