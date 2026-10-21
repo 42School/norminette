@@ -127,6 +127,20 @@ def test_a_constant_expression_is_not_a_pointer():
     assert "SPC_AFTER_POINTER" in names(check(pointer))
 
 
+def test_dereference_in_compound_literal_initializer():
+    source = HEADER.format(name="test.h") + (
+        "#ifndef TEST_H\n# define TEST_H\n\n"
+        "typedef struct s_vec2i\n{\n\tint\tx;\n\tint\ty;\n}"
+        "\tt_vec2i;\n\n"
+        "void\tset_pos(int *i, int x, int y)\n{\n"
+        "\tt_vec2i\tpos;\n\n"
+        "\tpos = (t_vec2i){*i, x * y};\n}\n\n#endif\n"
+    )
+    errors = names(check(source, filename="test.h"))
+    assert "SPC_AFTER_OPERATOR" not in errors
+    assert "SPC_BFR_OPERATOR" not in errors
+
+
 def test_a_line_holding_only_a_space_at_eof_is_not_a_crash():
     file = check("void\tfn(int a)\n ")
     assert "INVALID_HEADER" in names(file)
