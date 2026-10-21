@@ -639,7 +639,7 @@ In \"{self.scope.name}\" from \
                 return True
             if self.check_token(
                 pos,
-                ["LBRACKET", "LPARENTHESIS", "MULT", "BWISE_AND", "COMMA"]
+                ["LBRACKET", "LBRACE", "LPARENTHESIS", "MULT", "BWISE_AND", "COMMA"]
                 + operators
                 + types,
             ):
